@@ -14,11 +14,11 @@ defmodule AWS.BedrockDataAutomationRuntime do
   ## Example:
       
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -29,32 +29,32 @@ defmodule AWS.BedrockDataAutomationRuntime do
       }
       
   """
-  @type asset_processing_configuration() :: %{String.t() => any()}
+  @type asset_processing_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       blueprint() :: %{
-        "blueprintArn" => String.t(),
+        "blueprintArn" => String.t() | atom(),
         "stage" => list(any()),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
       
   """
-  @type blueprint() :: %{String.t() => any()}
+  @type blueprint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       data_automation_configuration() :: %{
-        "dataAutomationProjectArn" => String.t(),
+        "dataAutomationProjectArn" => String.t() | atom(),
         "stage" => list(any())
       }
       
   """
-  @type data_automation_configuration() :: %{String.t() => any()}
+  @type data_automation_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -62,11 +62,11 @@ defmodule AWS.BedrockDataAutomationRuntime do
       
       encryption_configuration() :: %{
         "kmsEncryptionContext" => map(),
-        "kmsKeyId" => String.t()
+        "kmsKeyId" => String.t() | atom()
       }
       
   """
-  @type encryption_configuration() :: %{String.t() => any()}
+  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -77,7 +77,7 @@ defmodule AWS.BedrockDataAutomationRuntime do
       }
       
   """
-  @type event_bridge_configuration() :: %{String.t() => any()}
+  @type event_bridge_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -93,14 +93,14 @@ defmodule AWS.BedrockDataAutomationRuntime do
   ## Example:
       
       get_data_automation_status_response() :: %{
-        "errorMessage" => [String.t()],
-        "errorType" => [String.t()],
+        "errorMessage" => [String.t() | atom()],
+        "errorType" => [String.t() | atom()],
         "outputConfiguration" => output_configuration(),
         "status" => list(any())
       }
       
   """
-  @type get_data_automation_status_response() :: %{String.t() => any()}
+  @type get_data_automation_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -108,22 +108,22 @@ defmodule AWS.BedrockDataAutomationRuntime do
       
       input_configuration() :: %{
         "assetProcessingConfiguration" => asset_processing_configuration(),
-        "s3Uri" => String.t()
+        "s3Uri" => String.t() | atom()
       }
       
   """
-  @type input_configuration() :: %{String.t() => any()}
+  @type input_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -131,40 +131,40 @@ defmodule AWS.BedrockDataAutomationRuntime do
       
       invoke_data_automation_async_request() :: %{
         optional("blueprints") => list(blueprint()),
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | atom(),
         optional("dataAutomationConfiguration") => data_automation_configuration(),
         optional("encryptionConfiguration") => encryption_configuration(),
         optional("notificationConfiguration") => notification_configuration(),
         optional("tags") => list(tag()),
-        required("dataAutomationProfileArn") => String.t(),
+        required("dataAutomationProfileArn") => String.t() | atom(),
         required("inputConfiguration") => input_configuration(),
         required("outputConfiguration") => output_configuration()
       }
       
   """
-  @type invoke_data_automation_async_request() :: %{String.t() => any()}
+  @type invoke_data_automation_async_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invoke_data_automation_async_response() :: %{
-        "invocationArn" => String.t()
+        "invocationArn" => String.t() | atom()
       }
       
   """
-  @type invoke_data_automation_async_response() :: %{String.t() => any()}
+  @type invoke_data_automation_async_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("resourceARN") => String.t()
+        required("resourceARN") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -175,7 +175,7 @@ defmodule AWS.BedrockDataAutomationRuntime do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -186,64 +186,64 @@ defmodule AWS.BedrockDataAutomationRuntime do
       }
       
   """
-  @type notification_configuration() :: %{String.t() => any()}
+  @type notification_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       output_configuration() :: %{
-        "s3Uri" => String.t()
+        "s3Uri" => String.t() | atom()
       }
       
   """
-  @type output_configuration() :: %{String.t() => any()}
+  @type output_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("resourceARN") => String.t(),
+        required("resourceARN") => String.t() | atom(),
         required("tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -259,11 +259,11 @@ defmodule AWS.BedrockDataAutomationRuntime do
   ## Example:
       
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -275,19 +275,19 @@ defmodule AWS.BedrockDataAutomationRuntime do
       }
       
   """
-  @type timestamp_segment() :: %{String.t() => any()}
+  @type timestamp_segment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("resourceARN") => String.t(),
-        required("tagKeys") => list(String.t())
+        required("resourceARN") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -303,11 +303,11 @@ defmodule AWS.BedrockDataAutomationRuntime do
   ## Example:
       
       validation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -318,7 +318,7 @@ defmodule AWS.BedrockDataAutomationRuntime do
       }
       
   """
-  @type video_asset_processing_configuration() :: %{String.t() => any()}
+  @type video_asset_processing_configuration() :: %{(String.t() | atom()) => any()}
 
   @type get_data_automation_status_errors() ::
           validation_exception()
@@ -381,7 +381,8 @@ defmodule AWS.BedrockDataAutomationRuntime do
           | {:error, term()}
           | {:error, get_data_automation_status_errors()}
   def get_data_automation_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataAutomationStatus", input, options)
   end
@@ -395,7 +396,8 @@ defmodule AWS.BedrockDataAutomationRuntime do
           | {:error, term()}
           | {:error, invoke_data_automation_async_errors()}
   def invoke_data_automation_async(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "InvokeDataAutomationAsync", input, options)
   end
@@ -409,7 +411,8 @@ defmodule AWS.BedrockDataAutomationRuntime do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -423,7 +426,8 @@ defmodule AWS.BedrockDataAutomationRuntime do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -437,7 +441,8 @@ defmodule AWS.BedrockDataAutomationRuntime do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

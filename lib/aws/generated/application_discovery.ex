@@ -125,11 +125,11 @@ defmodule AWS.ApplicationDiscovery do
       
       describe_continuous_exports_response() :: %{
         "descriptions" => list(continuous_export_description()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type describe_continuous_exports_response() :: %{String.t() => any()}
+  @type describe_continuous_exports_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -145,26 +145,26 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       export_configurations_response() :: %{
-        "exportId" => String.t()
+        "exportId" => String.t() | atom()
       }
       
   """
-  @type export_configurations_response() :: %{String.t() => any()}
+  @type export_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       configuration_tag() :: %{
-        "configurationId" => String.t(),
+        "configurationId" => String.t() | atom(),
         "configurationType" => list(any()),
-        "key" => String.t(),
+        "key" => String.t() | atom(),
         "timeOfCreation" => non_neg_integer(),
-        "value" => String.t()
+        "value" => String.t() | atom()
       }
       
   """
-  @type configuration_tag() :: %{String.t() => any()}
+  @type configuration_tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -173,13 +173,13 @@ defmodule AWS.ApplicationDiscovery do
       neighbor_connection_detail() :: %{
         "connectionsCount" => float(),
         "destinationPort" => integer(),
-        "destinationServerId" => String.t(),
-        "sourceServerId" => String.t(),
-        "transportProtocol" => String.t()
+        "destinationServerId" => String.t() | atom(),
+        "sourceServerId" => String.t() | atom(),
+        "transportProtocol" => String.t() | atom()
       }
       
   """
-  @type neighbor_connection_detail() :: %{String.t() => any()}
+  @type neighbor_connection_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -190,7 +190,7 @@ defmodule AWS.ApplicationDiscovery do
       }
       
   """
-  @type batch_delete_agents_request() :: %{String.t() => any()}
+  @type batch_delete_agents_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -198,11 +198,11 @@ defmodule AWS.ApplicationDiscovery do
       
       delete_tags_request() :: %{
         optional("tags") => list(tag()),
-        required("configurationIds") => list(String.t())
+        required("configurationIds") => list(String.t() | atom())
       }
       
   """
-  @type delete_tags_request() :: %{String.t() => any()}
+  @type delete_tags_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -219,7 +219,7 @@ defmodule AWS.ApplicationDiscovery do
       }
       
   """
-  @type customer_connector_info() :: %{String.t() => any()}
+  @type customer_connector_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -235,22 +235,22 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       server_internal_error_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type server_internal_error_exception() :: %{String.t() => any()}
+  @type server_internal_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_in_use_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type resource_in_use_exception() :: %{String.t() => any()}
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -261,7 +261,7 @@ defmodule AWS.ApplicationDiscovery do
       }
       
   """
-  @type start_import_task_response() :: %{String.t() => any()}
+  @type start_import_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -269,11 +269,11 @@ defmodule AWS.ApplicationDiscovery do
       
       list_configurations_response() :: %{
         "configurations" => list(map()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_configurations_response() :: %{String.t() => any()}
+  @type list_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -282,24 +282,24 @@ defmodule AWS.ApplicationDiscovery do
       list_server_neighbors_response() :: %{
         "knownDependencyCount" => float(),
         "neighbors" => list(neighbor_connection_detail()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_server_neighbors_response() :: %{String.t() => any()}
+  @type list_server_neighbors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       failed_configuration() :: %{
-        "configurationId" => String.t(),
-        "errorMessage" => String.t(),
+        "configurationId" => String.t() | atom(),
+        "errorMessage" => String.t() | atom(),
         "errorStatusCode" => integer()
       }
       
   """
-  @type failed_configuration() :: %{String.t() => any()}
+  @type failed_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -307,36 +307,38 @@ defmodule AWS.ApplicationDiscovery do
       
       describe_export_configurations_response() :: %{
         "exportsInfo" => list(export_info()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type describe_export_configurations_response() :: %{String.t() => any()}
+  @type describe_export_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       export_filter() :: %{
-        "condition" => String.t(),
-        "name" => String.t(),
-        "values" => list(String.t())
+        "condition" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "values" => list(String.t() | atom())
       }
       
   """
-  @type export_filter() :: %{String.t() => any()}
+  @type export_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_configuration_items_from_application_request() :: %{
-        required("applicationConfigurationId") => String.t(),
-        required("configurationIds") => list(String.t())
+        required("applicationConfigurationId") => String.t() | atom(),
+        required("configurationIds") => list(String.t() | atom())
       }
       
   """
-  @type disassociate_configuration_items_from_application_request() :: %{String.t() => any()}
+  @type disassociate_configuration_items_from_application_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -344,36 +346,36 @@ defmodule AWS.ApplicationDiscovery do
       
       describe_export_tasks_response() :: %{
         "exportsInfo" => list(export_info()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type describe_export_tasks_response() :: %{String.t() => any()}
+  @type describe_export_tasks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_configurations_request() :: %{
-        required("configurationIds") => list(String.t())
+        required("configurationIds") => list(String.t() | atom())
       }
       
   """
-  @type describe_configurations_request() :: %{String.t() => any()}
+  @type describe_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_agents_request() :: %{
-        optional("agentIds") => list(String.t()),
+        optional("agentIds") => list(String.t() | atom()),
         optional("filters") => list(filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type describe_agents_request() :: %{String.t() => any()}
+  @type describe_agents_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -386,7 +388,7 @@ defmodule AWS.ApplicationDiscovery do
       }
       
   """
-  @type reserved_instance_options() :: %{String.t() => any()}
+  @type reserved_instance_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -402,24 +404,24 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       describe_tags_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "tags" => list(configuration_tag())
       }
       
   """
-  @type describe_tags_response() :: %{String.t() => any()}
+  @type describe_tags_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_batch_delete_configuration_task_request() :: %{
-        required("configurationIds") => list(String.t()),
+        required("configurationIds") => list(String.t() | atom()),
         required("configurationType") => list(any())
       }
       
   """
-  @type start_batch_delete_configuration_task_request() :: %{String.t() => any()}
+  @type start_batch_delete_configuration_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -428,36 +430,36 @@ defmodule AWS.ApplicationDiscovery do
       list_configurations_request() :: %{
         optional("filters") => list(filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("orderBy") => list(order_by_element()),
         required("configurationType") => list(any())
       }
       
   """
-  @type list_configurations_request() :: %{String.t() => any()}
+  @type list_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_batch_delete_configuration_task_response() :: %{
-        "taskId" => String.t()
+        "taskId" => String.t() | atom()
       }
       
   """
-  @type start_batch_delete_configuration_task_response() :: %{String.t() => any()}
+  @type start_batch_delete_configuration_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_tags_request() :: %{
-        required("configurationIds") => list(String.t()),
+        required("configurationIds") => list(String.t() | atom()),
         required("tags") => list(tag())
       }
       
   """
-  @type create_tags_request() :: %{String.t() => any()}
+  @type create_tags_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -474,19 +476,19 @@ defmodule AWS.ApplicationDiscovery do
       }
       
   """
-  @type customer_agent_info() :: %{String.t() => any()}
+  @type customer_agent_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       agent_network_info() :: %{
-        "ipAddress" => String.t(),
-        "macAddress" => String.t()
+        "ipAddress" => String.t() | atom(),
+        "macAddress" => String.t() | atom()
       }
       
   """
-  @type agent_network_info() :: %{String.t() => any()}
+  @type agent_network_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -507,64 +509,64 @@ defmodule AWS.ApplicationDiscovery do
       }
       
   """
-  @type stop_continuous_export_response() :: %{String.t() => any()}
+  @type stop_continuous_export_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       agent_info() :: %{
-        "agentId" => String.t(),
+        "agentId" => String.t() | atom(),
         "agentNetworkInfoList" => list(agent_network_info()),
-        "agentType" => String.t(),
-        "collectionStatus" => String.t(),
-        "connectorId" => String.t(),
+        "agentType" => String.t() | atom(),
+        "collectionStatus" => String.t() | atom(),
+        "connectorId" => String.t() | atom(),
         "health" => list(any()),
-        "hostName" => String.t(),
-        "lastHealthPingTime" => String.t(),
-        "registeredTime" => String.t(),
-        "version" => String.t()
+        "hostName" => String.t() | atom(),
+        "lastHealthPingTime" => String.t() | atom(),
+        "registeredTime" => String.t() | atom(),
+        "version" => String.t() | atom()
       }
       
   """
-  @type agent_info() :: %{String.t() => any()}
+  @type agent_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_export_tasks_request() :: %{
-        optional("exportIds") => list(String.t()),
+        optional("exportIds") => list(String.t() | atom()),
         optional("filters") => list(export_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type describe_export_tasks_request() :: %{String.t() => any()}
+  @type describe_export_tasks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -572,14 +574,14 @@ defmodule AWS.ApplicationDiscovery do
       
       start_continuous_export_response() :: %{
         "dataSource" => list(any()),
-        "exportId" => String.t(),
-        "s3Bucket" => String.t(),
+        "exportId" => String.t() | atom(),
+        "s3Bucket" => String.t() | atom(),
         "schemaStorageConfig" => map(),
         "startTime" => non_neg_integer()
       }
       
   """
-  @type start_continuous_export_response() :: %{String.t() => any()}
+  @type start_continuous_export_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -590,7 +592,7 @@ defmodule AWS.ApplicationDiscovery do
       }
       
   """
-  @type batch_delete_import_data_response() :: %{String.t() => any()}
+  @type batch_delete_import_data_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -607,31 +609,31 @@ defmodule AWS.ApplicationDiscovery do
       }
       
   """
-  @type customer_agentless_collector_info() :: %{String.t() => any()}
+  @type customer_agentless_collector_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_value_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_parameter_value_exception() :: %{String.t() => any()}
+  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       agent_configuration_status() :: %{
-        "agentId" => String.t(),
-        "description" => String.t(),
+        "agentId" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "operationSucceeded" => boolean()
       }
       
   """
-  @type agent_configuration_status() :: %{String.t() => any()}
+  @type agent_configuration_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -642,54 +644,54 @@ defmodule AWS.ApplicationDiscovery do
       }
       
   """
-  @type batch_delete_agents_response() :: %{String.t() => any()}
+  @type batch_delete_agents_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_agent() :: %{
-        "agentId" => String.t(),
+        "agentId" => String.t() | atom(),
         "force" => boolean()
       }
       
   """
-  @type delete_agent() :: %{String.t() => any()}
+  @type delete_agent() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_application_request() :: %{
-        optional("description") => String.t(),
-        optional("wave") => String.t(),
-        required("name") => String.t()
+        optional("description") => String.t() | atom(),
+        optional("wave") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
       
   """
-  @type create_application_request() :: %{String.t() => any()}
+  @type create_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       operation_not_permitted_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type operation_not_permitted_exception() :: %{String.t() => any()}
+  @type operation_not_permitted_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_application_response() :: %{
-        "configurationId" => String.t()
+        "configurationId" => String.t() | atom()
       }
       
   """
-  @type create_application_response() :: %{String.t() => any()}
+  @type create_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -698,15 +700,15 @@ defmodule AWS.ApplicationDiscovery do
       ec2_recommendations_export_preferences() :: %{
         "cpuPerformanceMetricBasis" => usage_metric_basis(),
         "enabled" => boolean(),
-        "excludedInstanceTypes" => list(String.t()),
-        "preferredRegion" => String.t(),
+        "excludedInstanceTypes" => list(String.t() | atom()),
+        "preferredRegion" => String.t() | atom(),
         "ramPerformanceMetricBasis" => usage_metric_basis(),
         "reservedInstanceOptions" => reserved_instance_options(),
         "tenancy" => list(any())
       }
       
   """
-  @type ec2_recommendations_export_preferences() :: %{String.t() => any()}
+  @type ec2_recommendations_export_preferences() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -717,7 +719,7 @@ defmodule AWS.ApplicationDiscovery do
       }
       
   """
-  @type stop_data_collection_by_agent_ids_response() :: %{String.t() => any()}
+  @type stop_data_collection_by_agent_ids_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -728,19 +730,21 @@ defmodule AWS.ApplicationDiscovery do
       }
       
   """
-  @type describe_batch_delete_configuration_task_response() :: %{String.t() => any()}
+  @type describe_batch_delete_configuration_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_configuration_items_to_application_request() :: %{
-        required("applicationConfigurationId") => String.t(),
-        required("configurationIds") => list(String.t())
+        required("applicationConfigurationId") => String.t() | atom(),
+        required("configurationIds") => list(String.t() | atom())
       }
       
   """
-  @type associate_configuration_items_to_application_request() :: %{String.t() => any()}
+  @type associate_configuration_items_to_application_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -749,22 +753,22 @@ defmodule AWS.ApplicationDiscovery do
       import_task() :: %{
         "applicationImportFailure" => integer(),
         "applicationImportSuccess" => integer(),
-        "clientRequestToken" => String.t(),
-        "errorsAndFailedEntriesZip" => String.t(),
+        "clientRequestToken" => String.t() | atom(),
+        "errorsAndFailedEntriesZip" => String.t() | atom(),
         "fileClassification" => list(any()),
         "importCompletionTime" => non_neg_integer(),
         "importDeletedTime" => non_neg_integer(),
         "importRequestTime" => non_neg_integer(),
-        "importTaskId" => String.t(),
-        "importUrl" => String.t(),
-        "name" => String.t(),
+        "importTaskId" => String.t() | atom(),
+        "importUrl" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "serverImportFailure" => integer(),
         "serverImportSuccess" => integer(),
         "status" => list(any())
       }
       
   """
-  @type import_task() :: %{String.t() => any()}
+  @type import_task() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -775,20 +779,20 @@ defmodule AWS.ApplicationDiscovery do
       }
       
   """
-  @type describe_configurations_response() :: %{String.t() => any()}
+  @type describe_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       filter() :: %{
-        "condition" => String.t(),
-        "name" => String.t(),
-        "values" => list(String.t())
+        "condition" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "values" => list(String.t() | atom())
       }
       
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -805,7 +809,7 @@ defmodule AWS.ApplicationDiscovery do
       }
       
   """
-  @type customer_me_collector_info() :: %{String.t() => any()}
+  @type customer_me_collector_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -821,25 +825,25 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       start_data_collection_by_agent_ids_request() :: %{
-        required("agentIds") => list(String.t())
+        required("agentIds") => list(String.t() | atom())
       }
       
   """
-  @type start_data_collection_by_agent_ids_request() :: %{String.t() => any()}
+  @type start_data_collection_by_agent_ids_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_application_request() :: %{
-        optional("description") => String.t(),
-        optional("name") => String.t(),
-        optional("wave") => String.t(),
-        required("configurationId") => String.t()
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("wave") => String.t() | atom(),
+        required("configurationId") => String.t() | atom()
       }
       
   """
-  @type update_application_request() :: %{String.t() => any()}
+  @type update_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -855,29 +859,29 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       export_info() :: %{
-        "configurationsDownloadUrl" => String.t(),
-        "exportId" => String.t(),
+        "configurationsDownloadUrl" => String.t() | atom(),
+        "exportId" => String.t() | atom(),
         "exportRequestTime" => non_neg_integer(),
         "exportStatus" => list(any()),
         "isTruncated" => boolean(),
         "requestedEndTime" => non_neg_integer(),
         "requestedStartTime" => non_neg_integer(),
-        "statusMessage" => String.t()
+        "statusMessage" => String.t() | atom()
       }
       
   """
-  @type export_info() :: %{String.t() => any()}
+  @type export_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_continuous_export_request() :: %{
-        required("exportId") => String.t()
+        required("exportId") => String.t() | atom()
       }
       
   """
-  @type stop_continuous_export_request() :: %{String.t() => any()}
+  @type stop_continuous_export_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -885,18 +889,18 @@ defmodule AWS.ApplicationDiscovery do
       
       batch_delete_configuration_task() :: %{
         "configurationType" => list(any()),
-        "deletedConfigurations" => list(String.t()),
+        "deletedConfigurations" => list(String.t() | atom()),
         "deletionWarnings" => list(deletion_warning()),
         "endTime" => non_neg_integer(),
         "failedConfigurations" => list(failed_configuration()),
-        "requestedConfigurations" => list(String.t()),
+        "requestedConfigurations" => list(String.t() | atom()),
         "startTime" => non_neg_integer(),
         "status" => list(any()),
-        "taskId" => String.t()
+        "taskId" => String.t() | atom()
       }
       
   """
-  @type batch_delete_configuration_task() :: %{String.t() => any()}
+  @type batch_delete_configuration_task() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -904,68 +908,68 @@ defmodule AWS.ApplicationDiscovery do
       
       batch_delete_import_data_request() :: %{
         optional("deleteHistory") => boolean(),
-        required("importTaskIds") => list(String.t())
+        required("importTaskIds") => list(String.t() | atom())
       }
       
   """
-  @type batch_delete_import_data_request() :: %{String.t() => any()}
+  @type batch_delete_import_data_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_error_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type conflict_error_exception() :: %{String.t() => any()}
+  @type conflict_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_continuous_exports_request() :: %{
-        optional("exportIds") => list(String.t()),
+        optional("exportIds") => list(String.t() | atom()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type describe_continuous_exports_request() :: %{String.t() => any()}
+  @type describe_continuous_exports_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_data_collection_by_agent_ids_request() :: %{
-        required("agentIds") => list(String.t())
+        required("agentIds") => list(String.t() | atom())
       }
       
   """
-  @type stop_data_collection_by_agent_ids_request() :: %{String.t() => any()}
+  @type stop_data_collection_by_agent_ids_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_parameter_exception() :: %{String.t() => any()}
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_batch_delete_configuration_task_request() :: %{
-        required("taskId") => String.t()
+        required("taskId") => String.t() | atom()
       }
       
   """
-  @type describe_batch_delete_configuration_task_request() :: %{String.t() => any()}
+  @type describe_batch_delete_configuration_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -976,7 +980,7 @@ defmodule AWS.ApplicationDiscovery do
       }
       
   """
-  @type start_data_collection_by_agent_ids_response() :: %{String.t() => any()}
+  @type start_data_collection_by_agent_ids_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -984,12 +988,12 @@ defmodule AWS.ApplicationDiscovery do
       
       batch_delete_import_data_error() :: %{
         "errorCode" => list(any()),
-        "errorDescription" => String.t(),
-        "importTaskId" => String.t()
+        "errorDescription" => String.t() | atom(),
+        "importTaskId" => String.t() | atom()
       }
       
   """
-  @type batch_delete_import_data_error() :: %{String.t() => any()}
+  @type batch_delete_import_data_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -997,11 +1001,11 @@ defmodule AWS.ApplicationDiscovery do
       
       import_task_filter() :: %{
         "name" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | atom())
       }
       
   """
-  @type import_task_filter() :: %{String.t() => any()}
+  @type import_task_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1009,11 +1013,11 @@ defmodule AWS.ApplicationDiscovery do
       
       describe_agents_response() :: %{
         "agentsInfo" => list(agent_info()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type describe_agents_response() :: %{String.t() => any()}
+  @type describe_agents_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1028,7 +1032,7 @@ defmodule AWS.ApplicationDiscovery do
       }
       
   """
-  @type start_export_task_request() :: %{String.t() => any()}
+  @type start_export_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1044,38 +1048,38 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       describe_export_configurations_request() :: %{
-        optional("exportIds") => list(String.t()),
+        optional("exportIds") => list(String.t() | atom()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type describe_export_configurations_request() :: %{String.t() => any()}
+  @type describe_export_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       order_by_element() :: %{
-        "fieldName" => String.t(),
+        "fieldName" => String.t() | atom(),
         "sortOrder" => list(any())
       }
       
   """
-  @type order_by_element() :: %{String.t() => any()}
+  @type order_by_element() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_import_task_request() :: %{
-        optional("clientRequestToken") => String.t(),
-        required("importUrl") => String.t(),
-        required("name") => String.t()
+        optional("clientRequestToken") => String.t() | atom(),
+        required("importUrl") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
       
   """
-  @type start_import_task_request() :: %{String.t() => any()}
+  @type start_import_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1093,20 +1097,20 @@ defmodule AWS.ApplicationDiscovery do
       }
       
   """
-  @type get_discovery_summary_response() :: %{String.t() => any()}
+  @type get_discovery_summary_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_delete_agent_error() :: %{
-        "agentId" => String.t(),
+        "agentId" => String.t() | atom(),
         "errorCode" => list(any()),
-        "errorMessage" => String.t()
+        "errorMessage" => String.t() | atom()
       }
       
   """
-  @type batch_delete_agent_error() :: %{String.t() => any()}
+  @type batch_delete_agent_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1114,60 +1118,60 @@ defmodule AWS.ApplicationDiscovery do
       
       list_server_neighbors_request() :: %{
         optional("maxResults") => integer(),
-        optional("neighborConfigurationIds") => list(String.t()),
-        optional("nextToken") => String.t(),
+        optional("neighborConfigurationIds") => list(String.t() | atom()),
+        optional("nextToken") => String.t() | atom(),
         optional("portInformationNeeded") => boolean(),
-        required("configurationId") => String.t()
+        required("configurationId") => String.t() | atom()
       }
       
   """
-  @type list_server_neighbors_request() :: %{String.t() => any()}
+  @type list_server_neighbors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deletion_warning() :: %{
-        "configurationId" => String.t(),
+        "configurationId" => String.t() | atom(),
         "warningCode" => integer(),
-        "warningText" => String.t()
+        "warningText" => String.t() | atom()
       }
       
   """
-  @type deletion_warning() :: %{String.t() => any()}
+  @type deletion_warning() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       home_region_not_set_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type home_region_not_set_exception() :: %{String.t() => any()}
+  @type home_region_not_set_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       authorization_error_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type authorization_error_exception() :: %{String.t() => any()}
+  @type authorization_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1175,17 +1179,17 @@ defmodule AWS.ApplicationDiscovery do
       
       continuous_export_description() :: %{
         "dataSource" => list(any()),
-        "exportId" => String.t(),
-        "s3Bucket" => String.t(),
+        "exportId" => String.t() | atom(),
+        "s3Bucket" => String.t() | atom(),
         "schemaStorageConfig" => map(),
         "startTime" => non_neg_integer(),
         "status" => list(any()),
-        "statusDetail" => String.t(),
+        "statusDetail" => String.t() | atom(),
         "stopTime" => non_neg_integer()
       }
       
   """
-  @type continuous_export_description() :: %{String.t() => any()}
+  @type continuous_export_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1194,23 +1198,23 @@ defmodule AWS.ApplicationDiscovery do
       describe_tags_request() :: %{
         optional("filters") => list(tag_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type describe_tags_request() :: %{String.t() => any()}
+  @type describe_tags_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_filter() :: %{
-        "name" => String.t(),
-        "values" => list(String.t())
+        "name" => String.t() | atom(),
+        "values" => list(String.t() | atom())
       }
       
   """
-  @type tag_filter() :: %{String.t() => any()}
+  @type tag_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1219,34 +1223,34 @@ defmodule AWS.ApplicationDiscovery do
       describe_import_tasks_request() :: %{
         optional("filters") => list(import_task_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type describe_import_tasks_request() :: %{String.t() => any()}
+  @type describe_import_tasks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       usage_metric_basis() :: %{
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "percentageAdjust" => float()
       }
       
   """
-  @type usage_metric_basis() :: %{String.t() => any()}
+  @type usage_metric_basis() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_export_task_response() :: %{
-        "exportId" => String.t()
+        "exportId" => String.t() | atom()
       }
       
   """
-  @type start_export_task_response() :: %{String.t() => any()}
+  @type start_export_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1262,23 +1266,23 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       describe_import_tasks_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "tasks" => list(import_task())
       }
       
   """
-  @type describe_import_tasks_response() :: %{String.t() => any()}
+  @type describe_import_tasks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_applications_request() :: %{
-        required("configurationIds") => list(String.t())
+        required("configurationIds") => list(String.t() | atom())
       }
       
   """
-  @type delete_applications_request() :: %{String.t() => any()}
+  @type delete_applications_request() :: %{(String.t() | atom()) => any()}
 
   @type associate_configuration_items_to_application_errors() ::
           authorization_error_exception()
@@ -1521,7 +1525,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, associate_configuration_items_to_application_errors()}
   def associate_configuration_items_to_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateConfigurationItemsToApplication", input, options)
   end
@@ -1540,7 +1545,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, batch_delete_agents_errors()}
   def batch_delete_agents(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteAgents", input, options)
   end
@@ -1567,7 +1573,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, batch_delete_import_data_errors()}
   def batch_delete_import_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteImportData", input, options)
   end
@@ -1581,7 +1588,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApplication", input, options)
   end
@@ -1600,7 +1608,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, create_tags_errors()}
   def create_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTags", input, options)
   end
@@ -1615,7 +1624,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, delete_applications_errors()}
   def delete_applications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplications", input, options)
   end
@@ -1632,7 +1642,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, delete_tags_errors()}
   def delete_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTags", input, options)
   end
@@ -1650,7 +1661,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, describe_agents_errors()}
   def describe_agents(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAgents", input, options)
   end
@@ -1670,7 +1682,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, describe_batch_delete_configuration_task_errors()}
   def describe_batch_delete_configuration_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBatchDeleteConfigurationTask", input, options)
   end
@@ -1709,7 +1722,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, describe_configurations_errors()}
   def describe_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConfigurations", input, options)
   end
@@ -1727,7 +1741,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, describe_continuous_exports_errors()}
   def describe_continuous_exports(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeContinuousExports", input, options)
   end
@@ -1746,7 +1761,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, describe_export_configurations_errors()}
   def describe_export_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeExportConfigurations", input, options)
   end
@@ -1763,7 +1779,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, describe_export_tasks_errors()}
   def describe_export_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeExportTasks", input, options)
   end
@@ -1779,7 +1796,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, describe_import_tasks_errors()}
   def describe_import_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeImportTasks", input, options)
   end
@@ -1809,7 +1827,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTags", input, options)
   end
@@ -1827,7 +1846,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, disassociate_configuration_items_from_application_errors()}
   def disassociate_configuration_items_from_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -1858,7 +1878,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, export_configurations_errors()}
   def export_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExportConfigurations", input, options)
   end
@@ -1876,7 +1897,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, get_discovery_summary_errors()}
   def get_discovery_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDiscoverySummary", input, options)
   end
@@ -1894,7 +1916,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, list_configurations_errors()}
   def list_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListConfigurations", input, options)
   end
@@ -1909,7 +1932,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, list_server_neighbors_errors()}
   def list_server_neighbors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListServerNeighbors", input, options)
   end
@@ -1931,7 +1955,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, start_batch_delete_configuration_task_errors()}
   def start_batch_delete_configuration_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartBatchDeleteConfigurationTask", input, options)
   end
@@ -1945,7 +1970,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, start_continuous_export_errors()}
   def start_continuous_export(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartContinuousExport", input, options)
   end
@@ -1963,7 +1989,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, start_data_collection_by_agent_ids_errors()}
   def start_data_collection_by_agent_ids(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDataCollectionByAgentIds", input, options)
   end
@@ -2008,7 +2035,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, start_export_task_errors()}
   def start_export_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartExportTask", input, options)
   end
@@ -2066,7 +2094,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, start_import_task_errors()}
   def start_import_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartImportTask", input, options)
   end
@@ -2080,7 +2109,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, stop_continuous_export_errors()}
   def stop_continuous_export(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopContinuousExport", input, options)
   end
@@ -2098,7 +2128,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, stop_data_collection_by_agent_ids_errors()}
   def stop_data_collection_by_agent_ids(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopDataCollectionByAgentIds", input, options)
   end
@@ -2112,7 +2143,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateApplication", input, options)
   end

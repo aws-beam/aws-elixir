@@ -78,45 +78,45 @@ defmodule AWS.RDS do
   ## Example:
       
       restore_db_cluster_from_snapshot_message() :: %{
-        optional("DBClusterParameterGroupName") => String.t(),
+        optional("DBClusterParameterGroupName") => String.t() | atom(),
         optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
-        optional("StorageType") => String.t(),
-        optional("EngineMode") => String.t(),
-        optional("NetworkType") => String.t(),
-        optional("EngineLifecycleSupport") => String.t(),
+        optional("StorageType") => String.t() | atom(),
+        optional("EngineMode") => String.t() | atom(),
+        optional("NetworkType") => String.t() | atom(),
+        optional("EngineLifecycleSupport") => String.t() | atom(),
         optional("RdsCustomClusterConfiguration") => rds_custom_cluster_configuration(),
-        optional("DatabaseName") => String.t(),
+        optional("DatabaseName") => String.t() | atom(),
         optional("MonitoringInterval") => integer(),
-        optional("DomainIAMRoleName") => String.t(),
-        optional("Domain") => String.t(),
+        optional("DomainIAMRoleName") => String.t() | atom(),
+        optional("Domain") => String.t() | atom(),
         optional("EnableIAMDatabaseAuthentication") => boolean(),
         optional("CopyTagsToSnapshot") => boolean(),
         optional("ScalingConfiguration") => scaling_configuration(),
-        optional("EnableCloudwatchLogsExports") => list(String.t()),
-        optional("DBClusterInstanceClass") => String.t(),
+        optional("EnableCloudwatchLogsExports") => list(String.t() | atom()),
+        optional("DBClusterInstanceClass") => String.t() | atom(),
         optional("PubliclyAccessible") => boolean(),
-        optional("EngineVersion") => String.t(),
+        optional("EngineVersion") => String.t() | atom(),
         optional("BacktrackWindow") => float(),
-        optional("MonitoringRoleArn") => String.t(),
+        optional("MonitoringRoleArn") => String.t() | atom(),
         optional("Iops") => integer(),
-        required("DBClusterIdentifier") => String.t(),
+        required("DBClusterIdentifier") => String.t() | atom(),
         optional("Port") => integer(),
-        optional("PerformanceInsightsKMSKeyId") => String.t(),
+        optional("PerformanceInsightsKMSKeyId") => String.t() | atom(),
         optional("EnablePerformanceInsights") => boolean(),
         optional("DeletionProtection") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t()),
-        required("SnapshotIdentifier") => String.t(),
-        optional("KmsKeyId") => String.t(),
-        optional("OptionGroupName") => String.t(),
-        optional("AvailabilityZones") => list(String.t()),
-        optional("DBSubnetGroupName") => String.t(),
+        optional("VpcSecurityGroupIds") => list(String.t() | atom()),
+        required("SnapshotIdentifier") => String.t() | atom(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("OptionGroupName") => String.t() | atom(),
+        optional("AvailabilityZones") => list(String.t() | atom()),
+        optional("DBSubnetGroupName") => String.t() | atom(),
         optional("PerformanceInsightsRetentionPeriod") => integer(),
-        required("Engine") => String.t(),
+        required("Engine") => String.t() | atom(),
         optional("Tags") => list(tag())
       }
       
   """
-  @type restore_db_cluster_from_snapshot_message() :: %{String.t() => any()}
+  @type restore_db_cluster_from_snapshot_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -127,52 +127,52 @@ defmodule AWS.RDS do
       }
       
   """
-  @type reboot_db_cluster_result() :: %{String.t() => any()}
+  @type reboot_db_cluster_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_subnet_group_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_subnet_group_already_exists_fault() :: %{String.t() => any()}
+  @type db_subnet_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_db_cluster_message() :: %{
-        required("DBClusterIdentifier") => String.t()
+        required("DBClusterIdentifier") => String.t() | atom()
       }
       
   """
-  @type start_db_cluster_message() :: %{String.t() => any()}
+  @type start_db_cluster_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_parameter_group_details() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | atom(),
         "Parameters" => list(parameter())
       }
       
   """
-  @type db_parameter_group_details() :: %{String.t() => any()}
+  @type db_parameter_group_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_cluster_quota_exceeded_fault() :: %{String.t() => any()}
+  @type db_cluster_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -180,69 +180,69 @@ defmodule AWS.RDS do
       
       event_subscriptions_message() :: %{
         "EventSubscriptionsList" => list(event_subscription()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type event_subscriptions_message() :: %{String.t() => any()}
+  @type event_subscriptions_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_proxy_target_already_registered_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_proxy_target_already_registered_fault() :: %{String.t() => any()}
+  @type db_proxy_target_already_registered_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_snapshot_attribute() :: %{
-        "AttributeName" => String.t(),
-        "AttributeValues" => list(String.t())
+        "AttributeName" => String.t() | atom(),
+        "AttributeValues" => list(String.t() | atom())
       }
       
   """
-  @type db_snapshot_attribute() :: %{String.t() => any()}
+  @type db_snapshot_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_fault() :: %{String.t() => any()}
+  @type resource_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_db_snapshot_message() :: %{
-        required("DBSnapshotIdentifier") => String.t()
+        required("DBSnapshotIdentifier") => String.t() | atom()
       }
       
   """
-  @type delete_db_snapshot_message() :: %{String.t() => any()}
+  @type delete_db_snapshot_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_major_engine_version() :: %{
-        "Engine" => String.t(),
-        "MajorEngineVersion" => String.t(),
+        "Engine" => String.t() | atom(),
+        "MajorEngineVersion" => String.t() | atom(),
         "SupportedEngineLifecycles" => list(supported_engine_lifecycle())
       }
       
   """
-  @type db_major_engine_version() :: %{String.t() => any()}
+  @type db_major_engine_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -253,137 +253,137 @@ defmodule AWS.RDS do
       }
       
   """
-  @type delete_db_cluster_snapshot_result() :: %{String.t() => any()}
+  @type delete_db_cluster_snapshot_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       recommended_action() :: %{
-        "ActionId" => String.t(),
-        "ApplyModes" => list(String.t()),
+        "ActionId" => String.t() | atom(),
+        "ApplyModes" => list(String.t() | atom()),
         "ContextAttributes" => list(context_attribute()),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "IssueDetails" => issue_details(),
-        "Operation" => String.t(),
+        "Operation" => String.t() | atom(),
         "Parameters" => list(recommended_action_parameter()),
-        "Status" => String.t(),
-        "Title" => String.t()
+        "Status" => String.t() | atom(),
+        "Title" => String.t() | atom()
       }
       
   """
-  @type recommended_action() :: %{String.t() => any()}
+  @type recommended_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_resource_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_resource_state_fault() :: %{String.t() => any()}
+  @type invalid_resource_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       option_group_membership() :: %{
-        "OptionGroupName" => String.t(),
-        "Status" => String.t()
+        "OptionGroupName" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type option_group_membership() :: %{String.t() => any()}
+  @type option_group_membership() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       pending_maintenance_action() :: %{
-        "Action" => String.t(),
+        "Action" => String.t() | atom(),
         "AutoAppliedAfterDate" => non_neg_integer(),
         "CurrentApplyDate" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "ForcedApplyDate" => non_neg_integer(),
-        "OptInStatus" => String.t()
+        "OptInStatus" => String.t() | atom()
       }
       
   """
-  @type pending_maintenance_action() :: %{String.t() => any()}
+  @type pending_maintenance_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_parameter_group_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_parameter_group_not_found_fault() :: %{String.t() => any()}
+  @type db_parameter_group_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       target_health() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "Reason" => list(any()),
         "State" => list(any())
       }
       
   """
-  @type target_health() :: %{String.t() => any()}
+  @type target_health() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       account_quota() :: %{
-        "AccountQuotaName" => String.t(),
+        "AccountQuotaName" => String.t() | atom(),
         "Max" => float(),
         "Used" => float()
       }
       
   """
-  @type account_quota() :: %{String.t() => any()}
+  @type account_quota() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       apply_pending_maintenance_action_message() :: %{
-        required("ApplyAction") => String.t(),
-        required("OptInType") => String.t(),
-        required("ResourceIdentifier") => String.t()
+        required("ApplyAction") => String.t() | atom(),
+        required("OptInType") => String.t() | atom(),
+        required("ResourceIdentifier") => String.t() | atom()
       }
       
   """
-  @type apply_pending_maintenance_action_message() :: %{String.t() => any()}
+  @type apply_pending_maintenance_action_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       subnet_already_in_use() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type subnet_already_in_use() :: %{String.t() => any()}
+  @type subnet_already_in_use() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_db_proxy_endpoint_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_db_proxy_endpoint_state_fault() :: %{String.t() => any()}
+  @type invalid_db_proxy_endpoint_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -391,35 +391,35 @@ defmodule AWS.RDS do
       
       db_cluster_snapshot() :: %{
         "AllocatedStorage" => integer(),
-        "AvailabilityZones" => list(String.t()),
+        "AvailabilityZones" => list(String.t() | atom()),
         "ClusterCreateTime" => non_neg_integer(),
-        "DBClusterIdentifier" => String.t(),
-        "DBClusterSnapshotArn" => String.t(),
-        "DBClusterSnapshotIdentifier" => String.t(),
-        "DBSystemId" => String.t(),
-        "DbClusterResourceId" => String.t(),
-        "Engine" => String.t(),
-        "EngineMode" => String.t(),
-        "EngineVersion" => String.t(),
+        "DBClusterIdentifier" => String.t() | atom(),
+        "DBClusterSnapshotArn" => String.t() | atom(),
+        "DBClusterSnapshotIdentifier" => String.t() | atom(),
+        "DBSystemId" => String.t() | atom(),
+        "DbClusterResourceId" => String.t() | atom(),
+        "Engine" => String.t() | atom(),
+        "EngineMode" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
         "IAMDatabaseAuthenticationEnabled" => boolean(),
-        "KmsKeyId" => String.t(),
-        "LicenseModel" => String.t(),
-        "MasterUsername" => String.t(),
+        "KmsKeyId" => String.t() | atom(),
+        "LicenseModel" => String.t() | atom(),
+        "MasterUsername" => String.t() | atom(),
         "PercentProgress" => integer(),
         "Port" => integer(),
         "SnapshotCreateTime" => non_neg_integer(),
-        "SnapshotType" => String.t(),
-        "SourceDBClusterSnapshotArn" => String.t(),
-        "Status" => String.t(),
+        "SnapshotType" => String.t() | atom(),
+        "SourceDBClusterSnapshotArn" => String.t() | atom(),
+        "Status" => String.t() | atom(),
         "StorageEncrypted" => boolean(),
         "StorageThroughput" => integer(),
-        "StorageType" => String.t(),
+        "StorageType" => String.t() | atom(),
         "TagList" => list(tag()),
-        "VpcId" => String.t()
+        "VpcId" => String.t() | atom()
       }
       
   """
-  @type db_cluster_snapshot() :: %{String.t() => any()}
+  @type db_cluster_snapshot() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -430,18 +430,18 @@ defmodule AWS.RDS do
       }
       
   """
-  @type delete_db_instance_result() :: %{String.t() => any()}
+  @type delete_db_instance_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type snapshot_quota_exceeded_fault() :: %{String.t() => any()}
+  @type snapshot_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -449,27 +449,27 @@ defmodule AWS.RDS do
       
       db_cluster_capacity_info() :: %{
         optional("CurrentCapacity") => integer(),
-        optional("DBClusterIdentifier") => String.t(),
+        optional("DBClusterIdentifier") => String.t() | atom(),
         optional("PendingCapacity") => integer(),
         optional("SecondsBeforeTimeout") => integer(),
-        optional("TimeoutAction") => String.t()
+        optional("TimeoutAction") => String.t() | atom()
       }
       
   """
-  @type db_cluster_capacity_info() :: %{String.t() => any()}
+  @type db_cluster_capacity_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_db_subnet_group_message() :: %{
-        optional("DBSubnetGroupDescription") => String.t(),
-        required("DBSubnetGroupName") => String.t(),
-        required("SubnetIds") => list(String.t())
+        optional("DBSubnetGroupDescription") => String.t() | atom(),
+        required("DBSubnetGroupName") => String.t() | atom(),
+        required("SubnetIds") => list(String.t() | atom())
       }
       
   """
-  @type modify_db_subnet_group_message() :: %{String.t() => any()}
+  @type modify_db_subnet_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -477,11 +477,11 @@ defmodule AWS.RDS do
       
       db_subnet_group_message() :: %{
         "DBSubnetGroups" => list(db_subnet_group()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type db_subnet_group_message() :: %{String.t() => any()}
+  @type db_subnet_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -489,20 +489,20 @@ defmodule AWS.RDS do
       
       db_proxy_endpoint() :: %{
         "CreatedDate" => non_neg_integer(),
-        "DBProxyEndpointArn" => String.t(),
-        "DBProxyEndpointName" => String.t(),
-        "DBProxyName" => String.t(),
-        "Endpoint" => String.t(),
+        "DBProxyEndpointArn" => String.t() | atom(),
+        "DBProxyEndpointName" => String.t() | atom(),
+        "DBProxyName" => String.t() | atom(),
+        "Endpoint" => String.t() | atom(),
         "IsDefault" => boolean(),
         "Status" => list(any()),
         "TargetRole" => list(any()),
-        "VpcId" => String.t(),
-        "VpcSecurityGroupIds" => list(String.t()),
-        "VpcSubnetIds" => list(String.t())
+        "VpcId" => String.t() | atom(),
+        "VpcSecurityGroupIds" => list(String.t() | atom()),
+        "VpcSubnetIds" => list(String.t() | atom())
       }
       
   """
-  @type db_proxy_endpoint() :: %{String.t() => any()}
+  @type db_proxy_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -510,14 +510,14 @@ defmodule AWS.RDS do
       
       describe_db_cluster_parameters_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        optional("Source") => String.t(),
-        required("DBClusterParameterGroupName") => String.t()
+        optional("Source") => String.t() | atom(),
+        required("DBClusterParameterGroupName") => String.t() | atom()
       }
       
   """
-  @type describe_db_cluster_parameters_message() :: %{String.t() => any()}
+  @type describe_db_cluster_parameters_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -525,11 +525,11 @@ defmodule AWS.RDS do
       
       resource_pending_maintenance_actions() :: %{
         "PendingMaintenanceActionDetails" => list(pending_maintenance_action()),
-        "ResourceIdentifier" => String.t()
+        "ResourceIdentifier" => String.t() | atom()
       }
       
   """
-  @type resource_pending_maintenance_actions() :: %{String.t() => any()}
+  @type resource_pending_maintenance_actions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -537,23 +537,23 @@ defmodule AWS.RDS do
       
       stop_activity_stream_request() :: %{
         optional("ApplyImmediately") => boolean(),
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type stop_activity_stream_request() :: %{String.t() => any()}
+  @type stop_activity_stream_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       event_categories_map() :: %{
-        "EventCategories" => list(String.t()),
-        "SourceType" => String.t()
+        "EventCategories" => list(String.t() | atom()),
+        "SourceType" => String.t() | atom()
       }
       
   """
-  @type event_categories_map() :: %{String.t() => any()}
+  @type event_categories_map() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -564,16 +564,16 @@ defmodule AWS.RDS do
         optional("IdleClientTimeout") => integer(),
         optional("RequireTLS") => boolean(),
         optional("Tags") => list(tag()),
-        optional("VpcSecurityGroupIds") => list(String.t()),
+        optional("VpcSecurityGroupIds") => list(String.t() | atom()),
         required("Auth") => list(user_auth_config()),
-        required("DBProxyName") => String.t(),
+        required("DBProxyName") => String.t() | atom(),
         required("EngineFamily") => list(any()),
-        required("RoleArn") => String.t(),
-        required("VpcSubnetIds") => list(String.t())
+        required("RoleArn") => String.t() | atom(),
+        required("VpcSubnetIds") => list(String.t() | atom())
       }
       
   """
-  @type create_db_proxy_request() :: %{String.t() => any()}
+  @type create_db_proxy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -581,13 +581,13 @@ defmodule AWS.RDS do
       
       modify_db_proxy_target_group_request() :: %{
         optional("ConnectionPoolConfig") => connection_pool_configuration(),
-        optional("NewName") => String.t(),
-        required("DBProxyName") => String.t(),
-        required("TargetGroupName") => String.t()
+        optional("NewName") => String.t() | atom(),
+        required("DBProxyName") => String.t() | atom(),
+        required("TargetGroupName") => String.t() | atom()
       }
       
   """
-  @type modify_db_proxy_target_group_request() :: %{String.t() => any()}
+  @type modify_db_proxy_target_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -600,7 +600,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type range() :: %{String.t() => any()}
+  @type range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -608,14 +608,14 @@ defmodule AWS.RDS do
       
       connection_pool_configuration_info() :: %{
         "ConnectionBorrowTimeout" => integer(),
-        "InitQuery" => String.t(),
+        "InitQuery" => String.t() | atom(),
         "MaxConnectionsPercent" => integer(),
         "MaxIdleConnectionsPercent" => integer(),
-        "SessionPinningFilters" => list(String.t())
+        "SessionPinningFilters" => list(String.t() | atom())
       }
       
   """
-  @type connection_pool_configuration_info() :: %{String.t() => any()}
+  @type connection_pool_configuration_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -626,94 +626,94 @@ defmodule AWS.RDS do
       }
       
   """
-  @type delete_global_cluster_result() :: %{String.t() => any()}
+  @type delete_global_cluster_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       iam_role_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type iam_role_not_found_fault() :: %{String.t() => any()}
+  @type iam_role_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_tenant_database_message() :: %{
-        optional("CharacterSetName") => String.t(),
+        optional("CharacterSetName") => String.t() | atom(),
         optional("ManageMasterUserPassword") => boolean(),
-        optional("MasterUserPassword") => String.t(),
-        optional("MasterUserSecretKmsKeyId") => String.t(),
-        optional("NcharCharacterSetName") => String.t(),
+        optional("MasterUserPassword") => String.t() | atom(),
+        optional("MasterUserSecretKmsKeyId") => String.t() | atom(),
+        optional("NcharCharacterSetName") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("DBInstanceIdentifier") => String.t(),
-        required("MasterUsername") => String.t(),
-        required("TenantDBName") => String.t()
+        required("DBInstanceIdentifier") => String.t() | atom(),
+        required("MasterUsername") => String.t() | atom(),
+        required("TenantDBName") => String.t() | atom()
       }
       
   """
-  @type create_tenant_database_message() :: %{String.t() => any()}
+  @type create_tenant_database_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       performance_insights_metric_dimension_group() :: %{
-        "Dimensions" => list(String.t()),
-        "Group" => String.t(),
+        "Dimensions" => list(String.t() | atom()),
+        "Group" => String.t() | atom(),
         "Limit" => integer()
       }
       
   """
-  @type performance_insights_metric_dimension_group() :: %{String.t() => any()}
+  @type performance_insights_metric_dimension_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       max_db_shard_group_limit_reached() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type max_db_shard_group_limit_reached() :: %{String.t() => any()}
+  @type max_db_shard_group_limit_reached() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_parameter_group_name_message() :: %{
-        "DBClusterParameterGroupName" => String.t()
+        "DBClusterParameterGroupName" => String.t() | atom()
       }
       
   """
-  @type db_cluster_parameter_group_name_message() :: %{String.t() => any()}
+  @type db_cluster_parameter_group_name_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_instance_automated_backup_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_instance_automated_backup_quota_exceeded_fault() :: %{String.t() => any()}
+  @type db_instance_automated_backup_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       integration_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type integration_already_exists_fault() :: %{String.t() => any()}
+  @type integration_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -724,7 +724,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type describe_db_snapshot_attributes_result() :: %{String.t() => any()}
+  @type describe_db_snapshot_attributes_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -735,134 +735,134 @@ defmodule AWS.RDS do
       }
       
   """
-  @type stop_db_instance_result() :: %{String.t() => any()}
+  @type stop_db_instance_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       availability_zone() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type availability_zone() :: %{String.t() => any()}
+  @type availability_zone() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_db_instance_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | atom(),
         "ReservedDBInstances" => list(reserved_db_instance())
       }
       
   """
-  @type reserved_db_instance_message() :: %{String.t() => any()}
+  @type reserved_db_instance_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_db_instance_read_replica_message() :: %{
-        optional("StorageType") => String.t(),
-        optional("SourceDBInstanceIdentifier") => String.t(),
-        optional("NetworkType") => String.t(),
+        optional("StorageType") => String.t() | atom(),
+        optional("SourceDBInstanceIdentifier") => String.t() | atom(),
+        optional("NetworkType") => String.t() | atom(),
         optional("AllocatedStorage") => integer(),
-        optional("DomainOu") => String.t(),
+        optional("DomainOu") => String.t() | atom(),
         optional("EnableCustomerOwnedIp") => boolean(),
         optional("MonitoringInterval") => integer(),
         optional("UpgradeStorageConfig") => boolean(),
-        optional("BackupTarget") => String.t(),
-        optional("DomainIAMRoleName") => String.t(),
-        optional("Domain") => String.t(),
+        optional("BackupTarget") => String.t() | atom(),
+        optional("DomainIAMRoleName") => String.t() | atom(),
+        optional("Domain") => String.t() | atom(),
         optional("EnableIAMDatabaseAuthentication") => boolean(),
         optional("CopyTagsToSnapshot") => boolean(),
-        optional("SourceDBClusterIdentifier") => String.t(),
+        optional("SourceDBClusterIdentifier") => String.t() | atom(),
         optional("DedicatedLogVolume") => boolean(),
-        optional("AvailabilityZone") => String.t(),
-        optional("PreSignedUrl") => String.t(),
-        optional("EnableCloudwatchLogsExports") => list(String.t()),
+        optional("AvailabilityZone") => String.t() | atom(),
+        optional("PreSignedUrl") => String.t() | atom(),
+        optional("EnableCloudwatchLogsExports") => list(String.t() | atom()),
         optional("AutoMinorVersionUpgrade") => boolean(),
         optional("PubliclyAccessible") => boolean(),
-        optional("DomainDnsIps") => list(String.t()),
+        optional("DomainDnsIps") => list(String.t() | atom()),
         optional("ProcessorFeatures") => list(processor_feature()),
-        optional("MonitoringRoleArn") => String.t(),
-        optional("DBInstanceClass") => String.t(),
+        optional("MonitoringRoleArn") => String.t() | atom(),
+        optional("DBInstanceClass") => String.t() | atom(),
         optional("MaxAllocatedStorage") => integer(),
         optional("ReplicaMode") => list(any()),
-        required("DBInstanceIdentifier") => String.t(),
-        optional("DomainAuthSecretArn") => String.t(),
+        required("DBInstanceIdentifier") => String.t() | atom(),
+        optional("DomainAuthSecretArn") => String.t() | atom(),
         optional("Iops") => integer(),
         optional("Port") => integer(),
-        optional("PerformanceInsightsKMSKeyId") => String.t(),
+        optional("PerformanceInsightsKMSKeyId") => String.t() | atom(),
         optional("EnablePerformanceInsights") => boolean(),
-        optional("CustomIamInstanceProfile") => String.t(),
+        optional("CustomIamInstanceProfile") => String.t() | atom(),
         optional("MultiAZ") => boolean(),
         optional("DeletionProtection") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t()),
-        optional("CACertificateIdentifier") => String.t(),
-        optional("DBParameterGroupName") => String.t(),
+        optional("VpcSecurityGroupIds") => list(String.t() | atom()),
+        optional("CACertificateIdentifier") => String.t() | atom(),
+        optional("DBParameterGroupName") => String.t() | atom(),
         optional("DatabaseInsightsMode") => list(any()),
-        optional("KmsKeyId") => String.t(),
-        optional("DomainFqdn") => String.t(),
-        optional("OptionGroupName") => String.t(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("DomainFqdn") => String.t() | atom(),
+        optional("OptionGroupName") => String.t() | atom(),
         optional("StorageThroughput") => integer(),
-        optional("DBSubnetGroupName") => String.t(),
+        optional("DBSubnetGroupName") => String.t() | atom(),
         optional("PerformanceInsightsRetentionPeriod") => integer(),
         optional("UseDefaultProcessorFeatures") => boolean(),
         optional("Tags") => list(tag())
       }
       
   """
-  @type create_db_instance_read_replica_message() :: %{String.t() => any()}
+  @type create_db_instance_read_replica_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_db_instance_message() :: %{
-        required("DBInstanceIdentifier") => String.t()
+        required("DBInstanceIdentifier") => String.t() | atom()
       }
       
   """
-  @type start_db_instance_message() :: %{String.t() => any()}
+  @type start_db_instance_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_snapshot_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_snapshot_already_exists_fault() :: %{String.t() => any()}
+  @type db_snapshot_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_instances_message() :: %{
-        optional("DBInstanceIdentifier") => String.t(),
+        optional("DBInstanceIdentifier") => String.t() | atom(),
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_db_instances_message() :: %{String.t() => any()}
+  @type describe_db_instances_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       shared_snapshot_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type shared_snapshot_quota_exceeded_fault() :: %{String.t() => any()}
+  @type shared_snapshot_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -873,7 +873,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type db_recommendation_message() :: %{String.t() => any()}
+  @type db_recommendation_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -883,26 +883,26 @@ defmodule AWS.RDS do
         optional("Auth") => list(user_auth_config()),
         optional("DebugLogging") => boolean(),
         optional("IdleClientTimeout") => integer(),
-        optional("NewDBProxyName") => String.t(),
+        optional("NewDBProxyName") => String.t() | atom(),
         optional("RequireTLS") => boolean(),
-        optional("RoleArn") => String.t(),
-        optional("SecurityGroups") => list(String.t()),
-        required("DBProxyName") => String.t()
+        optional("RoleArn") => String.t() | atom(),
+        optional("SecurityGroups") => list(String.t() | atom()),
+        required("DBProxyName") => String.t() | atom()
       }
       
   """
-  @type modify_db_proxy_request() :: %{String.t() => any()}
+  @type modify_db_proxy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_security_group_not_supported_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_security_group_not_supported_fault() :: %{String.t() => any()}
+  @type db_security_group_not_supported_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -910,86 +910,86 @@ defmodule AWS.RDS do
       
       create_db_parameter_group_message() :: %{
         optional("Tags") => list(tag()),
-        required("DBParameterGroupFamily") => String.t(),
-        required("DBParameterGroupName") => String.t(),
-        required("Description") => String.t()
+        required("DBParameterGroupFamily") => String.t() | atom(),
+        required("DBParameterGroupName") => String.t() | atom(),
+        required("Description") => String.t() | atom()
       }
       
   """
-  @type create_db_parameter_group_message() :: %{String.t() => any()}
+  @type create_db_parameter_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       blue_green_deployment() :: %{
-        "BlueGreenDeploymentIdentifier" => String.t(),
-        "BlueGreenDeploymentName" => String.t(),
+        "BlueGreenDeploymentIdentifier" => String.t() | atom(),
+        "BlueGreenDeploymentName" => String.t() | atom(),
         "CreateTime" => non_neg_integer(),
         "DeleteTime" => non_neg_integer(),
-        "Source" => String.t(),
-        "Status" => String.t(),
-        "StatusDetails" => String.t(),
+        "Source" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "StatusDetails" => String.t() | atom(),
         "SwitchoverDetails" => list(switchover_detail()),
         "TagList" => list(tag()),
-        "Target" => String.t(),
+        "Target" => String.t() | atom(),
         "Tasks" => list(blue_green_deployment_task())
       }
       
   """
-  @type blue_green_deployment() :: %{String.t() => any()}
+  @type blue_green_deployment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       blue_green_deployment_task() :: %{
-        "Name" => String.t(),
-        "Status" => String.t()
+        "Name" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type blue_green_deployment_task() :: %{String.t() => any()}
+  @type blue_green_deployment_task() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       performance_issue_details() :: %{
-        "Analysis" => String.t(),
+        "Analysis" => String.t() | atom(),
         "EndTime" => non_neg_integer(),
         "Metrics" => list(metric()),
         "StartTime" => non_neg_integer()
       }
       
   """
-  @type performance_issue_details() :: %{String.t() => any()}
+  @type performance_issue_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_db_instance_automated_backup_message() :: %{
-        optional("DBInstanceAutomatedBackupsArn") => String.t(),
-        optional("DbiResourceId") => String.t()
+        optional("DBInstanceAutomatedBackupsArn") => String.t() | atom(),
+        optional("DbiResourceId") => String.t() | atom()
       }
       
   """
-  @type delete_db_instance_automated_backup_message() :: %{String.t() => any()}
+  @type delete_db_instance_automated_backup_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_major_engine_versions_request() :: %{
-        optional("Engine") => String.t(),
-        optional("MajorEngineVersion") => String.t(),
-        optional("Marker") => String.t(),
+        optional("Engine") => String.t() | atom(),
+        optional("MajorEngineVersion") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_db_major_engine_versions_request() :: %{String.t() => any()}
+  @type describe_db_major_engine_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -998,55 +998,55 @@ defmodule AWS.RDS do
       integration() :: %{
         "AdditionalEncryptionContext" => map(),
         "CreateTime" => non_neg_integer(),
-        "DataFilter" => String.t(),
-        "Description" => String.t(),
+        "DataFilter" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "Errors" => list(integration_error()),
-        "IntegrationArn" => String.t(),
-        "IntegrationName" => String.t(),
-        "KMSKeyId" => String.t(),
-        "SourceArn" => String.t(),
+        "IntegrationArn" => String.t() | atom(),
+        "IntegrationName" => String.t() | atom(),
+        "KMSKeyId" => String.t() | atom(),
+        "SourceArn" => String.t() | atom(),
         "Status" => list(any()),
         "Tags" => list(tag()),
-        "TargetArn" => String.t()
+        "TargetArn" => String.t() | atom()
       }
       
   """
-  @type integration() :: %{String.t() => any()}
+  @type integration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tenant_database() :: %{
-        "CharacterSetName" => String.t(),
-        "DBInstanceIdentifier" => String.t(),
-        "DbiResourceId" => String.t(),
+        "CharacterSetName" => String.t() | atom(),
+        "DBInstanceIdentifier" => String.t() | atom(),
+        "DbiResourceId" => String.t() | atom(),
         "DeletionProtection" => boolean(),
         "MasterUserSecret" => master_user_secret(),
-        "MasterUsername" => String.t(),
-        "NcharCharacterSetName" => String.t(),
+        "MasterUsername" => String.t() | atom(),
+        "NcharCharacterSetName" => String.t() | atom(),
         "PendingModifiedValues" => tenant_database_pending_modified_values(),
-        "Status" => String.t(),
+        "Status" => String.t() | atom(),
         "TagList" => list(tag()),
-        "TenantDBName" => String.t(),
-        "TenantDatabaseARN" => String.t(),
+        "TenantDBName" => String.t() | atom(),
+        "TenantDatabaseARN" => String.t() | atom(),
         "TenantDatabaseCreateTime" => non_neg_integer(),
-        "TenantDatabaseResourceId" => String.t()
+        "TenantDatabaseResourceId" => String.t() | atom()
       }
       
   """
-  @type tenant_database() :: %{String.t() => any()}
+  @type tenant_database() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reboot_db_cluster_message() :: %{
-        required("DBClusterIdentifier") => String.t()
+        required("DBClusterIdentifier") => String.t() | atom()
       }
       
   """
-  @type reboot_db_cluster_message() :: %{String.t() => any()}
+  @type reboot_db_cluster_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1054,13 +1054,13 @@ defmodule AWS.RDS do
       
       create_db_cluster_parameter_group_message() :: %{
         optional("Tags") => list(tag()),
-        required("DBClusterParameterGroupName") => String.t(),
-        required("DBParameterGroupFamily") => String.t(),
-        required("Description") => String.t()
+        required("DBClusterParameterGroupName") => String.t() | atom(),
+        required("DBParameterGroupFamily") => String.t() | atom(),
+        required("Description") => String.t() | atom()
       }
       
   """
-  @type create_db_cluster_parameter_group_message() :: %{String.t() => any()}
+  @type create_db_cluster_parameter_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1068,14 +1068,14 @@ defmodule AWS.RDS do
       
       connection_pool_configuration() :: %{
         "ConnectionBorrowTimeout" => integer(),
-        "InitQuery" => String.t(),
+        "InitQuery" => String.t() | atom(),
         "MaxConnectionsPercent" => integer(),
         "MaxIdleConnectionsPercent" => integer(),
-        "SessionPinningFilters" => list(String.t())
+        "SessionPinningFilters" => list(String.t() | atom())
       }
       
   """
-  @type connection_pool_configuration() :: %{String.t() => any()}
+  @type connection_pool_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1086,19 +1086,19 @@ defmodule AWS.RDS do
       }
       
   """
-  @type copy_db_cluster_parameter_group_result() :: %{String.t() => any()}
+  @type copy_db_cluster_parameter_group_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_db_instance_message() :: %{
-        optional("DBSnapshotIdentifier") => String.t(),
-        required("DBInstanceIdentifier") => String.t()
+        optional("DBSnapshotIdentifier") => String.t() | atom(),
+        required("DBInstanceIdentifier") => String.t() | atom()
       }
       
   """
-  @type stop_db_instance_message() :: %{String.t() => any()}
+  @type stop_db_instance_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1106,14 +1106,14 @@ defmodule AWS.RDS do
       
       modify_event_subscription_message() :: %{
         optional("Enabled") => boolean(),
-        optional("EventCategories") => list(String.t()),
-        optional("SnsTopicArn") => String.t(),
-        optional("SourceType") => String.t(),
-        required("SubscriptionName") => String.t()
+        optional("EventCategories") => list(String.t() | atom()),
+        optional("SnsTopicArn") => String.t() | atom(),
+        optional("SourceType") => String.t() | atom(),
+        required("SubscriptionName") => String.t() | atom()
       }
       
   """
-  @type modify_event_subscription_message() :: %{String.t() => any()}
+  @type modify_event_subscription_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1121,25 +1121,25 @@ defmodule AWS.RDS do
       
       copy_db_cluster_parameter_group_message() :: %{
         optional("Tags") => list(tag()),
-        required("SourceDBClusterParameterGroupIdentifier") => String.t(),
-        required("TargetDBClusterParameterGroupDescription") => String.t(),
-        required("TargetDBClusterParameterGroupIdentifier") => String.t()
+        required("SourceDBClusterParameterGroupIdentifier") => String.t() | atom(),
+        required("TargetDBClusterParameterGroupDescription") => String.t() | atom(),
+        required("TargetDBClusterParameterGroupIdentifier") => String.t() | atom()
       }
       
   """
-  @type copy_db_cluster_parameter_group_message() :: %{String.t() => any()}
+  @type copy_db_cluster_parameter_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       processor_feature() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type processor_feature() :: %{String.t() => any()}
+  @type processor_feature() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1147,32 +1147,32 @@ defmodule AWS.RDS do
       
       describe_pending_maintenance_actions_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        optional("ResourceIdentifier") => String.t()
+        optional("ResourceIdentifier") => String.t() | atom()
       }
       
   """
-  @type describe_pending_maintenance_actions_message() :: %{String.t() => any()}
+  @type describe_pending_maintenance_actions_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_orderable_db_instance_options_message() :: %{
-        optional("AvailabilityZoneGroup") => String.t(),
-        optional("DBInstanceClass") => String.t(),
-        optional("EngineVersion") => String.t(),
+        optional("AvailabilityZoneGroup") => String.t() | atom(),
+        optional("DBInstanceClass") => String.t() | atom(),
+        optional("EngineVersion") => String.t() | atom(),
         optional("Filters") => list(filter()),
-        optional("LicenseModel") => String.t(),
-        optional("Marker") => String.t(),
+        optional("LicenseModel") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
         optional("Vpc") => boolean(),
-        required("Engine") => String.t()
+        required("Engine") => String.t() | atom()
       }
       
   """
-  @type describe_orderable_db_instance_options_message() :: %{String.t() => any()}
+  @type describe_orderable_db_instance_options_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1180,27 +1180,27 @@ defmodule AWS.RDS do
       
       modify_activity_stream_response() :: %{
         "EngineNativeAuditFieldsIncluded" => boolean(),
-        "KinesisStreamName" => String.t(),
-        "KmsKeyId" => String.t(),
+        "KinesisStreamName" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
         "Mode" => list(any()),
         "PolicyStatus" => list(any()),
         "Status" => list(any())
       }
       
   """
-  @type modify_activity_stream_response() :: %{String.t() => any()}
+  @type modify_activity_stream_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       pending_cloudwatch_logs_exports() :: %{
-        "LogTypesToDisable" => list(String.t()),
-        "LogTypesToEnable" => list(String.t())
+        "LogTypesToDisable" => list(String.t() | atom()),
+        "LogTypesToEnable" => list(String.t() | atom())
       }
       
   """
-  @type pending_cloudwatch_logs_exports() :: %{String.t() => any()}
+  @type pending_cloudwatch_logs_exports() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1208,98 +1208,98 @@ defmodule AWS.RDS do
       
       metric() :: %{
         "MetricQuery" => metric_query(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "References" => list(metric_reference()),
-        "StatisticsDetails" => String.t()
+        "StatisticsDetails" => String.t() | atom()
       }
       
   """
-  @type metric() :: %{String.t() => any()}
+  @type metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       restore_db_instance_from_s3_message() :: %{
-        optional("StorageType") => String.t(),
-        required("SourceEngineVersion") => String.t(),
-        optional("NetworkType") => String.t(),
-        optional("EngineLifecycleSupport") => String.t(),
+        optional("StorageType") => String.t() | atom(),
+        required("SourceEngineVersion") => String.t() | atom(),
+        optional("NetworkType") => String.t() | atom(),
+        optional("EngineLifecycleSupport") => String.t() | atom(),
         optional("AllocatedStorage") => integer(),
-        optional("MasterUserSecretKmsKeyId") => String.t(),
-        optional("MasterUserPassword") => String.t(),
-        optional("PreferredBackupWindow") => String.t(),
+        optional("MasterUserSecretKmsKeyId") => String.t() | atom(),
+        optional("MasterUserPassword") => String.t() | atom(),
+        optional("PreferredBackupWindow") => String.t() | atom(),
         optional("MonitoringInterval") => integer(),
-        optional("MasterUsername") => String.t(),
-        optional("S3Prefix") => String.t(),
+        optional("MasterUsername") => String.t() | atom(),
+        optional("S3Prefix") => String.t() | atom(),
         optional("EnableIAMDatabaseAuthentication") => boolean(),
         optional("CopyTagsToSnapshot") => boolean(),
-        required("SourceEngine") => String.t(),
+        required("SourceEngine") => String.t() | atom(),
         optional("DedicatedLogVolume") => boolean(),
         optional("BackupRetentionPeriod") => integer(),
-        optional("AvailabilityZone") => String.t(),
-        optional("EnableCloudwatchLogsExports") => list(String.t()),
+        optional("AvailabilityZone") => String.t() | atom(),
+        optional("EnableCloudwatchLogsExports") => list(String.t() | atom()),
         optional("AutoMinorVersionUpgrade") => boolean(),
         optional("PubliclyAccessible") => boolean(),
-        optional("EngineVersion") => String.t(),
-        required("S3IngestionRoleArn") => String.t(),
+        optional("EngineVersion") => String.t() | atom(),
+        required("S3IngestionRoleArn") => String.t() | atom(),
         optional("ProcessorFeatures") => list(processor_feature()),
-        optional("MonitoringRoleArn") => String.t(),
-        optional("LicenseModel") => String.t(),
+        optional("MonitoringRoleArn") => String.t() | atom(),
+        optional("LicenseModel") => String.t() | atom(),
         optional("MaxAllocatedStorage") => integer(),
-        required("DBInstanceIdentifier") => String.t(),
+        required("DBInstanceIdentifier") => String.t() | atom(),
         optional("Iops") => integer(),
         optional("ManageMasterUserPassword") => boolean(),
         optional("Port") => integer(),
-        optional("DBSecurityGroups") => list(String.t()),
-        optional("PerformanceInsightsKMSKeyId") => String.t(),
-        required("DBInstanceClass") => String.t(),
+        optional("DBSecurityGroups") => list(String.t() | atom()),
+        optional("PerformanceInsightsKMSKeyId") => String.t() | atom(),
+        required("DBInstanceClass") => String.t() | atom(),
         optional("EnablePerformanceInsights") => boolean(),
         optional("StorageEncrypted") => boolean(),
         optional("MultiAZ") => boolean(),
         optional("DeletionProtection") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t()),
-        optional("CACertificateIdentifier") => String.t(),
-        optional("DBParameterGroupName") => String.t(),
+        optional("VpcSecurityGroupIds") => list(String.t() | atom()),
+        optional("CACertificateIdentifier") => String.t() | atom(),
+        optional("DBParameterGroupName") => String.t() | atom(),
         optional("DatabaseInsightsMode") => list(any()),
-        optional("KmsKeyId") => String.t(),
-        optional("OptionGroupName") => String.t(),
-        optional("DBName") => String.t(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("OptionGroupName") => String.t() | atom(),
+        optional("DBName") => String.t() | atom(),
         optional("StorageThroughput") => integer(),
-        optional("DBSubnetGroupName") => String.t(),
+        optional("DBSubnetGroupName") => String.t() | atom(),
         optional("PerformanceInsightsRetentionPeriod") => integer(),
-        optional("PreferredMaintenanceWindow") => String.t(),
-        required("Engine") => String.t(),
-        required("S3BucketName") => String.t(),
+        optional("PreferredMaintenanceWindow") => String.t() | atom(),
+        required("Engine") => String.t() | atom(),
+        required("S3BucketName") => String.t() | atom(),
         optional("UseDefaultProcessorFeatures") => boolean(),
         optional("Tags") => list(tag())
       }
       
   """
-  @type restore_db_instance_from_s3_message() :: %{String.t() => any()}
+  @type restore_db_instance_from_s3_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_export_task_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_export_task_state_fault() :: %{String.t() => any()}
+  @type invalid_export_task_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_proxy_targets_response() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | atom(),
         "Targets" => list(db_proxy_target())
       }
       
   """
-  @type describe_db_proxy_targets_response() :: %{String.t() => any()}
+  @type describe_db_proxy_targets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1311,20 +1311,20 @@ defmodule AWS.RDS do
       }
       
   """
-  @type double_range() :: %{String.t() => any()}
+  @type double_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       engine_defaults() :: %{
-        "DBParameterGroupFamily" => String.t(),
-        "Marker" => String.t(),
+        "DBParameterGroupFamily" => String.t() | atom(),
+        "Marker" => String.t() | atom(),
         "Parameters" => list(parameter())
       }
       
   """
-  @type engine_defaults() :: %{String.t() => any()}
+  @type engine_defaults() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1332,13 +1332,13 @@ defmodule AWS.RDS do
       
       purchase_reserved_db_instances_offering_message() :: %{
         optional("DBInstanceCount") => integer(),
-        optional("ReservedDBInstanceId") => String.t(),
+        optional("ReservedDBInstanceId") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("ReservedDBInstancesOfferingId") => String.t()
+        required("ReservedDBInstancesOfferingId") => String.t() | atom()
       }
       
   """
-  @type purchase_reserved_db_instances_offering_message() :: %{String.t() => any()}
+  @type purchase_reserved_db_instances_offering_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1348,11 +1348,11 @@ defmodule AWS.RDS do
         optional("Force") => boolean(),
         optional("UseEarliestTimeOnPointInTimeUnavailable") => boolean(),
         required("BacktrackTo") => non_neg_integer(),
-        required("DBClusterIdentifier") => String.t()
+        required("DBClusterIdentifier") => String.t() | atom()
       }
       
   """
-  @type backtrack_db_cluster_message() :: %{String.t() => any()}
+  @type backtrack_db_cluster_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1360,11 +1360,11 @@ defmodule AWS.RDS do
       
       db_cluster_backtrack_message() :: %{
         "DBClusterBacktracks" => list(db_cluster_backtrack()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type db_cluster_backtrack_message() :: %{String.t() => any()}
+  @type db_cluster_backtrack_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1372,11 +1372,11 @@ defmodule AWS.RDS do
       
       db_snapshot_attributes_result() :: %{
         "DBSnapshotAttributes" => list(db_snapshot_attribute()),
-        "DBSnapshotIdentifier" => String.t()
+        "DBSnapshotIdentifier" => String.t() | atom()
       }
       
   """
-  @type db_snapshot_attributes_result() :: %{String.t() => any()}
+  @type db_snapshot_attributes_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1387,7 +1387,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type create_db_subnet_group_result() :: %{String.t() => any()}
+  @type create_db_subnet_group_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1398,7 +1398,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type reference_details() :: %{String.t() => any()}
+  @type reference_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1409,33 +1409,33 @@ defmodule AWS.RDS do
       }
       
   """
-  @type switchover_global_cluster_result() :: %{String.t() => any()}
+  @type switchover_global_cluster_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cloudwatch_logs_export_configuration() :: %{
-        "DisableLogTypes" => list(String.t()),
-        "EnableLogTypes" => list(String.t())
+        "DisableLogTypes" => list(String.t() | atom()),
+        "EnableLogTypes" => list(String.t() | atom())
       }
       
   """
-  @type cloudwatch_logs_export_configuration() :: %{String.t() => any()}
+  @type cloudwatch_logs_export_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_tenant_database_message() :: %{
-        optional("FinalDBSnapshotIdentifier") => String.t(),
+        optional("FinalDBSnapshotIdentifier") => String.t() | atom(),
         optional("SkipFinalSnapshot") => boolean(),
-        required("DBInstanceIdentifier") => String.t(),
-        required("TenantDBName") => String.t()
+        required("DBInstanceIdentifier") => String.t() | atom(),
+        required("TenantDBName") => String.t() | atom()
       }
       
   """
-  @type delete_tenant_database_message() :: %{String.t() => any()}
+  @type delete_tenant_database_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1443,46 +1443,46 @@ defmodule AWS.RDS do
       
       disable_http_endpoint_response() :: %{
         "HttpEndpointEnabled" => boolean(),
-        "ResourceArn" => String.t()
+        "ResourceArn" => String.t() | atom()
       }
       
   """
-  @type disable_http_endpoint_response() :: %{String.t() => any()}
+  @type disable_http_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_instance_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_instance_already_exists_fault() :: %{String.t() => any()}
+  @type db_instance_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       insufficient_db_instance_capacity_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type insufficient_db_instance_capacity_fault() :: %{String.t() => any()}
+  @type insufficient_db_instance_capacity_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_role() :: %{
-        "FeatureName" => String.t(),
-        "RoleArn" => String.t(),
-        "Status" => String.t()
+        "FeatureName" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type db_cluster_role() :: %{String.t() => any()}
+  @type db_cluster_role() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1493,37 +1493,37 @@ defmodule AWS.RDS do
       }
       
   """
-  @type promote_read_replica_result() :: %{String.t() => any()}
+  @type promote_read_replica_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_snapshots_message() :: %{
-        optional("DBInstanceIdentifier") => String.t(),
-        optional("DBSnapshotIdentifier") => String.t(),
-        optional("DbiResourceId") => String.t(),
+        optional("DBInstanceIdentifier") => String.t() | atom(),
+        optional("DBSnapshotIdentifier") => String.t() | atom(),
+        optional("DbiResourceId") => String.t() | atom(),
         optional("Filters") => list(filter()),
         optional("IncludePublic") => boolean(),
         optional("IncludeShared") => boolean(),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        optional("SnapshotType") => String.t()
+        optional("SnapshotType") => String.t() | atom()
       }
       
   """
-  @type describe_db_snapshots_message() :: %{String.t() => any()}
+  @type describe_db_snapshots_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_proxy_target_group_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_proxy_target_group_not_found_fault() :: %{String.t() => any()}
+  @type db_proxy_target_group_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1534,70 +1534,70 @@ defmodule AWS.RDS do
       }
       
   """
-  @type modify_db_instance_result() :: %{String.t() => any()}
+  @type modify_db_instance_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       event_subscription() :: %{
-        "CustSubscriptionId" => String.t(),
-        "CustomerAwsId" => String.t(),
+        "CustSubscriptionId" => String.t() | atom(),
+        "CustomerAwsId" => String.t() | atom(),
         "Enabled" => boolean(),
-        "EventCategoriesList" => list(String.t()),
-        "EventSubscriptionArn" => String.t(),
-        "SnsTopicArn" => String.t(),
-        "SourceIdsList" => list(String.t()),
-        "SourceType" => String.t(),
-        "Status" => String.t(),
-        "SubscriptionCreationTime" => String.t()
+        "EventCategoriesList" => list(String.t() | atom()),
+        "EventSubscriptionArn" => String.t() | atom(),
+        "SnsTopicArn" => String.t() | atom(),
+        "SourceIdsList" => list(String.t() | atom()),
+        "SourceType" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "SubscriptionCreationTime" => String.t() | atom()
       }
       
   """
-  @type event_subscription() :: %{String.t() => any()}
+  @type event_subscription() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_blue_green_deployments_request() :: %{
-        optional("BlueGreenDeploymentIdentifier") => String.t(),
+        optional("BlueGreenDeploymentIdentifier") => String.t() | atom(),
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_blue_green_deployments_request() :: %{String.t() => any()}
+  @type describe_blue_green_deployments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ec2_security_group() :: %{
-        "EC2SecurityGroupId" => String.t(),
-        "EC2SecurityGroupName" => String.t(),
-        "EC2SecurityGroupOwnerId" => String.t(),
-        "Status" => String.t()
+        "EC2SecurityGroupId" => String.t() | atom(),
+        "EC2SecurityGroupName" => String.t() | atom(),
+        "EC2SecurityGroupOwnerId" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type ec2_security_group() :: %{String.t() => any()}
+  @type ec2_security_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       global_cluster_member() :: %{
-        "DBClusterArn" => String.t(),
+        "DBClusterArn" => String.t() | atom(),
         "GlobalWriteForwardingStatus" => list(any()),
         "IsWriter" => boolean(),
-        "Readers" => list(String.t()),
+        "Readers" => list(String.t() | atom()),
         "SynchronizationStatus" => list(any())
       }
       
   """
-  @type global_cluster_member() :: %{String.t() => any()}
+  @type global_cluster_member() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1605,81 +1605,81 @@ defmodule AWS.RDS do
       
       recurring_charge() :: %{
         "RecurringChargeAmount" => float(),
-        "RecurringChargeFrequency" => String.t()
+        "RecurringChargeFrequency" => String.t() | atom()
       }
       
   """
-  @type recurring_charge() :: %{String.t() => any()}
+  @type recurring_charge() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_db_shard_group_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_db_shard_group_state_fault() :: %{String.t() => any()}
+  @type invalid_db_shard_group_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_db_cluster_snapshot_attribute_message() :: %{
-        optional("ValuesToAdd") => list(String.t()),
-        optional("ValuesToRemove") => list(String.t()),
-        required("AttributeName") => String.t(),
-        required("DBClusterSnapshotIdentifier") => String.t()
+        optional("ValuesToAdd") => list(String.t() | atom()),
+        optional("ValuesToRemove") => list(String.t() | atom()),
+        required("AttributeName") => String.t() | atom(),
+        required("DBClusterSnapshotIdentifier") => String.t() | atom()
       }
       
   """
-  @type modify_db_cluster_snapshot_attribute_message() :: %{String.t() => any()}
+  @type modify_db_cluster_snapshot_attribute_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_source_identifier_to_subscription_message() :: %{
-        required("SourceIdentifier") => String.t(),
-        required("SubscriptionName") => String.t()
+        required("SourceIdentifier") => String.t() | atom(),
+        required("SubscriptionName") => String.t() | atom()
       }
       
   """
-  @type add_source_identifier_to_subscription_message() :: %{String.t() => any()}
+  @type add_source_identifier_to_subscription_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_restore_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_restore_fault() :: %{String.t() => any()}
+  @type invalid_restore_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_db_subnet_group_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_db_subnet_group_fault() :: %{String.t() => any()}
+  @type invalid_db_subnet_group_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       custom_db_engine_version_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type custom_db_engine_version_not_found_fault() :: %{String.t() => any()}
+  @type custom_db_engine_version_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1687,36 +1687,36 @@ defmodule AWS.RDS do
       
       describe_blue_green_deployments_response() :: %{
         "BlueGreenDeployments" => list(blue_green_deployment()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type describe_blue_green_deployments_response() :: %{String.t() => any()}
+  @type describe_blue_green_deployments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_backtrack_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_cluster_backtrack_not_found_fault() :: %{String.t() => any()}
+  @type db_cluster_backtrack_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_certificates_message() :: %{
-        optional("CertificateIdentifier") => String.t(),
+        optional("CertificateIdentifier") => String.t() | atom(),
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_certificates_message() :: %{String.t() => any()}
+  @type describe_certificates_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1724,56 +1724,56 @@ defmodule AWS.RDS do
       
       modify_activity_stream_request() :: %{
         optional("AuditPolicyState") => list(any()),
-        optional("ResourceArn") => String.t()
+        optional("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type modify_activity_stream_request() :: %{String.t() => any()}
+  @type modify_activity_stream_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       restore_db_cluster_to_point_in_time_message() :: %{
-        optional("DBClusterParameterGroupName") => String.t(),
+        optional("DBClusterParameterGroupName") => String.t() | atom(),
         optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
-        optional("StorageType") => String.t(),
-        optional("EngineMode") => String.t(),
-        optional("NetworkType") => String.t(),
-        optional("EngineLifecycleSupport") => String.t(),
+        optional("StorageType") => String.t() | atom(),
+        optional("EngineMode") => String.t() | atom(),
+        optional("NetworkType") => String.t() | atom(),
+        optional("EngineLifecycleSupport") => String.t() | atom(),
         optional("RdsCustomClusterConfiguration") => rds_custom_cluster_configuration(),
         optional("MonitoringInterval") => integer(),
-        optional("DomainIAMRoleName") => String.t(),
-        optional("Domain") => String.t(),
+        optional("DomainIAMRoleName") => String.t() | atom(),
+        optional("Domain") => String.t() | atom(),
         optional("EnableIAMDatabaseAuthentication") => boolean(),
         optional("CopyTagsToSnapshot") => boolean(),
-        optional("SourceDBClusterIdentifier") => String.t(),
-        optional("RestoreType") => String.t(),
+        optional("SourceDBClusterIdentifier") => String.t() | atom(),
+        optional("RestoreType") => String.t() | atom(),
         optional("ScalingConfiguration") => scaling_configuration(),
-        optional("EnableCloudwatchLogsExports") => list(String.t()),
-        optional("SourceDbClusterResourceId") => String.t(),
-        optional("DBClusterInstanceClass") => String.t(),
+        optional("EnableCloudwatchLogsExports") => list(String.t() | atom()),
+        optional("SourceDbClusterResourceId") => String.t() | atom(),
+        optional("DBClusterInstanceClass") => String.t() | atom(),
         optional("PubliclyAccessible") => boolean(),
         optional("BacktrackWindow") => float(),
-        optional("MonitoringRoleArn") => String.t(),
+        optional("MonitoringRoleArn") => String.t() | atom(),
         optional("Iops") => integer(),
-        required("DBClusterIdentifier") => String.t(),
+        required("DBClusterIdentifier") => String.t() | atom(),
         optional("Port") => integer(),
         optional("RestoreToTime") => non_neg_integer(),
-        optional("PerformanceInsightsKMSKeyId") => String.t(),
+        optional("PerformanceInsightsKMSKeyId") => String.t() | atom(),
         optional("EnablePerformanceInsights") => boolean(),
         optional("DeletionProtection") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t()),
-        optional("KmsKeyId") => String.t(),
-        optional("OptionGroupName") => String.t(),
-        optional("DBSubnetGroupName") => String.t(),
+        optional("VpcSecurityGroupIds") => list(String.t() | atom()),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("OptionGroupName") => String.t() | atom(),
+        optional("DBSubnetGroupName") => String.t() | atom(),
         optional("PerformanceInsightsRetentionPeriod") => integer(),
         optional("UseLatestRestorableTime") => boolean(),
         optional("Tags") => list(tag())
       }
       
   """
-  @type restore_db_cluster_to_point_in_time_message() :: %{String.t() => any()}
+  @type restore_db_cluster_to_point_in_time_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1785,34 +1785,34 @@ defmodule AWS.RDS do
         "MinCapacity" => integer(),
         "SecondsBeforeTimeout" => integer(),
         "SecondsUntilAutoPause" => integer(),
-        "TimeoutAction" => String.t()
+        "TimeoutAction" => String.t() | atom()
       }
       
   """
-  @type scaling_configuration_info() :: %{String.t() => any()}
+  @type scaling_configuration_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_db_subnet_group_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_db_subnet_group_state_fault() :: %{String.t() => any()}
+  @type invalid_db_subnet_group_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       integration_error() :: %{
-        "ErrorCode" => String.t(),
-        "ErrorMessage" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom()
       }
       
   """
-  @type integration_error() :: %{String.t() => any()}
+  @type integration_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1820,23 +1820,23 @@ defmodule AWS.RDS do
       
       create_db_security_group_message() :: %{
         optional("Tags") => list(tag()),
-        required("DBSecurityGroupDescription") => String.t(),
-        required("DBSecurityGroupName") => String.t()
+        required("DBSecurityGroupDescription") => String.t() | atom(),
+        required("DBSecurityGroupName") => String.t() | atom()
       }
       
   """
-  @type create_db_security_group_message() :: %{String.t() => any()}
+  @type create_db_security_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_proxy_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_proxy_already_exists_fault() :: %{String.t() => any()}
+  @type db_proxy_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1844,25 +1844,25 @@ defmodule AWS.RDS do
       
       subnet() :: %{
         "SubnetAvailabilityZone" => availability_zone(),
-        "SubnetIdentifier" => String.t(),
+        "SubnetIdentifier" => String.t() | atom(),
         "SubnetOutpost" => outpost(),
-        "SubnetStatus" => String.t()
+        "SubnetStatus" => String.t() | atom()
       }
       
   """
-  @type subnet() :: %{String.t() => any()}
+  @type subnet() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_source_identifier_from_subscription_message() :: %{
-        required("SourceIdentifier") => String.t(),
-        required("SubscriptionName") => String.t()
+        required("SourceIdentifier") => String.t() | atom(),
+        required("SubscriptionName") => String.t() | atom()
       }
       
   """
-  @type remove_source_identifier_from_subscription_message() :: %{String.t() => any()}
+  @type remove_source_identifier_from_subscription_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1870,22 +1870,22 @@ defmodule AWS.RDS do
       
       db_cluster_snapshot_message() :: %{
         "DBClusterSnapshots" => list(db_cluster_snapshot()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type db_cluster_snapshot_message() :: %{String.t() => any()}
+  @type db_cluster_snapshot_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_subnet() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_subnet() :: %{String.t() => any()}
+  @type invalid_subnet() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1893,147 +1893,147 @@ defmodule AWS.RDS do
       
       list_tags_for_resource_message() :: %{
         optional("Filters") => list(filter()),
-        required("ResourceName") => String.t()
+        required("ResourceName") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_message() :: %{String.t() => any()}
+  @type list_tags_for_resource_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_cluster_snapshots_message() :: %{
-        optional("DBClusterIdentifier") => String.t(),
-        optional("DBClusterSnapshotIdentifier") => String.t(),
-        optional("DbClusterResourceId") => String.t(),
+        optional("DBClusterIdentifier") => String.t() | atom(),
+        optional("DBClusterSnapshotIdentifier") => String.t() | atom(),
+        optional("DbClusterResourceId") => String.t() | atom(),
         optional("Filters") => list(filter()),
         optional("IncludePublic") => boolean(),
         optional("IncludeShared") => boolean(),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        optional("SnapshotType") => String.t()
+        optional("SnapshotType") => String.t() | atom()
       }
       
   """
-  @type describe_db_cluster_snapshots_message() :: %{String.t() => any()}
+  @type describe_db_cluster_snapshots_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_shard_group_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_shard_group_already_exists_fault() :: %{String.t() => any()}
+  @type db_shard_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_custom_db_engine_version_message() :: %{
-        optional("DatabaseInstallationFilesS3BucketName") => String.t(),
-        optional("DatabaseInstallationFilesS3Prefix") => String.t(),
-        optional("Description") => String.t(),
-        optional("ImageId") => String.t(),
-        optional("KMSKeyId") => String.t(),
-        optional("Manifest") => String.t(),
-        optional("SourceCustomDbEngineVersionIdentifier") => String.t(),
+        optional("DatabaseInstallationFilesS3BucketName") => String.t() | atom(),
+        optional("DatabaseInstallationFilesS3Prefix") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("ImageId") => String.t() | atom(),
+        optional("KMSKeyId") => String.t() | atom(),
+        optional("Manifest") => String.t() | atom(),
+        optional("SourceCustomDbEngineVersionIdentifier") => String.t() | atom(),
         optional("Tags") => list(tag()),
         optional("UseAwsProvidedLatestImage") => boolean(),
-        required("Engine") => String.t(),
-        required("EngineVersion") => String.t()
+        required("Engine") => String.t() | atom(),
+        required("EngineVersion") => String.t() | atom()
       }
       
   """
-  @type create_custom_db_engine_version_message() :: %{String.t() => any()}
+  @type create_custom_db_engine_version_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_security_group_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_security_group_quota_exceeded_fault() :: %{String.t() => any()}
+  @type db_security_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_db_instance_message() :: %{
-        optional("StorageType") => String.t(),
+        optional("StorageType") => String.t() | atom(),
         optional("MultiTenant") => boolean(),
-        optional("Timezone") => String.t(),
-        optional("NetworkType") => String.t(),
-        optional("EngineLifecycleSupport") => String.t(),
+        optional("Timezone") => String.t() | atom(),
+        optional("NetworkType") => String.t() | atom(),
+        optional("EngineLifecycleSupport") => String.t() | atom(),
         optional("AllocatedStorage") => integer(),
-        optional("DomainOu") => String.t(),
-        optional("MasterUserSecretKmsKeyId") => String.t(),
+        optional("DomainOu") => String.t() | atom(),
+        optional("MasterUserSecretKmsKeyId") => String.t() | atom(),
         optional("EnableCustomerOwnedIp") => boolean(),
-        optional("MasterUserPassword") => String.t(),
-        optional("PreferredBackupWindow") => String.t(),
+        optional("MasterUserPassword") => String.t() | atom(),
+        optional("PreferredBackupWindow") => String.t() | atom(),
         optional("MonitoringInterval") => integer(),
-        optional("MasterUsername") => String.t(),
-        optional("BackupTarget") => String.t(),
-        optional("DomainIAMRoleName") => String.t(),
-        optional("Domain") => String.t(),
+        optional("MasterUsername") => String.t() | atom(),
+        optional("BackupTarget") => String.t() | atom(),
+        optional("DomainIAMRoleName") => String.t() | atom(),
+        optional("Domain") => String.t() | atom(),
         optional("EnableIAMDatabaseAuthentication") => boolean(),
         optional("CopyTagsToSnapshot") => boolean(),
         optional("DedicatedLogVolume") => boolean(),
-        optional("NcharCharacterSetName") => String.t(),
+        optional("NcharCharacterSetName") => String.t() | atom(),
         optional("BackupRetentionPeriod") => integer(),
-        optional("AvailabilityZone") => String.t(),
-        optional("EnableCloudwatchLogsExports") => list(String.t()),
+        optional("AvailabilityZone") => String.t() | atom(),
+        optional("EnableCloudwatchLogsExports") => list(String.t() | atom()),
         optional("AutoMinorVersionUpgrade") => boolean(),
         optional("PubliclyAccessible") => boolean(),
-        optional("EngineVersion") => String.t(),
-        optional("DomainDnsIps") => list(String.t()),
+        optional("EngineVersion") => String.t() | atom(),
+        optional("DomainDnsIps") => list(String.t() | atom()),
         optional("ProcessorFeatures") => list(processor_feature()),
-        optional("MonitoringRoleArn") => String.t(),
-        optional("LicenseModel") => String.t(),
+        optional("MonitoringRoleArn") => String.t() | atom(),
+        optional("LicenseModel") => String.t() | atom(),
         optional("MaxAllocatedStorage") => integer(),
-        optional("CharacterSetName") => String.t(),
-        required("DBInstanceIdentifier") => String.t(),
-        optional("DomainAuthSecretArn") => String.t(),
+        optional("CharacterSetName") => String.t() | atom(),
+        required("DBInstanceIdentifier") => String.t() | atom(),
+        optional("DomainAuthSecretArn") => String.t() | atom(),
         optional("Iops") => integer(),
         optional("ManageMasterUserPassword") => boolean(),
         optional("Port") => integer(),
-        optional("TdeCredentialPassword") => String.t(),
-        optional("DBSecurityGroups") => list(String.t()),
-        optional("PerformanceInsightsKMSKeyId") => String.t(),
-        required("DBInstanceClass") => String.t(),
+        optional("TdeCredentialPassword") => String.t() | atom(),
+        optional("DBSecurityGroups") => list(String.t() | atom()),
+        optional("PerformanceInsightsKMSKeyId") => String.t() | atom(),
+        required("DBInstanceClass") => String.t() | atom(),
         optional("EnablePerformanceInsights") => boolean(),
         optional("StorageEncrypted") => boolean(),
-        optional("CustomIamInstanceProfile") => String.t(),
+        optional("CustomIamInstanceProfile") => String.t() | atom(),
         optional("MultiAZ") => boolean(),
         optional("DeletionProtection") => boolean(),
-        optional("DBSystemId") => String.t(),
-        optional("VpcSecurityGroupIds") => list(String.t()),
-        optional("CACertificateIdentifier") => String.t(),
-        optional("DBParameterGroupName") => String.t(),
+        optional("DBSystemId") => String.t() | atom(),
+        optional("VpcSecurityGroupIds") => list(String.t() | atom()),
+        optional("CACertificateIdentifier") => String.t() | atom(),
+        optional("DBParameterGroupName") => String.t() | atom(),
         optional("DatabaseInsightsMode") => list(any()),
-        optional("KmsKeyId") => String.t(),
-        optional("DomainFqdn") => String.t(),
-        optional("OptionGroupName") => String.t(),
-        optional("DBName") => String.t(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("DomainFqdn") => String.t() | atom(),
+        optional("OptionGroupName") => String.t() | atom(),
+        optional("DBName") => String.t() | atom(),
         optional("PromotionTier") => integer(),
-        optional("DBClusterIdentifier") => String.t(),
+        optional("DBClusterIdentifier") => String.t() | atom(),
         optional("StorageThroughput") => integer(),
-        optional("DBSubnetGroupName") => String.t(),
+        optional("DBSubnetGroupName") => String.t() | atom(),
         optional("PerformanceInsightsRetentionPeriod") => integer(),
-        optional("PreferredMaintenanceWindow") => String.t(),
-        required("Engine") => String.t(),
-        optional("TdeCredentialArn") => String.t(),
+        optional("PreferredMaintenanceWindow") => String.t() | atom(),
+        required("Engine") => String.t() | atom(),
+        optional("TdeCredentialArn") => String.t() | atom(),
         optional("Tags") => list(tag())
       }
       
   """
-  @type create_db_instance_message() :: %{String.t() => any()}
+  @type create_db_instance_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2044,7 +2044,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type create_db_cluster_result() :: %{String.t() => any()}
+  @type create_db_cluster_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2055,7 +2055,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type restore_db_cluster_to_point_in_time_result() :: %{String.t() => any()}
+  @type restore_db_cluster_to_point_in_time_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2066,19 +2066,19 @@ defmodule AWS.RDS do
       }
       
   """
-  @type delete_db_proxy_response() :: %{String.t() => any()}
+  @type delete_db_proxy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       metric_reference() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "ReferenceDetails" => reference_details()
       }
       
   """
-  @type metric_reference() :: %{String.t() => any()}
+  @type metric_reference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2086,36 +2086,36 @@ defmodule AWS.RDS do
       
       describe_option_group_options_message() :: %{
         optional("Filters") => list(filter()),
-        optional("MajorEngineVersion") => String.t(),
-        optional("Marker") => String.t(),
+        optional("MajorEngineVersion") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        required("EngineName") => String.t()
+        required("EngineName") => String.t() | atom()
       }
       
   """
-  @type describe_option_group_options_message() :: %{String.t() => any()}
+  @type describe_option_group_options_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       custom_db_engine_version_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type custom_db_engine_version_quota_exceeded_fault() :: %{String.t() => any()}
+  @type custom_db_engine_version_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       storage_type_not_supported_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type storage_type_not_supported_fault() :: %{String.t() => any()}
+  @type storage_type_not_supported_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2126,111 +2126,111 @@ defmodule AWS.RDS do
       }
       
   """
-  @type describe_db_cluster_snapshot_attributes_result() :: %{String.t() => any()}
+  @type describe_db_cluster_snapshot_attributes_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_db_security_group_message() :: %{
-        required("DBSecurityGroupName") => String.t()
+        required("DBSecurityGroupName") => String.t() | atom()
       }
       
   """
-  @type delete_db_security_group_message() :: %{String.t() => any()}
+  @type delete_db_security_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_subnet_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_subnet_quota_exceeded_fault() :: %{String.t() => any()}
+  @type db_subnet_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_instance() :: %{
-        "DBSystemId" => String.t(),
+        "DBSystemId" => String.t() | atom(),
         "LatestRestorableTime" => non_neg_integer(),
         "MasterUserSecret" => master_user_secret(),
-        "DBName" => String.t(),
+        "DBName" => String.t() | atom(),
         "StatusInfos" => list(db_instance_status_info()),
-        "Engine" => String.t(),
+        "Engine" => String.t() | atom(),
         "MultiTenant" => boolean(),
         "VpcSecurityGroups" => list(vpc_security_group_membership()),
-        "NetworkType" => String.t(),
-        "ActivityStreamKmsKeyId" => String.t(),
-        "NcharCharacterSetName" => String.t(),
+        "NetworkType" => String.t() | atom(),
+        "ActivityStreamKmsKeyId" => String.t() | atom(),
+        "NcharCharacterSetName" => String.t() | atom(),
         "MultiAZ" => boolean(),
-        "CACertificateIdentifier" => String.t(),
-        "Timezone" => String.t(),
-        "PreferredMaintenanceWindow" => String.t(),
+        "CACertificateIdentifier" => String.t() | atom(),
+        "Timezone" => String.t() | atom(),
+        "PreferredMaintenanceWindow" => String.t() | atom(),
         "Iops" => integer(),
         "MonitoringInterval" => integer(),
-        "ReadReplicaDBInstanceIdentifiers" => list(String.t()),
+        "ReadReplicaDBInstanceIdentifiers" => list(String.t() | atom()),
         "CustomerOwnedIpEnabled" => boolean(),
-        "AwsBackupRecoveryPointArn" => String.t(),
+        "AwsBackupRecoveryPointArn" => String.t() | atom(),
         "OptionGroupMemberships" => list(option_group_membership()),
-        "ReadReplicaSourceDBClusterIdentifier" => String.t(),
-        "ActivityStreamKinesisStreamName" => String.t(),
-        "PreferredBackupWindow" => String.t(),
+        "ReadReplicaSourceDBClusterIdentifier" => String.t() | atom(),
+        "ActivityStreamKinesisStreamName" => String.t() | atom(),
+        "PreferredBackupWindow" => String.t() | atom(),
         "DatabaseInsightsMode" => list(any()),
         "PendingModifiedValues" => pending_modified_values(),
         "PerformanceInsightsEnabled" => boolean(),
         "PromotionTier" => integer(),
-        "ReadReplicaSourceDBInstanceIdentifier" => String.t(),
+        "ReadReplicaSourceDBInstanceIdentifier" => String.t() | atom(),
         "BackupRetentionPeriod" => integer(),
-        "KmsKeyId" => String.t(),
+        "KmsKeyId" => String.t() | atom(),
         "ActivityStreamMode" => list(any()),
-        "AvailabilityZone" => String.t(),
+        "AvailabilityZone" => String.t() | atom(),
         "CopyTagsToSnapshot" => boolean(),
         "ProcessorFeatures" => list(processor_feature()),
-        "DBInstanceClass" => String.t(),
-        "ReadReplicaDBClusterIdentifiers" => list(String.t()),
-        "CustomIamInstanceProfile" => String.t(),
-        "BackupTarget" => String.t(),
+        "DBInstanceClass" => String.t() | atom(),
+        "ReadReplicaDBClusterIdentifiers" => list(String.t() | atom()),
+        "CustomIamInstanceProfile" => String.t() | atom(),
+        "BackupTarget" => String.t() | atom(),
         "ActivityStreamEngineNativeAuditFieldsIncluded" => boolean(),
-        "EnhancedMonitoringResourceArn" => String.t(),
+        "EnhancedMonitoringResourceArn" => String.t() | atom(),
         "DedicatedLogVolume" => boolean(),
-        "EnabledCloudwatchLogsExports" => list(String.t()),
+        "EnabledCloudwatchLogsExports" => list(String.t() | atom()),
         "AutoMinorVersionUpgrade" => boolean(),
         "IsStorageConfigUpgradeAvailable" => boolean(),
-        "DBInstanceArn" => String.t(),
+        "DBInstanceArn" => String.t() | atom(),
         "TagList" => list(tag()),
-        "PercentProgress" => String.t(),
+        "PercentProgress" => String.t() | atom(),
         "ReplicaMode" => list(any()),
-        "EngineLifecycleSupport" => String.t(),
-        "DbiResourceId" => String.t(),
+        "EngineLifecycleSupport" => String.t() | atom(),
+        "DbiResourceId" => String.t() | atom(),
         "DBParameterGroups" => list(db_parameter_group_status()),
         "AutomationMode" => list(any()),
         "StorageThroughput" => integer(),
-        "DBInstanceStatus" => String.t(),
+        "DBInstanceStatus" => String.t() | atom(),
         "ActivityStreamPolicyStatus" => list(any()),
-        "TdeCredentialArn" => String.t(),
-        "PerformanceInsightsKMSKeyId" => String.t(),
+        "TdeCredentialArn" => String.t() | atom(),
+        "PerformanceInsightsKMSKeyId" => String.t() | atom(),
         "DBInstanceAutomatedBackupsReplications" => list(db_instance_automated_backups_replication()),
-        "MasterUsername" => String.t(),
-        "LicenseModel" => String.t(),
+        "MasterUsername" => String.t() | atom(),
+        "LicenseModel" => String.t() | atom(),
         "AutomaticRestartTime" => non_neg_integer(),
-        "DBInstanceIdentifier" => String.t(),
-        "DBClusterIdentifier" => String.t(),
+        "DBInstanceIdentifier" => String.t() | atom(),
+        "DBClusterIdentifier" => String.t() | atom(),
         "DeletionProtection" => boolean(),
-        "StorageType" => String.t(),
+        "StorageType" => String.t() | atom(),
         "DBSubnetGroup" => db_subnet_group(),
         "PerformanceInsightsRetentionPeriod" => integer(),
         "InstanceCreateTime" => non_neg_integer(),
         "DomainMemberships" => list(domain_membership()),
         "DbInstancePort" => integer(),
-        "SecondaryAvailabilityZone" => String.t(),
+        "SecondaryAvailabilityZone" => String.t() | atom(),
         "ActivityStreamStatus" => list(any()),
         "CertificateDetails" => certificate_details(),
         "PubliclyAccessible" => boolean(),
-        "EngineVersion" => String.t(),
+        "EngineVersion" => String.t() | atom(),
         "AllocatedStorage" => integer(),
         "AssociatedRoles" => list(db_instance_role()),
         "MaxAllocatedStorage" => integer(),
@@ -2239,48 +2239,48 @@ defmodule AWS.RDS do
         "Endpoint" => endpoint(),
         "ResumeFullAutomationModeTime" => non_neg_integer(),
         "IAMDatabaseAuthenticationEnabled" => boolean(),
-        "CharacterSetName" => String.t(),
-        "MonitoringRoleArn" => String.t(),
+        "CharacterSetName" => String.t() | atom(),
+        "MonitoringRoleArn" => String.t() | atom(),
         "ListenerEndpoint" => endpoint()
       }
       
   """
-  @type db_instance() :: %{String.t() => any()}
+  @type db_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_proxy_endpoint_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_proxy_endpoint_already_exists_fault() :: %{String.t() => any()}
+  @type db_proxy_endpoint_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_role_to_db_cluster_message() :: %{
-        optional("FeatureName") => String.t(),
-        required("DBClusterIdentifier") => String.t(),
-        required("RoleArn") => String.t()
+        optional("FeatureName") => String.t() | atom(),
+        required("DBClusterIdentifier") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
       }
       
   """
-  @type add_role_to_db_cluster_message() :: %{String.t() => any()}
+  @type add_role_to_db_cluster_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_automated_backup_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_cluster_automated_backup_not_found_fault() :: %{String.t() => any()}
+  @type db_cluster_automated_backup_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2291,25 +2291,25 @@ defmodule AWS.RDS do
       }
       
   """
-  @type describe_engine_default_cluster_parameters_result() :: %{String.t() => any()}
+  @type describe_engine_default_cluster_parameters_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_proxy_target() :: %{
-        "Endpoint" => String.t(),
+        "Endpoint" => String.t() | atom(),
         "Port" => integer(),
-        "RdsResourceId" => String.t(),
+        "RdsResourceId" => String.t() | atom(),
         "Role" => list(any()),
-        "TargetArn" => String.t(),
+        "TargetArn" => String.t() | atom(),
         "TargetHealth" => target_health(),
-        "TrackedClusterId" => String.t(),
+        "TrackedClusterId" => String.t() | atom(),
         "Type" => list(any())
       }
       
   """
-  @type db_proxy_target() :: %{String.t() => any()}
+  @type db_proxy_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2320,41 +2320,41 @@ defmodule AWS.RDS do
       }
       
   """
-  @type copy_db_cluster_snapshot_result() :: %{String.t() => any()}
+  @type copy_db_cluster_snapshot_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       subscription_already_exist_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type subscription_already_exist_fault() :: %{String.t() => any()}
+  @type subscription_already_exist_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_parameter_group_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_parameter_group_quota_exceeded_fault() :: %{String.t() => any()}
+  @type db_parameter_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       recommended_action_parameter() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type recommended_action_parameter() :: %{String.t() => any()}
+  @type recommended_action_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2365,7 +2365,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type delete_blue_green_deployment_response() :: %{String.t() => any()}
+  @type delete_blue_green_deployment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2373,11 +2373,11 @@ defmodule AWS.RDS do
       
       db_cluster_message() :: %{
         "DBClusters" => list(db_cluster()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type db_cluster_message() :: %{String.t() => any()}
+  @type db_cluster_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2385,24 +2385,24 @@ defmodule AWS.RDS do
       
       create_db_snapshot_message() :: %{
         optional("Tags") => list(tag()),
-        required("DBInstanceIdentifier") => String.t(),
-        required("DBSnapshotIdentifier") => String.t()
+        required("DBInstanceIdentifier") => String.t() | atom(),
+        required("DBSnapshotIdentifier") => String.t() | atom()
       }
       
   """
-  @type create_db_snapshot_message() :: %{String.t() => any()}
+  @type create_db_snapshot_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       minimum_engine_version_per_allowed_value() :: %{
-        "AllowedValue" => String.t(),
-        "MinimumEngineVersion" => String.t()
+        "AllowedValue" => String.t() | atom(),
+        "MinimumEngineVersion" => String.t() | atom()
       }
       
   """
-  @type minimum_engine_version_per_allowed_value() :: %{String.t() => any()}
+  @type minimum_engine_version_per_allowed_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2413,18 +2413,18 @@ defmodule AWS.RDS do
       }
       
   """
-  @type describe_valid_db_instance_modifications_result() :: %{String.t() => any()}
+  @type describe_valid_db_instance_modifications_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ec2_image_properties_not_supported_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type ec2_image_properties_not_supported_fault() :: %{String.t() => any()}
+  @type ec2_image_properties_not_supported_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2432,13 +2432,13 @@ defmodule AWS.RDS do
       
       copy_option_group_message() :: %{
         optional("Tags") => list(tag()),
-        required("SourceOptionGroupIdentifier") => String.t(),
-        required("TargetOptionGroupDescription") => String.t(),
-        required("TargetOptionGroupIdentifier") => String.t()
+        required("SourceOptionGroupIdentifier") => String.t() | atom(),
+        required("TargetOptionGroupDescription") => String.t() | atom(),
+        required("TargetOptionGroupIdentifier") => String.t() | atom()
       }
       
   """
-  @type copy_option_group_message() :: %{String.t() => any()}
+  @type copy_option_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2446,35 +2446,35 @@ defmodule AWS.RDS do
       
       describe_engine_default_parameters_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        required("DBParameterGroupFamily") => String.t()
+        required("DBParameterGroupFamily") => String.t() | atom()
       }
       
   """
-  @type describe_engine_default_parameters_message() :: %{String.t() => any()}
+  @type describe_engine_default_parameters_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_subnet_group_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_subnet_group_quota_exceeded_fault() :: %{String.t() => any()}
+  @type db_subnet_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_valid_db_instance_modifications_message() :: %{
-        required("DBInstanceIdentifier") => String.t()
+        required("DBInstanceIdentifier") => String.t() | atom()
       }
       
   """
-  @type describe_valid_db_instance_modifications_message() :: %{String.t() => any()}
+  @type describe_valid_db_instance_modifications_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2485,7 +2485,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type delete_tenant_database_result() :: %{String.t() => any()}
+  @type delete_tenant_database_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2496,71 +2496,71 @@ defmodule AWS.RDS do
       }
       
   """
-  @type failover_global_cluster_result() :: %{String.t() => any()}
+  @type failover_global_cluster_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_global_cluster_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_global_cluster_state_fault() :: %{String.t() => any()}
+  @type invalid_global_cluster_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_db_instance_automated_backup_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_db_instance_automated_backup_state_fault() :: %{String.t() => any()}
+  @type invalid_db_instance_automated_backup_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_db_cluster_endpoint_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_db_cluster_endpoint_state_fault() :: %{String.t() => any()}
+  @type invalid_db_cluster_endpoint_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_engine_versions_message() :: %{
-        optional("DBParameterGroupFamily") => String.t(),
+        optional("DBParameterGroupFamily") => String.t() | atom(),
         optional("DefaultOnly") => boolean(),
-        optional("Engine") => String.t(),
-        optional("EngineVersion") => String.t(),
+        optional("Engine") => String.t() | atom(),
+        optional("EngineVersion") => String.t() | atom(),
         optional("Filters") => list(filter()),
         optional("IncludeAll") => boolean(),
         optional("ListSupportedCharacterSets") => boolean(),
         optional("ListSupportedTimezones") => boolean(),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_db_engine_versions_message() :: %{String.t() => any()}
+  @type describe_db_engine_versions_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       promote_read_replica_db_cluster_message() :: %{
-        required("DBClusterIdentifier") => String.t()
+        required("DBClusterIdentifier") => String.t() | atom()
       }
       
   """
-  @type promote_read_replica_db_cluster_message() :: %{String.t() => any()}
+  @type promote_read_replica_db_cluster_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2569,31 +2569,31 @@ defmodule AWS.RDS do
       create_blue_green_deployment_request() :: %{
         optional("Tags") => list(tag()),
         optional("TargetAllocatedStorage") => integer(),
-        optional("TargetDBClusterParameterGroupName") => String.t(),
-        optional("TargetDBInstanceClass") => String.t(),
-        optional("TargetDBParameterGroupName") => String.t(),
-        optional("TargetEngineVersion") => String.t(),
+        optional("TargetDBClusterParameterGroupName") => String.t() | atom(),
+        optional("TargetDBInstanceClass") => String.t() | atom(),
+        optional("TargetDBParameterGroupName") => String.t() | atom(),
+        optional("TargetEngineVersion") => String.t() | atom(),
         optional("TargetIops") => integer(),
         optional("TargetStorageThroughput") => integer(),
-        optional("TargetStorageType") => String.t(),
+        optional("TargetStorageType") => String.t() | atom(),
         optional("UpgradeTargetStorageConfig") => boolean(),
-        required("BlueGreenDeploymentName") => String.t(),
-        required("Source") => String.t()
+        required("BlueGreenDeploymentName") => String.t() | atom(),
+        required("Source") => String.t() | atom()
       }
       
   """
-  @type create_blue_green_deployment_request() :: %{String.t() => any()}
+  @type create_blue_green_deployment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       domain_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type domain_not_found_fault() :: %{String.t() => any()}
+  @type domain_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2604,7 +2604,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type create_db_instance_read_replica_result() :: %{String.t() => any()}
+  @type create_db_instance_read_replica_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2615,7 +2615,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type restore_db_cluster_from_s3_result() :: %{String.t() => any()}
+  @type restore_db_cluster_from_s3_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2623,11 +2623,11 @@ defmodule AWS.RDS do
       
       db_cluster_endpoint_message() :: %{
         "DBClusterEndpoints" => list(db_cluster_endpoint()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type db_cluster_endpoint_message() :: %{String.t() => any()}
+  @type db_cluster_endpoint_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2635,47 +2635,47 @@ defmodule AWS.RDS do
       
       download_db_log_file_portion_details() :: %{
         "AdditionalDataPending" => boolean(),
-        "LogFileData" => String.t(),
-        "Marker" => String.t()
+        "LogFileData" => String.t() | atom(),
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type download_db_log_file_portion_details() :: %{String.t() => any()}
+  @type download_db_log_file_portion_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_certificates_message() :: %{
-        optional("CertificateIdentifier") => String.t(),
+        optional("CertificateIdentifier") => String.t() | atom(),
         optional("RemoveCustomerOverride") => boolean()
       }
       
   """
-  @type modify_certificates_message() :: %{String.t() => any()}
+  @type modify_certificates_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_security_group_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_security_group_already_exists_fault() :: %{String.t() => any()}
+  @type db_security_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       character_set() :: %{
-        "CharacterSetDescription" => String.t(),
-        "CharacterSetName" => String.t()
+        "CharacterSetDescription" => String.t() | atom(),
+        "CharacterSetName" => String.t() | atom()
       }
       
   """
-  @type character_set() :: %{String.t() => any()}
+  @type character_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2683,13 +2683,13 @@ defmodule AWS.RDS do
       
       delete_db_cluster_message() :: %{
         optional("DeleteAutomatedBackups") => boolean(),
-        optional("FinalDBSnapshotIdentifier") => String.t(),
+        optional("FinalDBSnapshotIdentifier") => String.t() | atom(),
         optional("SkipFinalSnapshot") => boolean(),
-        required("DBClusterIdentifier") => String.t()
+        required("DBClusterIdentifier") => String.t() | atom()
       }
       
   """
-  @type delete_db_cluster_message() :: %{String.t() => any()}
+  @type delete_db_cluster_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2700,7 +2700,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type reboot_db_instance_result() :: %{String.t() => any()}
+  @type reboot_db_instance_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2708,11 +2708,11 @@ defmodule AWS.RDS do
       
       switchover_blue_green_deployment_request() :: %{
         optional("SwitchoverTimeout") => integer(),
-        required("BlueGreenDeploymentIdentifier") => String.t()
+        required("BlueGreenDeploymentIdentifier") => String.t() | atom()
       }
       
   """
-  @type switchover_blue_green_deployment_request() :: %{String.t() => any()}
+  @type switchover_blue_green_deployment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2720,28 +2720,28 @@ defmodule AWS.RDS do
       
       db_instance_automated_backup_message() :: %{
         "DBInstanceAutomatedBackups" => list(db_instance_automated_backup()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type db_instance_automated_backup_message() :: %{String.t() => any()}
+  @type db_instance_automated_backup_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_security_group() :: %{
-        "DBSecurityGroupArn" => String.t(),
-        "DBSecurityGroupDescription" => String.t(),
-        "DBSecurityGroupName" => String.t(),
+        "DBSecurityGroupArn" => String.t() | atom(),
+        "DBSecurityGroupDescription" => String.t() | atom(),
+        "DBSecurityGroupName" => String.t() | atom(),
         "EC2SecurityGroups" => list(ec2_security_group()),
         "IPRanges" => list(ip_range()),
-        "OwnerId" => String.t(),
-        "VpcId" => String.t()
+        "OwnerId" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
       
   """
-  @type db_security_group() :: %{String.t() => any()}
+  @type db_security_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2749,33 +2749,33 @@ defmodule AWS.RDS do
       
       describe_db_proxy_endpoints_response() :: %{
         "DBProxyEndpoints" => list(db_proxy_endpoint()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type describe_db_proxy_endpoints_response() :: %{String.t() => any()}
+  @type describe_db_proxy_endpoints_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_export_source_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_export_source_state_fault() :: %{String.t() => any()}
+  @type invalid_export_source_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       export_task_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type export_task_already_exists_fault() :: %{String.t() => any()}
+  @type export_task_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2786,18 +2786,18 @@ defmodule AWS.RDS do
       }
       
   """
-  @type add_source_identifier_to_subscription_result() :: %{String.t() => any()}
+  @type add_source_identifier_to_subscription_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_shard_group_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_shard_group_not_found_fault() :: %{String.t() => any()}
+  @type db_shard_group_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2813,56 +2813,56 @@ defmodule AWS.RDS do
   ## Example:
       
       db_parameter_group() :: %{
-        "DBParameterGroupArn" => String.t(),
-        "DBParameterGroupFamily" => String.t(),
-        "DBParameterGroupName" => String.t(),
-        "Description" => String.t()
+        "DBParameterGroupArn" => String.t() | atom(),
+        "DBParameterGroupFamily" => String.t() | atom(),
+        "DBParameterGroupName" => String.t() | atom(),
+        "Description" => String.t() | atom()
       }
       
   """
-  @type db_parameter_group() :: %{String.t() => any()}
+  @type db_parameter_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_reserved_db_instances_offerings_message() :: %{
-        optional("DBInstanceClass") => String.t(),
-        optional("Duration") => String.t(),
+        optional("DBInstanceClass") => String.t() | atom(),
+        optional("Duration") => String.t() | atom(),
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
         optional("MultiAZ") => boolean(),
-        optional("OfferingType") => String.t(),
-        optional("ProductDescription") => String.t(),
-        optional("ReservedDBInstancesOfferingId") => String.t()
+        optional("OfferingType") => String.t() | atom(),
+        optional("ProductDescription") => String.t() | atom(),
+        optional("ReservedDBInstancesOfferingId") => String.t() | atom()
       }
       
   """
-  @type describe_reserved_db_instances_offerings_message() :: %{String.t() => any()}
+  @type describe_reserved_db_instances_offerings_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       custom_db_engine_version_a_m_i() :: %{
-        "ImageId" => String.t(),
-        "Status" => String.t()
+        "ImageId" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type custom_db_engine_version_a_m_i() :: %{String.t() => any()}
+  @type custom_db_engine_version_a_m_i() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_parameter_group_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_parameter_group_already_exists_fault() :: %{String.t() => any()}
+  @type db_parameter_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2870,13 +2870,13 @@ defmodule AWS.RDS do
       
       delete_db_instance_message() :: %{
         optional("DeleteAutomatedBackups") => boolean(),
-        optional("FinalDBSnapshotIdentifier") => String.t(),
+        optional("FinalDBSnapshotIdentifier") => String.t() | atom(),
         optional("SkipFinalSnapshot") => boolean(),
-        required("DBInstanceIdentifier") => String.t()
+        required("DBInstanceIdentifier") => String.t() | atom()
       }
       
   """
-  @type delete_db_instance_message() :: %{String.t() => any()}
+  @type delete_db_instance_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2887,54 +2887,56 @@ defmodule AWS.RDS do
       }
       
   """
-  @type stop_db_instance_automated_backups_replication_result() :: %{String.t() => any()}
+  @type stop_db_instance_automated_backups_replication_result() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       invalid_vpc_network_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_vpc_network_state_fault() :: %{String.t() => any()}
+  @type invalid_vpc_network_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       option_group_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type option_group_quota_exceeded_fault() :: %{String.t() => any()}
+  @type option_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       source_region() :: %{
-        "Endpoint" => String.t(),
-        "RegionName" => String.t(),
-        "Status" => String.t(),
+        "Endpoint" => String.t() | atom(),
+        "RegionName" => String.t() | atom(),
+        "Status" => String.t() | atom(),
         "SupportsDBInstanceAutomatedBackupsReplication" => boolean()
       }
       
   """
-  @type source_region() :: %{String.t() => any()}
+  @type source_region() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       iam_role_missing_permissions_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type iam_role_missing_permissions_fault() :: %{String.t() => any()}
+  @type iam_role_missing_permissions_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2943,11 +2945,11 @@ defmodule AWS.RDS do
       reset_db_parameter_group_message() :: %{
         optional("Parameters") => list(parameter()),
         optional("ResetAllParameters") => boolean(),
-        required("DBParameterGroupName") => String.t()
+        required("DBParameterGroupName") => String.t() | atom()
       }
       
   """
-  @type reset_db_parameter_group_message() :: %{String.t() => any()}
+  @type reset_db_parameter_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2955,78 +2957,78 @@ defmodule AWS.RDS do
       
       create_event_subscription_message() :: %{
         optional("Enabled") => boolean(),
-        optional("EventCategories") => list(String.t()),
-        optional("SourceIds") => list(String.t()),
-        optional("SourceType") => String.t(),
+        optional("EventCategories") => list(String.t() | atom()),
+        optional("SourceIds") => list(String.t() | atom()),
+        optional("SourceType") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("SnsTopicArn") => String.t(),
-        required("SubscriptionName") => String.t()
+        required("SnsTopicArn") => String.t() | atom(),
+        required("SubscriptionName") => String.t() | atom()
       }
       
   """
-  @type create_event_subscription_message() :: %{String.t() => any()}
+  @type create_event_subscription_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       switchover_read_replica_message() :: %{
-        required("DBInstanceIdentifier") => String.t()
+        required("DBInstanceIdentifier") => String.t() | atom()
       }
       
   """
-  @type switchover_read_replica_message() :: %{String.t() => any()}
+  @type switchover_read_replica_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_security_group_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_security_group_not_found_fault() :: %{String.t() => any()}
+  @type db_security_group_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_proxies_request() :: %{
-        optional("DBProxyName") => String.t(),
+        optional("DBProxyName") => String.t() | atom(),
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_db_proxies_request() :: %{String.t() => any()}
+  @type describe_db_proxies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_cluster_endpoints_message() :: %{
-        optional("DBClusterEndpointIdentifier") => String.t(),
-        optional("DBClusterIdentifier") => String.t(),
+        optional("DBClusterEndpointIdentifier") => String.t() | atom(),
+        optional("DBClusterIdentifier") => String.t() | atom(),
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_db_cluster_endpoints_message() :: %{String.t() => any()}
+  @type describe_db_cluster_endpoints_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tenant_database_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type tenant_database_quota_exceeded_fault() :: %{String.t() => any()}
+  @type tenant_database_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3037,19 +3039,19 @@ defmodule AWS.RDS do
       }
       
   """
-  @type modify_db_cluster_result() :: %{String.t() => any()}
+  @type modify_db_cluster_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       orderable_db_instance_options_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | atom(),
         "OrderableDBInstanceOptions" => list(orderable_db_instance_option())
       }
       
   """
-  @type orderable_db_instance_options_message() :: %{String.t() => any()}
+  @type orderable_db_instance_options_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3060,46 +3062,46 @@ defmodule AWS.RDS do
       }
       
   """
-  @type promote_read_replica_db_cluster_result() :: %{String.t() => any()}
+  @type promote_read_replica_db_cluster_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       authorize_db_security_group_ingress_message() :: %{
-        optional("CIDRIP") => String.t(),
-        optional("EC2SecurityGroupId") => String.t(),
-        optional("EC2SecurityGroupName") => String.t(),
-        optional("EC2SecurityGroupOwnerId") => String.t(),
-        required("DBSecurityGroupName") => String.t()
+        optional("CIDRIP") => String.t() | atom(),
+        optional("EC2SecurityGroupId") => String.t() | atom(),
+        optional("EC2SecurityGroupName") => String.t() | atom(),
+        optional("EC2SecurityGroupOwnerId") => String.t() | atom(),
+        required("DBSecurityGroupName") => String.t() | atom()
       }
       
   """
-  @type authorize_db_security_group_ingress_message() :: %{String.t() => any()}
+  @type authorize_db_security_group_ingress_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       switchover_detail() :: %{
-        "SourceMember" => String.t(),
-        "Status" => String.t(),
-        "TargetMember" => String.t()
+        "SourceMember" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "TargetMember" => String.t() | atom()
       }
       
   """
-  @type switchover_detail() :: %{String.t() => any()}
+  @type switchover_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       integration_conflict_operation_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type integration_conflict_operation_fault() :: %{String.t() => any()}
+  @type integration_conflict_operation_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3107,11 +3109,11 @@ defmodule AWS.RDS do
       
       db_recommendations_message() :: %{
         "DBRecommendations" => list(db_recommendation()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type db_recommendations_message() :: %{String.t() => any()}
+  @type db_recommendations_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3119,13 +3121,13 @@ defmodule AWS.RDS do
       
       describe_event_subscriptions_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        optional("SubscriptionName") => String.t()
+        optional("SubscriptionName") => String.t() | atom()
       }
       
   """
-  @type describe_event_subscriptions_message() :: %{String.t() => any()}
+  @type describe_event_subscriptions_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3136,67 +3138,67 @@ defmodule AWS.RDS do
         optional("MinACU") => float(),
         optional("PubliclyAccessible") => boolean(),
         optional("Tags") => list(tag()),
-        required("DBClusterIdentifier") => String.t(),
-        required("DBShardGroupIdentifier") => String.t(),
+        required("DBClusterIdentifier") => String.t() | atom(),
+        required("DBShardGroupIdentifier") => String.t() | atom(),
         required("MaxACU") => float()
       }
       
   """
-  @type create_db_shard_group_message() :: %{String.t() => any()}
+  @type create_db_shard_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_instance_automated_backups_message() :: %{
-        optional("DBInstanceAutomatedBackupsArn") => String.t(),
-        optional("DBInstanceIdentifier") => String.t(),
-        optional("DbiResourceId") => String.t(),
+        optional("DBInstanceAutomatedBackupsArn") => String.t() | atom(),
+        optional("DBInstanceIdentifier") => String.t() | atom(),
+        optional("DbiResourceId") => String.t() | atom(),
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_db_instance_automated_backups_message() :: %{String.t() => any()}
+  @type describe_db_instance_automated_backups_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_custom_db_engine_version_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_custom_db_engine_version_state_fault() :: %{String.t() => any()}
+  @type invalid_custom_db_engine_version_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_snapshot_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_cluster_snapshot_already_exists_fault() :: %{String.t() => any()}
+  @type db_cluster_snapshot_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_db_cluster_endpoint_message() :: %{
-        optional("ExcludedMembers") => list(String.t()),
-        optional("StaticMembers") => list(String.t()),
+        optional("ExcludedMembers") => list(String.t() | atom()),
+        optional("StaticMembers") => list(String.t() | atom()),
         optional("Tags") => list(tag()),
-        required("DBClusterEndpointIdentifier") => String.t(),
-        required("DBClusterIdentifier") => String.t(),
-        required("EndpointType") => String.t()
+        required("DBClusterEndpointIdentifier") => String.t() | atom(),
+        required("DBClusterIdentifier") => String.t() | atom(),
+        required("EndpointType") => String.t() | atom()
       }
       
   """
-  @type create_db_cluster_endpoint_message() :: %{String.t() => any()}
+  @type create_db_cluster_endpoint_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3207,30 +3209,30 @@ defmodule AWS.RDS do
       }
       
   """
-  @type modify_db_cluster_snapshot_attribute_result() :: %{String.t() => any()}
+  @type modify_db_cluster_snapshot_attribute_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_integration_message() :: %{
-        required("IntegrationIdentifier") => String.t()
+        required("IntegrationIdentifier") => String.t() | atom()
       }
       
   """
-  @type delete_integration_message() :: %{String.t() => any()}
+  @type delete_integration_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_snapshot_attribute() :: %{
-        "AttributeName" => String.t(),
-        "AttributeValues" => list(String.t())
+        "AttributeName" => String.t() | atom(),
+        "AttributeValues" => list(String.t() | atom())
       }
       
   """
-  @type db_cluster_snapshot_attribute() :: %{String.t() => any()}
+  @type db_cluster_snapshot_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3239,38 +3241,38 @@ defmodule AWS.RDS do
       start_activity_stream_request() :: %{
         optional("ApplyImmediately") => boolean(),
         optional("EngineNativeAuditFieldsIncluded") => boolean(),
-        required("KmsKeyId") => String.t(),
+        required("KmsKeyId") => String.t() | atom(),
         required("Mode") => list(any()),
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type start_activity_stream_request() :: %{String.t() => any()}
+  @type start_activity_stream_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_subnet_group_does_not_cover_enough_a_zs() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_subnet_group_does_not_cover_enough_a_zs() :: %{String.t() => any()}
+  @type db_subnet_group_does_not_cover_enough_a_zs() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_security_groups_message() :: %{
-        optional("DBSecurityGroupName") => String.t(),
+        optional("DBSecurityGroupName") => String.t() | atom(),
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_db_security_groups_message() :: %{String.t() => any()}
+  @type describe_db_security_groups_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3280,17 +3282,17 @@ defmodule AWS.RDS do
         "AllocatedStorage" => integer(),
         "AutomationMode" => list(any()),
         "BackupRetentionPeriod" => integer(),
-        "CACertificateIdentifier" => String.t(),
-        "DBInstanceClass" => String.t(),
-        "DBInstanceIdentifier" => String.t(),
-        "DBSubnetGroupName" => String.t(),
+        "CACertificateIdentifier" => String.t() | atom(),
+        "DBInstanceClass" => String.t() | atom(),
+        "DBInstanceIdentifier" => String.t() | atom(),
+        "DBSubnetGroupName" => String.t() | atom(),
         "DedicatedLogVolume" => boolean(),
-        "Engine" => String.t(),
-        "EngineVersion" => String.t(),
+        "Engine" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
         "IAMDatabaseAuthenticationEnabled" => boolean(),
         "Iops" => integer(),
-        "LicenseModel" => String.t(),
-        "MasterUserPassword" => String.t(),
+        "LicenseModel" => String.t() | atom(),
+        "MasterUserPassword" => String.t() | atom(),
         "MultiAZ" => boolean(),
         "MultiTenant" => boolean(),
         "PendingCloudwatchLogsExports" => pending_cloudwatch_logs_exports(),
@@ -3298,22 +3300,22 @@ defmodule AWS.RDS do
         "ProcessorFeatures" => list(processor_feature()),
         "ResumeFullAutomationModeTime" => non_neg_integer(),
         "StorageThroughput" => integer(),
-        "StorageType" => String.t()
+        "StorageType" => String.t() | atom()
       }
       
   """
-  @type pending_modified_values() :: %{String.t() => any()}
+  @type pending_modified_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       network_type_not_supported() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type network_type_not_supported() :: %{String.t() => any()}
+  @type network_type_not_supported() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3323,7 +3325,7 @@ defmodule AWS.RDS do
         "MultiAZCapable" => boolean(),
         "MaxStorageSize" => integer(),
         "MinStorageSize" => integer(),
-        "Engine" => String.t(),
+        "Engine" => String.t() | atom(),
         "MaxIopsPerGib" => float(),
         "OutpostCapable" => boolean(),
         "SupportsEnhancedMonitoring" => boolean(),
@@ -3333,10 +3335,10 @@ defmodule AWS.RDS do
         "MaxStorageThroughputPerIops" => float(),
         "SupportsIAMDatabaseAuthentication" => boolean(),
         "SupportsPerformanceInsights" => boolean(),
-        "SupportedEngineModes" => list(String.t()),
+        "SupportedEngineModes" => list(String.t() | atom()),
         "SupportsKerberosAuthentication" => boolean(),
         "SupportsIops" => boolean(),
-        "DBInstanceClass" => String.t(),
+        "DBInstanceClass" => String.t() | atom(),
         "MaxStorageThroughputPerDbInstance" => integer(),
         "SupportsGlobalDatabases" => boolean(),
         "MaxIopsPerDbInstance" => integer(),
@@ -3345,72 +3347,72 @@ defmodule AWS.RDS do
         "SupportsDedicatedLogVolume" => boolean(),
         "MinIopsPerDbInstance" => integer(),
         "SupportsClusters" => boolean(),
-        "LicenseModel" => String.t(),
+        "LicenseModel" => String.t() | atom(),
         "SupportsStorageEncryption" => boolean(),
         "SupportsStorageThroughput" => boolean(),
-        "StorageType" => String.t(),
-        "SupportedNetworkTypes" => list(String.t()),
+        "StorageType" => String.t() | atom(),
+        "SupportedNetworkTypes" => list(String.t() | atom()),
         "SupportsStorageAutoscaling" => boolean(),
         "ReadReplicaCapable" => boolean(),
         "MinIopsPerGib" => float(),
-        "SupportedActivityStreamModes" => list(String.t()),
-        "EngineVersion" => String.t(),
-        "AvailabilityZoneGroup" => String.t()
+        "SupportedActivityStreamModes" => list(String.t() | atom()),
+        "EngineVersion" => String.t() | atom(),
+        "AvailabilityZoneGroup" => String.t() | atom()
       }
       
   """
-  @type orderable_db_instance_option() :: %{String.t() => any()}
+  @type orderable_db_instance_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       backup_policy_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type backup_policy_not_found_fault() :: %{String.t() => any()}
+  @type backup_policy_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_db_parameter_group_message() :: %{
-        required("DBParameterGroupName") => String.t()
+        required("DBParameterGroupName") => String.t() | atom()
       }
       
   """
-  @type delete_db_parameter_group_message() :: %{String.t() => any()}
+  @type delete_db_parameter_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       option_group_option_setting() :: %{
-        "AllowedValues" => String.t(),
-        "ApplyType" => String.t(),
-        "DefaultValue" => String.t(),
+        "AllowedValues" => String.t() | atom(),
+        "ApplyType" => String.t() | atom(),
+        "DefaultValue" => String.t() | atom(),
         "IsModifiable" => boolean(),
         "IsRequired" => boolean(),
         "MinimumEngineVersionPerAllowedValue" => list(minimum_engine_version_per_allowed_value()),
-        "SettingDescription" => String.t(),
-        "SettingName" => String.t()
+        "SettingDescription" => String.t() | atom(),
+        "SettingName" => String.t() | atom()
       }
       
   """
-  @type option_group_option_setting() :: %{String.t() => any()}
+  @type option_group_option_setting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_instance_not_ready_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_instance_not_ready_fault() :: %{String.t() => any()}
+  @type db_instance_not_ready_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3418,22 +3420,22 @@ defmodule AWS.RDS do
       
       db_cluster_parameter_groups_message() :: %{
         "DBClusterParameterGroups" => list(db_cluster_parameter_group()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type db_cluster_parameter_groups_message() :: %{String.t() => any()}
+  @type db_cluster_parameter_groups_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_instance_automated_backup_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_instance_automated_backup_not_found_fault() :: %{String.t() => any()}
+  @type db_instance_automated_backup_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3444,32 +3446,32 @@ defmodule AWS.RDS do
       }
       
   """
-  @type restore_db_instance_from_db_snapshot_result() :: %{String.t() => any()}
+  @type restore_db_instance_from_db_snapshot_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_cluster_parameter_groups_message() :: %{
-        optional("DBClusterParameterGroupName") => String.t(),
+        optional("DBClusterParameterGroupName") => String.t() | atom(),
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_db_cluster_parameter_groups_message() :: %{String.t() => any()}
+  @type describe_db_cluster_parameter_groups_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       authorization_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type authorization_not_found_fault() :: %{String.t() => any()}
+  @type authorization_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3477,35 +3479,35 @@ defmodule AWS.RDS do
       
       db_security_group_message() :: %{
         "DBSecurityGroups" => list(db_security_group()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type db_security_group_message() :: %{String.t() => any()}
+  @type db_security_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       integration_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type integration_quota_exceeded_fault() :: %{String.t() => any()}
+  @type integration_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       available_processor_feature() :: %{
-        "AllowedValues" => String.t(),
-        "DefaultValue" => String.t(),
-        "Name" => String.t()
+        "AllowedValues" => String.t() | atom(),
+        "DefaultValue" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type available_processor_feature() :: %{String.t() => any()}
+  @type available_processor_feature() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3515,46 +3517,46 @@ defmodule AWS.RDS do
         optional("Filters") => list(filter()),
         optional("LastUpdatedAfter") => non_neg_integer(),
         optional("LastUpdatedBefore") => non_neg_integer(),
-        optional("Locale") => String.t(),
-        optional("Marker") => String.t(),
+        optional("Locale") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_db_recommendations_message() :: %{String.t() => any()}
+  @type describe_db_recommendations_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_instance_role_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_instance_role_not_found_fault() :: %{String.t() => any()}
+  @type db_instance_role_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_instance_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_instance_not_found_fault() :: %{String.t() => any()}
+  @type db_instance_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_db_cluster_snapshot_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_db_cluster_snapshot_state_fault() :: %{String.t() => any()}
+  @type invalid_db_cluster_snapshot_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3562,26 +3564,26 @@ defmodule AWS.RDS do
       
       copy_db_cluster_snapshot_message() :: %{
         optional("CopyTags") => boolean(),
-        optional("KmsKeyId") => String.t(),
-        optional("PreSignedUrl") => String.t(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("PreSignedUrl") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("SourceDBClusterSnapshotIdentifier") => String.t(),
-        required("TargetDBClusterSnapshotIdentifier") => String.t()
+        required("SourceDBClusterSnapshotIdentifier") => String.t() | atom(),
+        required("TargetDBClusterSnapshotIdentifier") => String.t() | atom()
       }
       
   """
-  @type copy_db_cluster_snapshot_message() :: %{String.t() => any()}
+  @type copy_db_cluster_snapshot_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_instance_role_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_instance_role_quota_exceeded_fault() :: %{String.t() => any()}
+  @type db_instance_role_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3592,31 +3594,31 @@ defmodule AWS.RDS do
       }
       
   """
-  @type revoke_db_security_group_ingress_result() :: %{String.t() => any()}
+  @type revoke_db_security_group_ingress_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       global_cluster() :: %{
-        "DatabaseName" => String.t(),
+        "DatabaseName" => String.t() | atom(),
         "DeletionProtection" => boolean(),
-        "Endpoint" => String.t(),
-        "Engine" => String.t(),
-        "EngineLifecycleSupport" => String.t(),
-        "EngineVersion" => String.t(),
+        "Endpoint" => String.t() | atom(),
+        "Engine" => String.t() | atom(),
+        "EngineLifecycleSupport" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
         "FailoverState" => failover_state(),
-        "GlobalClusterArn" => String.t(),
-        "GlobalClusterIdentifier" => String.t(),
+        "GlobalClusterArn" => String.t() | atom(),
+        "GlobalClusterIdentifier" => String.t() | atom(),
         "GlobalClusterMembers" => list(global_cluster_member()),
-        "GlobalClusterResourceId" => String.t(),
-        "Status" => String.t(),
+        "GlobalClusterResourceId" => String.t() | atom(),
+        "Status" => String.t() | atom(),
         "StorageEncrypted" => boolean(),
         "TagList" => list(tag())
       }
       
   """
-  @type global_cluster() :: %{String.t() => any()}
+  @type global_cluster() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3624,22 +3626,22 @@ defmodule AWS.RDS do
       
       enable_http_endpoint_response() :: %{
         "HttpEndpointEnabled" => boolean(),
-        "ResourceArn" => String.t()
+        "ResourceArn" => String.t() | atom()
       }
       
   """
-  @type enable_http_endpoint_response() :: %{String.t() => any()}
+  @type enable_http_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_instance_automated_backups_replication() :: %{
-        "DBInstanceAutomatedBackupsArn" => String.t()
+        "DBInstanceAutomatedBackupsArn" => String.t() | atom()
       }
       
   """
-  @type db_instance_automated_backups_replication() :: %{String.t() => any()}
+  @type db_instance_automated_backups_replication() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3647,58 +3649,58 @@ defmodule AWS.RDS do
       
       describe_db_proxies_response() :: %{
         "DBProxies" => list(db_proxy()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type describe_db_proxies_response() :: %{String.t() => any()}
+  @type describe_db_proxies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       master_user_secret() :: %{
-        "KmsKeyId" => String.t(),
-        "SecretArn" => String.t(),
-        "SecretStatus" => String.t()
+        "KmsKeyId" => String.t() | atom(),
+        "SecretArn" => String.t() | atom(),
+        "SecretStatus" => String.t() | atom()
       }
       
   """
-  @type master_user_secret() :: %{String.t() => any()}
+  @type master_user_secret() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       authorization_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type authorization_already_exists_fault() :: %{String.t() => any()}
+  @type authorization_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_instance_role_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_instance_role_already_exists_fault() :: %{String.t() => any()}
+  @type db_instance_role_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3709,7 +3711,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type create_global_cluster_result() :: %{String.t() => any()}
+  @type create_global_cluster_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3717,12 +3719,12 @@ defmodule AWS.RDS do
       
       certificate_message() :: %{
         "Certificates" => list(certificate()),
-        "DefaultCertificateForNewLaunches" => String.t(),
-        "Marker" => String.t()
+        "DefaultCertificateForNewLaunches" => String.t() | atom(),
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type certificate_message() :: %{String.t() => any()}
+  @type certificate_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3734,32 +3736,32 @@ defmodule AWS.RDS do
       }
       
   """
-  @type serverless_v2_features_support() :: %{String.t() => any()}
+  @type serverless_v2_features_support() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deregister_db_proxy_targets_request() :: %{
-        optional("DBClusterIdentifiers") => list(String.t()),
-        optional("DBInstanceIdentifiers") => list(String.t()),
-        optional("TargetGroupName") => String.t(),
-        required("DBProxyName") => String.t()
+        optional("DBClusterIdentifiers") => list(String.t() | atom()),
+        optional("DBInstanceIdentifiers") => list(String.t() | atom()),
+        optional("TargetGroupName") => String.t() | atom(),
+        required("DBProxyName") => String.t() | atom()
       }
       
   """
-  @type deregister_db_proxy_targets_request() :: %{String.t() => any()}
+  @type deregister_db_proxy_targets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_upgrade_dependency_failure_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_upgrade_dependency_failure_fault() :: %{String.t() => any()}
+  @type db_upgrade_dependency_failure_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3767,11 +3769,11 @@ defmodule AWS.RDS do
       
       global_clusters_message() :: %{
         "GlobalClusters" => list(global_cluster()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type global_clusters_message() :: %{String.t() => any()}
+  @type global_clusters_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3779,11 +3781,11 @@ defmodule AWS.RDS do
       
       describe_db_major_engine_versions_response() :: %{
         "DBMajorEngineVersions" => list(db_major_engine_version()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type describe_db_major_engine_versions_response() :: %{String.t() => any()}
+  @type describe_db_major_engine_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3799,11 +3801,11 @@ defmodule AWS.RDS do
   ## Example:
       
       certificate_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type certificate_not_found_fault() :: %{String.t() => any()}
+  @type certificate_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3814,7 +3816,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type authorize_db_security_group_ingress_result() :: %{String.t() => any()}
+  @type authorize_db_security_group_ingress_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3825,58 +3827,58 @@ defmodule AWS.RDS do
       }
       
   """
-  @type modify_global_cluster_result() :: %{String.t() => any()}
+  @type modify_global_cluster_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_from_global_cluster_message() :: %{
-        optional("DbClusterIdentifier") => String.t(),
-        optional("GlobalClusterIdentifier") => String.t()
+        optional("DbClusterIdentifier") => String.t() | atom(),
+        optional("GlobalClusterIdentifier") => String.t() | atom()
       }
       
   """
-  @type remove_from_global_cluster_message() :: %{String.t() => any()}
+  @type remove_from_global_cluster_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ip_range() :: %{
-        "CIDRIP" => String.t(),
-        "Status" => String.t()
+        "CIDRIP" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type ip_range() :: %{String.t() => any()}
+  @type ip_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       failover_state() :: %{
-        "FromDbClusterArn" => String.t(),
+        "FromDbClusterArn" => String.t() | atom(),
         "IsDataLossAllowed" => boolean(),
         "Status" => list(any()),
-        "ToDbClusterArn" => String.t()
+        "ToDbClusterArn" => String.t() | atom()
       }
       
   """
-  @type failover_state() :: %{String.t() => any()}
+  @type failover_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_instance_role() :: %{
-        "FeatureName" => String.t(),
-        "RoleArn" => String.t(),
-        "Status" => String.t()
+        "FeatureName" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type db_instance_role() :: %{String.t() => any()}
+  @type db_instance_role() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3884,11 +3886,11 @@ defmodule AWS.RDS do
       
       db_snapshot_tenant_databases_message() :: %{
         "DBSnapshotTenantDatabases" => list(db_snapshot_tenant_database()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type db_snapshot_tenant_databases_message() :: %{String.t() => any()}
+  @type db_snapshot_tenant_databases_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3896,11 +3898,11 @@ defmodule AWS.RDS do
       
       reboot_db_instance_message() :: %{
         optional("ForceFailover") => boolean(),
-        required("DBInstanceIdentifier") => String.t()
+        required("DBInstanceIdentifier") => String.t() | atom()
       }
       
   """
-  @type reboot_db_instance_message() :: %{String.t() => any()}
+  @type reboot_db_instance_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3908,14 +3910,14 @@ defmodule AWS.RDS do
       
       describe_db_parameters_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        optional("Source") => String.t(),
-        required("DBParameterGroupName") => String.t()
+        optional("Source") => String.t() | atom(),
+        required("DBParameterGroupName") => String.t() | atom()
       }
       
   """
-  @type describe_db_parameters_message() :: %{String.t() => any()}
+  @type describe_db_parameters_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3923,36 +3925,36 @@ defmodule AWS.RDS do
       
       describe_db_proxy_target_groups_request() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        optional("TargetGroupName") => String.t(),
-        required("DBProxyName") => String.t()
+        optional("TargetGroupName") => String.t() | atom(),
+        required("DBProxyName") => String.t() | atom()
       }
       
   """
-  @type describe_db_proxy_target_groups_request() :: %{String.t() => any()}
+  @type describe_db_proxy_target_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_role_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_cluster_role_already_exists_fault() :: %{String.t() => any()}
+  @type db_cluster_role_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       source_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type source_not_found_fault() :: %{String.t() => any()}
+  @type source_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3960,22 +3962,22 @@ defmodule AWS.RDS do
       
       db_engine_version_message() :: %{
         "DBEngineVersions" => list(db_engine_version()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type db_engine_version_message() :: %{String.t() => any()}
+  @type db_engine_version_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_endpoint_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_cluster_endpoint_quota_exceeded_fault() :: %{String.t() => any()}
+  @type db_cluster_endpoint_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3986,7 +3988,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type switchover_read_replica_result() :: %{String.t() => any()}
+  @type switchover_read_replica_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3995,71 +3997,71 @@ defmodule AWS.RDS do
       modify_global_cluster_message() :: %{
         optional("AllowMajorVersionUpgrade") => boolean(),
         optional("DeletionProtection") => boolean(),
-        optional("EngineVersion") => String.t(),
-        optional("GlobalClusterIdentifier") => String.t(),
-        optional("NewGlobalClusterIdentifier") => String.t()
+        optional("EngineVersion") => String.t() | atom(),
+        optional("GlobalClusterIdentifier") => String.t() | atom(),
+        optional("NewGlobalClusterIdentifier") => String.t() | atom()
       }
       
   """
-  @type modify_global_cluster_message() :: %{String.t() => any()}
+  @type modify_global_cluster_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_engine_version() :: %{
-        "Status" => String.t(),
-        "DatabaseInstallationFilesS3BucketName" => String.t(),
-        "SupportedCACertificateIdentifiers" => list(String.t()),
-        "Engine" => String.t(),
+        "Status" => String.t() | atom(),
+        "DatabaseInstallationFilesS3BucketName" => String.t() | atom(),
+        "SupportedCACertificateIdentifiers" => list(String.t() | atom()),
+        "Engine" => String.t() | atom(),
         "ValidUpgradeTarget" => list(upgrade_target()),
         "SupportsReadReplica" => boolean(),
-        "MajorEngineVersion" => String.t(),
+        "MajorEngineVersion" => String.t() | atom(),
         "ServerlessV2FeaturesSupport" => serverless_v2_features_support(),
-        "DBEngineMediaType" => String.t(),
+        "DBEngineMediaType" => String.t() | atom(),
         "SupportsLocalWriteForwarding" => boolean(),
-        "CustomDBEngineVersionManifest" => String.t(),
+        "CustomDBEngineVersionManifest" => String.t() | atom(),
         "Image" => custom_db_engine_version_a_m_i(),
         "DefaultCharacterSet" => character_set(),
         "CreateTime" => non_neg_integer(),
         "SupportsLimitlessDatabase" => boolean(),
         "SupportsIntegrations" => boolean(),
-        "SupportedEngineModes" => list(String.t()),
-        "ExportableLogTypes" => list(String.t()),
-        "SupportedFeatureNames" => list(String.t()),
-        "KMSKeyId" => String.t(),
-        "DBEngineVersionArn" => String.t(),
+        "SupportedEngineModes" => list(String.t() | atom()),
+        "ExportableLogTypes" => list(String.t() | atom()),
+        "SupportedFeatureNames" => list(String.t() | atom()),
+        "KMSKeyId" => String.t() | atom(),
+        "DBEngineVersionArn" => String.t() | atom(),
         "SupportsParallelQuery" => boolean(),
-        "DBParameterGroupFamily" => String.t(),
-        "DBEngineVersionDescription" => String.t(),
+        "DBParameterGroupFamily" => String.t() | atom(),
+        "DBEngineVersionDescription" => String.t() | atom(),
         "SupportsLogExportsToCloudwatchLogs" => boolean(),
         "SupportedTimezones" => list(timezone()),
         "SupportsGlobalDatabases" => boolean(),
         "TagList" => list(tag()),
         "SupportedCharacterSets" => list(character_set()),
         "SupportsBabelfish" => boolean(),
-        "DBEngineDescription" => String.t(),
+        "DBEngineDescription" => String.t() | atom(),
         "SupportedNcharCharacterSets" => list(character_set()),
         "SupportsCertificateRotationWithoutRestart" => boolean(),
-        "DatabaseInstallationFilesS3Prefix" => String.t(),
-        "EngineVersion" => String.t()
+        "DatabaseInstallationFilesS3Prefix" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom()
       }
       
   """
-  @type db_engine_version() :: %{String.t() => any()}
+  @type db_engine_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_db_proxy_endpoint_request() :: %{
-        optional("NewDBProxyEndpointName") => String.t(),
-        optional("VpcSecurityGroupIds") => list(String.t()),
-        required("DBProxyEndpointName") => String.t()
+        optional("NewDBProxyEndpointName") => String.t() | atom(),
+        optional("VpcSecurityGroupIds") => list(String.t() | atom()),
+        required("DBProxyEndpointName") => String.t() | atom()
       }
       
   """
-  @type modify_db_proxy_endpoint_request() :: %{String.t() => any()}
+  @type modify_db_proxy_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4067,48 +4069,48 @@ defmodule AWS.RDS do
       
       modify_tenant_database_message() :: %{
         optional("ManageMasterUserPassword") => boolean(),
-        optional("MasterUserPassword") => String.t(),
-        optional("MasterUserSecretKmsKeyId") => String.t(),
-        optional("NewTenantDBName") => String.t(),
+        optional("MasterUserPassword") => String.t() | atom(),
+        optional("MasterUserSecretKmsKeyId") => String.t() | atom(),
+        optional("NewTenantDBName") => String.t() | atom(),
         optional("RotateMasterUserPassword") => boolean(),
-        required("DBInstanceIdentifier") => String.t(),
-        required("TenantDBName") => String.t()
+        required("DBInstanceIdentifier") => String.t() | atom(),
+        required("TenantDBName") => String.t() | atom()
       }
       
   """
-  @type modify_tenant_database_message() :: %{String.t() => any()}
+  @type modify_tenant_database_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_export_task_message() :: %{
-        required("ExportTaskIdentifier") => String.t()
+        required("ExportTaskIdentifier") => String.t() | atom()
       }
       
   """
-  @type cancel_export_task_message() :: %{String.t() => any()}
+  @type cancel_export_task_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       parameter() :: %{
-        "AllowedValues" => String.t(),
+        "AllowedValues" => String.t() | atom(),
         "ApplyMethod" => list(any()),
-        "ApplyType" => String.t(),
-        "DataType" => String.t(),
-        "Description" => String.t(),
+        "ApplyType" => String.t() | atom(),
+        "DataType" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "IsModifiable" => boolean(),
-        "MinimumEngineVersion" => String.t(),
-        "ParameterName" => String.t(),
-        "ParameterValue" => String.t(),
-        "Source" => String.t(),
-        "SupportedEngineModes" => list(String.t())
+        "MinimumEngineVersion" => String.t() | atom(),
+        "ParameterName" => String.t() | atom(),
+        "ParameterValue" => String.t() | atom(),
+        "Source" => String.t() | atom(),
+        "SupportedEngineModes" => list(String.t() | atom())
       }
       
   """
-  @type parameter() :: %{String.t() => any()}
+  @type parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4116,83 +4118,83 @@ defmodule AWS.RDS do
       
       promote_read_replica_message() :: %{
         optional("BackupRetentionPeriod") => integer(),
-        optional("PreferredBackupWindow") => String.t(),
-        required("DBInstanceIdentifier") => String.t()
+        optional("PreferredBackupWindow") => String.t() | atom(),
+        required("DBInstanceIdentifier") => String.t() | atom()
       }
       
   """
-  @type promote_read_replica_message() :: %{String.t() => any()}
+  @type promote_read_replica_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_shard_groups_message() :: %{
-        optional("DBShardGroupIdentifier") => String.t(),
+        optional("DBShardGroupIdentifier") => String.t() | atom(),
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_db_shard_groups_message() :: %{String.t() => any()}
+  @type describe_db_shard_groups_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_role_to_db_instance_message() :: %{
-        required("DBInstanceIdentifier") => String.t(),
-        required("FeatureName") => String.t(),
-        required("RoleArn") => String.t()
+        required("DBInstanceIdentifier") => String.t() | atom(),
+        required("FeatureName") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
       }
       
   """
-  @type add_role_to_db_instance_message() :: %{String.t() => any()}
+  @type add_role_to_db_instance_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_subnet_group_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_subnet_group_not_found_fault() :: %{String.t() => any()}
+  @type db_subnet_group_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_snapshot_attributes_message() :: %{
-        required("DBSnapshotIdentifier") => String.t()
+        required("DBSnapshotIdentifier") => String.t() | atom()
       }
       
   """
-  @type describe_db_snapshot_attributes_message() :: %{String.t() => any()}
+  @type describe_db_snapshot_attributes_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_event_subscription_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_event_subscription_state_fault() :: %{String.t() => any()}
+  @type invalid_event_subscription_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       point_in_time_restore_not_enabled_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type point_in_time_restore_not_enabled_fault() :: %{String.t() => any()}
+  @type point_in_time_restore_not_enabled_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4200,13 +4202,13 @@ defmodule AWS.RDS do
       
       describe_source_regions_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        optional("RegionName") => String.t()
+        optional("RegionName") => String.t() | atom()
       }
       
   """
-  @type describe_source_regions_message() :: %{String.t() => any()}
+  @type describe_source_regions_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4214,12 +4216,12 @@ defmodule AWS.RDS do
       
       create_db_cluster_snapshot_message() :: %{
         optional("Tags") => list(tag()),
-        required("DBClusterIdentifier") => String.t(),
-        required("DBClusterSnapshotIdentifier") => String.t()
+        required("DBClusterIdentifier") => String.t() | atom(),
+        required("DBClusterSnapshotIdentifier") => String.t() | atom()
       }
       
   """
-  @type create_db_cluster_snapshot_message() :: %{String.t() => any()}
+  @type create_db_cluster_snapshot_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4227,79 +4229,79 @@ defmodule AWS.RDS do
       
       db_shard_group() :: %{
         "ComputeRedundancy" => integer(),
-        "DBClusterIdentifier" => String.t(),
-        "DBShardGroupArn" => String.t(),
-        "DBShardGroupIdentifier" => String.t(),
-        "DBShardGroupResourceId" => String.t(),
-        "Endpoint" => String.t(),
+        "DBClusterIdentifier" => String.t() | atom(),
+        "DBShardGroupArn" => String.t() | atom(),
+        "DBShardGroupIdentifier" => String.t() | atom(),
+        "DBShardGroupResourceId" => String.t() | atom(),
+        "Endpoint" => String.t() | atom(),
         "MaxACU" => float(),
         "MinACU" => float(),
         "PubliclyAccessible" => boolean(),
-        "Status" => String.t(),
+        "Status" => String.t() | atom(),
         "TagList" => list(tag())
       }
       
   """
-  @type db_shard_group() :: %{String.t() => any()}
+  @type db_shard_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_snapshot() :: %{
-        "Status" => String.t(),
-        "DBSystemId" => String.t(),
-        "Engine" => String.t(),
+        "Status" => String.t() | atom(),
+        "DBSystemId" => String.t() | atom(),
+        "Engine" => String.t() | atom(),
         "MultiTenant" => boolean(),
         "Encrypted" => boolean(),
-        "SnapshotAvailabilityZone" => String.t(),
-        "Timezone" => String.t(),
+        "SnapshotAvailabilityZone" => String.t() | atom(),
+        "Timezone" => String.t() | atom(),
         "Iops" => integer(),
-        "SourceRegion" => String.t(),
-        "KmsKeyId" => String.t(),
+        "SourceRegion" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
         "OriginalSnapshotCreateTime" => non_neg_integer(),
-        "VpcId" => String.t(),
-        "AvailabilityZone" => String.t(),
+        "VpcId" => String.t() | atom(),
+        "AvailabilityZone" => String.t() | atom(),
         "ProcessorFeatures" => list(processor_feature()),
-        "SourceDBSnapshotIdentifier" => String.t(),
+        "SourceDBSnapshotIdentifier" => String.t() | atom(),
         "DedicatedLogVolume" => boolean(),
-        "SnapshotTarget" => String.t(),
+        "SnapshotTarget" => String.t() | atom(),
         "SnapshotDatabaseTime" => non_neg_integer(),
         "TagList" => list(tag()),
         "PercentProgress" => integer(),
         "Port" => integer(),
-        "DbiResourceId" => String.t(),
+        "DbiResourceId" => String.t() | atom(),
         "StorageThroughput" => integer(),
-        "TdeCredentialArn" => String.t(),
-        "DBSnapshotArn" => String.t(),
-        "MasterUsername" => String.t(),
+        "TdeCredentialArn" => String.t() | atom(),
+        "DBSnapshotArn" => String.t() | atom(),
+        "MasterUsername" => String.t() | atom(),
         "SnapshotCreateTime" => non_neg_integer(),
-        "LicenseModel" => String.t(),
-        "DBInstanceIdentifier" => String.t(),
-        "StorageType" => String.t(),
+        "LicenseModel" => String.t() | atom(),
+        "DBInstanceIdentifier" => String.t() | atom(),
+        "StorageType" => String.t() | atom(),
         "InstanceCreateTime" => non_neg_integer(),
-        "OptionGroupName" => String.t(),
-        "DBSnapshotIdentifier" => String.t(),
-        "SnapshotType" => String.t(),
-        "EngineVersion" => String.t(),
+        "OptionGroupName" => String.t() | atom(),
+        "DBSnapshotIdentifier" => String.t() | atom(),
+        "SnapshotType" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
         "AllocatedStorage" => integer(),
         "IAMDatabaseAuthenticationEnabled" => boolean()
       }
       
   """
-  @type db_snapshot() :: %{String.t() => any()}
+  @type db_snapshot() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_security_group_membership() :: %{
-        "DBSecurityGroupName" => String.t(),
-        "Status" => String.t()
+        "DBSecurityGroupName" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type db_security_group_membership() :: %{String.t() => any()}
+  @type db_security_group_membership() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4312,91 +4314,91 @@ defmodule AWS.RDS do
       }
       
   """
-  @type supported_engine_lifecycle() :: %{String.t() => any()}
+  @type supported_engine_lifecycle() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_custom_db_engine_version_message() :: %{
-        required("Engine") => String.t(),
-        required("EngineVersion") => String.t()
+        required("Engine") => String.t() | atom(),
+        required("EngineVersion") => String.t() | atom()
       }
       
   """
-  @type delete_custom_db_engine_version_message() :: %{String.t() => any()}
+  @type delete_custom_db_engine_version_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_db_cluster_parameter_group_message() :: %{
-        required("DBClusterParameterGroupName") => String.t()
+        required("DBClusterParameterGroupName") => String.t() | atom()
       }
       
   """
-  @type delete_db_cluster_parameter_group_message() :: %{String.t() => any()}
+  @type delete_db_cluster_parameter_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_db_snapshot_message() :: %{
-        optional("EngineVersion") => String.t(),
-        optional("OptionGroupName") => String.t(),
-        required("DBSnapshotIdentifier") => String.t()
+        optional("EngineVersion") => String.t() | atom(),
+        optional("OptionGroupName") => String.t() | atom(),
+        required("DBSnapshotIdentifier") => String.t() | atom()
       }
       
   """
-  @type modify_db_snapshot_message() :: %{String.t() => any()}
+  @type modify_db_snapshot_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_proxy_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_proxy_not_found_fault() :: %{String.t() => any()}
+  @type db_proxy_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_clusters_message() :: %{
-        optional("DBClusterIdentifier") => String.t(),
+        optional("DBClusterIdentifier") => String.t() | atom(),
         optional("Filters") => list(filter()),
         optional("IncludeShared") => boolean(),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_db_clusters_message() :: %{String.t() => any()}
+  @type describe_db_clusters_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_export_only_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_export_only_fault() :: %{String.t() => any()}
+  @type invalid_export_only_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_subnet_group_not_allowed_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_subnet_group_not_allowed_fault() :: %{String.t() => any()}
+  @type db_subnet_group_not_allowed_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4406,18 +4408,18 @@ defmodule AWS.RDS do
         "AllocatedStorage" => integer(),
         "BackupRetentionPeriod" => integer(),
         "CertificateDetails" => certificate_details(),
-        "DBClusterIdentifier" => String.t(),
-        "EngineVersion" => String.t(),
+        "DBClusterIdentifier" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
         "IAMDatabaseAuthenticationEnabled" => boolean(),
         "Iops" => integer(),
-        "MasterUserPassword" => String.t(),
+        "MasterUserPassword" => String.t() | atom(),
         "PendingCloudwatchLogsExports" => pending_cloudwatch_logs_exports(),
         "RdsCustomClusterConfiguration" => rds_custom_cluster_configuration(),
-        "StorageType" => String.t()
+        "StorageType" => String.t() | atom()
       }
       
   """
-  @type cluster_pending_modified_values() :: %{String.t() => any()}
+  @type cluster_pending_modified_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4428,38 +4430,38 @@ defmodule AWS.RDS do
       }
       
   """
-  @type modify_certificates_result() :: %{String.t() => any()}
+  @type modify_certificates_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_endpoint() :: %{
-        "CustomEndpointType" => String.t(),
-        "DBClusterEndpointArn" => String.t(),
-        "DBClusterEndpointIdentifier" => String.t(),
-        "DBClusterEndpointResourceIdentifier" => String.t(),
-        "DBClusterIdentifier" => String.t(),
-        "Endpoint" => String.t(),
-        "EndpointType" => String.t(),
-        "ExcludedMembers" => list(String.t()),
-        "StaticMembers" => list(String.t()),
-        "Status" => String.t()
+        "CustomEndpointType" => String.t() | atom(),
+        "DBClusterEndpointArn" => String.t() | atom(),
+        "DBClusterEndpointIdentifier" => String.t() | atom(),
+        "DBClusterEndpointResourceIdentifier" => String.t() | atom(),
+        "DBClusterIdentifier" => String.t() | atom(),
+        "Endpoint" => String.t() | atom(),
+        "EndpointType" => String.t() | atom(),
+        "ExcludedMembers" => list(String.t() | atom()),
+        "StaticMembers" => list(String.t() | atom()),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type db_cluster_endpoint() :: %{String.t() => any()}
+  @type db_cluster_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_endpoint_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_cluster_endpoint_not_found_fault() :: %{String.t() => any()}
+  @type db_cluster_endpoint_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4467,42 +4469,42 @@ defmodule AWS.RDS do
       
       describe_db_log_files_response() :: %{
         "DescribeDBLogFiles" => list(describe_db_log_files_details()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type describe_db_log_files_response() :: %{String.t() => any()}
+  @type describe_db_log_files_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_export_task_message() :: %{
-        optional("ExportOnly") => list(String.t()),
-        optional("S3Prefix") => String.t(),
-        required("ExportTaskIdentifier") => String.t(),
-        required("IamRoleArn") => String.t(),
-        required("KmsKeyId") => String.t(),
-        required("S3BucketName") => String.t(),
-        required("SourceArn") => String.t()
+        optional("ExportOnly") => list(String.t() | atom()),
+        optional("S3Prefix") => String.t() | atom(),
+        required("ExportTaskIdentifier") => String.t() | atom(),
+        required("IamRoleArn") => String.t() | atom(),
+        required("KmsKeyId") => String.t() | atom(),
+        required("S3BucketName") => String.t() | atom(),
+        required("SourceArn") => String.t() | atom()
       }
       
   """
-  @type start_export_task_message() :: %{String.t() => any()}
+  @type start_export_task_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_parameter_groups_message() :: %{
-        optional("DBParameterGroupName") => String.t(),
+        optional("DBParameterGroupName") => String.t() | atom(),
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_db_parameter_groups_message() :: %{String.t() => any()}
+  @type describe_db_parameter_groups_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4513,19 +4515,19 @@ defmodule AWS.RDS do
       }
       
   """
-  @type modify_option_group_result() :: %{String.t() => any()}
+  @type modify_option_group_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_db_parameter_group_message() :: %{
-        required("DBParameterGroupName") => String.t(),
+        required("DBParameterGroupName") => String.t() | atom(),
         required("Parameters") => list(parameter())
       }
       
   """
-  @type modify_db_parameter_group_message() :: %{String.t() => any()}
+  @type modify_db_parameter_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4536,77 +4538,77 @@ defmodule AWS.RDS do
       }
       
   """
-  @type create_db_snapshot_result() :: %{String.t() => any()}
+  @type create_db_snapshot_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       switchover_global_cluster_message() :: %{
-        required("GlobalClusterIdentifier") => String.t(),
-        required("TargetDbClusterIdentifier") => String.t()
+        required("GlobalClusterIdentifier") => String.t() | atom(),
+        required("TargetDbClusterIdentifier") => String.t() | atom()
       }
       
   """
-  @type switchover_global_cluster_message() :: %{String.t() => any()}
+  @type switchover_global_cluster_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       restore_db_instance_to_point_in_time_message() :: %{
-        optional("StorageType") => String.t(),
-        optional("SourceDBInstanceIdentifier") => String.t(),
-        optional("SourceDbiResourceId") => String.t(),
-        optional("NetworkType") => String.t(),
-        optional("SourceDBInstanceAutomatedBackupsArn") => String.t(),
-        optional("EngineLifecycleSupport") => String.t(),
+        optional("StorageType") => String.t() | atom(),
+        optional("SourceDBInstanceIdentifier") => String.t() | atom(),
+        optional("SourceDbiResourceId") => String.t() | atom(),
+        optional("NetworkType") => String.t() | atom(),
+        optional("SourceDBInstanceAutomatedBackupsArn") => String.t() | atom(),
+        optional("EngineLifecycleSupport") => String.t() | atom(),
         optional("AllocatedStorage") => integer(),
-        optional("DomainOu") => String.t(),
-        optional("MasterUserSecretKmsKeyId") => String.t(),
+        optional("DomainOu") => String.t() | atom(),
+        optional("MasterUserSecretKmsKeyId") => String.t() | atom(),
         optional("EnableCustomerOwnedIp") => boolean(),
         optional("RestoreTime") => non_neg_integer(),
-        optional("Engine") => String.t(),
-        optional("BackupTarget") => String.t(),
-        optional("DomainIAMRoleName") => String.t(),
-        optional("Domain") => String.t(),
+        optional("Engine") => String.t() | atom(),
+        optional("BackupTarget") => String.t() | atom(),
+        optional("DomainIAMRoleName") => String.t() | atom(),
+        optional("Domain") => String.t() | atom(),
         optional("EnableIAMDatabaseAuthentication") => boolean(),
         optional("CopyTagsToSnapshot") => boolean(),
         optional("DedicatedLogVolume") => boolean(),
-        optional("AvailabilityZone") => String.t(),
-        optional("EnableCloudwatchLogsExports") => list(String.t()),
+        optional("AvailabilityZone") => String.t() | atom(),
+        optional("EnableCloudwatchLogsExports") => list(String.t() | atom()),
         optional("AutoMinorVersionUpgrade") => boolean(),
         optional("PubliclyAccessible") => boolean(),
-        optional("DomainDnsIps") => list(String.t()),
+        optional("DomainDnsIps") => list(String.t() | atom()),
         optional("ProcessorFeatures") => list(processor_feature()),
-        optional("DBInstanceClass") => String.t(),
-        optional("LicenseModel") => String.t(),
+        optional("DBInstanceClass") => String.t() | atom(),
+        optional("LicenseModel") => String.t() | atom(),
         optional("MaxAllocatedStorage") => integer(),
-        optional("DomainAuthSecretArn") => String.t(),
+        optional("DomainAuthSecretArn") => String.t() | atom(),
         optional("Iops") => integer(),
         optional("ManageMasterUserPassword") => boolean(),
         optional("Port") => integer(),
-        optional("TdeCredentialPassword") => String.t(),
-        optional("CustomIamInstanceProfile") => String.t(),
+        optional("TdeCredentialPassword") => String.t() | atom(),
+        optional("CustomIamInstanceProfile") => String.t() | atom(),
         optional("MultiAZ") => boolean(),
         optional("DeletionProtection") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t()),
-        optional("CACertificateIdentifier") => String.t(),
-        optional("DBParameterGroupName") => String.t(),
-        optional("DomainFqdn") => String.t(),
-        optional("OptionGroupName") => String.t(),
-        optional("DBName") => String.t(),
+        optional("VpcSecurityGroupIds") => list(String.t() | atom()),
+        optional("CACertificateIdentifier") => String.t() | atom(),
+        optional("DBParameterGroupName") => String.t() | atom(),
+        optional("DomainFqdn") => String.t() | atom(),
+        optional("OptionGroupName") => String.t() | atom(),
+        optional("DBName") => String.t() | atom(),
         optional("StorageThroughput") => integer(),
-        optional("DBSubnetGroupName") => String.t(),
-        required("TargetDBInstanceIdentifier") => String.t(),
-        optional("TdeCredentialArn") => String.t(),
+        optional("DBSubnetGroupName") => String.t() | atom(),
+        required("TargetDBInstanceIdentifier") => String.t() | atom(),
+        optional("TdeCredentialArn") => String.t() | atom(),
         optional("UseDefaultProcessorFeatures") => boolean(),
         optional("UseLatestRestorableTime") => boolean(),
         optional("Tags") => list(tag())
       }
       
   """
-  @type restore_db_instance_to_point_in_time_message() :: %{String.t() => any()}
+  @type restore_db_instance_to_point_in_time_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4614,200 +4616,200 @@ defmodule AWS.RDS do
       
       export_tasks_message() :: %{
         "ExportTasks" => list(export_task()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type export_tasks_message() :: %{String.t() => any()}
+  @type export_tasks_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_option_groups_message() :: %{
-        optional("EngineName") => String.t(),
+        optional("EngineName") => String.t() | atom(),
         optional("Filters") => list(filter()),
-        optional("MajorEngineVersion") => String.t(),
-        optional("Marker") => String.t(),
+        optional("MajorEngineVersion") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        optional("OptionGroupName") => String.t()
+        optional("OptionGroupName") => String.t() | atom()
       }
       
   """
-  @type describe_option_groups_message() :: %{String.t() => any()}
+  @type describe_option_groups_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disable_http_endpoint_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type disable_http_endpoint_request() :: %{String.t() => any()}
+  @type disable_http_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_db_cluster_parameter_group_message() :: %{
-        required("DBClusterParameterGroupName") => String.t(),
+        required("DBClusterParameterGroupName") => String.t() | atom(),
         required("Parameters") => list(parameter())
       }
       
   """
-  @type modify_db_cluster_parameter_group_message() :: %{String.t() => any()}
+  @type modify_db_cluster_parameter_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       subscription_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type subscription_not_found_fault() :: %{String.t() => any()}
+  @type subscription_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       domain_membership() :: %{
-        "AuthSecretArn" => String.t(),
-        "DnsIps" => list(String.t()),
-        "Domain" => String.t(),
-        "FQDN" => String.t(),
-        "IAMRoleName" => String.t(),
-        "OU" => String.t(),
-        "Status" => String.t()
+        "AuthSecretArn" => String.t() | atom(),
+        "DnsIps" => list(String.t() | atom()),
+        "Domain" => String.t() | atom(),
+        "FQDN" => String.t() | atom(),
+        "IAMRoleName" => String.t() | atom(),
+        "OU" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type domain_membership() :: %{String.t() => any()}
+  @type domain_membership() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       source_region_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | atom(),
         "SourceRegions" => list(source_region())
       }
       
   """
-  @type source_region_message() :: %{String.t() => any()}
+  @type source_region_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       enable_http_endpoint_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type enable_http_endpoint_request() :: %{String.t() => any()}
+  @type enable_http_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       source_database_not_supported_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type source_database_not_supported_fault() :: %{String.t() => any()}
+  @type source_database_not_supported_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_db_cluster_endpoint_message() :: %{
-        required("DBClusterEndpointIdentifier") => String.t()
+        required("DBClusterEndpointIdentifier") => String.t() | atom()
       }
       
   """
-  @type delete_db_cluster_endpoint_message() :: %{String.t() => any()}
+  @type delete_db_cluster_endpoint_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_option_group_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_option_group_state_fault() :: %{String.t() => any()}
+  @type invalid_option_group_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_db_cluster_message() :: %{
-        optional("DBClusterParameterGroupName") => String.t(),
+        optional("DBClusterParameterGroupName") => String.t() | atom(),
         optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
-        optional("StorageType") => String.t(),
+        optional("StorageType") => String.t() | atom(),
         optional("ClusterScalabilityType") => list(any()),
-        optional("EngineMode") => String.t(),
-        optional("NetworkType") => String.t(),
-        optional("EngineLifecycleSupport") => String.t(),
+        optional("EngineMode") => String.t() | atom(),
+        optional("NetworkType") => String.t() | atom(),
+        optional("EngineLifecycleSupport") => String.t() | atom(),
         optional("RdsCustomClusterConfiguration") => rds_custom_cluster_configuration(),
         optional("AllocatedStorage") => integer(),
         optional("EnableHttpEndpoint") => boolean(),
-        optional("MasterUserSecretKmsKeyId") => String.t(),
-        optional("DatabaseName") => String.t(),
-        optional("ReplicationSourceIdentifier") => String.t(),
-        optional("MasterUserPassword") => String.t(),
-        optional("PreferredBackupWindow") => String.t(),
+        optional("MasterUserSecretKmsKeyId") => String.t() | atom(),
+        optional("DatabaseName") => String.t() | atom(),
+        optional("ReplicationSourceIdentifier") => String.t() | atom(),
+        optional("MasterUserPassword") => String.t() | atom(),
+        optional("PreferredBackupWindow") => String.t() | atom(),
         optional("MonitoringInterval") => integer(),
-        optional("MasterUsername") => String.t(),
-        optional("DomainIAMRoleName") => String.t(),
-        optional("Domain") => String.t(),
+        optional("MasterUsername") => String.t() | atom(),
+        optional("DomainIAMRoleName") => String.t() | atom(),
+        optional("Domain") => String.t() | atom(),
         optional("EnableIAMDatabaseAuthentication") => boolean(),
         optional("EnableLimitlessDatabase") => boolean(),
         optional("CopyTagsToSnapshot") => boolean(),
         optional("ScalingConfiguration") => scaling_configuration(),
         optional("BackupRetentionPeriod") => integer(),
-        optional("PreSignedUrl") => String.t(),
-        optional("EnableCloudwatchLogsExports") => list(String.t()),
+        optional("PreSignedUrl") => String.t() | atom(),
+        optional("EnableCloudwatchLogsExports") => list(String.t() | atom()),
         optional("EnableGlobalWriteForwarding") => boolean(),
         optional("AutoMinorVersionUpgrade") => boolean(),
-        optional("DBClusterInstanceClass") => String.t(),
+        optional("DBClusterInstanceClass") => String.t() | atom(),
         optional("PubliclyAccessible") => boolean(),
-        optional("EngineVersion") => String.t(),
-        optional("GlobalClusterIdentifier") => String.t(),
+        optional("EngineVersion") => String.t() | atom(),
+        optional("GlobalClusterIdentifier") => String.t() | atom(),
         optional("BacktrackWindow") => float(),
-        optional("MonitoringRoleArn") => String.t(),
-        optional("CharacterSetName") => String.t(),
+        optional("MonitoringRoleArn") => String.t() | atom(),
+        optional("CharacterSetName") => String.t() | atom(),
         optional("Iops") => integer(),
         optional("ManageMasterUserPassword") => boolean(),
-        required("DBClusterIdentifier") => String.t(),
+        required("DBClusterIdentifier") => String.t() | atom(),
         optional("Port") => integer(),
-        optional("PerformanceInsightsKMSKeyId") => String.t(),
+        optional("PerformanceInsightsKMSKeyId") => String.t() | atom(),
         optional("EnablePerformanceInsights") => boolean(),
         optional("StorageEncrypted") => boolean(),
         optional("EnableLocalWriteForwarding") => boolean(),
         optional("DeletionProtection") => boolean(),
-        optional("DBSystemId") => String.t(),
-        optional("VpcSecurityGroupIds") => list(String.t()),
-        optional("CACertificateIdentifier") => String.t(),
+        optional("DBSystemId") => String.t() | atom(),
+        optional("VpcSecurityGroupIds") => list(String.t() | atom()),
+        optional("CACertificateIdentifier") => String.t() | atom(),
         optional("DatabaseInsightsMode") => list(any()),
-        optional("KmsKeyId") => String.t(),
-        optional("OptionGroupName") => String.t(),
-        optional("AvailabilityZones") => list(String.t()),
-        optional("DBSubnetGroupName") => String.t(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("OptionGroupName") => String.t() | atom(),
+        optional("AvailabilityZones") => list(String.t() | atom()),
+        optional("DBSubnetGroupName") => String.t() | atom(),
         optional("PerformanceInsightsRetentionPeriod") => integer(),
-        optional("PreferredMaintenanceWindow") => String.t(),
-        required("Engine") => String.t(),
+        optional("PreferredMaintenanceWindow") => String.t() | atom(),
+        required("Engine") => String.t() | atom(),
         optional("Tags") => list(tag())
       }
       
   """
-  @type create_db_cluster_message() :: %{String.t() => any()}
+  @type create_db_cluster_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4819,35 +4821,37 @@ defmodule AWS.RDS do
         "ProvisionedStorageThroughput" => list(range()),
         "StorageSize" => list(range()),
         "StorageThroughputToIopsRatio" => list(double_range()),
-        "StorageType" => String.t(),
+        "StorageType" => String.t() | atom(),
         "SupportsStorageAutoscaling" => boolean()
       }
       
   """
-  @type valid_storage_options() :: %{String.t() => any()}
+  @type valid_storage_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       doc_link() :: %{
-        "Text" => String.t(),
-        "Url" => String.t()
+        "Text" => String.t() | atom(),
+        "Url" => String.t() | atom()
       }
       
   """
-  @type doc_link() :: %{String.t() => any()}
+  @type doc_link() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_db_instance_automated_backups_replication_message() :: %{
-        required("SourceDBInstanceArn") => String.t()
+        required("SourceDBInstanceArn") => String.t() | atom()
       }
       
   """
-  @type stop_db_instance_automated_backups_replication_message() :: %{String.t() => any()}
+  @type stop_db_instance_automated_backups_replication_message() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -4855,60 +4859,60 @@ defmodule AWS.RDS do
       
       db_parameter_groups_message() :: %{
         "DBParameterGroups" => list(db_parameter_group()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type db_parameter_groups_message() :: %{String.t() => any()}
+  @type db_parameter_groups_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       filter() :: %{
-        "Name" => String.t(),
-        "Values" => list(String.t())
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_db_instances_offering_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | atom(),
         "ReservedDBInstancesOfferings" => list(reserved_db_instances_offering())
       }
       
   """
-  @type reserved_db_instances_offering_message() :: %{String.t() => any()}
+  @type reserved_db_instances_offering_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type instance_quota_exceeded_fault() :: %{String.t() => any()}
+  @type instance_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_db_recommendation_message() :: %{
-        optional("Locale") => String.t(),
+        optional("Locale") => String.t() | atom(),
         optional("RecommendedActionUpdates") => list(recommended_action_update()),
-        optional("Status") => String.t(),
-        required("RecommendationId") => String.t()
+        optional("Status") => String.t() | atom(),
+        required("RecommendationId") => String.t() | atom()
       }
       
   """
-  @type modify_db_recommendation_message() :: %{String.t() => any()}
+  @type modify_db_recommendation_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4921,18 +4925,18 @@ defmodule AWS.RDS do
       }
       
   """
-  @type valid_db_instance_modifications_message() :: %{String.t() => any()}
+  @type valid_db_instance_modifications_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_proxy_endpoint_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_proxy_endpoint_quota_exceeded_fault() :: %{String.t() => any()}
+  @type db_proxy_endpoint_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4940,30 +4944,30 @@ defmodule AWS.RDS do
       
       describe_db_shard_groups_response() :: %{
         "DBShardGroups" => list(db_shard_group()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type describe_db_shard_groups_response() :: %{String.t() => any()}
+  @type describe_db_shard_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_global_cluster_message() :: %{
-        optional("DatabaseName") => String.t(),
+        optional("DatabaseName") => String.t() | atom(),
         optional("DeletionProtection") => boolean(),
-        optional("Engine") => String.t(),
-        optional("EngineLifecycleSupport") => String.t(),
-        optional("EngineVersion") => String.t(),
-        optional("GlobalClusterIdentifier") => String.t(),
-        optional("SourceDBClusterIdentifier") => String.t(),
+        optional("Engine") => String.t() | atom(),
+        optional("EngineLifecycleSupport") => String.t() | atom(),
+        optional("EngineVersion") => String.t() | atom(),
+        optional("GlobalClusterIdentifier") => String.t() | atom(),
+        optional("SourceDBClusterIdentifier") => String.t() | atom(),
         optional("StorageEncrypted") => boolean(),
         optional("Tags") => list(tag())
       }
       
   """
-  @type create_global_cluster_message() :: %{String.t() => any()}
+  @type create_global_cluster_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4974,18 +4978,18 @@ defmodule AWS.RDS do
       }
       
   """
-  @type create_option_group_result() :: %{String.t() => any()}
+  @type create_option_group_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_proxy_endpoint_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_proxy_endpoint_not_found_fault() :: %{String.t() => any()}
+  @type db_proxy_endpoint_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4996,7 +5000,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type modify_tenant_database_result() :: %{String.t() => any()}
+  @type modify_tenant_database_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5004,33 +5008,33 @@ defmodule AWS.RDS do
       
       option_version() :: %{
         "IsDefault" => boolean(),
-        "Version" => String.t()
+        "Version" => String.t() | atom()
       }
       
   """
-  @type option_version() :: %{String.t() => any()}
+  @type option_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       storage_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type storage_quota_exceeded_fault() :: %{String.t() => any()}
+  @type storage_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_db_snapshot_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_db_snapshot_state_fault() :: %{String.t() => any()}
+  @type invalid_db_snapshot_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5039,14 +5043,14 @@ defmodule AWS.RDS do
       user_auth_config() :: %{
         "AuthScheme" => list(any()),
         "ClientPasswordAuthType" => list(any()),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "IAMAuth" => list(any()),
-        "SecretArn" => String.t(),
-        "UserName" => String.t()
+        "SecretArn" => String.t() | atom(),
+        "UserName" => String.t() | atom()
       }
       
   """
-  @type user_auth_config() :: %{String.t() => any()}
+  @type user_auth_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5057,34 +5061,34 @@ defmodule AWS.RDS do
       }
       
   """
-  @type create_db_cluster_snapshot_result() :: %{String.t() => any()}
+  @type create_db_cluster_snapshot_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       integration_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type integration_not_found_fault() :: %{String.t() => any()}
+  @type integration_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       option_configuration() :: %{
-        "DBSecurityGroupMemberships" => list(String.t()),
-        "OptionName" => String.t(),
+        "DBSecurityGroupMemberships" => list(String.t() | atom()),
+        "OptionName" => String.t() | atom(),
         "OptionSettings" => list(option_setting()),
-        "OptionVersion" => String.t(),
+        "OptionVersion" => String.t() | atom(),
         "Port" => integer(),
-        "VpcSecurityGroupMemberships" => list(String.t())
+        "VpcSecurityGroupMemberships" => list(String.t() | atom())
       }
       
   """
-  @type option_configuration() :: %{String.t() => any()}
+  @type option_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5095,7 +5099,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type create_db_parameter_group_result() :: %{String.t() => any()}
+  @type create_db_parameter_group_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5106,55 +5110,55 @@ defmodule AWS.RDS do
       }
       
   """
-  @type metric_query() :: %{String.t() => any()}
+  @type metric_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_reserved_db_instances_message() :: %{
-        optional("DBInstanceClass") => String.t(),
-        optional("Duration") => String.t(),
+        optional("DBInstanceClass") => String.t() | atom(),
+        optional("Duration") => String.t() | atom(),
         optional("Filters") => list(filter()),
-        optional("LeaseId") => String.t(),
-        optional("Marker") => String.t(),
+        optional("LeaseId") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
         optional("MultiAZ") => boolean(),
-        optional("OfferingType") => String.t(),
-        optional("ProductDescription") => String.t(),
-        optional("ReservedDBInstanceId") => String.t(),
-        optional("ReservedDBInstancesOfferingId") => String.t()
+        optional("OfferingType") => String.t() | atom(),
+        optional("ProductDescription") => String.t() | atom(),
+        optional("ReservedDBInstanceId") => String.t() | atom(),
+        optional("ReservedDBInstancesOfferingId") => String.t() | atom()
       }
       
   """
-  @type describe_reserved_db_instances_message() :: %{String.t() => any()}
+  @type describe_reserved_db_instances_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint() :: %{
-        "Address" => String.t(),
-        "HostedZoneId" => String.t(),
+        "Address" => String.t() | atom(),
+        "HostedZoneId" => String.t() | atom(),
         "Port" => integer()
       }
       
   """
-  @type endpoint() :: %{String.t() => any()}
+  @type endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_integration_message() :: %{
-        optional("DataFilter") => String.t(),
-        optional("Description") => String.t(),
-        optional("IntegrationName") => String.t(),
-        required("IntegrationIdentifier") => String.t()
+        optional("DataFilter") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("IntegrationName") => String.t() | atom(),
+        required("IntegrationIdentifier") => String.t() | atom()
       }
       
   """
-  @type modify_integration_message() :: %{String.t() => any()}
+  @type modify_integration_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5162,33 +5166,33 @@ defmodule AWS.RDS do
       
       events_message() :: %{
         "Events" => list(event()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type events_message() :: %{String.t() => any()}
+  @type events_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_snapshot_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_snapshot_not_found_fault() :: %{String.t() => any()}
+  @type db_snapshot_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_parameter_group_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_cluster_parameter_group_not_found_fault() :: %{String.t() => any()}
+  @type db_cluster_parameter_group_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5197,37 +5201,37 @@ defmodule AWS.RDS do
       reset_db_cluster_parameter_group_message() :: %{
         optional("Parameters") => list(parameter()),
         optional("ResetAllParameters") => boolean(),
-        required("DBClusterParameterGroupName") => String.t()
+        required("DBClusterParameterGroupName") => String.t() | atom()
       }
       
   """
-  @type reset_db_cluster_parameter_group_message() :: %{String.t() => any()}
+  @type reset_db_cluster_parameter_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       export_task() :: %{
-        "ExportOnly" => list(String.t()),
-        "ExportTaskIdentifier" => String.t(),
-        "FailureCause" => String.t(),
-        "IamRoleArn" => String.t(),
-        "KmsKeyId" => String.t(),
+        "ExportOnly" => list(String.t() | atom()),
+        "ExportTaskIdentifier" => String.t() | atom(),
+        "FailureCause" => String.t() | atom(),
+        "IamRoleArn" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
         "PercentProgress" => integer(),
-        "S3Bucket" => String.t(),
-        "S3Prefix" => String.t(),
+        "S3Bucket" => String.t() | atom(),
+        "S3Prefix" => String.t() | atom(),
         "SnapshotTime" => non_neg_integer(),
-        "SourceArn" => String.t(),
+        "SourceArn" => String.t() | atom(),
         "SourceType" => list(any()),
-        "Status" => String.t(),
+        "Status" => String.t() | atom(),
         "TaskEndTime" => non_neg_integer(),
         "TaskStartTime" => non_neg_integer(),
         "TotalExtractedDataInGB" => integer(),
-        "WarningMessage" => String.t()
+        "WarningMessage" => String.t() | atom()
       }
       
   """
-  @type export_task() :: %{String.t() => any()}
+  @type export_task() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5238,18 +5242,18 @@ defmodule AWS.RDS do
       }
       
   """
-  @type delete_db_cluster_automated_backup_result() :: %{String.t() => any()}
+  @type delete_db_cluster_automated_backup_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tenant_database_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type tenant_database_already_exists_fault() :: %{String.t() => any()}
+  @type tenant_database_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5260,18 +5264,18 @@ defmodule AWS.RDS do
       }
       
   """
-  @type restore_db_instance_from_s3_result() :: %{String.t() => any()}
+  @type restore_db_instance_from_s3_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_global_cluster_message() :: %{
-        required("GlobalClusterIdentifier") => String.t()
+        required("GlobalClusterIdentifier") => String.t() | atom()
       }
       
   """
-  @type delete_global_cluster_message() :: %{String.t() => any()}
+  @type delete_global_cluster_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5280,96 +5284,96 @@ defmodule AWS.RDS do
       option_group() :: %{
         "AllowsVpcAndNonVpcInstanceMemberships" => boolean(),
         "CopyTimestamp" => non_neg_integer(),
-        "EngineName" => String.t(),
-        "MajorEngineVersion" => String.t(),
-        "OptionGroupArn" => String.t(),
-        "OptionGroupDescription" => String.t(),
-        "OptionGroupName" => String.t(),
+        "EngineName" => String.t() | atom(),
+        "MajorEngineVersion" => String.t() | atom(),
+        "OptionGroupArn" => String.t() | atom(),
+        "OptionGroupDescription" => String.t() | atom(),
+        "OptionGroupName" => String.t() | atom(),
         "Options" => list(option()),
-        "SourceAccountId" => String.t(),
-        "SourceOptionGroup" => String.t(),
-        "VpcId" => String.t()
+        "SourceAccountId" => String.t() | atom(),
+        "SourceOptionGroup" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
       
   """
-  @type option_group() :: %{String.t() => any()}
+  @type option_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_event_subscription_message() :: %{
-        required("SubscriptionName") => String.t()
+        required("SubscriptionName") => String.t() | atom()
       }
       
   """
-  @type delete_event_subscription_message() :: %{String.t() => any()}
+  @type delete_event_subscription_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_proxy_target_groups_response() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | atom(),
         "TargetGroups" => list(db_proxy_target_group())
       }
       
   """
-  @type describe_db_proxy_target_groups_response() :: %{String.t() => any()}
+  @type describe_db_proxy_target_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_proxy_target_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_proxy_target_not_found_fault() :: %{String.t() => any()}
+  @type db_proxy_target_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       subscription_category_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type subscription_category_not_found_fault() :: %{String.t() => any()}
+  @type subscription_category_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       register_db_proxy_targets_request() :: %{
-        optional("DBClusterIdentifiers") => list(String.t()),
-        optional("DBInstanceIdentifiers") => list(String.t()),
-        optional("TargetGroupName") => String.t(),
-        required("DBProxyName") => String.t()
+        optional("DBClusterIdentifiers") => list(String.t() | atom()),
+        optional("DBInstanceIdentifiers") => list(String.t() | atom()),
+        optional("TargetGroupName") => String.t() | atom(),
+        required("DBProxyName") => String.t() | atom()
       }
       
   """
-  @type register_db_proxy_targets_request() :: %{String.t() => any()}
+  @type register_db_proxy_targets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       certificate() :: %{
-        "CertificateArn" => String.t(),
-        "CertificateIdentifier" => String.t(),
-        "CertificateType" => String.t(),
+        "CertificateArn" => String.t() | atom(),
+        "CertificateIdentifier" => String.t() | atom(),
+        "CertificateType" => String.t() | atom(),
         "CustomerOverride" => boolean(),
         "CustomerOverrideValidTill" => non_neg_integer(),
-        "Thumbprint" => String.t(),
+        "Thumbprint" => String.t() | atom(),
         "ValidFrom" => non_neg_integer(),
         "ValidTill" => non_neg_integer()
       }
       
   """
-  @type certificate() :: %{String.t() => any()}
+  @type certificate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5380,40 +5384,40 @@ defmodule AWS.RDS do
       }
       
   """
-  @type copy_option_group_result() :: %{String.t() => any()}
+  @type copy_option_group_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_key_not_accessible_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type kms_key_not_accessible_fault() :: %{String.t() => any()}
+  @type kms_key_not_accessible_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_db_parameter_group_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_db_parameter_group_state_fault() :: %{String.t() => any()}
+  @type invalid_db_parameter_group_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s_n_s_invalid_topic_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type s_n_s_invalid_topic_fault() :: %{String.t() => any()}
+  @type s_n_s_invalid_topic_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5421,30 +5425,30 @@ defmodule AWS.RDS do
       
       create_integration_message() :: %{
         optional("AdditionalEncryptionContext") => map(),
-        optional("DataFilter") => String.t(),
-        optional("Description") => String.t(),
-        optional("KMSKeyId") => String.t(),
+        optional("DataFilter") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("KMSKeyId") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("IntegrationName") => String.t(),
-        required("SourceArn") => String.t(),
-        required("TargetArn") => String.t()
+        required("IntegrationName") => String.t() | atom(),
+        required("SourceArn") => String.t() | atom(),
+        required("TargetArn") => String.t() | atom()
       }
       
   """
-  @type create_integration_message() :: %{String.t() => any()}
+  @type create_integration_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_role_from_db_cluster_message() :: %{
-        optional("FeatureName") => String.t(),
-        required("DBClusterIdentifier") => String.t(),
-        required("RoleArn") => String.t()
+        optional("FeatureName") => String.t() | atom(),
+        required("DBClusterIdentifier") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
       }
       
   """
-  @type remove_role_from_db_cluster_message() :: %{String.t() => any()}
+  @type remove_role_from_db_cluster_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5455,62 +5459,62 @@ defmodule AWS.RDS do
       }
       
   """
-  @type describe_engine_default_parameters_result() :: %{String.t() => any()}
+  @type describe_engine_default_parameters_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_db_proxy_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_db_proxy_state_fault() :: %{String.t() => any()}
+  @type invalid_db_proxy_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_db_cluster_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_db_cluster_state_fault() :: %{String.t() => any()}
+  @type invalid_db_cluster_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       option_group_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type option_group_already_exists_fault() :: %{String.t() => any()}
+  @type option_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reboot_db_shard_group_message() :: %{
-        required("DBShardGroupIdentifier") => String.t()
+        required("DBShardGroupIdentifier") => String.t() | atom()
       }
       
   """
-  @type reboot_db_shard_group_message() :: %{String.t() => any()}
+  @type reboot_db_shard_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_db_engine_version_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type unsupported_db_engine_version_fault() :: %{String.t() => any()}
+  @type unsupported_db_engine_version_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5521,7 +5525,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type create_db_cluster_parameter_group_result() :: %{String.t() => any()}
+  @type create_db_cluster_parameter_group_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5529,15 +5533,15 @@ defmodule AWS.RDS do
       
       event() :: %{
         "Date" => non_neg_integer(),
-        "EventCategories" => list(String.t()),
-        "Message" => String.t(),
-        "SourceArn" => String.t(),
-        "SourceIdentifier" => String.t(),
+        "EventCategories" => list(String.t() | atom()),
+        "Message" => String.t() | atom(),
+        "SourceArn" => String.t() | atom(),
+        "SourceIdentifier" => String.t() | atom(),
         "SourceType" => list(any())
       }
       
   """
-  @type event() :: %{String.t() => any()}
+  @type event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5548,27 +5552,27 @@ defmodule AWS.RDS do
       }
       
   """
-  @type create_event_subscription_result() :: %{String.t() => any()}
+  @type create_event_subscription_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_db_instances_offering() :: %{
-        "CurrencyCode" => String.t(),
-        "DBInstanceClass" => String.t(),
+        "CurrencyCode" => String.t() | atom(),
+        "DBInstanceClass" => String.t() | atom(),
         "Duration" => integer(),
         "FixedPrice" => float(),
         "MultiAZ" => boolean(),
-        "OfferingType" => String.t(),
-        "ProductDescription" => String.t(),
+        "OfferingType" => String.t() | atom(),
+        "ProductDescription" => String.t() | atom(),
         "RecurringCharges" => list(recurring_charge()),
-        "ReservedDBInstancesOfferingId" => String.t(),
+        "ReservedDBInstancesOfferingId" => String.t() | atom(),
         "UsagePrice" => float()
       }
       
   """
-  @type reserved_db_instances_offering() :: %{String.t() => any()}
+  @type reserved_db_instances_offering() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5578,11 +5582,11 @@ defmodule AWS.RDS do
         optional("ComputeRedundancy") => integer(),
         optional("MaxACU") => float(),
         optional("MinACU") => float(),
-        required("DBShardGroupIdentifier") => String.t()
+        required("DBShardGroupIdentifier") => String.t() | atom()
       }
       
   """
-  @type modify_db_shard_group_message() :: %{String.t() => any()}
+  @type modify_db_shard_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5593,21 +5597,21 @@ defmodule AWS.RDS do
       }
       
   """
-  @type delete_db_proxy_endpoint_response() :: %{String.t() => any()}
+  @type delete_db_proxy_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_db_snapshot_attribute_message() :: %{
-        optional("ValuesToAdd") => list(String.t()),
-        optional("ValuesToRemove") => list(String.t()),
-        required("AttributeName") => String.t(),
-        required("DBSnapshotIdentifier") => String.t()
+        optional("ValuesToAdd") => list(String.t() | atom()),
+        optional("ValuesToRemove") => list(String.t() | atom()),
+        required("AttributeName") => String.t() | atom(),
+        required("DBSnapshotIdentifier") => String.t() | atom()
       }
       
   """
-  @type modify_db_snapshot_attribute_message() :: %{String.t() => any()}
+  @type modify_db_snapshot_attribute_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5615,23 +5619,23 @@ defmodule AWS.RDS do
       
       performance_insights_metric_query() :: %{
         "GroupBy" => performance_insights_metric_dimension_group(),
-        "Metric" => String.t()
+        "Metric" => String.t() | atom()
       }
       
   """
-  @type performance_insights_metric_query() :: %{String.t() => any()}
+  @type performance_insights_metric_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       context_attribute() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type context_attribute() :: %{String.t() => any()}
+  @type context_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5639,11 +5643,11 @@ defmodule AWS.RDS do
       
       db_instance_message() :: %{
         "DBInstances" => list(db_instance()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type db_instance_message() :: %{String.t() => any()}
+  @type db_instance_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5651,13 +5655,13 @@ defmodule AWS.RDS do
       
       describe_engine_default_cluster_parameters_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        required("DBParameterGroupFamily") => String.t()
+        required("DBParameterGroupFamily") => String.t() | atom()
       }
       
   """
-  @type describe_engine_default_cluster_parameters_message() :: %{String.t() => any()}
+  @type describe_engine_default_cluster_parameters_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5668,7 +5672,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type tag_list_message() :: %{String.t() => any()}
+  @type tag_list_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5676,40 +5680,40 @@ defmodule AWS.RDS do
       
       describe_db_proxy_targets_request() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        optional("TargetGroupName") => String.t(),
-        required("DBProxyName") => String.t()
+        optional("TargetGroupName") => String.t() | atom(),
+        required("DBProxyName") => String.t() | atom()
       }
       
   """
-  @type describe_db_proxy_targets_request() :: %{String.t() => any()}
+  @type describe_db_proxy_targets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_tenant_databases_message() :: %{
-        optional("DBInstanceIdentifier") => String.t(),
+        optional("DBInstanceIdentifier") => String.t() | atom(),
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        optional("TenantDBName") => String.t()
+        optional("TenantDBName") => String.t() | atom()
       }
       
   """
-  @type describe_tenant_databases_message() :: %{String.t() => any()}
+  @type describe_tenant_databases_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_option_group_message() :: %{
-        required("OptionGroupName") => String.t()
+        required("OptionGroupName") => String.t() | atom()
       }
       
   """
-  @type delete_option_group_message() :: %{String.t() => any()}
+  @type delete_option_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5720,112 +5724,112 @@ defmodule AWS.RDS do
       }
       
   """
-  @type restore_db_instance_to_point_in_time_result() :: %{String.t() => any()}
+  @type restore_db_instance_to_point_in_time_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_integration_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_integration_state_fault() :: %{String.t() => any()}
+  @type invalid_integration_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster() :: %{
-        "Status" => String.t(),
-        "DBClusterParameterGroup" => String.t(),
-        "DBSystemId" => String.t(),
+        "Status" => String.t() | atom(),
+        "DBClusterParameterGroup" => String.t() | atom(),
+        "DBSystemId" => String.t() | atom(),
         "LatestRestorableTime" => non_neg_integer(),
         "MasterUserSecret" => master_user_secret(),
         "StatusInfos" => list(db_cluster_status_info()),
-        "Engine" => String.t(),
+        "Engine" => String.t() | atom(),
         "GlobalWriteForwardingRequested" => boolean(),
         "VpcSecurityGroups" => list(vpc_security_group_membership()),
-        "NetworkType" => String.t(),
-        "ActivityStreamKmsKeyId" => String.t(),
+        "NetworkType" => String.t() | atom(),
+        "ActivityStreamKmsKeyId" => String.t() | atom(),
         "MultiAZ" => boolean(),
-        "ServerlessV2PlatformVersion" => String.t(),
+        "ServerlessV2PlatformVersion" => String.t() | atom(),
         "EarliestRestorableTime" => non_neg_integer(),
-        "DatabaseName" => String.t(),
-        "PreferredMaintenanceWindow" => String.t(),
+        "DatabaseName" => String.t() | atom(),
+        "PreferredMaintenanceWindow" => String.t() | atom(),
         "LocalWriteForwardingStatus" => list(any()),
         "Iops" => integer(),
         "ScalingConfigurationInfo" => scaling_configuration_info(),
         "MonitoringInterval" => integer(),
         "ClusterScalabilityType" => list(any()),
-        "CloneGroupId" => String.t(),
-        "AwsBackupRecoveryPointArn" => String.t(),
-        "ActivityStreamKinesisStreamName" => String.t(),
-        "PreferredBackupWindow" => String.t(),
+        "CloneGroupId" => String.t() | atom(),
+        "AwsBackupRecoveryPointArn" => String.t() | atom(),
+        "ActivityStreamKinesisStreamName" => String.t() | atom(),
+        "PreferredBackupWindow" => String.t() | atom(),
         "DatabaseInsightsMode" => list(any()),
         "GlobalWriteForwardingStatus" => list(any()),
         "PendingModifiedValues" => cluster_pending_modified_values(),
         "PerformanceInsightsEnabled" => boolean(),
         "BackupRetentionPeriod" => integer(),
-        "KmsKeyId" => String.t(),
+        "KmsKeyId" => String.t() | atom(),
         "ActivityStreamMode" => list(any()),
-        "ReadReplicaIdentifiers" => list(String.t()),
+        "ReadReplicaIdentifiers" => list(String.t() | atom()),
         "CopyTagsToSnapshot" => boolean(),
         "RdsCustomClusterConfiguration" => rds_custom_cluster_configuration(),
         "ServerlessV2ScalingConfiguration" => serverless_v2_scaling_configuration_info(),
-        "DBClusterInstanceClass" => String.t(),
+        "DBClusterInstanceClass" => String.t() | atom(),
         "Capacity" => integer(),
-        "EnabledCloudwatchLogsExports" => list(String.t()),
+        "EnabledCloudwatchLogsExports" => list(String.t() | atom()),
         "HttpEndpointEnabled" => boolean(),
         "AutoMinorVersionUpgrade" => boolean(),
         "TagList" => list(tag()),
         "BacktrackWindow" => float(),
         "ClusterCreateTime" => non_neg_integer(),
-        "PercentProgress" => String.t(),
-        "ReplicationSourceIdentifier" => String.t(),
-        "EngineLifecycleSupport" => String.t(),
+        "PercentProgress" => String.t() | atom(),
+        "ReplicationSourceIdentifier" => String.t() | atom(),
+        "EngineLifecycleSupport" => String.t() | atom(),
         "Port" => integer(),
-        "DBClusterArn" => String.t(),
-        "AvailabilityZones" => list(String.t()),
+        "DBClusterArn" => String.t() | atom(),
+        "AvailabilityZones" => list(String.t() | atom()),
         "CrossAccountClone" => boolean(),
         "BacktrackConsumedChangeRecords" => float(),
         "LimitlessDatabase" => limitless_database(),
         "StorageThroughput" => integer(),
-        "PerformanceInsightsKMSKeyId" => String.t(),
-        "MasterUsername" => String.t(),
-        "DbClusterResourceId" => String.t(),
+        "PerformanceInsightsKMSKeyId" => String.t() | atom(),
+        "MasterUsername" => String.t() | atom(),
+        "DbClusterResourceId" => String.t() | atom(),
         "DBClusterMembers" => list(db_cluster_member()),
-        "ReaderEndpoint" => String.t(),
+        "ReaderEndpoint" => String.t() | atom(),
         "AutomaticRestartTime" => non_neg_integer(),
-        "CustomEndpoints" => list(String.t()),
+        "CustomEndpoints" => list(String.t() | atom()),
         "EarliestBacktrackTime" => non_neg_integer(),
-        "DBClusterIdentifier" => String.t(),
+        "DBClusterIdentifier" => String.t() | atom(),
         "DeletionProtection" => boolean(),
-        "StorageType" => String.t(),
-        "DBSubnetGroup" => String.t(),
+        "StorageType" => String.t() | atom(),
+        "DBSubnetGroup" => String.t() | atom(),
         "PerformanceInsightsRetentionPeriod" => integer(),
         "DomainMemberships" => list(domain_membership()),
         "DBClusterOptionGroupMemberships" => list(db_cluster_option_group_status()),
-        "EngineMode" => String.t(),
+        "EngineMode" => String.t() | atom(),
         "ActivityStreamStatus" => list(any()),
         "CertificateDetails" => certificate_details(),
         "PubliclyAccessible" => boolean(),
-        "EngineVersion" => String.t(),
+        "EngineVersion" => String.t() | atom(),
         "AllocatedStorage" => integer(),
-        "HostedZoneId" => String.t(),
+        "HostedZoneId" => String.t() | atom(),
         "AssociatedRoles" => list(db_cluster_role()),
-        "GlobalClusterIdentifier" => String.t(),
+        "GlobalClusterIdentifier" => String.t() | atom(),
         "IOOptimizedNextAllowedModificationTime" => non_neg_integer(),
         "StorageEncrypted" => boolean(),
-        "Endpoint" => String.t(),
+        "Endpoint" => String.t() | atom(),
         "IAMDatabaseAuthenticationEnabled" => boolean(),
-        "CharacterSetName" => String.t(),
-        "MonitoringRoleArn" => String.t()
+        "CharacterSetName" => String.t() | atom(),
+        "MonitoringRoleArn" => String.t() | atom()
       }
       
   """
-  @type db_cluster() :: %{String.t() => any()}
+  @type db_cluster() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5836,18 +5840,18 @@ defmodule AWS.RDS do
       }
       
   """
-  @type switchover_blue_green_deployment_response() :: %{String.t() => any()}
+  @type switchover_blue_green_deployment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s_n_s_topic_arn_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type s_n_s_topic_arn_not_found_fault() :: %{String.t() => any()}
+  @type s_n_s_topic_arn_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5858,7 +5862,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type delete_db_snapshot_result() :: %{String.t() => any()}
+  @type delete_db_snapshot_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5867,23 +5871,23 @@ defmodule AWS.RDS do
       modify_option_group_message() :: %{
         optional("ApplyImmediately") => boolean(),
         optional("OptionsToInclude") => list(option_configuration()),
-        optional("OptionsToRemove") => list(String.t()),
-        required("OptionGroupName") => String.t()
+        optional("OptionsToRemove") => list(String.t() | atom()),
+        required("OptionGroupName") => String.t() | atom()
       }
       
   """
-  @type modify_option_group_message() :: %{String.t() => any()}
+  @type modify_option_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_s3_bucket_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_s3_bucket_fault() :: %{String.t() => any()}
+  @type invalid_s3_bucket_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5894,37 +5898,37 @@ defmodule AWS.RDS do
       }
       
   """
-  @type remove_source_identifier_from_subscription_result() :: %{String.t() => any()}
+  @type remove_source_identifier_from_subscription_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_db_security_group_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_db_security_group_state_fault() :: %{String.t() => any()}
+  @type invalid_db_security_group_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       option_setting() :: %{
-        "AllowedValues" => String.t(),
-        "ApplyType" => String.t(),
-        "DataType" => String.t(),
-        "DefaultValue" => String.t(),
-        "Description" => String.t(),
+        "AllowedValues" => String.t() | atom(),
+        "ApplyType" => String.t() | atom(),
+        "DataType" => String.t() | atom(),
+        "DefaultValue" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "IsCollection" => boolean(),
         "IsModifiable" => boolean(),
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type option_setting() :: %{String.t() => any()}
+  @type option_setting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5935,20 +5939,22 @@ defmodule AWS.RDS do
       }
       
   """
-  @type start_db_instance_automated_backups_replication_result() :: %{String.t() => any()}
+  @type start_db_instance_automated_backups_replication_result() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       remove_role_from_db_instance_message() :: %{
-        required("DBInstanceIdentifier") => String.t(),
-        required("FeatureName") => String.t(),
-        required("RoleArn") => String.t()
+        required("DBInstanceIdentifier") => String.t() | atom(),
+        required("FeatureName") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
       }
       
   """
-  @type remove_role_from_db_instance_message() :: %{String.t() => any()}
+  @type remove_role_from_db_instance_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5959,7 +5965,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type create_db_security_group_result() :: %{String.t() => any()}
+  @type create_db_security_group_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5970,20 +5976,20 @@ defmodule AWS.RDS do
       }
       
   """
-  @type start_db_instance_result() :: %{String.t() => any()}
+  @type start_db_instance_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_activity_stream_response() :: %{
-        "KinesisStreamName" => String.t(),
-        "KmsKeyId" => String.t(),
+        "KinesisStreamName" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type stop_activity_stream_response() :: %{String.t() => any()}
+  @type stop_activity_stream_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5994,19 +6000,19 @@ defmodule AWS.RDS do
       }
       
   """
-  @type modify_db_proxy_target_group_response() :: %{String.t() => any()}
+  @type modify_db_proxy_target_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_tags_to_resource_message() :: %{
-        required("ResourceName") => String.t(),
+        required("ResourceName") => String.t() | atom(),
         required("Tags") => list(tag())
       }
       
   """
-  @type add_tags_to_resource_message() :: %{String.t() => any()}
+  @type add_tags_to_resource_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6017,7 +6023,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type register_db_proxy_targets_response() :: %{String.t() => any()}
+  @type register_db_proxy_targets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6028,7 +6034,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type copy_db_snapshot_result() :: %{String.t() => any()}
+  @type copy_db_snapshot_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6039,18 +6045,18 @@ defmodule AWS.RDS do
       }
       
   """
-  @type event_categories_message() :: %{String.t() => any()}
+  @type event_categories_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_cluster_already_exists_fault() :: %{String.t() => any()}
+  @type db_cluster_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6062,22 +6068,22 @@ defmodule AWS.RDS do
         "MinCapacity" => integer(),
         "SecondsBeforeTimeout" => integer(),
         "SecondsUntilAutoPause" => integer(),
-        "TimeoutAction" => String.t()
+        "TimeoutAction" => String.t() | atom()
       }
       
   """
-  @type scaling_configuration() :: %{String.t() => any()}
+  @type scaling_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_cluster_not_found_fault() :: %{String.t() => any()}
+  @type db_cluster_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6088,7 +6094,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type delete_db_cluster_result() :: %{String.t() => any()}
+  @type delete_db_cluster_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6097,12 +6103,12 @@ defmodule AWS.RDS do
       modify_current_db_cluster_capacity_message() :: %{
         optional("Capacity") => integer(),
         optional("SecondsBeforeTimeout") => integer(),
-        optional("TimeoutAction") => String.t(),
-        required("DBClusterIdentifier") => String.t()
+        optional("TimeoutAction") => String.t() | atom(),
+        required("DBClusterIdentifier") => String.t() | atom()
       }
       
   """
-  @type modify_current_db_cluster_capacity_message() :: %{String.t() => any()}
+  @type modify_current_db_cluster_capacity_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6110,13 +6116,13 @@ defmodule AWS.RDS do
       
       create_db_subnet_group_message() :: %{
         optional("Tags") => list(tag()),
-        required("DBSubnetGroupDescription") => String.t(),
-        required("DBSubnetGroupName") => String.t(),
-        required("SubnetIds") => list(String.t())
+        required("DBSubnetGroupDescription") => String.t() | atom(),
+        required("DBSubnetGroupName") => String.t() | atom(),
+        required("SubnetIds") => list(String.t() | atom())
       }
       
   """
-  @type create_db_subnet_group_message() :: %{String.t() => any()}
+  @type create_db_subnet_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6127,88 +6133,88 @@ defmodule AWS.RDS do
       }
       
   """
-  @type restore_db_cluster_from_snapshot_result() :: %{String.t() => any()}
+  @type restore_db_cluster_from_snapshot_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_cluster_backtracks_message() :: %{
-        optional("BacktrackIdentifier") => String.t(),
+        optional("BacktrackIdentifier") => String.t() | atom(),
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        required("DBClusterIdentifier") => String.t()
+        required("DBClusterIdentifier") => String.t() | atom()
       }
       
   """
-  @type describe_db_cluster_backtracks_message() :: %{String.t() => any()}
+  @type describe_db_cluster_backtracks_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tenant_database_pending_modified_values() :: %{
-        "MasterUserPassword" => String.t(),
-        "TenantDBName" => String.t()
+        "MasterUserPassword" => String.t() | atom(),
+        "TenantDBName" => String.t() | atom()
       }
       
   """
-  @type tenant_database_pending_modified_values() :: %{String.t() => any()}
+  @type tenant_database_pending_modified_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       restore_db_instance_from_db_snapshot_message() :: %{
-        optional("StorageType") => String.t(),
-        optional("NetworkType") => String.t(),
-        optional("EngineLifecycleSupport") => String.t(),
+        optional("StorageType") => String.t() | atom(),
+        optional("NetworkType") => String.t() | atom(),
+        optional("EngineLifecycleSupport") => String.t() | atom(),
         optional("AllocatedStorage") => integer(),
-        optional("DomainOu") => String.t(),
-        optional("MasterUserSecretKmsKeyId") => String.t(),
+        optional("DomainOu") => String.t() | atom(),
+        optional("MasterUserSecretKmsKeyId") => String.t() | atom(),
         optional("EnableCustomerOwnedIp") => boolean(),
-        optional("DBClusterSnapshotIdentifier") => String.t(),
-        optional("DBSnapshotIdentifier") => String.t(),
-        optional("Engine") => String.t(),
-        optional("BackupTarget") => String.t(),
-        optional("DomainIAMRoleName") => String.t(),
-        optional("Domain") => String.t(),
+        optional("DBClusterSnapshotIdentifier") => String.t() | atom(),
+        optional("DBSnapshotIdentifier") => String.t() | atom(),
+        optional("Engine") => String.t() | atom(),
+        optional("BackupTarget") => String.t() | atom(),
+        optional("DomainIAMRoleName") => String.t() | atom(),
+        optional("Domain") => String.t() | atom(),
         optional("EnableIAMDatabaseAuthentication") => boolean(),
         optional("CopyTagsToSnapshot") => boolean(),
         optional("DedicatedLogVolume") => boolean(),
-        optional("AvailabilityZone") => String.t(),
-        optional("EnableCloudwatchLogsExports") => list(String.t()),
+        optional("AvailabilityZone") => String.t() | atom(),
+        optional("EnableCloudwatchLogsExports") => list(String.t() | atom()),
         optional("AutoMinorVersionUpgrade") => boolean(),
         optional("PubliclyAccessible") => boolean(),
-        optional("DomainDnsIps") => list(String.t()),
+        optional("DomainDnsIps") => list(String.t() | atom()),
         optional("ProcessorFeatures") => list(processor_feature()),
-        optional("DBInstanceClass") => String.t(),
-        optional("LicenseModel") => String.t(),
-        required("DBInstanceIdentifier") => String.t(),
-        optional("DomainAuthSecretArn") => String.t(),
+        optional("DBInstanceClass") => String.t() | atom(),
+        optional("LicenseModel") => String.t() | atom(),
+        required("DBInstanceIdentifier") => String.t() | atom(),
+        optional("DomainAuthSecretArn") => String.t() | atom(),
         optional("Iops") => integer(),
         optional("ManageMasterUserPassword") => boolean(),
         optional("Port") => integer(),
-        optional("TdeCredentialPassword") => String.t(),
-        optional("CustomIamInstanceProfile") => String.t(),
+        optional("TdeCredentialPassword") => String.t() | atom(),
+        optional("CustomIamInstanceProfile") => String.t() | atom(),
         optional("MultiAZ") => boolean(),
         optional("DeletionProtection") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t()),
-        optional("CACertificateIdentifier") => String.t(),
-        optional("DBParameterGroupName") => String.t(),
-        optional("DomainFqdn") => String.t(),
-        optional("OptionGroupName") => String.t(),
-        optional("DBName") => String.t(),
+        optional("VpcSecurityGroupIds") => list(String.t() | atom()),
+        optional("CACertificateIdentifier") => String.t() | atom(),
+        optional("DBParameterGroupName") => String.t() | atom(),
+        optional("DomainFqdn") => String.t() | atom(),
+        optional("OptionGroupName") => String.t() | atom(),
+        optional("DBName") => String.t() | atom(),
         optional("StorageThroughput") => integer(),
-        optional("DBSubnetGroupName") => String.t(),
-        optional("TdeCredentialArn") => String.t(),
+        optional("DBSubnetGroupName") => String.t() | atom(),
+        optional("TdeCredentialArn") => String.t() | atom(),
         optional("UseDefaultProcessorFeatures") => boolean(),
         optional("Tags") => list(tag())
       }
       
   """
-  @type restore_db_instance_from_db_snapshot_message() :: %{String.t() => any()}
+  @type restore_db_instance_from_db_snapshot_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6216,36 +6222,36 @@ defmodule AWS.RDS do
       
       describe_integrations_response() :: %{
         "Integrations" => list(integration()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type describe_integrations_response() :: %{String.t() => any()}
+  @type describe_integrations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       insufficient_db_cluster_capacity_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type insufficient_db_cluster_capacity_fault() :: %{String.t() => any()}
+  @type insufficient_db_cluster_capacity_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_instance_status_info() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | atom(),
         "Normal" => boolean(),
-        "Status" => String.t(),
-        "StatusType" => String.t()
+        "Status" => String.t() | atom(),
+        "StatusType" => String.t() | atom()
       }
       
   """
-  @type db_instance_status_info() :: %{String.t() => any()}
+  @type db_instance_status_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6254,15 +6260,15 @@ defmodule AWS.RDS do
       describe_db_log_files_message() :: %{
         optional("FileLastWritten") => float(),
         optional("FileSize") => float(),
-        optional("FilenameContains") => String.t(),
+        optional("FilenameContains") => String.t() | atom(),
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        required("DBInstanceIdentifier") => String.t()
+        required("DBInstanceIdentifier") => String.t() | atom()
       }
       
   """
-  @type describe_db_log_files_message() :: %{String.t() => any()}
+  @type describe_db_log_files_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6270,24 +6276,24 @@ defmodule AWS.RDS do
       
       describe_global_clusters_message() :: %{
         optional("Filters") => list(filter()),
-        optional("GlobalClusterIdentifier") => String.t(),
-        optional("Marker") => String.t(),
+        optional("GlobalClusterIdentifier") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_global_clusters_message() :: %{String.t() => any()}
+  @type describe_global_clusters_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       global_cluster_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type global_cluster_quota_exceeded_fault() :: %{String.t() => any()}
+  @type global_cluster_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6296,17 +6302,17 @@ defmodule AWS.RDS do
       describe_events_message() :: %{
         optional("Duration") => integer(),
         optional("EndTime") => non_neg_integer(),
-        optional("EventCategories") => list(String.t()),
+        optional("EventCategories") => list(String.t() | atom()),
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        optional("SourceIdentifier") => String.t(),
+        optional("SourceIdentifier") => String.t() | atom(),
         optional("SourceType") => list(any()),
         optional("StartTime") => non_neg_integer()
       }
       
   """
-  @type describe_events_message() :: %{String.t() => any()}
+  @type describe_events_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6317,30 +6323,30 @@ defmodule AWS.RDS do
       }
       
   """
-  @type purchase_reserved_db_instances_offering_result() :: %{String.t() => any()}
+  @type purchase_reserved_db_instances_offering_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       recommended_action_update() :: %{
-        "ActionId" => String.t(),
-        "Status" => String.t()
+        "ActionId" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type recommended_action_update() :: %{String.t() => any()}
+  @type recommended_action_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_cluster_snapshot_attributes_message() :: %{
-        required("DBClusterSnapshotIdentifier") => String.t()
+        required("DBClusterSnapshotIdentifier") => String.t() | atom()
       }
       
   """
-  @type describe_db_cluster_snapshot_attributes_message() :: %{String.t() => any()}
+  @type describe_db_cluster_snapshot_attributes_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6351,24 +6357,24 @@ defmodule AWS.RDS do
       }
       
   """
-  @type start_db_cluster_result() :: %{String.t() => any()}
+  @type start_db_cluster_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_snapshot_tenant_databases_message() :: %{
-        optional("DBInstanceIdentifier") => String.t(),
-        optional("DBSnapshotIdentifier") => String.t(),
-        optional("DbiResourceId") => String.t(),
+        optional("DBInstanceIdentifier") => String.t() | atom(),
+        optional("DBSnapshotIdentifier") => String.t() | atom(),
+        optional("DbiResourceId") => String.t() | atom(),
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        optional("SnapshotType") => String.t()
+        optional("SnapshotType") => String.t() | atom()
       }
       
   """
-  @type describe_db_snapshot_tenant_databases_message() :: %{String.t() => any()}
+  @type describe_db_snapshot_tenant_databases_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6377,80 +6383,80 @@ defmodule AWS.RDS do
       copy_db_snapshot_message() :: %{
         optional("CopyOptionGroup") => boolean(),
         optional("CopyTags") => boolean(),
-        optional("KmsKeyId") => String.t(),
-        optional("OptionGroupName") => String.t(),
-        optional("PreSignedUrl") => String.t(),
-        optional("SnapshotAvailabilityZone") => String.t(),
-        optional("SnapshotTarget") => String.t(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("OptionGroupName") => String.t() | atom(),
+        optional("PreSignedUrl") => String.t() | atom(),
+        optional("SnapshotAvailabilityZone") => String.t() | atom(),
+        optional("SnapshotTarget") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        optional("TargetCustomAvailabilityZone") => String.t(),
-        required("SourceDBSnapshotIdentifier") => String.t(),
-        required("TargetDBSnapshotIdentifier") => String.t()
+        optional("TargetCustomAvailabilityZone") => String.t() | atom(),
+        required("SourceDBSnapshotIdentifier") => String.t() | atom(),
+        required("TargetDBSnapshotIdentifier") => String.t() | atom()
       }
       
   """
-  @type copy_db_snapshot_message() :: %{String.t() => any()}
+  @type copy_db_snapshot_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_backtrack() :: %{
-        "BacktrackIdentifier" => String.t(),
+        "BacktrackIdentifier" => String.t() | atom(),
         "BacktrackRequestCreationTime" => non_neg_integer(),
         "BacktrackTo" => non_neg_integer(),
         "BacktrackedFrom" => non_neg_integer(),
-        "DBClusterIdentifier" => String.t(),
-        "Status" => String.t()
+        "DBClusterIdentifier" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type db_cluster_backtrack() :: %{String.t() => any()}
+  @type db_cluster_backtrack() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_db_proxy_request() :: %{
-        required("DBProxyName") => String.t()
+        required("DBProxyName") => String.t() | atom()
       }
       
   """
-  @type delete_db_proxy_request() :: %{String.t() => any()}
+  @type delete_db_proxy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_db_proxy_endpoint_request() :: %{
-        required("DBProxyEndpointName") => String.t()
+        required("DBProxyEndpointName") => String.t() | atom()
       }
       
   """
-  @type delete_db_proxy_endpoint_request() :: %{String.t() => any()}
+  @type delete_db_proxy_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       option_group_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type option_group_not_found_fault() :: %{String.t() => any()}
+  @type option_group_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       option_groups() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | atom(),
         "OptionGroupsList" => list(option_group())
       }
       
   """
-  @type option_groups() :: %{String.t() => any()}
+  @type option_groups() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6461,7 +6467,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type modify_db_proxy_response() :: %{String.t() => any()}
+  @type modify_db_proxy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6472,29 +6478,29 @@ defmodule AWS.RDS do
       }
       
   """
-  @type account_attributes_message() :: %{String.t() => any()}
+  @type account_attributes_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       blue_green_deployment_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type blue_green_deployment_not_found_fault() :: %{String.t() => any()}
+  @type blue_green_deployment_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       global_cluster_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type global_cluster_not_found_fault() :: %{String.t() => any()}
+  @type global_cluster_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6502,33 +6508,33 @@ defmodule AWS.RDS do
       
       db_cluster_snapshot_attributes_result() :: %{
         "DBClusterSnapshotAttributes" => list(db_cluster_snapshot_attribute()),
-        "DBClusterSnapshotIdentifier" => String.t()
+        "DBClusterSnapshotIdentifier" => String.t() | atom()
       }
       
   """
-  @type db_cluster_snapshot_attributes_result() :: %{String.t() => any()}
+  @type db_cluster_snapshot_attributes_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       export_task_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type export_task_not_found_fault() :: %{String.t() => any()}
+  @type export_task_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       custom_db_engine_version_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type custom_db_engine_version_already_exists_fault() :: %{String.t() => any()}
+  @type custom_db_engine_version_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6539,29 +6545,29 @@ defmodule AWS.RDS do
       }
       
   """
-  @type modify_event_subscription_result() :: %{String.t() => any()}
+  @type modify_event_subscription_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       insufficient_available_ips_in_subnet_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type insufficient_available_ips_in_subnet_fault() :: %{String.t() => any()}
+  @type insufficient_available_ips_in_subnet_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       global_cluster_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type global_cluster_already_exists_fault() :: %{String.t() => any()}
+  @type global_cluster_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6569,11 +6575,11 @@ defmodule AWS.RDS do
       
       db_cluster_automated_backup_message() :: %{
         "DBClusterAutomatedBackups" => list(db_cluster_automated_backup()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type db_cluster_automated_backup_message() :: %{String.t() => any()}
+  @type db_cluster_automated_backup_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6584,7 +6590,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type apply_pending_maintenance_action_result() :: %{String.t() => any()}
+  @type apply_pending_maintenance_action_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6595,18 +6601,18 @@ defmodule AWS.RDS do
       }
       
   """
-  @type create_blue_green_deployment_response() :: %{String.t() => any()}
+  @type create_blue_green_deployment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       source_cluster_not_supported_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type source_cluster_not_supported_fault() :: %{String.t() => any()}
+  @type source_cluster_not_supported_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6614,11 +6620,11 @@ defmodule AWS.RDS do
       
       upgrade_target() :: %{
         "AutoUpgrade" => boolean(),
-        "Description" => String.t(),
-        "Engine" => String.t(),
-        "EngineVersion" => String.t(),
+        "Description" => String.t() | atom(),
+        "Engine" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
         "IsMajorVersionUpgrade" => boolean(),
-        "SupportedEngineModes" => list(String.t()),
+        "SupportedEngineModes" => list(String.t() | atom()),
         "SupportsBabelfish" => boolean(),
         "SupportsGlobalDatabases" => boolean(),
         "SupportsIntegrations" => boolean(),
@@ -6628,18 +6634,18 @@ defmodule AWS.RDS do
       }
       
   """
-  @type upgrade_target() :: %{String.t() => any()}
+  @type upgrade_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_db_instance_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type reserved_db_instance_not_found_fault() :: %{String.t() => any()}
+  @type reserved_db_instance_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6650,7 +6656,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type copy_db_parameter_group_result() :: %{String.t() => any()}
+  @type copy_db_parameter_group_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6661,7 +6667,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type delete_event_subscription_result() :: %{String.t() => any()}
+  @type delete_event_subscription_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6673,7 +6679,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type limitless_database() :: %{String.t() => any()}
+  @type limitless_database() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6682,15 +6688,15 @@ defmodule AWS.RDS do
       option_group_option() :: %{
         "CopyableCrossAccount" => boolean(),
         "DefaultPort" => integer(),
-        "Description" => String.t(),
-        "EngineName" => String.t(),
-        "MajorEngineVersion" => String.t(),
-        "MinimumRequiredMinorEngineVersion" => String.t(),
-        "Name" => String.t(),
+        "Description" => String.t() | atom(),
+        "EngineName" => String.t() | atom(),
+        "MajorEngineVersion" => String.t() | atom(),
+        "MinimumRequiredMinorEngineVersion" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "OptionGroupOptionSettings" => list(option_group_option_setting()),
         "OptionGroupOptionVersions" => list(option_version()),
-        "OptionsConflictsWith" => list(String.t()),
-        "OptionsDependedOn" => list(String.t()),
+        "OptionsConflictsWith" => list(String.t() | atom()),
+        "OptionsDependedOn" => list(String.t() | atom()),
         "Permanent" => boolean(),
         "Persistent" => boolean(),
         "PortRequired" => boolean(),
@@ -6700,21 +6706,21 @@ defmodule AWS.RDS do
       }
       
   """
-  @type option_group_option() :: %{String.t() => any()}
+  @type option_group_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       download_db_log_file_portion_message() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("NumberOfLines") => integer(),
-        required("DBInstanceIdentifier") => String.t(),
-        required("LogFileName") => String.t()
+        required("DBInstanceIdentifier") => String.t() | atom(),
+        required("LogFileName") => String.t() | atom()
       }
       
   """
-  @type download_db_log_file_portion_message() :: %{String.t() => any()}
+  @type download_db_log_file_portion_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6722,54 +6728,54 @@ defmodule AWS.RDS do
       
       db_instance_automated_backup() :: %{
         "AllocatedStorage" => integer(),
-        "AvailabilityZone" => String.t(),
-        "AwsBackupRecoveryPointArn" => String.t(),
+        "AvailabilityZone" => String.t() | atom(),
+        "AwsBackupRecoveryPointArn" => String.t() | atom(),
         "BackupRetentionPeriod" => integer(),
-        "BackupTarget" => String.t(),
-        "DBInstanceArn" => String.t(),
-        "DBInstanceAutomatedBackupsArn" => String.t(),
+        "BackupTarget" => String.t() | atom(),
+        "DBInstanceArn" => String.t() | atom(),
+        "DBInstanceAutomatedBackupsArn" => String.t() | atom(),
         "DBInstanceAutomatedBackupsReplications" => list(db_instance_automated_backups_replication()),
-        "DBInstanceIdentifier" => String.t(),
-        "DbiResourceId" => String.t(),
+        "DBInstanceIdentifier" => String.t() | atom(),
+        "DbiResourceId" => String.t() | atom(),
         "DedicatedLogVolume" => boolean(),
         "Encrypted" => boolean(),
-        "Engine" => String.t(),
-        "EngineVersion" => String.t(),
+        "Engine" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
         "IAMDatabaseAuthenticationEnabled" => boolean(),
         "InstanceCreateTime" => non_neg_integer(),
         "Iops" => integer(),
-        "KmsKeyId" => String.t(),
-        "LicenseModel" => String.t(),
-        "MasterUsername" => String.t(),
+        "KmsKeyId" => String.t() | atom(),
+        "LicenseModel" => String.t() | atom(),
+        "MasterUsername" => String.t() | atom(),
         "MultiTenant" => boolean(),
-        "OptionGroupName" => String.t(),
+        "OptionGroupName" => String.t() | atom(),
         "Port" => integer(),
-        "Region" => String.t(),
+        "Region" => String.t() | atom(),
         "RestoreWindow" => restore_window(),
-        "Status" => String.t(),
+        "Status" => String.t() | atom(),
         "StorageThroughput" => integer(),
-        "StorageType" => String.t(),
-        "TdeCredentialArn" => String.t(),
-        "Timezone" => String.t(),
-        "VpcId" => String.t()
+        "StorageType" => String.t() | atom(),
+        "TdeCredentialArn" => String.t() | atom(),
+        "Timezone" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
       
   """
-  @type db_instance_automated_backup() :: %{String.t() => any()}
+  @type db_instance_automated_backup() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_status_info() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | atom(),
         "Normal" => boolean(),
-        "Status" => String.t(),
-        "StatusType" => String.t()
+        "Status" => String.t() | atom(),
+        "StatusType" => String.t() | atom()
       }
       
   """
-  @type db_cluster_status_info() :: %{String.t() => any()}
+  @type db_cluster_status_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6777,13 +6783,15 @@ defmodule AWS.RDS do
       
       start_db_instance_automated_backups_replication_message() :: %{
         optional("BackupRetentionPeriod") => integer(),
-        optional("KmsKeyId") => String.t(),
-        optional("PreSignedUrl") => String.t(),
-        required("SourceDBInstanceArn") => String.t()
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("PreSignedUrl") => String.t() | atom(),
+        required("SourceDBInstanceArn") => String.t() | atom()
       }
       
   """
-  @type start_db_instance_automated_backups_replication_message() :: %{String.t() => any()}
+  @type start_db_instance_automated_backups_replication_message() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -6794,47 +6802,47 @@ defmodule AWS.RDS do
       }
       
   """
-  @type delete_db_instance_automated_backup_result() :: %{String.t() => any()}
+  @type delete_db_instance_automated_backup_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       certificate_details() :: %{
-        "CAIdentifier" => String.t(),
+        "CAIdentifier" => String.t() | atom(),
         "ValidTill" => non_neg_integer()
       }
       
   """
-  @type certificate_details() :: %{String.t() => any()}
+  @type certificate_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_option_group_status() :: %{
-        "DBClusterOptionGroupName" => String.t(),
-        "Status" => String.t()
+        "DBClusterOptionGroupName" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type db_cluster_option_group_status() :: %{String.t() => any()}
+  @type db_cluster_option_group_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_export_tasks_message() :: %{
-        optional("ExportTaskIdentifier") => String.t(),
+        optional("ExportTaskIdentifier") => String.t() | atom(),
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        optional("SourceArn") => String.t(),
+        optional("SourceArn") => String.t() | atom(),
         optional("SourceType") => list(any())
       }
       
   """
-  @type describe_export_tasks_message() :: %{String.t() => any()}
+  @type describe_export_tasks_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6842,10 +6850,10 @@ defmodule AWS.RDS do
       
       option() :: %{
         "DBSecurityGroupMemberships" => list(db_security_group_membership()),
-        "OptionDescription" => String.t(),
-        "OptionName" => String.t(),
+        "OptionDescription" => String.t() | atom(),
+        "OptionName" => String.t() | atom(),
         "OptionSettings" => list(option_setting()),
-        "OptionVersion" => String.t(),
+        "OptionVersion" => String.t() | atom(),
         "Permanent" => boolean(),
         "Persistent" => boolean(),
         "Port" => integer(),
@@ -6853,7 +6861,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type option() :: %{String.t() => any()}
+  @type option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6861,11 +6869,11 @@ defmodule AWS.RDS do
       
       delete_blue_green_deployment_request() :: %{
         optional("DeleteTarget") => boolean(),
-        required("BlueGreenDeploymentIdentifier") => String.t()
+        required("BlueGreenDeploymentIdentifier") => String.t() | atom()
       }
       
   """
-  @type delete_blue_green_deployment_request() :: %{String.t() => any()}
+  @type delete_blue_green_deployment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6876,18 +6884,18 @@ defmodule AWS.RDS do
       }
       
   """
-  @type create_tenant_database_result() :: %{String.t() => any()}
+  @type create_tenant_database_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       provisioned_iops_not_available_in_a_z_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type provisioned_iops_not_available_in_a_z_fault() :: %{String.t() => any()}
+  @type provisioned_iops_not_available_in_a_z_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6898,47 +6906,47 @@ defmodule AWS.RDS do
       }
       
   """
-  @type scalar_reference_details() :: %{String.t() => any()}
+  @type scalar_reference_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_db_cluster_automated_backup_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_db_cluster_automated_backup_state_fault() :: %{String.t() => any()}
+  @type invalid_db_cluster_automated_backup_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_proxy_endpoints_request() :: %{
-        optional("DBProxyEndpointName") => String.t(),
-        optional("DBProxyName") => String.t(),
+        optional("DBProxyEndpointName") => String.t() | atom(),
+        optional("DBProxyName") => String.t() | atom(),
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_db_proxy_endpoints_request() :: %{String.t() => any()}
+  @type describe_db_proxy_endpoints_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_subnet_groups_message() :: %{
-        optional("DBSubnetGroupName") => String.t(),
+        optional("DBSubnetGroupName") => String.t() | atom(),
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_db_subnet_groups_message() :: %{String.t() => any()}
+  @type describe_db_subnet_groups_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6947,44 +6955,44 @@ defmodule AWS.RDS do
       user_auth_config_info() :: %{
         "AuthScheme" => list(any()),
         "ClientPasswordAuthType" => list(any()),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "IAMAuth" => list(any()),
-        "SecretArn" => String.t(),
-        "UserName" => String.t()
+        "SecretArn" => String.t() | atom(),
+        "UserName" => String.t() | atom()
       }
       
   """
-  @type user_auth_config_info() :: %{String.t() => any()}
+  @type user_auth_config_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_recommendation() :: %{
-        "AdditionalInfo" => String.t(),
-        "Category" => String.t(),
+        "AdditionalInfo" => String.t() | atom(),
+        "Category" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "Detection" => String.t(),
-        "Impact" => String.t(),
+        "Description" => String.t() | atom(),
+        "Detection" => String.t() | atom(),
+        "Impact" => String.t() | atom(),
         "IssueDetails" => issue_details(),
         "Links" => list(doc_link()),
-        "Reason" => String.t(),
-        "Recommendation" => String.t(),
-        "RecommendationId" => String.t(),
+        "Reason" => String.t() | atom(),
+        "Recommendation" => String.t() | atom(),
+        "RecommendationId" => String.t() | atom(),
         "RecommendedActions" => list(recommended_action()),
-        "ResourceArn" => String.t(),
-        "Severity" => String.t(),
-        "Source" => String.t(),
-        "Status" => String.t(),
-        "TypeDetection" => String.t(),
-        "TypeId" => String.t(),
-        "TypeRecommendation" => String.t(),
+        "ResourceArn" => String.t() | atom(),
+        "Severity" => String.t() | atom(),
+        "Source" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "TypeDetection" => String.t() | atom(),
+        "TypeId" => String.t() | atom(),
+        "TypeRecommendation" => String.t() | atom(),
         "UpdatedTime" => non_neg_integer()
       }
       
   """
-  @type db_recommendation() :: %{String.t() => any()}
+  @type db_recommendation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6995,19 +7003,19 @@ defmodule AWS.RDS do
       }
       
   """
-  @type modify_db_subnet_group_result() :: %{String.t() => any()}
+  @type modify_db_subnet_group_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       option_group_options_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | atom(),
         "OptionGroupOptions" => list(option_group_option())
       }
       
   """
-  @type option_group_options_message() :: %{String.t() => any()}
+  @type option_group_options_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7015,12 +7023,12 @@ defmodule AWS.RDS do
       
       describe_db_log_files_details() :: %{
         "LastWritten" => float(),
-        "LogFileName" => String.t(),
+        "LogFileName" => String.t() | atom(),
         "Size" => float()
       }
       
   """
-  @type describe_db_log_files_details() :: %{String.t() => any()}
+  @type describe_db_log_files_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7031,29 +7039,29 @@ defmodule AWS.RDS do
       }
       
   """
-  @type modify_db_snapshot_result() :: %{String.t() => any()}
+  @type modify_db_snapshot_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_db_instance_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type reserved_db_instance_quota_exceeded_fault() :: %{String.t() => any()}
+  @type reserved_db_instance_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_snapshot_tenant_database_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_snapshot_tenant_database_not_found_fault() :: %{String.t() => any()}
+  @type db_snapshot_tenant_database_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7066,18 +7074,18 @@ defmodule AWS.RDS do
       }
       
   """
-  @type serverless_v2_scaling_configuration_info() :: %{String.t() => any()}
+  @type serverless_v2_scaling_configuration_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_proxy_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_proxy_quota_exceeded_fault() :: %{String.t() => any()}
+  @type db_proxy_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7085,60 +7093,60 @@ defmodule AWS.RDS do
       
       describe_integrations_message() :: %{
         optional("Filters") => list(filter()),
-        optional("IntegrationIdentifier") => String.t(),
-        optional("Marker") => String.t(),
+        optional("IntegrationIdentifier") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_integrations_message() :: %{String.t() => any()}
+  @type describe_integrations_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       restore_db_cluster_from_s3_message() :: %{
-        optional("DBClusterParameterGroupName") => String.t(),
+        optional("DBClusterParameterGroupName") => String.t() | atom(),
         optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
-        optional("StorageType") => String.t(),
-        required("SourceEngineVersion") => String.t(),
-        optional("NetworkType") => String.t(),
-        optional("EngineLifecycleSupport") => String.t(),
-        optional("MasterUserSecretKmsKeyId") => String.t(),
-        optional("DatabaseName") => String.t(),
-        optional("MasterUserPassword") => String.t(),
-        optional("PreferredBackupWindow") => String.t(),
-        optional("DomainIAMRoleName") => String.t(),
-        optional("S3Prefix") => String.t(),
-        optional("Domain") => String.t(),
+        optional("StorageType") => String.t() | atom(),
+        required("SourceEngineVersion") => String.t() | atom(),
+        optional("NetworkType") => String.t() | atom(),
+        optional("EngineLifecycleSupport") => String.t() | atom(),
+        optional("MasterUserSecretKmsKeyId") => String.t() | atom(),
+        optional("DatabaseName") => String.t() | atom(),
+        optional("MasterUserPassword") => String.t() | atom(),
+        optional("PreferredBackupWindow") => String.t() | atom(),
+        optional("DomainIAMRoleName") => String.t() | atom(),
+        optional("S3Prefix") => String.t() | atom(),
+        optional("Domain") => String.t() | atom(),
         optional("EnableIAMDatabaseAuthentication") => boolean(),
         optional("CopyTagsToSnapshot") => boolean(),
-        required("SourceEngine") => String.t(),
+        required("SourceEngine") => String.t() | atom(),
         optional("BackupRetentionPeriod") => integer(),
-        optional("EnableCloudwatchLogsExports") => list(String.t()),
-        optional("EngineVersion") => String.t(),
-        required("S3IngestionRoleArn") => String.t(),
+        optional("EnableCloudwatchLogsExports") => list(String.t() | atom()),
+        optional("EngineVersion") => String.t() | atom(),
+        required("S3IngestionRoleArn") => String.t() | atom(),
         optional("BacktrackWindow") => float(),
-        optional("CharacterSetName") => String.t(),
+        optional("CharacterSetName") => String.t() | atom(),
         optional("ManageMasterUserPassword") => boolean(),
-        required("DBClusterIdentifier") => String.t(),
-        required("MasterUsername") => String.t(),
+        required("DBClusterIdentifier") => String.t() | atom(),
+        required("MasterUsername") => String.t() | atom(),
         optional("Port") => integer(),
         optional("StorageEncrypted") => boolean(),
         optional("DeletionProtection") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t()),
-        optional("KmsKeyId") => String.t(),
-        optional("OptionGroupName") => String.t(),
-        optional("AvailabilityZones") => list(String.t()),
-        optional("DBSubnetGroupName") => String.t(),
-        optional("PreferredMaintenanceWindow") => String.t(),
-        required("Engine") => String.t(),
-        required("S3BucketName") => String.t(),
+        optional("VpcSecurityGroupIds") => list(String.t() | atom()),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("OptionGroupName") => String.t() | atom(),
+        optional("AvailabilityZones") => list(String.t() | atom()),
+        optional("DBSubnetGroupName") => String.t() | atom(),
+        optional("PreferredMaintenanceWindow") => String.t() | atom(),
+        required("Engine") => String.t() | atom(),
+        required("S3BucketName") => String.t() | atom(),
         optional("Tags") => list(tag())
       }
       
   """
-  @type restore_db_cluster_from_s3_message() :: %{String.t() => any()}
+  @type restore_db_cluster_from_s3_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7149,18 +7157,18 @@ defmodule AWS.RDS do
       }
       
   """
-  @type modify_db_proxy_endpoint_response() :: %{String.t() => any()}
+  @type modify_db_proxy_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_automated_backup_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_cluster_automated_backup_quota_exceeded_fault() :: %{String.t() => any()}
+  @type db_cluster_automated_backup_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7168,99 +7176,99 @@ defmodule AWS.RDS do
       
       db_snapshot_message() :: %{
         "DBSnapshots" => list(db_snapshot()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type db_snapshot_message() :: %{String.t() => any()}
+  @type db_snapshot_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_subnet_group() :: %{
-        "DBSubnetGroupArn" => String.t(),
-        "DBSubnetGroupDescription" => String.t(),
-        "DBSubnetGroupName" => String.t(),
-        "SubnetGroupStatus" => String.t(),
+        "DBSubnetGroupArn" => String.t() | atom(),
+        "DBSubnetGroupDescription" => String.t() | atom(),
+        "DBSubnetGroupName" => String.t() | atom(),
+        "SubnetGroupStatus" => String.t() | atom(),
         "Subnets" => list(subnet()),
-        "SupportedNetworkTypes" => list(String.t()),
-        "VpcId" => String.t()
+        "SupportedNetworkTypes" => list(String.t() | atom()),
+        "VpcId" => String.t() | atom()
       }
       
   """
-  @type db_subnet_group() :: %{String.t() => any()}
+  @type db_subnet_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_snapshot_tenant_database() :: %{
-        "CharacterSetName" => String.t(),
-        "DBInstanceIdentifier" => String.t(),
-        "DBSnapshotIdentifier" => String.t(),
-        "DBSnapshotTenantDatabaseARN" => String.t(),
-        "DbiResourceId" => String.t(),
-        "EngineName" => String.t(),
-        "MasterUsername" => String.t(),
-        "NcharCharacterSetName" => String.t(),
-        "SnapshotType" => String.t(),
+        "CharacterSetName" => String.t() | atom(),
+        "DBInstanceIdentifier" => String.t() | atom(),
+        "DBSnapshotIdentifier" => String.t() | atom(),
+        "DBSnapshotTenantDatabaseARN" => String.t() | atom(),
+        "DbiResourceId" => String.t() | atom(),
+        "EngineName" => String.t() | atom(),
+        "MasterUsername" => String.t() | atom(),
+        "NcharCharacterSetName" => String.t() | atom(),
+        "SnapshotType" => String.t() | atom(),
         "TagList" => list(tag()),
-        "TenantDBName" => String.t(),
+        "TenantDBName" => String.t() | atom(),
         "TenantDatabaseCreateTime" => non_neg_integer(),
-        "TenantDatabaseResourceId" => String.t()
+        "TenantDatabaseResourceId" => String.t() | atom()
       }
       
   """
-  @type db_snapshot_tenant_database() :: %{String.t() => any()}
+  @type db_snapshot_tenant_database() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_custom_db_engine_version_message() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("Status") => list(any()),
-        required("Engine") => String.t(),
-        required("EngineVersion") => String.t()
+        required("Engine") => String.t() | atom(),
+        required("EngineVersion") => String.t() | atom()
       }
       
   """
-  @type modify_custom_db_engine_version_message() :: %{String.t() => any()}
+  @type modify_custom_db_engine_version_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_db_subnet_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_db_subnet_state_fault() :: %{String.t() => any()}
+  @type invalid_db_subnet_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       failover_db_cluster_message() :: %{
-        optional("TargetDBInstanceIdentifier") => String.t(),
-        required("DBClusterIdentifier") => String.t()
+        optional("TargetDBInstanceIdentifier") => String.t() | atom(),
+        required("DBClusterIdentifier") => String.t() | atom()
       }
       
   """
-  @type failover_db_cluster_message() :: %{String.t() => any()}
+  @type failover_db_cluster_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_db_subnet_group_message() :: %{
-        required("DBSubnetGroupName") => String.t()
+        required("DBSubnetGroupName") => String.t() | atom()
       }
       
   """
-  @type delete_db_subnet_group_message() :: %{String.t() => any()}
+  @type delete_db_subnet_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7271,44 +7279,44 @@ defmodule AWS.RDS do
       }
       
   """
-  @type remove_from_global_cluster_result() :: %{String.t() => any()}
+  @type remove_from_global_cluster_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tenant_database_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type tenant_database_not_found_fault() :: %{String.t() => any()}
+  @type tenant_database_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_member() :: %{
-        "DBClusterParameterGroupStatus" => String.t(),
-        "DBInstanceIdentifier" => String.t(),
+        "DBClusterParameterGroupStatus" => String.t() | atom(),
+        "DBInstanceIdentifier" => String.t() | atom(),
         "IsClusterWriter" => boolean(),
         "PromotionTier" => integer()
       }
       
   """
-  @type db_cluster_member() :: %{String.t() => any()}
+  @type db_cluster_member() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_tags_from_resource_message() :: %{
-        required("ResourceName") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceName") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type remove_tags_from_resource_message() :: %{String.t() => any()}
+  @type remove_tags_from_resource_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7317,45 +7325,45 @@ defmodule AWS.RDS do
       db_proxy() :: %{
         "Auth" => list(user_auth_config_info()),
         "CreatedDate" => non_neg_integer(),
-        "DBProxyArn" => String.t(),
-        "DBProxyName" => String.t(),
+        "DBProxyArn" => String.t() | atom(),
+        "DBProxyName" => String.t() | atom(),
         "DebugLogging" => boolean(),
-        "Endpoint" => String.t(),
-        "EngineFamily" => String.t(),
+        "Endpoint" => String.t() | atom(),
+        "EngineFamily" => String.t() | atom(),
         "IdleClientTimeout" => integer(),
         "RequireTLS" => boolean(),
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | atom(),
         "Status" => list(any()),
         "UpdatedDate" => non_neg_integer(),
-        "VpcId" => String.t(),
-        "VpcSecurityGroupIds" => list(String.t()),
-        "VpcSubnetIds" => list(String.t())
+        "VpcId" => String.t() | atom(),
+        "VpcSecurityGroupIds" => list(String.t() | atom()),
+        "VpcSubnetIds" => list(String.t() | atom())
       }
       
   """
-  @type db_proxy() :: %{String.t() => any()}
+  @type db_proxy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       storage_type_not_available_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type storage_type_not_available_fault() :: %{String.t() => any()}
+  @type storage_type_not_available_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_db_cluster_capacity_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_db_cluster_capacity_fault() :: %{String.t() => any()}
+  @type invalid_db_cluster_capacity_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7366,50 +7374,50 @@ defmodule AWS.RDS do
       }
       
   """
-  @type modify_db_snapshot_attribute_result() :: %{String.t() => any()}
+  @type modify_db_snapshot_attribute_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       authorization_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type authorization_quota_exceeded_fault() :: %{String.t() => any()}
+  @type authorization_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       event_subscription_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type event_subscription_quota_exceeded_fault() :: %{String.t() => any()}
+  @type event_subscription_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_db_cluster_message() :: %{
-        optional("DBClusterParameterGroupName") => String.t(),
+        optional("DBClusterParameterGroupName") => String.t() | atom(),
         optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
-        optional("StorageType") => String.t(),
-        optional("EngineMode") => String.t(),
-        optional("NetworkType") => String.t(),
+        optional("StorageType") => String.t() | atom(),
+        optional("EngineMode") => String.t() | atom(),
+        optional("NetworkType") => String.t() | atom(),
         optional("AllowMajorVersionUpgrade") => boolean(),
         optional("AllocatedStorage") => integer(),
         optional("EnableHttpEndpoint") => boolean(),
-        optional("MasterUserSecretKmsKeyId") => String.t(),
-        optional("NewDBClusterIdentifier") => String.t(),
-        optional("MasterUserPassword") => String.t(),
-        optional("PreferredBackupWindow") => String.t(),
+        optional("MasterUserSecretKmsKeyId") => String.t() | atom(),
+        optional("NewDBClusterIdentifier") => String.t() | atom(),
+        optional("MasterUserPassword") => String.t() | atom(),
+        optional("PreferredBackupWindow") => String.t() | atom(),
         optional("MonitoringInterval") => integer(),
-        optional("DomainIAMRoleName") => String.t(),
-        optional("Domain") => String.t(),
+        optional("DomainIAMRoleName") => String.t() | atom(),
+        optional("Domain") => String.t() | atom(),
         optional("EnableIAMDatabaseAuthentication") => boolean(),
         optional("EnableLimitlessDatabase") => boolean(),
         optional("CopyTagsToSnapshot") => boolean(),
@@ -7417,45 +7425,45 @@ defmodule AWS.RDS do
         optional("BackupRetentionPeriod") => integer(),
         optional("EnableGlobalWriteForwarding") => boolean(),
         optional("AutoMinorVersionUpgrade") => boolean(),
-        optional("DBClusterInstanceClass") => String.t(),
-        optional("EngineVersion") => String.t(),
-        optional("DBInstanceParameterGroupName") => String.t(),
+        optional("DBClusterInstanceClass") => String.t() | atom(),
+        optional("EngineVersion") => String.t() | atom(),
+        optional("DBInstanceParameterGroupName") => String.t() | atom(),
         optional("BacktrackWindow") => float(),
-        optional("MonitoringRoleArn") => String.t(),
+        optional("MonitoringRoleArn") => String.t() | atom(),
         optional("CloudwatchLogsExportConfiguration") => cloudwatch_logs_export_configuration(),
         optional("Iops") => integer(),
         optional("ManageMasterUserPassword") => boolean(),
-        required("DBClusterIdentifier") => String.t(),
+        required("DBClusterIdentifier") => String.t() | atom(),
         optional("Port") => integer(),
-        optional("PerformanceInsightsKMSKeyId") => String.t(),
+        optional("PerformanceInsightsKMSKeyId") => String.t() | atom(),
         optional("EnablePerformanceInsights") => boolean(),
         optional("EnableLocalWriteForwarding") => boolean(),
         optional("DeletionProtection") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t()),
+        optional("VpcSecurityGroupIds") => list(String.t() | atom()),
         optional("AllowEngineModeChange") => boolean(),
-        optional("CACertificateIdentifier") => String.t(),
+        optional("CACertificateIdentifier") => String.t() | atom(),
         optional("ApplyImmediately") => boolean(),
         optional("RotateMasterUserPassword") => boolean(),
         optional("DatabaseInsightsMode") => list(any()),
-        optional("AwsBackupRecoveryPointArn") => String.t(),
-        optional("OptionGroupName") => String.t(),
+        optional("AwsBackupRecoveryPointArn") => String.t() | atom(),
+        optional("OptionGroupName") => String.t() | atom(),
         optional("PerformanceInsightsRetentionPeriod") => integer(),
-        optional("PreferredMaintenanceWindow") => String.t()
+        optional("PreferredMaintenanceWindow") => String.t() | atom()
       }
       
   """
-  @type modify_db_cluster_message() :: %{String.t() => any()}
+  @type modify_db_cluster_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_log_file_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_log_file_not_found_fault() :: %{String.t() => any()}
+  @type db_log_file_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7463,168 +7471,168 @@ defmodule AWS.RDS do
       
       describe_event_categories_message() :: %{
         optional("Filters") => list(filter()),
-        optional("SourceType") => String.t()
+        optional("SourceType") => String.t() | atom()
       }
       
   """
-  @type describe_event_categories_message() :: %{String.t() => any()}
+  @type describe_event_categories_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rds_custom_cluster_configuration() :: %{
-        "InterconnectSubnetId" => String.t(),
+        "InterconnectSubnetId" => String.t() | atom(),
         "ReplicaMode" => list(any()),
-        "TransitGatewayMulticastDomainId" => String.t()
+        "TransitGatewayMulticastDomainId" => String.t() | atom()
       }
       
   """
-  @type rds_custom_cluster_configuration() :: %{String.t() => any()}
+  @type rds_custom_cluster_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_db_instances_offering_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type reserved_db_instances_offering_not_found_fault() :: %{String.t() => any()}
+  @type reserved_db_instances_offering_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_parameter_group() :: %{
-        "DBClusterParameterGroupArn" => String.t(),
-        "DBClusterParameterGroupName" => String.t(),
-        "DBParameterGroupFamily" => String.t(),
-        "Description" => String.t()
+        "DBClusterParameterGroupArn" => String.t() | atom(),
+        "DBClusterParameterGroupName" => String.t() | atom(),
+        "DBParameterGroupFamily" => String.t() | atom(),
+        "Description" => String.t() | atom()
       }
       
   """
-  @type db_cluster_parameter_group() :: %{String.t() => any()}
+  @type db_cluster_parameter_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_cluster_automated_backups_message() :: %{
-        optional("DBClusterIdentifier") => String.t(),
-        optional("DbClusterResourceId") => String.t(),
+        optional("DBClusterIdentifier") => String.t() | atom(),
+        optional("DbClusterResourceId") => String.t() | atom(),
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_db_cluster_automated_backups_message() :: %{String.t() => any()}
+  @type describe_db_cluster_automated_backups_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_db_cluster_message() :: %{
-        required("DBClusterIdentifier") => String.t()
+        required("DBClusterIdentifier") => String.t() | atom()
       }
       
   """
-  @type stop_db_cluster_message() :: %{String.t() => any()}
+  @type stop_db_cluster_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_snapshot_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_cluster_snapshot_not_found_fault() :: %{String.t() => any()}
+  @type db_cluster_snapshot_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_parameter_group_status() :: %{
-        "DBParameterGroupName" => String.t(),
-        "ParameterApplyStatus" => String.t()
+        "DBParameterGroupName" => String.t() | atom(),
+        "ParameterApplyStatus" => String.t() | atom()
       }
       
   """
-  @type db_parameter_group_status() :: %{String.t() => any()}
+  @type db_parameter_group_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_parameter_group_name_message() :: %{
-        "DBParameterGroupName" => String.t()
+        "DBParameterGroupName" => String.t() | atom()
       }
       
   """
-  @type db_parameter_group_name_message() :: %{String.t() => any()}
+  @type db_parameter_group_name_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       outpost() :: %{
-        "Arn" => String.t()
+        "Arn" => String.t() | atom()
       }
       
   """
-  @type outpost() :: %{String.t() => any()}
+  @type outpost() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s_n_s_no_authorization_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type s_n_s_no_authorization_fault() :: %{String.t() => any()}
+  @type s_n_s_no_authorization_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_db_cluster_endpoint_message() :: %{
-        optional("EndpointType") => String.t(),
-        optional("ExcludedMembers") => list(String.t()),
-        optional("StaticMembers") => list(String.t()),
-        required("DBClusterEndpointIdentifier") => String.t()
+        optional("EndpointType") => String.t() | atom(),
+        optional("ExcludedMembers") => list(String.t() | atom()),
+        optional("StaticMembers") => list(String.t() | atom()),
+        required("DBClusterEndpointIdentifier") => String.t() | atom()
       }
       
   """
-  @type modify_db_cluster_endpoint_message() :: %{String.t() => any()}
+  @type modify_db_cluster_endpoint_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_custom_db_engine_version_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type create_custom_db_engine_version_fault() :: %{String.t() => any()}
+  @type create_custom_db_engine_version_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       vpc_security_group_membership() :: %{
-        "Status" => String.t(),
-        "VpcSecurityGroupId" => String.t()
+        "Status" => String.t() | atom(),
+        "VpcSecurityGroupId" => String.t() | atom()
       }
       
   """
-  @type vpc_security_group_membership() :: %{String.t() => any()}
+  @type vpc_security_group_membership() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7635,29 +7643,29 @@ defmodule AWS.RDS do
       }
       
   """
-  @type issue_details() :: %{String.t() => any()}
+  @type issue_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_db_shard_group_message() :: %{
-        required("DBShardGroupIdentifier") => String.t()
+        required("DBShardGroupIdentifier") => String.t() | atom()
       }
       
   """
-  @type delete_db_shard_group_message() :: %{String.t() => any()}
+  @type delete_db_shard_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       custom_availability_zone_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type custom_availability_zone_not_found_fault() :: %{String.t() => any()}
+  @type custom_availability_zone_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7666,16 +7674,16 @@ defmodule AWS.RDS do
       db_proxy_target_group() :: %{
         "ConnectionPoolConfig" => connection_pool_configuration_info(),
         "CreatedDate" => non_neg_integer(),
-        "DBProxyName" => String.t(),
+        "DBProxyName" => String.t() | atom(),
         "IsDefault" => boolean(),
-        "Status" => String.t(),
-        "TargetGroupArn" => String.t(),
-        "TargetGroupName" => String.t(),
+        "Status" => String.t() | atom(),
+        "TargetGroupArn" => String.t() | atom(),
+        "TargetGroupName" => String.t() | atom(),
         "UpdatedDate" => non_neg_integer()
       }
       
   """
-  @type db_proxy_target_group() :: %{String.t() => any()}
+  @type db_proxy_target_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7686,70 +7694,70 @@ defmodule AWS.RDS do
       }
       
   """
-  @type create_db_proxy_response() :: %{String.t() => any()}
+  @type create_db_proxy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       revoke_db_security_group_ingress_message() :: %{
-        optional("CIDRIP") => String.t(),
-        optional("EC2SecurityGroupId") => String.t(),
-        optional("EC2SecurityGroupName") => String.t(),
-        optional("EC2SecurityGroupOwnerId") => String.t(),
-        required("DBSecurityGroupName") => String.t()
+        optional("CIDRIP") => String.t() | atom(),
+        optional("EC2SecurityGroupId") => String.t() | atom(),
+        optional("EC2SecurityGroupName") => String.t() | atom(),
+        optional("EC2SecurityGroupOwnerId") => String.t() | atom(),
+        required("DBSecurityGroupName") => String.t() | atom()
       }
       
   """
-  @type revoke_db_security_group_ingress_message() :: %{String.t() => any()}
+  @type revoke_db_security_group_ingress_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_db_cluster_snapshot_message() :: %{
-        required("DBClusterSnapshotIdentifier") => String.t()
+        required("DBClusterSnapshotIdentifier") => String.t() | atom()
       }
       
   """
-  @type delete_db_cluster_snapshot_message() :: %{String.t() => any()}
+  @type delete_db_cluster_snapshot_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_db_instance_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type reserved_db_instance_already_exists_fault() :: %{String.t() => any()}
+  @type reserved_db_instance_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_db_instance() :: %{
-        "CurrencyCode" => String.t(),
-        "DBInstanceClass" => String.t(),
+        "CurrencyCode" => String.t() | atom(),
+        "DBInstanceClass" => String.t() | atom(),
         "DBInstanceCount" => integer(),
         "Duration" => integer(),
         "FixedPrice" => float(),
-        "LeaseId" => String.t(),
+        "LeaseId" => String.t() | atom(),
         "MultiAZ" => boolean(),
-        "OfferingType" => String.t(),
-        "ProductDescription" => String.t(),
+        "OfferingType" => String.t() | atom(),
+        "ProductDescription" => String.t() | atom(),
         "RecurringCharges" => list(recurring_charge()),
-        "ReservedDBInstanceArn" => String.t(),
-        "ReservedDBInstanceId" => String.t(),
-        "ReservedDBInstancesOfferingId" => String.t(),
+        "ReservedDBInstanceArn" => String.t() | atom(),
+        "ReservedDBInstanceId" => String.t() | atom(),
+        "ReservedDBInstancesOfferingId" => String.t() | atom(),
         "StartTime" => non_neg_integer(),
-        "State" => String.t(),
+        "State" => String.t() | atom(),
         "UsagePrice" => float()
       }
       
   """
-  @type reserved_db_instance() :: %{String.t() => any()}
+  @type reserved_db_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7757,45 +7765,45 @@ defmodule AWS.RDS do
       
       db_cluster_automated_backup() :: %{
         "AllocatedStorage" => integer(),
-        "AvailabilityZones" => list(String.t()),
-        "AwsBackupRecoveryPointArn" => String.t(),
+        "AvailabilityZones" => list(String.t() | atom()),
+        "AwsBackupRecoveryPointArn" => String.t() | atom(),
         "BackupRetentionPeriod" => integer(),
         "ClusterCreateTime" => non_neg_integer(),
-        "DBClusterArn" => String.t(),
-        "DBClusterAutomatedBackupsArn" => String.t(),
-        "DBClusterIdentifier" => String.t(),
-        "DbClusterResourceId" => String.t(),
-        "Engine" => String.t(),
-        "EngineMode" => String.t(),
-        "EngineVersion" => String.t(),
+        "DBClusterArn" => String.t() | atom(),
+        "DBClusterAutomatedBackupsArn" => String.t() | atom(),
+        "DBClusterIdentifier" => String.t() | atom(),
+        "DbClusterResourceId" => String.t() | atom(),
+        "Engine" => String.t() | atom(),
+        "EngineMode" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
         "IAMDatabaseAuthenticationEnabled" => boolean(),
         "Iops" => integer(),
-        "KmsKeyId" => String.t(),
-        "LicenseModel" => String.t(),
-        "MasterUsername" => String.t(),
+        "KmsKeyId" => String.t() | atom(),
+        "LicenseModel" => String.t() | atom(),
+        "MasterUsername" => String.t() | atom(),
         "Port" => integer(),
-        "Region" => String.t(),
+        "Region" => String.t() | atom(),
         "RestoreWindow" => restore_window(),
-        "Status" => String.t(),
+        "Status" => String.t() | atom(),
         "StorageEncrypted" => boolean(),
         "StorageThroughput" => integer(),
-        "StorageType" => String.t(),
-        "VpcId" => String.t()
+        "StorageType" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
       
   """
-  @type db_cluster_automated_backup() :: %{String.t() => any()}
+  @type db_cluster_automated_backup() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_blue_green_deployment_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_blue_green_deployment_state_fault() :: %{String.t() => any()}
+  @type invalid_blue_green_deployment_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7806,7 +7814,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type failover_db_cluster_result() :: %{String.t() => any()}
+  @type failover_db_cluster_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7818,101 +7826,101 @@ defmodule AWS.RDS do
       }
       
   """
-  @type restore_window() :: %{String.t() => any()}
+  @type restore_window() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_db_instance_message() :: %{
-        optional("StorageType") => String.t(),
+        optional("StorageType") => String.t() | atom(),
         optional("AutomationMode") => list(any()),
         optional("MultiTenant") => boolean(),
-        optional("NetworkType") => String.t(),
+        optional("NetworkType") => String.t() | atom(),
         optional("AllowMajorVersionUpgrade") => boolean(),
         optional("AllocatedStorage") => integer(),
-        optional("DomainOu") => String.t(),
-        optional("MasterUserSecretKmsKeyId") => String.t(),
+        optional("DomainOu") => String.t() | atom(),
+        optional("MasterUserSecretKmsKeyId") => String.t() | atom(),
         optional("EnableCustomerOwnedIp") => boolean(),
-        optional("MasterUserPassword") => String.t(),
-        optional("PreferredBackupWindow") => String.t(),
+        optional("MasterUserPassword") => String.t() | atom(),
+        optional("PreferredBackupWindow") => String.t() | atom(),
         optional("MonitoringInterval") => integer(),
         optional("DisableDomain") => boolean(),
         optional("DBPortNumber") => integer(),
         optional("ResumeFullAutomationModeMinutes") => integer(),
-        optional("Engine") => String.t(),
-        optional("DomainIAMRoleName") => String.t(),
-        optional("Domain") => String.t(),
+        optional("Engine") => String.t() | atom(),
+        optional("DomainIAMRoleName") => String.t() | atom(),
+        optional("Domain") => String.t() | atom(),
         optional("EnableIAMDatabaseAuthentication") => boolean(),
         optional("CopyTagsToSnapshot") => boolean(),
         optional("DedicatedLogVolume") => boolean(),
         optional("BackupRetentionPeriod") => integer(),
         optional("AutoMinorVersionUpgrade") => boolean(),
         optional("PubliclyAccessible") => boolean(),
-        optional("EngineVersion") => String.t(),
-        optional("DomainDnsIps") => list(String.t()),
+        optional("EngineVersion") => String.t() | atom(),
+        optional("DomainDnsIps") => list(String.t() | atom()),
         optional("ProcessorFeatures") => list(processor_feature()),
-        optional("MonitoringRoleArn") => String.t(),
-        optional("DBInstanceClass") => String.t(),
-        optional("LicenseModel") => String.t(),
+        optional("MonitoringRoleArn") => String.t() | atom(),
+        optional("DBInstanceClass") => String.t() | atom(),
+        optional("LicenseModel") => String.t() | atom(),
         optional("MaxAllocatedStorage") => integer(),
         optional("ReplicaMode") => list(any()),
-        required("DBInstanceIdentifier") => String.t(),
-        optional("NewDBInstanceIdentifier") => String.t(),
-        optional("DomainAuthSecretArn") => String.t(),
+        required("DBInstanceIdentifier") => String.t() | atom(),
+        optional("NewDBInstanceIdentifier") => String.t() | atom(),
+        optional("DomainAuthSecretArn") => String.t() | atom(),
         optional("CloudwatchLogsExportConfiguration") => cloudwatch_logs_export_configuration(),
         optional("Iops") => integer(),
         optional("ManageMasterUserPassword") => boolean(),
-        optional("TdeCredentialPassword") => String.t(),
-        optional("DBSecurityGroups") => list(String.t()),
-        optional("PerformanceInsightsKMSKeyId") => String.t(),
+        optional("TdeCredentialPassword") => String.t() | atom(),
+        optional("DBSecurityGroups") => list(String.t() | atom()),
+        optional("PerformanceInsightsKMSKeyId") => String.t() | atom(),
         optional("EnablePerformanceInsights") => boolean(),
         optional("MultiAZ") => boolean(),
         optional("DeletionProtection") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t()),
+        optional("VpcSecurityGroupIds") => list(String.t() | atom()),
         optional("CertificateRotationRestart") => boolean(),
-        optional("CACertificateIdentifier") => String.t(),
+        optional("CACertificateIdentifier") => String.t() | atom(),
         optional("ApplyImmediately") => boolean(),
         optional("RotateMasterUserPassword") => boolean(),
-        optional("DBParameterGroupName") => String.t(),
+        optional("DBParameterGroupName") => String.t() | atom(),
         optional("DatabaseInsightsMode") => list(any()),
-        optional("AwsBackupRecoveryPointArn") => String.t(),
-        optional("DomainFqdn") => String.t(),
-        optional("OptionGroupName") => String.t(),
+        optional("AwsBackupRecoveryPointArn") => String.t() | atom(),
+        optional("DomainFqdn") => String.t() | atom(),
+        optional("OptionGroupName") => String.t() | atom(),
         optional("PromotionTier") => integer(),
         optional("StorageThroughput") => integer(),
-        optional("DBSubnetGroupName") => String.t(),
+        optional("DBSubnetGroupName") => String.t() | atom(),
         optional("PerformanceInsightsRetentionPeriod") => integer(),
-        optional("PreferredMaintenanceWindow") => String.t(),
-        optional("TdeCredentialArn") => String.t(),
+        optional("PreferredMaintenanceWindow") => String.t() | atom(),
+        optional("TdeCredentialArn") => String.t() | atom(),
         optional("UseDefaultProcessorFeatures") => boolean()
       }
       
   """
-  @type modify_db_instance_message() :: %{String.t() => any()}
+  @type modify_db_instance_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tenant_databases_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | atom(),
         "TenantDatabases" => list(tenant_database())
       }
       
   """
-  @type tenant_databases_message() :: %{String.t() => any()}
+  @type tenant_databases_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_endpoint_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_cluster_endpoint_already_exists_fault() :: %{String.t() => any()}
+  @type db_cluster_endpoint_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7925,7 +7933,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type serverless_v2_scaling_configuration() :: %{String.t() => any()}
+  @type serverless_v2_scaling_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7936,7 +7944,7 @@ defmodule AWS.RDS do
       }
       
   """
-  @type create_db_instance_result() :: %{String.t() => any()}
+  @type create_db_instance_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7947,18 +7955,18 @@ defmodule AWS.RDS do
       }
       
   """
-  @type create_db_proxy_endpoint_response() :: %{String.t() => any()}
+  @type create_db_proxy_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       blue_green_deployment_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type blue_green_deployment_already_exists_fault() :: %{String.t() => any()}
+  @type blue_green_deployment_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7967,35 +7975,35 @@ defmodule AWS.RDS do
       failover_global_cluster_message() :: %{
         optional("AllowDataLoss") => boolean(),
         optional("Switchover") => boolean(),
-        required("GlobalClusterIdentifier") => String.t(),
-        required("TargetDbClusterIdentifier") => String.t()
+        required("GlobalClusterIdentifier") => String.t() | atom(),
+        required("TargetDbClusterIdentifier") => String.t() | atom()
       }
       
   """
-  @type failover_global_cluster_message() :: %{String.t() => any()}
+  @type failover_global_cluster_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_role_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_cluster_role_quota_exceeded_fault() :: %{String.t() => any()}
+  @type db_cluster_role_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_parameter_group_details() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | atom(),
         "Parameters" => list(parameter())
       }
       
   """
-  @type db_cluster_parameter_group_details() :: %{String.t() => any()}
+  @type db_cluster_parameter_group_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8006,30 +8014,30 @@ defmodule AWS.RDS do
       }
       
   """
-  @type stop_db_cluster_result() :: %{String.t() => any()}
+  @type stop_db_cluster_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       pending_maintenance_actions_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | atom(),
         "PendingMaintenanceActions" => list(resource_pending_maintenance_actions())
       }
       
   """
-  @type pending_maintenance_actions_message() :: %{String.t() => any()}
+  @type pending_maintenance_actions_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       timezone() :: %{
-        "TimezoneName" => String.t()
+        "TimezoneName" => String.t() | atom()
       }
       
   """
-  @type timezone() :: %{String.t() => any()}
+  @type timezone() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8037,36 +8045,36 @@ defmodule AWS.RDS do
       
       create_option_group_message() :: %{
         optional("Tags") => list(tag()),
-        required("EngineName") => String.t(),
-        required("MajorEngineVersion") => String.t(),
-        required("OptionGroupDescription") => String.t(),
-        required("OptionGroupName") => String.t()
+        required("EngineName") => String.t() | atom(),
+        required("MajorEngineVersion") => String.t() | atom(),
+        required("OptionGroupDescription") => String.t() | atom(),
+        required("OptionGroupName") => String.t() | atom()
       }
       
   """
-  @type create_option_group_message() :: %{String.t() => any()}
+  @type create_option_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_db_instance_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_db_instance_state_fault() :: %{String.t() => any()}
+  @type invalid_db_instance_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_role_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type db_cluster_role_not_found_fault() :: %{String.t() => any()}
+  @type db_cluster_role_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8075,14 +8083,14 @@ defmodule AWS.RDS do
       create_db_proxy_endpoint_request() :: %{
         optional("Tags") => list(tag()),
         optional("TargetRole") => list(any()),
-        optional("VpcSecurityGroupIds") => list(String.t()),
-        required("DBProxyEndpointName") => String.t(),
-        required("DBProxyName") => String.t(),
-        required("VpcSubnetIds") => list(String.t())
+        optional("VpcSecurityGroupIds") => list(String.t() | atom()),
+        required("DBProxyEndpointName") => String.t() | atom(),
+        required("DBProxyName") => String.t() | atom(),
+        required("VpcSubnetIds") => list(String.t() | atom())
       }
       
   """
-  @type create_db_proxy_endpoint_request() :: %{String.t() => any()}
+  @type create_db_proxy_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8090,13 +8098,13 @@ defmodule AWS.RDS do
       
       copy_db_parameter_group_message() :: %{
         optional("Tags") => list(tag()),
-        required("SourceDBParameterGroupIdentifier") => String.t(),
-        required("TargetDBParameterGroupDescription") => String.t(),
-        required("TargetDBParameterGroupIdentifier") => String.t()
+        required("SourceDBParameterGroupIdentifier") => String.t() | atom(),
+        required("TargetDBParameterGroupDescription") => String.t() | atom(),
+        required("TargetDBParameterGroupIdentifier") => String.t() | atom()
       }
       
   """
-  @type copy_db_parameter_group_message() :: %{String.t() => any()}
+  @type copy_db_parameter_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8105,36 +8113,36 @@ defmodule AWS.RDS do
       start_activity_stream_response() :: %{
         "ApplyImmediately" => boolean(),
         "EngineNativeAuditFieldsIncluded" => boolean(),
-        "KinesisStreamName" => String.t(),
-        "KmsKeyId" => String.t(),
+        "KinesisStreamName" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
         "Mode" => list(any()),
         "Status" => list(any())
       }
       
   """
-  @type start_activity_stream_response() :: %{String.t() => any()}
+  @type start_activity_stream_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_db_cluster_automated_backup_message() :: %{
-        required("DbClusterResourceId") => String.t()
+        required("DbClusterResourceId") => String.t() | atom()
       }
       
   """
-  @type delete_db_cluster_automated_backup_message() :: %{String.t() => any()}
+  @type delete_db_cluster_automated_backup_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       insufficient_storage_cluster_capacity_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type insufficient_storage_cluster_capacity_fault() :: %{String.t() => any()}
+  @type insufficient_storage_cluster_capacity_fault() :: %{(String.t() | atom()) => any()}
 
   @type add_role_to_db_cluster_errors() ::
           db_cluster_role_quota_exceeded_fault()
@@ -9056,7 +9064,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, add_role_to_db_cluster_errors()}
   def add_role_to_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddRoleToDBCluster", input, options)
   end
@@ -9076,7 +9085,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, add_role_to_db_instance_errors()}
   def add_role_to_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddRoleToDBInstance", input, options)
   end
@@ -9094,7 +9104,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, add_source_identifier_to_subscription_errors()}
   def add_source_identifier_to_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddSourceIdentifierToSubscription", input, options)
   end
@@ -9116,7 +9127,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTagsToResource", input, options)
   end
@@ -9135,7 +9147,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, apply_pending_maintenance_action_errors()}
   def apply_pending_maintenance_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ApplyPendingMaintenanceAction", input, options)
   end
@@ -9181,7 +9194,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, authorize_db_security_group_ingress_errors()}
   def authorize_db_security_group_ingress(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AuthorizeDBSecurityGroupIngress", input, options)
   end
@@ -9204,7 +9218,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, backtrack_db_cluster_errors()}
   def backtrack_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BacktrackDBCluster", input, options)
   end
@@ -9221,7 +9236,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, cancel_export_task_errors()}
   def cancel_export_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelExportTask", input, options)
   end
@@ -9240,7 +9256,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, copy_db_cluster_parameter_group_errors()}
   def copy_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyDBClusterParameterGroup", input, options)
   end
@@ -9311,7 +9328,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, copy_db_cluster_snapshot_errors()}
   def copy_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyDBClusterSnapshot", input, options)
   end
@@ -9329,7 +9347,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, copy_db_parameter_group_errors()}
   def copy_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyDBParameterGroup", input, options)
   end
@@ -9357,7 +9376,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, copy_db_snapshot_errors()}
   def copy_db_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyDBSnapshot", input, options)
   end
@@ -9371,7 +9391,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, copy_option_group_errors()}
   def copy_option_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyOptionGroup", input, options)
   end
@@ -9411,7 +9432,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_blue_green_deployment_errors()}
   def create_blue_green_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBlueGreenDeployment", input, options)
   end
@@ -9425,7 +9447,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_custom_db_engine_version_errors()}
   def create_custom_db_engine_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCustomDBEngineVersion", input, options)
   end
@@ -9464,7 +9487,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_cluster_errors()}
   def create_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBCluster", input, options)
   end
@@ -9481,7 +9505,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_cluster_endpoint_errors()}
   def create_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBClusterEndpoint", input, options)
   end
@@ -9547,7 +9572,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_cluster_parameter_group_errors()}
   def create_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBClusterParameterGroup", input, options)
   end
@@ -9569,7 +9595,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_cluster_snapshot_errors()}
   def create_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBClusterSnapshot", input, options)
   end
@@ -9600,7 +9627,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_instance_errors()}
   def create_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBInstance", input, options)
   end
@@ -9640,7 +9668,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_instance_read_replica_errors()}
   def create_db_instance_read_replica(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBInstanceReadReplica", input, options)
   end
@@ -9665,7 +9694,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_parameter_group_errors()}
   def create_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBParameterGroup", input, options)
   end
@@ -9679,7 +9709,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_proxy_errors()}
   def create_db_proxy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBProxy", input, options)
   end
@@ -9699,7 +9730,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_proxy_endpoint_errors()}
   def create_db_proxy_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBProxyEndpoint", input, options)
   end
@@ -9729,7 +9761,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_security_group_errors()}
   def create_db_security_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBSecurityGroup", input, options)
   end
@@ -9747,7 +9780,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_shard_group_errors()}
   def create_db_shard_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBShardGroup", input, options)
   end
@@ -9764,7 +9798,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_snapshot_errors()}
   def create_db_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBSnapshot", input, options)
   end
@@ -9781,7 +9816,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_subnet_group_errors()}
   def create_db_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBSubnetGroup", input, options)
   end
@@ -9835,7 +9871,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_event_subscription_errors()}
   def create_event_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEventSubscription", input, options)
   end
@@ -9863,7 +9900,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_global_cluster_errors()}
   def create_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGlobalCluster", input, options)
   end
@@ -9877,7 +9915,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_integration_errors()}
   def create_integration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIntegration", input, options)
   end
@@ -9895,7 +9934,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_option_group_errors()}
   def create_option_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateOptionGroup", input, options)
   end
@@ -9912,7 +9952,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_tenant_database_errors()}
   def create_tenant_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTenantDatabase", input, options)
   end
@@ -9934,7 +9975,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_blue_green_deployment_errors()}
   def delete_blue_green_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBlueGreenDeployment", input, options)
   end
@@ -9974,7 +10016,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_custom_db_engine_version_errors()}
   def delete_custom_db_engine_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCustomDBEngineVersion", input, options)
   end
@@ -10007,7 +10050,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_cluster_errors()}
   def delete_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBCluster", input, options)
   end
@@ -10027,7 +10071,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_cluster_automated_backup_errors()}
   def delete_db_cluster_automated_backup(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBClusterAutomatedBackup", input, options)
   end
@@ -10043,7 +10088,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_cluster_endpoint_errors()}
   def delete_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBClusterEndpoint", input, options)
   end
@@ -10075,7 +10121,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_cluster_parameter_group_errors()}
   def delete_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBClusterParameterGroup", input, options)
   end
@@ -10105,7 +10152,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_cluster_snapshot_errors()}
   def delete_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBClusterSnapshot", input, options)
   end
@@ -10155,7 +10203,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_instance_errors()}
   def delete_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBInstance", input, options)
   end
@@ -10174,7 +10223,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_instance_automated_backup_errors()}
   def delete_db_instance_automated_backup(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBInstanceAutomatedBackup", input, options)
   end
@@ -10190,7 +10240,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_parameter_group_errors()}
   def delete_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBParameterGroup", input, options)
   end
@@ -10204,7 +10255,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_proxy_errors()}
   def delete_db_proxy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBProxy", input, options)
   end
@@ -10224,7 +10276,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_proxy_endpoint_errors()}
   def delete_db_proxy_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBProxyEndpoint", input, options)
   end
@@ -10251,7 +10304,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_security_group_errors()}
   def delete_db_security_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBSecurityGroup", input, options)
   end
@@ -10265,7 +10319,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_shard_group_errors()}
   def delete_db_shard_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBShardGroup", input, options)
   end
@@ -10284,7 +10339,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_snapshot_errors()}
   def delete_db_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBSnapshot", input, options)
   end
@@ -10301,7 +10357,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_subnet_group_errors()}
   def delete_db_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBSubnetGroup", input, options)
   end
@@ -10315,7 +10372,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_event_subscription_errors()}
   def delete_event_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEventSubscription", input, options)
   end
@@ -10334,7 +10392,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_global_cluster_errors()}
   def delete_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGlobalCluster", input, options)
   end
@@ -10348,7 +10407,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_integration_errors()}
   def delete_integration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIntegration", input, options)
   end
@@ -10362,7 +10422,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_option_group_errors()}
   def delete_option_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteOptionGroup", input, options)
   end
@@ -10382,7 +10443,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_tenant_database_errors()}
   def delete_tenant_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTenantDatabase", input, options)
   end
@@ -10397,7 +10459,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, deregister_db_proxy_targets_errors()}
   def deregister_db_proxy_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterDBProxyTargets", input, options)
   end
@@ -10416,7 +10479,8 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAccountAttributes", input, options)
   end
@@ -10439,7 +10503,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_blue_green_deployments_errors()}
   def describe_blue_green_deployments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBlueGreenDeployments", input, options)
   end
@@ -10462,7 +10527,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_certificates_errors()}
   def describe_certificates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCertificates", input, options)
   end
@@ -10487,7 +10553,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_cluster_automated_backups_errors()}
   def describe_db_cluster_automated_backups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterAutomatedBackups", input, options)
   end
@@ -10509,7 +10576,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_cluster_backtracks_errors()}
   def describe_db_cluster_backtracks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterBacktracks", input, options)
   end
@@ -10525,7 +10593,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_cluster_endpoints_errors()}
   def describe_db_cluster_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterEndpoints", input, options)
   end
@@ -10559,7 +10628,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_cluster_parameter_groups_errors()}
   def describe_db_cluster_parameter_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterParameterGroups", input, options)
   end
@@ -10584,7 +10654,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_cluster_parameters_errors()}
   def describe_db_cluster_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterParameters", input, options)
   end
@@ -10618,7 +10689,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_cluster_snapshot_attributes_errors()}
   def describe_db_cluster_snapshot_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterSnapshotAttributes", input, options)
   end
@@ -10645,7 +10717,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_cluster_snapshots_errors()}
   def describe_db_cluster_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterSnapshots", input, options)
   end
@@ -10675,7 +10748,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_clusters_errors()}
   def describe_db_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusters", input, options)
   end
@@ -10688,7 +10762,8 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_db_engine_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBEngineVersions", input, options)
   end
@@ -10716,7 +10791,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_instance_automated_backups_errors()}
   def describe_db_instance_automated_backups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBInstanceAutomatedBackups", input, options)
   end
@@ -10735,7 +10811,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_instances_errors()}
   def describe_db_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBInstances", input, options)
   end
@@ -10751,7 +10828,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_log_files_errors()}
   def describe_db_log_files(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBLogFiles", input, options)
   end
@@ -10768,7 +10846,8 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_db_major_engine_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBMajorEngineVersions", input, options)
   end
@@ -10785,7 +10864,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_parameter_groups_errors()}
   def describe_db_parameter_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBParameterGroups", input, options)
   end
@@ -10799,7 +10879,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_parameters_errors()}
   def describe_db_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBParameters", input, options)
   end
@@ -10813,7 +10894,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_proxies_errors()}
   def describe_db_proxies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBProxies", input, options)
   end
@@ -10827,7 +10909,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_proxy_endpoints_errors()}
   def describe_db_proxy_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBProxyEndpoints", input, options)
   end
@@ -10842,7 +10925,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_proxy_target_groups_errors()}
   def describe_db_proxy_target_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBProxyTargetGroups", input, options)
   end
@@ -10858,7 +10942,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_proxy_targets_errors()}
   def describe_db_proxy_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBProxyTargets", input, options)
   end
@@ -10872,7 +10957,8 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_db_recommendations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBRecommendations", input, options)
   end
@@ -10900,7 +10986,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_security_groups_errors()}
   def describe_db_security_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBSecurityGroups", input, options)
   end
@@ -10914,7 +11001,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_shard_groups_errors()}
   def describe_db_shard_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBShardGroups", input, options)
   end
@@ -10943,7 +11031,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_snapshot_attributes_errors()}
   def describe_db_snapshot_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBSnapshotAttributes", input, options)
   end
@@ -10971,7 +11060,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_snapshot_tenant_databases_errors()}
   def describe_db_snapshot_tenant_databases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBSnapshotTenantDatabases", input, options)
   end
@@ -10987,7 +11077,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_snapshots_errors()}
   def describe_db_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBSnapshots", input, options)
   end
@@ -11007,7 +11098,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_subnet_groups_errors()}
   def describe_db_subnet_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBSubnetGroups", input, options)
   end
@@ -11031,7 +11123,8 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_engine_default_cluster_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEngineDefaultClusterParameters", input, options)
   end
@@ -11049,7 +11142,8 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_engine_default_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEngineDefaultParameters", input, options)
   end
@@ -11072,7 +11166,8 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_event_categories(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventCategories", input, options)
   end
@@ -11093,7 +11188,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_event_subscriptions_errors()}
   def describe_event_subscriptions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventSubscriptions", input, options)
   end
@@ -11118,7 +11214,8 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEvents", input, options)
   end
@@ -11135,7 +11232,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_export_tasks_errors()}
   def describe_export_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeExportTasks", input, options)
   end
@@ -11157,7 +11255,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_global_clusters_errors()}
   def describe_global_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGlobalClusters", input, options)
   end
@@ -11171,7 +11270,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_integrations_errors()}
   def describe_integrations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeIntegrations", input, options)
   end
@@ -11184,7 +11284,8 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_option_group_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOptionGroupOptions", input, options)
   end
@@ -11198,7 +11299,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_option_groups_errors()}
   def describe_option_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOptionGroups", input, options)
   end
@@ -11215,7 +11317,8 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_orderable_db_instance_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOrderableDBInstanceOptions", input, options)
   end
@@ -11241,7 +11344,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_pending_maintenance_actions_errors()}
   def describe_pending_maintenance_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePendingMaintenanceActions", input, options)
   end
@@ -11256,7 +11360,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_reserved_db_instances_errors()}
   def describe_reserved_db_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReservedDBInstances", input, options)
   end
@@ -11274,7 +11379,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_reserved_db_instances_offerings_errors()}
   def describe_reserved_db_instances_offerings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReservedDBInstancesOfferings", input, options)
   end
@@ -11300,7 +11406,8 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_source_regions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSourceRegions", input, options)
   end
@@ -11317,7 +11424,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_tenant_databases_errors()}
   def describe_tenant_databases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTenantDatabases", input, options)
   end
@@ -11341,7 +11449,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_valid_db_instance_modifications_errors()}
   def describe_valid_db_instance_modifications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeValidDBInstanceModifications", input, options)
   end
@@ -11365,7 +11474,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, disable_http_endpoint_errors()}
   def disable_http_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableHttpEndpoint", input, options)
   end
@@ -11388,7 +11498,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, download_db_log_file_portion_errors()}
   def download_db_log_file_portion(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DownloadDBLogFilePortion", input, options)
   end
@@ -11419,7 +11530,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, enable_http_endpoint_errors()}
   def enable_http_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableHttpEndpoint", input, options)
   end
@@ -11466,7 +11578,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, failover_db_cluster_errors()}
   def failover_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "FailoverDBCluster", input, options)
   end
@@ -11529,7 +11642,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, failover_global_cluster_errors()}
   def failover_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "FailoverGlobalCluster", input, options)
   end
@@ -11549,7 +11663,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -11574,7 +11689,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_activity_stream_errors()}
   def modify_activity_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyActivityStream", input, options)
   end
@@ -11626,7 +11742,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_certificates_errors()}
   def modify_certificates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyCertificates", input, options)
   end
@@ -11672,7 +11789,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_current_db_cluster_capacity_errors()}
   def modify_current_db_cluster_capacity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyCurrentDBClusterCapacity", input, options)
   end
@@ -11702,7 +11820,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_custom_db_engine_version_errors()}
   def modify_custom_db_engine_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyCustomDBEngineVersion", input, options)
   end
@@ -11731,7 +11850,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_cluster_errors()}
   def modify_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBCluster", input, options)
   end
@@ -11747,7 +11867,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_cluster_endpoint_errors()}
   def modify_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBClusterEndpoint", input, options)
   end
@@ -11805,7 +11926,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_cluster_parameter_group_errors()}
   def modify_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBClusterParameterGroup", input, options)
   end
@@ -11850,7 +11972,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_cluster_snapshot_attribute_errors()}
   def modify_db_cluster_snapshot_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBClusterSnapshotAttribute", input, options)
   end
@@ -11870,7 +11993,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_instance_errors()}
   def modify_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBInstance", input, options)
   end
@@ -11903,7 +12027,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_parameter_group_errors()}
   def modify_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBParameterGroup", input, options)
   end
@@ -11917,7 +12042,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_proxy_errors()}
   def modify_db_proxy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBProxy", input, options)
   end
@@ -11931,7 +12057,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_proxy_endpoint_errors()}
   def modify_db_proxy_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBProxyEndpoint", input, options)
   end
@@ -11945,7 +12072,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_proxy_target_group_errors()}
   def modify_db_proxy_target_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBProxyTargetGroup", input, options)
   end
@@ -11959,7 +12087,8 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_db_recommendation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBRecommendation", input, options)
   end
@@ -11976,7 +12105,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_shard_group_errors()}
   def modify_db_shard_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBShardGroup", input, options)
   end
@@ -11997,7 +12127,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_snapshot_errors()}
   def modify_db_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBSnapshot", input, options)
   end
@@ -12037,7 +12168,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_snapshot_attribute_errors()}
   def modify_db_snapshot_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBSnapshotAttribute", input, options)
   end
@@ -12054,7 +12186,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_subnet_group_errors()}
   def modify_db_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBSubnetGroup", input, options)
   end
@@ -12080,7 +12213,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_event_subscription_errors()}
   def modify_event_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyEventSubscription", input, options)
   end
@@ -12103,7 +12237,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_global_cluster_errors()}
   def modify_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyGlobalCluster", input, options)
   end
@@ -12117,7 +12252,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_integration_errors()}
   def modify_integration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyIntegration", input, options)
   end
@@ -12131,7 +12267,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_option_group_errors()}
   def modify_option_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyOptionGroup", input, options)
   end
@@ -12150,7 +12287,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_tenant_database_errors()}
   def modify_tenant_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyTenantDatabase", input, options)
   end
@@ -12178,7 +12316,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, promote_read_replica_errors()}
   def promote_read_replica(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PromoteReadReplica", input, options)
   end
@@ -12192,7 +12331,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, promote_read_replica_db_cluster_errors()}
   def promote_read_replica_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PromoteReadReplicaDBCluster", input, options)
   end
@@ -12210,7 +12350,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, purchase_reserved_db_instances_offering_errors()}
   def purchase_reserved_db_instances_offering(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PurchaseReservedDBInstancesOffering", input, options)
   end
@@ -12239,7 +12380,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, reboot_db_cluster_errors()}
   def reboot_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebootDBCluster", input, options)
   end
@@ -12269,7 +12411,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, reboot_db_instance_errors()}
   def reboot_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebootDBInstance", input, options)
   end
@@ -12288,7 +12431,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, reboot_db_shard_group_errors()}
   def reboot_db_shard_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebootDBShardGroup", input, options)
   end
@@ -12303,7 +12447,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, register_db_proxy_targets_errors()}
   def register_db_proxy_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterDBProxyTargets", input, options)
   end
@@ -12324,7 +12469,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, remove_from_global_cluster_errors()}
   def remove_from_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveFromGlobalCluster", input, options)
   end
@@ -12351,7 +12497,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, remove_role_from_db_cluster_errors()}
   def remove_role_from_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveRoleFromDBCluster", input, options)
   end
@@ -12366,7 +12513,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, remove_role_from_db_instance_errors()}
   def remove_role_from_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveRoleFromDBInstance", input, options)
   end
@@ -12385,7 +12533,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, remove_source_identifier_from_subscription_errors()}
   def remove_source_identifier_from_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveSourceIdentifierFromSubscription", input, options)
   end
@@ -12405,7 +12554,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromResource", input, options)
   end
@@ -12447,7 +12597,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, reset_db_cluster_parameter_group_errors()}
   def reset_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetDBClusterParameterGroup", input, options)
   end
@@ -12470,7 +12621,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, reset_db_parameter_group_errors()}
   def reset_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetDBParameterGroup", input, options)
   end
@@ -12509,7 +12661,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, restore_db_cluster_from_s3_errors()}
   def restore_db_cluster_from_s3(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreDBClusterFromS3", input, options)
   end
@@ -12550,7 +12703,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, restore_db_cluster_from_snapshot_errors()}
   def restore_db_cluster_from_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreDBClusterFromSnapshot", input, options)
   end
@@ -12599,7 +12753,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, restore_db_cluster_to_point_in_time_errors()}
   def restore_db_cluster_to_point_in_time(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreDBClusterToPointInTime", input, options)
   end
@@ -12649,7 +12804,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, restore_db_instance_from_db_snapshot_errors()}
   def restore_db_instance_from_db_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreDBInstanceFromDBSnapshot", input, options)
   end
@@ -12673,7 +12829,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, restore_db_instance_from_s3_errors()}
   def restore_db_instance_from_s3(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreDBInstanceFromS3", input, options)
   end
@@ -12709,7 +12866,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, restore_db_instance_to_point_in_time_errors()}
   def restore_db_instance_to_point_in_time(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreDBInstanceToPointInTime", input, options)
   end
@@ -12744,7 +12902,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, revoke_db_security_group_ingress_errors()}
   def revoke_db_security_group_ingress(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RevokeDBSecurityGroupIngress", input, options)
   end
@@ -12768,7 +12927,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, start_activity_stream_errors()}
   def start_activity_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartActivityStream", input, options)
   end
@@ -12792,7 +12952,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, start_db_cluster_errors()}
   def start_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDBCluster", input, options)
   end
@@ -12817,7 +12978,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, start_db_instance_errors()}
   def start_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDBInstance", input, options)
   end
@@ -12843,7 +13005,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, start_db_instance_automated_backups_replication_errors()}
   def start_db_instance_automated_backups_replication(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -12884,7 +13047,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, start_export_task_errors()}
   def start_export_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartExportTask", input, options)
   end
@@ -12910,7 +13074,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, stop_activity_stream_errors()}
   def stop_activity_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopActivityStream", input, options)
   end
@@ -12936,7 +13101,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, stop_db_cluster_errors()}
   def stop_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopDBCluster", input, options)
   end
@@ -12967,7 +13133,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, stop_db_instance_errors()}
   def stop_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopDBInstance", input, options)
   end
@@ -12992,7 +13159,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, stop_db_instance_automated_backups_replication_errors()}
   def stop_db_instance_automated_backups_replication(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -13029,7 +13197,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, switchover_blue_green_deployment_errors()}
   def switchover_blue_green_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SwitchoverBlueGreenDeployment", input, options)
   end
@@ -13062,7 +13231,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, switchover_global_cluster_errors()}
   def switchover_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SwitchoverGlobalCluster", input, options)
   end
@@ -13080,7 +13250,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, switchover_read_replica_errors()}
   def switchover_read_replica(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SwitchoverReadReplica", input, options)
   end

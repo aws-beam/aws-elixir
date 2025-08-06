@@ -41,28 +41,28 @@ defmodule AWS.AppIntegrations do
   ## Example:
 
       external_url_config() :: %{
-        "AccessUrl" => String.t(),
-        "ApprovedOrigins" => list(String.t())
+        "AccessUrl" => String.t() | atom(),
+        "ApprovedOrigins" => list(String.t() | atom())
       }
 
   """
-  @type external_url_config() :: %{String.t() => any()}
+  @type external_url_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_integration_association_summary() :: %{
-        "ClientId" => String.t(),
-        "DataIntegrationArn" => String.t(),
-        "DataIntegrationAssociationArn" => String.t(),
-        "DestinationURI" => String.t(),
+        "ClientId" => String.t() | atom(),
+        "DataIntegrationArn" => String.t() | atom(),
+        "DataIntegrationAssociationArn" => String.t() | atom(),
+        "DestinationURI" => String.t() | atom(),
         "ExecutionConfiguration" => execution_configuration(),
         "LastExecutionStatus" => last_execution_status()
       }
 
   """
-  @type data_integration_association_summary() :: %{String.t() => any()}
+  @type data_integration_association_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -73,7 +73,7 @@ defmodule AWS.AppIntegrations do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -89,23 +89,23 @@ defmodule AWS.AppIntegrations do
   ## Example:
 
       iframe_config() :: %{
-        "Allow" => list(String.t()),
-        "Sandbox" => list(String.t())
+        "Allow" => list(String.t() | atom()),
+        "Sandbox" => list(String.t() | atom())
       }
 
   """
-  @type iframe_config() :: %{String.t() => any()}
+  @type iframe_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unsupported_operation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type unsupported_operation_exception() :: %{String.t() => any()}
+  @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -122,11 +122,11 @@ defmodule AWS.AppIntegrations do
 
       last_execution_status() :: %{
         "ExecutionStatus" => list(any()),
-        "StatusMessage" => String.t()
+        "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type last_execution_status() :: %{String.t() => any()}
+  @type last_execution_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -143,11 +143,11 @@ defmodule AWS.AppIntegrations do
 
       list_data_integration_associations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_data_integration_associations_request() :: %{String.t() => any()}
+  @type list_data_integration_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -155,11 +155,11 @@ defmodule AWS.AppIntegrations do
 
       list_data_integration_associations_response() :: %{
         "DataIntegrationAssociations" => list(data_integration_association_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_data_integration_associations_response() :: %{String.t() => any()}
+  @type list_data_integration_associations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -167,27 +167,27 @@ defmodule AWS.AppIntegrations do
 
       list_data_integrations_response() :: %{
         "DataIntegrations" => list(data_integration_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_data_integrations_response() :: %{String.t() => any()}
+  @type list_data_integrations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_event_integration_response() :: %{
-        "Description" => String.t(),
-        "EventBridgeBus" => String.t(),
+        "Description" => String.t() | atom(),
+        "EventBridgeBus" => String.t() | atom(),
         "EventFilter" => event_filter(),
-        "EventIntegrationArn" => String.t(),
-        "Name" => String.t(),
+        "EventIntegrationArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type get_event_integration_response() :: %{String.t() => any()}
+  @type get_event_integration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -207,7 +207,7 @@ defmodule AWS.AppIntegrations do
       }
 
   """
-  @type application_source_config() :: %{String.t() => any()}
+  @type application_source_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -223,30 +223,30 @@ defmodule AWS.AppIntegrations do
   ## Example:
 
       create_data_integration_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("FileConfiguration") => file_configuration(),
         optional("ObjectConfiguration") => map(),
         optional("ScheduleConfig") => schedule_configuration(),
-        optional("SourceURI") => String.t(),
+        optional("SourceURI") => String.t() | atom(),
         optional("Tags") => map(),
-        required("KmsKey") => String.t(),
-        required("Name") => String.t()
+        required("KmsKey") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_data_integration_request() :: %{String.t() => any()}
+  @type create_data_integration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -257,7 +257,7 @@ defmodule AWS.AppIntegrations do
       }
 
   """
-  @type contact_handling() :: %{String.t() => any()}
+  @type contact_handling() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -265,11 +265,11 @@ defmodule AWS.AppIntegrations do
 
       list_event_integration_associations_response() :: %{
         "EventIntegrationAssociations" => list(event_integration_association()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_event_integration_associations_response() :: %{String.t() => any()}
+  @type list_event_integration_associations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -277,11 +277,11 @@ defmodule AWS.AppIntegrations do
 
       list_event_integration_associations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_event_integration_associations_request() :: %{String.t() => any()}
+  @type list_event_integration_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -289,61 +289,61 @@ defmodule AWS.AppIntegrations do
 
       create_data_integration_association_request() :: %{
         optional("ClientAssociationMetadata") => map(),
-        optional("ClientId") => String.t(),
-        optional("ClientToken") => String.t(),
-        optional("DestinationURI") => String.t(),
+        optional("ClientId") => String.t() | atom(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("DestinationURI") => String.t() | atom(),
         optional("ExecutionConfiguration") => execution_configuration(),
         optional("ObjectConfiguration") => map()
       }
 
   """
-  @type create_data_integration_association_request() :: %{String.t() => any()}
+  @type create_data_integration_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_request_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type invalid_request_exception() :: %{String.t() => any()}
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_event_integration_response() :: %{
-        "EventIntegrationArn" => String.t()
+        "EventIntegrationArn" => String.t() | atom()
       }
 
   """
-  @type create_event_integration_response() :: %{String.t() => any()}
+  @type create_event_integration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       application_association_summary() :: %{
-        "ApplicationArn" => String.t(),
-        "ApplicationAssociationArn" => String.t(),
-        "ClientId" => String.t()
+        "ApplicationArn" => String.t() | atom(),
+        "ApplicationAssociationArn" => String.t() | atom(),
+        "ClientId" => String.t() | atom()
       }
 
   """
-  @type application_association_summary() :: %{String.t() => any()}
+  @type application_association_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -351,11 +351,11 @@ defmodule AWS.AppIntegrations do
 
       list_application_associations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_application_associations_request() :: %{String.t() => any()}
+  @type list_application_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -363,27 +363,27 @@ defmodule AWS.AppIntegrations do
 
       list_data_integrations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_data_integrations_request() :: %{String.t() => any()}
+  @type list_data_integrations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_event_integration_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => map(),
-        required("EventBridgeBus") => String.t(),
+        required("EventBridgeBus") => String.t() | atom(),
         required("EventFilter") => event_filter(),
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_event_integration_request() :: %{String.t() => any()}
+  @type create_event_integration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -394,7 +394,7 @@ defmodule AWS.AppIntegrations do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -402,65 +402,65 @@ defmodule AWS.AppIntegrations do
 
       create_application_request() :: %{
         optional("ApplicationConfig") => application_config(),
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("IframeConfig") => iframe_config(),
         optional("InitializationTimeout") => integer(),
         optional("IsService") => boolean(),
-        optional("Permissions") => list(String.t()),
+        optional("Permissions") => list(String.t() | atom()),
         optional("Publications") => list(publication()),
         optional("Subscriptions") => list(subscription()),
         optional("Tags") => map(),
         required("ApplicationSourceConfig") => application_source_config(),
-        required("Name") => String.t(),
-        required("Namespace") => String.t()
+        required("Name") => String.t() | atom(),
+        required("Namespace") => String.t() | atom()
       }
 
   """
-  @type create_application_request() :: %{String.t() => any()}
+  @type create_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_data_integration_response() :: %{
-        "Arn" => String.t(),
-        "Description" => String.t(),
+        "Arn" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "FileConfiguration" => file_configuration(),
-        "Id" => String.t(),
-        "KmsKey" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | atom(),
+        "KmsKey" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "ObjectConfiguration" => map(),
         "ScheduleConfiguration" => schedule_configuration(),
-        "SourceURI" => String.t(),
+        "SourceURI" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type get_data_integration_response() :: %{String.t() => any()}
+  @type get_data_integration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_quota_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type resource_quota_exceeded_exception() :: %{String.t() => any()}
+  @type resource_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_application_response() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t()
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom()
       }
 
   """
-  @type create_application_response() :: %{String.t() => any()}
+  @type create_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -473,18 +473,18 @@ defmodule AWS.AppIntegrations do
       }
 
   """
-  @type execution_configuration() :: %{String.t() => any()}
+  @type execution_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       event_filter() :: %{
-        "Source" => String.t()
+        "Source" => String.t() | atom()
       }
 
   """
-  @type event_filter() :: %{String.t() => any()}
+  @type event_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -500,11 +500,11 @@ defmodule AWS.AppIntegrations do
   ## Example:
 
       update_event_integration_request() :: %{
-        optional("Description") => String.t()
+        optional("Description") => String.t() | atom()
       }
 
   """
-  @type update_event_integration_request() :: %{String.t() => any()}
+  @type update_event_integration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -520,12 +520,12 @@ defmodule AWS.AppIntegrations do
   ## Example:
 
       create_data_integration_association_response() :: %{
-        "DataIntegrationArn" => String.t(),
-        "DataIntegrationAssociationId" => String.t()
+        "DataIntegrationArn" => String.t() | atom(),
+        "DataIntegrationAssociationId" => String.t() | atom()
       }
 
   """
-  @type create_data_integration_association_response() :: %{String.t() => any()}
+  @type create_data_integration_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -543,18 +543,18 @@ defmodule AWS.AppIntegrations do
       update_application_request() :: %{
         optional("ApplicationConfig") => application_config(),
         optional("ApplicationSourceConfig") => application_source_config(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("IframeConfig") => iframe_config(),
         optional("InitializationTimeout") => integer(),
         optional("IsService") => boolean(),
-        optional("Name") => String.t(),
-        optional("Permissions") => list(String.t()),
+        optional("Name") => String.t() | atom(),
+        optional("Permissions") => list(String.t() | atom()),
         optional("Publications") => list(publication()),
         optional("Subscriptions") => list(subscription())
       }
 
   """
-  @type update_application_request() :: %{String.t() => any()}
+  @type update_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -570,13 +570,13 @@ defmodule AWS.AppIntegrations do
   ## Example:
 
       publication() :: %{
-        "Description" => String.t(),
-        "Event" => String.t(),
-        "Schema" => String.t()
+        "Description" => String.t() | atom(),
+        "Event" => String.t() | atom(),
+        "Schema" => String.t() | atom()
       }
 
   """
-  @type publication() :: %{String.t() => any()}
+  @type publication() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -585,24 +585,24 @@ defmodule AWS.AppIntegrations do
       get_application_response() :: %{
         "ApplicationConfig" => application_config(),
         "ApplicationSourceConfig" => application_source_config(),
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "Id" => String.t(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "IframeConfig" => iframe_config(),
         "InitializationTimeout" => integer(),
         "IsService" => boolean(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "Namespace" => String.t(),
-        "Permissions" => list(String.t()),
+        "Name" => String.t() | atom(),
+        "Namespace" => String.t() | atom(),
+        "Permissions" => list(String.t() | atom()),
         "Publications" => list(publication()),
         "Subscriptions" => list(subscription()),
         "Tags" => map()
       }
 
   """
-  @type get_application_response() :: %{String.t() => any()}
+  @type get_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -610,22 +610,22 @@ defmodule AWS.AppIntegrations do
 
       list_applications_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_applications_request() :: %{String.t() => any()}
+  @type list_applications_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -641,44 +641,44 @@ defmodule AWS.AppIntegrations do
   ## Example:
 
       create_data_integration_response() :: %{
-        "Arn" => String.t(),
-        "ClientToken" => String.t(),
-        "Description" => String.t(),
+        "Arn" => String.t() | atom(),
+        "ClientToken" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "FileConfiguration" => file_configuration(),
-        "Id" => String.t(),
-        "KmsKey" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | atom(),
+        "KmsKey" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "ObjectConfiguration" => map(),
         "ScheduleConfiguration" => schedule_configuration(),
-        "SourceURI" => String.t(),
+        "SourceURI" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type create_data_integration_response() :: %{String.t() => any()}
+  @type create_data_integration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_data_integration_request() :: %{
-        optional("Description") => String.t(),
-        optional("Name") => String.t()
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
       }
 
   """
-  @type update_data_integration_request() :: %{String.t() => any()}
+  @type update_data_integration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_service_error() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type internal_service_error() :: %{String.t() => any()}
+  @type internal_service_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -707,31 +707,31 @@ defmodule AWS.AppIntegrations do
       }
 
   """
-  @type update_data_integration_association_request() :: %{String.t() => any()}
+  @type update_data_integration_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       schedule_configuration() :: %{
-        "FirstExecutionFrom" => String.t(),
-        "Object" => String.t(),
-        "ScheduleExpression" => String.t()
+        "FirstExecutionFrom" => String.t() | atom(),
+        "Object" => String.t() | atom(),
+        "ScheduleExpression" => String.t() | atom()
       }
 
   """
-  @type schedule_configuration() :: %{String.t() => any()}
+  @type schedule_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -747,12 +747,12 @@ defmodule AWS.AppIntegrations do
   ## Example:
 
       subscription() :: %{
-        "Description" => String.t(),
-        "Event" => String.t()
+        "Description" => String.t() | atom(),
+        "Event" => String.t() | atom()
       }
 
   """
-  @type subscription() :: %{String.t() => any()}
+  @type subscription() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -768,17 +768,17 @@ defmodule AWS.AppIntegrations do
   ## Example:
 
       application_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "Id" => String.t(),
+        "Id" => String.t() | atom(),
         "IsService" => boolean(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "Namespace" => String.t()
+        "Name" => String.t() | atom(),
+        "Namespace" => String.t() | atom()
       }
 
   """
-  @type application_summary() :: %{String.t() => any()}
+  @type application_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -786,11 +786,11 @@ defmodule AWS.AppIntegrations do
 
       list_application_associations_response() :: %{
         "ApplicationAssociations" => list(application_association_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_application_associations_response() :: %{String.t() => any()}
+  @type list_application_associations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -798,11 +798,11 @@ defmodule AWS.AppIntegrations do
 
       list_applications_response() :: %{
         "Applications" => list(application_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_applications_response() :: %{String.t() => any()}
+  @type list_applications_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -810,11 +810,11 @@ defmodule AWS.AppIntegrations do
 
       list_event_integrations_response() :: %{
         "EventIntegrations" => list(event_integration()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_event_integrations_response() :: %{String.t() => any()}
+  @type list_event_integrations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -822,11 +822,11 @@ defmodule AWS.AppIntegrations do
 
       list_event_integrations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_event_integrations_request() :: %{String.t() => any()}
+  @type list_event_integrations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -837,7 +837,7 @@ defmodule AWS.AppIntegrations do
       }
 
   """
-  @type application_config() :: %{String.t() => any()}
+  @type application_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -845,11 +845,11 @@ defmodule AWS.AppIntegrations do
 
       file_configuration() :: %{
         "Filters" => map(),
-        "Folders" => list(String.t())
+        "Folders" => list(String.t() | atom())
       }
 
   """
-  @type file_configuration() :: %{String.t() => any()}
+  @type file_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -857,15 +857,15 @@ defmodule AWS.AppIntegrations do
 
       event_integration_association() :: %{
         "ClientAssociationMetadata" => map(),
-        "ClientId" => String.t(),
-        "EventBridgeRuleName" => String.t(),
-        "EventIntegrationAssociationArn" => String.t(),
-        "EventIntegrationAssociationId" => String.t(),
-        "EventIntegrationName" => String.t()
+        "ClientId" => String.t() | atom(),
+        "EventBridgeRuleName" => String.t() | atom(),
+        "EventIntegrationAssociationArn" => String.t() | atom(),
+        "EventIntegrationAssociationId" => String.t() | atom(),
+        "EventIntegrationName" => String.t() | atom()
       }
 
   """
-  @type event_integration_association() :: %{String.t() => any()}
+  @type event_integration_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -881,40 +881,40 @@ defmodule AWS.AppIntegrations do
   ## Example:
 
       duplicate_resource_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type duplicate_resource_exception() :: %{String.t() => any()}
+  @type duplicate_resource_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       event_integration() :: %{
-        "Description" => String.t(),
-        "EventBridgeBus" => String.t(),
+        "Description" => String.t() | atom(),
+        "EventBridgeBus" => String.t() | atom(),
         "EventFilter" => event_filter(),
-        "EventIntegrationArn" => String.t(),
-        "Name" => String.t(),
+        "EventIntegrationArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type event_integration() :: %{String.t() => any()}
+  @type event_integration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_integration_summary() :: %{
-        "Arn" => String.t(),
-        "Name" => String.t(),
-        "SourceURI" => String.t()
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "SourceURI" => String.t() | atom()
       }
 
   """
-  @type data_integration_summary() :: %{String.t() => any()}
+  @type data_integration_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -930,12 +930,12 @@ defmodule AWS.AppIntegrations do
   ## Example:
 
       on_demand_configuration() :: %{
-        "EndTime" => String.t(),
-        "StartTime" => String.t()
+        "EndTime" => String.t() | atom(),
+        "StartTime" => String.t() | atom()
       }
 
   """
-  @type on_demand_configuration() :: %{String.t() => any()}
+  @type on_demand_configuration() :: %{(String.t() | atom()) => any()}
 
   @type create_application_errors() ::
           duplicate_resource_exception()
@@ -1183,7 +1183,7 @@ defmodule AWS.AppIntegrations do
   """
   @spec create_data_integration_association(
           map(),
-          String.t(),
+          String.t() | atom(),
           create_data_integration_association_request(),
           list()
         ) ::
@@ -1262,7 +1262,7 @@ defmodule AWS.AppIntegrations do
   Only Applications that don't have any Application Associations
   can be deleted.
   """
-  @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
+  @spec delete_application(map(), String.t() | atom(), delete_application_request(), list()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1302,7 +1302,12 @@ defmodule AWS.AppIntegrations do
   [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)
   API.
   """
-  @spec delete_data_integration(map(), String.t(), delete_data_integration_request(), list()) ::
+  @spec delete_data_integration(
+          map(),
+          String.t() | atom(),
+          delete_data_integration_request(),
+          list()
+        ) ::
           {:ok, delete_data_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1339,7 +1344,12 @@ defmodule AWS.AppIntegrations do
   If the event integration is associated
   with clients, the request is rejected.
   """
-  @spec delete_event_integration(map(), String.t(), delete_event_integration_request(), list()) ::
+  @spec delete_event_integration(
+          map(),
+          String.t() | atom(),
+          delete_event_integration_request(),
+          list()
+        ) ::
           {:ok, delete_event_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1368,7 +1378,7 @@ defmodule AWS.AppIntegrations do
   @doc """
   Get an Application resource.
   """
-  @spec get_application(map(), String.t(), list()) ::
+  @spec get_application(map(), String.t() | atom(), list()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1392,7 +1402,7 @@ defmodule AWS.AppIntegrations do
   [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)
   API.
   """
-  @spec get_data_integration(map(), String.t(), list()) ::
+  @spec get_data_integration(map(), String.t() | atom(), list()) ::
           {:ok, get_data_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1410,7 +1420,7 @@ defmodule AWS.AppIntegrations do
   @doc """
   Returns information about the event integration.
   """
-  @spec get_event_integration(map(), String.t(), list()) ::
+  @spec get_event_integration(map(), String.t() | atom(), list()) ::
           {:ok, get_event_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1430,9 +1440,9 @@ defmodule AWS.AppIntegrations do
   """
   @spec list_application_associations(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_application_associations_response(), any()}
@@ -1472,7 +1482,7 @@ defmodule AWS.AppIntegrations do
   @doc """
   Lists applications in the account.
   """
-  @spec list_applications(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_applications(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1512,9 +1522,9 @@ defmodule AWS.AppIntegrations do
   """
   @spec list_data_integration_associations(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_data_integration_associations_response(), any()}
@@ -1562,7 +1572,12 @@ defmodule AWS.AppIntegrations do
   [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)
   API.
   """
-  @spec list_data_integrations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_data_integrations(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_data_integrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1601,9 +1616,9 @@ defmodule AWS.AppIntegrations do
   """
   @spec list_event_integration_associations(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_event_integration_associations_response(), any()}
@@ -1643,7 +1658,12 @@ defmodule AWS.AppIntegrations do
   @doc """
   Returns a paginated list of event integrations in the account.
   """
-  @spec list_event_integrations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_event_integrations(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_event_integrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1680,7 +1700,7 @@ defmodule AWS.AppIntegrations do
   @doc """
   Lists the tags for the specified resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1698,7 +1718,7 @@ defmodule AWS.AppIntegrations do
   @doc """
   Adds the specified tags to the specified resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1727,7 +1747,7 @@ defmodule AWS.AppIntegrations do
   @doc """
   Removes the specified tags from the specified resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1761,7 +1781,7 @@ defmodule AWS.AppIntegrations do
   @doc """
   Updates and persists an Application resource.
   """
-  @spec update_application(map(), String.t(), update_application_request(), list()) ::
+  @spec update_application(map(), String.t() | atom(), update_application_request(), list()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1796,7 +1816,12 @@ defmodule AWS.AppIntegrations do
   [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)
   API.
   """
-  @spec update_data_integration(map(), String.t(), update_data_integration_request(), list()) ::
+  @spec update_data_integration(
+          map(),
+          String.t() | atom(),
+          update_data_integration_request(),
+          list()
+        ) ::
           {:ok, update_data_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1830,8 +1855,8 @@ defmodule AWS.AppIntegrations do
   """
   @spec update_data_integration_association(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_data_integration_association_request(),
           list()
         ) ::
@@ -1871,7 +1896,12 @@ defmodule AWS.AppIntegrations do
   @doc """
   Updates the description of an event integration.
   """
-  @spec update_event_integration(map(), String.t(), update_event_integration_request(), list()) ::
+  @spec update_event_integration(
+          map(),
+          String.t() | atom(),
+          update_event_integration_request(),
+          list()
+        ) ::
           {:ok, update_event_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

@@ -21,40 +21,40 @@ defmodule AWS.Glue do
       }
       
   """
-  @type decimal_number() :: %{String.t() => any()}
+  @type decimal_number() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_catalog_request() :: %{
-        required("CatalogId") => String.t()
+        required("CatalogId") => String.t() | atom()
       }
       
   """
-  @type get_catalog_request() :: %{String.t() => any()}
+  @type get_catalog_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_ml_transform_response() :: %{
-        "TransformId" => String.t()
+        "TransformId" => String.t() | atom()
       }
       
   """
-  @type update_ml_transform_response() :: %{String.t() => any()}
+  @type update_ml_transform_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_crawler_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type start_crawler_request() :: %{String.t() => any()}
+  @type start_crawler_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -72,15 +72,15 @@ defmodule AWS.Glue do
       evaluate_data_quality_multi_frame() :: %{
         "AdditionalDataSources" => map(),
         "AdditionalOptions" => map(),
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
         "PublishingOptions" => d_q_results_publishing_options(),
-        "Ruleset" => String.t(),
+        "Ruleset" => String.t() | atom(),
         "StopJobOnFailureOptions" => d_q_stop_job_on_failure_options()
       }
       
   """
-  @type evaluate_data_quality_multi_frame() :: %{String.t() => any()}
+  @type evaluate_data_quality_multi_frame() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -91,7 +91,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_crawler_response() :: %{String.t() => any()}
+  @type get_crawler_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -103,7 +103,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type task_run_sort_criteria() :: %{String.t() => any()}
+  @type task_run_sort_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -114,7 +114,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_registry_input() :: %{String.t() => any()}
+  @type get_registry_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -122,31 +122,31 @@ defmodule AWS.Glue do
       
       get_connection_request() :: %{
         optional("ApplyOverrideForComputeEnvironment") => list(any()),
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
         optional("HidePassword") => boolean(),
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type get_connection_request() :: %{String.t() => any()}
+  @type get_connection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       user_defined_function() :: %{
-        "CatalogId" => String.t(),
-        "ClassName" => String.t(),
+        "CatalogId" => String.t() | atom(),
+        "ClassName" => String.t() | atom(),
         "CreateTime" => non_neg_integer(),
-        "DatabaseName" => String.t(),
-        "FunctionName" => String.t(),
-        "OwnerName" => String.t(),
+        "DatabaseName" => String.t() | atom(),
+        "FunctionName" => String.t() | atom(),
+        "OwnerName" => String.t() | atom(),
         "OwnerType" => list(any()),
         "ResourceUris" => list(resource_uri())
       }
       
   """
-  @type user_defined_function() :: %{String.t() => any()}
+  @type user_defined_function() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -158,32 +158,32 @@ defmodule AWS.Glue do
       }
       
   """
-  @type catalog_schema_change_policy() :: %{String.t() => any()}
+  @type catalog_schema_change_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       integration_config() :: %{
-        "RefreshInterval" => String.t(),
+        "RefreshInterval" => String.t() | atom(),
         "SourceProperties" => map()
       }
       
   """
-  @type integration_config() :: %{String.t() => any()}
+  @type integration_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_custom_entity_type_response() :: %{
-        "ContextWords" => list(String.t()),
-        "Name" => String.t(),
-        "RegexString" => String.t()
+        "ContextWords" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "RegexString" => String.t() | atom()
       }
       
   """
-  @type get_custom_entity_type_response() :: %{String.t() => any()}
+  @type get_custom_entity_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -192,56 +192,56 @@ defmodule AWS.Glue do
       create_integration_table_properties_request() :: %{
         optional("SourceTableConfig") => source_table_config(),
         optional("TargetTableConfig") => target_table_config(),
-        required("ResourceArn") => String.t(),
-        required("TableName") => String.t()
+        required("ResourceArn") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type create_integration_table_properties_request() :: %{String.t() => any()}
+  @type create_integration_table_properties_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       statistic_summary() :: %{
-        "ColumnsReferenced" => list(String.t()),
+        "ColumnsReferenced" => list(String.t() | atom()),
         "DoubleValue" => float(),
         "EvaluationLevel" => list(any()),
         "InclusionAnnotation" => timestamped_inclusion_annotation(),
-        "ProfileId" => String.t(),
+        "ProfileId" => String.t() | atom(),
         "RecordedOn" => non_neg_integer(),
-        "ReferencedDatasets" => list(String.t()),
+        "ReferencedDatasets" => list(String.t() | atom()),
         "RunIdentifier" => run_identifier(),
-        "StatisticId" => String.t(),
-        "StatisticName" => String.t(),
+        "StatisticId" => String.t() | atom(),
+        "StatisticName" => String.t() | atom(),
         "StatisticProperties" => map()
       }
       
   """
-  @type statistic_summary() :: %{String.t() => any()}
+  @type statistic_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_data_quality_results_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Results" => list(data_quality_result_description())
       }
       
   """
-  @type list_data_quality_results_response() :: %{String.t() => any()}
+  @type list_data_quality_results_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_data_quality_rule_recommendation_run_response() :: %{
-        "RunId" => String.t()
+        "RunId" => String.t() | atom()
       }
       
   """
-  @type start_data_quality_rule_recommendation_run_response() :: %{String.t() => any()}
+  @type start_data_quality_rule_recommendation_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -249,40 +249,40 @@ defmodule AWS.Glue do
       
       s3_catalog_target() :: %{
         "AutoDataQuality" => auto_data_quality(),
-        "Database" => String.t(),
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
-        "PartitionKeys" => list(list(String.t())()),
+        "Database" => String.t() | atom(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "PartitionKeys" => list(list(String.t() | atom())()),
         "SchemaChangePolicy" => catalog_schema_change_policy(),
-        "Table" => String.t()
+        "Table" => String.t() | atom()
       }
       
   """
-  @type s3_catalog_target() :: %{String.t() => any()}
+  @type s3_catalog_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_catalog_request() :: %{
-        required("CatalogId") => String.t(),
+        required("CatalogId") => String.t() | atom(),
         required("CatalogInput") => catalog_input()
       }
       
   """
-  @type update_catalog_request() :: %{String.t() => any()}
+  @type update_catalog_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_integration_table_properties_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("TableName") => String.t()
+        required("ResourceArn") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type get_integration_table_properties_request() :: %{String.t() => any()}
+  @type get_integration_table_properties_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -293,7 +293,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_job_run_response() :: %{String.t() => any()}
+  @type get_job_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -301,12 +301,12 @@ defmodule AWS.Glue do
       
       list_schemas_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("RegistryId") => registry_id()
       }
       
   """
-  @type list_schemas_input() :: %{String.t() => any()}
+  @type list_schemas_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -317,7 +317,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type update_iceberg_input() :: %{String.t() => any()}
+  @type update_iceberg_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -325,25 +325,25 @@ defmodule AWS.Glue do
       
       create_workflow_request() :: %{
         optional("DefaultRunProperties") => map(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("MaxConcurrentRuns") => integer(),
         optional("Tags") => map(),
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type create_workflow_request() :: %{String.t() => any()}
+  @type create_workflow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_crawlers_request() :: %{
-        required("CrawlerNames") => list(String.t())
+        required("CrawlerNames") => list(String.t() | atom())
       }
       
   """
-  @type batch_get_crawlers_request() :: %{String.t() => any()}
+  @type batch_get_crawlers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -351,50 +351,50 @@ defmodule AWS.Glue do
       
       put_schema_version_metadata_input() :: %{
         optional("SchemaId") => schema_id(),
-        optional("SchemaVersionId") => String.t(),
+        optional("SchemaVersionId") => String.t() | atom(),
         optional("SchemaVersionNumber") => schema_version_number(),
         required("MetadataKeyValue") => metadata_key_value_pair()
       }
       
   """
-  @type put_schema_version_metadata_input() :: %{String.t() => any()}
+  @type put_schema_version_metadata_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_schema_versions_diff_response() :: %{
-        "Diff" => String.t()
+        "Diff" => String.t() | atom()
       }
       
   """
-  @type get_schema_versions_diff_response() :: %{String.t() => any()}
+  @type get_schema_versions_diff_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ser_de_info() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Parameters" => map(),
-        "SerializationLibrary" => String.t()
+        "SerializationLibrary" => String.t() | atom()
       }
       
   """
-  @type ser_de_info() :: %{String.t() => any()}
+  @type ser_de_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_connection_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
         required("ConnectionInput") => connection_input(),
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type update_connection_request() :: %{String.t() => any()}
+  @type update_connection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -402,13 +402,13 @@ defmodule AWS.Glue do
       
       glue_policy() :: %{
         "CreateTime" => non_neg_integer(),
-        "PolicyHash" => String.t(),
-        "PolicyInJson" => String.t(),
+        "PolicyHash" => String.t() | atom(),
+        "PolicyInJson" => String.t() | atom(),
         "UpdateTime" => non_neg_integer()
       }
       
   """
-  @type glue_policy() :: %{String.t() => any()}
+  @type glue_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -419,7 +419,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type retention_metrics() :: %{String.t() => any()}
+  @type retention_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -435,28 +435,28 @@ defmodule AWS.Glue do
   ## Example:
       
       data_quality_target_table() :: %{
-        "CatalogId" => String.t(),
-        "DatabaseName" => String.t(),
-        "TableName" => String.t()
+        "CatalogId" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
+        "TableName" => String.t() | atom()
       }
       
   """
-  @type data_quality_target_table() :: %{String.t() => any()}
+  @type data_quality_target_table() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_column_statistics_for_partition_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
         required("ColumnStatisticsList") => list(column_statistics()),
-        required("DatabaseName") => String.t(),
-        required("PartitionValues") => list(String.t()),
-        required("TableName") => String.t()
+        required("DatabaseName") => String.t() | atom(),
+        required("PartitionValues") => list(String.t() | atom()),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type update_column_statistics_for_partition_request() :: %{String.t() => any()}
+  @type update_column_statistics_for_partition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -464,67 +464,67 @@ defmodule AWS.Glue do
       
       batch_get_triggers_response() :: %{
         "Triggers" => list(trigger()),
-        "TriggersNotFound" => list(String.t())
+        "TriggersNotFound" => list(String.t() | atom())
       }
       
   """
-  @type batch_get_triggers_response() :: %{String.t() => any()}
+  @type batch_get_triggers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_entities_request() :: %{
-        optional("CatalogId") => String.t(),
-        optional("ConnectionName") => String.t(),
-        optional("DataStoreApiVersion") => String.t(),
-        optional("NextToken") => String.t(),
-        optional("ParentEntityName") => String.t()
+        optional("CatalogId") => String.t() | atom(),
+        optional("ConnectionName") => String.t() | atom(),
+        optional("DataStoreApiVersion") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ParentEntityName") => String.t() | atom()
       }
       
   """
-  @type list_entities_request() :: %{String.t() => any()}
+  @type list_entities_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       recipe_reference() :: %{
-        "RecipeArn" => String.t(),
-        "RecipeVersion" => String.t()
+        "RecipeArn" => String.t() | atom(),
+        "RecipeVersion" => String.t() | atom()
       }
       
   """
-  @type recipe_reference() :: %{String.t() => any()}
+  @type recipe_reference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       target_processing_properties() :: %{
-        "ConnectionName" => String.t(),
-        "EventBusArn" => String.t(),
-        "KmsArn" => String.t(),
-        "RoleArn" => String.t()
+        "ConnectionName" => String.t() | atom(),
+        "EventBusArn" => String.t() | atom(),
+        "KmsArn" => String.t() | atom(),
+        "RoleArn" => String.t() | atom()
       }
       
   """
-  @type target_processing_properties() :: %{String.t() => any()}
+  @type target_processing_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       basic_catalog_target() :: %{
-        "Database" => String.t(),
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
-        "PartitionKeys" => list(list(String.t())()),
-        "Table" => String.t()
+        "Database" => String.t() | atom(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "PartitionKeys" => list(list(String.t() | atom())()),
+        "Table" => String.t() | atom()
       }
       
   """
-  @type basic_catalog_target() :: %{String.t() => any()}
+  @type basic_catalog_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -541,11 +541,11 @@ defmodule AWS.Glue do
       
       job_bookmarks_encryption() :: %{
         "JobBookmarksEncryptionMode" => list(any()),
-        "KmsKeyArn" => String.t()
+        "KmsKeyArn" => String.t() | atom()
       }
       
   """
-  @type job_bookmarks_encryption() :: %{String.t() => any()}
+  @type job_bookmarks_encryption() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -554,34 +554,34 @@ defmodule AWS.Glue do
       delete_integration_response() :: %{
         "AdditionalEncryptionContext" => map(),
         "CreateTime" => non_neg_integer(),
-        "DataFilter" => String.t(),
-        "Description" => String.t(),
+        "DataFilter" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "Errors" => list(integration_error()),
-        "IntegrationArn" => String.t(),
-        "IntegrationName" => String.t(),
-        "KmsKeyId" => String.t(),
-        "SourceArn" => String.t(),
+        "IntegrationArn" => String.t() | atom(),
+        "IntegrationName" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
+        "SourceArn" => String.t() | atom(),
         "Status" => list(any()),
         "Tags" => list(tag()),
-        "TargetArn" => String.t()
+        "TargetArn" => String.t() | atom()
       }
       
   """
-  @type delete_integration_response() :: %{String.t() => any()}
+  @type delete_integration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       view_definition_input() :: %{
-        "Definer" => String.t(),
+        "Definer" => String.t() | atom(),
         "IsProtected" => boolean(),
         "Representations" => list(view_representation_input()),
-        "SubObjects" => list(String.t())
+        "SubObjects" => list(String.t() | atom())
       }
       
   """
-  @type view_definition_input() :: %{String.t() => any()}
+  @type view_definition_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -595,18 +595,18 @@ defmodule AWS.Glue do
       }
       
   """
-  @type encryption_configuration() :: %{String.t() => any()}
+  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_trigger_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type delete_trigger_request() :: %{String.t() => any()}
+  @type delete_trigger_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -614,29 +614,29 @@ defmodule AWS.Glue do
       
       spark_connector_target() :: %{
         "AdditionalOptions" => map(),
-        "ConnectionName" => String.t(),
-        "ConnectionType" => String.t(),
-        "ConnectorName" => String.t(),
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
+        "ConnectionName" => String.t() | atom(),
+        "ConnectionType" => String.t() | atom(),
+        "ConnectorName" => String.t() | atom(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
         "OutputSchemas" => list(glue_schema())
       }
       
   """
-  @type spark_connector_target() :: %{String.t() => any()}
+  @type spark_connector_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       apply_mapping() :: %{
-        "Inputs" => list(String.t()),
+        "Inputs" => list(String.t() | atom()),
         "Mapping" => list(mapping()),
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type apply_mapping() :: %{String.t() => any()}
+  @type apply_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -644,25 +644,25 @@ defmodule AWS.Glue do
       
       column_statistics() :: %{
         "AnalyzedTime" => non_neg_integer(),
-        "ColumnName" => String.t(),
-        "ColumnType" => String.t(),
+        "ColumnName" => String.t() | atom(),
+        "ColumnType" => String.t() | atom(),
         "StatisticsData" => column_statistics_data()
       }
       
   """
-  @type column_statistics() :: %{String.t() => any()}
+  @type column_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_blueprint_run_request() :: %{
-        required("BlueprintName") => String.t(),
-        required("RunId") => String.t()
+        required("BlueprintName") => String.t() | atom(),
+        required("RunId") => String.t() | atom()
       }
       
   """
-  @type get_blueprint_run_request() :: %{String.t() => any()}
+  @type get_blueprint_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -670,12 +670,12 @@ defmodule AWS.Glue do
       
       list_blueprints_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Tags") => map()
       }
       
   """
-  @type list_blueprints_request() :: %{String.t() => any()}
+  @type list_blueprints_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -684,36 +684,36 @@ defmodule AWS.Glue do
       create_integration_response() :: %{
         "AdditionalEncryptionContext" => map(),
         "CreateTime" => non_neg_integer(),
-        "DataFilter" => String.t(),
-        "Description" => String.t(),
+        "DataFilter" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "Errors" => list(integration_error()),
-        "IntegrationArn" => String.t(),
+        "IntegrationArn" => String.t() | atom(),
         "IntegrationConfig" => integration_config(),
-        "IntegrationName" => String.t(),
-        "KmsKeyId" => String.t(),
-        "SourceArn" => String.t(),
+        "IntegrationName" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
+        "SourceArn" => String.t() | atom(),
         "Status" => list(any()),
         "Tags" => list(tag()),
-        "TargetArn" => String.t()
+        "TargetArn" => String.t() | atom()
       }
       
   """
-  @type create_integration_response() :: %{String.t() => any()}
+  @type create_integration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       iceberg_struct_field() :: %{
-        "Doc" => String.t(),
+        "Doc" => String.t() | atom(),
         "Id" => integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Required" => boolean(),
         "Type" => any()
       }
       
   """
-  @type iceberg_struct_field() :: %{String.t() => any()}
+  @type iceberg_struct_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -721,34 +721,34 @@ defmodule AWS.Glue do
       
       supported_dialect() :: %{
         "Dialect" => list(any()),
-        "DialectVersion" => String.t()
+        "DialectVersion" => String.t() | atom()
       }
       
   """
-  @type supported_dialect() :: %{String.t() => any()}
+  @type supported_dialect() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | atom(),
         required("TagsToAdd") => map()
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       column_statistics_task_stopping_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type column_statistics_task_stopping_exception() :: %{String.t() => any()}
+  @type column_statistics_task_stopping_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -761,59 +761,59 @@ defmodule AWS.Glue do
       }
       
   """
-  @type data_quality_rule_recommendation_run_filter() :: %{String.t() => any()}
+  @type data_quality_rule_recommendation_run_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       oracle_s_q_l_catalog_source() :: %{
-        "Database" => String.t(),
-        "Name" => String.t(),
-        "Table" => String.t()
+        "Database" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Table" => String.t() | atom()
       }
       
   """
-  @type oracle_s_q_l_catalog_source() :: %{String.t() => any()}
+  @type oracle_s_q_l_catalog_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_crawler_schedule_request() :: %{
-        required("CrawlerName") => String.t()
+        required("CrawlerName") => String.t() | atom()
       }
       
   """
-  @type start_crawler_schedule_request() :: %{String.t() => any()}
+  @type start_crawler_schedule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       schema_version_list_item() :: %{
-        "CreatedTime" => String.t(),
-        "SchemaArn" => String.t(),
-        "SchemaVersionId" => String.t(),
+        "CreatedTime" => String.t() | atom(),
+        "SchemaArn" => String.t() | atom(),
+        "SchemaVersionId" => String.t() | atom(),
         "Status" => list(any()),
         "VersionNumber" => float()
       }
       
   """
-  @type schema_version_list_item() :: %{String.t() => any()}
+  @type schema_version_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_data_quality_ruleset_request() :: %{
-        optional("Description") => String.t(),
-        optional("Ruleset") => String.t(),
-        required("Name") => String.t()
+        optional("Description") => String.t() | atom(),
+        optional("Ruleset") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type update_data_quality_ruleset_request() :: %{String.t() => any()}
+  @type update_data_quality_ruleset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -825,19 +825,19 @@ defmodule AWS.Glue do
       }
       
   """
-  @type timestamped_inclusion_annotation() :: %{String.t() => any()}
+  @type timestamped_inclusion_annotation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       import_labels_task_run_properties() :: %{
-        "InputS3Path" => String.t(),
+        "InputS3Path" => String.t() | atom(),
         "Replace" => boolean()
       }
       
   """
-  @type import_labels_task_run_properties() :: %{String.t() => any()}
+  @type import_labels_task_run_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -845,11 +845,11 @@ defmodule AWS.Glue do
       
       delete_schema_versions_input() :: %{
         required("SchemaId") => schema_id(),
-        required("Versions") => String.t()
+        required("Versions") => String.t() | atom()
       }
       
   """
-  @type delete_schema_versions_input() :: %{String.t() => any()}
+  @type delete_schema_versions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -861,7 +861,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type principal_permissions() :: %{String.t() => any()}
+  @type principal_permissions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -877,13 +877,13 @@ defmodule AWS.Glue do
   ## Example:
       
       update_usage_profile_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         required("Configuration") => profile_configuration(),
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type update_usage_profile_request() :: %{String.t() => any()}
+  @type update_usage_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -891,11 +891,11 @@ defmodule AWS.Glue do
       
       check_schema_version_validity_input() :: %{
         required("DataFormat") => list(any()),
-        required("SchemaDefinition") => String.t()
+        required("SchemaDefinition") => String.t() | atom()
       }
       
   """
-  @type check_schema_version_validity_input() :: %{String.t() => any()}
+  @type check_schema_version_validity_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -903,22 +903,22 @@ defmodule AWS.Glue do
       
       batch_get_blueprints_response() :: %{
         "Blueprints" => list(blueprint()),
-        "MissingBlueprints" => list(String.t())
+        "MissingBlueprints" => list(String.t() | atom())
       }
       
   """
-  @type batch_get_blueprints_response() :: %{String.t() => any()}
+  @type batch_get_blueprints_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_ml_transform_request() :: %{
-        required("TransformId") => String.t()
+        required("TransformId") => String.t() | atom()
       }
       
   """
-  @type get_ml_transform_request() :: %{String.t() => any()}
+  @type get_ml_transform_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -926,59 +926,59 @@ defmodule AWS.Glue do
       
       j_db_c_connector_source() :: %{
         "AdditionalOptions" => j_db_c_connector_options(),
-        "ConnectionName" => String.t(),
-        "ConnectionTable" => String.t(),
-        "ConnectionType" => String.t(),
-        "ConnectorName" => String.t(),
-        "Name" => String.t(),
+        "ConnectionName" => String.t() | atom(),
+        "ConnectionTable" => String.t() | atom(),
+        "ConnectionType" => String.t() | atom(),
+        "ConnectorName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "OutputSchemas" => list(glue_schema()),
-        "Query" => String.t()
+        "Query" => String.t() | atom()
       }
       
   """
-  @type j_db_c_connector_source() :: %{String.t() => any()}
+  @type j_db_c_connector_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       scheduler_not_running_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type scheduler_not_running_exception() :: %{String.t() => any()}
+  @type scheduler_not_running_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       database() :: %{
-        "CatalogId" => String.t(),
+        "CatalogId" => String.t() | atom(),
         "CreateTableDefaultPermissions" => list(principal_permissions()),
         "CreateTime" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "FederatedDatabase" => federated_database(),
-        "LocationUri" => String.t(),
-        "Name" => String.t(),
+        "LocationUri" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Parameters" => map(),
         "TargetDatabase" => database_identifier()
       }
       
   """
-  @type database() :: %{String.t() => any()}
+  @type database() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_triggers_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Triggers" => list(trigger())
       }
       
   """
-  @type get_triggers_response() :: %{String.t() => any()}
+  @type get_triggers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -986,17 +986,17 @@ defmodule AWS.Glue do
       
       remove_schema_version_metadata_response() :: %{
         "LatestVersion" => boolean(),
-        "MetadataKey" => String.t(),
-        "MetadataValue" => String.t(),
-        "RegistryName" => String.t(),
-        "SchemaArn" => String.t(),
-        "SchemaName" => String.t(),
-        "SchemaVersionId" => String.t(),
+        "MetadataKey" => String.t() | atom(),
+        "MetadataValue" => String.t() | atom(),
+        "RegistryName" => String.t() | atom(),
+        "SchemaArn" => String.t() | atom(),
+        "SchemaName" => String.t() | atom(),
+        "SchemaVersionId" => String.t() | atom(),
         "VersionNumber" => float()
       }
       
   """
-  @type remove_schema_version_metadata_response() :: %{String.t() => any()}
+  @type remove_schema_version_metadata_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1008,7 +1008,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type iceberg_partition_spec() :: %{String.t() => any()}
+  @type iceberg_partition_spec() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1016,18 +1016,18 @@ defmodule AWS.Glue do
       
       entity_not_found_exception() :: %{
         "FromFederationSource" => boolean(),
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type entity_not_found_exception() :: %{String.t() => any()}
+  @type entity_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       crawler_metrics() :: %{
-        "CrawlerName" => String.t(),
+        "CrawlerName" => String.t() | atom(),
         "LastRuntimeSeconds" => float(),
         "MedianRuntimeSeconds" => float(),
         "StillEstimating" => boolean(),
@@ -1038,7 +1038,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type crawler_metrics() :: %{String.t() => any()}
+  @type crawler_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1051,18 +1051,18 @@ defmodule AWS.Glue do
       }
       
   """
-  @type boolean_column_statistics_data() :: %{String.t() => any()}
+  @type boolean_column_statistics_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       operation_timeout_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type operation_timeout_exception() :: %{String.t() => any()}
+  @type operation_timeout_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1073,7 +1073,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_statement_response() :: %{String.t() => any()}
+  @type get_statement_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1082,36 +1082,36 @@ defmodule AWS.Glue do
       list_data_quality_rulesets_request() :: %{
         optional("Filter") => data_quality_ruleset_filter_criteria(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Tags") => map()
       }
       
   """
-  @type list_data_quality_rulesets_request() :: %{String.t() => any()}
+  @type list_data_quality_rulesets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       run_identifier() :: %{
-        "JobRunId" => String.t(),
-        "RunId" => String.t()
+        "JobRunId" => String.t() | atom(),
+        "RunId" => String.t() | atom()
       }
       
   """
-  @type run_identifier() :: %{String.t() => any()}
+  @type run_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       partition_index() :: %{
-        "IndexName" => String.t(),
-        "Keys" => list(String.t())
+        "IndexName" => String.t() | atom(),
+        "Keys" => list(String.t() | atom())
       }
       
   """
-  @type partition_index() :: %{String.t() => any()}
+  @type partition_index() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1122,14 +1122,14 @@ defmodule AWS.Glue do
         "Details" => status_details(),
         "Error" => error_detail(),
         "RequestTime" => non_neg_integer(),
-        "RequestedBy" => String.t(),
+        "RequestedBy" => String.t() | atom(),
         "State" => list(any()),
         "UpdateTime" => non_neg_integer(),
-        "UpdatedBy" => String.t()
+        "UpdatedBy" => String.t() | atom()
       }
       
   """
-  @type table_status() :: %{String.t() => any()}
+  @type table_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1140,7 +1140,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type delete_registry_input() :: %{String.t() => any()}
+  @type delete_registry_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1151,25 +1151,25 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_session_response() :: %{String.t() => any()}
+  @type get_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       data_lake_access_properties_output() :: %{
-        "CatalogType" => String.t(),
+        "CatalogType" => String.t() | atom(),
         "DataLakeAccess" => boolean(),
-        "DataTransferRole" => String.t(),
-        "KmsKey" => String.t(),
-        "ManagedWorkgroupName" => String.t(),
-        "ManagedWorkgroupStatus" => String.t(),
-        "RedshiftDatabaseName" => String.t(),
-        "StatusMessage" => String.t()
+        "DataTransferRole" => String.t() | atom(),
+        "KmsKey" => String.t() | atom(),
+        "ManagedWorkgroupName" => String.t() | atom(),
+        "ManagedWorkgroupStatus" => String.t() | atom(),
+        "RedshiftDatabaseName" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom()
       }
       
   """
-  @type data_lake_access_properties_output() :: %{String.t() => any()}
+  @type data_lake_access_properties_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1178,15 +1178,15 @@ defmodule AWS.Glue do
       inbound_integration() :: %{
         "CreateTime" => non_neg_integer(),
         "Errors" => list(integration_error()),
-        "IntegrationArn" => String.t(),
+        "IntegrationArn" => String.t() | atom(),
         "IntegrationConfig" => integration_config(),
-        "SourceArn" => String.t(),
+        "SourceArn" => String.t() | atom(),
         "Status" => list(any()),
-        "TargetArn" => String.t()
+        "TargetArn" => String.t() | atom()
       }
       
   """
-  @type inbound_integration() :: %{String.t() => any()}
+  @type inbound_integration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1194,26 +1194,26 @@ defmodule AWS.Glue do
       
       data_quality_result_description() :: %{
         "DataSource" => data_source(),
-        "JobName" => String.t(),
-        "JobRunId" => String.t(),
-        "ResultId" => String.t(),
+        "JobName" => String.t() | atom(),
+        "JobRunId" => String.t() | atom(),
+        "ResultId" => String.t() | atom(),
         "StartedOn" => non_neg_integer()
       }
       
   """
-  @type data_quality_result_description() :: %{String.t() => any()}
+  @type data_quality_result_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       blueprint_details() :: %{
-        "BlueprintName" => String.t(),
-        "RunId" => String.t()
+        "BlueprintName" => String.t() | atom(),
+        "RunId" => String.t() | atom()
       }
       
   """
-  @type blueprint_details() :: %{String.t() => any()}
+  @type blueprint_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1224,7 +1224,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type batch_delete_partition_response() :: %{String.t() => any()}
+  @type batch_delete_partition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1232,24 +1232,24 @@ defmodule AWS.Glue do
       
       get_job_run_request() :: %{
         optional("PredecessorsIncluded") => boolean(),
-        required("JobName") => String.t(),
-        required("RunId") => String.t()
+        required("JobName") => String.t() | atom(),
+        required("RunId") => String.t() | atom()
       }
       
   """
-  @type get_job_run_request() :: %{String.t() => any()}
+  @type get_job_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_user_defined_functions_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "UserDefinedFunctions" => list(user_defined_function())
       }
       
   """
-  @type get_user_defined_functions_response() :: %{String.t() => any()}
+  @type get_user_defined_functions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1262,7 +1262,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type create_script_request() :: %{String.t() => any()}
+  @type create_script_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1270,68 +1270,68 @@ defmodule AWS.Glue do
       
       partition_error() :: %{
         "ErrorDetail" => error_detail(),
-        "PartitionValues" => list(String.t())
+        "PartitionValues" => list(String.t() | atom())
       }
       
   """
-  @type partition_error() :: %{String.t() => any()}
+  @type partition_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_job_response() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type create_job_response() :: %{String.t() => any()}
+  @type create_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_triggers_response() :: %{
-        "NextToken" => String.t(),
-        "TriggerNames" => list(String.t())
+        "NextToken" => String.t() | atom(),
+        "TriggerNames" => list(String.t() | atom())
       }
       
   """
-  @type list_triggers_response() :: %{String.t() => any()}
+  @type list_triggers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_table_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
         optional("Force") => boolean(),
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | atom(),
         optional("SkipArchive") => boolean(),
         optional("TableInput") => table_input(),
-        optional("TransactionId") => String.t(),
+        optional("TransactionId") => String.t() | atom(),
         optional("UpdateOpenTableFormatInput") => update_open_table_format_input(),
-        optional("VersionId") => String.t(),
+        optional("VersionId") => String.t() | atom(),
         optional("ViewUpdateAction") => list(any()),
-        required("DatabaseName") => String.t()
+        required("DatabaseName") => String.t() | atom()
       }
       
   """
-  @type update_table_request() :: %{String.t() => any()}
+  @type update_table_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_delete_table_request() :: %{
-        optional("CatalogId") => String.t(),
-        optional("TransactionId") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("TablesToDelete") => list(String.t())
+        optional("CatalogId") => String.t() | atom(),
+        optional("TransactionId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("TablesToDelete") => list(String.t() | atom())
       }
       
   """
-  @type batch_delete_table_request() :: %{String.t() => any()}
+  @type batch_delete_table_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1347,12 +1347,12 @@ defmodule AWS.Glue do
   ## Example:
       
       get_ml_transforms_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Transforms" => list(ml_transform())
       }
       
   """
-  @type get_ml_transforms_response() :: %{String.t() => any()}
+  @type get_ml_transforms_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1360,12 +1360,12 @@ defmodule AWS.Glue do
       
       get_job_runs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("JobName") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("JobName") => String.t() | atom()
       }
       
   """
-  @type get_job_runs_request() :: %{String.t() => any()}
+  @type get_job_runs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1373,41 +1373,41 @@ defmodule AWS.Glue do
       
       query_session_context() :: %{
         "AdditionalContext" => map(),
-        "ClusterId" => String.t(),
-        "QueryAuthorizationId" => String.t(),
-        "QueryId" => String.t(),
+        "ClusterId" => String.t() | atom(),
+        "QueryAuthorizationId" => String.t() | atom(),
+        "QueryId" => String.t() | atom(),
         "QueryStartTime" => non_neg_integer()
       }
       
   """
-  @type query_session_context() :: %{String.t() => any()}
+  @type query_session_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_table_optimizer_error() :: %{
-        "catalogId" => String.t(),
-        "databaseName" => String.t(),
+        "catalogId" => String.t() | atom(),
+        "databaseName" => String.t() | atom(),
         "error" => error_detail(),
-        "tableName" => String.t(),
+        "tableName" => String.t() | atom(),
         "type" => list(any())
       }
       
   """
-  @type batch_get_table_optimizer_error() :: %{String.t() => any()}
+  @type batch_get_table_optimizer_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_tables_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "TableList" => list(table())
       }
       
   """
-  @type get_tables_response() :: %{String.t() => any()}
+  @type get_tables_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1415,30 +1415,30 @@ defmodule AWS.Glue do
       
       trigger() :: %{
         "Actions" => list(action()),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "EventBatchingCondition" => event_batching_condition(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Predicate" => predicate(),
-        "Schedule" => String.t(),
+        "Schedule" => String.t() | atom(),
         "State" => list(any()),
         "Type" => list(any()),
-        "WorkflowName" => String.t()
+        "WorkflowName" => String.t() | atom()
       }
       
   """
-  @type trigger() :: %{String.t() => any()}
+  @type trigger() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_tags_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type get_tags_request() :: %{String.t() => any()}
+  @type get_tags_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1458,21 +1458,21 @@ defmodule AWS.Glue do
         "AnalyzerResults" => list(data_quality_analyzer_result()),
         "CompletedOn" => non_neg_integer(),
         "DataSource" => data_source(),
-        "EvaluationContext" => String.t(),
-        "JobName" => String.t(),
-        "JobRunId" => String.t(),
+        "EvaluationContext" => String.t() | atom(),
+        "JobName" => String.t() | atom(),
+        "JobRunId" => String.t() | atom(),
         "Observations" => list(data_quality_observation()),
-        "ProfileId" => String.t(),
-        "ResultId" => String.t(),
+        "ProfileId" => String.t() | atom(),
+        "ResultId" => String.t() | atom(),
         "RuleResults" => list(data_quality_rule_result()),
-        "RulesetEvaluationRunId" => String.t(),
-        "RulesetName" => String.t(),
+        "RulesetEvaluationRunId" => String.t() | atom(),
+        "RulesetName" => String.t() | atom(),
         "Score" => float(),
         "StartedOn" => non_neg_integer()
       }
       
   """
-  @type get_data_quality_result_response() :: %{String.t() => any()}
+  @type get_data_quality_result_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1483,7 +1483,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type batch_create_partition_response() :: %{String.t() => any()}
+  @type batch_create_partition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1491,11 +1491,11 @@ defmodule AWS.Glue do
       
       null_value_field() :: %{
         "Datatype" => datatype(),
-        "Value" => String.t()
+        "Value" => String.t() | atom()
       }
       
   """
-  @type null_value_field() :: %{String.t() => any()}
+  @type null_value_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1503,11 +1503,11 @@ defmodule AWS.Glue do
       
       get_classifiers_response() :: %{
         "Classifiers" => list(classifier()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type get_classifiers_response() :: %{String.t() => any()}
+  @type get_classifiers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1515,12 +1515,12 @@ defmodule AWS.Glue do
       
       list_dev_endpoints_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Tags") => map()
       }
       
   """
-  @type list_dev_endpoints_request() :: %{String.t() => any()}
+  @type list_dev_endpoints_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1538,7 +1538,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type crawler_targets() :: %{String.t() => any()}
+  @type crawler_targets() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1546,14 +1546,14 @@ defmodule AWS.Glue do
       
       s3_catalog_hudi_source() :: %{
         "AdditionalHudiOptions" => map(),
-        "Database" => String.t(),
-        "Name" => String.t(),
+        "Database" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "OutputSchemas" => list(glue_schema()),
-        "Table" => String.t()
+        "Table" => String.t() | atom()
       }
       
   """
-  @type s3_catalog_hudi_source() :: %{String.t() => any()}
+  @type s3_catalog_hudi_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1564,7 +1564,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type open_table_format_input() :: %{String.t() => any()}
+  @type open_table_format_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1575,26 +1575,26 @@ defmodule AWS.Glue do
         "enabled" => boolean(),
         "orphanFileDeletionConfiguration" => orphan_file_deletion_configuration(),
         "retentionConfiguration" => retention_configuration(),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | atom(),
         "vpcConfiguration" => list()
       }
       
   """
-  @type table_optimizer_configuration() :: %{String.t() => any()}
+  @type table_optimizer_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       hudi_target() :: %{
-        "ConnectionName" => String.t(),
-        "Exclusions" => list(String.t()),
+        "ConnectionName" => String.t() | atom(),
+        "Exclusions" => list(String.t() | atom()),
         "MaximumTraversalDepth" => integer(),
-        "Paths" => list(String.t())
+        "Paths" => list(String.t() | atom())
       }
       
   """
-  @type hudi_target() :: %{String.t() => any()}
+  @type hudi_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1603,12 +1603,12 @@ defmodule AWS.Glue do
       get_workflow_runs_request() :: %{
         optional("IncludeGraph") => boolean(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("Name") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type get_workflow_runs_request() :: %{String.t() => any()}
+  @type get_workflow_runs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1625,25 +1625,25 @@ defmodule AWS.Glue do
       
       usage_profile_definition() :: %{
         "CreatedOn" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "LastModifiedOn" => non_neg_integer(),
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type usage_profile_definition() :: %{String.t() => any()}
+  @type usage_profile_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       amazon_redshift_advanced_option() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type amazon_redshift_advanced_option() :: %{String.t() => any()}
+  @type amazon_redshift_advanced_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1652,62 +1652,62 @@ defmodule AWS.Glue do
       integration() :: %{
         "AdditionalEncryptionContext" => map(),
         "CreateTime" => non_neg_integer(),
-        "DataFilter" => String.t(),
-        "Description" => String.t(),
+        "DataFilter" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "Errors" => list(integration_error()),
-        "IntegrationArn" => String.t(),
+        "IntegrationArn" => String.t() | atom(),
         "IntegrationConfig" => integration_config(),
-        "IntegrationName" => String.t(),
-        "KmsKeyId" => String.t(),
-        "SourceArn" => String.t(),
+        "IntegrationName" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
+        "SourceArn" => String.t() | atom(),
         "Status" => list(any()),
         "Tags" => list(tag()),
-        "TargetArn" => String.t()
+        "TargetArn" => String.t() | atom()
       }
       
   """
-  @type integration() :: %{String.t() => any()}
+  @type integration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       import_catalog_to_glue_request() :: %{
-        optional("CatalogId") => String.t()
+        optional("CatalogId") => String.t() | atom()
       }
       
   """
-  @type import_catalog_to_glue_request() :: %{String.t() => any()}
+  @type import_catalog_to_glue_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       federated_database() :: %{
-        "ConnectionName" => String.t(),
-        "ConnectionType" => String.t(),
-        "Identifier" => String.t()
+        "ConnectionName" => String.t() | atom(),
+        "ConnectionType" => String.t() | atom(),
+        "Identifier" => String.t() | atom()
       }
       
   """
-  @type federated_database() :: %{String.t() => any()}
+  @type federated_database() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       direct_j_db_c_source() :: %{
-        "ConnectionName" => String.t(),
+        "ConnectionName" => String.t() | atom(),
         "ConnectionType" => list(any()),
-        "Database" => String.t(),
-        "Name" => String.t(),
+        "Database" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "OutputSchemas" => list(glue_schema()),
-        "RedshiftTmpDir" => String.t(),
-        "Table" => String.t()
+        "RedshiftTmpDir" => String.t() | atom(),
+        "Table" => String.t() | atom()
       }
       
   """
-  @type direct_j_db_c_source() :: %{String.t() => any()}
+  @type direct_j_db_c_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1715,11 +1715,11 @@ defmodule AWS.Glue do
       
       get_security_configurations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type get_security_configurations_request() :: %{String.t() => any()}
+  @type get_security_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1727,28 +1727,28 @@ defmodule AWS.Glue do
       
       ml_transform() :: %{
         "CreatedOn" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "EvaluationMetrics" => evaluation_metrics(),
-        "GlueVersion" => String.t(),
+        "GlueVersion" => String.t() | atom(),
         "InputRecordTables" => list(glue_table()),
         "LabelCount" => integer(),
         "LastModifiedOn" => non_neg_integer(),
         "MaxCapacity" => float(),
         "MaxRetries" => integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "NumberOfWorkers" => integer(),
         "Parameters" => transform_parameters(),
-        "Role" => String.t(),
+        "Role" => String.t() | atom(),
         "Schema" => list(schema_column()),
         "Status" => list(any()),
         "Timeout" => integer(),
         "TransformEncryption" => transform_encryption(),
-        "TransformId" => String.t(),
+        "TransformId" => String.t() | atom(),
         "WorkerType" => list(any())
       }
       
   """
-  @type ml_transform() :: %{String.t() => any()}
+  @type ml_transform() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1766,20 +1766,20 @@ defmodule AWS.Glue do
       modify_integration_response() :: %{
         "AdditionalEncryptionContext" => map(),
         "CreateTime" => non_neg_integer(),
-        "DataFilter" => String.t(),
-        "Description" => String.t(),
+        "DataFilter" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "Errors" => list(integration_error()),
-        "IntegrationArn" => String.t(),
-        "IntegrationName" => String.t(),
-        "KmsKeyId" => String.t(),
-        "SourceArn" => String.t(),
+        "IntegrationArn" => String.t() | atom(),
+        "IntegrationName" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
+        "SourceArn" => String.t() | atom(),
         "Status" => list(any()),
         "Tags" => list(tag()),
-        "TargetArn" => String.t()
+        "TargetArn" => String.t() | atom()
       }
       
   """
-  @type modify_integration_response() :: %{String.t() => any()}
+  @type modify_integration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1791,35 +1791,35 @@ defmodule AWS.Glue do
         "Attempt" => integer(),
         "CompletedOn" => non_neg_integer(),
         "DPUSeconds" => float(),
-        "ErrorMessage" => String.t(),
+        "ErrorMessage" => String.t() | atom(),
         "ExecutionClass" => list(any()),
-        "ExecutionRoleSessionPolicy" => String.t(),
+        "ExecutionRoleSessionPolicy" => String.t() | atom(),
         "ExecutionTime" => integer(),
-        "GlueVersion" => String.t(),
-        "Id" => String.t(),
+        "GlueVersion" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "JobMode" => list(any()),
-        "JobName" => String.t(),
+        "JobName" => String.t() | atom(),
         "JobRunQueuingEnabled" => boolean(),
         "JobRunState" => list(any()),
         "LastModifiedOn" => non_neg_integer(),
-        "LogGroupName" => String.t(),
-        "MaintenanceWindow" => String.t(),
+        "LogGroupName" => String.t() | atom(),
+        "MaintenanceWindow" => String.t() | atom(),
         "MaxCapacity" => float(),
         "NotificationProperty" => notification_property(),
         "NumberOfWorkers" => integer(),
         "PredecessorRuns" => list(predecessor()),
-        "PreviousRunId" => String.t(),
-        "ProfileName" => String.t(),
-        "SecurityConfiguration" => String.t(),
+        "PreviousRunId" => String.t() | atom(),
+        "ProfileName" => String.t() | atom(),
+        "SecurityConfiguration" => String.t() | atom(),
         "StartedOn" => non_neg_integer(),
-        "StateDetail" => String.t(),
+        "StateDetail" => String.t() | atom(),
         "Timeout" => integer(),
-        "TriggerName" => String.t(),
+        "TriggerName" => String.t() | atom(),
         "WorkerType" => list(any())
       }
       
   """
-  @type job_run() :: %{String.t() => any()}
+  @type job_run() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1835,28 +1835,28 @@ defmodule AWS.Glue do
   ## Example:
       
       entity() :: %{
-        "Category" => String.t(),
+        "Category" => String.t() | atom(),
         "CustomProperties" => map(),
-        "Description" => String.t(),
-        "EntityName" => String.t(),
+        "Description" => String.t() | atom(),
+        "EntityName" => String.t() | atom(),
         "IsParentEntity" => boolean(),
-        "Label" => String.t()
+        "Label" => String.t() | atom()
       }
       
   """
-  @type entity() :: %{String.t() => any()}
+  @type entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       iceberg_orphan_file_deletion_configuration() :: %{
-        "location" => String.t(),
+        "location" => String.t() | atom(),
         "orphanFileRetentionPeriodInDays" => integer()
       }
       
   """
-  @type iceberg_orphan_file_deletion_configuration() :: %{String.t() => any()}
+  @type iceberg_orphan_file_deletion_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1864,11 +1864,11 @@ defmodule AWS.Glue do
       
       batch_get_data_quality_result_response() :: %{
         "Results" => list(data_quality_result()),
-        "ResultsNotFound" => list(String.t())
+        "ResultsNotFound" => list(String.t() | atom())
       }
       
   """
-  @type batch_get_data_quality_result_response() :: %{String.t() => any()}
+  @type batch_get_data_quality_result_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1879,7 +1879,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_connection_response() :: %{String.t() => any()}
+  @type get_connection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1968,7 +1968,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type code_gen_configuration_node() :: %{String.t() => any()}
+  @type code_gen_configuration_node() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1985,42 +1985,42 @@ defmodule AWS.Glue do
       
       get_dev_endpoints_response() :: %{
         "DevEndpoints" => list(dev_endpoint()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type get_dev_endpoints_response() :: %{String.t() => any()}
+  @type get_dev_endpoints_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_workflow_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type delete_workflow_request() :: %{String.t() => any()}
+  @type delete_workflow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_unfiltered_table_metadata_response() :: %{
-        "AuthorizedColumns" => list(String.t()),
+        "AuthorizedColumns" => list(String.t() | atom()),
         "CellFilters" => list(column_row_filter()),
         "IsMultiDialectView" => boolean(),
         "IsProtected" => boolean(),
         "IsRegisteredWithLakeFormation" => boolean(),
         "Permissions" => list(list(any())()),
-        "QueryAuthorizationId" => String.t(),
-        "ResourceArn" => String.t(),
-        "RowFilter" => String.t(),
+        "QueryAuthorizationId" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "RowFilter" => String.t() | atom(),
         "Table" => table()
       }
       
   """
-  @type get_unfiltered_table_metadata_response() :: %{String.t() => any()}
+  @type get_unfiltered_table_metadata_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2030,13 +2030,13 @@ defmodule AWS.Glue do
         "AuthenticationType" => list(any()),
         "BasicAuthenticationCredentials" => basic_authentication_credentials(),
         "CustomAuthenticationCredentials" => map(),
-        "KmsKeyArn" => String.t(),
+        "KmsKeyArn" => String.t() | atom(),
         "OAuth2Properties" => o_auth2_properties_input(),
-        "SecretArn" => String.t()
+        "SecretArn" => String.t() | atom()
       }
       
   """
-  @type authentication_configuration_input() :: %{String.t() => any()}
+  @type authentication_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2050,7 +2050,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type task_run_filter_criteria() :: %{String.t() => any()}
+  @type task_run_filter_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2066,11 +2066,11 @@ defmodule AWS.Glue do
   ## Example:
       
       update_blueprint_response() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type update_blueprint_response() :: %{String.t() => any()}
+  @type update_blueprint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2078,23 +2078,23 @@ defmodule AWS.Glue do
       
       batch_update_partition_failure_entry() :: %{
         "ErrorDetail" => error_detail(),
-        "PartitionValueList" => list(String.t())
+        "PartitionValueList" => list(String.t() | atom())
       }
       
   """
-  @type batch_update_partition_failure_entry() :: %{String.t() => any()}
+  @type batch_update_partition_failure_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_data_quality_model_result_request() :: %{
-        required("ProfileId") => String.t(),
-        required("StatisticId") => String.t()
+        required("ProfileId") => String.t() | atom(),
+        required("StatisticId") => String.t() | atom()
       }
       
   """
-  @type get_data_quality_model_result_request() :: %{String.t() => any()}
+  @type get_data_quality_model_result_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2102,42 +2102,42 @@ defmodule AWS.Glue do
       
       data_quality_rule_recommendation_run_description() :: %{
         "DataSource" => data_source(),
-        "RunId" => String.t(),
+        "RunId" => String.t() | atom(),
         "StartedOn" => non_neg_integer(),
         "Status" => list(any())
       }
       
   """
-  @type data_quality_rule_recommendation_run_description() :: %{String.t() => any()}
+  @type data_quality_rule_recommendation_run_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_usage_profiles_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Profiles" => list(usage_profile_definition())
       }
       
   """
-  @type list_usage_profiles_response() :: %{String.t() => any()}
+  @type list_usage_profiles_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       athena_connector_source() :: %{
-        "ConnectionName" => String.t(),
-        "ConnectionTable" => String.t(),
-        "ConnectionType" => String.t(),
-        "ConnectorName" => String.t(),
-        "Name" => String.t(),
+        "ConnectionName" => String.t() | atom(),
+        "ConnectionTable" => String.t() | atom(),
+        "ConnectionType" => String.t() | atom(),
+        "ConnectorName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "OutputSchemas" => list(glue_schema()),
-        "SchemaName" => String.t()
+        "SchemaName" => String.t() | atom()
       }
       
   """
-  @type athena_connector_source() :: %{String.t() => any()}
+  @type athena_connector_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2145,38 +2145,38 @@ defmodule AWS.Glue do
       
       list_jobs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Tags") => map()
       }
       
   """
-  @type list_jobs_request() :: %{String.t() => any()}
+  @type list_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_workflow_run_properties_request() :: %{
-        required("Name") => String.t(),
-        required("RunId") => String.t()
+        required("Name") => String.t() | atom(),
+        required("RunId") => String.t() | atom()
       }
       
   """
-  @type get_workflow_run_properties_request() :: %{String.t() => any()}
+  @type get_workflow_run_properties_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_table_request() :: %{
-        optional("CatalogId") => String.t(),
-        optional("TransactionId") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("Name") => String.t()
+        optional("CatalogId") => String.t() | atom(),
+        optional("TransactionId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type delete_table_request() :: %{String.t() => any()}
+  @type delete_table_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2186,7 +2186,7 @@ defmodule AWS.Glue do
         "compactionMetrics" => compaction_metrics(),
         "compactionStrategy" => list(any()),
         "endTimestamp" => non_neg_integer(),
-        "error" => String.t(),
+        "error" => String.t() | atom(),
         "eventType" => list(any()),
         "metrics" => run_metrics(),
         "orphanFileDeletionMetrics" => orphan_file_deletion_metrics(),
@@ -2195,19 +2195,19 @@ defmodule AWS.Glue do
       }
       
   """
-  @type table_optimizer_run() :: %{String.t() => any()}
+  @type table_optimizer_run() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       authorization_code_properties() :: %{
-        "AuthorizationCode" => String.t(),
-        "RedirectUri" => String.t()
+        "AuthorizationCode" => String.t() | atom(),
+        "RedirectUri" => String.t() | atom()
       }
       
   """
-  @type authorization_code_properties() :: %{String.t() => any()}
+  @type authorization_code_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2219,19 +2219,19 @@ defmodule AWS.Glue do
       }
       
   """
-  @type event_batching_condition() :: %{String.t() => any()}
+  @type event_batching_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_data_quality_rulesets_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Rulesets" => list(data_quality_ruleset_list_details())
       }
       
   """
-  @type list_data_quality_rulesets_response() :: %{String.t() => any()}
+  @type list_data_quality_rulesets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2243,47 +2243,47 @@ defmodule AWS.Glue do
       }
       
   """
-  @type data_catalog_encryption_settings() :: %{String.t() => any()}
+  @type data_catalog_encryption_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       integration_filter() :: %{
-        "Name" => String.t(),
-        "Values" => list(String.t())
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type integration_filter() :: %{String.t() => any()}
+  @type integration_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       column() :: %{
-        "Comment" => String.t(),
-        "Name" => String.t(),
+        "Comment" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Parameters" => map(),
-        "Type" => String.t()
+        "Type" => String.t() | atom()
       }
       
   """
-  @type column() :: %{String.t() => any()}
+  @type column() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_partition_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("DatabaseName") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
         required("PartitionInput") => partition_input(),
-        required("TableName") => String.t()
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type create_partition_request() :: %{String.t() => any()}
+  @type create_partition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2291,62 +2291,62 @@ defmodule AWS.Glue do
       
       crawl() :: %{
         "CompletedOn" => non_neg_integer(),
-        "ErrorMessage" => String.t(),
-        "LogGroup" => String.t(),
-        "LogStream" => String.t(),
+        "ErrorMessage" => String.t() | atom(),
+        "LogGroup" => String.t() | atom(),
+        "LogStream" => String.t() | atom(),
         "StartedOn" => non_neg_integer(),
         "State" => list(any())
       }
       
   """
-  @type crawl() :: %{String.t() => any()}
+  @type crawl() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       already_exists_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type already_exists_exception() :: %{String.t() => any()}
+  @type already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_data_quality_ruleset_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type delete_data_quality_ruleset_request() :: %{String.t() => any()}
+  @type delete_data_quality_ruleset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reset_job_bookmark_request() :: %{
-        optional("RunId") => String.t(),
-        required("JobName") => String.t()
+        optional("RunId") => String.t() | atom(),
+        required("JobName") => String.t() | atom()
       }
       
   """
-  @type reset_job_bookmark_request() :: %{String.t() => any()}
+  @type reset_job_bookmark_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resume_workflow_run_request() :: %{
-        required("Name") => String.t(),
-        required("NodeIds") => list(String.t()),
-        required("RunId") => String.t()
+        required("Name") => String.t() | atom(),
+        required("NodeIds") => list(String.t() | atom()),
+        required("RunId") => String.t() | atom()
       }
       
   """
-  @type resume_workflow_run_request() :: %{String.t() => any()}
+  @type resume_workflow_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2362,12 +2362,12 @@ defmodule AWS.Glue do
   ## Example:
       
       registry_id() :: %{
-        "RegistryArn" => String.t(),
-        "RegistryName" => String.t()
+        "RegistryArn" => String.t() | atom(),
+        "RegistryName" => String.t() | atom()
       }
       
   """
-  @type registry_id() :: %{String.t() => any()}
+  @type registry_id() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2379,22 +2379,22 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_column_statistics_for_partition_response() :: %{String.t() => any()}
+  @type get_column_statistics_for_partition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       redshift_source() :: %{
-        "Database" => String.t(),
-        "Name" => String.t(),
-        "RedshiftTmpDir" => String.t(),
-        "Table" => String.t(),
-        "TmpDirIAMRole" => String.t()
+        "Database" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RedshiftTmpDir" => String.t() | atom(),
+        "Table" => String.t() | atom(),
+        "TmpDirIAMRole" => String.t() | atom()
       }
       
   """
-  @type redshift_source() :: %{String.t() => any()}
+  @type redshift_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2405,42 +2405,42 @@ defmodule AWS.Glue do
         "ContainsHeader" => list(any()),
         "CreationTime" => non_neg_integer(),
         "CustomDatatypeConfigured" => boolean(),
-        "CustomDatatypes" => list(String.t()),
-        "Delimiter" => String.t(),
+        "CustomDatatypes" => list(String.t() | atom()),
+        "Delimiter" => String.t() | atom(),
         "DisableValueTrimming" => boolean(),
-        "Header" => list(String.t()),
+        "Header" => list(String.t() | atom()),
         "LastUpdated" => non_neg_integer(),
-        "Name" => String.t(),
-        "QuoteSymbol" => String.t(),
+        "Name" => String.t() | atom(),
+        "QuoteSymbol" => String.t() | atom(),
         "Serde" => list(any()),
         "Version" => float()
       }
       
   """
-  @type csv_classifier() :: %{String.t() => any()}
+  @type csv_classifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_schema_versions_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Schemas" => list(schema_version_list_item())
       }
       
   """
-  @type list_schema_versions_response() :: %{String.t() => any()}
+  @type list_schema_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       version_mismatch_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type version_mismatch_exception() :: %{String.t() => any()}
+  @type version_mismatch_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2456,59 +2456,59 @@ defmodule AWS.Glue do
   ## Example:
       
       create_registry_response() :: %{
-        "Description" => String.t(),
-        "RegistryArn" => String.t(),
-        "RegistryName" => String.t(),
+        "Description" => String.t() | atom(),
+        "RegistryArn" => String.t() | atom(),
+        "RegistryName" => String.t() | atom(),
         "Tags" => map()
       }
       
   """
-  @type create_registry_response() :: %{String.t() => any()}
+  @type create_registry_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       oracle_s_q_l_catalog_target() :: %{
-        "Database" => String.t(),
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
-        "Table" => String.t()
+        "Database" => String.t() | atom(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "Table" => String.t() | atom()
       }
       
   """
-  @type oracle_s_q_l_catalog_target() :: %{String.t() => any()}
+  @type oracle_s_q_l_catalog_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       schema_list_item() :: %{
-        "CreatedTime" => String.t(),
-        "Description" => String.t(),
-        "RegistryName" => String.t(),
-        "SchemaArn" => String.t(),
-        "SchemaName" => String.t(),
+        "CreatedTime" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "RegistryName" => String.t() | atom(),
+        "SchemaArn" => String.t() | atom(),
+        "SchemaName" => String.t() | atom(),
         "SchemaStatus" => list(any()),
-        "UpdatedTime" => String.t()
+        "UpdatedTime" => String.t() | atom()
       }
       
   """
-  @type schema_list_item() :: %{String.t() => any()}
+  @type schema_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       run_metrics() :: %{
-        "JobDurationInHour" => String.t(),
-        "NumberOfBytesCompacted" => String.t(),
-        "NumberOfDpus" => String.t(),
-        "NumberOfFilesCompacted" => String.t()
+        "JobDurationInHour" => String.t() | atom(),
+        "NumberOfBytesCompacted" => String.t() | atom(),
+        "NumberOfDpus" => String.t() | atom(),
+        "NumberOfFilesCompacted" => String.t() | atom()
       }
       
   """
-  @type run_metrics() :: %{String.t() => any()}
+  @type run_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2526,35 +2526,35 @@ defmodule AWS.Glue do
       }
       
   """
-  @type column_statistics_data() :: %{String.t() => any()}
+  @type column_statistics_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_workflow_runs_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Runs" => list(workflow_run())
       }
       
   """
-  @type get_workflow_runs_response() :: %{String.t() => any()}
+  @type get_workflow_runs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_table_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
         optional("IncludeStatusDetails") => boolean(),
         optional("QueryAsOfTime") => non_neg_integer(),
-        optional("TransactionId") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("Name") => String.t()
+        optional("TransactionId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type get_table_request() :: %{String.t() => any()}
+  @type get_table_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2562,33 +2562,33 @@ defmodule AWS.Glue do
       
       describe_inbound_integrations_response() :: %{
         "InboundIntegrations" => list(inbound_integration()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type describe_inbound_integrations_response() :: %{String.t() => any()}
+  @type describe_inbound_integrations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_blueprint_response() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type delete_blueprint_response() :: %{String.t() => any()}
+  @type delete_blueprint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_custom_entity_type_response() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type create_custom_entity_type_response() :: %{String.t() => any()}
+  @type create_custom_entity_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2600,20 +2600,20 @@ defmodule AWS.Glue do
       }
       
   """
-  @type iceberg_sort_order() :: %{String.t() => any()}
+  @type iceberg_sort_order() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_x_ml_classifier_request() :: %{
-        "Classification" => String.t(),
-        "Name" => String.t(),
-        "RowTag" => String.t()
+        "Classification" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RowTag" => String.t() | atom()
       }
       
   """
-  @type update_x_ml_classifier_request() :: %{String.t() => any()}
+  @type update_x_ml_classifier_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2621,70 +2621,70 @@ defmodule AWS.Glue do
       
       catalog_kinesis_source() :: %{
         "DataPreviewOptions" => streaming_data_preview_options(),
-        "Database" => String.t(),
+        "Database" => String.t() | atom(),
         "DetectSchema" => boolean(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "StreamingOptions" => kinesis_streaming_source_options(),
-        "Table" => String.t(),
+        "Table" => String.t() | atom(),
         "WindowSize" => integer()
       }
       
   """
-  @type catalog_kinesis_source() :: %{String.t() => any()}
+  @type catalog_kinesis_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       federated_catalog() :: %{
-        "ConnectionName" => String.t(),
-        "ConnectionType" => String.t(),
-        "Identifier" => String.t()
+        "ConnectionName" => String.t() | atom(),
+        "ConnectionType" => String.t() | atom(),
+        "Identifier" => String.t() | atom()
       }
       
   """
-  @type federated_catalog() :: %{String.t() => any()}
+  @type federated_catalog() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       dynamic_transform() :: %{
-        "FunctionName" => String.t(),
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
+        "FunctionName" => String.t() | atom(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
         "OutputSchemas" => list(glue_schema()),
         "Parameters" => list(transform_config_parameter()),
-        "Path" => String.t(),
-        "TransformName" => String.t(),
-        "Version" => String.t()
+        "Path" => String.t() | atom(),
+        "TransformName" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
       
   """
-  @type dynamic_transform() :: %{String.t() => any()}
+  @type dynamic_transform() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       integration_error() :: %{
-        "ErrorCode" => String.t(),
-        "ErrorMessage" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom()
       }
       
   """
-  @type integration_error() :: %{String.t() => any()}
+  @type integration_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       concurrent_runs_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type concurrent_runs_exceeded_exception() :: %{String.t() => any()}
+  @type concurrent_runs_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2693,43 +2693,43 @@ defmodule AWS.Glue do
       s3_parquet_source() :: %{
         "AdditionalOptions" => s3_direct_source_additional_options(),
         "CompressionType" => list(any()),
-        "Exclusions" => list(String.t()),
-        "GroupFiles" => String.t(),
-        "GroupSize" => String.t(),
+        "Exclusions" => list(String.t() | atom()),
+        "GroupFiles" => String.t() | atom(),
+        "GroupSize" => String.t() | atom(),
         "MaxBand" => integer(),
         "MaxFilesInBand" => integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "OutputSchemas" => list(glue_schema()),
-        "Paths" => list(String.t()),
+        "Paths" => list(String.t() | atom()),
         "Recurse" => boolean()
       }
       
   """
-  @type s3_parquet_source() :: %{String.t() => any()}
+  @type s3_parquet_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_statement_request() :: %{
-        optional("RequestOrigin") => String.t(),
+        optional("RequestOrigin") => String.t() | atom(),
         required("Id") => integer(),
-        required("SessionId") => String.t()
+        required("SessionId") => String.t() | atom()
       }
       
   """
-  @type cancel_statement_request() :: %{String.t() => any()}
+  @type cancel_statement_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       illegal_session_state_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type illegal_session_state_exception() :: %{String.t() => any()}
+  @type illegal_session_state_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2746,11 +2746,11 @@ defmodule AWS.Glue do
       
       batch_get_dev_endpoints_response() :: %{
         "DevEndpoints" => list(dev_endpoint()),
-        "DevEndpointsNotFound" => list(String.t())
+        "DevEndpointsNotFound" => list(String.t() | atom())
       }
       
   """
-  @type batch_get_dev_endpoints_response() :: %{String.t() => any()}
+  @type batch_get_dev_endpoints_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2761,7 +2761,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type run_statement_response() :: %{String.t() => any()}
+  @type run_statement_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2772,35 +2772,35 @@ defmodule AWS.Glue do
       }
       
   """
-  @type notification_property() :: %{String.t() => any()}
+  @type notification_property() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       run_statement_request() :: %{
-        optional("RequestOrigin") => String.t(),
-        required("Code") => String.t(),
-        required("SessionId") => String.t()
+        optional("RequestOrigin") => String.t() | atom(),
+        required("Code") => String.t() | atom(),
+        required("SessionId") => String.t() | atom()
       }
       
   """
-  @type run_statement_request() :: %{String.t() => any()}
+  @type run_statement_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_connections_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
         optional("Filter") => get_connections_filter(),
         optional("HidePassword") => boolean(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type get_connections_request() :: %{String.t() => any()}
+  @type get_connections_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2811,7 +2811,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_user_defined_function_response() :: %{String.t() => any()}
+  @type get_user_defined_function_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2827,22 +2827,22 @@ defmodule AWS.Glue do
   ## Example:
       
       delete_ml_transform_response() :: %{
-        "TransformId" => String.t()
+        "TransformId" => String.t() | atom()
       }
       
   """
-  @type delete_ml_transform_response() :: %{String.t() => any()}
+  @type delete_ml_transform_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_export_labels_task_run_response() :: %{
-        "TaskRunId" => String.t()
+        "TaskRunId" => String.t() | atom()
       }
       
   """
-  @type start_export_labels_task_run_response() :: %{String.t() => any()}
+  @type start_export_labels_task_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2853,7 +2853,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type crawler_node_details() :: %{String.t() => any()}
+  @type crawler_node_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2861,19 +2861,19 @@ defmodule AWS.Glue do
       
       s3_direct_target() :: %{
         "AutoDataQuality" => auto_data_quality(),
-        "Compression" => String.t(),
+        "Compression" => String.t() | atom(),
         "Format" => list(any()),
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
-        "NumberTargetPartitions" => String.t(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "NumberTargetPartitions" => String.t() | atom(),
         "OutputSchemas" => list(glue_schema()),
-        "PartitionKeys" => list(list(String.t())()),
-        "Path" => String.t(),
+        "PartitionKeys" => list(list(String.t() | atom())()),
+        "Path" => String.t() | atom(),
         "SchemaChangePolicy" => direct_schema_change_policy()
       }
       
   """
-  @type s3_direct_target() :: %{String.t() => any()}
+  @type s3_direct_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2881,52 +2881,52 @@ defmodule AWS.Glue do
       
       put_data_quality_profile_annotation_request() :: %{
         required("InclusionAnnotation") => list(any()),
-        required("ProfileId") => String.t()
+        required("ProfileId") => String.t() | atom()
       }
       
   """
-  @type put_data_quality_profile_annotation_request() :: %{String.t() => any()}
+  @type put_data_quality_profile_annotation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_entity_records_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Records" => list(any())
       }
       
   """
-  @type get_entity_records_response() :: %{String.t() => any()}
+  @type get_entity_records_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_ml_task_run_request() :: %{
-        required("TaskRunId") => String.t(),
-        required("TransformId") => String.t()
+        required("TaskRunId") => String.t() | atom(),
+        required("TransformId") => String.t() | atom()
       }
       
   """
-  @type get_ml_task_run_request() :: %{String.t() => any()}
+  @type get_ml_task_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_table_request() :: %{
-        optional("CatalogId") => String.t(),
-        optional("Name") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
         optional("OpenTableFormatInput") => open_table_format_input(),
         optional("PartitionIndexes") => list(partition_index()),
         optional("TableInput") => table_input(),
-        optional("TransactionId") => String.t(),
-        required("DatabaseName") => String.t()
+        optional("TransactionId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom()
       }
       
   """
-  @type create_table_request() :: %{String.t() => any()}
+  @type create_table_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2934,24 +2934,24 @@ defmodule AWS.Glue do
       
       statistic_annotation() :: %{
         "InclusionAnnotation" => timestamped_inclusion_annotation(),
-        "ProfileId" => String.t(),
-        "StatisticId" => String.t(),
+        "ProfileId" => String.t() | atom(),
+        "StatisticId" => String.t() | atom(),
         "StatisticRecordedOn" => non_neg_integer()
       }
       
   """
-  @type statistic_annotation() :: %{String.t() => any()}
+  @type statistic_annotation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_dev_endpoint_request() :: %{
-        required("EndpointName") => String.t()
+        required("EndpointName") => String.t() | atom()
       }
       
   """
-  @type get_dev_endpoint_request() :: %{String.t() => any()}
+  @type get_dev_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2962,27 +2962,27 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_database_response() :: %{String.t() => any()}
+  @type get_database_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_entity_records_request() :: %{
-        optional("CatalogId") => String.t(),
-        optional("ConnectionName") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
+        optional("ConnectionName") => String.t() | atom(),
         optional("ConnectionOptions") => map(),
-        optional("DataStoreApiVersion") => String.t(),
-        optional("FilterPredicate") => String.t(),
-        optional("NextToken") => String.t(),
-        optional("OrderBy") => [String.t()],
-        optional("SelectedFields") => list(String.t()),
-        required("EntityName") => String.t(),
+        optional("DataStoreApiVersion") => String.t() | atom(),
+        optional("FilterPredicate") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("OrderBy") => [String.t() | atom()],
+        optional("SelectedFields") => list(String.t() | atom()),
+        required("EntityName") => String.t() | atom(),
         required("Limit") => float()
       }
       
   """
-  @type get_entity_records_request() :: %{String.t() => any()}
+  @type get_entity_records_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2993,7 +2993,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_table_response() :: %{String.t() => any()}
+  @type get_table_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3001,11 +3001,11 @@ defmodule AWS.Glue do
       
       create_security_configuration_request() :: %{
         required("EncryptionConfiguration") => encryption_configuration(),
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type create_security_configuration_request() :: %{String.t() => any()}
+  @type create_security_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3013,11 +3013,11 @@ defmodule AWS.Glue do
       
       list_data_quality_statistic_annotations_response() :: %{
         "Annotations" => list(statistic_annotation()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_data_quality_statistic_annotations_response() :: %{String.t() => any()}
+  @type list_data_quality_statistic_annotations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3027,19 +3027,19 @@ defmodule AWS.Glue do
         "AccuracyCostTradeoff" => float(),
         "EnforceProvidedLabels" => boolean(),
         "PrecisionRecallTradeoff" => float(),
-        "PrimaryKeyColumnName" => String.t()
+        "PrimaryKeyColumnName" => String.t() | atom()
       }
       
   """
-  @type find_matches_parameters() :: %{String.t() => any()}
+  @type find_matches_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_ml_transform_request() :: %{
-        optional("Description") => String.t(),
-        optional("GlueVersion") => String.t(),
+        optional("Description") => String.t() | atom(),
+        optional("GlueVersion") => String.t() | atom(),
         optional("MaxCapacity") => float(),
         optional("MaxRetries") => integer(),
         optional("NumberOfWorkers") => integer(),
@@ -3048,13 +3048,13 @@ defmodule AWS.Glue do
         optional("TransformEncryption") => transform_encryption(),
         optional("WorkerType") => list(any()),
         required("InputRecordTables") => list(glue_table()),
-        required("Name") => String.t(),
+        required("Name") => String.t() | atom(),
         required("Parameters") => transform_parameters(),
-        required("Role") => String.t()
+        required("Role") => String.t() | atom()
       }
       
   """
-  @type create_ml_transform_request() :: %{String.t() => any()}
+  @type create_ml_transform_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3062,11 +3062,11 @@ defmodule AWS.Glue do
       
       list_connection_types_response() :: %{
         "ConnectionTypes" => list(connection_type_brief()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_connection_types_response() :: %{String.t() => any()}
+  @type list_connection_types_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3074,13 +3074,13 @@ defmodule AWS.Glue do
       
       partition_index_descriptor() :: %{
         "BackfillErrors" => list(backfill_error()),
-        "IndexName" => String.t(),
+        "IndexName" => String.t() | atom(),
         "IndexStatus" => list(any()),
         "Keys" => list(key_schema_element())
       }
       
   """
-  @type partition_index_descriptor() :: %{String.t() => any()}
+  @type partition_index_descriptor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3088,34 +3088,34 @@ defmodule AWS.Glue do
       
       dev_endpoint() :: %{
         "Arguments" => map(),
-        "AvailabilityZone" => String.t(),
+        "AvailabilityZone" => String.t() | atom(),
         "CreatedTimestamp" => non_neg_integer(),
-        "EndpointName" => String.t(),
-        "ExtraJarsS3Path" => String.t(),
-        "ExtraPythonLibsS3Path" => String.t(),
-        "FailureReason" => String.t(),
-        "GlueVersion" => String.t(),
+        "EndpointName" => String.t() | atom(),
+        "ExtraJarsS3Path" => String.t() | atom(),
+        "ExtraPythonLibsS3Path" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
+        "GlueVersion" => String.t() | atom(),
         "LastModifiedTimestamp" => non_neg_integer(),
-        "LastUpdateStatus" => String.t(),
+        "LastUpdateStatus" => String.t() | atom(),
         "NumberOfNodes" => integer(),
         "NumberOfWorkers" => integer(),
-        "PrivateAddress" => String.t(),
-        "PublicAddress" => String.t(),
-        "PublicKey" => String.t(),
-        "PublicKeys" => list(String.t()),
-        "RoleArn" => String.t(),
-        "SecurityConfiguration" => String.t(),
-        "SecurityGroupIds" => list(String.t()),
-        "Status" => String.t(),
-        "SubnetId" => String.t(),
-        "VpcId" => String.t(),
+        "PrivateAddress" => String.t() | atom(),
+        "PublicAddress" => String.t() | atom(),
+        "PublicKey" => String.t() | atom(),
+        "PublicKeys" => list(String.t() | atom()),
+        "RoleArn" => String.t() | atom(),
+        "SecurityConfiguration" => String.t() | atom(),
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "Status" => String.t() | atom(),
+        "SubnetId" => String.t() | atom(),
+        "VpcId" => String.t() | atom(),
         "WorkerType" => list(any()),
-        "YarnEndpointAddress" => String.t(),
+        "YarnEndpointAddress" => String.t() | atom(),
         "ZeppelinRemoteSparkInterpreterPort" => integer()
       }
       
   """
-  @type dev_endpoint() :: %{String.t() => any()}
+  @type dev_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3123,24 +3123,24 @@ defmodule AWS.Glue do
       
       get_resource_policy_response() :: %{
         "CreateTime" => non_neg_integer(),
-        "PolicyHash" => String.t(),
-        "PolicyInJson" => String.t(),
+        "PolicyHash" => String.t() | atom(),
+        "PolicyInJson" => String.t() | atom(),
         "UpdateTime" => non_neg_integer()
       }
       
   """
-  @type get_resource_policy_response() :: %{String.t() => any()}
+  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       scheduler_running_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type scheduler_running_exception() :: %{String.t() => any()}
+  @type scheduler_running_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3149,17 +3149,17 @@ defmodule AWS.Glue do
       transform_filter_criteria() :: %{
         "CreatedAfter" => non_neg_integer(),
         "CreatedBefore" => non_neg_integer(),
-        "GlueVersion" => String.t(),
+        "GlueVersion" => String.t() | atom(),
         "LastModifiedAfter" => non_neg_integer(),
         "LastModifiedBefore" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Schema" => list(schema_column()),
         "Status" => list(any()),
         "TransformType" => list(any())
       }
       
   """
-  @type transform_filter_criteria() :: %{String.t() => any()}
+  @type transform_filter_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3167,13 +3167,13 @@ defmodule AWS.Glue do
       
       aggregate() :: %{
         "Aggs" => list(aggregate_operation()),
-        "Groups" => list(list(String.t())()),
-        "Inputs" => list(String.t()),
-        "Name" => String.t()
+        "Groups" => list(list(String.t() | atom())()),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type aggregate() :: %{String.t() => any()}
+  @type aggregate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3185,26 +3185,26 @@ defmodule AWS.Glue do
       }
       
   """
-  @type transform_sort_criteria() :: %{String.t() => any()}
+  @type transform_sort_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       partition() :: %{
-        "CatalogId" => String.t(),
+        "CatalogId" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
-        "DatabaseName" => String.t(),
+        "DatabaseName" => String.t() | atom(),
         "LastAccessTime" => non_neg_integer(),
         "LastAnalyzedTime" => non_neg_integer(),
         "Parameters" => map(),
         "StorageDescriptor" => storage_descriptor(),
-        "TableName" => String.t(),
-        "Values" => list(String.t())
+        "TableName" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type partition() :: %{String.t() => any()}
+  @type partition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3213,48 +3213,48 @@ defmodule AWS.Glue do
       list_ml_transforms_request() :: %{
         optional("Filter") => transform_filter_criteria(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Sort") => transform_sort_criteria(),
         optional("Tags") => map()
       }
       
   """
-  @type list_ml_transforms_request() :: %{String.t() => any()}
+  @type list_ml_transforms_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_job_bookmark_request() :: %{
-        optional("RunId") => String.t(),
-        required("JobName") => String.t()
+        optional("RunId") => String.t() | atom(),
+        required("JobName") => String.t() | atom()
       }
       
   """
-  @type get_job_bookmark_request() :: %{String.t() => any()}
+  @type get_job_bookmark_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_column_statistics_task_settings_request() :: %{
-        required("DatabaseName") => String.t(),
-        required("TableName") => String.t()
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type delete_column_statistics_task_settings_request() :: %{String.t() => any()}
+  @type delete_column_statistics_task_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_jobs_request() :: %{
-        required("JobNames") => list(String.t())
+        required("JobNames") => list(String.t() | atom())
       }
       
   """
-  @type batch_get_jobs_request() :: %{String.t() => any()}
+  @type batch_get_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3263,17 +3263,17 @@ defmodule AWS.Glue do
       s3_hudi_catalog_target() :: %{
         "AdditionalOptions" => map(),
         "AutoDataQuality" => auto_data_quality(),
-        "Database" => String.t(),
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
+        "Database" => String.t() | atom(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
         "OutputSchemas" => list(glue_schema()),
-        "PartitionKeys" => list(list(String.t())()),
+        "PartitionKeys" => list(list(String.t() | atom())()),
         "SchemaChangePolicy" => catalog_schema_change_policy(),
-        "Table" => String.t()
+        "Table" => String.t() | atom()
       }
       
   """
-  @type s3_hudi_catalog_target() :: %{String.t() => any()}
+  @type s3_hudi_catalog_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3284,49 +3284,49 @@ defmodule AWS.Glue do
         "AdditionalRunOptions" => data_quality_evaluation_run_additional_run_options(),
         "CompletedOn" => non_neg_integer(),
         "DataSource" => data_source(),
-        "ErrorString" => String.t(),
+        "ErrorString" => String.t() | atom(),
         "ExecutionTime" => integer(),
         "LastModifiedOn" => non_neg_integer(),
         "NumberOfWorkers" => integer(),
-        "ResultIds" => list(String.t()),
-        "Role" => String.t(),
-        "RulesetNames" => list(String.t()),
-        "RunId" => String.t(),
+        "ResultIds" => list(String.t() | atom()),
+        "Role" => String.t() | atom(),
+        "RulesetNames" => list(String.t() | atom()),
+        "RunId" => String.t() | atom(),
         "StartedOn" => non_neg_integer(),
         "Status" => list(any()),
         "Timeout" => integer()
       }
       
   """
-  @type get_data_quality_ruleset_evaluation_run_response() :: %{String.t() => any()}
+  @type get_data_quality_ruleset_evaluation_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       key_schema_element() :: %{
-        "Name" => String.t(),
-        "Type" => String.t()
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
       
   """
-  @type key_schema_element() :: %{String.t() => any()}
+  @type key_schema_element() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       last_crawl_info() :: %{
-        "ErrorMessage" => String.t(),
-        "LogGroup" => String.t(),
-        "LogStream" => String.t(),
-        "MessagePrefix" => String.t(),
+        "ErrorMessage" => String.t() | atom(),
+        "LogGroup" => String.t() | atom(),
+        "LogStream" => String.t() | atom(),
+        "MessagePrefix" => String.t() | atom(),
         "StartTime" => non_neg_integer(),
         "Status" => list(any())
       }
       
   """
-  @type last_crawl_info() :: %{String.t() => any()}
+  @type last_crawl_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3342,7 +3342,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type data_quality_aggregated_metrics() :: %{String.t() => any()}
+  @type data_quality_aggregated_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3350,50 +3350,50 @@ defmodule AWS.Glue do
       
       code_gen_node() :: %{
         "Args" => list(code_gen_node_arg()),
-        "Id" => String.t(),
+        "Id" => String.t() | atom(),
         "LineNumber" => integer(),
-        "NodeType" => String.t()
+        "NodeType" => String.t() | atom()
       }
       
   """
-  @type code_gen_node() :: %{String.t() => any()}
+  @type code_gen_node() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_table_optimizer_request() :: %{
-        required("CatalogId") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("TableName") => String.t(),
+        required("CatalogId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom(),
         required("TableOptimizerConfiguration") => table_optimizer_configuration(),
         required("Type") => list(any())
       }
       
   """
-  @type create_table_optimizer_request() :: %{String.t() => any()}
+  @type create_table_optimizer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_triggers_request() :: %{
-        required("TriggerNames") => list(String.t())
+        required("TriggerNames") => list(String.t() | atom())
       }
       
   """
-  @type batch_get_triggers_request() :: %{String.t() => any()}
+  @type batch_get_triggers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_custom_entity_type_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type delete_custom_entity_type_request() :: %{String.t() => any()}
+  @type delete_custom_entity_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3402,14 +3402,14 @@ defmodule AWS.Glue do
       query_schema_version_metadata_input() :: %{
         optional("MaxResults") => integer(),
         optional("MetadataList") => list(metadata_key_value_pair()),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SchemaId") => schema_id(),
-        optional("SchemaVersionId") => String.t(),
+        optional("SchemaVersionId") => String.t() | atom(),
         optional("SchemaVersionNumber") => schema_version_number()
       }
       
   """
-  @type query_schema_version_metadata_input() :: %{String.t() => any()}
+  @type query_schema_version_metadata_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3418,12 +3418,12 @@ defmodule AWS.Glue do
       update_integration_table_properties_request() :: %{
         optional("SourceTableConfig") => source_table_config(),
         optional("TargetTableConfig") => target_table_config(),
-        required("ResourceArn") => String.t(),
-        required("TableName") => String.t()
+        required("ResourceArn") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type update_integration_table_properties_request() :: %{String.t() => any()}
+  @type update_integration_table_properties_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3435,7 +3435,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_data_quality_model_result_response() :: %{String.t() => any()}
+  @type get_data_quality_model_result_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3443,24 +3443,24 @@ defmodule AWS.Glue do
       
       list_crawlers_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Tags") => map()
       }
       
   """
-  @type list_crawlers_request() :: %{String.t() => any()}
+  @type list_crawlers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_jobs_response() :: %{
-        "JobNames" => list(String.t()),
-        "NextToken" => String.t()
+        "JobNames" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_jobs_response() :: %{String.t() => any()}
+  @type list_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3475,20 +3475,20 @@ defmodule AWS.Glue do
       }
       
   """
-  @type auth_configuration() :: %{String.t() => any()}
+  @type auth_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_data_quality_ruleset_response() :: %{
-        "Description" => String.t(),
-        "Name" => String.t(),
-        "Ruleset" => String.t()
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Ruleset" => String.t() | atom()
       }
       
   """
-  @type update_data_quality_ruleset_response() :: %{String.t() => any()}
+  @type update_data_quality_ruleset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3499,38 +3499,38 @@ defmodule AWS.Glue do
         optional("CodeGenConfigurationNodes") => map(),
         optional("Connections") => connections_list(),
         optional("DefaultArguments") => map(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("ExecutionClass") => list(any()),
         optional("ExecutionProperty") => execution_property(),
-        optional("GlueVersion") => String.t(),
+        optional("GlueVersion") => String.t() | atom(),
         optional("JobMode") => list(any()),
         optional("JobRunQueuingEnabled") => boolean(),
-        optional("LogUri") => String.t(),
-        optional("MaintenanceWindow") => String.t(),
+        optional("LogUri") => String.t() | atom(),
+        optional("MaintenanceWindow") => String.t() | atom(),
         optional("MaxCapacity") => float(),
         optional("MaxRetries") => integer(),
         optional("NonOverridableArguments") => map(),
         optional("NotificationProperty") => notification_property(),
         optional("NumberOfWorkers") => integer(),
-        optional("SecurityConfiguration") => String.t(),
+        optional("SecurityConfiguration") => String.t() | atom(),
         optional("SourceControlDetails") => source_control_details(),
         optional("Tags") => map(),
         optional("Timeout") => integer(),
         optional("WorkerType") => list(any()),
         required("Command") => job_command(),
-        required("Name") => String.t(),
-        required("Role") => String.t()
+        required("Name") => String.t() | atom(),
+        required("Role") => String.t() | atom()
       }
       
   """
-  @type create_job_request() :: %{String.t() => any()}
+  @type create_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       statement() :: %{
-        "Code" => String.t(),
+        "Code" => String.t() | atom(),
         "CompletedOn" => float(),
         "Id" => integer(),
         "Output" => statement_output(),
@@ -3540,18 +3540,18 @@ defmodule AWS.Glue do
       }
       
   """
-  @type statement() :: %{String.t() => any()}
+  @type statement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_trigger_response() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type start_trigger_response() :: %{String.t() => any()}
+  @type start_trigger_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3565,7 +3565,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type data_quality_metric_values() :: %{String.t() => any()}
+  @type data_quality_metric_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3576,19 +3576,19 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_table_version_response() :: %{String.t() => any()}
+  @type get_table_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       join_column() :: %{
-        "From" => String.t(),
-        "Keys" => list(list(String.t())())
+        "From" => String.t() | atom(),
+        "Keys" => list(list(String.t() | atom())())
       }
       
   """
-  @type join_column() :: %{String.t() => any()}
+  @type join_column() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3604,21 +3604,21 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_plan_request() :: %{String.t() => any()}
+  @type get_plan_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_grok_classifier_request() :: %{
-        "Classification" => String.t(),
-        "CustomPatterns" => String.t(),
-        "GrokPattern" => String.t(),
-        "Name" => String.t()
+        "Classification" => String.t() | atom(),
+        "CustomPatterns" => String.t() | atom(),
+        "GrokPattern" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type create_grok_classifier_request() :: %{String.t() => any()}
+  @type create_grok_classifier_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3626,24 +3626,24 @@ defmodule AWS.Glue do
       
       update_workflow_request() :: %{
         optional("DefaultRunProperties") => map(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("MaxConcurrentRuns") => integer(),
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type update_workflow_request() :: %{String.t() => any()}
+  @type update_workflow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ml_transform_not_ready_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type ml_transform_not_ready_exception() :: %{String.t() => any()}
+  @type ml_transform_not_ready_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3651,24 +3651,24 @@ defmodule AWS.Glue do
       
       get_connections_response() :: %{
         "ConnectionList" => list(connection()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type get_connections_response() :: %{String.t() => any()}
+  @type get_connections_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_schema_response() :: %{
-        "RegistryName" => String.t(),
-        "SchemaArn" => String.t(),
-        "SchemaName" => String.t()
+        "RegistryName" => String.t() | atom(),
+        "SchemaArn" => String.t() | atom(),
+        "SchemaName" => String.t() | atom()
       }
       
   """
-  @type update_schema_response() :: %{String.t() => any()}
+  @type update_schema_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3677,24 +3677,24 @@ defmodule AWS.Glue do
       direct_kinesis_source() :: %{
         "DataPreviewOptions" => streaming_data_preview_options(),
         "DetectSchema" => boolean(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "StreamingOptions" => kinesis_streaming_source_options(),
         "WindowSize" => integer()
       }
       
   """
-  @type direct_kinesis_source() :: %{String.t() => any()}
+  @type direct_kinesis_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_service_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type internal_service_exception() :: %{String.t() => any()}
+  @type internal_service_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3709,7 +3709,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type task_run_properties() :: %{String.t() => any()}
+  @type task_run_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3720,20 +3720,20 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_blueprint_run_response() :: %{String.t() => any()}
+  @type get_blueprint_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       microsoft_s_q_l_server_catalog_source() :: %{
-        "Database" => String.t(),
-        "Name" => String.t(),
-        "Table" => String.t()
+        "Database" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Table" => String.t() | atom()
       }
       
   """
-  @type microsoft_s_q_l_server_catalog_source() :: %{String.t() => any()}
+  @type microsoft_s_q_l_server_catalog_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3741,23 +3741,23 @@ defmodule AWS.Glue do
       
       transform_encryption() :: %{
         "MlUserDataEncryption" => ml_user_data_encryption(),
-        "TaskRunSecurityConfigurationName" => String.t()
+        "TaskRunSecurityConfigurationName" => String.t() | atom()
       }
       
   """
-  @type transform_encryption() :: %{String.t() => any()}
+  @type transform_encryption() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       column_error() :: %{
-        "ColumnName" => String.t(),
+        "ColumnName" => String.t() | atom(),
         "Error" => error_detail()
       }
       
   """
-  @type column_error() :: %{String.t() => any()}
+  @type column_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3765,24 +3765,24 @@ defmodule AWS.Glue do
       
       describe_entity_response() :: %{
         "Fields" => list(field()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_entity_response() :: %{String.t() => any()}
+  @type describe_entity_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       code_gen_edge() :: %{
-        "Source" => String.t(),
-        "Target" => String.t(),
-        "TargetParameter" => String.t()
+        "Source" => String.t() | atom(),
+        "Target" => String.t() | atom(),
+        "TargetParameter" => String.t() | atom()
       }
       
   """
-  @type code_gen_edge() :: %{String.t() => any()}
+  @type code_gen_edge() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3791,59 +3791,59 @@ defmodule AWS.Glue do
       create_schema_response() :: %{
         "Compatibility" => list(any()),
         "DataFormat" => list(any()),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "LatestSchemaVersion" => float(),
         "NextSchemaVersion" => float(),
-        "RegistryArn" => String.t(),
-        "RegistryName" => String.t(),
-        "SchemaArn" => String.t(),
+        "RegistryArn" => String.t() | atom(),
+        "RegistryName" => String.t() | atom(),
+        "SchemaArn" => String.t() | atom(),
         "SchemaCheckpoint" => float(),
-        "SchemaName" => String.t(),
+        "SchemaName" => String.t() | atom(),
         "SchemaStatus" => list(any()),
-        "SchemaVersionId" => String.t(),
+        "SchemaVersionId" => String.t() | atom(),
         "SchemaVersionStatus" => list(any()),
         "Tags" => map()
       }
       
   """
-  @type create_schema_response() :: %{String.t() => any()}
+  @type create_schema_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_integration_request() :: %{
-        optional("DataFilter") => String.t(),
-        optional("Description") => String.t(),
-        optional("IntegrationName") => String.t(),
-        required("IntegrationIdentifier") => String.t()
+        optional("DataFilter") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("IntegrationName") => String.t() | atom(),
+        required("IntegrationIdentifier") => String.t() | atom()
       }
       
   """
-  @type modify_integration_request() :: %{String.t() => any()}
+  @type modify_integration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("TagsToRemove") => list(String.t())
+        required("ResourceArn") => String.t() | atom(),
+        required("TagsToRemove") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       target_resource_not_found() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type target_resource_not_found() :: %{String.t() => any()}
+  @type target_resource_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3851,53 +3851,53 @@ defmodule AWS.Glue do
       
       get_tables_request() :: %{
         optional("AttributesToGet") => list(list(any())()),
-        optional("CatalogId") => String.t(),
-        optional("Expression") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
+        optional("Expression") => String.t() | atom(),
         optional("IncludeStatusDetails") => boolean(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("QueryAsOfTime") => non_neg_integer(),
-        optional("TransactionId") => String.t(),
-        required("DatabaseName") => String.t()
+        optional("TransactionId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom()
       }
       
   """
-  @type get_tables_request() :: %{String.t() => any()}
+  @type get_tables_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_column_statistics_task_run_request() :: %{
-        required("ColumnStatisticsTaskRunId") => String.t()
+        required("ColumnStatisticsTaskRunId") => String.t() | atom()
       }
       
   """
-  @type get_column_statistics_task_run_request() :: %{String.t() => any()}
+  @type get_column_statistics_task_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       postgre_s_q_l_catalog_source() :: %{
-        "Database" => String.t(),
-        "Name" => String.t(),
-        "Table" => String.t()
+        "Database" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Table" => String.t() | atom()
       }
       
   """
-  @type postgre_s_q_l_catalog_source() :: %{String.t() => any()}
+  @type postgre_s_q_l_catalog_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_state_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_state_exception() :: %{String.t() => any()}
+  @type invalid_state_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3905,12 +3905,12 @@ defmodule AWS.Glue do
       
       target_table_config() :: %{
         "PartitionSpec" => list(integration_partition()),
-        "TargetTableName" => String.t(),
+        "TargetTableName" => String.t() | atom(),
         "UnnestSpec" => list(any())
       }
       
   """
-  @type target_table_config() :: %{String.t() => any()}
+  @type target_table_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3922,66 +3922,66 @@ defmodule AWS.Glue do
       }
       
   """
-  @type status_details() :: %{String.t() => any()}
+  @type status_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_data_quality_ruleset_evaluation_runs_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Runs" => list(data_quality_ruleset_evaluation_run_description())
       }
       
   """
-  @type list_data_quality_ruleset_evaluation_runs_response() :: %{String.t() => any()}
+  @type list_data_quality_ruleset_evaluation_runs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       labeling_set_generation_task_run_properties() :: %{
-        "OutputS3Path" => String.t()
+        "OutputS3Path" => String.t() | atom()
       }
       
   """
-  @type labeling_set_generation_task_run_properties() :: %{String.t() => any()}
+  @type labeling_set_generation_task_run_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       amazon_redshift_node_data() :: %{
-        "AccessType" => String.t(),
-        "Action" => String.t(),
+        "AccessType" => String.t() | atom(),
+        "Action" => String.t() | atom(),
         "AdvancedOptions" => list(amazon_redshift_advanced_option()),
         "CatalogDatabase" => option(),
-        "CatalogRedshiftSchema" => String.t(),
-        "CatalogRedshiftTable" => String.t(),
+        "CatalogRedshiftSchema" => String.t() | atom(),
+        "CatalogRedshiftTable" => String.t() | atom(),
         "CatalogTable" => option(),
         "Connection" => option(),
-        "CrawlerConnection" => String.t(),
+        "CrawlerConnection" => String.t() | atom(),
         "IamRole" => option(),
-        "MergeAction" => String.t(),
-        "MergeClause" => String.t(),
-        "MergeWhenMatched" => String.t(),
-        "MergeWhenNotMatched" => String.t(),
-        "PostAction" => String.t(),
-        "PreAction" => String.t(),
-        "SampleQuery" => String.t(),
+        "MergeAction" => String.t() | atom(),
+        "MergeClause" => String.t() | atom(),
+        "MergeWhenMatched" => String.t() | atom(),
+        "MergeWhenNotMatched" => String.t() | atom(),
+        "PostAction" => String.t() | atom(),
+        "PreAction" => String.t() | atom(),
+        "SampleQuery" => String.t() | atom(),
         "Schema" => option(),
         "SelectedColumns" => list(option()),
-        "SourceType" => String.t(),
-        "StagingTable" => String.t(),
+        "SourceType" => String.t() | atom(),
+        "StagingTable" => String.t() | atom(),
         "Table" => option(),
-        "TablePrefix" => String.t(),
+        "TablePrefix" => String.t() | atom(),
         "TableSchema" => list(option()),
-        "TempDir" => String.t(),
+        "TempDir" => String.t() | atom(),
         "Upsert" => boolean()
       }
       
   """
-  @type amazon_redshift_node_data() :: %{String.t() => any()}
+  @type amazon_redshift_node_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3989,46 +3989,46 @@ defmodule AWS.Glue do
       
       schema_reference() :: %{
         "SchemaId" => schema_id(),
-        "SchemaVersionId" => String.t(),
+        "SchemaVersionId" => String.t() | atom(),
         "SchemaVersionNumber" => float()
       }
       
   """
-  @type schema_reference() :: %{String.t() => any()}
+  @type schema_reference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_classifier_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type delete_classifier_request() :: %{String.t() => any()}
+  @type delete_classifier_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_custom_entity_type_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type get_custom_entity_type_request() :: %{String.t() => any()}
+  @type get_custom_entity_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       column_row_filter() :: %{
-        "ColumnName" => String.t(),
-        "RowFilterExpression" => String.t()
+        "ColumnName" => String.t() | atom(),
+        "RowFilterExpression" => String.t() | atom()
       }
       
   """
-  @type column_row_filter() :: %{String.t() => any()}
+  @type column_row_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4036,23 +4036,23 @@ defmodule AWS.Glue do
       
       list_custom_entity_types_response() :: %{
         "CustomEntityTypes" => list(custom_entity_type()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_custom_entity_types_response() :: %{String.t() => any()}
+  @type list_custom_entity_types_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_column_statistics_task_run_request() :: %{
-        required("DatabaseName") => String.t(),
-        required("TableName") => String.t()
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type stop_column_statistics_task_run_request() :: %{String.t() => any()}
+  @type stop_column_statistics_task_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4060,52 +4060,52 @@ defmodule AWS.Glue do
       
       connection_type_brief() :: %{
         "Capabilities" => capabilities(),
-        "Categories" => list([String.t()]()),
+        "Categories" => list([String.t() | atom()]()),
         "ConnectionType" => list(any()),
         "ConnectionTypeVariants" => list(connection_type_variant()),
-        "Description" => String.t(),
-        "DisplayName" => String.t(),
-        "LogoUrl" => String.t(),
-        "Vendor" => String.t()
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "LogoUrl" => String.t() | atom(),
+        "Vendor" => String.t() | atom()
       }
       
   """
-  @type connection_type_brief() :: %{String.t() => any()}
+  @type connection_type_brief() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_catalog_import_status_request() :: %{
-        optional("CatalogId") => String.t()
+        optional("CatalogId") => String.t() | atom()
       }
       
   """
-  @type get_catalog_import_status_request() :: %{String.t() => any()}
+  @type get_catalog_import_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_json_classifier_request() :: %{
-        "JsonPath" => String.t(),
-        "Name" => String.t()
+        "JsonPath" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type update_json_classifier_request() :: %{String.t() => any()}
+  @type update_json_classifier_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_session_request() :: %{
-        optional("RequestOrigin") => String.t(),
-        required("Id") => String.t()
+        optional("RequestOrigin") => String.t() | atom(),
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type get_session_request() :: %{String.t() => any()}
+  @type get_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4113,26 +4113,26 @@ defmodule AWS.Glue do
       
       get_jobs_response() :: %{
         "Jobs" => list(job()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type get_jobs_response() :: %{String.t() => any()}
+  @type get_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_table_versions_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("TableName") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type get_table_versions_request() :: %{String.t() => any()}
+  @type get_table_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4143,18 +4143,20 @@ defmodule AWS.Glue do
       }
       
   """
-  @type batch_put_data_quality_statistic_annotation_response() :: %{String.t() => any()}
+  @type batch_put_data_quality_statistic_annotation_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       scheduler_transitioning_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type scheduler_transitioning_exception() :: %{String.t() => any()}
+  @type scheduler_transitioning_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4162,11 +4164,11 @@ defmodule AWS.Glue do
       
       get_blueprint_runs_response() :: %{
         "BlueprintRuns" => list(blueprint_run()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type get_blueprint_runs_response() :: %{String.t() => any()}
+  @type get_blueprint_runs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4174,11 +4176,11 @@ defmodule AWS.Glue do
       
       get_workflow_request() :: %{
         optional("IncludeGraph") => boolean(),
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type get_workflow_request() :: %{String.t() => any()}
+  @type get_workflow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4194,11 +4196,11 @@ defmodule AWS.Glue do
   ## Example:
       
       resource_number_limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_number_limit_exceeded_exception() :: %{String.t() => any()}
+  @type resource_number_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4206,28 +4208,28 @@ defmodule AWS.Glue do
       
       j_db_c_connector_options() :: %{
         "DataTypeMapping" => map(),
-        "FilterPredicate" => String.t(),
-        "JobBookmarkKeys" => list(String.t()),
-        "JobBookmarkKeysSortOrder" => String.t(),
+        "FilterPredicate" => String.t() | atom(),
+        "JobBookmarkKeys" => list(String.t() | atom()),
+        "JobBookmarkKeysSortOrder" => String.t() | atom(),
         "LowerBound" => float(),
         "NumPartitions" => float(),
-        "PartitionColumn" => String.t(),
+        "PartitionColumn" => String.t() | atom(),
         "UpperBound" => float()
       }
       
   """
-  @type j_db_c_connector_options() :: %{String.t() => any()}
+  @type j_db_c_connector_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_integration_resource_property_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type get_integration_resource_property_request() :: %{String.t() => any()}
+  @type get_integration_resource_property_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4239,34 +4241,34 @@ defmodule AWS.Glue do
       }
       
   """
-  @type segment() :: %{String.t() => any()}
+  @type segment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       select_fields() :: %{
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
-        "Paths" => list(list(String.t())())
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "Paths" => list(list(String.t() | atom())())
       }
       
   """
-  @type select_fields() :: %{String.t() => any()}
+  @type select_fields() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_column_statistics_for_table_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("ColumnName") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("TableName") => String.t()
+        optional("CatalogId") => String.t() | atom(),
+        required("ColumnName") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type delete_column_statistics_for_table_request() :: %{String.t() => any()}
+  @type delete_column_statistics_for_table_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4283,23 +4285,23 @@ defmodule AWS.Glue do
       
       amazon_redshift_source() :: %{
         "Data" => amazon_redshift_node_data(),
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type amazon_redshift_source() :: %{String.t() => any()}
+  @type amazon_redshift_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_delete_connection_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("ConnectionNameList") => list(String.t())
+        optional("CatalogId") => String.t() | atom(),
+        required("ConnectionNameList") => list(String.t() | atom())
       }
       
   """
-  @type batch_delete_connection_request() :: %{String.t() => any()}
+  @type batch_delete_connection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4312,31 +4314,31 @@ defmodule AWS.Glue do
       }
       
   """
-  @type data_quality_ruleset_evaluation_run_filter() :: %{String.t() => any()}
+  @type data_quality_ruleset_evaluation_run_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_workflows_response() :: %{
-        "MissingWorkflows" => list(String.t()),
+        "MissingWorkflows" => list(String.t() | atom()),
         "Workflows" => list(workflow())
       }
       
   """
-  @type batch_get_workflows_response() :: %{String.t() => any()}
+  @type batch_get_workflows_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_schema_by_definition_input() :: %{
-        required("SchemaDefinition") => String.t(),
+        required("SchemaDefinition") => String.t() | atom(),
         required("SchemaId") => schema_id()
       }
       
   """
-  @type get_schema_by_definition_input() :: %{String.t() => any()}
+  @type get_schema_by_definition_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4345,11 +4347,11 @@ defmodule AWS.Glue do
       get_blueprint_request() :: %{
         optional("IncludeBlueprint") => boolean(),
         optional("IncludeParameterSpec") => boolean(),
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type get_blueprint_request() :: %{String.t() => any()}
+  @type get_blueprint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4357,11 +4359,11 @@ defmodule AWS.Glue do
       
       get_databases_response() :: %{
         "DatabaseList" => list(database()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type get_databases_response() :: %{String.t() => any()}
+  @type get_databases_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4369,14 +4371,14 @@ defmodule AWS.Glue do
       
       list_data_quality_statistic_annotations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ProfileId") => String.t(),
-        optional("StatisticId") => String.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ProfileId") => String.t() | atom(),
+        optional("StatisticId") => String.t() | atom(),
         optional("TimestampFilter") => timestamp_filter()
       }
       
   """
-  @type list_data_quality_statistic_annotations_request() :: %{String.t() => any()}
+  @type list_data_quality_statistic_annotations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4385,13 +4387,13 @@ defmodule AWS.Glue do
       get_catalogs_request() :: %{
         optional("IncludeRoot") => boolean(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ParentCatalogId") => String.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ParentCatalogId") => String.t() | atom(),
         optional("Recursive") => boolean()
       }
       
   """
-  @type get_catalogs_request() :: %{String.t() => any()}
+  @type get_catalogs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4399,11 +4401,11 @@ defmodule AWS.Glue do
       
       filter_value() :: %{
         "Type" => list(any()),
-        "Value" => list(String.t())
+        "Value" => list(String.t() | atom())
       }
       
   """
-  @type filter_value() :: %{String.t() => any()}
+  @type filter_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4420,22 +4422,22 @@ defmodule AWS.Glue do
       
       batch_get_workflows_request() :: %{
         optional("IncludeGraph") => boolean(),
-        required("Names") => list(String.t())
+        required("Names") => list(String.t() | atom())
       }
       
   """
-  @type batch_get_workflows_request() :: %{String.t() => any()}
+  @type batch_get_workflows_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_trigger_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type stop_trigger_request() :: %{String.t() => any()}
+  @type stop_trigger_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4447,7 +4449,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type schema_version_number() :: %{String.t() => any()}
+  @type schema_version_number() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4455,32 +4457,32 @@ defmodule AWS.Glue do
       
       get_unfiltered_table_metadata_request() :: %{
         optional("AuditContext") => audit_context(),
-        optional("ParentResourceArn") => String.t(),
+        optional("ParentResourceArn") => String.t() | atom(),
         optional("Permissions") => list(list(any())()),
         optional("QuerySessionContext") => query_session_context(),
-        optional("Region") => String.t(),
-        optional("RootResourceArn") => String.t(),
+        optional("Region") => String.t() | atom(),
+        optional("RootResourceArn") => String.t() | atom(),
         optional("SupportedDialect") => supported_dialect(),
-        required("CatalogId") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("Name") => String.t(),
+        required("CatalogId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("SupportedPermissionTypes") => list(list(any())())
       }
       
   """
-  @type get_unfiltered_table_metadata_request() :: %{String.t() => any()}
+  @type get_unfiltered_table_metadata_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_data_quality_rule_recommendation_runs_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Runs" => list(data_quality_rule_recommendation_run_description())
       }
       
   """
-  @type list_data_quality_rule_recommendation_runs_response() :: %{String.t() => any()}
+  @type list_data_quality_rule_recommendation_runs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4488,13 +4490,13 @@ defmodule AWS.Glue do
       
       get_column_statistics_task_runs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("TableName") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type get_column_statistics_task_runs_request() :: %{String.t() => any()}
+  @type get_column_statistics_task_runs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4503,51 +4505,51 @@ defmodule AWS.Glue do
       get_usage_profile_response() :: %{
         "Configuration" => profile_configuration(),
         "CreatedOn" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "LastModifiedOn" => non_neg_integer(),
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type get_usage_profile_response() :: %{String.t() => any()}
+  @type get_usage_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_user_defined_function_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("FunctionName") => String.t()
+        optional("CatalogId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("FunctionName") => String.t() | atom()
       }
       
   """
-  @type delete_user_defined_function_request() :: %{String.t() => any()}
+  @type delete_user_defined_function_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       o_auth2_client_application() :: %{
-        "AWSManagedClientApplicationReference" => String.t(),
-        "UserManagedClientApplicationClientId" => String.t()
+        "AWSManagedClientApplicationReference" => String.t() | atom(),
+        "UserManagedClientApplicationClientId" => String.t() | atom()
       }
       
   """
-  @type o_auth2_client_application() :: %{String.t() => any()}
+  @type o_auth2_client_application() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       register_schema_version_response() :: %{
-        "SchemaVersionId" => String.t(),
+        "SchemaVersionId" => String.t() | atom(),
         "Status" => list(any()),
         "VersionNumber" => float()
       }
       
   """
-  @type register_schema_version_response() :: %{String.t() => any()}
+  @type register_schema_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4563,36 +4565,36 @@ defmodule AWS.Glue do
   ## Example:
       
       stop_crawler_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type stop_crawler_request() :: %{String.t() => any()}
+  @type stop_crawler_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_custom_entity_type_request() :: %{
-        optional("ContextWords") => list(String.t()),
+        optional("ContextWords") => list(String.t() | atom()),
         optional("Tags") => map(),
-        required("Name") => String.t(),
-        required("RegexString") => String.t()
+        required("Name") => String.t() | atom(),
+        required("RegexString") => String.t() | atom()
       }
       
   """
-  @type create_custom_entity_type_request() :: %{String.t() => any()}
+  @type create_custom_entity_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_usage_profile_response() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type create_usage_profile_response() :: %{String.t() => any()}
+  @type create_usage_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4601,16 +4603,16 @@ defmodule AWS.Glue do
       get_unfiltered_partition_metadata_request() :: %{
         optional("AuditContext") => audit_context(),
         optional("QuerySessionContext") => query_session_context(),
-        optional("Region") => String.t(),
-        required("CatalogId") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("PartitionValues") => list(String.t()),
+        optional("Region") => String.t() | atom(),
+        required("CatalogId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("PartitionValues") => list(String.t() | atom()),
         required("SupportedPermissionTypes") => list(list(any())()),
-        required("TableName") => String.t()
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type get_unfiltered_partition_metadata_request() :: %{String.t() => any()}
+  @type get_unfiltered_partition_metadata_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4622,28 +4624,28 @@ defmodule AWS.Glue do
         "Command" => job_command(),
         "Connections" => connections_list(),
         "DefaultArguments" => map(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "ExecutionClass" => list(any()),
         "ExecutionProperty" => execution_property(),
-        "GlueVersion" => String.t(),
+        "GlueVersion" => String.t() | atom(),
         "JobMode" => list(any()),
         "JobRunQueuingEnabled" => boolean(),
-        "LogUri" => String.t(),
-        "MaintenanceWindow" => String.t(),
+        "LogUri" => String.t() | atom(),
+        "MaintenanceWindow" => String.t() | atom(),
         "MaxCapacity" => float(),
         "MaxRetries" => integer(),
         "NonOverridableArguments" => map(),
         "NotificationProperty" => notification_property(),
         "NumberOfWorkers" => integer(),
-        "Role" => String.t(),
-        "SecurityConfiguration" => String.t(),
+        "Role" => String.t() | atom(),
+        "SecurityConfiguration" => String.t() | atom(),
         "SourceControlDetails" => source_control_details(),
         "Timeout" => integer(),
         "WorkerType" => list(any())
       }
       
   """
-  @type job_update() :: %{String.t() => any()}
+  @type job_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4659,7 +4661,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type find_matches_metrics() :: %{String.t() => any()}
+  @type find_matches_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4668,21 +4670,21 @@ defmodule AWS.Glue do
       s3_json_source() :: %{
         "AdditionalOptions" => s3_direct_source_additional_options(),
         "CompressionType" => list(any()),
-        "Exclusions" => list(String.t()),
-        "GroupFiles" => String.t(),
-        "GroupSize" => String.t(),
-        "JsonPath" => String.t(),
+        "Exclusions" => list(String.t() | atom()),
+        "GroupFiles" => String.t() | atom(),
+        "GroupSize" => String.t() | atom(),
+        "JsonPath" => String.t() | atom(),
         "MaxBand" => integer(),
         "MaxFilesInBand" => integer(),
         "Multiline" => boolean(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "OutputSchemas" => list(glue_schema()),
-        "Paths" => list(String.t()),
+        "Paths" => list(String.t() | atom()),
         "Recurse" => boolean()
       }
       
   """
-  @type s3_json_source() :: %{String.t() => any()}
+  @type s3_json_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4693,29 +4695,29 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_classifier_response() :: %{String.t() => any()}
+  @type get_classifier_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_usage_profile_response() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type update_usage_profile_response() :: %{String.t() => any()}
+  @type update_usage_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       integration_conflict_operation_fault() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type integration_conflict_operation_fault() :: %{String.t() => any()}
+  @type integration_conflict_operation_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4724,23 +4726,23 @@ defmodule AWS.Glue do
       create_session_request() :: %{
         optional("Connections") => connections_list(),
         optional("DefaultArguments") => map(),
-        optional("Description") => String.t(),
-        optional("GlueVersion") => String.t(),
+        optional("Description") => String.t() | atom(),
+        optional("GlueVersion") => String.t() | atom(),
         optional("IdleTimeout") => integer(),
         optional("MaxCapacity") => float(),
         optional("NumberOfWorkers") => integer(),
-        optional("RequestOrigin") => String.t(),
-        optional("SecurityConfiguration") => String.t(),
+        optional("RequestOrigin") => String.t() | atom(),
+        optional("SecurityConfiguration") => String.t() | atom(),
         optional("Tags") => map(),
         optional("Timeout") => integer(),
         optional("WorkerType") => list(any()),
         required("Command") => session_command(),
-        required("Id") => String.t(),
-        required("Role") => String.t()
+        required("Id") => String.t() | atom(),
+        required("Role") => String.t() | atom()
       }
       
   """
-  @type create_session_request() :: %{String.t() => any()}
+  @type create_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4763,7 +4765,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type long_column_statistics_data() :: %{String.t() => any()}
+  @type long_column_statistics_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4771,28 +4773,28 @@ defmodule AWS.Glue do
       
       create_dev_endpoint_response() :: %{
         "Arguments" => map(),
-        "AvailabilityZone" => String.t(),
+        "AvailabilityZone" => String.t() | atom(),
         "CreatedTimestamp" => non_neg_integer(),
-        "EndpointName" => String.t(),
-        "ExtraJarsS3Path" => String.t(),
-        "ExtraPythonLibsS3Path" => String.t(),
-        "FailureReason" => String.t(),
-        "GlueVersion" => String.t(),
+        "EndpointName" => String.t() | atom(),
+        "ExtraJarsS3Path" => String.t() | atom(),
+        "ExtraPythonLibsS3Path" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
+        "GlueVersion" => String.t() | atom(),
         "NumberOfNodes" => integer(),
         "NumberOfWorkers" => integer(),
-        "RoleArn" => String.t(),
-        "SecurityConfiguration" => String.t(),
-        "SecurityGroupIds" => list(String.t()),
-        "Status" => String.t(),
-        "SubnetId" => String.t(),
-        "VpcId" => String.t(),
+        "RoleArn" => String.t() | atom(),
+        "SecurityConfiguration" => String.t() | atom(),
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "Status" => String.t() | atom(),
+        "SubnetId" => String.t() | atom(),
+        "VpcId" => String.t() | atom(),
         "WorkerType" => list(any()),
-        "YarnEndpointAddress" => String.t(),
+        "YarnEndpointAddress" => String.t() | atom(),
         "ZeppelinRemoteSparkInterpreterPort" => integer()
       }
       
   """
-  @type create_dev_endpoint_response() :: %{String.t() => any()}
+  @type create_dev_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4800,34 +4802,34 @@ defmodule AWS.Glue do
       
       batch_get_custom_entity_types_response() :: %{
         "CustomEntityTypes" => list(custom_entity_type()),
-        "CustomEntityTypesNotFound" => list(String.t())
+        "CustomEntityTypesNotFound" => list(String.t() | atom())
       }
       
   """
-  @type batch_get_custom_entity_types_response() :: %{String.t() => any()}
+  @type batch_get_custom_entity_types_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       data_lake_principal() :: %{
-        "DataLakePrincipalIdentifier" => String.t()
+        "DataLakePrincipalIdentifier" => String.t() | atom()
       }
       
   """
-  @type data_lake_principal() :: %{String.t() => any()}
+  @type data_lake_principal() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_statements_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Statements" => list(statement())
       }
       
   """
-  @type list_statements_response() :: %{String.t() => any()}
+  @type list_statements_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4835,23 +4837,23 @@ defmodule AWS.Glue do
       
       table_error() :: %{
         "ErrorDetail" => error_detail(),
-        "TableName" => String.t()
+        "TableName" => String.t() | atom()
       }
       
   """
-  @type table_error() :: %{String.t() => any()}
+  @type table_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ml_user_data_encryption() :: %{
-        "KmsKeyId" => String.t(),
+        "KmsKeyId" => String.t() | atom(),
         "MlUserDataEncryptionMode" => list(any())
       }
       
   """
-  @type ml_user_data_encryption() :: %{String.t() => any()}
+  @type ml_user_data_encryption() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4867,12 +4869,12 @@ defmodule AWS.Glue do
   ## Example:
       
       schema_column() :: %{
-        "DataType" => String.t(),
-        "Name" => String.t()
+        "DataType" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type schema_column() :: %{String.t() => any()}
+  @type schema_column() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4885,82 +4887,82 @@ defmodule AWS.Glue do
       }
       
   """
-  @type binary_column_statistics_data() :: %{String.t() => any()}
+  @type binary_column_statistics_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_partition_indexes_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "PartitionIndexDescriptorList" => list(partition_index_descriptor())
       }
       
   """
-  @type get_partition_indexes_response() :: %{String.t() => any()}
+  @type get_partition_indexes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       execution_attempt() :: %{
-        "ColumnStatisticsTaskRunId" => String.t(),
-        "ErrorMessage" => String.t(),
+        "ColumnStatisticsTaskRunId" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
         "ExecutionTimestamp" => non_neg_integer(),
         "Status" => list(any())
       }
       
   """
-  @type execution_attempt() :: %{String.t() => any()}
+  @type execution_attempt() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_user_defined_function_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("DatabaseName") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
         required("FunctionInput") => user_defined_function_input()
       }
       
   """
-  @type create_user_defined_function_request() :: %{String.t() => any()}
+  @type create_user_defined_function_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       upsert_redshift_target_options() :: %{
-        "ConnectionName" => String.t(),
-        "TableLocation" => String.t(),
-        "UpsertKeys" => list(String.t())
+        "ConnectionName" => String.t() | atom(),
+        "TableLocation" => String.t() | atom(),
+        "UpsertKeys" => list(String.t() | atom())
       }
       
   """
-  @type upsert_redshift_target_options() :: %{String.t() => any()}
+  @type upsert_redshift_target_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       allowed_value() :: %{
-        "Description" => String.t(),
-        "Value" => String.t()
+        "Description" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type allowed_value() :: %{String.t() => any()}
+  @type allowed_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_workflow_response() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type delete_workflow_response() :: %{String.t() => any()}
+  @type delete_workflow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4969,25 +4971,25 @@ defmodule AWS.Glue do
       s3_hudi_source() :: %{
         "AdditionalHudiOptions" => map(),
         "AdditionalOptions" => s3_direct_source_additional_options(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "OutputSchemas" => list(glue_schema()),
-        "Paths" => list(String.t())
+        "Paths" => list(String.t() | atom())
       }
       
   """
-  @type s3_hudi_source() :: %{String.t() => any()}
+  @type s3_hudi_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_column_statistics_task_run_schedule_request() :: %{
-        required("DatabaseName") => String.t(),
-        required("TableName") => String.t()
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type stop_column_statistics_task_run_schedule_request() :: %{String.t() => any()}
+  @type stop_column_statistics_task_run_schedule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5007,31 +5009,31 @@ defmodule AWS.Glue do
         "AutoDataQuality" => auto_data_quality(),
         "Compression" => list(any()),
         "Format" => list(any()),
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
-        "NumberTargetPartitions" => String.t(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "NumberTargetPartitions" => String.t() | atom(),
         "OutputSchemas" => list(glue_schema()),
-        "PartitionKeys" => list(list(String.t())()),
-        "Path" => String.t(),
+        "PartitionKeys" => list(list(String.t() | atom())()),
+        "Path" => String.t() | atom(),
         "SchemaChangePolicy" => direct_schema_change_policy()
       }
       
   """
-  @type s3_iceberg_direct_target() :: %{String.t() => any()}
+  @type s3_iceberg_direct_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       jdbc_target() :: %{
-        "ConnectionName" => String.t(),
+        "ConnectionName" => String.t() | atom(),
         "EnableAdditionalMetadata" => list(list(any())()),
-        "Exclusions" => list(String.t()),
-        "Path" => String.t()
+        "Exclusions" => list(String.t() | atom()),
+        "Path" => String.t() | atom()
       }
       
   """
-  @type jdbc_target() :: %{String.t() => any()}
+  @type jdbc_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5040,11 +5042,11 @@ defmodule AWS.Glue do
       batch_get_blueprints_request() :: %{
         optional("IncludeBlueprint") => boolean(),
         optional("IncludeParameterSpec") => boolean(),
-        required("Names") => list(String.t())
+        required("Names") => list(String.t() | atom())
       }
       
   """
-  @type batch_get_blueprints_request() :: %{String.t() => any()}
+  @type batch_get_blueprints_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5055,58 +5057,58 @@ defmodule AWS.Glue do
       }
       
   """
-  @type lineage_configuration() :: %{String.t() => any()}
+  @type lineage_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       fill_missing_values() :: %{
-        "FilledPath" => String.t(),
-        "ImputedPath" => String.t(),
-        "Inputs" => list(String.t()),
-        "Name" => String.t()
+        "FilledPath" => String.t() | atom(),
+        "ImputedPath" => String.t() | atom(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type fill_missing_values() :: %{String.t() => any()}
+  @type fill_missing_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_column_statistics_for_table_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("ColumnNames") => list(String.t()),
-        required("DatabaseName") => String.t(),
-        required("TableName") => String.t()
+        optional("CatalogId") => String.t() | atom(),
+        required("ColumnNames") => list(String.t() | atom()),
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type get_column_statistics_for_table_request() :: %{String.t() => any()}
+  @type get_column_statistics_for_table_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_catalog_request() :: %{
-        required("CatalogId") => String.t()
+        required("CatalogId") => String.t() | atom()
       }
       
   """
-  @type delete_catalog_request() :: %{String.t() => any()}
+  @type delete_catalog_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_trigger_request() :: %{
-        required("Name") => String.t(),
+        required("Name") => String.t() | atom(),
         required("TriggerUpdate") => trigger_update()
       }
       
   """
-  @type update_trigger_request() :: %{String.t() => any()}
+  @type update_trigger_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5114,24 +5116,24 @@ defmodule AWS.Glue do
       
       list_registries_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_registries_input() :: %{String.t() => any()}
+  @type list_registries_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_sessions_response() :: %{
-        "Ids" => list(String.t()),
-        "NextToken" => String.t(),
+        "Ids" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom(),
         "Sessions" => list(session())
       }
       
   """
-  @type list_sessions_response() :: %{String.t() => any()}
+  @type list_sessions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5151,31 +5153,31 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_partition_response() :: %{String.t() => any()}
+  @type get_partition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_custom_entity_types_request() :: %{
-        required("Names") => list(String.t())
+        required("Names") => list(String.t() | atom())
       }
       
   """
-  @type batch_get_custom_entity_types_request() :: %{String.t() => any()}
+  @type batch_get_custom_entity_types_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_user_defined_function_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("FunctionName") => String.t()
+        optional("CatalogId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("FunctionName") => String.t() | atom()
       }
       
   """
-  @type get_user_defined_function_request() :: %{String.t() => any()}
+  @type get_user_defined_function_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5183,14 +5185,14 @@ defmodule AWS.Glue do
       
       kinesis_streaming_source_options() :: %{
         "AddIdleTimeBetweenReads" => boolean(),
-        "AddRecordTimestamp" => String.t(),
+        "AddRecordTimestamp" => String.t() | atom(),
         "AvoidEmptyBatches" => boolean(),
-        "Classification" => String.t(),
-        "Delimiter" => String.t(),
+        "Classification" => String.t() | atom(),
+        "Delimiter" => String.t() | atom(),
         "DescribeShardInterval" => float(),
-        "EmitConsumerLagMetrics" => String.t(),
-        "EndpointUrl" => String.t(),
-        "FanoutConsumerARN" => String.t(),
+        "EmitConsumerLagMetrics" => String.t() | atom(),
+        "EndpointUrl" => String.t() | atom(),
+        "FanoutConsumerARN" => String.t() | atom(),
         "IdleTimeBetweenReadsInMs" => float(),
         "MaxFetchRecordsPerShard" => float(),
         "MaxFetchTimeInMs" => float(),
@@ -5198,33 +5200,33 @@ defmodule AWS.Glue do
         "MaxRetryIntervalMs" => float(),
         "NumRetries" => integer(),
         "RetryIntervalMs" => float(),
-        "RoleArn" => String.t(),
-        "RoleSessionName" => String.t(),
+        "RoleArn" => String.t() | atom(),
+        "RoleSessionName" => String.t() | atom(),
         "StartingPosition" => list(any()),
         "StartingTimestamp" => non_neg_integer(),
-        "StreamArn" => String.t(),
-        "StreamName" => String.t()
+        "StreamArn" => String.t() | atom(),
+        "StreamName" => String.t() | atom()
       }
       
   """
-  @type kinesis_streaming_source_options() :: %{String.t() => any()}
+  @type kinesis_streaming_source_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       redshift_target() :: %{
-        "Database" => String.t(),
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
-        "RedshiftTmpDir" => String.t(),
-        "Table" => String.t(),
-        "TmpDirIAMRole" => String.t(),
+        "Database" => String.t() | atom(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "RedshiftTmpDir" => String.t() | atom(),
+        "Table" => String.t() | atom(),
+        "TmpDirIAMRole" => String.t() | atom(),
         "UpsertRedshiftOptions" => upsert_redshift_target_options()
       }
       
   """
-  @type redshift_target() :: %{String.t() => any()}
+  @type redshift_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5232,83 +5234,83 @@ defmodule AWS.Glue do
       
       catalog_hudi_source() :: %{
         "AdditionalHudiOptions" => map(),
-        "Database" => String.t(),
-        "Name" => String.t(),
+        "Database" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "OutputSchemas" => list(glue_schema()),
-        "Table" => String.t()
+        "Table" => String.t() | atom()
       }
       
   """
-  @type catalog_hudi_source() :: %{String.t() => any()}
+  @type catalog_hudi_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       column_statistics_task_not_running_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type column_statistics_task_not_running_exception() :: %{String.t() => any()}
+  @type column_statistics_task_not_running_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       integration_quota_exceeded_fault() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type integration_quota_exceeded_fault() :: %{String.t() => any()}
+  @type integration_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       configuration_object() :: %{
-        "AllowedValues" => list(String.t()),
-        "DefaultValue" => String.t(),
-        "MaxValue" => String.t(),
-        "MinValue" => String.t()
+        "AllowedValues" => list(String.t() | atom()),
+        "DefaultValue" => String.t() | atom(),
+        "MaxValue" => String.t() | atom(),
+        "MinValue" => String.t() | atom()
       }
       
   """
-  @type configuration_object() :: %{String.t() => any()}
+  @type configuration_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       partition_value_list() :: %{
-        "Values" => list(String.t())
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type partition_value_list() :: %{String.t() => any()}
+  @type partition_value_list() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_crawler_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type delete_crawler_request() :: %{String.t() => any()}
+  @type delete_crawler_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5320,70 +5322,70 @@ defmodule AWS.Glue do
       }
       
   """
-  @type backfill_error() :: %{String.t() => any()}
+  @type backfill_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       governed_catalog_target() :: %{
-        "Database" => String.t(),
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
-        "PartitionKeys" => list(list(String.t())()),
+        "Database" => String.t() | atom(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "PartitionKeys" => list(list(String.t() | atom())()),
         "SchemaChangePolicy" => catalog_schema_change_policy(),
-        "Table" => String.t()
+        "Table" => String.t() | atom()
       }
       
   """
-  @type governed_catalog_target() :: %{String.t() => any()}
+  @type governed_catalog_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_column_statistics_task_runs_response() :: %{
-        "ColumnStatisticsTaskRunIds" => list(String.t()),
-        "NextToken" => String.t()
+        "ColumnStatisticsTaskRunIds" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_column_statistics_task_runs_response() :: %{String.t() => any()}
+  @type list_column_statistics_task_runs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_triggers_request() :: %{
-        optional("DependentJobName") => String.t(),
+        optional("DependentJobName") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type get_triggers_request() :: %{String.t() => any()}
+  @type get_triggers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_integration_request() :: %{
-        required("IntegrationIdentifier") => String.t()
+        required("IntegrationIdentifier") => String.t() | atom()
       }
       
   """
-  @type delete_integration_request() :: %{String.t() => any()}
+  @type delete_integration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5394,7 +5396,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type retention_configuration() :: %{String.t() => any()}
+  @type retention_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5402,32 +5404,32 @@ defmodule AWS.Glue do
       
       workflow_run() :: %{
         "CompletedOn" => non_neg_integer(),
-        "ErrorMessage" => String.t(),
+        "ErrorMessage" => String.t() | atom(),
         "Graph" => workflow_graph(),
-        "Name" => String.t(),
-        "PreviousRunId" => String.t(),
+        "Name" => String.t() | atom(),
+        "PreviousRunId" => String.t() | atom(),
         "StartedOn" => non_neg_integer(),
         "StartingEventBatchCondition" => starting_event_batch_condition(),
         "Statistics" => workflow_run_statistics(),
         "Status" => list(any()),
-        "WorkflowRunId" => String.t(),
+        "WorkflowRunId" => String.t() | atom(),
         "WorkflowRunProperties" => map()
       }
       
   """
-  @type workflow_run() :: %{String.t() => any()}
+  @type workflow_run() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_stop_job_run_request() :: %{
-        required("JobName") => String.t(),
-        required("JobRunIds") => list(String.t())
+        required("JobName") => String.t() | atom(),
+        required("JobRunIds") => list(String.t() | atom())
       }
       
   """
-  @type batch_stop_job_run_request() :: %{String.t() => any()}
+  @type batch_stop_job_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5435,109 +5437,109 @@ defmodule AWS.Glue do
       
       batch_delete_connection_response() :: %{
         "Errors" => map(),
-        "Succeeded" => list(String.t())
+        "Succeeded" => list(String.t() | atom())
       }
       
   """
-  @type batch_delete_connection_response() :: %{String.t() => any()}
+  @type batch_delete_connection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       data_quality_rule_result() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "EvaluatedMetrics" => map(),
-        "EvaluatedRule" => String.t(),
-        "EvaluationMessage" => String.t(),
-        "Name" => String.t(),
+        "EvaluatedRule" => String.t() | atom(),
+        "EvaluationMessage" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Result" => list(any()),
         "RuleMetrics" => map()
       }
       
   """
-  @type data_quality_rule_result() :: %{String.t() => any()}
+  @type data_quality_rule_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_registry_input() :: %{
-        required("Description") => String.t(),
+        required("Description") => String.t() | atom(),
         required("RegistryId") => registry_id()
       }
       
   """
-  @type update_registry_input() :: %{String.t() => any()}
+  @type update_registry_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_put_data_quality_statistic_annotation_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
         required("InclusionAnnotations") => list(datapoint_inclusion_annotation())
       }
       
   """
-  @type batch_put_data_quality_statistic_annotation_request() :: %{String.t() => any()}
+  @type batch_put_data_quality_statistic_annotation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_job_run_response() :: %{
-        "JobRunId" => String.t()
+        "JobRunId" => String.t() | atom()
       }
       
   """
-  @type start_job_run_response() :: %{String.t() => any()}
+  @type start_job_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_ml_transform_request() :: %{
-        required("TransformId") => String.t()
+        required("TransformId") => String.t() | atom()
       }
       
   """
-  @type delete_ml_transform_request() :: %{String.t() => any()}
+  @type delete_ml_transform_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_blueprint_run_response() :: %{
-        "RunId" => String.t()
+        "RunId" => String.t() | atom()
       }
       
   """
-  @type start_blueprint_run_response() :: %{String.t() => any()}
+  @type start_blueprint_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       check_schema_version_validity_response() :: %{
-        "Error" => String.t(),
+        "Error" => String.t() | atom(),
         "Valid" => boolean()
       }
       
   """
-  @type check_schema_version_validity_response() :: %{String.t() => any()}
+  @type check_schema_version_validity_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_data_catalog_encryption_settings_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
         required("DataCatalogEncryptionSettings") => data_catalog_encryption_settings()
       }
       
   """
-  @type put_data_catalog_encryption_settings_request() :: %{String.t() => any()}
+  @type put_data_catalog_encryption_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5545,16 +5547,16 @@ defmodule AWS.Glue do
       
       create_schema_input() :: %{
         optional("Compatibility") => list(any()),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("RegistryId") => registry_id(),
-        optional("SchemaDefinition") => String.t(),
+        optional("SchemaDefinition") => String.t() | atom(),
         optional("Tags") => map(),
         required("DataFormat") => list(any()),
-        required("SchemaName") => String.t()
+        required("SchemaName") => String.t() | atom()
       }
       
   """
-  @type create_schema_input() :: %{String.t() => any()}
+  @type create_schema_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5565,7 +5567,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type update_iceberg_table_input() :: %{String.t() => any()}
+  @type update_iceberg_table_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5576,7 +5578,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_dev_endpoint_response() :: %{String.t() => any()}
+  @type get_dev_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5592,60 +5594,60 @@ defmodule AWS.Glue do
   ## Example:
       
       delete_column_statistics_for_partition_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("ColumnName") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("PartitionValues") => list(String.t()),
-        required("TableName") => String.t()
+        optional("CatalogId") => String.t() | atom(),
+        required("ColumnName") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("PartitionValues") => list(String.t() | atom()),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type delete_column_statistics_for_partition_request() :: %{String.t() => any()}
+  @type delete_column_statistics_for_partition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_trigger_response() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type create_trigger_response() :: %{String.t() => any()}
+  @type create_trigger_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_session_response() :: %{
-        "Id" => String.t()
+        "Id" => String.t() | atom()
       }
       
   """
-  @type delete_session_response() :: %{String.t() => any()}
+  @type delete_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_dataflow_graph_request() :: %{
-        optional("PythonScript") => String.t()
+        optional("PythonScript") => String.t() | atom()
       }
       
   """
-  @type get_dataflow_graph_request() :: %{String.t() => any()}
+  @type get_dataflow_graph_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       sql_alias() :: %{
-        "Alias" => String.t(),
-        "From" => String.t()
+        "Alias" => String.t() | atom(),
+        "From" => String.t() | atom()
       }
       
   """
-  @type sql_alias() :: %{String.t() => any()}
+  @type sql_alias() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5653,11 +5655,11 @@ defmodule AWS.Glue do
       
       get_jobs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type get_jobs_request() :: %{String.t() => any()}
+  @type get_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5665,23 +5667,23 @@ defmodule AWS.Glue do
       
       get_data_quality_rule_recommendation_run_response() :: %{
         "CompletedOn" => non_neg_integer(),
-        "CreatedRulesetName" => String.t(),
-        "DataQualitySecurityConfiguration" => String.t(),
+        "CreatedRulesetName" => String.t() | atom(),
+        "DataQualitySecurityConfiguration" => String.t() | atom(),
         "DataSource" => data_source(),
-        "ErrorString" => String.t(),
+        "ErrorString" => String.t() | atom(),
         "ExecutionTime" => integer(),
         "LastModifiedOn" => non_neg_integer(),
         "NumberOfWorkers" => integer(),
-        "RecommendedRuleset" => String.t(),
-        "Role" => String.t(),
-        "RunId" => String.t(),
+        "RecommendedRuleset" => String.t() | atom(),
+        "Role" => String.t() | atom(),
+        "RunId" => String.t() | atom(),
         "StartedOn" => non_neg_integer(),
         "Status" => list(any()),
         "Timeout" => integer()
       }
       
   """
-  @type get_data_quality_rule_recommendation_run_response() :: %{String.t() => any()}
+  @type get_data_quality_rule_recommendation_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5689,14 +5691,14 @@ defmodule AWS.Glue do
       
       s3_catalog_iceberg_source() :: %{
         "AdditionalIcebergOptions" => map(),
-        "Database" => String.t(),
-        "Name" => String.t(),
+        "Database" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "OutputSchemas" => list(glue_schema()),
-        "Table" => String.t()
+        "Table" => String.t() | atom()
       }
       
   """
-  @type s3_catalog_iceberg_source() :: %{String.t() => any()}
+  @type s3_catalog_iceberg_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5709,28 +5711,28 @@ defmodule AWS.Glue do
         "ComputeEnvironmentConfigurations" => map(),
         "ConnectionOptions" => map(),
         "ConnectionProperties" => map(),
-        "ConnectionType" => String.t(),
-        "Description" => String.t(),
+        "ConnectionType" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "PhysicalConnectionRequirements" => map(),
         "PythonConnectionProperties" => map(),
         "SparkConnectionProperties" => map()
       }
       
   """
-  @type describe_connection_type_response() :: %{String.t() => any()}
+  @type describe_connection_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       dynamo_db_target() :: %{
-        "Path" => String.t(),
+        "Path" => String.t() | atom(),
         "scanAll" => boolean(),
         "scanRate" => float()
       }
       
   """
-  @type dynamo_db_target() :: %{String.t() => any()}
+  @type dynamo_db_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5741,53 +5743,53 @@ defmodule AWS.Glue do
         "AutoDataQuality" => auto_data_quality(),
         "Compression" => list(any()),
         "Format" => list(any()),
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
-        "NumberTargetPartitions" => String.t(),
-        "PartitionKeys" => list(list(String.t())()),
-        "Path" => String.t(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "NumberTargetPartitions" => String.t() | atom(),
+        "PartitionKeys" => list(list(String.t() | atom())()),
+        "Path" => String.t() | atom(),
         "SchemaChangePolicy" => direct_schema_change_policy()
       }
       
   """
-  @type s3_delta_direct_target() :: %{String.t() => any()}
+  @type s3_delta_direct_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_encryption() :: %{
-        "KmsKeyArn" => String.t(),
+        "KmsKeyArn" => String.t() | atom(),
         "S3EncryptionMode" => list(any())
       }
       
   """
-  @type s3_encryption() :: %{String.t() => any()}
+  @type s3_encryption() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_x_ml_classifier_request() :: %{
-        "Classification" => String.t(),
-        "Name" => String.t(),
-        "RowTag" => String.t()
+        "Classification" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RowTag" => String.t() | atom()
       }
       
   """
-  @type create_x_ml_classifier_request() :: %{String.t() => any()}
+  @type create_x_ml_classifier_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5801,7 +5803,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type iceberg_orphan_file_deletion_metrics() :: %{String.t() => any()}
+  @type iceberg_orphan_file_deletion_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5812,7 +5814,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_workflow_run_properties_response() :: %{String.t() => any()}
+  @type get_workflow_run_properties_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5823,7 +5825,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type orphan_file_deletion_metrics() :: %{String.t() => any()}
+  @type orphan_file_deletion_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5839,33 +5841,33 @@ defmodule AWS.Glue do
       }
       
   """
-  @type statistic_model_result() :: %{String.t() => any()}
+  @type statistic_model_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_job_request() :: %{
-        required("JobName") => String.t(),
+        required("JobName") => String.t() | atom(),
         required("JobUpdate") => job_update()
       }
       
   """
-  @type update_job_request() :: %{String.t() => any()}
+  @type update_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_partition_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("DatabaseName") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
         required("PartitionsToGet") => list(partition_value_list()),
-        required("TableName") => String.t()
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type batch_get_partition_request() :: %{String.t() => any()}
+  @type batch_get_partition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5877,7 +5879,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type batch_get_partition_response() :: %{String.t() => any()}
+  @type batch_get_partition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5889,7 +5891,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type schema_version_error_item() :: %{String.t() => any()}
+  @type schema_version_error_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5914,7 +5916,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type iceberg_retention_metrics() :: %{String.t() => any()}
+  @type iceberg_retention_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5925,7 +5927,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_mapping_response() :: %{String.t() => any()}
+  @type get_mapping_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5937,7 +5939,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_dataflow_graph_response() :: %{String.t() => any()}
+  @type get_dataflow_graph_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5953,25 +5955,25 @@ defmodule AWS.Glue do
   ## Example:
       
       metric_based_observation() :: %{
-        "MetricName" => String.t(),
+        "MetricName" => String.t() | atom(),
         "MetricValues" => data_quality_metric_values(),
-        "NewRules" => list(String.t()),
-        "StatisticId" => String.t()
+        "NewRules" => list(String.t() | atom()),
+        "StatisticId" => String.t() | atom()
       }
       
   """
-  @type metric_based_observation() :: %{String.t() => any()}
+  @type metric_based_observation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_source_control_from_job_response() :: %{
-        "JobName" => String.t()
+        "JobName" => String.t() | atom()
       }
       
   """
-  @type update_source_control_from_job_response() :: %{String.t() => any()}
+  @type update_source_control_from_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5980,12 +5982,12 @@ defmodule AWS.Glue do
       get_ml_transforms_request() :: %{
         optional("Filter") => transform_filter_criteria(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Sort") => transform_sort_criteria()
       }
       
   """
-  @type get_ml_transforms_request() :: %{String.t() => any()}
+  @type get_ml_transforms_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5999,21 +6001,21 @@ defmodule AWS.Glue do
         "ConnectionSchemaVersion" => integer(),
         "ConnectionType" => list(any()),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "LastConnectionValidationTime" => non_neg_integer(),
-        "LastUpdatedBy" => String.t(),
+        "LastUpdatedBy" => String.t() | atom(),
         "LastUpdatedTime" => non_neg_integer(),
-        "MatchCriteria" => list(String.t()),
-        "Name" => String.t(),
+        "MatchCriteria" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
         "PhysicalConnectionRequirements" => physical_connection_requirements(),
         "PythonProperties" => map(),
         "SparkProperties" => map(),
         "Status" => list(any()),
-        "StatusReason" => String.t()
+        "StatusReason" => String.t() | atom()
       }
       
   """
-  @type connection() :: %{String.t() => any()}
+  @type connection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6036,7 +6038,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_schema_versions_diff_input() :: %{String.t() => any()}
+  @type get_schema_versions_diff_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6045,27 +6047,27 @@ defmodule AWS.Glue do
       get_connections_filter() :: %{
         "ConnectionSchemaVersion" => integer(),
         "ConnectionType" => list(any()),
-        "MatchCriteria" => list(String.t())
+        "MatchCriteria" => list(String.t() | atom())
       }
       
   """
-  @type get_connections_filter() :: %{String.t() => any()}
+  @type get_connections_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_target() :: %{
-        "ConnectionName" => String.t(),
-        "DlqEventQueueArn" => String.t(),
-        "EventQueueArn" => String.t(),
-        "Exclusions" => list(String.t()),
-        "Path" => String.t(),
+        "ConnectionName" => String.t() | atom(),
+        "DlqEventQueueArn" => String.t() | atom(),
+        "EventQueueArn" => String.t() | atom(),
+        "Exclusions" => list(String.t() | atom()),
+        "Path" => String.t() | atom(),
         "SampleSize" => integer()
       }
       
   """
-  @type s3_target() :: %{String.t() => any()}
+  @type s3_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6073,12 +6075,12 @@ defmodule AWS.Glue do
       
       start_import_labels_task_run_request() :: %{
         optional("ReplaceAllLabels") => boolean(),
-        required("InputS3Path") => String.t(),
-        required("TransformId") => String.t()
+        required("InputS3Path") => String.t() | atom(),
+        required("TransformId") => String.t() | atom()
       }
       
   """
-  @type start_import_labels_task_run_request() :: %{String.t() => any()}
+  @type start_import_labels_task_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6087,11 +6089,11 @@ defmodule AWS.Glue do
       catalog_import_status() :: %{
         "ImportCompleted" => boolean(),
         "ImportTime" => non_neg_integer(),
-        "ImportedBy" => String.t()
+        "ImportedBy" => String.t() | atom()
       }
       
   """
-  @type catalog_import_status() :: %{String.t() => any()}
+  @type catalog_import_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6099,13 +6101,13 @@ defmodule AWS.Glue do
       
       update_schema_input() :: %{
         optional("Compatibility") => list(any()),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("SchemaVersionNumber") => schema_version_number(),
         required("SchemaId") => schema_id()
       }
       
   """
-  @type update_schema_input() :: %{String.t() => any()}
+  @type update_schema_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6113,12 +6115,12 @@ defmodule AWS.Glue do
       
       crawls_filter() :: %{
         "FieldName" => list(any()),
-        "FieldValue" => String.t(),
+        "FieldValue" => String.t() | atom(),
         "FilterOperator" => list(any())
       }
       
   """
-  @type crawls_filter() :: %{String.t() => any()}
+  @type crawls_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6139,20 +6141,20 @@ defmodule AWS.Glue do
       }
       
   """
-  @type workflow_graph() :: %{String.t() => any()}
+  @type workflow_graph() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_integration_resource_property_response() :: %{
-        "ResourceArn" => String.t(),
+        "ResourceArn" => String.t() | atom(),
         "SourceProcessingProperties" => source_processing_properties(),
         "TargetProcessingProperties" => target_processing_properties()
       }
       
   """
-  @type get_integration_resource_property_response() :: %{String.t() => any()}
+  @type get_integration_resource_property_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6168,14 +6170,14 @@ defmodule AWS.Glue do
   ## Example:
       
       list_triggers_request() :: %{
-        optional("DependentJobName") => String.t(),
+        optional("DependentJobName") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Tags") => map()
       }
       
   """
-  @type list_triggers_request() :: %{String.t() => any()}
+  @type list_triggers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6183,11 +6185,11 @@ defmodule AWS.Glue do
       
       start_workflow_run_request() :: %{
         optional("RunProperties") => map(),
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type start_workflow_run_request() :: %{String.t() => any()}
+  @type start_workflow_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6195,12 +6197,12 @@ defmodule AWS.Glue do
       
       dynamo_db_e_l_t_connector_source() :: %{
         "ConnectionOptions" => d_db_e_l_t_connection_options(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "OutputSchemas" => list(glue_schema())
       }
       
   """
-  @type dynamo_db_e_l_t_connector_source() :: %{String.t() => any()}
+  @type dynamo_db_e_l_t_connector_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6216,14 +6218,14 @@ defmodule AWS.Glue do
   ## Example:
       
       delete_partition_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("PartitionValues") => list(String.t()),
-        required("TableName") => String.t()
+        optional("CatalogId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("PartitionValues") => list(String.t() | atom()),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type delete_partition_request() :: %{String.t() => any()}
+  @type delete_partition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6239,90 +6241,90 @@ defmodule AWS.Glue do
   ## Example:
       
       federated_table() :: %{
-        "ConnectionName" => String.t(),
-        "ConnectionType" => String.t(),
-        "DatabaseIdentifier" => String.t(),
-        "Identifier" => String.t()
+        "ConnectionName" => String.t() | atom(),
+        "ConnectionType" => String.t() | atom(),
+        "DatabaseIdentifier" => String.t() | atom(),
+        "Identifier" => String.t() | atom()
       }
       
   """
-  @type federated_table() :: %{String.t() => any()}
+  @type federated_table() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_column_statistics_for_partition_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("ColumnNames") => list(String.t()),
-        required("DatabaseName") => String.t(),
-        required("PartitionValues") => list(String.t()),
-        required("TableName") => String.t()
+        optional("CatalogId") => String.t() | atom(),
+        required("ColumnNames") => list(String.t() | atom()),
+        required("DatabaseName") => String.t() | atom(),
+        required("PartitionValues") => list(String.t() | atom()),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type get_column_statistics_for_partition_request() :: %{String.t() => any()}
+  @type get_column_statistics_for_partition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_dev_endpoints_request() :: %{
-        required("DevEndpointNames") => list(String.t())
+        required("DevEndpointNames") => list(String.t() | atom())
       }
       
   """
-  @type batch_get_dev_endpoints_request() :: %{String.t() => any()}
+  @type batch_get_dev_endpoints_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       idempotent_parameter_mismatch_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type idempotent_parameter_mismatch_exception() :: %{String.t() => any()}
+  @type idempotent_parameter_mismatch_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       crawler_running_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type crawler_running_exception() :: %{String.t() => any()}
+  @type crawler_running_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       grok_classifier() :: %{
-        "Classification" => String.t(),
+        "Classification" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
-        "CustomPatterns" => String.t(),
-        "GrokPattern" => String.t(),
+        "CustomPatterns" => String.t() | atom(),
+        "GrokPattern" => String.t() | atom(),
         "LastUpdated" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Version" => float()
       }
       
   """
-  @type grok_classifier() :: %{String.t() => any()}
+  @type grok_classifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_trigger_response() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type stop_trigger_response() :: %{String.t() => any()}
+  @type stop_trigger_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6330,51 +6332,51 @@ defmodule AWS.Glue do
       
       join() :: %{
         "Columns" => list(join_column()),
-        "Inputs" => list(String.t()),
+        "Inputs" => list(String.t() | atom()),
         "JoinType" => list(any()),
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type join() :: %{String.t() => any()}
+  @type join() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       metadata_info() :: %{
-        "CreatedTime" => String.t(),
-        "MetadataValue" => String.t(),
+        "CreatedTime" => String.t() | atom(),
+        "MetadataValue" => String.t() | atom(),
         "OtherMetadataValueList" => list(other_metadata_value_list_item())
       }
       
   """
-  @type metadata_info() :: %{String.t() => any()}
+  @type metadata_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       recipe_action() :: %{
-        "Operation" => String.t(),
+        "Operation" => String.t() | atom(),
         "Parameters" => map()
       }
       
   """
-  @type recipe_action() :: %{String.t() => any()}
+  @type recipe_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       find_matches_task_run_properties() :: %{
-        "JobId" => String.t(),
-        "JobName" => String.t(),
-        "JobRunId" => String.t()
+        "JobId" => String.t() | atom(),
+        "JobName" => String.t() | atom(),
+        "JobRunId" => String.t() | atom()
       }
       
   """
-  @type find_matches_task_run_properties() :: %{String.t() => any()}
+  @type find_matches_task_run_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6382,11 +6384,11 @@ defmodule AWS.Glue do
       
       get_job_runs_response() :: %{
         "JobRuns" => list(job_run()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type get_job_runs_response() :: %{String.t() => any()}
+  @type get_job_runs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6394,14 +6396,14 @@ defmodule AWS.Glue do
       
       governed_catalog_source() :: %{
         "AdditionalOptions" => s3_source_additional_options(),
-        "Database" => String.t(),
-        "Name" => String.t(),
-        "PartitionPredicate" => String.t(),
-        "Table" => String.t()
+        "Database" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "PartitionPredicate" => String.t() | atom(),
+        "Table" => String.t() | atom()
       }
       
   """
-  @type governed_catalog_source() :: %{String.t() => any()}
+  @type governed_catalog_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6409,16 +6411,16 @@ defmodule AWS.Glue do
       
       data_quality_ruleset_list_details() :: %{
         "CreatedOn" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "LastModifiedOn" => non_neg_integer(),
-        "Name" => String.t(),
-        "RecommendationRunId" => String.t(),
+        "Name" => String.t() | atom(),
+        "RecommendationRunId" => String.t() | atom(),
         "RuleCount" => integer(),
         "TargetTable" => data_quality_target_table()
       }
       
   """
-  @type data_quality_ruleset_list_details() :: %{String.t() => any()}
+  @type data_quality_ruleset_list_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6426,11 +6428,11 @@ defmodule AWS.Glue do
       
       batch_update_partition_request_entry() :: %{
         "PartitionInput" => partition_input(),
-        "PartitionValueList" => list(String.t())
+        "PartitionValueList" => list(String.t() | atom())
       }
       
   """
-  @type batch_update_partition_request_entry() :: %{String.t() => any()}
+  @type batch_update_partition_request_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6438,31 +6440,31 @@ defmodule AWS.Glue do
       
       source_control_details() :: %{
         "AuthStrategy" => list(any()),
-        "AuthToken" => String.t(),
-        "Branch" => String.t(),
-        "Folder" => String.t(),
-        "LastCommitId" => String.t(),
-        "Owner" => String.t(),
+        "AuthToken" => String.t() | atom(),
+        "Branch" => String.t() | atom(),
+        "Folder" => String.t() | atom(),
+        "LastCommitId" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
         "Provider" => list(any()),
-        "Repository" => String.t()
+        "Repository" => String.t() | atom()
       }
       
   """
-  @type source_control_details() :: %{String.t() => any()}
+  @type source_control_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_grok_classifier_request() :: %{
-        "Classification" => String.t(),
-        "CustomPatterns" => String.t(),
-        "GrokPattern" => String.t(),
-        "Name" => String.t()
+        "Classification" => String.t() | atom(),
+        "CustomPatterns" => String.t() | atom(),
+        "GrokPattern" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type update_grok_classifier_request() :: %{String.t() => any()}
+  @type update_grok_classifier_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6470,22 +6472,22 @@ defmodule AWS.Glue do
       
       list_workflows_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_workflows_request() :: %{String.t() => any()}
+  @type list_workflows_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       no_schedule_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type no_schedule_exception() :: %{String.t() => any()}
+  @type no_schedule_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6495,16 +6497,16 @@ defmodule AWS.Glue do
         "AutoDataQuality" => auto_data_quality(),
         "Compression" => list(any()),
         "Format" => list(any()),
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
         "OutputSchemas" => list(glue_schema()),
-        "PartitionKeys" => list(list(String.t())()),
-        "Path" => String.t(),
+        "PartitionKeys" => list(list(String.t() | atom())()),
+        "Path" => String.t() | atom(),
         "SchemaChangePolicy" => direct_schema_change_policy()
       }
       
   """
-  @type s3_hyper_direct_target() :: %{String.t() => any()}
+  @type s3_hyper_direct_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6517,7 +6519,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type table_optimizer() :: %{String.t() => any()}
+  @type table_optimizer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6525,53 +6527,53 @@ defmodule AWS.Glue do
       
       spark_connector_source() :: %{
         "AdditionalOptions" => map(),
-        "ConnectionName" => String.t(),
-        "ConnectionType" => String.t(),
-        "ConnectorName" => String.t(),
-        "Name" => String.t(),
+        "ConnectionName" => String.t() | atom(),
+        "ConnectionType" => String.t() | atom(),
+        "ConnectorName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "OutputSchemas" => list(glue_schema())
       }
       
   """
-  @type spark_connector_source() :: %{String.t() => any()}
+  @type spark_connector_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_data_quality_ruleset_response() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type create_data_quality_ruleset_response() :: %{String.t() => any()}
+  @type create_data_quality_ruleset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_schema_response() :: %{
-        "SchemaArn" => String.t(),
-        "SchemaName" => String.t(),
+        "SchemaArn" => String.t() | atom(),
+        "SchemaName" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type delete_schema_response() :: %{String.t() => any()}
+  @type delete_schema_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_table_version_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("TableName") => String.t(),
-        required("VersionId") => String.t()
+        optional("CatalogId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom(),
+        required("VersionId") => String.t() | atom()
       }
       
   """
-  @type delete_table_version_request() :: %{String.t() => any()}
+  @type delete_table_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6579,30 +6581,30 @@ defmodule AWS.Glue do
       
       d_db_e_l_t_connection_options() :: %{
         "DynamodbExport" => list(any()),
-        "DynamodbS3Bucket" => String.t(),
-        "DynamodbS3BucketOwner" => String.t(),
-        "DynamodbS3Prefix" => String.t(),
-        "DynamodbStsRoleArn" => String.t(),
-        "DynamodbTableArn" => String.t(),
+        "DynamodbS3Bucket" => String.t() | atom(),
+        "DynamodbS3BucketOwner" => String.t() | atom(),
+        "DynamodbS3Prefix" => String.t() | atom(),
+        "DynamodbStsRoleArn" => String.t() | atom(),
+        "DynamodbTableArn" => String.t() | atom(),
         "DynamodbUnnestDDBJson" => boolean()
       }
       
   """
-  @type d_db_e_l_t_connection_options() :: %{String.t() => any()}
+  @type d_db_e_l_t_connection_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       recipe() :: %{
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
         "RecipeReference" => recipe_reference(),
         "RecipeSteps" => list(recipe_step())
       }
       
   """
-  @type recipe() :: %{String.t() => any()}
+  @type recipe() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6613,7 +6615,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_blueprint_response() :: %{String.t() => any()}
+  @type get_blueprint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6621,12 +6623,12 @@ defmodule AWS.Glue do
       
       get_blueprint_runs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("BlueprintName") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("BlueprintName") => String.t() | atom()
       }
       
   """
-  @type get_blueprint_runs_request() :: %{String.t() => any()}
+  @type get_blueprint_runs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6634,37 +6636,37 @@ defmodule AWS.Glue do
       
       route() :: %{
         "GroupFiltersList" => list(group_filters()),
-        "Inputs" => list(String.t()),
-        "Name" => String.t()
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type route() :: %{String.t() => any()}
+  @type route() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       catalog_entry() :: %{
-        "DatabaseName" => String.t(),
-        "TableName" => String.t()
+        "DatabaseName" => String.t() | atom(),
+        "TableName" => String.t() | atom()
       }
       
   """
-  @type catalog_entry() :: %{String.t() => any()}
+  @type catalog_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       my_s_q_l_catalog_source() :: %{
-        "Database" => String.t(),
-        "Name" => String.t(),
-        "Table" => String.t()
+        "Database" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Table" => String.t() | atom()
       }
       
   """
-  @type my_s_q_l_catalog_source() :: %{String.t() => any()}
+  @type my_s_q_l_catalog_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6674,16 +6676,16 @@ defmodule AWS.Glue do
         "BlueprintDetails" => blueprint_details(),
         "CreatedOn" => non_neg_integer(),
         "DefaultRunProperties" => map(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "Graph" => workflow_graph(),
         "LastModifiedOn" => non_neg_integer(),
         "LastRun" => workflow_run(),
         "MaxConcurrentRuns" => integer(),
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type workflow() :: %{String.t() => any()}
+  @type workflow() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6692,13 +6694,13 @@ defmodule AWS.Glue do
       get_ml_task_runs_request() :: %{
         optional("Filter") => task_run_filter_criteria(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Sort") => task_run_sort_criteria(),
-        required("TransformId") => String.t()
+        required("TransformId") => String.t() | atom()
       }
       
   """
-  @type get_ml_task_runs_request() :: %{String.t() => any()}
+  @type get_ml_task_runs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6706,15 +6708,15 @@ defmodule AWS.Glue do
       
       view_validation() :: %{
         "Dialect" => list(any()),
-        "DialectVersion" => String.t(),
+        "DialectVersion" => String.t() | atom(),
         "Error" => error_detail(),
         "State" => list(any()),
         "UpdateTime" => non_neg_integer(),
-        "ViewValidationText" => String.t()
+        "ViewValidationText" => String.t() | atom()
       }
       
   """
-  @type view_validation() :: %{String.t() => any()}
+  @type view_validation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6722,8 +6724,8 @@ defmodule AWS.Glue do
       
       field() :: %{
         "CustomProperties" => map(),
-        "Description" => String.t(),
-        "FieldName" => String.t(),
+        "Description" => String.t() | atom(),
+        "FieldName" => String.t() | atom(),
         "FieldType" => list(any()),
         "IsCreateable" => boolean(),
         "IsDefaultOnCreate" => boolean(),
@@ -6734,26 +6736,26 @@ defmodule AWS.Glue do
         "IsRetrievable" => boolean(),
         "IsUpdateable" => boolean(),
         "IsUpsertable" => boolean(),
-        "Label" => String.t(),
-        "NativeDataType" => [String.t()],
-        "ParentField" => [String.t()],
+        "Label" => String.t() | atom(),
+        "NativeDataType" => [String.t() | atom()],
+        "ParentField" => [String.t() | atom()],
         "SupportedFilterOperators" => list(list(any())()),
-        "SupportedValues" => list([String.t()]())
+        "SupportedValues" => list([String.t() | atom()]())
       }
       
   """
-  @type field() :: %{String.t() => any()}
+  @type field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       illegal_workflow_state_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type illegal_workflow_state_exception() :: %{String.t() => any()}
+  @type illegal_workflow_state_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6761,61 +6763,61 @@ defmodule AWS.Glue do
       
       datapoint_inclusion_annotation() :: %{
         "InclusionAnnotation" => list(any()),
-        "ProfileId" => String.t(),
-        "StatisticId" => String.t()
+        "ProfileId" => String.t() | atom(),
+        "StatisticId" => String.t() | atom()
       }
       
   """
-  @type datapoint_inclusion_annotation() :: %{String.t() => any()}
+  @type datapoint_inclusion_annotation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       sort_criterion() :: %{
-        "FieldName" => String.t(),
+        "FieldName" => String.t() | atom(),
         "Sort" => list(any())
       }
       
   """
-  @type sort_criterion() :: %{String.t() => any()}
+  @type sort_criterion() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       glue_studio_schema_column() :: %{
-        "GlueStudioType" => String.t(),
-        "Name" => String.t(),
-        "Type" => String.t()
+        "GlueStudioType" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
       
   """
-  @type glue_studio_schema_column() :: %{String.t() => any()}
+  @type glue_studio_schema_column() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_crawler_request() :: %{
-        optional("Classifiers") => list(String.t()),
-        optional("Configuration") => String.t(),
-        optional("CrawlerSecurityConfiguration") => String.t(),
-        optional("DatabaseName") => String.t(),
-        optional("Description") => String.t(),
+        optional("Classifiers") => list(String.t() | atom()),
+        optional("Configuration") => String.t() | atom(),
+        optional("CrawlerSecurityConfiguration") => String.t() | atom(),
+        optional("DatabaseName") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("LakeFormationConfiguration") => lake_formation_configuration(),
         optional("LineageConfiguration") => lineage_configuration(),
         optional("RecrawlPolicy") => recrawl_policy(),
-        optional("Role") => String.t(),
-        optional("Schedule") => String.t(),
+        optional("Role") => String.t() | atom(),
+        optional("Schedule") => String.t() | atom(),
         optional("SchemaChangePolicy") => schema_change_policy(),
-        optional("TablePrefix") => String.t(),
+        optional("TablePrefix") => String.t() | atom(),
         optional("Targets") => crawler_targets(),
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type update_crawler_request() :: %{String.t() => any()}
+  @type update_crawler_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6829,18 +6831,18 @@ defmodule AWS.Glue do
       }
       
   """
-  @type create_classifier_request() :: %{String.t() => any()}
+  @type create_classifier_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_security_configuration_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type get_security_configuration_request() :: %{String.t() => any()}
+  @type get_security_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6851,7 +6853,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_tags_response() :: %{String.t() => any()}
+  @type get_tags_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6859,77 +6861,77 @@ defmodule AWS.Glue do
       
       catalog_iceberg_source() :: %{
         "AdditionalIcebergOptions" => map(),
-        "Database" => String.t(),
-        "Name" => String.t(),
+        "Database" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "OutputSchemas" => list(glue_schema()),
-        "Table" => String.t()
+        "Table" => String.t() | atom()
       }
       
   """
-  @type catalog_iceberg_source() :: %{String.t() => any()}
+  @type catalog_iceberg_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_data_quality_rule_recommendation_run_request() :: %{
-        required("RunId") => String.t()
+        required("RunId") => String.t() | atom()
       }
       
   """
-  @type get_data_quality_rule_recommendation_run_request() :: %{String.t() => any()}
+  @type get_data_quality_rule_recommendation_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       direct_schema_change_policy() :: %{
-        "Database" => String.t(),
+        "Database" => String.t() | atom(),
         "EnableUpdateCatalog" => boolean(),
-        "Table" => String.t(),
+        "Table" => String.t() | atom(),
         "UpdateBehavior" => list(any())
       }
       
   """
-  @type direct_schema_change_policy() :: %{String.t() => any()}
+  @type direct_schema_change_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_crawler_request() :: %{
-        optional("Classifiers") => list(String.t()),
-        optional("Configuration") => String.t(),
-        optional("CrawlerSecurityConfiguration") => String.t(),
-        optional("DatabaseName") => String.t(),
-        optional("Description") => String.t(),
+        optional("Classifiers") => list(String.t() | atom()),
+        optional("Configuration") => String.t() | atom(),
+        optional("CrawlerSecurityConfiguration") => String.t() | atom(),
+        optional("DatabaseName") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("LakeFormationConfiguration") => lake_formation_configuration(),
         optional("LineageConfiguration") => lineage_configuration(),
         optional("RecrawlPolicy") => recrawl_policy(),
-        optional("Schedule") => String.t(),
+        optional("Schedule") => String.t() | atom(),
         optional("SchemaChangePolicy") => schema_change_policy(),
-        optional("TablePrefix") => String.t(),
+        optional("TablePrefix") => String.t() | atom(),
         optional("Tags") => map(),
-        required("Name") => String.t(),
-        required("Role") => String.t(),
+        required("Name") => String.t() | atom(),
+        required("Role") => String.t() | atom(),
         required("Targets") => crawler_targets()
       }
       
   """
-  @type create_crawler_request() :: %{String.t() => any()}
+  @type create_crawler_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_workflow_run_properties_request() :: %{
-        required("Name") => String.t(),
-        required("RunId") => String.t(),
+        required("Name") => String.t() | atom(),
+        required("RunId") => String.t() | atom(),
         required("RunProperties") => map()
       }
       
   """
-  @type put_workflow_run_properties_request() :: %{String.t() => any()}
+  @type put_workflow_run_properties_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6940,7 +6942,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type delete_schema_versions_response() :: %{String.t() => any()}
+  @type delete_schema_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6949,13 +6951,13 @@ defmodule AWS.Glue do
       direct_kafka_source() :: %{
         "DataPreviewOptions" => streaming_data_preview_options(),
         "DetectSchema" => boolean(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "StreamingOptions" => kafka_streaming_source_options(),
         "WindowSize" => integer()
       }
       
   """
-  @type direct_kafka_source() :: %{String.t() => any()}
+  @type direct_kafka_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6963,12 +6965,12 @@ defmodule AWS.Glue do
       
       select_from_collection() :: %{
         "Index" => integer(),
-        "Inputs" => list(String.t()),
-        "Name" => String.t()
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type select_from_collection() :: %{String.t() => any()}
+  @type select_from_collection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6986,16 +6988,16 @@ defmodule AWS.Glue do
       s3_glue_parquet_target() :: %{
         "AutoDataQuality" => auto_data_quality(),
         "Compression" => list(any()),
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
-        "NumberTargetPartitions" => String.t(),
-        "PartitionKeys" => list(list(String.t())()),
-        "Path" => String.t(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "NumberTargetPartitions" => String.t() | atom(),
+        "PartitionKeys" => list(list(String.t() | atom())()),
+        "Path" => String.t() | atom(),
         "SchemaChangePolicy" => direct_schema_change_policy()
       }
       
   """
-  @type s3_glue_parquet_target() :: %{String.t() => any()}
+  @type s3_glue_parquet_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7003,11 +7005,11 @@ defmodule AWS.Glue do
       
       invalid_input_exception() :: %{
         "FromFederationSource" => boolean(),
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_input_exception() :: %{String.t() => any()}
+  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7018,33 +7020,33 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_column_statistics_task_run_response() :: %{String.t() => any()}
+  @type get_column_statistics_task_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_integration_table_properties_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("TableName") => String.t()
+        required("ResourceArn") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type delete_integration_table_properties_request() :: %{String.t() => any()}
+  @type delete_integration_table_properties_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       storage_descriptor() :: %{
-        "AdditionalLocations" => list(String.t()),
-        "BucketColumns" => list(String.t()),
+        "AdditionalLocations" => list(String.t() | atom()),
+        "BucketColumns" => list(String.t() | atom()),
         "Columns" => list(column()),
         "Compressed" => boolean(),
-        "InputFormat" => String.t(),
-        "Location" => String.t(),
+        "InputFormat" => String.t() | atom(),
+        "Location" => String.t() | atom(),
         "NumberOfBuckets" => integer(),
-        "OutputFormat" => String.t(),
+        "OutputFormat" => String.t() | atom(),
         "Parameters" => map(),
         "SchemaReference" => schema_reference(),
         "SerdeInfo" => ser_de_info(),
@@ -7054,7 +7056,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type storage_descriptor() :: %{String.t() => any()}
+  @type storage_descriptor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7065,148 +7067,148 @@ defmodule AWS.Glue do
       }
       
   """
-  @type compaction_metrics() :: %{String.t() => any()}
+  @type compaction_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_integration_table_properties_response() :: %{
-        "ResourceArn" => String.t(),
+        "ResourceArn" => String.t() | atom(),
         "SourceTableConfig" => source_table_config(),
-        "TableName" => String.t(),
+        "TableName" => String.t() | atom(),
         "TargetTableConfig" => target_table_config()
       }
       
   """
-  @type get_integration_table_properties_response() :: %{String.t() => any()}
+  @type get_integration_table_properties_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       integration_partition() :: %{
-        "ConversionSpec" => String.t(),
-        "FieldName" => String.t(),
-        "FunctionSpec" => String.t()
+        "ConversionSpec" => String.t() | atom(),
+        "FieldName" => String.t() | atom(),
+        "FunctionSpec" => String.t() | atom()
       }
       
   """
-  @type integration_partition() :: %{String.t() => any()}
+  @type integration_partition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       error_details() :: %{
-        "ErrorCode" => String.t(),
-        "ErrorMessage" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom()
       }
       
   """
-  @type error_details() :: %{String.t() => any()}
+  @type error_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       target_redshift_catalog() :: %{
-        "CatalogArn" => String.t()
+        "CatalogArn" => String.t() | atom()
       }
       
   """
-  @type target_redshift_catalog() :: %{String.t() => any()}
+  @type target_redshift_catalog() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_security_configuration_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type delete_security_configuration_request() :: %{String.t() => any()}
+  @type delete_security_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       unfiltered_partition() :: %{
-        "AuthorizedColumns" => list(String.t()),
+        "AuthorizedColumns" => list(String.t() | atom()),
         "IsRegisteredWithLakeFormation" => boolean(),
         "Partition" => partition()
       }
       
   """
-  @type unfiltered_partition() :: %{String.t() => any()}
+  @type unfiltered_partition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_partition_index_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("IndexName") => String.t(),
-        required("TableName") => String.t()
+        optional("CatalogId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("IndexName") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type delete_partition_index_request() :: %{String.t() => any()}
+  @type delete_partition_index_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_data_quality_ruleset_evaluation_run_request() :: %{
-        required("RunId") => String.t()
+        required("RunId") => String.t() | atom()
       }
       
   """
-  @type get_data_quality_ruleset_evaluation_run_request() :: %{String.t() => any()}
+  @type get_data_quality_ruleset_evaluation_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       catalog_target() :: %{
-        "ConnectionName" => String.t(),
-        "DatabaseName" => String.t(),
-        "DlqEventQueueArn" => String.t(),
-        "EventQueueArn" => String.t(),
-        "Tables" => list(String.t())
+        "ConnectionName" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
+        "DlqEventQueueArn" => String.t() | atom(),
+        "EventQueueArn" => String.t() | atom(),
+        "Tables" => list(String.t() | atom())
       }
       
   """
-  @type catalog_target() :: %{String.t() => any()}
+  @type catalog_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_script_response() :: %{
-        "PythonScript" => String.t(),
-        "ScalaCode" => String.t()
+        "PythonScript" => String.t() | atom(),
+        "ScalaCode" => String.t() | atom()
       }
       
   """
-  @type create_script_response() :: %{String.t() => any()}
+  @type create_script_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       last_active_definition() :: %{
-        "BlueprintLocation" => String.t(),
-        "BlueprintServiceLocation" => String.t(),
-        "Description" => String.t(),
+        "BlueprintLocation" => String.t() | atom(),
+        "BlueprintServiceLocation" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "LastModifiedOn" => non_neg_integer(),
-        "ParameterSpec" => String.t()
+        "ParameterSpec" => String.t() | atom()
       }
       
   """
-  @type last_active_definition() :: %{String.t() => any()}
+  @type last_active_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7228,7 +7230,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_mapping_request() :: %{String.t() => any()}
+  @type get_mapping_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7239,18 +7241,18 @@ defmodule AWS.Glue do
       }
       
   """
-  @type update_trigger_response() :: %{String.t() => any()}
+  @type update_trigger_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_data_quality_result_request() :: %{
-        required("ResultId") => String.t()
+        required("ResultId") => String.t() | atom()
       }
       
   """
-  @type get_data_quality_result_request() :: %{String.t() => any()}
+  @type get_data_quality_result_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7261,7 +7263,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_catalog_import_status_response() :: %{String.t() => any()}
+  @type get_catalog_import_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7272,39 +7274,39 @@ defmodule AWS.Glue do
         "CatalogProperties" => catalog_properties(),
         "CreateDatabaseDefaultPermissions" => list(principal_permissions()),
         "CreateTableDefaultPermissions" => list(principal_permissions()),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "FederatedCatalog" => federated_catalog(),
         "Parameters" => map(),
         "TargetRedshiftCatalog" => target_redshift_catalog()
       }
       
   """
-  @type catalog_input() :: %{String.t() => any()}
+  @type catalog_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       source_table_config() :: %{
-        "Fields" => list(String.t()),
-        "FilterPredicate" => String.t(),
-        "PrimaryKey" => list(String.t()),
-        "RecordUpdateField" => String.t()
+        "Fields" => list(String.t() | atom()),
+        "FilterPredicate" => String.t() | atom(),
+        "PrimaryKey" => list(String.t() | atom()),
+        "RecordUpdateField" => String.t() | atom()
       }
       
   """
-  @type source_table_config() :: %{String.t() => any()}
+  @type source_table_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_dev_endpoint_request() :: %{
-        required("EndpointName") => String.t()
+        required("EndpointName") => String.t() | atom()
       }
       
   """
-  @type delete_dev_endpoint_request() :: %{String.t() => any()}
+  @type delete_dev_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7320,27 +7322,27 @@ defmodule AWS.Glue do
   ## Example:
       
       get_crawler_metrics_request() :: %{
-        optional("CrawlerNameList") => list(String.t()),
+        optional("CrawlerNameList") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type get_crawler_metrics_request() :: %{String.t() => any()}
+  @type get_crawler_metrics_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       data_lake_access_properties() :: %{
-        "CatalogType" => String.t(),
+        "CatalogType" => String.t() | atom(),
         "DataLakeAccess" => boolean(),
-        "DataTransferRole" => String.t(),
-        "KmsKey" => String.t()
+        "DataTransferRole" => String.t() | atom(),
+        "KmsKey" => String.t() | atom()
       }
       
   """
-  @type data_lake_access_properties() :: %{String.t() => any()}
+  @type data_lake_access_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7348,24 +7350,24 @@ defmodule AWS.Glue do
       
       list_sessions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("RequestOrigin") => String.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("RequestOrigin") => String.t() | atom(),
         optional("Tags") => map()
       }
       
   """
-  @type list_sessions_request() :: %{String.t() => any()}
+  @type list_sessions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_workflow_response() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type update_workflow_response() :: %{String.t() => any()}
+  @type update_workflow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7376,7 +7378,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type iceberg_compaction_configuration() :: %{String.t() => any()}
+  @type iceberg_compaction_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7386,81 +7388,81 @@ defmodule AWS.Glue do
         "AllowSingleColumn" => boolean(),
         "ContainsHeader" => list(any()),
         "CustomDatatypeConfigured" => boolean(),
-        "CustomDatatypes" => list(String.t()),
-        "Delimiter" => String.t(),
+        "CustomDatatypes" => list(String.t() | atom()),
+        "Delimiter" => String.t() | atom(),
         "DisableValueTrimming" => boolean(),
-        "Header" => list(String.t()),
-        "Name" => String.t(),
-        "QuoteSymbol" => String.t(),
+        "Header" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "QuoteSymbol" => String.t() | atom(),
         "Serde" => list(any())
       }
       
   """
-  @type create_csv_classifier_request() :: %{String.t() => any()}
+  @type create_csv_classifier_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       blueprint() :: %{
-        "BlueprintLocation" => String.t(),
-        "BlueprintServiceLocation" => String.t(),
+        "BlueprintLocation" => String.t() | atom(),
+        "BlueprintServiceLocation" => String.t() | atom(),
         "CreatedOn" => non_neg_integer(),
-        "Description" => String.t(),
-        "ErrorMessage" => String.t(),
+        "Description" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
         "LastActiveDefinition" => last_active_definition(),
         "LastModifiedOn" => non_neg_integer(),
-        "Name" => String.t(),
-        "ParameterSpec" => String.t(),
+        "Name" => String.t() | atom(),
+        "ParameterSpec" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type blueprint() :: %{String.t() => any()}
+  @type blueprint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       annotation_error() :: %{
-        "FailureReason" => String.t(),
-        "ProfileId" => String.t(),
-        "StatisticId" => String.t()
+        "FailureReason" => String.t() | atom(),
+        "ProfileId" => String.t() | atom(),
+        "StatisticId" => String.t() | atom()
       }
       
   """
-  @type annotation_error() :: %{String.t() => any()}
+  @type annotation_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       crawler_history() :: %{
-        "CrawlId" => String.t(),
+        "CrawlId" => String.t() | atom(),
         "DPUHour" => float(),
         "EndTime" => non_neg_integer(),
-        "ErrorMessage" => String.t(),
-        "LogGroup" => String.t(),
-        "LogStream" => String.t(),
-        "MessagePrefix" => String.t(),
+        "ErrorMessage" => String.t() | atom(),
+        "LogGroup" => String.t() | atom(),
+        "LogStream" => String.t() | atom(),
+        "MessagePrefix" => String.t() | atom(),
         "StartTime" => non_neg_integer(),
         "State" => list(any()),
-        "Summary" => String.t()
+        "Summary" => String.t() | atom()
       }
       
   """
-  @type crawler_history() :: %{String.t() => any()}
+  @type crawler_history() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       connections_list() :: %{
-        "Connections" => list(String.t())
+        "Connections" => list(String.t() | atom())
       }
       
   """
-  @type connections_list() :: %{String.t() => any()}
+  @type connections_list() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7468,22 +7470,22 @@ defmodule AWS.Glue do
       
       create_security_configuration_response() :: %{
         "CreatedTimestamp" => non_neg_integer(),
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type create_security_configuration_response() :: %{String.t() => any()}
+  @type create_security_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_workflow_run_response() :: %{
-        "RunId" => String.t()
+        "RunId" => String.t() | atom()
       }
       
   """
-  @type start_workflow_run_response() :: %{String.t() => any()}
+  @type start_workflow_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7493,11 +7495,11 @@ defmodule AWS.Glue do
         "Direction" => list(any()),
         "NullOrder" => list(any()),
         "SourceId" => integer(),
-        "Transform" => String.t()
+        "Transform" => String.t() | atom()
       }
       
   """
-  @type iceberg_sort_field() :: %{String.t() => any()}
+  @type iceberg_sort_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7507,16 +7509,16 @@ defmodule AWS.Glue do
         "ComputeEnvironment" => list(any()),
         "ConnectionOptionNameOverrides" => map(),
         "ConnectionOptions" => map(),
-        "ConnectionPropertiesRequiredOverrides" => list([String.t()]()),
+        "ConnectionPropertiesRequiredOverrides" => list([String.t() | atom()]()),
         "ConnectionPropertyNameOverrides" => map(),
-        "Description" => String.t(),
-        "Name" => String.t(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "PhysicalConnectionPropertiesRequired" => boolean(),
         "SupportedAuthenticationTypes" => list(list(any())())
       }
       
   """
-  @type compute_environment_configuration() :: %{String.t() => any()}
+  @type compute_environment_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7526,17 +7528,17 @@ defmodule AWS.Glue do
         "AllowSingleColumn" => boolean(),
         "ContainsHeader" => list(any()),
         "CustomDatatypeConfigured" => boolean(),
-        "CustomDatatypes" => list(String.t()),
-        "Delimiter" => String.t(),
+        "CustomDatatypes" => list(String.t() | atom()),
+        "Delimiter" => String.t() | atom(),
         "DisableValueTrimming" => boolean(),
-        "Header" => list(String.t()),
-        "Name" => String.t(),
-        "QuoteSymbol" => String.t(),
+        "Header" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "QuoteSymbol" => String.t() | atom(),
         "Serde" => list(any())
       }
       
   """
-  @type update_csv_classifier_request() :: %{String.t() => any()}
+  @type update_csv_classifier_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7544,14 +7546,14 @@ defmodule AWS.Glue do
       
       s3_catalog_delta_source() :: %{
         "AdditionalDeltaOptions" => map(),
-        "Database" => String.t(),
-        "Name" => String.t(),
+        "Database" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "OutputSchemas" => list(glue_schema()),
-        "Table" => String.t()
+        "Table" => String.t() | atom()
       }
       
   """
-  @type s3_catalog_delta_source() :: %{String.t() => any()}
+  @type s3_catalog_delta_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7559,26 +7561,26 @@ defmodule AWS.Glue do
       
       condition() :: %{
         "CrawlState" => list(any()),
-        "CrawlerName" => String.t(),
-        "JobName" => String.t(),
+        "CrawlerName" => String.t() | atom(),
+        "JobName" => String.t() | atom(),
         "LogicalOperator" => list(any()),
         "State" => list(any())
       }
       
   """
-  @type condition() :: %{String.t() => any()}
+  @type condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_data_quality_model_request() :: %{
-        optional("StatisticId") => String.t(),
-        required("ProfileId") => String.t()
+        optional("StatisticId") => String.t() | atom(),
+        required("ProfileId") => String.t() | atom()
       }
       
   """
-  @type get_data_quality_model_request() :: %{String.t() => any()}
+  @type get_data_quality_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7591,7 +7593,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type location() :: %{String.t() => any()}
+  @type location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7605,7 +7607,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type classifier() :: %{String.t() => any()}
+  @type classifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7618,63 +7620,63 @@ defmodule AWS.Glue do
       }
       
   """
-  @type filter_expression() :: %{String.t() => any()}
+  @type filter_expression() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       search_tables_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "TableList" => list(table())
       }
       
   """
-  @type search_tables_response() :: %{String.t() => any()}
+  @type search_tables_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_ml_evaluation_task_run_request() :: %{
-        required("TransformId") => String.t()
+        required("TransformId") => String.t() | atom()
       }
       
   """
-  @type start_ml_evaluation_task_run_request() :: %{String.t() => any()}
+  @type start_ml_evaluation_task_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_trigger_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("EventBatchingCondition") => event_batching_condition(),
         optional("Predicate") => predicate(),
-        optional("Schedule") => String.t(),
+        optional("Schedule") => String.t() | atom(),
         optional("StartOnCreation") => boolean(),
         optional("Tags") => map(),
-        optional("WorkflowName") => String.t(),
+        optional("WorkflowName") => String.t() | atom(),
         required("Actions") => list(action()),
-        required("Name") => String.t(),
+        required("Name") => String.t() | atom(),
         required("Type") => list(any())
       }
       
   """
-  @type create_trigger_request() :: %{String.t() => any()}
+  @type create_trigger_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       mongo_db_target() :: %{
-        "ConnectionName" => String.t(),
-        "Path" => String.t(),
+        "ConnectionName" => String.t() | atom(),
+        "Path" => String.t() | atom(),
         "ScanAll" => boolean()
       }
       
   """
-  @type mongo_db_target() :: %{String.t() => any()}
+  @type mongo_db_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7682,23 +7684,23 @@ defmodule AWS.Glue do
       
       data_quality_encryption() :: %{
         "DataQualityEncryptionMode" => list(any()),
-        "KmsKeyArn" => String.t()
+        "KmsKeyArn" => String.t() | atom()
       }
       
   """
-  @type data_quality_encryption() :: %{String.t() => any()}
+  @type data_quality_encryption() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       datatype() :: %{
-        "Id" => String.t(),
-        "Label" => String.t()
+        "Id" => String.t() | atom(),
+        "Label" => String.t() | atom()
       }
       
   """
-  @type datatype() :: %{String.t() => any()}
+  @type datatype() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7707,39 +7709,39 @@ defmodule AWS.Glue do
       glue_node() :: %{
         "CrawlerDetails" => crawler_node_details(),
         "JobDetails" => job_node_details(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "TriggerDetails" => trigger_node_details(),
         "Type" => list(any()),
-        "UniqueId" => String.t()
+        "UniqueId" => String.t() | atom()
       }
       
   """
-  @type glue_node() :: %{String.t() => any()}
+  @type glue_node() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       connection_password_encryption() :: %{
-        "AwsKmsKeyId" => String.t(),
+        "AwsKmsKeyId" => String.t() | atom(),
         "ReturnConnectionPasswordEncrypted" => boolean()
       }
       
   """
-  @type connection_password_encryption() :: %{String.t() => any()}
+  @type connection_password_encryption() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       database_identifier() :: %{
-        "CatalogId" => String.t(),
-        "DatabaseName" => String.t(),
-        "Region" => String.t()
+        "CatalogId" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
+        "Region" => String.t() | atom()
       }
       
   """
-  @type database_identifier() :: %{String.t() => any()}
+  @type database_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7748,41 +7750,41 @@ defmodule AWS.Glue do
       s3_iceberg_catalog_target() :: %{
         "AdditionalOptions" => map(),
         "AutoDataQuality" => auto_data_quality(),
-        "Database" => String.t(),
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
-        "PartitionKeys" => list(list(String.t())()),
+        "Database" => String.t() | atom(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "PartitionKeys" => list(list(String.t() | atom())()),
         "SchemaChangePolicy" => catalog_schema_change_policy(),
-        "Table" => String.t()
+        "Table" => String.t() | atom()
       }
       
   """
-  @type s3_iceberg_catalog_target() :: %{String.t() => any()}
+  @type s3_iceberg_catalog_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_update_partition_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("DatabaseName") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
         required("Entries") => list(batch_update_partition_request_entry()),
-        required("TableName") => String.t()
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type batch_update_partition_request() :: %{String.t() => any()}
+  @type batch_update_partition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resource_policy_request() :: %{
-        optional("ResourceArn") => String.t()
+        optional("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type get_resource_policy_request() :: %{String.t() => any()}
+  @type get_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7796,7 +7798,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type decimal_column_statistics_data() :: %{String.t() => any()}
+  @type decimal_column_statistics_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7809,7 +7811,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type null_check_box_list() :: %{String.t() => any()}
+  @type null_check_box_list() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7822,24 +7824,24 @@ defmodule AWS.Glue do
         "CreatedOn" => non_neg_integer(),
         "DPUSeconds" => float(),
         "DefaultArguments" => map(),
-        "Description" => String.t(),
-        "ErrorMessage" => String.t(),
+        "Description" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
         "ExecutionTime" => float(),
-        "GlueVersion" => String.t(),
-        "Id" => String.t(),
+        "GlueVersion" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "IdleTimeout" => integer(),
         "MaxCapacity" => float(),
         "NumberOfWorkers" => integer(),
-        "ProfileName" => String.t(),
+        "ProfileName" => String.t() | atom(),
         "Progress" => float(),
-        "Role" => String.t(),
-        "SecurityConfiguration" => String.t(),
+        "Role" => String.t() | atom(),
+        "SecurityConfiguration" => String.t() | atom(),
         "Status" => list(any()),
         "WorkerType" => list(any())
       }
       
   """
-  @type session() :: %{String.t() => any()}
+  @type session() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7850,7 +7852,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_catalog_response() :: %{String.t() => any()}
+  @type get_catalog_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7861,20 +7863,20 @@ defmodule AWS.Glue do
       }
       
   """
-  @type execution_property() :: %{String.t() => any()}
+  @type execution_property() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_blueprint_run_request() :: %{
-        optional("Parameters") => String.t(),
-        required("BlueprintName") => String.t(),
-        required("RoleArn") => String.t()
+        optional("Parameters") => String.t() | atom(),
+        required("BlueprintName") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
       }
       
   """
-  @type start_blueprint_run_request() :: %{String.t() => any()}
+  @type start_blueprint_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7882,42 +7884,42 @@ defmodule AWS.Glue do
       
       get_resource_policies_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type get_resource_policies_request() :: %{String.t() => any()}
+  @type get_resource_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       snowflake_node_data() :: %{
-        "Action" => String.t(),
+        "Action" => String.t() | atom(),
         "AdditionalOptions" => map(),
         "AutoPushdown" => boolean(),
         "Connection" => option(),
-        "Database" => String.t(),
+        "Database" => String.t() | atom(),
         "IamRole" => option(),
-        "MergeAction" => String.t(),
-        "MergeClause" => String.t(),
-        "MergeWhenMatched" => String.t(),
-        "MergeWhenNotMatched" => String.t(),
-        "PostAction" => String.t(),
-        "PreAction" => String.t(),
-        "SampleQuery" => String.t(),
-        "Schema" => String.t(),
+        "MergeAction" => String.t() | atom(),
+        "MergeClause" => String.t() | atom(),
+        "MergeWhenMatched" => String.t() | atom(),
+        "MergeWhenNotMatched" => String.t() | atom(),
+        "PostAction" => String.t() | atom(),
+        "PreAction" => String.t() | atom(),
+        "SampleQuery" => String.t() | atom(),
+        "Schema" => String.t() | atom(),
         "SelectedColumns" => list(option()),
-        "SourceType" => String.t(),
-        "StagingTable" => String.t(),
-        "Table" => String.t(),
+        "SourceType" => String.t() | atom(),
+        "StagingTable" => String.t() | atom(),
+        "Table" => String.t() | atom(),
         "TableSchema" => list(option()),
-        "TempDir" => String.t(),
+        "TempDir" => String.t() | atom(),
         "Upsert" => boolean()
       }
       
   """
-  @type snowflake_node_data() :: %{String.t() => any()}
+  @type snowflake_node_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7925,25 +7927,25 @@ defmodule AWS.Glue do
       
       get_resource_policies_response() :: %{
         "GetResourcePoliciesResponseList" => list(glue_policy()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type get_resource_policies_response() :: %{String.t() => any()}
+  @type get_resource_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       view_definition() :: %{
-        "Definer" => String.t(),
+        "Definer" => String.t() | atom(),
         "IsProtected" => boolean(),
         "Representations" => list(view_representation()),
-        "SubObjects" => list(String.t())
+        "SubObjects" => list(String.t() | atom())
       }
       
   """
-  @type view_definition() :: %{String.t() => any()}
+  @type view_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7951,11 +7953,11 @@ defmodule AWS.Glue do
       
       get_crawlers_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type get_crawlers_request() :: %{String.t() => any()}
+  @type get_crawlers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7963,25 +7965,25 @@ defmodule AWS.Glue do
       
       filter() :: %{
         "Filters" => list(filter_expression()),
-        "Inputs" => list(String.t()),
+        "Inputs" => list(String.t() | atom()),
         "LogicalOperator" => list(any()),
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       predecessor() :: %{
-        "JobName" => String.t(),
-        "RunId" => String.t()
+        "JobName" => String.t() | atom(),
+        "RunId" => String.t() | atom()
       }
       
   """
-  @type predecessor() :: %{String.t() => any()}
+  @type predecessor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7998,34 +8000,34 @@ defmodule AWS.Glue do
       
       group_filters() :: %{
         "Filters" => list(filter_expression()),
-        "GroupName" => String.t(),
+        "GroupName" => String.t() | atom(),
         "LogicalOperator" => list(any())
       }
       
   """
-  @type group_filters() :: %{String.t() => any()}
+  @type group_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_classifier_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type get_classifier_request() :: %{String.t() => any()}
+  @type get_classifier_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_session_response() :: %{
-        "Id" => String.t()
+        "Id" => String.t() | atom()
       }
       
   """
-  @type stop_session_response() :: %{String.t() => any()}
+  @type stop_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8037,86 +8039,86 @@ defmodule AWS.Glue do
       }
       
   """
-  @type column_statistics_error() :: %{String.t() => any()}
+  @type column_statistics_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       custom_code() :: %{
-        "ClassName" => String.t(),
-        "Code" => String.t(),
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
+        "ClassName" => String.t() | atom(),
+        "Code" => String.t() | atom(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
         "OutputSchemas" => list(glue_schema())
       }
       
   """
-  @type custom_code() :: %{String.t() => any()}
+  @type custom_code() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_data_quality_rule_recommendation_run_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("CreatedRulesetName") => String.t(),
-        optional("DataQualitySecurityConfiguration") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("CreatedRulesetName") => String.t() | atom(),
+        optional("DataQualitySecurityConfiguration") => String.t() | atom(),
         optional("NumberOfWorkers") => integer(),
         optional("Timeout") => integer(),
         required("DataSource") => data_source(),
-        required("Role") => String.t()
+        required("Role") => String.t() | atom()
       }
       
   """
-  @type start_data_quality_rule_recommendation_run_request() :: %{String.t() => any()}
+  @type start_data_quality_rule_recommendation_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_crawler_schedule_request() :: %{
-        required("CrawlerName") => String.t()
+        required("CrawlerName") => String.t() | atom()
       }
       
   """
-  @type stop_crawler_schedule_request() :: %{String.t() => any()}
+  @type stop_crawler_schedule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_blueprint_response() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type create_blueprint_response() :: %{String.t() => any()}
+  @type create_blueprint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_partition_index_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("DatabaseName") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
         required("PartitionIndex") => partition_index(),
-        required("TableName") => String.t()
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type create_partition_index_request() :: %{String.t() => any()}
+  @type create_partition_index_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_usage_profile_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type get_usage_profile_request() :: %{String.t() => any()}
+  @type get_usage_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8124,13 +8126,13 @@ defmodule AWS.Glue do
       
       iceberg_partition_field() :: %{
         "FieldId" => integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "SourceId" => integer(),
-        "Transform" => String.t()
+        "Transform" => String.t() | atom()
       }
       
   """
-  @type iceberg_partition_field() :: %{String.t() => any()}
+  @type iceberg_partition_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8147,55 +8149,55 @@ defmodule AWS.Glue do
       
       catalog_delta_source() :: %{
         "AdditionalDeltaOptions" => map(),
-        "Database" => String.t(),
-        "Name" => String.t(),
+        "Database" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "OutputSchemas" => list(glue_schema()),
-        "Table" => String.t()
+        "Table" => String.t() | atom()
       }
       
   """
-  @type catalog_delta_source() :: %{String.t() => any()}
+  @type catalog_delta_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       order() :: %{
-        "Column" => String.t(),
+        "Column" => String.t() | atom(),
         "SortOrder" => integer()
       }
       
   """
-  @type order() :: %{String.t() => any()}
+  @type order() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       column_statistics_task_run() :: %{
-        "CatalogID" => String.t(),
-        "ColumnNameList" => list(String.t()),
-        "ColumnStatisticsTaskRunId" => String.t(),
+        "CatalogID" => String.t() | atom(),
+        "ColumnNameList" => list(String.t() | atom()),
+        "ColumnStatisticsTaskRunId" => String.t() | atom(),
         "ComputationType" => list(any()),
         "CreationTime" => non_neg_integer(),
-        "CustomerId" => String.t(),
+        "CustomerId" => String.t() | atom(),
         "DPUSeconds" => float(),
-        "DatabaseName" => String.t(),
+        "DatabaseName" => String.t() | atom(),
         "EndTime" => non_neg_integer(),
-        "ErrorMessage" => String.t(),
+        "ErrorMessage" => String.t() | atom(),
         "LastUpdated" => non_neg_integer(),
         "NumberOfWorkers" => integer(),
-        "Role" => String.t(),
+        "Role" => String.t() | atom(),
         "SampleSize" => float(),
-        "SecurityConfiguration" => String.t(),
+        "SecurityConfiguration" => String.t() | atom(),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
-        "TableName" => String.t(),
-        "WorkerType" => String.t()
+        "TableName" => String.t() | atom(),
+        "WorkerType" => String.t() | atom()
       }
       
   """
-  @type column_statistics_task_run() :: %{String.t() => any()}
+  @type column_statistics_task_run() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8204,39 +8206,39 @@ defmodule AWS.Glue do
       start_data_quality_ruleset_evaluation_run_request() :: %{
         optional("AdditionalDataSources") => map(),
         optional("AdditionalRunOptions") => data_quality_evaluation_run_additional_run_options(),
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("NumberOfWorkers") => integer(),
         optional("Timeout") => integer(),
         required("DataSource") => data_source(),
-        required("Role") => String.t(),
-        required("RulesetNames") => list(String.t())
+        required("Role") => String.t() | atom(),
+        required("RulesetNames") => list(String.t() | atom())
       }
       
   """
-  @type start_data_quality_ruleset_evaluation_run_request() :: %{String.t() => any()}
+  @type start_data_quality_ruleset_evaluation_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       integration_not_found_fault() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type integration_not_found_fault() :: %{String.t() => any()}
+  @type integration_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_ml_transforms_response() :: %{
-        "NextToken" => String.t(),
-        "TransformIds" => list(String.t())
+        "NextToken" => String.t() | atom(),
+        "TransformIds" => list(String.t() | atom())
       }
       
   """
-  @type list_ml_transforms_response() :: %{String.t() => any()}
+  @type list_ml_transforms_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8244,46 +8246,46 @@ defmodule AWS.Glue do
       
       get_unfiltered_partitions_metadata_request() :: %{
         optional("AuditContext") => audit_context(),
-        optional("Expression") => String.t(),
+        optional("Expression") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("QuerySessionContext") => query_session_context(),
-        optional("Region") => String.t(),
+        optional("Region") => String.t() | atom(),
         optional("Segment") => segment(),
-        required("CatalogId") => String.t(),
-        required("DatabaseName") => String.t(),
+        required("CatalogId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
         required("SupportedPermissionTypes") => list(list(any())()),
-        required("TableName") => String.t()
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type get_unfiltered_partitions_metadata_request() :: %{String.t() => any()}
+  @type get_unfiltered_partitions_metadata_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       schema_id() :: %{
-        "RegistryName" => String.t(),
-        "SchemaArn" => String.t(),
-        "SchemaName" => String.t()
+        "RegistryName" => String.t() | atom(),
+        "SchemaArn" => String.t() | atom(),
+        "SchemaName" => String.t() | atom()
       }
       
   """
-  @type schema_id() :: %{String.t() => any()}
+  @type schema_id() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_blueprint_request() :: %{
-        optional("Description") => String.t(),
-        required("BlueprintLocation") => String.t(),
-        required("Name") => String.t()
+        optional("Description") => String.t() | atom(),
+        required("BlueprintLocation") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type update_blueprint_request() :: %{String.t() => any()}
+  @type update_blueprint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8294,21 +8296,21 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_trigger_response() :: %{String.t() => any()}
+  @type get_trigger_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       microsoft_s_q_l_server_catalog_target() :: %{
-        "Database" => String.t(),
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
-        "Table" => String.t()
+        "Database" => String.t() | atom(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "Table" => String.t() | atom()
       }
       
   """
-  @type microsoft_s_q_l_server_catalog_target() :: %{String.t() => any()}
+  @type microsoft_s_q_l_server_catalog_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8316,25 +8318,25 @@ defmodule AWS.Glue do
       
       get_data_quality_model_response() :: %{
         "CompletedOn" => non_neg_integer(),
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | atom(),
         "StartedOn" => non_neg_integer(),
         "Status" => list(any())
       }
       
   """
-  @type get_data_quality_model_response() :: %{String.t() => any()}
+  @type get_data_quality_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_registry_response() :: %{
-        "RegistryArn" => String.t(),
-        "RegistryName" => String.t()
+        "RegistryArn" => String.t() | atom(),
+        "RegistryName" => String.t() | atom()
       }
       
   """
-  @type update_registry_response() :: %{String.t() => any()}
+  @type update_registry_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8342,47 +8344,47 @@ defmodule AWS.Glue do
       
       federation_source_exception() :: %{
         "FederationSourceErrorCode" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type federation_source_exception() :: %{String.t() => any()}
+  @type federation_source_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       table_identifier() :: %{
-        "CatalogId" => String.t(),
-        "DatabaseName" => String.t(),
-        "Name" => String.t(),
-        "Region" => String.t()
+        "CatalogId" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Region" => String.t() | atom()
       }
       
   """
-  @type table_identifier() :: %{String.t() => any()}
+  @type table_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       source_processing_properties() :: %{
-        "RoleArn" => String.t()
+        "RoleArn" => String.t() | atom()
       }
       
   """
-  @type source_processing_properties() :: %{String.t() => any()}
+  @type source_processing_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_job_response() :: %{
-        "JobName" => String.t()
+        "JobName" => String.t() | atom()
       }
       
   """
-  @type update_job_response() :: %{String.t() => any()}
+  @type update_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8393,9 +8395,9 @@ defmodule AWS.Glue do
         "AuthenticationConfiguration" => authentication_configuration_input(),
         "ConnectionProperties" => map(),
         "ConnectionType" => list(any()),
-        "Description" => String.t(),
-        "MatchCriteria" => list(String.t()),
-        "Name" => String.t(),
+        "Description" => String.t() | atom(),
+        "MatchCriteria" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
         "PhysicalConnectionRequirements" => physical_connection_requirements(),
         "PythonProperties" => map(),
         "SparkProperties" => map(),
@@ -8404,33 +8406,33 @@ defmodule AWS.Glue do
       }
       
   """
-  @type connection_input() :: %{String.t() => any()}
+  @type connection_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_table_optimizer_response() :: %{
-        "CatalogId" => String.t(),
-        "DatabaseName" => String.t(),
-        "TableName" => String.t(),
+        "CatalogId" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
+        "TableName" => String.t() | atom(),
         "TableOptimizer" => table_optimizer()
       }
       
   """
-  @type get_table_optimizer_response() :: %{String.t() => any()}
+  @type get_table_optimizer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       session_command() :: %{
-        "Name" => String.t(),
-        "PythonVersion" => String.t()
+        "Name" => String.t() | atom(),
+        "PythonVersion" => String.t() | atom()
       }
       
   """
-  @type session_command() :: %{String.t() => any()}
+  @type session_command() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8441,7 +8443,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_job_bookmark_response() :: %{String.t() => any()}
+  @type get_job_bookmark_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8449,12 +8451,12 @@ defmodule AWS.Glue do
       
       list_custom_entity_types_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Tags") => map()
       }
       
   """
-  @type list_custom_entity_types_request() :: %{String.t() => any()}
+  @type list_custom_entity_types_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8462,62 +8464,62 @@ defmodule AWS.Glue do
       
       create_integration_request() :: %{
         optional("AdditionalEncryptionContext") => map(),
-        optional("DataFilter") => String.t(),
-        optional("Description") => String.t(),
+        optional("DataFilter") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("IntegrationConfig") => integration_config(),
-        optional("KmsKeyId") => String.t(),
+        optional("KmsKeyId") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("IntegrationName") => String.t(),
-        required("SourceArn") => String.t(),
-        required("TargetArn") => String.t()
+        required("IntegrationName") => String.t() | atom(),
+        required("SourceArn") => String.t() | atom(),
+        required("TargetArn") => String.t() | atom()
       }
       
   """
-  @type create_integration_request() :: %{String.t() => any()}
+  @type create_integration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       register_schema_version_input() :: %{
-        required("SchemaDefinition") => String.t(),
+        required("SchemaDefinition") => String.t() | atom(),
         required("SchemaId") => schema_id()
       }
       
   """
-  @type register_schema_version_input() :: %{String.t() => any()}
+  @type register_schema_version_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_ml_transform_request() :: %{
-        optional("Description") => String.t(),
-        optional("GlueVersion") => String.t(),
+        optional("Description") => String.t() | atom(),
+        optional("GlueVersion") => String.t() | atom(),
         optional("MaxCapacity") => float(),
         optional("MaxRetries") => integer(),
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | atom(),
         optional("NumberOfWorkers") => integer(),
         optional("Parameters") => transform_parameters(),
-        optional("Role") => String.t(),
+        optional("Role") => String.t() | atom(),
         optional("Timeout") => integer(),
         optional("WorkerType") => list(any()),
-        required("TransformId") => String.t()
+        required("TransformId") => String.t() | atom()
       }
       
   """
-  @type update_ml_transform_request() :: %{String.t() => any()}
+  @type update_ml_transform_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8534,52 +8536,52 @@ defmodule AWS.Glue do
       
       get_ml_transform_response() :: %{
         "CreatedOn" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "EvaluationMetrics" => evaluation_metrics(),
-        "GlueVersion" => String.t(),
+        "GlueVersion" => String.t() | atom(),
         "InputRecordTables" => list(glue_table()),
         "LabelCount" => integer(),
         "LastModifiedOn" => non_neg_integer(),
         "MaxCapacity" => float(),
         "MaxRetries" => integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "NumberOfWorkers" => integer(),
         "Parameters" => transform_parameters(),
-        "Role" => String.t(),
+        "Role" => String.t() | atom(),
         "Schema" => list(schema_column()),
         "Status" => list(any()),
         "Timeout" => integer(),
         "TransformEncryption" => transform_encryption(),
-        "TransformId" => String.t(),
+        "TransformId" => String.t() | atom(),
         "WorkerType" => list(any())
       }
       
   """
-  @type get_ml_transform_response() :: %{String.t() => any()}
+  @type get_ml_transform_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       schedule() :: %{
-        "ScheduleExpression" => String.t(),
+        "ScheduleExpression" => String.t() | atom(),
         "State" => list(any())
       }
       
   """
-  @type schedule() :: %{String.t() => any()}
+  @type schedule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_security_configurations_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "SecurityConfigurations" => list(security_configuration())
       }
       
   """
-  @type get_security_configurations_response() :: %{String.t() => any()}
+  @type get_security_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8595,11 +8597,11 @@ defmodule AWS.Glue do
   ## Example:
       
       get_data_catalog_encryption_settings_request() :: %{
-        optional("CatalogId") => String.t()
+        optional("CatalogId") => String.t() | atom()
       }
       
   """
-  @type get_data_catalog_encryption_settings_request() :: %{String.t() => any()}
+  @type get_data_catalog_encryption_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8607,15 +8609,15 @@ defmodule AWS.Glue do
       
       trigger_update() :: %{
         "Actions" => list(action()),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "EventBatchingCondition" => event_batching_condition(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Predicate" => predicate(),
-        "Schedule" => String.t()
+        "Schedule" => String.t() | atom()
       }
       
   """
-  @type trigger_update() :: %{String.t() => any()}
+  @type trigger_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8640,12 +8642,12 @@ defmodule AWS.Glue do
   ## Example:
       
       list_data_quality_statistics_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Statistics" => list(statistic_summary())
       }
       
   """
-  @type list_data_quality_statistics_response() :: %{String.t() => any()}
+  @type list_data_quality_statistics_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8657,30 +8659,30 @@ defmodule AWS.Glue do
       }
       
   """
-  @type timestamp_filter() :: %{String.t() => any()}
+  @type timestamp_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_key_not_accessible_fault() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type kms_key_not_accessible_fault() :: %{String.t() => any()}
+  @type kms_key_not_accessible_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       federated_resource_already_exists_exception() :: %{
-        "AssociatedGlueResource" => String.t(),
-        "Message" => String.t()
+        "AssociatedGlueResource" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type federated_resource_already_exists_exception() :: %{String.t() => any()}
+  @type federated_resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8688,23 +8690,23 @@ defmodule AWS.Glue do
       
       cancel_ml_task_run_response() :: %{
         "Status" => list(any()),
-        "TaskRunId" => String.t(),
-        "TransformId" => String.t()
+        "TaskRunId" => String.t() | atom(),
+        "TransformId" => String.t() | atom()
       }
       
   """
-  @type cancel_ml_task_run_response() :: %{String.t() => any()}
+  @type cancel_ml_task_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_data_quality_rule_recommendation_run_request() :: %{
-        required("RunId") => String.t()
+        required("RunId") => String.t() | atom()
       }
       
   """
-  @type cancel_data_quality_rule_recommendation_run_request() :: %{String.t() => any()}
+  @type cancel_data_quality_rule_recommendation_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8714,34 +8716,34 @@ defmodule AWS.Glue do
         optional("AllocatedCapacity") => integer(),
         optional("Arguments") => map(),
         optional("ExecutionClass") => list(any()),
-        optional("ExecutionRoleSessionPolicy") => String.t(),
-        optional("JobRunId") => String.t(),
+        optional("ExecutionRoleSessionPolicy") => String.t() | atom(),
+        optional("JobRunId") => String.t() | atom(),
         optional("JobRunQueuingEnabled") => boolean(),
         optional("MaxCapacity") => float(),
         optional("NotificationProperty") => notification_property(),
         optional("NumberOfWorkers") => integer(),
-        optional("SecurityConfiguration") => String.t(),
+        optional("SecurityConfiguration") => String.t() | atom(),
         optional("Timeout") => integer(),
         optional("WorkerType") => list(any()),
-        required("JobName") => String.t()
+        required("JobName") => String.t() | atom()
       }
       
   """
-  @type start_job_run_request() :: %{String.t() => any()}
+  @type start_job_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       connector_data_source() :: %{
-        "ConnectionType" => String.t(),
+        "ConnectionType" => String.t() | atom(),
         "Data" => map(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "OutputSchemas" => list(glue_schema())
       }
       
   """
-  @type connector_data_source() :: %{String.t() => any()}
+  @type connector_data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8752,18 +8754,18 @@ defmodule AWS.Glue do
       }
       
   """
-  @type trigger_node_details() :: %{String.t() => any()}
+  @type trigger_node_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       export_labels_task_run_properties() :: %{
-        "OutputS3Path" => String.t()
+        "OutputS3Path" => String.t() | atom()
       }
       
   """
-  @type export_labels_task_run_properties() :: %{String.t() => any()}
+  @type export_labels_task_run_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8771,11 +8773,11 @@ defmodule AWS.Glue do
       
       resource_uri() :: %{
         "ResourceType" => list(any()),
-        "Uri" => String.t()
+        "Uri" => String.t() | atom()
       }
       
   """
-  @type resource_uri() :: %{String.t() => any()}
+  @type resource_uri() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8784,17 +8786,17 @@ defmodule AWS.Glue do
       s3_delta_catalog_target() :: %{
         "AdditionalOptions" => map(),
         "AutoDataQuality" => auto_data_quality(),
-        "Database" => String.t(),
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
+        "Database" => String.t() | atom(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
         "OutputSchemas" => list(glue_schema()),
-        "PartitionKeys" => list(list(String.t())()),
+        "PartitionKeys" => list(list(String.t() | atom())()),
         "SchemaChangePolicy" => catalog_schema_change_policy(),
-        "Table" => String.t()
+        "Table" => String.t() | atom()
       }
       
   """
-  @type s3_delta_catalog_target() :: %{String.t() => any()}
+  @type s3_delta_catalog_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8816,21 +8818,21 @@ defmodule AWS.Glue do
       }
       
   """
-  @type test_connection_input() :: %{String.t() => any()}
+  @type test_connection_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       o_auth2_credentials() :: %{
-        "AccessToken" => String.t(),
-        "JwtToken" => String.t(),
-        "RefreshToken" => String.t(),
-        "UserManagedClientApplicationClientSecret" => String.t()
+        "AccessToken" => String.t() | atom(),
+        "JwtToken" => String.t() | atom(),
+        "RefreshToken" => String.t() | atom(),
+        "UserManagedClientApplicationClientSecret" => String.t() | atom()
       }
       
   """
-  @type o_auth2_credentials() :: %{String.t() => any()}
+  @type o_auth2_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8842,20 +8844,20 @@ defmodule AWS.Glue do
       }
       
   """
-  @type s3_source_additional_options() :: %{String.t() => any()}
+  @type s3_source_additional_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       physical_connection_requirements() :: %{
-        "AvailabilityZone" => String.t(),
-        "SecurityGroupIdList" => list(String.t()),
-        "SubnetId" => String.t()
+        "AvailabilityZone" => String.t() | atom(),
+        "SecurityGroupIdList" => list(String.t() | atom()),
+        "SubnetId" => String.t() | atom()
       }
       
   """
-  @type physical_connection_requirements() :: %{String.t() => any()}
+  @type physical_connection_requirements() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8863,11 +8865,11 @@ defmodule AWS.Glue do
       
       table_version() :: %{
         "Table" => table(),
-        "VersionId" => String.t()
+        "VersionId" => String.t() | atom()
       }
       
   """
-  @type table_version() :: %{String.t() => any()}
+  @type table_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8879,34 +8881,34 @@ defmodule AWS.Glue do
       }
       
   """
-  @type catalog_properties() :: %{String.t() => any()}
+  @type catalog_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_entity_request() :: %{
-        optional("CatalogId") => String.t(),
-        optional("DataStoreApiVersion") => String.t(),
-        optional("NextToken") => String.t(),
-        required("ConnectionName") => String.t(),
-        required("EntityName") => String.t()
+        optional("CatalogId") => String.t() | atom(),
+        optional("DataStoreApiVersion") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        required("ConnectionName") => String.t() | atom(),
+        required("EntityName") => String.t() | atom()
       }
       
   """
-  @type describe_entity_request() :: %{String.t() => any()}
+  @type describe_entity_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_column_statistics_task_settings_request() :: %{
-        required("DatabaseName") => String.t(),
-        required("TableName") => String.t()
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type get_column_statistics_task_settings_request() :: %{String.t() => any()}
+  @type get_column_statistics_task_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8914,43 +8916,43 @@ defmodule AWS.Glue do
       
       action() :: %{
         "Arguments" => map(),
-        "CrawlerName" => String.t(),
-        "JobName" => String.t(),
+        "CrawlerName" => String.t() | atom(),
+        "JobName" => String.t() | atom(),
         "NotificationProperty" => notification_property(),
-        "SecurityConfiguration" => String.t(),
+        "SecurityConfiguration" => String.t() | atom(),
         "Timeout" => integer()
       }
       
   """
-  @type action() :: %{String.t() => any()}
+  @type action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       code_gen_node_arg() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Param" => boolean(),
-        "Value" => String.t()
+        "Value" => String.t() | atom()
       }
       
   """
-  @type code_gen_node_arg() :: %{String.t() => any()}
+  @type code_gen_node_arg() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       user_defined_function_input() :: %{
-        "ClassName" => String.t(),
-        "FunctionName" => String.t(),
-        "OwnerName" => String.t(),
+        "ClassName" => String.t() | atom(),
+        "FunctionName" => String.t() | atom(),
+        "OwnerName" => String.t() | atom(),
         "OwnerType" => list(any()),
         "ResourceUris" => list(resource_uri())
       }
       
   """
-  @type user_defined_function_input() :: %{String.t() => any()}
+  @type user_defined_function_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8961,7 +8963,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type update_column_statistics_for_partition_response() :: %{String.t() => any()}
+  @type update_column_statistics_for_partition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8973,7 +8975,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type profile_configuration() :: %{String.t() => any()}
+  @type profile_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8981,52 +8983,52 @@ defmodule AWS.Glue do
       
       get_classifiers_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type get_classifiers_request() :: %{String.t() => any()}
+  @type get_classifiers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       my_s_q_l_catalog_target() :: %{
-        "Database" => String.t(),
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
-        "Table" => String.t()
+        "Database" => String.t() | atom(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "Table" => String.t() | atom()
       }
       
   """
-  @type my_s_q_l_catalog_target() :: %{String.t() => any()}
+  @type my_s_q_l_catalog_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_column_statistics_task_run_response() :: %{
-        "ColumnStatisticsTaskRunId" => String.t()
+        "ColumnStatisticsTaskRunId" => String.t() | atom()
       }
       
   """
-  @type start_column_statistics_task_run_response() :: %{String.t() => any()}
+  @type start_column_statistics_task_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       mapping_entry() :: %{
-        "SourcePath" => String.t(),
-        "SourceTable" => String.t(),
-        "SourceType" => String.t(),
-        "TargetPath" => String.t(),
-        "TargetTable" => String.t(),
-        "TargetType" => String.t()
+        "SourcePath" => String.t() | atom(),
+        "SourceTable" => String.t() | atom(),
+        "SourceType" => String.t() | atom(),
+        "TargetPath" => String.t() | atom(),
+        "TargetTable" => String.t() | atom(),
+        "TargetType" => String.t() | atom()
       }
       
   """
-  @type mapping_entry() :: %{String.t() => any()}
+  @type mapping_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9034,62 +9036,62 @@ defmodule AWS.Glue do
       
       encryption_at_rest() :: %{
         "CatalogEncryptionMode" => list(any()),
-        "CatalogEncryptionServiceRole" => String.t(),
-        "SseAwsKmsKeyId" => String.t()
+        "CatalogEncryptionServiceRole" => String.t() | atom(),
+        "SseAwsKmsKeyId" => String.t() | atom()
       }
       
   """
-  @type encryption_at_rest() :: %{String.t() => any()}
+  @type encryption_at_rest() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_plan_response() :: %{
-        "PythonScript" => String.t(),
-        "ScalaCode" => String.t()
+        "PythonScript" => String.t() | atom(),
+        "ScalaCode" => String.t() | atom()
       }
       
   """
-  @type get_plan_response() :: %{String.t() => any()}
+  @type get_plan_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_integration_resource_property_response() :: %{
-        "ResourceArn" => String.t(),
+        "ResourceArn" => String.t() | atom(),
         "SourceProcessingProperties" => source_processing_properties(),
         "TargetProcessingProperties" => target_processing_properties()
       }
       
   """
-  @type update_integration_resource_property_response() :: %{String.t() => any()}
+  @type update_integration_resource_property_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_registries_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Registries" => list(registry_list_item())
       }
       
   """
-  @type list_registries_response() :: %{String.t() => any()}
+  @type list_registries_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_statements_request() :: %{
-        optional("NextToken") => String.t(),
-        optional("RequestOrigin") => String.t(),
-        required("SessionId") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("RequestOrigin") => String.t() | atom(),
+        required("SessionId") => String.t() | atom()
       }
       
   """
-  @type list_statements_request() :: %{String.t() => any()}
+  @type list_statements_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9097,11 +9099,11 @@ defmodule AWS.Glue do
       
       batch_get_jobs_response() :: %{
         "Jobs" => list(job()),
-        "JobsNotFound" => list(String.t())
+        "JobsNotFound" => list(String.t() | atom())
       }
       
   """
-  @type batch_get_jobs_response() :: %{String.t() => any()}
+  @type batch_get_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9110,13 +9112,13 @@ defmodule AWS.Glue do
       put_resource_policy_request() :: %{
         optional("EnableHybrid") => list(any()),
         optional("PolicyExistsCondition") => list(any()),
-        optional("PolicyHashCondition") => String.t(),
-        optional("ResourceArn") => String.t(),
-        required("PolicyInJson") => String.t()
+        optional("PolicyHashCondition") => String.t() | atom(),
+        optional("ResourceArn") => String.t() | atom(),
+        required("PolicyInJson") => String.t() | atom()
       }
       
   """
-  @type put_resource_policy_request() :: %{String.t() => any()}
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9128,7 +9130,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type schema_change_policy() :: %{String.t() => any()}
+  @type schema_change_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9137,11 +9139,11 @@ defmodule AWS.Glue do
       create_integration_resource_property_request() :: %{
         optional("SourceProcessingProperties") => source_processing_properties(),
         optional("TargetProcessingProperties") => target_processing_properties(),
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type create_integration_resource_property_request() :: %{String.t() => any()}
+  @type create_integration_resource_property_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9149,18 +9151,18 @@ defmodule AWS.Glue do
       
       update_source_control_from_job_request() :: %{
         optional("AuthStrategy") => list(any()),
-        optional("AuthToken") => String.t(),
-        optional("BranchName") => String.t(),
-        optional("CommitId") => String.t(),
-        optional("Folder") => String.t(),
-        optional("JobName") => String.t(),
+        optional("AuthToken") => String.t() | atom(),
+        optional("BranchName") => String.t() | atom(),
+        optional("CommitId") => String.t() | atom(),
+        optional("Folder") => String.t() | atom(),
+        optional("JobName") => String.t() | atom(),
         optional("Provider") => list(any()),
-        optional("RepositoryName") => String.t(),
-        optional("RepositoryOwner") => String.t()
+        optional("RepositoryName") => String.t() | atom(),
+        optional("RepositoryOwner") => String.t() | atom()
       }
       
   """
-  @type update_source_control_from_job_request() :: %{String.t() => any()}
+  @type update_source_control_from_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9172,7 +9174,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type recipe_step() :: %{String.t() => any()}
+  @type recipe_step() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9180,57 +9182,57 @@ defmodule AWS.Glue do
       
       catalog() :: %{
         "AllowFullTableExternalDataAccess" => list(any()),
-        "CatalogId" => String.t(),
+        "CatalogId" => String.t() | atom(),
         "CatalogProperties" => catalog_properties_output(),
         "CreateDatabaseDefaultPermissions" => list(principal_permissions()),
         "CreateTableDefaultPermissions" => list(principal_permissions()),
         "CreateTime" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "FederatedCatalog" => federated_catalog(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Parameters" => map(),
-        "ResourceArn" => String.t(),
+        "ResourceArn" => String.t() | atom(),
         "TargetRedshiftCatalog" => target_redshift_catalog(),
         "UpdateTime" => non_neg_integer()
       }
       
   """
-  @type catalog() :: %{String.t() => any()}
+  @type catalog() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_database_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("Name") => String.t()
+        optional("CatalogId") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type get_database_request() :: %{String.t() => any()}
+  @type get_database_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_integration_state_fault() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_integration_state_fault() :: %{String.t() => any()}
+  @type invalid_integration_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       error_detail() :: %{
-        "ErrorCode" => String.t(),
-        "ErrorMessage" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom()
       }
       
   """
-  @type error_detail() :: %{String.t() => any()}
+  @type error_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9241,32 +9243,32 @@ defmodule AWS.Glue do
       }
       
   """
-  @type job_node_details() :: %{String.t() => any()}
+  @type job_node_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rename_field() :: %{
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
-        "SourcePath" => list(String.t()),
-        "TargetPath" => list(String.t())
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "SourcePath" => list(String.t() | atom()),
+        "TargetPath" => list(String.t() | atom())
       }
       
   """
-  @type rename_field() :: %{String.t() => any()}
+  @type rename_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_trigger_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type start_trigger_request() :: %{String.t() => any()}
+  @type start_trigger_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9274,14 +9276,14 @@ defmodule AWS.Glue do
       
       list_data_quality_statistics_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ProfileId") => String.t(),
-        optional("StatisticId") => String.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ProfileId") => String.t() | atom(),
+        optional("StatisticId") => String.t() | atom(),
         optional("TimestampFilter") => timestamp_filter()
       }
       
   """
-  @type list_data_quality_statistics_request() :: %{String.t() => any()}
+  @type list_data_quality_statistics_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9297,36 +9299,36 @@ defmodule AWS.Glue do
   ## Example:
       
       create_workflow_response() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type create_workflow_response() :: %{String.t() => any()}
+  @type create_workflow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_delete_partition_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("DatabaseName") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
         required("PartitionsToDelete") => list(partition_value_list()),
-        required("TableName") => String.t()
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type batch_delete_partition_request() :: %{String.t() => any()}
+  @type batch_delete_partition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       crawler_stopping_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type crawler_stopping_exception() :: %{String.t() => any()}
+  @type crawler_stopping_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9344,13 +9346,13 @@ defmodule AWS.Glue do
       s3_delta_source() :: %{
         "AdditionalDeltaOptions" => map(),
         "AdditionalOptions" => s3_direct_source_additional_options(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "OutputSchemas" => list(glue_schema()),
-        "Paths" => list(String.t())
+        "Paths" => list(String.t() | atom())
       }
       
   """
-  @type s3_delta_source() :: %{String.t() => any()}
+  @type s3_delta_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9358,36 +9360,36 @@ defmodule AWS.Glue do
       
       get_column_statistics_task_runs_response() :: %{
         "ColumnStatisticsTaskRuns" => list(column_statistics_task_run()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type get_column_statistics_task_runs_response() :: %{String.t() => any()}
+  @type get_column_statistics_task_runs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_table_optimizer() :: %{
-        "catalogId" => String.t(),
-        "databaseName" => String.t(),
-        "tableName" => String.t(),
+        "catalogId" => String.t() | atom(),
+        "databaseName" => String.t() | atom(),
+        "tableName" => String.t() | atom(),
         "tableOptimizer" => table_optimizer()
       }
       
   """
-  @type batch_table_optimizer() :: %{String.t() => any()}
+  @type batch_table_optimizer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9398,7 +9400,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type batch_delete_table_response() :: %{String.t() => any()}
+  @type batch_delete_table_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9406,80 +9408,80 @@ defmodule AWS.Glue do
       
       d_q_results_publishing_options() :: %{
         "CloudWatchMetricsEnabled" => boolean(),
-        "EvaluationContext" => String.t(),
+        "EvaluationContext" => String.t() | atom(),
         "ResultsPublishingEnabled" => boolean(),
-        "ResultsS3Prefix" => String.t()
+        "ResultsS3Prefix" => String.t() | atom()
       }
       
   """
-  @type d_q_results_publishing_options() :: %{String.t() => any()}
+  @type d_q_results_publishing_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       table_input() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "LastAccessTime" => non_neg_integer(),
         "LastAnalyzedTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "Owner" => String.t(),
+        "Name" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
         "Parameters" => map(),
         "PartitionKeys" => list(column()),
         "Retention" => integer(),
         "StorageDescriptor" => storage_descriptor(),
-        "TableType" => String.t(),
+        "TableType" => String.t() | atom(),
         "TargetTable" => table_identifier(),
         "ViewDefinition" => view_definition_input(),
-        "ViewExpandedText" => String.t(),
-        "ViewOriginalText" => String.t()
+        "ViewExpandedText" => String.t() | atom(),
+        "ViewOriginalText" => String.t() | atom()
       }
       
   """
-  @type table_input() :: %{String.t() => any()}
+  @type table_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       column_importance() :: %{
-        "ColumnName" => String.t(),
+        "ColumnName" => String.t() | atom(),
         "Importance" => float()
       }
       
   """
-  @type column_importance() :: %{String.t() => any()}
+  @type column_importance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_column_statistics_task_settings_request() :: %{
-        optional("CatalogID") => String.t(),
-        optional("ColumnNameList") => list(String.t()),
+        optional("CatalogID") => String.t() | atom(),
+        optional("ColumnNameList") => list(String.t() | atom()),
         optional("SampleSize") => float(),
-        optional("Schedule") => String.t(),
-        optional("SecurityConfiguration") => String.t(),
+        optional("Schedule") => String.t() | atom(),
+        optional("SecurityConfiguration") => String.t() | atom(),
         optional("Tags") => map(),
-        required("DatabaseName") => String.t(),
-        required("Role") => String.t(),
-        required("TableName") => String.t()
+        required("DatabaseName") => String.t() | atom(),
+        required("Role") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type create_column_statistics_task_settings_request() :: %{String.t() => any()}
+  @type create_column_statistics_task_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_ml_task_runs_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "TaskRuns" => list(task_run())
       }
       
   """
-  @type get_ml_task_runs_response() :: %{String.t() => any()}
+  @type get_ml_task_runs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9497,21 +9499,21 @@ defmodule AWS.Glue do
       }
       
   """
-  @type workflow_run_statistics() :: %{String.t() => any()}
+  @type workflow_run_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delta_target() :: %{
-        "ConnectionName" => String.t(),
+        "ConnectionName" => String.t() | atom(),
         "CreateNativeDeltaTable" => boolean(),
-        "DeltaTables" => list(String.t()),
+        "DeltaTables" => list(String.t() | atom()),
         "WriteManifest" => boolean()
       }
       
   """
-  @type delta_target() :: %{String.t() => any()}
+  @type delta_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9529,58 +9531,58 @@ defmodule AWS.Glue do
       transform_config_parameter() :: %{
         "IsOptional" => boolean(),
         "ListType" => list(any()),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Type" => list(any()),
-        "ValidationMessage" => String.t(),
-        "ValidationRule" => String.t(),
-        "Value" => list(String.t())
+        "ValidationMessage" => String.t() | atom(),
+        "ValidationRule" => String.t() | atom(),
+        "Value" => list(String.t() | atom())
       }
       
   """
-  @type transform_config_parameter() :: %{String.t() => any()}
+  @type transform_config_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_table_optimizer_request() :: %{
-        required("CatalogId") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("TableName") => String.t(),
+        required("CatalogId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom(),
         required("Type") => list(any())
       }
       
   """
-  @type delete_table_optimizer_request() :: %{String.t() => any()}
+  @type delete_table_optimizer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_table_optimizer_request() :: %{
-        required("CatalogId") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("TableName") => String.t(),
+        required("CatalogId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom(),
         required("TableOptimizerConfiguration") => table_optimizer_configuration(),
         required("Type") => list(any())
       }
       
   """
-  @type update_table_optimizer_request() :: %{String.t() => any()}
+  @type update_table_optimizer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_table_version_request() :: %{
-        optional("CatalogId") => String.t(),
-        optional("VersionId") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("TableName") => String.t()
+        optional("CatalogId") => String.t() | atom(),
+        optional("VersionId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type get_table_version_request() :: %{String.t() => any()}
+  @type get_table_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9588,24 +9590,24 @@ defmodule AWS.Glue do
       
       data_quality_ruleset_evaluation_run_description() :: %{
         "DataSource" => data_source(),
-        "RunId" => String.t(),
+        "RunId" => String.t() | atom(),
         "StartedOn" => non_neg_integer(),
         "Status" => list(any())
       }
       
   """
-  @type data_quality_ruleset_evaluation_run_description() :: %{String.t() => any()}
+  @type data_quality_ruleset_evaluation_run_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_ml_transform_response() :: %{
-        "TransformId" => String.t()
+        "TransformId" => String.t() | atom()
       }
       
   """
-  @type create_ml_transform_response() :: %{String.t() => any()}
+  @type create_ml_transform_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9616,7 +9618,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_security_configuration_response() :: %{String.t() => any()}
+  @type get_security_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9624,11 +9626,11 @@ defmodule AWS.Glue do
       
       list_crawls_response() :: %{
         "Crawls" => list(crawler_history()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_crawls_response() :: %{String.t() => any()}
+  @type list_crawls_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9645,11 +9647,11 @@ defmodule AWS.Glue do
       
       get_dev_endpoints_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type get_dev_endpoints_request() :: %{String.t() => any()}
+  @type get_dev_endpoints_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9658,11 +9660,11 @@ defmodule AWS.Glue do
       security_configuration() :: %{
         "CreatedTimeStamp" => non_neg_integer(),
         "EncryptionConfiguration" => encryption_configuration(),
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type security_configuration() :: %{String.t() => any()}
+  @type security_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9673,11 +9675,11 @@ defmodule AWS.Glue do
         "LastAnalyzedTime" => non_neg_integer(),
         "Parameters" => map(),
         "StorageDescriptor" => storage_descriptor(),
-        "Values" => list(String.t())
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type partition_input() :: %{String.t() => any()}
+  @type partition_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9685,13 +9687,13 @@ defmodule AWS.Glue do
       
       describe_integrations_request() :: %{
         optional("Filters") => list(integration_filter()),
-        optional("IntegrationIdentifier") => String.t(),
-        optional("Marker") => String.t(),
+        optional("IntegrationIdentifier") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_integrations_request() :: %{String.t() => any()}
+  @type describe_integrations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9702,7 +9704,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type batch_update_partition_response() :: %{String.t() => any()}
+  @type batch_update_partition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9710,18 +9712,18 @@ defmodule AWS.Glue do
       
       describe_integrations_response() :: %{
         "Integrations" => list(integration()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type describe_integrations_response() :: %{String.t() => any()}
+  @type describe_integrations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       iceberg_table_update() :: %{
-        "Location" => String.t(),
+        "Location" => String.t() | atom(),
         "PartitionSpec" => iceberg_partition_spec(),
         "Properties" => map(),
         "Schema" => iceberg_schema(),
@@ -9729,43 +9731,43 @@ defmodule AWS.Glue do
       }
       
   """
-  @type iceberg_table_update() :: %{String.t() => any()}
+  @type iceberg_table_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_job_request() :: %{
-        required("JobName") => String.t()
+        required("JobName") => String.t() | atom()
       }
       
   """
-  @type delete_job_request() :: %{String.t() => any()}
+  @type delete_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       p_i_idetection() :: %{
-        "DetectionParameters" => String.t(),
-        "DetectionSensitivity" => String.t(),
-        "EntityTypesToDetect" => list(String.t()),
-        "Inputs" => list(String.t()),
-        "MaskValue" => String.t(),
-        "MatchPattern" => String.t(),
-        "Name" => String.t(),
+        "DetectionParameters" => String.t() | atom(),
+        "DetectionSensitivity" => String.t() | atom(),
+        "EntityTypesToDetect" => list(String.t() | atom()),
+        "Inputs" => list(String.t() | atom()),
+        "MaskValue" => String.t() | atom(),
+        "MatchPattern" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "NumLeftCharsToExclude" => integer(),
         "NumRightCharsToExclude" => integer(),
-        "OutputColumnName" => String.t(),
+        "OutputColumnName" => String.t() | atom(),
         "PiiType" => list(any()),
-        "RedactChar" => String.t(),
-        "RedactText" => String.t(),
+        "RedactChar" => String.t() | atom(),
+        "RedactText" => String.t() | atom(),
         "SampleFraction" => float(),
         "ThresholdFraction" => float()
       }
       
   """
-  @type p_i_idetection() :: %{String.t() => any()}
+  @type p_i_idetection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9773,56 +9775,56 @@ defmodule AWS.Glue do
       
       aggregate_operation() :: %{
         "AggFunc" => list(any()),
-        "Column" => list(String.t())
+        "Column" => list(String.t() | atom())
       }
       
   """
-  @type aggregate_operation() :: %{String.t() => any()}
+  @type aggregate_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_ml_evaluation_task_run_response() :: %{
-        "TaskRunId" => String.t()
+        "TaskRunId" => String.t() | atom()
       }
       
   """
-  @type start_ml_evaluation_task_run_response() :: %{String.t() => any()}
+  @type start_ml_evaluation_task_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_data_quality_ruleset_evaluation_run_response() :: %{
-        "RunId" => String.t()
+        "RunId" => String.t() | atom()
       }
       
   """
-  @type start_data_quality_ruleset_evaluation_run_response() :: %{String.t() => any()}
+  @type start_data_quality_ruleset_evaluation_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       data_quality_observation() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "MetricBasedObservation" => metric_based_observation()
       }
       
   """
-  @type data_quality_observation() :: %{String.t() => any()}
+  @type data_quality_observation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       concurrent_modification_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type concurrent_modification_exception() :: %{String.t() => any()}
+  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9830,11 +9832,11 @@ defmodule AWS.Glue do
       
       batch_get_crawlers_response() :: %{
         "Crawlers" => list(crawler()),
-        "CrawlersNotFound" => list(String.t())
+        "CrawlersNotFound" => list(String.t() | atom())
       }
       
   """
-  @type batch_get_crawlers_response() :: %{String.t() => any()}
+  @type batch_get_crawlers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9845,7 +9847,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_schema_input() :: %{String.t() => any()}
+  @type get_schema_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9853,12 +9855,12 @@ defmodule AWS.Glue do
       
       snowflake_source() :: %{
         "Data" => snowflake_node_data(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "OutputSchemas" => list(glue_schema())
       }
       
   """
-  @type snowflake_source() :: %{String.t() => any()}
+  @type snowflake_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9869,35 +9871,35 @@ defmodule AWS.Glue do
         "AnalyzerResults" => list(data_quality_analyzer_result()),
         "CompletedOn" => non_neg_integer(),
         "DataSource" => data_source(),
-        "EvaluationContext" => String.t(),
-        "JobName" => String.t(),
-        "JobRunId" => String.t(),
+        "EvaluationContext" => String.t() | atom(),
+        "JobName" => String.t() | atom(),
+        "JobRunId" => String.t() | atom(),
         "Observations" => list(data_quality_observation()),
-        "ProfileId" => String.t(),
-        "ResultId" => String.t(),
+        "ProfileId" => String.t() | atom(),
+        "ResultId" => String.t() | atom(),
         "RuleResults" => list(data_quality_rule_result()),
-        "RulesetEvaluationRunId" => String.t(),
-        "RulesetName" => String.t(),
+        "RulesetEvaluationRunId" => String.t() | atom(),
+        "RulesetName" => String.t() | atom(),
         "Score" => float(),
         "StartedOn" => non_neg_integer()
       }
       
   """
-  @type data_quality_result() :: %{String.t() => any()}
+  @type data_quality_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       drop_null_fields() :: %{
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
         "NullCheckBoxList" => null_check_box_list(),
         "NullTextList" => list(null_value_field())
       }
       
   """
-  @type drop_null_fields() :: %{String.t() => any()}
+  @type drop_null_fields() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9908,7 +9910,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_job_response() :: %{String.t() => any()}
+  @type get_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9917,11 +9919,11 @@ defmodule AWS.Glue do
       data_quality_evaluation_run_additional_run_options() :: %{
         "CloudWatchMetricsEnabled" => boolean(),
         "CompositeRuleEvaluationMethod" => list(any()),
-        "ResultsS3Prefix" => String.t()
+        "ResultsS3Prefix" => String.t() | atom()
       }
       
   """
-  @type data_quality_evaluation_run_additional_run_options() :: %{String.t() => any()}
+  @type data_quality_evaluation_run_additional_run_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9932,7 +9934,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type d_q_stop_job_on_failure_options() :: %{String.t() => any()}
+  @type d_q_stop_job_on_failure_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9940,24 +9942,24 @@ defmodule AWS.Glue do
       
       get_catalogs_response() :: %{
         "CatalogList" => list(catalog()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type get_catalogs_response() :: %{String.t() => any()}
+  @type get_catalogs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_registry_response() :: %{
-        "RegistryArn" => String.t(),
-        "RegistryName" => String.t(),
+        "RegistryArn" => String.t() | atom(),
+        "RegistryName" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type delete_registry_response() :: %{String.t() => any()}
+  @type delete_registry_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9966,24 +9968,24 @@ defmodule AWS.Glue do
       list_crawls_request() :: %{
         optional("Filters") => list(crawls_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("CrawlerName") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("CrawlerName") => String.t() | atom()
       }
       
   """
-  @type list_crawls_request() :: %{String.t() => any()}
+  @type list_crawls_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_session_request() :: %{
-        optional("RequestOrigin") => String.t(),
-        required("Id") => String.t()
+        optional("RequestOrigin") => String.t() | atom(),
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type stop_session_request() :: %{String.t() => any()}
+  @type stop_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9991,13 +9993,13 @@ defmodule AWS.Glue do
       
       remove_schema_version_metadata_input() :: %{
         optional("SchemaId") => schema_id(),
-        optional("SchemaVersionId") => String.t(),
+        optional("SchemaVersionId") => String.t() | atom(),
         optional("SchemaVersionNumber") => schema_version_number(),
         required("MetadataKeyValue") => metadata_key_value_pair()
       }
       
   """
-  @type remove_schema_version_metadata_input() :: %{String.t() => any()}
+  @type remove_schema_version_metadata_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10013,11 +10015,11 @@ defmodule AWS.Glue do
   ## Example:
       
       condition_check_failure_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type condition_check_failure_exception() :: %{String.t() => any()}
+  @type condition_check_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10025,81 +10027,81 @@ defmodule AWS.Glue do
       
       glue_table() :: %{
         "AdditionalOptions" => map(),
-        "CatalogId" => String.t(),
-        "ConnectionName" => String.t(),
-        "DatabaseName" => String.t(),
-        "TableName" => String.t()
+        "CatalogId" => String.t() | atom(),
+        "ConnectionName" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
+        "TableName" => String.t() | atom()
       }
       
   """
-  @type glue_table() :: %{String.t() => any()}
+  @type glue_table() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       audit_context() :: %{
-        "AdditionalAuditContext" => String.t(),
+        "AdditionalAuditContext" => String.t() | atom(),
         "AllColumnsRequested" => boolean(),
-        "RequestedColumns" => list(String.t())
+        "RequestedColumns" => list(String.t() | atom())
       }
       
   """
-  @type audit_context() :: %{String.t() => any()}
+  @type audit_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       x_ml_classifier() :: %{
-        "Classification" => String.t(),
+        "Classification" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
         "LastUpdated" => non_neg_integer(),
-        "Name" => String.t(),
-        "RowTag" => String.t(),
+        "Name" => String.t() | atom(),
+        "RowTag" => String.t() | atom(),
         "Version" => float()
       }
       
   """
-  @type x_ml_classifier() :: %{String.t() => any()}
+  @type x_ml_classifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_export_labels_task_run_request() :: %{
-        required("OutputS3Path") => String.t(),
-        required("TransformId") => String.t()
+        required("OutputS3Path") => String.t() | atom(),
+        required("TransformId") => String.t() | atom()
       }
       
   """
-  @type start_export_labels_task_run_request() :: %{String.t() => any()}
+  @type start_export_labels_task_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       catalog_source() :: %{
-        "Database" => String.t(),
-        "Name" => String.t(),
+        "Database" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "OutputSchemas" => list(glue_schema()),
-        "PartitionPredicate" => String.t(),
-        "Table" => String.t()
+        "PartitionPredicate" => String.t() | atom(),
+        "Table" => String.t() | atom()
       }
       
   """
-  @type catalog_source() :: %{String.t() => any()}
+  @type catalog_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10110,7 +10112,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_data_catalog_encryption_settings_response() :: %{String.t() => any()}
+  @type get_data_catalog_encryption_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10123,56 +10125,56 @@ defmodule AWS.Glue do
         "Connections" => connections_list(),
         "CreatedOn" => non_neg_integer(),
         "DefaultArguments" => map(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "ExecutionClass" => list(any()),
         "ExecutionProperty" => execution_property(),
-        "GlueVersion" => String.t(),
+        "GlueVersion" => String.t() | atom(),
         "JobMode" => list(any()),
         "JobRunQueuingEnabled" => boolean(),
         "LastModifiedOn" => non_neg_integer(),
-        "LogUri" => String.t(),
-        "MaintenanceWindow" => String.t(),
+        "LogUri" => String.t() | atom(),
+        "MaintenanceWindow" => String.t() | atom(),
         "MaxCapacity" => float(),
         "MaxRetries" => integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "NonOverridableArguments" => map(),
         "NotificationProperty" => notification_property(),
         "NumberOfWorkers" => integer(),
-        "ProfileName" => String.t(),
-        "Role" => String.t(),
-        "SecurityConfiguration" => String.t(),
+        "ProfileName" => String.t() | atom(),
+        "Role" => String.t() | atom(),
+        "SecurityConfiguration" => String.t() | atom(),
         "SourceControlDetails" => source_control_details(),
         "Timeout" => integer(),
         "WorkerType" => list(any())
       }
       
   """
-  @type job() :: %{String.t() => any()}
+  @type job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_trigger_response() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type delete_trigger_response() :: %{String.t() => any()}
+  @type delete_trigger_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       connector_data_target() :: %{
-        "ConnectionType" => String.t(),
+        "ConnectionType" => String.t() | atom(),
         "Data" => map(),
-        "Inputs" => list(String.t()),
-        "Name" => String.t()
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type connector_data_target() :: %{String.t() => any()}
+  @type connector_data_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10181,49 +10183,49 @@ defmodule AWS.Glue do
       property() :: %{
         "AllowedValues" => list(allowed_value()),
         "DataOperationScopes" => list(list(any())()),
-        "DefaultValue" => [String.t()],
-        "Description" => String.t(),
-        "Name" => String.t(),
+        "DefaultValue" => [String.t() | atom()],
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "PropertyTypes" => list(list(any())()),
         "Required" => boolean()
       }
       
   """
-  @type property() :: %{String.t() => any()}
+  @type property() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_connection_type_request() :: %{
-        required("ConnectionType") => String.t()
+        required("ConnectionType") => String.t() | atom()
       }
       
   """
-  @type describe_connection_type_request() :: %{String.t() => any()}
+  @type describe_connection_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_usage_profile_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type delete_usage_profile_request() :: %{String.t() => any()}
+  @type delete_usage_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_column_statistics_task_run_schedule_request() :: %{
-        required("DatabaseName") => String.t(),
-        required("TableName") => String.t()
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type start_column_statistics_task_run_schedule_request() :: %{String.t() => any()}
+  @type start_column_statistics_task_run_schedule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10231,26 +10233,26 @@ defmodule AWS.Glue do
       
       s3_catalog_source() :: %{
         "AdditionalOptions" => s3_source_additional_options(),
-        "Database" => String.t(),
-        "Name" => String.t(),
-        "PartitionPredicate" => String.t(),
-        "Table" => String.t()
+        "Database" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "PartitionPredicate" => String.t() | atom(),
+        "Table" => String.t() | atom()
       }
       
   """
-  @type s3_catalog_source() :: %{String.t() => any()}
+  @type s3_catalog_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       metadata_key_value_pair() :: %{
-        "MetadataKey" => String.t(),
-        "MetadataValue" => String.t()
+        "MetadataKey" => String.t() | atom(),
+        "MetadataValue" => String.t() | atom()
       }
       
   """
-  @type metadata_key_value_pair() :: %{String.t() => any()}
+  @type metadata_key_value_pair() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10259,11 +10261,11 @@ defmodule AWS.Glue do
       iceberg_input() :: %{
         "CreateIcebergTableInput" => create_iceberg_table_input(),
         "MetadataOperation" => list(any()),
-        "Version" => String.t()
+        "Version" => String.t() | atom()
       }
       
   """
-  @type iceberg_input() :: %{String.t() => any()}
+  @type iceberg_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10279,11 +10281,11 @@ defmodule AWS.Glue do
   ## Example:
       
       delete_blueprint_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type delete_blueprint_request() :: %{String.t() => any()}
+  @type delete_blueprint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10291,55 +10293,55 @@ defmodule AWS.Glue do
       
       data_quality_result_filter_criteria() :: %{
         "DataSource" => data_source(),
-        "JobName" => String.t(),
-        "JobRunId" => String.t(),
+        "JobName" => String.t() | atom(),
+        "JobRunId" => String.t() | atom(),
         "StartedAfter" => non_neg_integer(),
         "StartedBefore" => non_neg_integer()
       }
       
   """
-  @type data_quality_result_filter_criteria() :: %{String.t() => any()}
+  @type data_quality_result_filter_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       data_quality_analyzer_result() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "EvaluatedMetrics" => map(),
-        "EvaluationMessage" => String.t(),
-        "Name" => String.t()
+        "EvaluationMessage" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type data_quality_analyzer_result() :: %{String.t() => any()}
+  @type data_quality_analyzer_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       permission_type_mismatch_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type permission_type_mismatch_exception() :: %{String.t() => any()}
+  @type permission_type_mismatch_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       evaluate_data_quality() :: %{
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
         "Output" => list(any()),
         "PublishingOptions" => d_q_results_publishing_options(),
-        "Ruleset" => String.t(),
+        "Ruleset" => String.t() | atom(),
         "StopJobOnFailureOptions" => d_q_stop_job_on_failure_options()
       }
       
   """
-  @type evaluate_data_quality() :: %{String.t() => any()}
+  @type evaluate_data_quality() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10355,11 +10357,11 @@ defmodule AWS.Glue do
   ## Example:
       
       get_job_request() :: %{
-        required("JobName") => String.t()
+        required("JobName") => String.t() | atom()
       }
       
   """
-  @type get_job_request() :: %{String.t() => any()}
+  @type get_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10367,69 +10369,69 @@ defmodule AWS.Glue do
       
       create_dev_endpoint_request() :: %{
         optional("Arguments") => map(),
-        optional("ExtraJarsS3Path") => String.t(),
-        optional("ExtraPythonLibsS3Path") => String.t(),
-        optional("GlueVersion") => String.t(),
+        optional("ExtraJarsS3Path") => String.t() | atom(),
+        optional("ExtraPythonLibsS3Path") => String.t() | atom(),
+        optional("GlueVersion") => String.t() | atom(),
         optional("NumberOfNodes") => integer(),
         optional("NumberOfWorkers") => integer(),
-        optional("PublicKey") => String.t(),
-        optional("PublicKeys") => list(String.t()),
-        optional("SecurityConfiguration") => String.t(),
-        optional("SecurityGroupIds") => list(String.t()),
-        optional("SubnetId") => String.t(),
+        optional("PublicKey") => String.t() | atom(),
+        optional("PublicKeys") => list(String.t() | atom()),
+        optional("SecurityConfiguration") => String.t() | atom(),
+        optional("SecurityGroupIds") => list(String.t() | atom()),
+        optional("SubnetId") => String.t() | atom(),
         optional("Tags") => map(),
         optional("WorkerType") => list(any()),
-        required("EndpointName") => String.t(),
-        required("RoleArn") => String.t()
+        required("EndpointName") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
       }
       
   """
-  @type create_dev_endpoint_request() :: %{String.t() => any()}
+  @type create_dev_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       federation_source_retryable_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type federation_source_retryable_exception() :: %{String.t() => any()}
+  @type federation_source_retryable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_job_from_source_control_response() :: %{
-        "JobName" => String.t()
+        "JobName" => String.t() | atom()
       }
       
   """
-  @type update_job_from_source_control_response() :: %{String.t() => any()}
+  @type update_job_from_source_control_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_table_versions_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "TableVersions" => list(table_version())
       }
       
   """
-  @type get_table_versions_response() :: %{String.t() => any()}
+  @type get_table_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10444,7 +10446,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type iceberg_compaction_metrics() :: %{String.t() => any()}
+  @type iceberg_compaction_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10465,7 +10467,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type predicate() :: %{String.t() => any()}
+  @type predicate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10479,7 +10481,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type double_column_statistics_data() :: %{String.t() => any()}
+  @type double_column_statistics_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10487,47 +10489,47 @@ defmodule AWS.Glue do
       
       cloud_watch_encryption() :: %{
         "CloudWatchEncryptionMode" => list(any()),
-        "KmsKeyArn" => String.t()
+        "KmsKeyArn" => String.t() | atom()
       }
       
   """
-  @type cloud_watch_encryption() :: %{String.t() => any()}
+  @type cloud_watch_encryption() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       crawler_not_running_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type crawler_not_running_exception() :: %{String.t() => any()}
+  @type crawler_not_running_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       condition_expression() :: %{
-        "Condition" => String.t(),
-        "TargetColumn" => String.t(),
-        "Value" => String.t()
+        "Condition" => String.t() | atom(),
+        "TargetColumn" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type condition_expression() :: %{String.t() => any()}
+  @type condition_expression() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resume_workflow_run_response() :: %{
-        "NodeIds" => list(String.t()),
-        "RunId" => String.t()
+        "NodeIds" => list(String.t() | atom()),
+        "RunId" => String.t() | atom()
       }
       
   """
-  @type resume_workflow_run_response() :: %{String.t() => any()}
+  @type resume_workflow_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10535,24 +10537,24 @@ defmodule AWS.Glue do
       
       list_connection_types_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_connection_types_request() :: %{String.t() => any()}
+  @type list_connection_types_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       option() :: %{
-        "Description" => String.t(),
-        "Label" => String.t(),
-        "Value" => String.t()
+        "Description" => String.t() | atom(),
+        "Label" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type option() :: %{String.t() => any()}
+  @type option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10560,12 +10562,12 @@ defmodule AWS.Glue do
       
       list_schema_versions_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("SchemaId") => schema_id()
       }
       
   """
-  @type list_schema_versions_input() :: %{String.t() => any()}
+  @type list_schema_versions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10576,19 +10578,19 @@ defmodule AWS.Glue do
       }
       
   """
-  @type compaction_configuration() :: %{String.t() => any()}
+  @type compaction_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_unfiltered_partitions_metadata_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "UnfilteredPartitions" => list(unfiltered_partition())
       }
       
   """
-  @type get_unfiltered_partitions_metadata_response() :: %{String.t() => any()}
+  @type get_unfiltered_partitions_metadata_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10604,37 +10606,37 @@ defmodule AWS.Glue do
   ## Example:
       
       other_metadata_value_list_item() :: %{
-        "CreatedTime" => String.t(),
-        "MetadataValue" => String.t()
+        "CreatedTime" => String.t() | atom(),
+        "MetadataValue" => String.t() | atom()
       }
       
   """
-  @type other_metadata_value_list_item() :: %{String.t() => any()}
+  @type other_metadata_value_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_blueprint_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => map(),
-        required("BlueprintLocation") => String.t(),
-        required("Name") => String.t()
+        required("BlueprintLocation") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type create_blueprint_request() :: %{String.t() => any()}
+  @type create_blueprint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_data_quality_result_request() :: %{
-        required("ResultIds") => list(String.t())
+        required("ResultIds") => list(String.t() | atom())
       }
       
   """
-  @type batch_get_data_quality_result_request() :: %{String.t() => any()}
+  @type batch_get_data_quality_result_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10642,58 +10644,58 @@ defmodule AWS.Glue do
       
       json_classifier() :: %{
         "CreationTime" => non_neg_integer(),
-        "JsonPath" => String.t(),
+        "JsonPath" => String.t() | atom(),
         "LastUpdated" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Version" => float()
       }
       
   """
-  @type json_classifier() :: %{String.t() => any()}
+  @type json_classifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       search_tables_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
         optional("Filters") => list(property_predicate()),
         optional("IncludeStatusDetails") => boolean(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("ResourceShareType") => list(any()),
-        optional("SearchText") => String.t(),
+        optional("SearchText") => String.t() | atom(),
         optional("SortCriteria") => list(sort_criterion())
       }
       
   """
-  @type search_tables_request() :: %{String.t() => any()}
+  @type search_tables_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_inbound_integrations_request() :: %{
-        optional("IntegrationArn") => String.t(),
-        optional("Marker") => String.t(),
+        optional("IntegrationArn") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        optional("TargetArn") => String.t()
+        optional("TargetArn") => String.t() | atom()
       }
       
   """
-  @type describe_inbound_integrations_request() :: %{String.t() => any()}
+  @type describe_inbound_integrations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_crawler_schedule_request() :: %{
-        optional("Schedule") => String.t(),
-        required("CrawlerName") => String.t()
+        optional("Schedule") => String.t() | atom(),
+        required("CrawlerName") => String.t() | atom()
       }
       
   """
-  @type update_crawler_schedule_request() :: %{String.t() => any()}
+  @type update_crawler_schedule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10701,12 +10703,12 @@ defmodule AWS.Glue do
       
       get_workflow_run_request() :: %{
         optional("IncludeGraph") => boolean(),
-        required("Name") => String.t(),
-        required("RunId") => String.t()
+        required("Name") => String.t() | atom(),
+        required("RunId") => String.t() | atom()
       }
       
   """
-  @type get_workflow_run_request() :: %{String.t() => any()}
+  @type get_workflow_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10722,23 +10724,23 @@ defmodule AWS.Glue do
   ## Example:
       
       get_crawler_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type get_crawler_request() :: %{String.t() => any()}
+  @type get_crawler_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_partitions_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Partitions" => list(partition())
       }
       
   """
-  @type get_partitions_response() :: %{String.t() => any()}
+  @type get_partitions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10746,14 +10748,14 @@ defmodule AWS.Glue do
       
       dynamo_db_catalog_source() :: %{
         "AdditionalOptions" => d_db_e_l_t_catalog_additional_options(),
-        "Database" => String.t(),
-        "Name" => String.t(),
+        "Database" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "PitrEnabled" => boolean(),
-        "Table" => String.t()
+        "Table" => String.t() | atom()
       }
       
   """
-  @type dynamo_db_catalog_source() :: %{String.t() => any()}
+  @type dynamo_db_catalog_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10761,23 +10763,23 @@ defmodule AWS.Glue do
       
       list_usage_profiles_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_usage_profiles_request() :: %{String.t() => any()}
+  @type list_usage_profiles_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_blueprints_response() :: %{
-        "Blueprints" => list(String.t()),
-        "NextToken" => String.t()
+        "Blueprints" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_blueprints_response() :: %{String.t() => any()}
+  @type list_blueprints_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10793,39 +10795,39 @@ defmodule AWS.Glue do
   ## Example:
       
       stop_workflow_run_request() :: %{
-        required("Name") => String.t(),
-        required("RunId") => String.t()
+        required("Name") => String.t() | atom(),
+        required("RunId") => String.t() | atom()
       }
       
   """
-  @type stop_workflow_run_request() :: %{String.t() => any()}
+  @type stop_workflow_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_registry_response() :: %{
-        "CreatedTime" => String.t(),
-        "Description" => String.t(),
-        "RegistryArn" => String.t(),
-        "RegistryName" => String.t(),
+        "CreatedTime" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "RegistryArn" => String.t() | atom(),
+        "RegistryName" => String.t() | atom(),
         "Status" => list(any()),
-        "UpdatedTime" => String.t()
+        "UpdatedTime" => String.t() | atom()
       }
       
   """
-  @type get_registry_response() :: %{String.t() => any()}
+  @type get_registry_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_resource_policy_response() :: %{
-        "PolicyHash" => String.t()
+        "PolicyHash" => String.t() | atom()
       }
       
   """
-  @type put_resource_policy_response() :: %{String.t() => any()}
+  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10837,47 +10839,47 @@ defmodule AWS.Glue do
       }
       
   """
-  @type catalog_properties_output() :: %{String.t() => any()}
+  @type catalog_properties_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_data_quality_ruleset_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("DataQualitySecurityConfiguration") => String.t(),
-        optional("Description") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("DataQualitySecurityConfiguration") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => map(),
         optional("TargetTable") => data_quality_target_table(),
-        required("Name") => String.t(),
-        required("Ruleset") => String.t()
+        required("Name") => String.t() | atom(),
+        required("Ruleset") => String.t() | atom()
       }
       
   """
-  @type create_data_quality_ruleset_request() :: %{String.t() => any()}
+  @type create_data_quality_ruleset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       column_statistics_task_running_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type column_statistics_task_running_exception() :: %{String.t() => any()}
+  @type column_statistics_task_running_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_stop_job_run_successful_submission() :: %{
-        "JobName" => String.t(),
-        "JobRunId" => String.t()
+        "JobName" => String.t() | atom(),
+        "JobRunId" => String.t() | atom()
       }
       
   """
-  @type batch_stop_job_run_successful_submission() :: %{String.t() => any()}
+  @type batch_stop_job_run_successful_submission() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10888,51 +10890,51 @@ defmodule AWS.Glue do
         "AutoDataQuality" => auto_data_quality(),
         "Compression" => list(any()),
         "Format" => list(any()),
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
-        "NumberTargetPartitions" => String.t(),
-        "PartitionKeys" => list(list(String.t())()),
-        "Path" => String.t(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "NumberTargetPartitions" => String.t() | atom(),
+        "PartitionKeys" => list(list(String.t() | atom())()),
+        "Path" => String.t() | atom(),
         "SchemaChangePolicy" => direct_schema_change_policy()
       }
       
   """
-  @type s3_hudi_direct_target() :: %{String.t() => any()}
+  @type s3_hudi_direct_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_data_quality_ruleset_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type get_data_quality_ruleset_request() :: %{String.t() => any()}
+  @type get_data_quality_ruleset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_statement_request() :: %{
-        optional("RequestOrigin") => String.t(),
+        optional("RequestOrigin") => String.t() | atom(),
         required("Id") => integer(),
-        required("SessionId") => String.t()
+        required("SessionId") => String.t() | atom()
       }
       
   """
-  @type get_statement_request() :: %{String.t() => any()}
+  @type get_statement_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_data_quality_ruleset_evaluation_run_request() :: %{
-        required("RunId") => String.t()
+        required("RunId") => String.t() | atom()
       }
       
   """
-  @type cancel_data_quality_ruleset_evaluation_run_request() :: %{String.t() => any()}
+  @type cancel_data_quality_ruleset_evaluation_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10946,7 +10948,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type iceberg_schema() :: %{String.t() => any()}
+  @type iceberg_schema() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10957,20 +10959,20 @@ defmodule AWS.Glue do
       }
       
   """
-  @type create_connection_response() :: %{String.t() => any()}
+  @type create_connection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_unfiltered_partition_metadata_response() :: %{
-        "AuthorizedColumns" => list(String.t()),
+        "AuthorizedColumns" => list(String.t() | atom()),
         "IsRegisteredWithLakeFormation" => boolean(),
         "Partition" => partition()
       }
       
   """
-  @type get_unfiltered_partition_metadata_response() :: %{String.t() => any()}
+  @type get_unfiltered_partition_metadata_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10988,24 +10990,24 @@ defmodule AWS.Glue do
       o_auth2_properties() :: %{
         "OAuth2ClientApplication" => o_auth2_client_application(),
         "OAuth2GrantType" => list(any()),
-        "TokenUrl" => String.t(),
+        "TokenUrl" => String.t() | atom(),
         "TokenUrlParametersMap" => map()
       }
       
   """
-  @type o_auth2_properties() :: %{String.t() => any()}
+  @type o_auth2_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_dev_endpoints_response() :: %{
-        "DevEndpointNames" => list(String.t()),
-        "NextToken" => String.t()
+        "DevEndpointNames" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_dev_endpoints_response() :: %{String.t() => any()}
+  @type list_dev_endpoints_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11013,16 +11015,16 @@ defmodule AWS.Glue do
       
       database_input() :: %{
         "CreateTableDefaultPermissions" => list(principal_permissions()),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "FederatedDatabase" => federated_database(),
-        "LocationUri" => String.t(),
-        "Name" => String.t(),
+        "LocationUri" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Parameters" => map(),
         "TargetDatabase" => database_identifier()
       }
       
   """
-  @type database_input() :: %{String.t() => any()}
+  @type database_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11031,79 +11033,79 @@ defmodule AWS.Glue do
       list_data_quality_ruleset_evaluation_runs_request() :: %{
         optional("Filter") => data_quality_ruleset_evaluation_run_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_data_quality_ruleset_evaluation_runs_request() :: %{String.t() => any()}
+  @type list_data_quality_ruleset_evaluation_runs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       relational_catalog_source() :: %{
-        "Database" => String.t(),
-        "Name" => String.t(),
-        "Table" => String.t()
+        "Database" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Table" => String.t() | atom()
       }
       
   """
-  @type relational_catalog_source() :: %{String.t() => any()}
+  @type relational_catalog_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_custom_entity_type_response() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type delete_custom_entity_type_response() :: %{String.t() => any()}
+  @type delete_custom_entity_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       spark_s_q_l() :: %{
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
         "OutputSchemas" => list(glue_schema()),
         "SqlAliases" => list(sql_alias()),
-        "SqlQuery" => String.t()
+        "SqlQuery" => String.t() | atom()
       }
       
   """
-  @type spark_s_q_l() :: %{String.t() => any()}
+  @type spark_s_q_l() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       kafka_streaming_source_options() :: %{
-        "AddRecordTimestamp" => String.t(),
-        "Assign" => String.t(),
-        "BootstrapServers" => String.t(),
-        "Classification" => String.t(),
-        "ConnectionName" => String.t(),
-        "Delimiter" => String.t(),
-        "EmitConsumerLagMetrics" => String.t(),
-        "EndingOffsets" => String.t(),
+        "AddRecordTimestamp" => String.t() | atom(),
+        "Assign" => String.t() | atom(),
+        "BootstrapServers" => String.t() | atom(),
+        "Classification" => String.t() | atom(),
+        "ConnectionName" => String.t() | atom(),
+        "Delimiter" => String.t() | atom(),
+        "EmitConsumerLagMetrics" => String.t() | atom(),
+        "EndingOffsets" => String.t() | atom(),
         "IncludeHeaders" => boolean(),
         "MaxOffsetsPerTrigger" => float(),
         "MinPartitions" => integer(),
         "NumRetries" => integer(),
         "PollTimeoutMs" => float(),
         "RetryIntervalMs" => float(),
-        "SecurityProtocol" => String.t(),
-        "StartingOffsets" => String.t(),
+        "SecurityProtocol" => String.t() | atom(),
+        "StartingOffsets" => String.t() | atom(),
         "StartingTimestamp" => non_neg_integer(),
-        "SubscribePattern" => String.t(),
-        "TopicName" => String.t()
+        "SubscribePattern" => String.t() | atom(),
+        "TopicName" => String.t() | atom()
       }
       
   """
-  @type kafka_streaming_source_options() :: %{String.t() => any()}
+  @type kafka_streaming_source_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11111,12 +11113,12 @@ defmodule AWS.Glue do
       
       table_version_error() :: %{
         "ErrorDetail" => error_detail(),
-        "TableName" => String.t(),
-        "VersionId" => String.t()
+        "TableName" => String.t() | atom(),
+        "VersionId" => String.t() | atom()
       }
       
   """
-  @type table_version_error() :: %{String.t() => any()}
+  @type table_version_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11127,7 +11129,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type batch_delete_table_version_response() :: %{String.t() => any()}
+  @type batch_delete_table_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11135,14 +11137,14 @@ defmodule AWS.Glue do
       
       get_databases_request() :: %{
         optional("AttributesToGet") => list(list(any())()),
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("ResourceShareType") => list(any())
       }
       
   """
-  @type get_databases_request() :: %{String.t() => any()}
+  @type get_databases_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11150,16 +11152,16 @@ defmodule AWS.Glue do
       
       catalog_kafka_source() :: %{
         "DataPreviewOptions" => streaming_data_preview_options(),
-        "Database" => String.t(),
+        "Database" => String.t() | atom(),
         "DetectSchema" => boolean(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "StreamingOptions" => kafka_streaming_source_options(),
-        "Table" => String.t(),
+        "Table" => String.t() | atom(),
         "WindowSize" => integer()
       }
       
   """
-  @type catalog_kafka_source() :: %{String.t() => any()}
+  @type catalog_kafka_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11173,20 +11175,20 @@ defmodule AWS.Glue do
       }
       
   """
-  @type date_column_statistics_data() :: %{String.t() => any()}
+  @type date_column_statistics_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       drop_fields() :: %{
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
-        "Paths" => list(list(String.t())())
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "Paths" => list(list(String.t() | atom())())
       }
       
   """
-  @type drop_fields() :: %{String.t() => any()}
+  @type drop_fields() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11197,19 +11199,19 @@ defmodule AWS.Glue do
       }
       
   """
-  @type reset_job_bookmark_response() :: %{String.t() => any()}
+  @type reset_job_bookmark_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_resource_policy_request() :: %{
-        optional("PolicyHashCondition") => String.t(),
-        optional("ResourceArn") => String.t()
+        optional("PolicyHashCondition") => String.t() | atom(),
+        optional("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type delete_resource_policy_request() :: %{String.t() => any()}
+  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11217,31 +11219,31 @@ defmodule AWS.Glue do
       
       get_crawler_metrics_response() :: %{
         "CrawlerMetricsList" => list(crawler_metrics()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type get_crawler_metrics_response() :: %{String.t() => any()}
+  @type get_crawler_metrics_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_partitions_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
         optional("ExcludeColumnSchema") => boolean(),
-        optional("Expression") => String.t(),
+        optional("Expression") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("QueryAsOfTime") => non_neg_integer(),
         optional("Segment") => segment(),
-        optional("TransactionId") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("TableName") => String.t()
+        optional("TransactionId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type get_partitions_request() :: %{String.t() => any()}
+  @type get_partitions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11253,19 +11255,19 @@ defmodule AWS.Glue do
       }
       
   """
-  @type streaming_data_preview_options() :: %{String.t() => any()}
+  @type streaming_data_preview_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_json_classifier_request() :: %{
-        "JsonPath" => String.t(),
-        "Name" => String.t()
+        "JsonPath" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type create_json_classifier_request() :: %{String.t() => any()}
+  @type create_json_classifier_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11277,7 +11279,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type batch_stop_job_run_response() :: %{String.t() => any()}
+  @type batch_stop_job_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11285,12 +11287,12 @@ defmodule AWS.Glue do
       
       batch_stop_job_run_error() :: %{
         "ErrorDetail" => error_detail(),
-        "JobName" => String.t(),
-        "JobRunId" => String.t()
+        "JobName" => String.t() | atom(),
+        "JobRunId" => String.t() | atom()
       }
       
   """
-  @type batch_stop_job_run_error() :: %{String.t() => any()}
+  @type batch_stop_job_run_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11299,11 +11301,11 @@ defmodule AWS.Glue do
       list_data_quality_results_request() :: %{
         optional("Filter") => data_quality_result_filter_criteria(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_data_quality_results_request() :: %{String.t() => any()}
+  @type list_data_quality_results_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11314,7 +11316,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type delete_schema_input() :: %{String.t() => any()}
+  @type delete_schema_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11322,15 +11324,15 @@ defmodule AWS.Glue do
       
       view_representation() :: %{
         "Dialect" => list(any()),
-        "DialectVersion" => String.t(),
+        "DialectVersion" => String.t() | atom(),
         "IsStale" => boolean(),
-        "ValidationConnection" => String.t(),
-        "ViewExpandedText" => String.t(),
-        "ViewOriginalText" => String.t()
+        "ValidationConnection" => String.t() | atom(),
+        "ViewExpandedText" => String.t() | atom(),
+        "ViewOriginalText" => String.t() | atom()
       }
       
   """
-  @type view_representation() :: %{String.t() => any()}
+  @type view_representation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11338,32 +11340,32 @@ defmodule AWS.Glue do
       
       update_job_from_source_control_request() :: %{
         optional("AuthStrategy") => list(any()),
-        optional("AuthToken") => String.t(),
-        optional("BranchName") => String.t(),
-        optional("CommitId") => String.t(),
-        optional("Folder") => String.t(),
-        optional("JobName") => String.t(),
+        optional("AuthToken") => String.t() | atom(),
+        optional("BranchName") => String.t() | atom(),
+        optional("CommitId") => String.t() | atom(),
+        optional("Folder") => String.t() | atom(),
+        optional("JobName") => String.t() | atom(),
         optional("Provider") => list(any()),
-        optional("RepositoryName") => String.t(),
-        optional("RepositoryOwner") => String.t()
+        optional("RepositoryName") => String.t() | atom(),
+        optional("RepositoryOwner") => String.t() | atom()
       }
       
   """
-  @type update_job_from_source_control_request() :: %{String.t() => any()}
+  @type update_job_from_source_control_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_user_defined_function_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("DatabaseName") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
         required("FunctionInput") => user_defined_function_input(),
-        required("FunctionName") => String.t()
+        required("FunctionName") => String.t() | atom()
       }
       
   """
-  @type update_user_defined_function_request() :: %{String.t() => any()}
+  @type update_user_defined_function_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11374,12 +11376,12 @@ defmodule AWS.Glue do
         "OAuth2ClientApplication" => o_auth2_client_application(),
         "OAuth2Credentials" => o_auth2_credentials(),
         "OAuth2GrantType" => list(any()),
-        "TokenUrl" => String.t(),
+        "TokenUrl" => String.t() | atom(),
         "TokenUrlParametersMap" => map()
       }
       
   """
-  @type o_auth2_properties_input() :: %{String.t() => any()}
+  @type o_auth2_properties_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11388,11 +11390,11 @@ defmodule AWS.Glue do
       authentication_configuration() :: %{
         "AuthenticationType" => list(any()),
         "OAuth2Properties" => o_auth2_properties(),
-        "SecretArn" => String.t()
+        "SecretArn" => String.t() | atom()
       }
       
   """
-  @type authentication_configuration() :: %{String.t() => any()}
+  @type authentication_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11406,7 +11408,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type update_classifier_request() :: %{String.t() => any()}
+  @type update_classifier_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11417,29 +11419,29 @@ defmodule AWS.Glue do
       }
       
   """
-  @type update_column_statistics_for_table_response() :: %{String.t() => any()}
+  @type update_column_statistics_for_table_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_trigger_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type get_trigger_request() :: %{String.t() => any()}
+  @type get_trigger_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       glue_encryption_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type glue_encryption_exception() :: %{String.t() => any()}
+  @type glue_encryption_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11448,27 +11450,27 @@ defmodule AWS.Glue do
       mapping() :: %{
         "Children" => list(mapping()),
         "Dropped" => boolean(),
-        "FromPath" => list(String.t()),
-        "FromType" => String.t(),
-        "ToKey" => String.t(),
-        "ToType" => String.t()
+        "FromPath" => list(String.t() | atom()),
+        "FromType" => String.t() | atom(),
+        "ToKey" => String.t() | atom(),
+        "ToType" => String.t() | atom()
       }
       
   """
-  @type mapping() :: %{String.t() => any()}
+  @type mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       drop_duplicates() :: %{
-        "Columns" => list(list(String.t())()),
-        "Inputs" => list(String.t()),
-        "Name" => String.t()
+        "Columns" => list(list(String.t() | atom())()),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type drop_duplicates() :: %{String.t() => any()}
+  @type drop_duplicates() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11485,19 +11487,19 @@ defmodule AWS.Glue do
       
       get_ml_task_run_response() :: %{
         "CompletedOn" => non_neg_integer(),
-        "ErrorString" => String.t(),
+        "ErrorString" => String.t() | atom(),
         "ExecutionTime" => integer(),
         "LastModifiedOn" => non_neg_integer(),
-        "LogGroupName" => String.t(),
+        "LogGroupName" => String.t() | atom(),
         "Properties" => task_run_properties(),
         "StartedOn" => non_neg_integer(),
         "Status" => list(any()),
-        "TaskRunId" => String.t(),
-        "TransformId" => String.t()
+        "TaskRunId" => String.t() | atom(),
+        "TransformId" => String.t() | atom()
       }
       
   """
-  @type get_ml_task_run_response() :: %{String.t() => any()}
+  @type get_ml_task_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11514,12 +11516,12 @@ defmodule AWS.Glue do
       
       property_predicate() :: %{
         "Comparator" => list(any()),
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type property_predicate() :: %{String.t() => any()}
+  @type property_predicate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11530,7 +11532,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type batch_get_table_optimizer_request() :: %{String.t() => any()}
+  @type batch_get_table_optimizer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11541,33 +11543,33 @@ defmodule AWS.Glue do
       }
       
   """
-  @type data_source() :: %{String.t() => any()}
+  @type data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       d_db_e_l_t_catalog_additional_options() :: %{
-        "DynamodbExport" => String.t(),
+        "DynamodbExport" => String.t() | atom(),
         "DynamodbUnnestDDBJson" => boolean()
       }
       
   """
-  @type d_db_e_l_t_catalog_additional_options() :: %{String.t() => any()}
+  @type d_db_e_l_t_catalog_additional_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       postgre_s_q_l_catalog_target() :: %{
-        "Database" => String.t(),
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
-        "Table" => String.t()
+        "Database" => String.t() | atom(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "Table" => String.t() | atom()
       }
       
   """
-  @type postgre_s_q_l_catalog_target() :: %{String.t() => any()}
+  @type postgre_s_q_l_catalog_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11575,12 +11577,12 @@ defmodule AWS.Glue do
       
       snowflake_target() :: %{
         "Data" => snowflake_node_data(),
-        "Inputs" => list(String.t()),
-        "Name" => String.t()
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type snowflake_target() :: %{String.t() => any()}
+  @type snowflake_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11589,22 +11591,22 @@ defmodule AWS.Glue do
       create_catalog_request() :: %{
         optional("Tags") => map(),
         required("CatalogInput") => catalog_input(),
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type create_catalog_request() :: %{String.t() => any()}
+  @type create_catalog_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       operation_not_supported_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type operation_not_supported_exception() :: %{String.t() => any()}
+  @type operation_not_supported_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11612,35 +11614,35 @@ defmodule AWS.Glue do
       
       list_entities_response() :: %{
         "Entities" => list(entity()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_entities_response() :: %{String.t() => any()}
+  @type list_entities_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       edge() :: %{
-        "DestinationId" => String.t(),
-        "SourceId" => String.t()
+        "DestinationId" => String.t() | atom(),
+        "SourceId" => String.t() | atom()
       }
       
   """
-  @type edge() :: %{String.t() => any()}
+  @type edge() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_crawlers_response() :: %{
-        "CrawlerNames" => list(String.t()),
-        "NextToken" => String.t()
+        "CrawlerNames" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_crawlers_response() :: %{String.t() => any()}
+  @type list_crawlers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11649,11 +11651,11 @@ defmodule AWS.Glue do
       list_data_quality_rule_recommendation_runs_request() :: %{
         optional("Filter") => data_quality_rule_recommendation_run_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_data_quality_rule_recommendation_runs_request() :: %{String.t() => any()}
+  @type list_data_quality_rule_recommendation_runs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11661,109 +11663,109 @@ defmodule AWS.Glue do
       
       list_table_optimizer_runs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("CatalogId") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("TableName") => String.t(),
+        optional("NextToken") => String.t() | atom(),
+        required("CatalogId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom(),
         required("Type") => list(any())
       }
       
   """
-  @type list_table_optimizer_runs_request() :: %{String.t() => any()}
+  @type list_table_optimizer_runs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_usage_profile_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => map(),
         required("Configuration") => profile_configuration(),
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type create_usage_profile_request() :: %{String.t() => any()}
+  @type create_usage_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_connection_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("ConnectionName") => String.t()
+        optional("CatalogId") => String.t() | atom(),
+        required("ConnectionName") => String.t() | atom()
       }
       
   """
-  @type delete_connection_request() :: %{String.t() => any()}
+  @type delete_connection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       registry_list_item() :: %{
-        "CreatedTime" => String.t(),
-        "Description" => String.t(),
-        "RegistryArn" => String.t(),
-        "RegistryName" => String.t(),
+        "CreatedTime" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "RegistryArn" => String.t() | atom(),
+        "RegistryName" => String.t() | atom(),
         "Status" => list(any()),
-        "UpdatedTime" => String.t()
+        "UpdatedTime" => String.t() | atom()
       }
       
   """
-  @type registry_list_item() :: %{String.t() => any()}
+  @type registry_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_table_optimizer_request() :: %{
-        required("CatalogId") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("TableName") => String.t(),
+        required("CatalogId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom(),
         required("Type") => list(any())
       }
       
   """
-  @type get_table_optimizer_request() :: %{String.t() => any()}
+  @type get_table_optimizer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       split_fields() :: %{
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
-        "Paths" => list(list(String.t())())
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "Paths" => list(list(String.t() | atom())())
       }
       
   """
-  @type split_fields() :: %{String.t() => any()}
+  @type split_fields() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_import_labels_task_run_response() :: %{
-        "TaskRunId" => String.t()
+        "TaskRunId" => String.t() | atom()
       }
       
   """
-  @type start_import_labels_task_run_response() :: %{String.t() => any()}
+  @type start_import_labels_task_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_create_partition_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("DatabaseName") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
         required("PartitionInputList") => list(partition_input()),
-        required("TableName") => String.t()
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type batch_create_partition_request() :: %{String.t() => any()}
+  @type batch_create_partition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11771,46 +11773,46 @@ defmodule AWS.Glue do
       
       statement_output() :: %{
         "Data" => statement_output_data(),
-        "ErrorName" => String.t(),
-        "ErrorValue" => String.t(),
+        "ErrorName" => String.t() | atom(),
+        "ErrorValue" => String.t() | atom(),
         "ExecutionCount" => integer(),
         "Status" => list(any()),
-        "Traceback" => list(String.t())
+        "Traceback" => list(String.t() | atom())
       }
       
   """
-  @type statement_output() :: %{String.t() => any()}
+  @type statement_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_partition_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("PartitionValues") => list(String.t()),
-        required("TableName") => String.t()
+        optional("CatalogId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("PartitionValues") => list(String.t() | atom()),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type get_partition_request() :: %{String.t() => any()}
+  @type get_partition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_schema_version_response() :: %{
-        "CreatedTime" => String.t(),
+        "CreatedTime" => String.t() | atom(),
         "DataFormat" => list(any()),
-        "SchemaArn" => String.t(),
-        "SchemaDefinition" => String.t(),
-        "SchemaVersionId" => String.t(),
+        "SchemaArn" => String.t() | atom(),
+        "SchemaDefinition" => String.t() | atom(),
+        "SchemaVersionId" => String.t() | atom(),
         "Status" => list(any()),
         "VersionNumber" => float()
       }
       
   """
-  @type get_schema_version_response() :: %{String.t() => any()}
+  @type get_schema_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11818,17 +11820,17 @@ defmodule AWS.Glue do
       
       put_schema_version_metadata_response() :: %{
         "LatestVersion" => boolean(),
-        "MetadataKey" => String.t(),
-        "MetadataValue" => String.t(),
-        "RegistryName" => String.t(),
-        "SchemaArn" => String.t(),
-        "SchemaName" => String.t(),
-        "SchemaVersionId" => String.t(),
+        "MetadataKey" => String.t() | atom(),
+        "MetadataValue" => String.t() | atom(),
+        "RegistryName" => String.t() | atom(),
+        "SchemaArn" => String.t() | atom(),
+        "SchemaName" => String.t() | atom(),
+        "SchemaVersionId" => String.t() | atom(),
         "VersionNumber" => float()
       }
       
   """
-  @type put_schema_version_metadata_response() :: %{String.t() => any()}
+  @type put_schema_version_metadata_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11837,36 +11839,36 @@ defmodule AWS.Glue do
       s3_excel_source() :: %{
         "AdditionalOptions" => s3_direct_source_additional_options(),
         "CompressionType" => list(any()),
-        "Exclusions" => list(String.t()),
-        "GroupFiles" => String.t(),
-        "GroupSize" => String.t(),
+        "Exclusions" => list(String.t() | atom()),
+        "GroupFiles" => String.t() | atom(),
+        "GroupSize" => String.t() | atom(),
         "MaxBand" => integer(),
         "MaxFilesInBand" => integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "NumberRows" => float(),
         "OutputSchemas" => list(glue_schema()),
-        "Paths" => list(String.t()),
+        "Paths" => list(String.t() | atom()),
         "Recurse" => boolean(),
         "SkipFooter" => integer()
       }
       
   """
-  @type s3_excel_source() :: %{String.t() => any()}
+  @type s3_excel_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_schema_by_definition_response() :: %{
-        "CreatedTime" => String.t(),
+        "CreatedTime" => String.t() | atom(),
         "DataFormat" => list(any()),
-        "SchemaArn" => String.t(),
-        "SchemaVersionId" => String.t(),
+        "SchemaArn" => String.t() | atom(),
+        "SchemaVersionId" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type get_schema_by_definition_response() :: %{String.t() => any()}
+  @type get_schema_by_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11886,7 +11888,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type orphan_file_deletion_configuration() :: %{String.t() => any()}
+  @type orphan_file_deletion_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11897,7 +11899,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type glue_schema() :: %{String.t() => any()}
+  @type glue_schema() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11906,22 +11908,22 @@ defmodule AWS.Glue do
       update_integration_resource_property_request() :: %{
         optional("SourceProcessingProperties") => source_processing_properties(),
         optional("TargetProcessingProperties") => target_processing_properties(),
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type update_integration_resource_property_request() :: %{String.t() => any()}
+  @type update_integration_resource_property_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_job_response() :: %{
-        "JobName" => String.t()
+        "JobName" => String.t() | atom()
       }
       
   """
-  @type delete_job_response() :: %{String.t() => any()}
+  @type delete_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11931,45 +11933,45 @@ defmodule AWS.Glue do
         "BoundedFiles" => float(),
         "BoundedSize" => float(),
         "EnableSamplePath" => boolean(),
-        "SamplePath" => String.t()
+        "SamplePath" => String.t() | atom()
       }
       
   """
-  @type s3_direct_source_additional_options() :: %{String.t() => any()}
+  @type s3_direct_source_additional_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       table() :: %{
-        "CatalogId" => String.t(),
+        "CatalogId" => String.t() | atom(),
         "CreateTime" => non_neg_integer(),
-        "CreatedBy" => String.t(),
-        "DatabaseName" => String.t(),
-        "Description" => String.t(),
+        "CreatedBy" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "FederatedTable" => federated_table(),
         "IsMultiDialectView" => boolean(),
         "IsRegisteredWithLakeFormation" => boolean(),
         "LastAccessTime" => non_neg_integer(),
         "LastAnalyzedTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "Owner" => String.t(),
+        "Name" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
         "Parameters" => map(),
         "PartitionKeys" => list(column()),
         "Retention" => integer(),
         "Status" => table_status(),
         "StorageDescriptor" => storage_descriptor(),
-        "TableType" => String.t(),
+        "TableType" => String.t() | atom(),
         "TargetTable" => table_identifier(),
         "UpdateTime" => non_neg_integer(),
-        "VersionId" => String.t(),
+        "VersionId" => String.t() | atom(),
         "ViewDefinition" => view_definition(),
-        "ViewExpandedText" => String.t(),
-        "ViewOriginalText" => String.t()
+        "ViewExpandedText" => String.t() | atom(),
+        "ViewOriginalText" => String.t() | atom()
       }
       
   """
-  @type table() :: %{String.t() => any()}
+  @type table() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11980,19 +11982,19 @@ defmodule AWS.Glue do
       }
       
   """
-  @type recrawl_policy() :: %{String.t() => any()}
+  @type recrawl_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       dev_endpoint_custom_libraries() :: %{
-        "ExtraJarsS3Path" => String.t(),
-        "ExtraPythonLibsS3Path" => String.t()
+        "ExtraJarsS3Path" => String.t() | atom(),
+        "ExtraPythonLibsS3Path" => String.t() | atom()
       }
       
   """
-  @type dev_endpoint_custom_libraries() :: %{String.t() => any()}
+  @type dev_endpoint_custom_libraries() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12004,19 +12006,19 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_column_statistics_for_table_response() :: %{String.t() => any()}
+  @type get_column_statistics_for_table_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_workflows_response() :: %{
-        "NextToken" => String.t(),
-        "Workflows" => list(String.t())
+        "NextToken" => String.t() | atom(),
+        "Workflows" => list(String.t() | atom())
       }
       
   """
-  @type list_workflows_response() :: %{String.t() => any()}
+  @type list_workflows_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12024,77 +12026,77 @@ defmodule AWS.Glue do
       
       query_schema_version_metadata_response() :: %{
         "MetadataInfoMap" => map(),
-        "NextToken" => String.t(),
-        "SchemaVersionId" => String.t()
+        "NextToken" => String.t() | atom(),
+        "SchemaVersionId" => String.t() | atom()
       }
       
   """
-  @type query_schema_version_metadata_response() :: %{String.t() => any()}
+  @type query_schema_version_metadata_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       job_command() :: %{
-        "Name" => String.t(),
-        "PythonVersion" => String.t(),
-        "Runtime" => String.t(),
-        "ScriptLocation" => String.t()
+        "Name" => String.t() | atom(),
+        "PythonVersion" => String.t() | atom(),
+        "Runtime" => String.t() | atom(),
+        "ScriptLocation" => String.t() | atom()
       }
       
   """
-  @type job_command() :: %{String.t() => any()}
+  @type job_command() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_integration_resource_property_response() :: %{
-        "ResourceArn" => String.t(),
+        "ResourceArn" => String.t() | atom(),
         "SourceProcessingProperties" => source_processing_properties(),
         "TargetProcessingProperties" => target_processing_properties()
       }
       
   """
-  @type create_integration_resource_property_response() :: %{String.t() => any()}
+  @type create_integration_resource_property_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_partition_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("DatabaseName") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
         required("PartitionInput") => partition_input(),
-        required("PartitionValueList") => list(String.t()),
-        required("TableName") => String.t()
+        required("PartitionValueList") => list(String.t() | atom()),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type update_partition_request() :: %{String.t() => any()}
+  @type update_partition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_schemas_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Schemas" => list(schema_list_item())
       }
       
   """
-  @type list_schemas_response() :: %{String.t() => any()}
+  @type list_schemas_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       illegal_blueprint_state_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type illegal_blueprint_state_exception() :: %{String.t() => any()}
+  @type illegal_blueprint_state_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12103,17 +12105,17 @@ defmodule AWS.Glue do
       s3_csv_source() :: %{
         "AdditionalOptions" => s3_direct_source_additional_options(),
         "CompressionType" => list(any()),
-        "Escaper" => String.t(),
-        "Exclusions" => list(String.t()),
-        "GroupFiles" => String.t(),
-        "GroupSize" => String.t(),
+        "Escaper" => String.t() | atom(),
+        "Exclusions" => list(String.t() | atom()),
+        "GroupFiles" => String.t() | atom(),
+        "GroupSize" => String.t() | atom(),
         "MaxBand" => integer(),
         "MaxFilesInBand" => integer(),
         "Multiline" => boolean(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "OptimizePerformance" => boolean(),
         "OutputSchemas" => list(glue_schema()),
-        "Paths" => list(String.t()),
+        "Paths" => list(String.t() | atom()),
         "QuoteChar" => list(any()),
         "Recurse" => boolean(),
         "Separator" => list(any()),
@@ -12123,29 +12125,29 @@ defmodule AWS.Glue do
       }
       
   """
-  @type s3_csv_source() :: %{String.t() => any()}
+  @type s3_csv_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       statement_output_data() :: %{
-        "TextPlain" => String.t()
+        "TextPlain" => String.t() | atom()
       }
       
   """
-  @type statement_output_data() :: %{String.t() => any()}
+  @type statement_output_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_ready_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_not_ready_exception() :: %{String.t() => any()}
+  @type resource_not_ready_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12156,18 +12158,18 @@ defmodule AWS.Glue do
       }
       
   """
-  @type update_open_table_format_input() :: %{String.t() => any()}
+  @type update_open_table_format_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_ml_labeling_set_generation_task_run_response() :: %{
-        "TaskRunId" => String.t()
+        "TaskRunId" => String.t() | atom()
       }
       
   """
-  @type start_ml_labeling_set_generation_task_run_response() :: %{String.t() => any()}
+  @type start_ml_labeling_set_generation_task_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12178,49 +12180,49 @@ defmodule AWS.Glue do
       }
       
   """
-  @type create_session_response() :: %{String.t() => any()}
+  @type create_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_session_request() :: %{
-        optional("RequestOrigin") => String.t(),
-        required("Id") => String.t()
+        optional("RequestOrigin") => String.t() | atom(),
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type delete_session_request() :: %{String.t() => any()}
+  @type delete_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       crawler() :: %{
-        "Classifiers" => list(String.t()),
-        "Configuration" => String.t(),
+        "Classifiers" => list(String.t() | atom()),
+        "Configuration" => String.t() | atom(),
         "CrawlElapsedTime" => float(),
-        "CrawlerSecurityConfiguration" => String.t(),
+        "CrawlerSecurityConfiguration" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
-        "DatabaseName" => String.t(),
-        "Description" => String.t(),
+        "DatabaseName" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "LakeFormationConfiguration" => lake_formation_configuration(),
         "LastCrawl" => last_crawl_info(),
         "LastUpdated" => non_neg_integer(),
         "LineageConfiguration" => lineage_configuration(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "RecrawlPolicy" => recrawl_policy(),
-        "Role" => String.t(),
+        "Role" => String.t() | atom(),
         "Schedule" => schedule(),
         "SchemaChangePolicy" => schema_change_policy(),
         "State" => list(any()),
-        "TablePrefix" => String.t(),
+        "TablePrefix" => String.t() | atom(),
         "Targets" => crawler_targets(),
         "Version" => float()
       }
       
   """
-  @type crawler() :: %{String.t() => any()}
+  @type crawler() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12228,12 +12230,12 @@ defmodule AWS.Glue do
       
       amazon_redshift_target() :: %{
         "Data" => amazon_redshift_node_data(),
-        "Inputs" => list(String.t()),
-        "Name" => String.t()
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type amazon_redshift_target() :: %{String.t() => any()}
+  @type amazon_redshift_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12250,14 +12252,14 @@ defmodule AWS.Glue do
       
       view_representation_input() :: %{
         "Dialect" => list(any()),
-        "DialectVersion" => String.t(),
-        "ValidationConnection" => String.t(),
-        "ViewExpandedText" => String.t(),
-        "ViewOriginalText" => String.t()
+        "DialectVersion" => String.t() | atom(),
+        "ValidationConnection" => String.t() | atom(),
+        "ViewExpandedText" => String.t() | atom(),
+        "ViewOriginalText" => String.t() | atom()
       }
       
   """
-  @type view_representation_input() :: %{String.t() => any()}
+  @type view_representation_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12269,7 +12271,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type batch_get_table_optimizer_response() :: %{String.t() => any()}
+  @type batch_get_table_optimizer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12280,27 +12282,27 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_workflow_run_response() :: %{String.t() => any()}
+  @type get_workflow_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       blueprint_run() :: %{
-        "BlueprintName" => String.t(),
+        "BlueprintName" => String.t() | atom(),
         "CompletedOn" => non_neg_integer(),
-        "ErrorMessage" => String.t(),
-        "Parameters" => String.t(),
-        "RoleArn" => String.t(),
-        "RollbackErrorMessage" => String.t(),
-        "RunId" => String.t(),
+        "ErrorMessage" => String.t() | atom(),
+        "Parameters" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "RollbackErrorMessage" => String.t() | atom(),
+        "RunId" => String.t() | atom(),
         "StartedOn" => non_neg_integer(),
         "State" => list(any()),
-        "WorkflowName" => String.t()
+        "WorkflowName" => String.t() | atom()
       }
       
   """
-  @type blueprint_run() :: %{String.t() => any()}
+  @type blueprint_run() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12308,17 +12310,17 @@ defmodule AWS.Glue do
       
       get_data_quality_ruleset_response() :: %{
         "CreatedOn" => non_neg_integer(),
-        "DataQualitySecurityConfiguration" => String.t(),
-        "Description" => String.t(),
+        "DataQualitySecurityConfiguration" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "LastModifiedOn" => non_neg_integer(),
-        "Name" => String.t(),
-        "RecommendationRunId" => String.t(),
-        "Ruleset" => String.t(),
+        "Name" => String.t() | atom(),
+        "RecommendationRunId" => String.t() | atom(),
+        "Ruleset" => String.t() | atom(),
         "TargetTable" => data_quality_target_table()
       }
       
   """
-  @type get_data_quality_ruleset_response() :: %{String.t() => any()}
+  @type get_data_quality_ruleset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12341,19 +12343,19 @@ defmodule AWS.Glue do
       }
       
   """
-  @type confusion_matrix() :: %{String.t() => any()}
+  @type confusion_matrix() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       auto_data_quality() :: %{
-        "EvaluationContext" => String.t(),
+        "EvaluationContext" => String.t() | atom(),
         "IsEnabled" => boolean()
       }
       
   """
-  @type auto_data_quality() :: %{String.t() => any()}
+  @type auto_data_quality() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12365,54 +12367,54 @@ defmodule AWS.Glue do
       }
       
   """
-  @type evaluation_metrics() :: %{String.t() => any()}
+  @type evaluation_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       column_statistics_task_settings() :: %{
-        "CatalogID" => String.t(),
-        "ColumnNameList" => list(String.t()),
-        "DatabaseName" => String.t(),
+        "CatalogID" => String.t() | atom(),
+        "ColumnNameList" => list(String.t() | atom()),
+        "DatabaseName" => String.t() | atom(),
         "LastExecutionAttempt" => execution_attempt(),
-        "Role" => String.t(),
+        "Role" => String.t() | atom(),
         "SampleSize" => float(),
         "Schedule" => schedule(),
         "ScheduleType" => list(any()),
-        "SecurityConfiguration" => String.t(),
+        "SecurityConfiguration" => String.t() | atom(),
         "SettingSource" => list(any()),
-        "TableName" => String.t()
+        "TableName" => String.t() | atom()
       }
       
   """
-  @type column_statistics_task_settings() :: %{String.t() => any()}
+  @type column_statistics_task_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_database_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
         optional("Tags") => map(),
         required("DatabaseInput") => database_input()
       }
       
   """
-  @type create_database_request() :: %{String.t() => any()}
+  @type create_database_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_connection_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
         optional("Tags") => map(),
         required("ConnectionInput") => connection_input()
       }
       
   """
-  @type create_connection_request() :: %{String.t() => any()}
+  @type create_connection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12428,29 +12430,29 @@ defmodule AWS.Glue do
   ## Example:
       
       get_user_defined_functions_request() :: %{
-        optional("CatalogId") => String.t(),
-        optional("DatabaseName") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
+        optional("DatabaseName") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("Pattern") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("Pattern") => String.t() | atom()
       }
       
   """
-  @type get_user_defined_functions_request() :: %{String.t() => any()}
+  @type get_user_defined_functions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       iceberg_target() :: %{
-        "ConnectionName" => String.t(),
-        "Exclusions" => list(String.t()),
+        "ConnectionName" => String.t() | atom(),
+        "Exclusions" => list(String.t() | atom()),
         "MaximumTraversalDepth" => integer(),
-        "Paths" => list(String.t())
+        "Paths" => list(String.t() | atom())
       }
       
   """
-  @type iceberg_target() :: %{String.t() => any()}
+  @type iceberg_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12458,60 +12460,60 @@ defmodule AWS.Glue do
       
       update_dev_endpoint_request() :: %{
         optional("AddArguments") => map(),
-        optional("AddPublicKeys") => list(String.t()),
+        optional("AddPublicKeys") => list(String.t() | atom()),
         optional("CustomLibraries") => dev_endpoint_custom_libraries(),
-        optional("DeleteArguments") => list(String.t()),
-        optional("DeletePublicKeys") => list(String.t()),
-        optional("PublicKey") => String.t(),
+        optional("DeleteArguments") => list(String.t() | atom()),
+        optional("DeletePublicKeys") => list(String.t() | atom()),
+        optional("PublicKey") => String.t() | atom(),
         optional("UpdateEtlLibraries") => boolean(),
-        required("EndpointName") => String.t()
+        required("EndpointName") => String.t() | atom()
       }
       
   """
-  @type update_dev_endpoint_request() :: %{String.t() => any()}
+  @type update_dev_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_database_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
         required("DatabaseInput") => database_input(),
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type update_database_request() :: %{String.t() => any()}
+  @type update_database_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_column_statistics_task_run_request() :: %{
-        optional("CatalogID") => String.t(),
-        optional("ColumnNameList") => list(String.t()),
+        optional("CatalogID") => String.t() | atom(),
+        optional("ColumnNameList") => list(String.t() | atom()),
         optional("SampleSize") => float(),
-        optional("SecurityConfiguration") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("Role") => String.t(),
-        required("TableName") => String.t()
+        optional("SecurityConfiguration") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("Role") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type start_column_statistics_task_run_request() :: %{String.t() => any()}
+  @type start_column_statistics_task_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       custom_entity_type() :: %{
-        "ContextWords" => list(String.t()),
-        "Name" => String.t(),
-        "RegexString" => String.t()
+        "ContextWords" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "RegexString" => String.t() | atom()
       }
       
   """
-  @type custom_entity_type() :: %{String.t() => any()}
+  @type custom_entity_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12519,50 +12521,50 @@ defmodule AWS.Glue do
       
       get_schema_response() :: %{
         "Compatibility" => list(any()),
-        "CreatedTime" => String.t(),
+        "CreatedTime" => String.t() | atom(),
         "DataFormat" => list(any()),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "LatestSchemaVersion" => float(),
         "NextSchemaVersion" => float(),
-        "RegistryArn" => String.t(),
-        "RegistryName" => String.t(),
-        "SchemaArn" => String.t(),
+        "RegistryArn" => String.t() | atom(),
+        "RegistryName" => String.t() | atom(),
+        "SchemaArn" => String.t() | atom(),
         "SchemaCheckpoint" => float(),
-        "SchemaName" => String.t(),
+        "SchemaName" => String.t() | atom(),
         "SchemaStatus" => list(any()),
-        "UpdatedTime" => String.t()
+        "UpdatedTime" => String.t() | atom()
       }
       
   """
-  @type get_schema_response() :: %{String.t() => any()}
+  @type get_schema_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_table_optimizer_entry() :: %{
-        "catalogId" => String.t(),
-        "databaseName" => String.t(),
-        "tableName" => String.t(),
+        "catalogId" => String.t() | atom(),
+        "databaseName" => String.t() | atom(),
+        "tableName" => String.t() | atom(),
         "type" => list(any())
       }
       
   """
-  @type batch_get_table_optimizer_entry() :: %{String.t() => any()}
+  @type batch_get_table_optimizer_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       merge() :: %{
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
-        "PrimaryKeys" => list(list(String.t())()),
-        "Source" => String.t()
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "PrimaryKeys" => list(list(String.t() | atom())()),
+        "Source" => String.t() | atom()
       }
       
   """
-  @type merge() :: %{String.t() => any()}
+  @type merge() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12571,42 +12573,42 @@ defmodule AWS.Glue do
       data_quality_ruleset_filter_criteria() :: %{
         "CreatedAfter" => non_neg_integer(),
         "CreatedBefore" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "LastModifiedAfter" => non_neg_integer(),
         "LastModifiedBefore" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "TargetTable" => data_quality_target_table()
       }
       
   """
-  @type data_quality_ruleset_filter_criteria() :: %{String.t() => any()}
+  @type data_quality_ruleset_filter_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_delete_table_version_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("TableName") => String.t(),
-        required("VersionIds") => list(String.t())
+        optional("CatalogId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom(),
+        required("VersionIds") => list(String.t() | atom())
       }
       
   """
-  @type batch_delete_table_version_request() :: %{String.t() => any()}
+  @type batch_delete_table_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       skewed_info() :: %{
-        "SkewedColumnNames" => list(String.t()),
+        "SkewedColumnNames" => list(String.t() | atom()),
         "SkewedColumnValueLocationMaps" => map(),
-        "SkewedColumnValues" => list(String.t())
+        "SkewedColumnValues" => list(String.t() | atom())
       }
       
   """
-  @type skewed_info() :: %{String.t() => any()}
+  @type skewed_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12614,12 +12616,12 @@ defmodule AWS.Glue do
       
       get_schema_version_input() :: %{
         optional("SchemaId") => schema_id(),
-        optional("SchemaVersionId") => String.t(),
+        optional("SchemaVersionId") => String.t() | atom(),
         optional("SchemaVersionNumber") => schema_version_number()
       }
       
   """
-  @type get_schema_version_input() :: %{String.t() => any()}
+  @type get_schema_version_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12635,13 +12637,13 @@ defmodule AWS.Glue do
   ## Example:
       
       union() :: %{
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
         "UnionType" => list(any())
       }
       
   """
-  @type union() :: %{String.t() => any()}
+  @type union() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12649,11 +12651,11 @@ defmodule AWS.Glue do
       
       get_crawlers_response() :: %{
         "Crawlers" => list(crawler()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type get_crawlers_response() :: %{String.t() => any()}
+  @type get_crawlers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12661,11 +12663,11 @@ defmodule AWS.Glue do
       
       list_column_statistics_task_runs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_column_statistics_task_runs_request() :: %{String.t() => any()}
+  @type list_column_statistics_task_runs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12678,33 +12680,33 @@ defmodule AWS.Glue do
       }
       
   """
-  @type capabilities() :: %{String.t() => any()}
+  @type capabilities() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_registry_input() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => map(),
-        required("RegistryName") => String.t()
+        required("RegistryName") => String.t() | atom()
       }
       
   """
-  @type create_registry_input() :: %{String.t() => any()}
+  @type create_registry_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       test_connection_request() :: %{
-        optional("CatalogId") => String.t(),
-        optional("ConnectionName") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
+        optional("ConnectionName") => String.t() | atom(),
         optional("TestConnectionInput") => test_connection_input()
       }
       
   """
-  @type test_connection_request() :: %{String.t() => any()}
+  @type test_connection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12721,114 +12723,114 @@ defmodule AWS.Glue do
       
       job_bookmark_entry() :: %{
         "Attempt" => integer(),
-        "JobBookmark" => String.t(),
-        "JobName" => String.t(),
-        "PreviousRunId" => String.t(),
+        "JobBookmark" => String.t() | atom(),
+        "JobName" => String.t() | atom(),
+        "PreviousRunId" => String.t() | atom(),
         "Run" => integer(),
-        "RunId" => String.t(),
+        "RunId" => String.t() | atom(),
         "Version" => integer()
       }
       
   """
-  @type job_bookmark_entry() :: %{String.t() => any()}
+  @type job_bookmark_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       lake_formation_configuration() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | atom(),
         "UseLakeFormationCredentials" => boolean()
       }
       
   """
-  @type lake_formation_configuration() :: %{String.t() => any()}
+  @type lake_formation_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_table_optimizer_runs_response() :: %{
-        "CatalogId" => String.t(),
-        "DatabaseName" => String.t(),
-        "NextToken" => String.t(),
-        "TableName" => String.t(),
+        "CatalogId" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "TableName" => String.t() | atom(),
         "TableOptimizerRuns" => list(table_optimizer_run())
       }
       
   """
-  @type list_table_optimizer_runs_response() :: %{String.t() => any()}
+  @type list_table_optimizer_runs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_column_statistics_task_settings_request() :: %{
-        optional("CatalogID") => String.t(),
-        optional("ColumnNameList") => list(String.t()),
-        optional("Role") => String.t(),
+        optional("CatalogID") => String.t() | atom(),
+        optional("ColumnNameList") => list(String.t() | atom()),
+        optional("Role") => String.t() | atom(),
         optional("SampleSize") => float(),
-        optional("Schedule") => String.t(),
-        optional("SecurityConfiguration") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("TableName") => String.t()
+        optional("Schedule") => String.t() | atom(),
+        optional("SecurityConfiguration") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type update_column_statistics_task_settings_request() :: %{String.t() => any()}
+  @type update_column_statistics_task_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_ml_labeling_set_generation_task_run_request() :: %{
-        required("OutputS3Path") => String.t(),
-        required("TransformId") => String.t()
+        required("OutputS3Path") => String.t() | atom(),
+        required("TransformId") => String.t() | atom()
       }
       
   """
-  @type start_ml_labeling_set_generation_task_run_request() :: %{String.t() => any()}
+  @type start_ml_labeling_set_generation_task_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       connection_type_variant() :: %{
-        "ConnectionTypeVariantName" => String.t(),
-        "Description" => String.t(),
-        "DisplayName" => String.t(),
-        "LogoUrl" => String.t()
+        "ConnectionTypeVariantName" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "LogoUrl" => String.t() | atom()
       }
       
   """
-  @type connection_type_variant() :: %{String.t() => any()}
+  @type connection_type_variant() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_ml_task_run_request() :: %{
-        required("TaskRunId") => String.t(),
-        required("TransformId") => String.t()
+        required("TaskRunId") => String.t() | atom(),
+        required("TransformId") => String.t() | atom()
       }
       
   """
-  @type cancel_ml_task_run_request() :: %{String.t() => any()}
+  @type cancel_ml_task_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       spigot() :: %{
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
-        "Path" => String.t(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "Path" => String.t() | atom(),
         "Prob" => float(),
         "Topk" => integer()
       }
       
   """
-  @type spigot() :: %{String.t() => any()}
+  @type spigot() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12836,17 +12838,17 @@ defmodule AWS.Glue do
       
       j_db_c_connector_target() :: %{
         "AdditionalOptions" => map(),
-        "ConnectionName" => String.t(),
-        "ConnectionTable" => String.t(),
-        "ConnectionType" => String.t(),
-        "ConnectorName" => String.t(),
-        "Inputs" => list(String.t()),
-        "Name" => String.t(),
+        "ConnectionName" => String.t() | atom(),
+        "ConnectionTable" => String.t() | atom(),
+        "ConnectionType" => String.t() | atom(),
+        "ConnectorName" => String.t() | atom(),
+        "Inputs" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
         "OutputSchemas" => list(glue_schema())
       }
       
   """
-  @type j_db_c_connector_target() :: %{String.t() => any()}
+  @type j_db_c_connector_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12863,19 +12865,19 @@ defmodule AWS.Glue do
       
       task_run() :: %{
         "CompletedOn" => non_neg_integer(),
-        "ErrorString" => String.t(),
+        "ErrorString" => String.t() | atom(),
         "ExecutionTime" => integer(),
         "LastModifiedOn" => non_neg_integer(),
-        "LogGroupName" => String.t(),
+        "LogGroupName" => String.t() | atom(),
         "Properties" => task_run_properties(),
         "StartedOn" => non_neg_integer(),
         "Status" => list(any()),
-        "TaskRunId" => String.t(),
-        "TransformId" => String.t()
+        "TaskRunId" => String.t() | atom(),
+        "TransformId" => String.t() | atom()
       }
       
   """
-  @type task_run() :: %{String.t() => any()}
+  @type task_run() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12886,7 +12888,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_column_statistics_task_settings_response() :: %{String.t() => any()}
+  @type get_column_statistics_task_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12900,26 +12902,26 @@ defmodule AWS.Glue do
       }
       
   """
-  @type string_column_statistics_data() :: %{String.t() => any()}
+  @type string_column_statistics_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       basic_authentication_credentials() :: %{
-        "Password" => String.t(),
-        "Username" => String.t()
+        "Password" => String.t() | atom(),
+        "Username" => String.t() | atom()
       }
       
   """
-  @type basic_authentication_credentials() :: %{String.t() => any()}
+  @type basic_authentication_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_iceberg_table_input() :: %{
-        "Location" => String.t(),
+        "Location" => String.t() | atom(),
         "PartitionSpec" => iceberg_partition_spec(),
         "Properties" => map(),
         "Schema" => iceberg_schema(),
@@ -12927,7 +12929,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type create_iceberg_table_input() :: %{String.t() => any()}
+  @type create_iceberg_table_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12940,21 +12942,21 @@ defmodule AWS.Glue do
       }
       
   """
-  @type iceberg_retention_configuration() :: %{String.t() => any()}
+  @type iceberg_retention_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_column_statistics_for_table_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | atom(),
         required("ColumnStatisticsList") => list(column_statistics()),
-        required("DatabaseName") => String.t(),
-        required("TableName") => String.t()
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type update_column_statistics_for_table_request() :: %{String.t() => any()}
+  @type update_column_statistics_for_table_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12965,7 +12967,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type get_workflow_response() :: %{String.t() => any()}
+  @type get_workflow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12977,7 +12979,7 @@ defmodule AWS.Glue do
       }
       
   """
-  @type starting_event_batch_condition() :: %{String.t() => any()}
+  @type starting_event_batch_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12989,33 +12991,33 @@ defmodule AWS.Glue do
       }
       
   """
-  @type transform_parameters() :: %{String.t() => any()}
+  @type transform_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_database_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("Name") => String.t()
+        optional("CatalogId") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type delete_database_request() :: %{String.t() => any()}
+  @type delete_database_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_partition_indexes_request() :: %{
-        optional("CatalogId") => String.t(),
-        optional("NextToken") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("TableName") => String.t()
+        optional("CatalogId") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type get_partition_indexes_request() :: %{String.t() => any()}
+  @type get_partition_indexes_request() :: %{(String.t() | atom()) => any()}
 
   @type batch_create_partition_errors() ::
           glue_encryption_exception()
@@ -14705,7 +14707,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_create_partition_errors()}
   def batch_create_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchCreatePartition", input, options)
   end
@@ -14719,7 +14722,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_delete_connection_errors()}
   def batch_delete_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteConnection", input, options)
   end
@@ -14733,7 +14737,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_delete_partition_errors()}
   def batch_delete_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeletePartition", input, options)
   end
@@ -14759,7 +14764,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_delete_table_errors()}
   def batch_delete_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteTable", input, options)
   end
@@ -14773,7 +14779,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_delete_table_version_errors()}
   def batch_delete_table_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteTableVersion", input, options)
   end
@@ -14787,7 +14794,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_blueprints_errors()}
   def batch_get_blueprints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetBlueprints", input, options)
   end
@@ -14805,7 +14813,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_crawlers_errors()}
   def batch_get_crawlers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetCrawlers", input, options)
   end
@@ -14819,7 +14828,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_custom_entity_types_errors()}
   def batch_get_custom_entity_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetCustomEntityTypes", input, options)
   end
@@ -14833,7 +14843,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_data_quality_result_errors()}
   def batch_get_data_quality_result(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetDataQualityResult", input, options)
   end
@@ -14855,7 +14866,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_dev_endpoints_errors()}
   def batch_get_dev_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetDevEndpoints", input, options)
   end
@@ -14873,7 +14885,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_jobs_errors()}
   def batch_get_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetJobs", input, options)
   end
@@ -14887,7 +14900,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_partition_errors()}
   def batch_get_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetPartition", input, options)
   end
@@ -14901,7 +14915,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_table_optimizer_errors()}
   def batch_get_table_optimizer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetTableOptimizer", input, options)
   end
@@ -14919,7 +14934,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_triggers_errors()}
   def batch_get_triggers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetTriggers", input, options)
   end
@@ -14937,7 +14953,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_workflows_errors()}
   def batch_get_workflows(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetWorkflows", input, options)
   end
@@ -14955,7 +14972,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_put_data_quality_statistic_annotation_errors()}
   def batch_put_data_quality_statistic_annotation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchPutDataQualityStatisticAnnotation", input, options)
   end
@@ -14969,7 +14987,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_stop_job_run_errors()}
   def batch_stop_job_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchStopJobRun", input, options)
   end
@@ -14983,7 +15002,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_update_partition_errors()}
   def batch_update_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchUpdatePartition", input, options)
   end
@@ -15001,7 +15021,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, cancel_data_quality_rule_recommendation_run_errors()}
   def cancel_data_quality_rule_recommendation_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelDataQualityRuleRecommendationRun", input, options)
   end
@@ -15019,7 +15040,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, cancel_data_quality_ruleset_evaluation_run_errors()}
   def cancel_data_quality_ruleset_evaluation_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelDataQualityRulesetEvaluationRun", input, options)
   end
@@ -15038,7 +15060,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, cancel_ml_task_run_errors()}
   def cancel_ml_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelMLTaskRun", input, options)
   end
@@ -15052,7 +15075,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, cancel_statement_errors()}
   def cancel_statement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelStatement", input, options)
   end
@@ -15070,7 +15094,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, check_schema_version_validity_errors()}
   def check_schema_version_validity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CheckSchemaVersionValidity", input, options)
   end
@@ -15084,7 +15109,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_blueprint_errors()}
   def create_blueprint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBlueprint", input, options)
   end
@@ -15098,7 +15124,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_catalog_errors()}
   def create_catalog(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCatalog", input, options)
   end
@@ -15116,7 +15143,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_classifier_errors()}
   def create_classifier(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateClassifier", input, options)
   end
@@ -15134,7 +15162,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_column_statistics_task_settings_errors()}
   def create_column_statistics_task_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateColumnStatisticsTaskSettings", input, options)
   end
@@ -15151,7 +15180,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_connection_errors()}
   def create_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateConnection", input, options)
   end
@@ -15169,7 +15199,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_crawler_errors()}
   def create_crawler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCrawler", input, options)
   end
@@ -15188,7 +15219,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_custom_entity_type_errors()}
   def create_custom_entity_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCustomEntityType", input, options)
   end
@@ -15206,7 +15238,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_data_quality_ruleset_errors()}
   def create_data_quality_ruleset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataQualityRuleset", input, options)
   end
@@ -15220,7 +15253,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_database_errors()}
   def create_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDatabase", input, options)
   end
@@ -15234,7 +15268,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_dev_endpoint_errors()}
   def create_dev_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDevEndpoint", input, options)
   end
@@ -15249,7 +15284,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_integration_errors()}
   def create_integration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIntegration", input, options)
   end
@@ -15274,7 +15310,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_integration_resource_property_errors()}
   def create_integration_resource_property(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIntegrationResourceProperty", input, options)
   end
@@ -15299,7 +15336,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_integration_table_properties_errors()}
   def create_integration_table_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIntegrationTableProperties", input, options)
   end
@@ -15313,7 +15351,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_job_errors()}
   def create_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateJob", input, options)
   end
@@ -15345,7 +15384,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_ml_transform_errors()}
   def create_ml_transform(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMLTransform", input, options)
   end
@@ -15359,7 +15399,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_partition_errors()}
   def create_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePartition", input, options)
   end
@@ -15373,7 +15414,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_partition_index_errors()}
   def create_partition_index(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePartitionIndex", input, options)
   end
@@ -15387,7 +15429,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_registry_errors()}
   def create_registry(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRegistry", input, options)
   end
@@ -15414,7 +15457,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_schema_errors()}
   def create_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSchema", input, options)
   end
@@ -15428,7 +15472,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_script_errors()}
   def create_script(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateScript", input, options)
   end
@@ -15447,7 +15492,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_security_configuration_errors()}
   def create_security_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSecurityConfiguration", input, options)
   end
@@ -15461,7 +15507,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_session_errors()}
   def create_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSession", input, options)
   end
@@ -15475,7 +15522,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_table_errors()}
   def create_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTable", input, options)
   end
@@ -15489,7 +15537,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_table_optimizer_errors()}
   def create_table_optimizer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTableOptimizer", input, options)
   end
@@ -15507,7 +15556,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_trigger_errors()}
   def create_trigger(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTrigger", input, options)
   end
@@ -15521,7 +15571,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_usage_profile_errors()}
   def create_usage_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUsageProfile", input, options)
   end
@@ -15535,7 +15586,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_user_defined_function_errors()}
   def create_user_defined_function(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUserDefinedFunction", input, options)
   end
@@ -15549,7 +15601,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_workflow_errors()}
   def create_workflow(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWorkflow", input, options)
   end
@@ -15563,7 +15616,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_blueprint_errors()}
   def delete_blueprint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBlueprint", input, options)
   end
@@ -15589,7 +15643,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_catalog_errors()}
   def delete_catalog(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCatalog", input, options)
   end
@@ -15603,7 +15658,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_classifier_errors()}
   def delete_classifier(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteClassifier", input, options)
   end
@@ -15624,7 +15680,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_column_statistics_for_partition_errors()}
   def delete_column_statistics_for_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteColumnStatisticsForPartition", input, options)
   end
@@ -15645,7 +15702,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_column_statistics_for_table_errors()}
   def delete_column_statistics_for_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteColumnStatisticsForTable", input, options)
   end
@@ -15663,7 +15721,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_column_statistics_task_settings_errors()}
   def delete_column_statistics_task_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteColumnStatisticsTaskSettings", input, options)
   end
@@ -15677,7 +15736,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_connection_errors()}
   def delete_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConnection", input, options)
   end
@@ -15693,7 +15753,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_crawler_errors()}
   def delete_crawler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCrawler", input, options)
   end
@@ -15707,7 +15768,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_custom_entity_type_errors()}
   def delete_custom_entity_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCustomEntityType", input, options)
   end
@@ -15721,7 +15783,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_data_quality_ruleset_errors()}
   def delete_data_quality_ruleset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDataQualityRuleset", input, options)
   end
@@ -15750,7 +15813,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_database_errors()}
   def delete_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDatabase", input, options)
   end
@@ -15764,7 +15828,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_dev_endpoint_errors()}
   def delete_dev_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDevEndpoint", input, options)
   end
@@ -15778,7 +15843,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_integration_errors()}
   def delete_integration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIntegration", input, options)
   end
@@ -15797,7 +15863,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_integration_table_properties_errors()}
   def delete_integration_table_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIntegrationTableProperties", input, options)
   end
@@ -15814,7 +15881,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_job_errors()}
   def delete_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteJob", input, options)
   end
@@ -15837,7 +15905,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_ml_transform_errors()}
   def delete_ml_transform(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMLTransform", input, options)
   end
@@ -15851,7 +15920,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_partition_errors()}
   def delete_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePartition", input, options)
   end
@@ -15865,7 +15935,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_partition_index_errors()}
   def delete_partition_index(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePartitionIndex", input, options)
   end
@@ -15884,7 +15955,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_registry_errors()}
   def delete_registry(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRegistry", input, options)
   end
@@ -15898,7 +15970,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -15917,7 +15990,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_schema_errors()}
   def delete_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSchema", input, options)
   end
@@ -15950,7 +16024,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_schema_versions_errors()}
   def delete_schema_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSchemaVersions", input, options)
   end
@@ -15964,7 +16039,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_security_configuration_errors()}
   def delete_security_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSecurityConfiguration", input, options)
   end
@@ -15978,7 +16054,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_session_errors()}
   def delete_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSession", input, options)
   end
@@ -16004,7 +16081,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_table_errors()}
   def delete_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTable", input, options)
   end
@@ -16020,7 +16098,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_table_optimizer_errors()}
   def delete_table_optimizer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTableOptimizer", input, options)
   end
@@ -16034,7 +16113,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_table_version_errors()}
   def delete_table_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTableVersion", input, options)
   end
@@ -16051,7 +16131,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_trigger_errors()}
   def delete_trigger(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTrigger", input, options)
   end
@@ -16065,7 +16146,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_usage_profile_errors()}
   def delete_usage_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUsageProfile", input, options)
   end
@@ -16079,7 +16161,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_user_defined_function_errors()}
   def delete_user_defined_function(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUserDefinedFunction", input, options)
   end
@@ -16093,7 +16176,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_workflow_errors()}
   def delete_workflow(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWorkflow", input, options)
   end
@@ -16108,7 +16192,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, describe_connection_type_errors()}
   def describe_connection_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConnectionType", input, options)
   end
@@ -16125,7 +16210,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, describe_entity_errors()}
   def describe_entity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEntity", input, options)
   end
@@ -16139,7 +16225,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, describe_inbound_integrations_errors()}
   def describe_inbound_integrations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInboundIntegrations", input, options)
   end
@@ -16153,7 +16240,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, describe_integrations_errors()}
   def describe_integrations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeIntegrations", input, options)
   end
@@ -16167,7 +16255,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_blueprint_errors()}
   def get_blueprint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBlueprint", input, options)
   end
@@ -16181,7 +16270,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_blueprint_run_errors()}
   def get_blueprint_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBlueprintRun", input, options)
   end
@@ -16195,7 +16285,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_blueprint_runs_errors()}
   def get_blueprint_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBlueprintRuns", input, options)
   end
@@ -16211,7 +16302,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_catalog_errors()}
   def get_catalog(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCatalog", input, options)
   end
@@ -16225,7 +16317,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_catalog_import_status_errors()}
   def get_catalog_import_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCatalogImportStatus", input, options)
   end
@@ -16242,7 +16335,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_catalogs_errors()}
   def get_catalogs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCatalogs", input, options)
   end
@@ -16256,7 +16350,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_classifier_errors()}
   def get_classifier(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetClassifier", input, options)
   end
@@ -16270,7 +16365,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_classifiers_errors()}
   def get_classifiers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetClassifiers", input, options)
   end
@@ -16291,7 +16387,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_column_statistics_for_partition_errors()}
   def get_column_statistics_for_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetColumnStatisticsForPartition", input, options)
   end
@@ -16308,7 +16405,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_column_statistics_for_table_errors()}
   def get_column_statistics_for_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetColumnStatisticsForTable", input, options)
   end
@@ -16322,7 +16420,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_column_statistics_task_run_errors()}
   def get_column_statistics_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetColumnStatisticsTaskRun", input, options)
   end
@@ -16336,7 +16435,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_column_statistics_task_runs_errors()}
   def get_column_statistics_task_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetColumnStatisticsTaskRuns", input, options)
   end
@@ -16354,7 +16454,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_column_statistics_task_settings_errors()}
   def get_column_statistics_task_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetColumnStatisticsTaskSettings", input, options)
   end
@@ -16368,7 +16469,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_connection_errors()}
   def get_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetConnection", input, options)
   end
@@ -16382,7 +16484,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_connections_errors()}
   def get_connections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetConnections", input, options)
   end
@@ -16396,7 +16499,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_crawler_errors()}
   def get_crawler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCrawler", input, options)
   end
@@ -16410,7 +16514,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_crawler_metrics_errors()}
   def get_crawler_metrics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCrawlerMetrics", input, options)
   end
@@ -16425,7 +16530,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_crawlers_errors()}
   def get_crawlers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCrawlers", input, options)
   end
@@ -16439,7 +16545,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_custom_entity_type_errors()}
   def get_custom_entity_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCustomEntityType", input, options)
   end
@@ -16457,7 +16564,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_data_catalog_encryption_settings_errors()}
   def get_data_catalog_encryption_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataCatalogEncryptionSettings", input, options)
   end
@@ -16472,7 +16580,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_data_quality_model_errors()}
   def get_data_quality_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataQualityModel", input, options)
   end
@@ -16486,7 +16595,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_data_quality_model_result_errors()}
   def get_data_quality_model_result(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataQualityModelResult", input, options)
   end
@@ -16500,7 +16610,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_data_quality_result_errors()}
   def get_data_quality_result(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataQualityResult", input, options)
   end
@@ -16518,7 +16629,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_data_quality_rule_recommendation_run_errors()}
   def get_data_quality_rule_recommendation_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataQualityRuleRecommendationRun", input, options)
   end
@@ -16532,7 +16644,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_data_quality_ruleset_errors()}
   def get_data_quality_ruleset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataQualityRuleset", input, options)
   end
@@ -16550,7 +16663,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_data_quality_ruleset_evaluation_run_errors()}
   def get_data_quality_ruleset_evaluation_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataQualityRulesetEvaluationRun", input, options)
   end
@@ -16564,7 +16678,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_database_errors()}
   def get_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDatabase", input, options)
   end
@@ -16578,7 +16693,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_databases_errors()}
   def get_databases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDatabases", input, options)
   end
@@ -16592,7 +16708,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_dataflow_graph_errors()}
   def get_dataflow_graph(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataflowGraph", input, options)
   end
@@ -16612,7 +16729,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_dev_endpoint_errors()}
   def get_dev_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDevEndpoint", input, options)
   end
@@ -16632,7 +16750,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_dev_endpoints_errors()}
   def get_dev_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDevEndpoints", input, options)
   end
@@ -16654,7 +16773,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_entity_records_errors()}
   def get_entity_records(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEntityRecords", input, options)
   end
@@ -16673,7 +16793,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_integration_resource_property_errors()}
   def get_integration_resource_property(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetIntegrationResourceProperty", input, options)
   end
@@ -16695,7 +16816,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_integration_table_properties_errors()}
   def get_integration_table_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetIntegrationTableProperties", input, options)
   end
@@ -16709,7 +16831,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_job_errors()}
   def get_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetJob", input, options)
   end
@@ -16737,7 +16860,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_job_bookmark_errors()}
   def get_job_bookmark(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetJobBookmark", input, options)
   end
@@ -16753,7 +16877,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_job_run_errors()}
   def get_job_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetJobRun", input, options)
   end
@@ -16770,7 +16895,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_job_runs_errors()}
   def get_job_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetJobRuns", input, options)
   end
@@ -16784,7 +16910,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_jobs_errors()}
   def get_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetJobs", input, options)
   end
@@ -16798,7 +16925,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_mapping_errors()}
   def get_mapping(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMapping", input, options)
   end
@@ -16819,7 +16947,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_ml_task_run_errors()}
   def get_ml_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMLTaskRun", input, options)
   end
@@ -16843,7 +16972,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_ml_task_runs_errors()}
   def get_ml_task_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMLTaskRuns", input, options)
   end
@@ -16866,7 +16996,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_ml_transform_errors()}
   def get_ml_transform(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMLTransform", input, options)
   end
@@ -16889,7 +17020,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_ml_transforms_errors()}
   def get_ml_transforms(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMLTransforms", input, options)
   end
@@ -16903,7 +17035,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_partition_errors()}
   def get_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPartition", input, options)
   end
@@ -16917,7 +17050,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_partition_indexes_errors()}
   def get_partition_indexes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPartitionIndexes", input, options)
   end
@@ -16931,7 +17065,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_partitions_errors()}
   def get_partitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPartitions", input, options)
   end
@@ -16945,7 +17080,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_plan_errors()}
   def get_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPlan", input, options)
   end
@@ -16959,7 +17095,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_registry_errors()}
   def get_registry(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRegistry", input, options)
   end
@@ -16982,7 +17119,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_resource_policies_errors()}
   def get_resource_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourcePolicies", input, options)
   end
@@ -16996,7 +17134,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
@@ -17010,7 +17149,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_schema_errors()}
   def get_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSchema", input, options)
   end
@@ -17030,7 +17170,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_schema_by_definition_errors()}
   def get_schema_by_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSchemaByDefinition", input, options)
   end
@@ -17047,7 +17188,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_schema_version_errors()}
   def get_schema_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSchemaVersion", input, options)
   end
@@ -17065,7 +17207,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_schema_versions_diff_errors()}
   def get_schema_versions_diff(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSchemaVersionsDiff", input, options)
   end
@@ -17079,7 +17222,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_security_configuration_errors()}
   def get_security_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSecurityConfiguration", input, options)
   end
@@ -17093,7 +17237,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_security_configurations_errors()}
   def get_security_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSecurityConfigurations", input, options)
   end
@@ -17107,7 +17252,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_session_errors()}
   def get_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSession", input, options)
   end
@@ -17121,7 +17267,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_statement_errors()}
   def get_statement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetStatement", input, options)
   end
@@ -17136,7 +17283,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_table_errors()}
   def get_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTable", input, options)
   end
@@ -17150,7 +17298,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_table_optimizer_errors()}
   def get_table_optimizer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTableOptimizer", input, options)
   end
@@ -17164,7 +17313,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_table_version_errors()}
   def get_table_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTableVersion", input, options)
   end
@@ -17179,7 +17329,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_table_versions_errors()}
   def get_table_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTableVersions", input, options)
   end
@@ -17194,7 +17345,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_tables_errors()}
   def get_tables(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTables", input, options)
   end
@@ -17208,7 +17360,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_tags_errors()}
   def get_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTags", input, options)
   end
@@ -17222,7 +17375,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_trigger_errors()}
   def get_trigger(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTrigger", input, options)
   end
@@ -17236,7 +17390,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_triggers_errors()}
   def get_triggers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTriggers", input, options)
   end
@@ -17258,7 +17413,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_unfiltered_partition_metadata_errors()}
   def get_unfiltered_partition_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUnfilteredPartitionMetadata", input, options)
   end
@@ -17280,7 +17436,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_unfiltered_partitions_metadata_errors()}
   def get_unfiltered_partitions_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUnfilteredPartitionsMetadata", input, options)
   end
@@ -17298,7 +17455,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_unfiltered_table_metadata_errors()}
   def get_unfiltered_table_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUnfilteredTableMetadata", input, options)
   end
@@ -17312,7 +17470,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_usage_profile_errors()}
   def get_usage_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUsageProfile", input, options)
   end
@@ -17326,7 +17485,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_user_defined_function_errors()}
   def get_user_defined_function(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUserDefinedFunction", input, options)
   end
@@ -17340,7 +17500,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_user_defined_functions_errors()}
   def get_user_defined_functions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUserDefinedFunctions", input, options)
   end
@@ -17354,7 +17515,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_workflow_errors()}
   def get_workflow(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWorkflow", input, options)
   end
@@ -17370,7 +17532,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_workflow_run_errors()}
   def get_workflow_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWorkflowRun", input, options)
   end
@@ -17384,7 +17547,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_workflow_run_properties_errors()}
   def get_workflow_run_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWorkflowRunProperties", input, options)
   end
@@ -17398,7 +17562,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_workflow_runs_errors()}
   def get_workflow_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWorkflowRuns", input, options)
   end
@@ -17412,7 +17577,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, import_catalog_to_glue_errors()}
   def import_catalog_to_glue(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportCatalogToGlue", input, options)
   end
@@ -17426,7 +17592,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_blueprints_errors()}
   def list_blueprints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBlueprints", input, options)
   end
@@ -17444,7 +17611,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_column_statistics_task_runs_errors()}
   def list_column_statistics_task_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListColumnStatisticsTaskRuns", input, options)
   end
@@ -17464,7 +17632,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_connection_types_errors()}
   def list_connection_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListConnectionTypes", input, options)
   end
@@ -17488,7 +17657,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_crawlers_errors()}
   def list_crawlers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCrawlers", input, options)
   end
@@ -17521,7 +17691,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_crawls_errors()}
   def list_crawls(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCrawls", input, options)
   end
@@ -17535,7 +17706,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_custom_entity_types_errors()}
   def list_custom_entity_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCustomEntityTypes", input, options)
   end
@@ -17549,7 +17721,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_data_quality_results_errors()}
   def list_data_quality_results(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataQualityResults", input, options)
   end
@@ -17567,7 +17740,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_data_quality_rule_recommendation_runs_errors()}
   def list_data_quality_rule_recommendation_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataQualityRuleRecommendationRuns", input, options)
   end
@@ -17586,7 +17760,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_data_quality_ruleset_evaluation_runs_errors()}
   def list_data_quality_ruleset_evaluation_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataQualityRulesetEvaluationRuns", input, options)
   end
@@ -17600,7 +17775,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_data_quality_rulesets_errors()}
   def list_data_quality_rulesets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataQualityRulesets", input, options)
   end
@@ -17618,7 +17794,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_data_quality_statistic_annotations_errors()}
   def list_data_quality_statistic_annotations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataQualityStatisticAnnotations", input, options)
   end
@@ -17632,7 +17809,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_data_quality_statistics_errors()}
   def list_data_quality_statistics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataQualityStatistics", input, options)
   end
@@ -17656,7 +17834,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_dev_endpoints_errors()}
   def list_dev_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDevEndpoints", input, options)
   end
@@ -17670,7 +17849,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_entities_errors()}
   def list_entities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEntities", input, options)
   end
@@ -17693,7 +17873,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_jobs_errors()}
   def list_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListJobs", input, options)
   end
@@ -17714,7 +17895,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_ml_transforms_errors()}
   def list_ml_transforms(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMLTransforms", input, options)
   end
@@ -17732,7 +17914,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_registries_errors()}
   def list_registries(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRegistries", input, options)
   end
@@ -17750,7 +17933,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_schema_versions_errors()}
   def list_schema_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSchemaVersions", input, options)
   end
@@ -17770,7 +17954,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_schemas_errors()}
   def list_schemas(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSchemas", input, options)
   end
@@ -17784,7 +17969,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_sessions_errors()}
   def list_sessions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSessions", input, options)
   end
@@ -17798,7 +17984,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_statements_errors()}
   def list_statements(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStatements", input, options)
   end
@@ -17812,7 +17999,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_table_optimizer_runs_errors()}
   def list_table_optimizer_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTableOptimizerRuns", input, options)
   end
@@ -17835,7 +18023,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_triggers_errors()}
   def list_triggers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTriggers", input, options)
   end
@@ -17849,7 +18038,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_usage_profiles_errors()}
   def list_usage_profiles(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUsageProfiles", input, options)
   end
@@ -17863,7 +18053,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_workflows_errors()}
   def list_workflows(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWorkflows", input, options)
   end
@@ -17877,7 +18068,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, modify_integration_errors()}
   def modify_integration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyIntegration", input, options)
   end
@@ -17898,7 +18090,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, put_data_catalog_encryption_settings_errors()}
   def put_data_catalog_encryption_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutDataCatalogEncryptionSettings", input, options)
   end
@@ -17916,7 +18109,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, put_data_quality_profile_annotation_errors()}
   def put_data_quality_profile_annotation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutDataQualityProfileAnnotation", input, options)
   end
@@ -17930,7 +18124,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -17947,7 +18142,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, put_schema_version_metadata_errors()}
   def put_schema_version_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutSchemaVersionMetadata", input, options)
   end
@@ -17964,7 +18160,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, put_workflow_run_properties_errors()}
   def put_workflow_run_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutWorkflowRunProperties", input, options)
   end
@@ -17978,7 +18175,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, query_schema_version_metadata_errors()}
   def query_schema_version_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "QuerySchemaVersionMetadata", input, options)
   end
@@ -18006,7 +18204,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, register_schema_version_errors()}
   def register_schema_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterSchemaVersion", input, options)
   end
@@ -18021,7 +18220,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, remove_schema_version_metadata_errors()}
   def remove_schema_version_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveSchemaVersionMetadata", input, options)
   end
@@ -18049,7 +18249,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, reset_job_bookmark_errors()}
   def reset_job_bookmark(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetJobBookmark", input, options)
   end
@@ -18067,7 +18268,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, resume_workflow_run_errors()}
   def resume_workflow_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResumeWorkflowRun", input, options)
   end
@@ -18081,7 +18283,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, run_statement_errors()}
   def run_statement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RunStatement", input, options)
   end
@@ -18106,7 +18309,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, search_tables_errors()}
   def search_tables(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchTables", input, options)
   end
@@ -18120,7 +18324,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_blueprint_run_errors()}
   def start_blueprint_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartBlueprintRun", input, options)
   end
@@ -18138,7 +18343,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_column_statistics_task_run_errors()}
   def start_column_statistics_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartColumnStatisticsTaskRun", input, options)
   end
@@ -18156,7 +18362,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_column_statistics_task_run_schedule_errors()}
   def start_column_statistics_task_run_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartColumnStatisticsTaskRunSchedule", input, options)
   end
@@ -18174,7 +18381,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_crawler_errors()}
   def start_crawler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartCrawler", input, options)
   end
@@ -18190,7 +18398,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_crawler_schedule_errors()}
   def start_crawler_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartCrawlerSchedule", input, options)
   end
@@ -18215,7 +18424,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_data_quality_rule_recommendation_run_errors()}
   def start_data_quality_rule_recommendation_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDataQualityRuleRecommendationRun", input, options)
   end
@@ -18237,7 +18447,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_data_quality_ruleset_evaluation_run_errors()}
   def start_data_quality_ruleset_evaluation_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDataQualityRulesetEvaluationRun", input, options)
   end
@@ -18265,7 +18476,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_export_labels_task_run_errors()}
   def start_export_labels_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartExportLabelsTaskRun", input, options)
   end
@@ -18311,7 +18523,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_import_labels_task_run_errors()}
   def start_import_labels_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartImportLabelsTaskRun", input, options)
   end
@@ -18325,7 +18538,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_job_run_errors()}
   def start_job_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartJobRun", input, options)
   end
@@ -18348,7 +18562,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_ml_evaluation_task_run_errors()}
   def start_ml_evaluation_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMLEvaluationTaskRun", input, options)
   end
@@ -18388,7 +18603,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_ml_labeling_set_generation_task_run_errors()}
   def start_ml_labeling_set_generation_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMLLabelingSetGenerationTaskRun", input, options)
   end
@@ -18406,7 +18622,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_trigger_errors()}
   def start_trigger(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartTrigger", input, options)
   end
@@ -18420,7 +18637,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_workflow_run_errors()}
   def start_workflow_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartWorkflowRun", input, options)
   end
@@ -18434,7 +18652,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, stop_column_statistics_task_run_errors()}
   def stop_column_statistics_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopColumnStatisticsTaskRun", input, options)
   end
@@ -18452,7 +18671,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, stop_column_statistics_task_run_schedule_errors()}
   def stop_column_statistics_task_run_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopColumnStatisticsTaskRunSchedule", input, options)
   end
@@ -18466,7 +18686,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, stop_crawler_errors()}
   def stop_crawler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopCrawler", input, options)
   end
@@ -18482,7 +18703,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, stop_crawler_schedule_errors()}
   def stop_crawler_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopCrawlerSchedule", input, options)
   end
@@ -18496,7 +18718,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, stop_session_errors()}
   def stop_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopSession", input, options)
   end
@@ -18510,7 +18733,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, stop_trigger_errors()}
   def stop_trigger(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopTrigger", input, options)
   end
@@ -18524,7 +18748,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, stop_workflow_run_errors()}
   def stop_workflow_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopWorkflowRun", input, options)
   end
@@ -18542,7 +18767,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -18563,7 +18789,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, test_connection_errors()}
   def test_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TestConnection", input, options)
   end
@@ -18577,7 +18804,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -18591,7 +18819,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_blueprint_errors()}
   def update_blueprint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateBlueprint", input, options)
   end
@@ -18605,7 +18834,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_catalog_errors()}
   def update_catalog(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCatalog", input, options)
   end
@@ -18621,7 +18851,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_classifier_errors()}
   def update_classifier(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateClassifier", input, options)
   end
@@ -18642,7 +18873,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_column_statistics_for_partition_errors()}
   def update_column_statistics_for_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateColumnStatisticsForPartition", input, options)
   end
@@ -18663,7 +18895,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_column_statistics_for_table_errors()}
   def update_column_statistics_for_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateColumnStatisticsForTable", input, options)
   end
@@ -18681,7 +18914,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_column_statistics_task_settings_errors()}
   def update_column_statistics_task_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateColumnStatisticsTaskSettings", input, options)
   end
@@ -18695,7 +18929,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_connection_errors()}
   def update_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateConnection", input, options)
   end
@@ -18713,7 +18948,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_crawler_errors()}
   def update_crawler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCrawler", input, options)
   end
@@ -18727,7 +18963,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_crawler_schedule_errors()}
   def update_crawler_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCrawlerSchedule", input, options)
   end
@@ -18741,7 +18978,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_data_quality_ruleset_errors()}
   def update_data_quality_ruleset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDataQualityRuleset", input, options)
   end
@@ -18755,7 +18993,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_database_errors()}
   def update_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDatabase", input, options)
   end
@@ -18769,7 +19008,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_dev_endpoint_errors()}
   def update_dev_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDevEndpoint", input, options)
   end
@@ -18792,7 +19032,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_integration_resource_property_errors()}
   def update_integration_resource_property(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateIntegrationResourceProperty", input, options)
   end
@@ -18820,7 +19061,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_integration_table_properties_errors()}
   def update_integration_table_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateIntegrationTableProperties", input, options)
   end
@@ -18836,7 +19078,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_job_errors()}
   def update_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateJob", input, options)
   end
@@ -18855,7 +19098,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_job_from_source_control_errors()}
   def update_job_from_source_control(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateJobFromSourceControl", input, options)
   end
@@ -18876,7 +19120,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_ml_transform_errors()}
   def update_ml_transform(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMLTransform", input, options)
   end
@@ -18890,7 +19135,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_partition_errors()}
   def update_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePartition", input, options)
   end
@@ -18907,7 +19153,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_registry_errors()}
   def update_registry(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRegistry", input, options)
   end
@@ -18933,7 +19180,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_schema_errors()}
   def update_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSchema", input, options)
   end
@@ -18952,7 +19200,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_source_control_from_job_errors()}
   def update_source_control_from_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSourceControlFromJob", input, options)
   end
@@ -18966,7 +19215,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_table_errors()}
   def update_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTable", input, options)
   end
@@ -18980,7 +19230,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_table_optimizer_errors()}
   def update_table_optimizer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTableOptimizer", input, options)
   end
@@ -18998,7 +19249,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_trigger_errors()}
   def update_trigger(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTrigger", input, options)
   end
@@ -19012,7 +19264,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_usage_profile_errors()}
   def update_usage_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUsageProfile", input, options)
   end
@@ -19026,7 +19279,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_user_defined_function_errors()}
   def update_user_defined_function(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUserDefinedFunction", input, options)
   end
@@ -19040,7 +19294,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_workflow_errors()}
   def update_workflow(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWorkflow", input, options)
   end

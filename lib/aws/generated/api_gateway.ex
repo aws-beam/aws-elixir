@@ -25,19 +25,19 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type update_stage_request() :: %{String.t() => any()}
+  @type update_stage_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       api_key_ids() :: %{
-        "ids" => list(String.t()),
-        "warnings" => list(String.t())
+        "ids" => list(String.t() | atom()),
+        "warnings" => list(String.t() | atom())
       }
 
   """
-  @type api_key_ids() :: %{String.t() => any()}
+  @type api_key_ids() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -46,11 +46,11 @@ defmodule AWS.APIGateway do
       endpoint_configuration() :: %{
         "ipAddressType" => list(any()),
         "types" => list(list(any())()),
-        "vpcEndpointIds" => list(String.t())
+        "vpcEndpointIds" => list(String.t() | atom())
       }
 
   """
-  @type endpoint_configuration() :: %{String.t() => any()}
+  @type endpoint_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -63,18 +63,18 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type import_api_keys_request() :: %{String.t() => any()}
+  @type import_api_keys_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_stages_request() :: %{
-        optional("deploymentId") => String.t()
+        optional("deploymentId") => String.t() | atom()
       }
 
   """
-  @type get_stages_request() :: %{String.t() => any()}
+  @type get_stages_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -82,25 +82,25 @@ defmodule AWS.APIGateway do
 
       get_sdk_types_request() :: %{
         optional("limit") => integer(),
-        optional("position") => String.t()
+        optional("position") => String.t() | atom()
       }
 
   """
-  @type get_sdk_types_request() :: %{String.t() => any()}
+  @type get_sdk_types_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       canary_settings() :: %{
-        "deploymentId" => String.t(),
+        "deploymentId" => String.t() | atom(),
         "percentTraffic" => float(),
         "stageVariableOverrides" => map(),
         "useStageCache" => boolean()
       }
 
   """
-  @type canary_settings() :: %{String.t() => any()}
+  @type canary_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -111,7 +111,7 @@ defmodule AWS.APIGateway do
         "cacheTtlInSeconds" => integer(),
         "cachingEnabled" => boolean(),
         "dataTraceEnabled" => boolean(),
-        "loggingLevel" => String.t(),
+        "loggingLevel" => String.t() | atom(),
         "metricsEnabled" => boolean(),
         "requireAuthorizationForCacheControl" => boolean(),
         "throttlingBurstLimit" => integer(),
@@ -120,7 +120,7 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type method_setting() :: %{String.t() => any()}
+  @type method_setting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -132,22 +132,22 @@ defmodule AWS.APIGateway do
         "cacheClusterSize" => list(any()),
         "cacheClusterStatus" => list(any()),
         "canarySettings" => canary_settings(),
-        "clientCertificateId" => String.t(),
+        "clientCertificateId" => String.t() | atom(),
         "createdDate" => non_neg_integer(),
-        "deploymentId" => String.t(),
-        "description" => String.t(),
-        "documentationVersion" => String.t(),
+        "deploymentId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "documentationVersion" => String.t() | atom(),
         "lastUpdatedDate" => non_neg_integer(),
         "methodSettings" => map(),
-        "stageName" => String.t(),
+        "stageName" => String.t() | atom(),
         "tags" => map(),
         "tracingEnabled" => boolean(),
         "variables" => map(),
-        "webAclArn" => String.t()
+        "webAclArn" => String.t() | atom()
       }
 
   """
-  @type stage() :: %{String.t() => any()}
+  @type stage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -155,11 +155,11 @@ defmodule AWS.APIGateway do
 
       get_deployments_request() :: %{
         optional("limit") => integer(),
-        optional("position") => String.t()
+        optional("position") => String.t() | atom()
       }
 
   """
-  @type get_deployments_request() :: %{String.t() => any()}
+  @type get_deployments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -170,42 +170,42 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       authorizer() :: %{
-        "authType" => String.t(),
-        "authorizerCredentials" => String.t(),
+        "authType" => String.t() | atom(),
+        "authorizerCredentials" => String.t() | atom(),
         "authorizerResultTtlInSeconds" => integer(),
-        "authorizerUri" => String.t(),
-        "id" => String.t(),
-        "identitySource" => String.t(),
-        "identityValidationExpression" => String.t(),
-        "name" => String.t(),
-        "providerARNs" => list(String.t()),
+        "authorizerUri" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "identitySource" => String.t() | atom(),
+        "identityValidationExpression" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "providerARNs" => list(String.t() | atom()),
         "type" => list(any())
       }
 
   """
-  @type authorizer() :: %{String.t() => any()}
+  @type authorizer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_usage_request() :: %{
-        optional("keyId") => String.t(),
+        optional("keyId") => String.t() | atom(),
         optional("limit") => integer(),
-        optional("position") => String.t(),
-        required("endDate") => String.t(),
-        required("startDate") => String.t()
+        optional("position") => String.t() | atom(),
+        required("endDate") => String.t() | atom(),
+        required("startDate") => String.t() | atom()
       }
 
   """
-  @type get_usage_request() :: %{String.t() => any()}
+  @type get_usage_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -213,23 +213,23 @@ defmodule AWS.APIGateway do
 
       sdk_response() :: %{
         "body" => binary(),
-        "contentDisposition" => String.t(),
-        "contentType" => String.t()
+        "contentDisposition" => String.t() | atom(),
+        "contentType" => String.t() | atom()
       }
 
   """
-  @type sdk_response() :: %{String.t() => any()}
+  @type sdk_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unauthorized_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type unauthorized_exception() :: %{String.t() => any()}
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -237,12 +237,12 @@ defmodule AWS.APIGateway do
 
       export_response() :: %{
         "body" => binary(),
-        "contentDisposition" => String.t(),
-        "contentType" => String.t()
+        "contentDisposition" => String.t() | atom(),
+        "contentType" => String.t() | atom()
       }
 
   """
-  @type export_response() :: %{String.t() => any()}
+  @type export_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -250,11 +250,11 @@ defmodule AWS.APIGateway do
 
       get_tags_request() :: %{
         optional("limit") => integer(),
-        optional("position") => String.t()
+        optional("position") => String.t() | atom()
       }
 
   """
-  @type get_tags_request() :: %{String.t() => any()}
+  @type get_tags_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -266,7 +266,7 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type throttle_settings() :: %{String.t() => any()}
+  @type throttle_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -286,7 +286,7 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type update_resource_request() :: %{String.t() => any()}
+  @type update_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -295,37 +295,37 @@ defmodule AWS.APIGateway do
       deployment() :: %{
         "apiSummary" => map(),
         "createdDate" => non_neg_integer(),
-        "description" => String.t(),
-        "id" => String.t()
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom()
       }
 
   """
-  @type deployment() :: %{String.t() => any()}
+  @type deployment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       integration() :: %{
-        "cacheKeyParameters" => list(String.t()),
-        "cacheNamespace" => String.t(),
-        "connectionId" => String.t(),
+        "cacheKeyParameters" => list(String.t() | atom()),
+        "cacheNamespace" => String.t() | atom(),
+        "connectionId" => String.t() | atom(),
         "connectionType" => list(any()),
         "contentHandling" => list(any()),
-        "credentials" => String.t(),
-        "httpMethod" => String.t(),
+        "credentials" => String.t() | atom(),
+        "httpMethod" => String.t() | atom(),
         "integrationResponses" => map(),
-        "passthroughBehavior" => String.t(),
+        "passthroughBehavior" => String.t() | atom(),
         "requestParameters" => map(),
         "requestTemplates" => map(),
         "timeoutInMillis" => integer(),
         "tlsConfig" => tls_config(),
         "type" => list(any()),
-        "uri" => String.t()
+        "uri" => String.t() | atom()
       }
 
   """
-  @type integration() :: %{String.t() => any()}
+  @type integration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -361,14 +361,14 @@ defmodule AWS.APIGateway do
       get_documentation_parts_request() :: %{
         optional("limit") => integer(),
         optional("locationStatus") => list(any()),
-        optional("nameQuery") => String.t(),
-        optional("path") => String.t(),
-        optional("position") => String.t(),
+        optional("nameQuery") => String.t() | atom(),
+        optional("path") => String.t() | atom(),
+        optional("position") => String.t() | atom(),
         optional("type") => list(any())
       }
 
   """
-  @type get_documentation_parts_request() :: %{String.t() => any()}
+  @type get_documentation_parts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -385,15 +385,15 @@ defmodule AWS.APIGateway do
 
       test_invoke_authorizer_request() :: %{
         optional("additionalContext") => map(),
-        optional("body") => String.t(),
+        optional("body") => String.t() | atom(),
         optional("headers") => map(),
         optional("multiValueHeaders") => map(),
-        optional("pathWithQueryString") => String.t(),
+        optional("pathWithQueryString") => String.t() | atom(),
         optional("stageVariables") => map()
       }
 
   """
-  @type test_invoke_authorizer_request() :: %{String.t() => any()}
+  @type test_invoke_authorizer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -404,7 +404,7 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type update_client_certificate_request() :: %{String.t() => any()}
+  @type update_client_certificate_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -420,53 +420,53 @@ defmodule AWS.APIGateway do
   ## Example:
 
       patch_operation() :: %{
-        "from" => String.t(),
+        "from" => String.t() | atom(),
         "op" => list(any()),
-        "path" => String.t(),
-        "value" => String.t()
+        "path" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type patch_operation() :: %{String.t() => any()}
+  @type patch_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       mutual_tls_authentication() :: %{
-        "truststoreUri" => String.t(),
-        "truststoreVersion" => String.t(),
-        "truststoreWarnings" => list(String.t())
+        "truststoreUri" => String.t() | atom(),
+        "truststoreVersion" => String.t() | atom(),
+        "truststoreWarnings" => list(String.t() | atom())
       }
 
   """
-  @type mutual_tls_authentication() :: %{String.t() => any()}
+  @type mutual_tls_authentication() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       base_path_mapping() :: %{
-        "basePath" => String.t(),
-        "restApiId" => String.t(),
-        "stage" => String.t()
+        "basePath" => String.t() | atom(),
+        "restApiId" => String.t() | atom(),
+        "stage" => String.t() | atom()
       }
 
   """
-  @type base_path_mapping() :: %{String.t() => any()}
+  @type base_path_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_documentation_version_request() :: %{
-        optional("description") => String.t(),
-        optional("stageName") => String.t(),
-        required("documentationVersion") => String.t()
+        optional("description") => String.t() | atom(),
+        optional("stageName") => String.t() | atom(),
+        required("documentationVersion") => String.t() | atom()
       }
 
   """
-  @type create_documentation_version_request() :: %{String.t() => any()}
+  @type create_documentation_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -477,11 +477,11 @@ defmodule AWS.APIGateway do
         "responseParameters" => map(),
         "responseTemplates" => map(),
         "responseType" => list(any()),
-        "statusCode" => String.t()
+        "statusCode" => String.t() | atom()
       }
 
   """
-  @type gateway_response() :: %{String.t() => any()}
+  @type gateway_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -494,7 +494,7 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type import_rest_api_request() :: %{String.t() => any()}
+  @type import_rest_api_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -502,11 +502,11 @@ defmodule AWS.APIGateway do
 
       documentation_versions() :: %{
         "items" => list(documentation_version()),
-        "position" => String.t()
+        "position" => String.t() | atom()
       }
 
   """
-  @type documentation_versions() :: %{String.t() => any()}
+  @type documentation_versions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -517,7 +517,7 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type update_api_key_request() :: %{String.t() => any()}
+  @type update_api_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -525,11 +525,11 @@ defmodule AWS.APIGateway do
 
       vpc_links() :: %{
         "items" => list(vpc_link()),
-        "position" => String.t()
+        "position" => String.t() | atom()
       }
 
   """
-  @type vpc_links() :: %{String.t() => any()}
+  @type vpc_links() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -546,11 +546,11 @@ defmodule AWS.APIGateway do
 
       usage_plans() :: %{
         "items" => list(usage_plan()),
-        "position" => String.t()
+        "position" => String.t() | atom()
       }
 
   """
-  @type usage_plans() :: %{String.t() => any()}
+  @type usage_plans() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -560,40 +560,40 @@ defmodule AWS.APIGateway do
         optional("cacheClusterEnabled") => boolean(),
         optional("cacheClusterSize") => list(any()),
         optional("canarySettings") => deployment_canary_settings(),
-        optional("description") => String.t(),
-        optional("stageDescription") => String.t(),
-        optional("stageName") => String.t(),
+        optional("description") => String.t() | atom(),
+        optional("stageDescription") => String.t() | atom(),
+        optional("stageName") => String.t() | atom(),
         optional("tracingEnabled") => boolean(),
         optional("variables") => map()
       }
 
   """
-  @type create_deployment_request() :: %{String.t() => any()}
+  @type create_deployment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_base_path_mapping_request() :: %{
-        optional("domainNameId") => String.t()
+        optional("domainNameId") => String.t() | atom()
       }
 
   """
-  @type get_base_path_mapping_request() :: %{String.t() => any()}
+  @type get_base_path_mapping_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_model_request() :: %{
-        optional("description") => String.t(),
-        optional("schema") => String.t(),
-        required("contentType") => String.t(),
-        required("name") => String.t()
+        optional("description") => String.t() | atom(),
+        optional("schema") => String.t() | atom(),
+        required("contentType") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
 
   """
-  @type create_model_request() :: %{String.t() => any()}
+  @type create_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -609,24 +609,24 @@ defmodule AWS.APIGateway do
   ## Example:
 
       put_integration_request() :: %{
-        optional("cacheKeyParameters") => list(String.t()),
-        optional("cacheNamespace") => String.t(),
-        optional("connectionId") => String.t(),
+        optional("cacheKeyParameters") => list(String.t() | atom()),
+        optional("cacheNamespace") => String.t() | atom(),
+        optional("connectionId") => String.t() | atom(),
         optional("connectionType") => list(any()),
         optional("contentHandling") => list(any()),
-        optional("credentials") => String.t(),
-        optional("integrationHttpMethod") => String.t(),
-        optional("passthroughBehavior") => String.t(),
+        optional("credentials") => String.t() | atom(),
+        optional("integrationHttpMethod") => String.t() | atom(),
+        optional("passthroughBehavior") => String.t() | atom(),
         optional("requestParameters") => map(),
         optional("requestTemplates") => map(),
         optional("timeoutInMillis") => integer(),
         optional("tlsConfig") => tls_config(),
-        optional("uri") => String.t(),
+        optional("uri") => String.t() | atom(),
         required("type") => list(any())
       }
 
   """
-  @type put_integration_request() :: %{String.t() => any()}
+  @type put_integration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -646,7 +646,7 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type update_request_validator_request() :: %{String.t() => any()}
+  @type update_request_validator_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -657,44 +657,44 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type update_model_request() :: %{String.t() => any()}
+  @type update_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_domain_name_request() :: %{
-        optional("certificateArn") => String.t(),
-        optional("certificateBody") => String.t(),
-        optional("certificateChain") => String.t(),
-        optional("certificateName") => String.t(),
-        optional("certificatePrivateKey") => String.t(),
+        optional("certificateArn") => String.t() | atom(),
+        optional("certificateBody") => String.t() | atom(),
+        optional("certificateChain") => String.t() | atom(),
+        optional("certificateName") => String.t() | atom(),
+        optional("certificatePrivateKey") => String.t() | atom(),
         optional("endpointConfiguration") => endpoint_configuration(),
         optional("mutualTlsAuthentication") => mutual_tls_authentication_input(),
-        optional("ownershipVerificationCertificateArn") => String.t(),
-        optional("policy") => String.t(),
-        optional("regionalCertificateArn") => String.t(),
-        optional("regionalCertificateName") => String.t(),
+        optional("ownershipVerificationCertificateArn") => String.t() | atom(),
+        optional("policy") => String.t() | atom(),
+        optional("regionalCertificateArn") => String.t() | atom(),
+        optional("regionalCertificateName") => String.t() | atom(),
         optional("routingMode") => list(any()),
         optional("securityPolicy") => list(any()),
         optional("tags") => map(),
-        required("domainName") => String.t()
+        required("domainName") => String.t() | atom()
       }
 
   """
-  @type create_domain_name_request() :: %{String.t() => any()}
+  @type create_domain_name_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_base_path_mapping_request() :: %{
-        optional("domainNameId") => String.t(),
+        optional("domainNameId") => String.t() | atom(),
         optional("patchOperations") => list(patch_operation())
       }
 
   """
-  @type update_base_path_mapping_request() :: %{String.t() => any()}
+  @type update_base_path_mapping_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -702,11 +702,11 @@ defmodule AWS.APIGateway do
 
       usage_plan_keys() :: %{
         "items" => list(usage_plan_key()),
-        "position" => String.t()
+        "position" => String.t() | atom()
       }
 
   """
-  @type usage_plan_keys() :: %{String.t() => any()}
+  @type usage_plan_keys() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -714,41 +714,41 @@ defmodule AWS.APIGateway do
 
       sdk_type() :: %{
         "configurationProperties" => list(sdk_configuration_property()),
-        "description" => String.t(),
-        "friendlyName" => String.t(),
-        "id" => String.t()
+        "description" => String.t() | atom(),
+        "friendlyName" => String.t() | atom(),
+        "id" => String.t() | atom()
       }
 
   """
-  @type sdk_type() :: %{String.t() => any()}
+  @type sdk_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc_link() :: %{
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
-        "statusMessage" => String.t(),
+        "statusMessage" => String.t() | atom(),
         "tags" => map(),
-        "targetArns" => list(String.t())
+        "targetArns" => list(String.t() | atom())
       }
 
   """
-  @type vpc_link() :: %{String.t() => any()}
+  @type vpc_link() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -759,22 +759,22 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type update_documentation_part_request() :: %{String.t() => any()}
+  @type update_documentation_part_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       domain_name_access_association() :: %{
-        "accessAssociationSource" => String.t(),
+        "accessAssociationSource" => String.t() | atom(),
         "accessAssociationSourceType" => list(any()),
-        "domainNameAccessAssociationArn" => String.t(),
-        "domainNameArn" => String.t(),
+        "domainNameAccessAssociationArn" => String.t() | atom(),
+        "domainNameArn" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type domain_name_access_association() :: %{String.t() => any()}
+  @type domain_name_access_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -799,12 +799,12 @@ defmodule AWS.APIGateway do
   ## Example:
 
       too_many_requests_exception() :: %{
-        "message" => String.t(),
-        "retryAfterSeconds" => String.t()
+        "message" => String.t() | atom(),
+        "retryAfterSeconds" => String.t() | atom()
       }
 
   """
-  @type too_many_requests_exception() :: %{String.t() => any()}
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -820,19 +820,19 @@ defmodule AWS.APIGateway do
   ## Example:
 
       create_authorizer_request() :: %{
-        optional("authType") => String.t(),
-        optional("authorizerCredentials") => String.t(),
+        optional("authType") => String.t() | atom(),
+        optional("authorizerCredentials") => String.t() | atom(),
         optional("authorizerResultTtlInSeconds") => integer(),
-        optional("authorizerUri") => String.t(),
-        optional("identitySource") => String.t(),
-        optional("identityValidationExpression") => String.t(),
-        optional("providerARNs") => list(String.t()),
-        required("name") => String.t(),
+        optional("authorizerUri") => String.t() | atom(),
+        optional("identitySource") => String.t() | atom(),
+        optional("identityValidationExpression") => String.t() | atom(),
+        optional("providerARNs") => list(String.t() | atom()),
+        required("name") => String.t() | atom(),
         required("type") => list(any())
       }
 
   """
-  @type create_authorizer_request() :: %{String.t() => any()}
+  @type create_authorizer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -861,7 +861,7 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type stages() :: %{String.t() => any()}
+  @type stages() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -869,12 +869,12 @@ defmodule AWS.APIGateway do
 
       get_usage_plan_keys_request() :: %{
         optional("limit") => integer(),
-        optional("nameQuery") => String.t(),
-        optional("position") => String.t()
+        optional("nameQuery") => String.t() | atom(),
+        optional("position") => String.t() | atom()
       }
 
   """
-  @type get_usage_plan_keys_request() :: %{String.t() => any()}
+  @type get_usage_plan_keys_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -885,22 +885,22 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type update_gateway_response_request() :: %{String.t() => any()}
+  @type update_gateway_response_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       usage() :: %{
-        "endDate" => String.t(),
+        "endDate" => String.t() | atom(),
         "items" => map(),
-        "position" => String.t(),
-        "startDate" => String.t(),
-        "usagePlanId" => String.t()
+        "position" => String.t() | atom(),
+        "startDate" => String.t() | atom(),
+        "usagePlanId" => String.t() | atom()
       }
 
   """
-  @type usage() :: %{String.t() => any()}
+  @type usage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -908,23 +908,23 @@ defmodule AWS.APIGateway do
 
       gateway_responses() :: %{
         "items" => list(gateway_response()),
-        "position" => String.t()
+        "position" => String.t() | atom()
       }
 
   """
-  @type gateway_responses() :: %{String.t() => any()}
+  @type gateway_responses() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       stage_key() :: %{
-        "restApiId" => String.t(),
-        "stageName" => String.t()
+        "restApiId" => String.t() | atom(),
+        "stageName" => String.t() | atom()
       }
 
   """
-  @type stage_key() :: %{String.t() => any()}
+  @type stage_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -935,7 +935,7 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type update_method_request() :: %{String.t() => any()}
+  @type update_method_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -943,11 +943,11 @@ defmodule AWS.APIGateway do
 
       client_certificates() :: %{
         "items" => list(client_certificate()),
-        "position" => String.t()
+        "position" => String.t() | atom()
       }
 
   """
-  @type client_certificates() :: %{String.t() => any()}
+  @type client_certificates() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -964,11 +964,11 @@ defmodule AWS.APIGateway do
 
       domain_names() :: %{
         "items" => list(domain_name()),
-        "position" => String.t()
+        "position" => String.t() | atom()
       }
 
   """
-  @type domain_names() :: %{String.t() => any()}
+  @type domain_names() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -976,11 +976,11 @@ defmodule AWS.APIGateway do
 
       resources() :: %{
         "items" => list(resource()),
-        "position" => String.t()
+        "position" => String.t() | atom()
       }
 
   """
-  @type resources() :: %{String.t() => any()}
+  @type resources() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -997,11 +997,11 @@ defmodule AWS.APIGateway do
 
       get_authorizers_request() :: %{
         optional("limit") => integer(),
-        optional("position") => String.t()
+        optional("position") => String.t() | atom()
       }
 
   """
-  @type get_authorizers_request() :: %{String.t() => any()}
+  @type get_authorizers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1027,25 +1027,25 @@ defmodule AWS.APIGateway do
 
       create_documentation_part_request() :: %{
         required("location") => documentation_part_location(),
-        required("properties") => String.t()
+        required("properties") => String.t() | atom()
       }
 
   """
-  @type create_documentation_part_request() :: %{String.t() => any()}
+  @type create_documentation_part_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       request_validator() :: %{
-        "id" => String.t(),
-        "name" => String.t(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "validateRequestBody" => boolean(),
         "validateRequestParameters" => boolean()
       }
 
   """
-  @type request_validator() :: %{String.t() => any()}
+  @type request_validator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1062,23 +1062,23 @@ defmodule AWS.APIGateway do
 
       rest_api() :: %{
         "apiKeySource" => list(any()),
-        "binaryMediaTypes" => list(String.t()),
+        "binaryMediaTypes" => list(String.t() | atom()),
         "createdDate" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "disableExecuteApiEndpoint" => boolean(),
         "endpointConfiguration" => endpoint_configuration(),
-        "id" => String.t(),
+        "id" => String.t() | atom(),
         "minimumCompressionSize" => integer(),
-        "name" => String.t(),
-        "policy" => String.t(),
-        "rootResourceId" => String.t(),
+        "name" => String.t() | atom(),
+        "policy" => String.t() | atom(),
+        "rootResourceId" => String.t() | atom(),
         "tags" => map(),
-        "version" => String.t(),
-        "warnings" => list(String.t())
+        "version" => String.t() | atom(),
+        "warnings" => list(String.t() | atom())
       }
 
   """
-  @type rest_api() :: %{String.t() => any()}
+  @type rest_api() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1086,35 +1086,35 @@ defmodule AWS.APIGateway do
 
       get_client_certificates_request() :: %{
         optional("limit") => integer(),
-        optional("position") => String.t()
+        optional("position") => String.t() | atom()
       }
 
   """
-  @type get_client_certificates_request() :: %{String.t() => any()}
+  @type get_client_certificates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_resources_request() :: %{
-        optional("embed") => list(String.t()),
+        optional("embed") => list(String.t() | atom()),
         optional("limit") => integer(),
-        optional("position") => String.t()
+        optional("position") => String.t() | atom()
       }
 
   """
-  @type get_resources_request() :: %{String.t() => any()}
+  @type get_resources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1122,11 +1122,11 @@ defmodule AWS.APIGateway do
 
       get_gateway_responses_request() :: %{
         optional("limit") => integer(),
-        optional("position") => String.t()
+        optional("position") => String.t() | atom()
       }
 
   """
-  @type get_gateway_responses_request() :: %{String.t() => any()}
+  @type get_gateway_responses_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1146,7 +1146,7 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type get_sdk_request() :: %{String.t() => any()}
+  @type get_sdk_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1159,35 +1159,35 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type import_documentation_parts_request() :: %{String.t() => any()}
+  @type import_documentation_parts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_request_validator_request() :: %{
-        optional("name") => String.t(),
+        optional("name") => String.t() | atom(),
         optional("validateRequestBody") => boolean(),
         optional("validateRequestParameters") => boolean()
       }
 
   """
-  @type create_request_validator_request() :: %{String.t() => any()}
+  @type create_request_validator_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sdk_configuration_property() :: %{
-        "defaultValue" => String.t(),
-        "description" => String.t(),
-        "friendlyName" => String.t(),
-        "name" => String.t(),
+        "defaultValue" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "friendlyName" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "required" => boolean()
       }
 
   """
-  @type sdk_configuration_property() :: %{String.t() => any()}
+  @type sdk_configuration_property() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1195,36 +1195,36 @@ defmodule AWS.APIGateway do
 
       base_path_mappings() :: %{
         "items" => list(base_path_mapping()),
-        "position" => String.t()
+        "position" => String.t() | atom()
       }
 
   """
-  @type base_path_mappings() :: %{String.t() => any()}
+  @type base_path_mappings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_deployment_request() :: %{
-        optional("embed") => list(String.t())
+        optional("embed") => list(String.t() | atom())
       }
 
   """
-  @type get_deployment_request() :: %{String.t() => any()}
+  @type get_deployment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_vpc_link_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | atom(),
         optional("tags") => map(),
-        required("name") => String.t(),
-        required("targetArns") => list(String.t())
+        required("name") => String.t() | atom(),
+        required("targetArns") => list(String.t() | atom())
       }
 
   """
-  @type create_vpc_link_request() :: %{String.t() => any()}
+  @type create_vpc_link_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1232,48 +1232,48 @@ defmodule AWS.APIGateway do
 
       get_request_validators_request() :: %{
         optional("limit") => integer(),
-        optional("position") => String.t()
+        optional("position") => String.t() | atom()
       }
 
   """
-  @type get_request_validators_request() :: %{String.t() => any()}
+  @type get_request_validators_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type not_found_exception() :: %{String.t() => any()}
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       generate_client_certificate_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | atom(),
         optional("tags") => map()
       }
 
   """
-  @type generate_client_certificate_request() :: %{String.t() => any()}
+  @type generate_client_certificate_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       account() :: %{
-        "apiKeyVersion" => String.t(),
-        "cloudwatchRoleArn" => String.t(),
-        "features" => list(String.t()),
+        "apiKeyVersion" => String.t() | atom(),
+        "cloudwatchRoleArn" => String.t() | atom(),
+        "features" => list(String.t() | atom()),
         "throttleSettings" => throttle_settings()
       }
 
   """
-  @type account() :: %{String.t() => any()}
+  @type account() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1293,19 +1293,19 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type tags() :: %{String.t() => any()}
+  @type tags() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       reject_domain_name_access_association_request() :: %{
-        required("domainNameAccessAssociationArn") => String.t(),
-        required("domainNameArn") => String.t()
+        required("domainNameAccessAssociationArn") => String.t() | atom(),
+        required("domainNameArn") => String.t() | atom()
       }
 
   """
-  @type reject_domain_name_access_association_request() :: %{String.t() => any()}
+  @type reject_domain_name_access_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1313,12 +1313,12 @@ defmodule AWS.APIGateway do
 
       get_domain_names_request() :: %{
         optional("limit") => integer(),
-        optional("position") => String.t(),
+        optional("position") => String.t() | atom(),
         optional("resourceOwner") => list(any())
       }
 
   """
-  @type get_domain_names_request() :: %{String.t() => any()}
+  @type get_domain_names_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1329,7 +1329,7 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type update_usage_request() :: %{String.t() => any()}
+  @type update_usage_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1345,12 +1345,12 @@ defmodule AWS.APIGateway do
   ## Example:
 
       service_unavailable_exception() :: %{
-        "message" => String.t(),
-        "retryAfterSeconds" => String.t()
+        "message" => String.t() | atom(),
+        "retryAfterSeconds" => String.t() | atom()
       }
 
   """
-  @type service_unavailable_exception() :: %{String.t() => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1361,22 +1361,22 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type update_integration_response_request() :: %{String.t() => any()}
+  @type update_integration_response_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       documentation_part_location() :: %{
-        "method" => String.t(),
-        "name" => String.t(),
-        "path" => String.t(),
-        "statusCode" => String.t(),
+        "method" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "path" => String.t() | atom(),
+        "statusCode" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type documentation_part_location() :: %{String.t() => any()}
+  @type documentation_part_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1387,7 +1387,7 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type update_rest_api_request() :: %{String.t() => any()}
+  @type update_rest_api_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1398,7 +1398,7 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type update_integration_request() :: %{String.t() => any()}
+  @type update_integration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1406,40 +1406,40 @@ defmodule AWS.APIGateway do
 
       put_method_request() :: %{
         optional("apiKeyRequired") => boolean(),
-        optional("authorizationScopes") => list(String.t()),
-        optional("authorizerId") => String.t(),
-        optional("operationName") => String.t(),
+        optional("authorizationScopes") => list(String.t() | atom()),
+        optional("authorizerId") => String.t() | atom(),
+        optional("operationName") => String.t() | atom(),
         optional("requestModels") => map(),
         optional("requestParameters") => map(),
-        optional("requestValidatorId") => String.t(),
-        required("authorizationType") => String.t()
+        optional("requestValidatorId") => String.t() | atom(),
+        required("authorizationType") => String.t() | atom()
       }
 
   """
-  @type put_method_request() :: %{String.t() => any()}
+  @type put_method_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_resource_request() :: %{
-        required("pathPart") => String.t()
+        required("pathPart") => String.t() | atom()
       }
 
   """
-  @type create_resource_request() :: %{String.t() => any()}
+  @type create_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_domain_name_request() :: %{
-        optional("domainNameId") => String.t(),
+        optional("domainNameId") => String.t() | atom(),
         optional("patchOperations") => list(patch_operation())
       }
 
   """
-  @type update_domain_name_request() :: %{String.t() => any()}
+  @type update_domain_name_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1447,29 +1447,29 @@ defmodule AWS.APIGateway do
 
       rest_apis() :: %{
         "items" => list(rest_api()),
-        "position" => String.t()
+        "position" => String.t() | atom()
       }
 
   """
-  @type rest_apis() :: %{String.t() => any()}
+  @type rest_apis() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_api_key_request() :: %{
-        optional("customerId") => String.t(),
-        optional("description") => String.t(),
+        optional("customerId") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("enabled") => boolean(),
         optional("generateDistinctId") => boolean(),
-        optional("name") => String.t(),
+        optional("name") => String.t() | atom(),
         optional("stageKeys") => list(stage_key()),
         optional("tags") => map(),
-        optional("value") => String.t()
+        optional("value") => String.t() | atom()
       }
 
   """
-  @type create_api_key_request() :: %{String.t() => any()}
+  @type create_api_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1480,7 +1480,7 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type update_account_request() :: %{String.t() => any()}
+  @type update_account_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1488,43 +1488,43 @@ defmodule AWS.APIGateway do
 
       domain_name_access_associations() :: %{
         optional("items") => list(domain_name_access_association()),
-        optional("position") => String.t()
+        optional("position") => String.t() | atom()
       }
 
   """
-  @type domain_name_access_associations() :: %{String.t() => any()}
+  @type domain_name_access_associations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       domain_name() :: %{
-        "certificateArn" => String.t(),
-        "certificateName" => String.t(),
+        "certificateArn" => String.t() | atom(),
+        "certificateName" => String.t() | atom(),
         "certificateUploadDate" => non_neg_integer(),
-        "distributionDomainName" => String.t(),
-        "distributionHostedZoneId" => String.t(),
-        "domainName" => String.t(),
-        "domainNameArn" => String.t(),
-        "domainNameId" => String.t(),
+        "distributionDomainName" => String.t() | atom(),
+        "distributionHostedZoneId" => String.t() | atom(),
+        "domainName" => String.t() | atom(),
+        "domainNameArn" => String.t() | atom(),
+        "domainNameId" => String.t() | atom(),
         "domainNameStatus" => list(any()),
-        "domainNameStatusMessage" => String.t(),
+        "domainNameStatusMessage" => String.t() | atom(),
         "endpointConfiguration" => endpoint_configuration(),
-        "managementPolicy" => String.t(),
+        "managementPolicy" => String.t() | atom(),
         "mutualTlsAuthentication" => mutual_tls_authentication(),
-        "ownershipVerificationCertificateArn" => String.t(),
-        "policy" => String.t(),
-        "regionalCertificateArn" => String.t(),
-        "regionalCertificateName" => String.t(),
-        "regionalDomainName" => String.t(),
-        "regionalHostedZoneId" => String.t(),
+        "ownershipVerificationCertificateArn" => String.t() | atom(),
+        "policy" => String.t() | atom(),
+        "regionalCertificateArn" => String.t() | atom(),
+        "regionalCertificateName" => String.t() | atom(),
+        "regionalDomainName" => String.t() | atom(),
+        "regionalHostedZoneId" => String.t() | atom(),
         "routingMode" => list(any()),
         "securityPolicy" => list(any()),
         "tags" => map()
       }
 
   """
-  @type domain_name() :: %{String.t() => any()}
+  @type domain_name() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1534,17 +1534,17 @@ defmodule AWS.APIGateway do
         optional("cacheClusterEnabled") => boolean(),
         optional("cacheClusterSize") => list(any()),
         optional("canarySettings") => canary_settings(),
-        optional("description") => String.t(),
-        optional("documentationVersion") => String.t(),
+        optional("description") => String.t() | atom(),
+        optional("documentationVersion") => String.t() | atom(),
         optional("tags") => map(),
         optional("tracingEnabled") => boolean(),
         optional("variables") => map(),
-        required("deploymentId") => String.t(),
-        required("stageName") => String.t()
+        required("deploymentId") => String.t() | atom(),
+        required("stageName") => String.t() | atom()
       }
 
   """
-  @type create_stage_request() :: %{String.t() => any()}
+  @type create_stage_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1555,7 +1555,7 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type update_method_response_request() :: %{String.t() => any()}
+  @type update_method_response_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1580,54 +1580,54 @@ defmodule AWS.APIGateway do
   ## Example:
 
       client_certificate() :: %{
-        "clientCertificateId" => String.t(),
+        "clientCertificateId" => String.t() | atom(),
         "createdDate" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "expirationDate" => non_neg_integer(),
-        "pemEncodedCertificate" => String.t(),
+        "pemEncodedCertificate" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type client_certificate() :: %{String.t() => any()}
+  @type client_certificate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_api_keys_request() :: %{
-        optional("customerId") => String.t(),
+        optional("customerId") => String.t() | atom(),
         optional("includeValues") => boolean(),
         optional("limit") => integer(),
-        optional("nameQuery") => String.t(),
-        optional("position") => String.t()
+        optional("nameQuery") => String.t() | atom(),
+        optional("position") => String.t() | atom()
       }
 
   """
-  @type get_api_keys_request() :: %{String.t() => any()}
+  @type get_api_keys_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       mutual_tls_authentication_input() :: %{
-        "truststoreUri" => String.t(),
-        "truststoreVersion" => String.t()
+        "truststoreUri" => String.t() | atom(),
+        "truststoreVersion" => String.t() | atom()
       }
 
   """
-  @type mutual_tls_authentication_input() :: %{String.t() => any()}
+  @type mutual_tls_authentication_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_resource_request() :: %{
-        optional("embed") => list(String.t())
+        optional("embed") => list(String.t() | atom())
       }
 
   """
-  @type get_resource_request() :: %{String.t() => any()}
+  @type get_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1640,7 +1640,7 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type deployment_canary_settings() :: %{String.t() => any()}
+  @type deployment_canary_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1656,25 +1656,25 @@ defmodule AWS.APIGateway do
   ## Example:
 
       api_stage() :: %{
-        "apiId" => String.t(),
-        "stage" => String.t(),
+        "apiId" => String.t() | atom(),
+        "stage" => String.t() | atom(),
         "throttle" => map()
       }
 
   """
-  @type api_stage() :: %{String.t() => any()}
+  @type api_stage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_export_request() :: %{
-        optional("accepts") => String.t(),
+        optional("accepts") => String.t() | atom(),
         optional("parameters") => map()
       }
 
   """
-  @type get_export_request() :: %{String.t() => any()}
+  @type get_export_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1682,12 +1682,12 @@ defmodule AWS.APIGateway do
 
       get_domain_name_access_associations_request() :: %{
         optional("limit") => integer(),
-        optional("position") => String.t(),
+        optional("position") => String.t() | atom(),
         optional("resourceOwner") => list(any())
       }
 
   """
-  @type get_domain_name_access_associations_request() :: %{String.t() => any()}
+  @type get_domain_name_access_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1707,7 +1707,7 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type tls_config() :: %{String.t() => any()}
+  @type tls_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1723,12 +1723,12 @@ defmodule AWS.APIGateway do
   ## Example:
 
       access_log_settings() :: %{
-        "destinationArn" => String.t(),
-        "format" => String.t()
+        "destinationArn" => String.t() | atom(),
+        "format" => String.t() | atom()
       }
 
   """
-  @type access_log_settings() :: %{String.t() => any()}
+  @type access_log_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1736,12 +1736,12 @@ defmodule AWS.APIGateway do
 
       documentation_version() :: %{
         "createdDate" => non_neg_integer(),
-        "description" => String.t(),
-        "version" => String.t()
+        "description" => String.t() | atom(),
+        "version" => String.t() | atom()
       }
 
   """
-  @type documentation_version() :: %{String.t() => any()}
+  @type documentation_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1767,12 +1767,12 @@ defmodule AWS.APIGateway do
 
       api_keys() :: %{
         "items" => list(api_key()),
-        "position" => String.t(),
-        "warnings" => list(String.t())
+        "position" => String.t() | atom(),
+        "warnings" => list(String.t() | atom())
       }
 
   """
-  @type api_keys() :: %{String.t() => any()}
+  @type api_keys() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1780,25 +1780,25 @@ defmodule AWS.APIGateway do
 
       get_models_request() :: %{
         optional("limit") => integer(),
-        optional("position") => String.t()
+        optional("position") => String.t() | atom()
       }
 
   """
-  @type get_models_request() :: %{String.t() => any()}
+  @type get_models_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_base_path_mapping_request() :: %{
-        optional("basePath") => String.t(),
-        optional("domainNameId") => String.t(),
-        optional("stage") => String.t(),
-        required("restApiId") => String.t()
+        optional("basePath") => String.t() | atom(),
+        optional("domainNameId") => String.t() | atom(),
+        optional("stage") => String.t() | atom(),
+        required("restApiId") => String.t() | atom()
       }
 
   """
-  @type create_base_path_mapping_request() :: %{String.t() => any()}
+  @type create_base_path_mapping_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1807,11 +1807,11 @@ defmodule AWS.APIGateway do
       method_response() :: %{
         "responseModels" => map(),
         "responseParameters" => map(),
-        "statusCode" => String.t()
+        "statusCode" => String.t() | atom()
       }
 
   """
-  @type method_response() :: %{String.t() => any()}
+  @type method_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1822,7 +1822,7 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type update_vpc_link_request() :: %{String.t() => any()}
+  @type update_vpc_link_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1839,28 +1839,28 @@ defmodule AWS.APIGateway do
 
       usage_plan() :: %{
         "apiStages" => list(api_stage()),
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "productCode" => String.t(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "productCode" => String.t() | atom(),
         "quota" => quota_settings(),
         "tags" => map(),
         "throttle" => throttle_settings()
       }
 
   """
-  @type usage_plan() :: %{String.t() => any()}
+  @type usage_plan() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_domain_name_request() :: %{
-        optional("domainNameId") => String.t()
+        optional("domainNameId") => String.t() | atom()
       }
 
   """
-  @type get_domain_name_request() :: %{String.t() => any()}
+  @type get_domain_name_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1871,7 +1871,7 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type update_usage_plan_request() :: %{String.t() => any()}
+  @type update_usage_plan_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1882,19 +1882,19 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type sdk_types() :: %{String.t() => any()}
+  @type sdk_types() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_usage_plan_key_request() :: %{
-        required("keyId") => String.t(),
-        required("keyType") => String.t()
+        required("keyId") => String.t() | atom(),
+        required("keyType") => String.t() | atom()
       }
 
   """
-  @type create_usage_plan_key_request() :: %{String.t() => any()}
+  @type create_usage_plan_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1914,7 +1914,7 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type get_model_request() :: %{String.t() => any()}
+  @type get_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1930,13 +1930,13 @@ defmodule AWS.APIGateway do
   ## Example:
 
       get_usage_plans_request() :: %{
-        optional("keyId") => String.t(),
+        optional("keyId") => String.t() | atom(),
         optional("limit") => integer(),
-        optional("position") => String.t()
+        optional("position") => String.t() | atom()
       }
 
   """
-  @type get_usage_plans_request() :: %{String.t() => any()}
+  @type get_usage_plans_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1944,15 +1944,15 @@ defmodule AWS.APIGateway do
 
       create_usage_plan_request() :: %{
         optional("apiStages") => list(api_stage()),
-        optional("description") => String.t(),
+        optional("description") => String.t() | atom(),
         optional("quota") => quota_settings(),
         optional("tags") => map(),
         optional("throttle") => throttle_settings(),
-        required("name") => String.t()
+        required("name") => String.t() | atom()
       }
 
   """
-  @type create_usage_plan_request() :: %{String.t() => any()}
+  @type create_usage_plan_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1960,11 +1960,11 @@ defmodule AWS.APIGateway do
 
       get_rest_apis_request() :: %{
         optional("limit") => integer(),
-        optional("position") => String.t()
+        optional("position") => String.t() | atom()
       }
 
   """
-  @type get_rest_apis_request() :: %{String.t() => any()}
+  @type get_rest_apis_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1980,13 +1980,13 @@ defmodule AWS.APIGateway do
   ## Example:
 
       documentation_part() :: %{
-        "id" => String.t(),
+        "id" => String.t() | atom(),
         "location" => documentation_part_location(),
-        "properties" => String.t()
+        "properties" => String.t() | atom()
       }
 
   """
-  @type documentation_part() :: %{String.t() => any()}
+  @type documentation_part() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1994,11 +1994,11 @@ defmodule AWS.APIGateway do
 
       method_snapshot() :: %{
         "apiKeyRequired" => boolean(),
-        "authorizationType" => String.t()
+        "authorizationType" => String.t() | atom()
       }
 
   """
-  @type method_snapshot() :: %{String.t() => any()}
+  @type method_snapshot() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2010,7 +2010,7 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type put_method_response_request() :: %{String.t() => any()}
+  @type put_method_response_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2018,23 +2018,23 @@ defmodule AWS.APIGateway do
 
       request_validators() :: %{
         "items" => list(request_validator()),
-        "position" => String.t()
+        "position" => String.t() | atom()
       }
 
   """
-  @type request_validators() :: %{String.t() => any()}
+  @type request_validators() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "message" => String.t(),
-        "retryAfterSeconds" => String.t()
+        "message" => String.t() | atom(),
+        "retryAfterSeconds" => String.t() | atom()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2042,33 +2042,33 @@ defmodule AWS.APIGateway do
 
       models() :: %{
         "items" => list(model()),
-        "position" => String.t()
+        "position" => String.t() | atom()
       }
 
   """
-  @type models() :: %{String.t() => any()}
+  @type models() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_base_path_mapping_request() :: %{
-        optional("domainNameId") => String.t()
+        optional("domainNameId") => String.t() | atom()
       }
 
   """
-  @type delete_base_path_mapping_request() :: %{String.t() => any()}
+  @type delete_base_path_mapping_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_domain_name_request() :: %{
-        optional("domainNameId") => String.t()
+        optional("domainNameId") => String.t() | atom()
       }
 
   """
-  @type delete_domain_name_request() :: %{String.t() => any()}
+  @type delete_domain_name_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2076,11 +2076,11 @@ defmodule AWS.APIGateway do
 
       documentation_parts() :: %{
         "items" => list(documentation_part()),
-        "position" => String.t()
+        "position" => String.t() | atom()
       }
 
   """
-  @type documentation_parts() :: %{String.t() => any()}
+  @type documentation_parts() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2100,36 +2100,36 @@ defmodule AWS.APIGateway do
         "claims" => map(),
         "clientStatus" => integer(),
         "latency" => float(),
-        "log" => String.t(),
-        "policy" => String.t(),
-        "principalId" => String.t()
+        "log" => String.t() | atom(),
+        "policy" => String.t() | atom(),
+        "principalId" => String.t() | atom()
       }
 
   """
-  @type test_invoke_authorizer_response() :: %{String.t() => any()}
+  @type test_invoke_authorizer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       documentation_part_ids() :: %{
-        "ids" => list(String.t()),
-        "warnings" => list(String.t())
+        "ids" => list(String.t() | atom()),
+        "warnings" => list(String.t() | atom())
       }
 
   """
-  @type documentation_part_ids() :: %{String.t() => any()}
+  @type documentation_part_ids() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2146,47 +2146,47 @@ defmodule AWS.APIGateway do
 
       method() :: %{
         "apiKeyRequired" => boolean(),
-        "authorizationScopes" => list(String.t()),
-        "authorizationType" => String.t(),
-        "authorizerId" => String.t(),
-        "httpMethod" => String.t(),
+        "authorizationScopes" => list(String.t() | atom()),
+        "authorizationType" => String.t() | atom(),
+        "authorizerId" => String.t() | atom(),
+        "httpMethod" => String.t() | atom(),
         "methodIntegration" => integration(),
         "methodResponses" => map(),
-        "operationName" => String.t(),
+        "operationName" => String.t() | atom(),
         "requestModels" => map(),
         "requestParameters" => map(),
-        "requestValidatorId" => String.t()
+        "requestValidatorId" => String.t() | atom()
       }
 
   """
-  @type method() :: %{String.t() => any()}
+  @type method() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       template() :: %{
-        "value" => String.t()
+        "value" => String.t() | atom()
       }
 
   """
-  @type template() :: %{String.t() => any()}
+  @type template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       test_invoke_method_request() :: %{
-        optional("body") => String.t(),
-        optional("clientCertificateId") => String.t(),
+        optional("body") => String.t() | atom(),
+        optional("clientCertificateId") => String.t() | atom(),
         optional("headers") => map(),
         optional("multiValueHeaders") => map(),
-        optional("pathWithQueryString") => String.t(),
+        optional("pathWithQueryString") => String.t() | atom(),
         optional("stageVariables") => map()
       }
 
   """
-  @type test_invoke_method_request() :: %{String.t() => any()}
+  @type test_invoke_method_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2197,7 +2197,7 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type get_api_key_request() :: %{String.t() => any()}
+  @type get_api_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2205,11 +2205,11 @@ defmodule AWS.APIGateway do
 
       get_vpc_links_request() :: %{
         optional("limit") => integer(),
-        optional("position") => String.t()
+        optional("position") => String.t() | atom()
       }
 
   """
-  @type get_vpc_links_request() :: %{String.t() => any()}
+  @type get_vpc_links_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2217,24 +2217,24 @@ defmodule AWS.APIGateway do
 
       authorizers() :: %{
         "items" => list(authorizer()),
-        "position" => String.t()
+        "position" => String.t() | atom()
       }
 
   """
-  @type authorizers() :: %{String.t() => any()}
+  @type authorizers() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_base_path_mappings_request() :: %{
-        optional("domainNameId") => String.t(),
+        optional("domainNameId") => String.t() | atom(),
         optional("limit") => integer(),
-        optional("position") => String.t()
+        optional("position") => String.t() | atom()
       }
 
   """
-  @type get_base_path_mappings_request() :: %{String.t() => any()}
+  @type get_base_path_mappings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2251,19 +2251,19 @@ defmodule AWS.APIGateway do
 
       api_key() :: %{
         "createdDate" => non_neg_integer(),
-        "customerId" => String.t(),
-        "description" => String.t(),
+        "customerId" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "enabled" => boolean(),
-        "id" => String.t(),
+        "id" => String.t() | atom(),
         "lastUpdatedDate" => non_neg_integer(),
-        "name" => String.t(),
-        "stageKeys" => list(String.t()),
+        "name" => String.t() | atom(),
+        "stageKeys" => list(String.t() | atom()),
         "tags" => map(),
-        "value" => String.t()
+        "value" => String.t() | atom()
       }
 
   """
-  @type api_key() :: %{String.t() => any()}
+  @type api_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2273,11 +2273,11 @@ defmodule AWS.APIGateway do
         optional("contentHandling") => list(any()),
         optional("responseParameters") => map(),
         optional("responseTemplates") => map(),
-        optional("selectionPattern") => String.t()
+        optional("selectionPattern") => String.t() | atom()
       }
 
   """
-  @type put_integration_response_request() :: %{String.t() => any()}
+  @type put_integration_response_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2296,28 +2296,28 @@ defmodule AWS.APIGateway do
         "contentHandling" => list(any()),
         "responseParameters" => map(),
         "responseTemplates" => map(),
-        "selectionPattern" => String.t(),
-        "statusCode" => String.t()
+        "selectionPattern" => String.t() | atom(),
+        "statusCode" => String.t() | atom()
       }
 
   """
-  @type integration_response() :: %{String.t() => any()}
+  @type integration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       test_invoke_method_response() :: %{
-        "body" => String.t(),
+        "body" => String.t() | atom(),
         "headers" => map(),
         "latency" => float(),
-        "log" => String.t(),
+        "log" => String.t() | atom(),
         "multiValueHeaders" => map(),
         "status" => integer()
       }
 
   """
-  @type test_invoke_method_response() :: %{String.t() => any()}
+  @type test_invoke_method_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2333,15 +2333,15 @@ defmodule AWS.APIGateway do
   ## Example:
 
       model() :: %{
-        "contentType" => String.t(),
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "schema" => String.t()
+        "contentType" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "schema" => String.t() | atom()
       }
 
   """
-  @type model() :: %{String.t() => any()}
+  @type model() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2349,11 +2349,11 @@ defmodule AWS.APIGateway do
 
       deployments() :: %{
         "items" => list(deployment()),
-        "position" => String.t()
+        "position" => String.t() | atom()
       }
 
   """
-  @type deployments() :: %{String.t() => any()}
+  @type deployments() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2364,7 +2364,7 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type update_documentation_version_request() :: %{String.t() => any()}
+  @type update_documentation_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2375,7 +2375,7 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type update_deployment_request() :: %{String.t() => any()}
+  @type update_deployment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2389,7 +2389,7 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type put_rest_api_request() :: %{String.t() => any()}
+  @type put_rest_api_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2402,7 +2402,7 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type quota_settings() :: %{String.t() => any()}
+  @type quota_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2419,11 +2419,11 @@ defmodule AWS.APIGateway do
 
       get_documentation_versions_request() :: %{
         optional("limit") => integer(),
-        optional("position") => String.t()
+        optional("position") => String.t() | atom()
       }
 
   """
-  @type get_documentation_versions_request() :: %{String.t() => any()}
+  @type get_documentation_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2431,27 +2431,27 @@ defmodule AWS.APIGateway do
 
       create_domain_name_access_association_request() :: %{
         optional("tags") => map(),
-        required("accessAssociationSource") => String.t(),
+        required("accessAssociationSource") => String.t() | atom(),
         required("accessAssociationSourceType") => list(any()),
-        required("domainNameArn") => String.t()
+        required("domainNameArn") => String.t() | atom()
       }
 
   """
-  @type create_domain_name_access_association_request() :: %{String.t() => any()}
+  @type create_domain_name_access_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       usage_plan_key() :: %{
-        "id" => String.t(),
-        "name" => String.t(),
-        "type" => String.t(),
-        "value" => String.t()
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type usage_plan_key() :: %{String.t() => any()}
+  @type usage_plan_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2471,7 +2471,7 @@ defmodule AWS.APIGateway do
       }
 
   """
-  @type update_authorizer_request() :: %{String.t() => any()}
+  @type update_authorizer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2480,11 +2480,11 @@ defmodule AWS.APIGateway do
       put_gateway_response_request() :: %{
         optional("responseParameters") => map(),
         optional("responseTemplates") => map(),
-        optional("statusCode") => String.t()
+        optional("statusCode") => String.t() | atom()
       }
 
   """
-  @type put_gateway_response_request() :: %{String.t() => any()}
+  @type put_gateway_response_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2492,35 +2492,35 @@ defmodule AWS.APIGateway do
 
       create_rest_api_request() :: %{
         optional("apiKeySource") => list(any()),
-        optional("binaryMediaTypes") => list(String.t()),
-        optional("cloneFrom") => String.t(),
-        optional("description") => String.t(),
+        optional("binaryMediaTypes") => list(String.t() | atom()),
+        optional("cloneFrom") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("disableExecuteApiEndpoint") => boolean(),
         optional("endpointConfiguration") => endpoint_configuration(),
         optional("minimumCompressionSize") => integer(),
-        optional("policy") => String.t(),
+        optional("policy") => String.t() | atom(),
         optional("tags") => map(),
-        optional("version") => String.t(),
-        required("name") => String.t()
+        optional("version") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
 
   """
-  @type create_rest_api_request() :: %{String.t() => any()}
+  @type create_rest_api_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource() :: %{
-        "id" => String.t(),
-        "parentId" => String.t(),
-        "path" => String.t(),
-        "pathPart" => String.t(),
+        "id" => String.t() | atom(),
+        "parentId" => String.t() | atom(),
+        "path" => String.t() | atom(),
+        "pathPart" => String.t() | atom(),
         "resourceMethods" => map()
       }
 
   """
-  @type resource() :: %{String.t() => any()}
+  @type resource() :: %{(String.t() | atom()) => any()}
 
   @type create_api_key_errors() ::
           bad_request_exception()
@@ -3435,7 +3435,7 @@ defmodule AWS.APIGateway do
   @doc """
   Adds a new Authorizer resource to an existing RestApi resource.
   """
-  @spec create_authorizer(map(), String.t(), create_authorizer_request(), list()) ::
+  @spec create_authorizer(map(), String.t() | atom(), create_authorizer_request(), list()) ::
           {:ok, authorizer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3464,7 +3464,12 @@ defmodule AWS.APIGateway do
   @doc """
   Creates a new BasePathMapping resource.
   """
-  @spec create_base_path_mapping(map(), String.t(), create_base_path_mapping_request(), list()) ::
+  @spec create_base_path_mapping(
+          map(),
+          String.t() | atom(),
+          create_base_path_mapping_request(),
+          list()
+        ) ::
           {:ok, base_path_mapping(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3499,7 +3504,7 @@ defmodule AWS.APIGateway do
   Creates a Deployment resource, which makes a specified RestApi callable over the
   internet.
   """
-  @spec create_deployment(map(), String.t(), create_deployment_request(), list()) ::
+  @spec create_deployment(map(), String.t() | atom(), create_deployment_request(), list()) ::
           {:ok, deployment(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3528,7 +3533,12 @@ defmodule AWS.APIGateway do
   @doc """
   Creates a documentation part.
   """
-  @spec create_documentation_part(map(), String.t(), create_documentation_part_request(), list()) ::
+  @spec create_documentation_part(
+          map(),
+          String.t() | atom(),
+          create_documentation_part_request(),
+          list()
+        ) ::
           {:ok, documentation_part(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3559,7 +3569,7 @@ defmodule AWS.APIGateway do
   """
   @spec create_documentation_version(
           map(),
-          String.t(),
+          String.t() | atom(),
           create_documentation_version_request(),
           list()
         ) ::
@@ -3655,7 +3665,7 @@ defmodule AWS.APIGateway do
   @doc """
   Adds a new Model resource to an existing RestApi resource.
   """
-  @spec create_model(map(), String.t(), create_model_request(), list()) ::
+  @spec create_model(map(), String.t() | atom(), create_model_request(), list()) ::
           {:ok, model(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3684,7 +3694,12 @@ defmodule AWS.APIGateway do
   @doc """
   Creates a RequestValidator of a given RestApi.
   """
-  @spec create_request_validator(map(), String.t(), create_request_validator_request(), list()) ::
+  @spec create_request_validator(
+          map(),
+          String.t() | atom(),
+          create_request_validator_request(),
+          list()
+        ) ::
           {:ok, request_validator(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3713,7 +3728,13 @@ defmodule AWS.APIGateway do
   @doc """
   Creates a Resource resource.
   """
-  @spec create_resource(map(), String.t(), String.t(), create_resource_request(), list()) ::
+  @spec create_resource(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          create_resource_request(),
+          list()
+        ) ::
           {:ok, resource(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3774,7 +3795,7 @@ defmodule AWS.APIGateway do
   Creates a new Stage resource that references a pre-existing Deployment for the
   API.
   """
-  @spec create_stage(map(), String.t(), create_stage_request(), list()) ::
+  @spec create_stage(map(), String.t() | atom(), create_stage_request(), list()) ::
           {:ok, stage(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3833,7 +3854,7 @@ defmodule AWS.APIGateway do
   @doc """
   Creates a usage plan key for adding an existing API key to a usage plan.
   """
-  @spec create_usage_plan_key(map(), String.t(), create_usage_plan_key_request(), list()) ::
+  @spec create_usage_plan_key(map(), String.t() | atom(), create_usage_plan_key_request(), list()) ::
           {:ok, usage_plan_key(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3895,7 +3916,7 @@ defmodule AWS.APIGateway do
   @doc """
   Deletes the ApiKey resource.
   """
-  @spec delete_api_key(map(), String.t(), delete_api_key_request(), list()) ::
+  @spec delete_api_key(map(), String.t() | atom(), delete_api_key_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3924,7 +3945,13 @@ defmodule AWS.APIGateway do
   @doc """
   Deletes an existing Authorizer resource.
   """
-  @spec delete_authorizer(map(), String.t(), String.t(), delete_authorizer_request(), list()) ::
+  @spec delete_authorizer(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_authorizer_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3957,8 +3984,8 @@ defmodule AWS.APIGateway do
   """
   @spec delete_base_path_mapping(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_base_path_mapping_request(),
           list()
         ) ::
@@ -3997,7 +4024,12 @@ defmodule AWS.APIGateway do
   @doc """
   Deletes the ClientCertificate resource.
   """
-  @spec delete_client_certificate(map(), String.t(), delete_client_certificate_request(), list()) ::
+  @spec delete_client_certificate(
+          map(),
+          String.t() | atom(),
+          delete_client_certificate_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4029,7 +4061,13 @@ defmodule AWS.APIGateway do
   Deleting a deployment will only succeed if there are no Stage resources
   associated with it.
   """
-  @spec delete_deployment(map(), String.t(), String.t(), delete_deployment_request(), list()) ::
+  @spec delete_deployment(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_deployment_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4062,8 +4100,8 @@ defmodule AWS.APIGateway do
   """
   @spec delete_documentation_part(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_documentation_part_request(),
           list()
         ) ::
@@ -4105,8 +4143,8 @@ defmodule AWS.APIGateway do
   """
   @spec delete_documentation_version(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_documentation_version_request(),
           list()
         ) ::
@@ -4146,7 +4184,7 @@ defmodule AWS.APIGateway do
   @doc """
   Deletes the DomainName resource.
   """
-  @spec delete_domain_name(map(), String.t(), delete_domain_name_request(), list()) ::
+  @spec delete_domain_name(map(), String.t() | atom(), delete_domain_name_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4187,7 +4225,7 @@ defmodule AWS.APIGateway do
   """
   @spec delete_domain_name_access_association(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_domain_name_access_association_request(),
           list()
         ) ::
@@ -4229,8 +4267,8 @@ defmodule AWS.APIGateway do
   """
   @spec delete_gateway_response(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_gateway_response_request(),
           list()
         ) ::
@@ -4272,9 +4310,9 @@ defmodule AWS.APIGateway do
   """
   @spec delete_integration(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_integration_request(),
           list()
         ) ::
@@ -4317,10 +4355,10 @@ defmodule AWS.APIGateway do
   """
   @spec delete_integration_response(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_integration_response_request(),
           list()
         ) ::
@@ -4362,7 +4400,14 @@ defmodule AWS.APIGateway do
   @doc """
   Deletes an existing Method resource.
   """
-  @spec delete_method(map(), String.t(), String.t(), String.t(), delete_method_request(), list()) ::
+  @spec delete_method(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_method_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4402,10 +4447,10 @@ defmodule AWS.APIGateway do
   """
   @spec delete_method_response(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_method_response_request(),
           list()
         ) ::
@@ -4447,7 +4492,13 @@ defmodule AWS.APIGateway do
   @doc """
   Deletes a model.
   """
-  @spec delete_model(map(), String.t(), String.t(), delete_model_request(), list()) ::
+  @spec delete_model(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_model_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4480,8 +4531,8 @@ defmodule AWS.APIGateway do
   """
   @spec delete_request_validator(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_request_validator_request(),
           list()
         ) ::
@@ -4521,7 +4572,13 @@ defmodule AWS.APIGateway do
   @doc """
   Deletes a Resource resource.
   """
-  @spec delete_resource(map(), String.t(), String.t(), delete_resource_request(), list()) ::
+  @spec delete_resource(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_resource_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4552,7 +4609,7 @@ defmodule AWS.APIGateway do
   @doc """
   Deletes the specified API.
   """
-  @spec delete_rest_api(map(), String.t(), delete_rest_api_request(), list()) ::
+  @spec delete_rest_api(map(), String.t() | atom(), delete_rest_api_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4581,7 +4638,13 @@ defmodule AWS.APIGateway do
   @doc """
   Deletes a Stage resource.
   """
-  @spec delete_stage(map(), String.t(), String.t(), delete_stage_request(), list()) ::
+  @spec delete_stage(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_stage_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4612,7 +4675,7 @@ defmodule AWS.APIGateway do
   @doc """
   Deletes a usage plan of a given plan Id.
   """
-  @spec delete_usage_plan(map(), String.t(), delete_usage_plan_request(), list()) ::
+  @spec delete_usage_plan(map(), String.t() | atom(), delete_usage_plan_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4644,8 +4707,8 @@ defmodule AWS.APIGateway do
   """
   @spec delete_usage_plan_key(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_usage_plan_key_request(),
           list()
         ) ::
@@ -4679,7 +4742,7 @@ defmodule AWS.APIGateway do
   @doc """
   Deletes an existing VpcLink of a specified identifier.
   """
-  @spec delete_vpc_link(map(), String.t(), delete_vpc_link_request(), list()) ::
+  @spec delete_vpc_link(map(), String.t() | atom(), delete_vpc_link_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4710,8 +4773,8 @@ defmodule AWS.APIGateway do
   """
   @spec flush_stage_authorizers_cache(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           flush_stage_authorizers_cache_request(),
           list()
         ) ::
@@ -4751,7 +4814,13 @@ defmodule AWS.APIGateway do
   @doc """
   Flushes a stage's cache.
   """
-  @spec flush_stage_cache(map(), String.t(), String.t(), flush_stage_cache_request(), list()) ::
+  @spec flush_stage_cache(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          flush_stage_cache_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4829,7 +4898,7 @@ defmodule AWS.APIGateway do
   @doc """
   Gets information about the current ApiKey resource.
   """
-  @spec get_api_key(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_api_key(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, api_key(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4856,11 +4925,11 @@ defmodule AWS.APIGateway do
   """
   @spec get_api_keys(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, api_keys(), any()}
@@ -4923,7 +4992,7 @@ defmodule AWS.APIGateway do
   @doc """
   Describe an existing Authorizer resource.
   """
-  @spec get_authorizer(map(), String.t(), String.t(), list()) ::
+  @spec get_authorizer(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, authorizer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4943,7 +5012,13 @@ defmodule AWS.APIGateway do
   @doc """
   Describe an existing Authorizers resource.
   """
-  @spec get_authorizers(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_authorizers(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, authorizers(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4981,7 +5056,13 @@ defmodule AWS.APIGateway do
   @doc """
   Describe a BasePathMapping resource.
   """
-  @spec get_base_path_mapping(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_base_path_mapping(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, base_path_mapping(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5016,10 +5097,10 @@ defmodule AWS.APIGateway do
   """
   @spec get_base_path_mappings(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, base_path_mappings(), any()}
@@ -5067,7 +5148,7 @@ defmodule AWS.APIGateway do
   @doc """
   Gets information about the current ClientCertificate resource.
   """
-  @spec get_client_certificate(map(), String.t(), list()) ::
+  @spec get_client_certificate(map(), String.t() | atom(), list()) ::
           {:ok, client_certificate(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5085,7 +5166,12 @@ defmodule AWS.APIGateway do
   @doc """
   Gets a collection of ClientCertificate resources.
   """
-  @spec get_client_certificates(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_client_certificates(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, client_certificates(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5117,7 +5203,13 @@ defmodule AWS.APIGateway do
   @doc """
   Gets information about a Deployment resource.
   """
-  @spec get_deployment(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_deployment(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, deployment(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5144,7 +5236,13 @@ defmodule AWS.APIGateway do
   @doc """
   Gets information about a Deployments collection.
   """
-  @spec get_deployments(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_deployments(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, deployments(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5182,7 +5280,7 @@ defmodule AWS.APIGateway do
   @doc """
   Gets a documentation part.
   """
-  @spec get_documentation_part(map(), String.t(), String.t(), list()) ::
+  @spec get_documentation_part(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, documentation_part(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5209,13 +5307,13 @@ defmodule AWS.APIGateway do
   """
   @spec get_documentation_parts(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, documentation_parts(), any()}
@@ -5287,7 +5385,7 @@ defmodule AWS.APIGateway do
   @doc """
   Gets a documentation version.
   """
-  @spec get_documentation_version(map(), String.t(), String.t(), list()) ::
+  @spec get_documentation_version(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, documentation_version(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5312,7 +5410,13 @@ defmodule AWS.APIGateway do
   @doc """
   Gets documentation versions.
   """
-  @spec get_documentation_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_documentation_versions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, documentation_versions(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5351,7 +5455,7 @@ defmodule AWS.APIGateway do
   Represents a domain name that is contained in a simpler, more intuitive URL that
   can be called.
   """
-  @spec get_domain_name(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_domain_name(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, domain_name(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5378,9 +5482,9 @@ defmodule AWS.APIGateway do
   """
   @spec get_domain_name_access_associations(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, domain_name_access_associations(), any()}
@@ -5427,7 +5531,13 @@ defmodule AWS.APIGateway do
   @doc """
   Represents a collection of DomainName resources.
   """
-  @spec get_domain_names(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec get_domain_names(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, domain_names(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5474,11 +5584,11 @@ defmodule AWS.APIGateway do
   """
   @spec get_export(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, export_response(), any()}
@@ -5530,7 +5640,7 @@ defmodule AWS.APIGateway do
   @doc """
   Gets a GatewayResponse of a specified response type on the given RestApi.
   """
-  @spec get_gateway_response(map(), String.t(), String.t(), list()) ::
+  @spec get_gateway_response(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5554,7 +5664,13 @@ defmodule AWS.APIGateway do
   result will be the API Gateway-generated default GatewayResponses collection for
   the supported response types.
   """
-  @spec get_gateway_responses(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_gateway_responses(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, gateway_responses(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5592,7 +5708,13 @@ defmodule AWS.APIGateway do
   @doc """
   Get the integration settings.
   """
-  @spec get_integration(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_integration(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, integration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5612,7 +5734,14 @@ defmodule AWS.APIGateway do
   @doc """
   Represents a get integration response.
   """
-  @spec get_integration_response(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_integration_response(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5639,7 +5768,7 @@ defmodule AWS.APIGateway do
   @doc """
   Describe an existing Method resource.
   """
-  @spec get_method(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_method(map(), String.t() | atom(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, method(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5659,7 +5788,14 @@ defmodule AWS.APIGateway do
   @doc """
   Describes a MethodResponse resource.
   """
-  @spec get_method_response(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_method_response(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, method_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5686,7 +5822,13 @@ defmodule AWS.APIGateway do
   @doc """
   Describes an existing model defined for a RestApi resource.
   """
-  @spec get_model(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_model(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, model(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5714,7 +5856,7 @@ defmodule AWS.APIGateway do
   Generates a sample mapping template that can be used to transform a payload into
   the structure of a model.
   """
-  @spec get_model_template(map(), String.t(), String.t(), list()) ::
+  @spec get_model_template(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, template(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5734,7 +5876,13 @@ defmodule AWS.APIGateway do
   @doc """
   Describes existing Models defined for a RestApi resource.
   """
-  @spec get_models(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_models(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, models(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5766,7 +5914,7 @@ defmodule AWS.APIGateway do
   @doc """
   Gets a RequestValidator of a given RestApi.
   """
-  @spec get_request_validator(map(), String.t(), String.t(), list()) ::
+  @spec get_request_validator(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, request_validator(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5786,7 +5934,13 @@ defmodule AWS.APIGateway do
   @doc """
   Gets the RequestValidators collection of a given RestApi.
   """
-  @spec get_request_validators(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_request_validators(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, request_validators(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5824,7 +5978,13 @@ defmodule AWS.APIGateway do
   @doc """
   Lists information about a resource.
   """
-  @spec get_resource(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_resource(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, resource(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5853,10 +6013,10 @@ defmodule AWS.APIGateway do
   """
   @spec get_resources(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, resources(), any()}
@@ -5904,7 +6064,7 @@ defmodule AWS.APIGateway do
   @doc """
   Lists the RestApi resource in the collection.
   """
-  @spec get_rest_api(map(), String.t(), list()) ::
+  @spec get_rest_api(map(), String.t() | atom(), list()) ::
           {:ok, rest_api(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5922,7 +6082,7 @@ defmodule AWS.APIGateway do
   @doc """
   Lists the RestApis resources for your collection.
   """
-  @spec get_rest_apis(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_rest_apis(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, rest_apis(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5954,7 +6114,14 @@ defmodule AWS.APIGateway do
   @doc """
   Generates a client SDK for a RestApi and Stage.
   """
-  @spec get_sdk(map(), String.t(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_sdk(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, sdk_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5995,7 +6162,7 @@ defmodule AWS.APIGateway do
   @doc """
   Gets an SDK type.
   """
-  @spec get_sdk_type(map(), String.t(), list()) ::
+  @spec get_sdk_type(map(), String.t() | atom(), list()) ::
           {:ok, sdk_type(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6013,7 +6180,7 @@ defmodule AWS.APIGateway do
   @doc """
   Gets SDK types
   """
-  @spec get_sdk_types(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_sdk_types(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, sdk_types(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6045,7 +6212,7 @@ defmodule AWS.APIGateway do
   @doc """
   Gets information about a Stage resource.
   """
-  @spec get_stage(map(), String.t(), String.t(), list()) ::
+  @spec get_stage(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, stage(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6065,7 +6232,7 @@ defmodule AWS.APIGateway do
   @doc """
   Gets information about one or more Stage resources.
   """
-  @spec get_stages(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_stages(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, stages(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6090,7 +6257,13 @@ defmodule AWS.APIGateway do
   @doc """
   Gets the Tags collection for a given resource.
   """
-  @spec get_tags(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_tags(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, tags(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6124,12 +6297,12 @@ defmodule AWS.APIGateway do
   """
   @spec get_usage(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, usage(), any()}
@@ -6193,7 +6366,7 @@ defmodule AWS.APIGateway do
   @doc """
   Gets a usage plan of a given plan identifier.
   """
-  @spec get_usage_plan(map(), String.t(), list()) ::
+  @spec get_usage_plan(map(), String.t() | atom(), list()) ::
           {:ok, usage_plan(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6211,7 +6384,7 @@ defmodule AWS.APIGateway do
   @doc """
   Gets a usage plan key of a given key identifier.
   """
-  @spec get_usage_plan_key(map(), String.t(), String.t(), list()) ::
+  @spec get_usage_plan_key(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, usage_plan_key(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6234,10 +6407,10 @@ defmodule AWS.APIGateway do
   """
   @spec get_usage_plan_keys(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, usage_plan_keys(), any()}
@@ -6285,7 +6458,13 @@ defmodule AWS.APIGateway do
   @doc """
   Gets all the usage plans of the caller's account.
   """
-  @spec get_usage_plans(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec get_usage_plans(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, usage_plans(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6330,7 +6509,7 @@ defmodule AWS.APIGateway do
   @doc """
   Gets a specified VPC link under the caller's account in a region.
   """
-  @spec get_vpc_link(map(), String.t(), list()) ::
+  @spec get_vpc_link(map(), String.t() | atom(), list()) ::
           {:ok, vpc_link(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6348,7 +6527,7 @@ defmodule AWS.APIGateway do
   @doc """
   Gets the VpcLinks collection under the caller's account in a selected region.
   """
-  @spec get_vpc_links(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_vpc_links(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, vpc_links(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6417,7 +6596,7 @@ defmodule AWS.APIGateway do
   """
   @spec import_documentation_parts(
           map(),
-          String.t(),
+          String.t() | atom(),
           import_documentation_parts_request(),
           list()
         ) ::
@@ -6494,8 +6673,8 @@ defmodule AWS.APIGateway do
   """
   @spec put_gateway_response(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           put_gateway_response_request(),
           list()
         ) ::
@@ -6531,9 +6710,9 @@ defmodule AWS.APIGateway do
   """
   @spec put_integration(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           put_integration_request(),
           list()
         ) ::
@@ -6576,10 +6755,10 @@ defmodule AWS.APIGateway do
   """
   @spec put_integration_response(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           put_integration_response_request(),
           list()
         ) ::
@@ -6621,7 +6800,14 @@ defmodule AWS.APIGateway do
   @doc """
   Add a method to an existing Resource resource.
   """
-  @spec put_method(map(), String.t(), String.t(), String.t(), put_method_request(), list()) ::
+  @spec put_method(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          put_method_request(),
+          list()
+        ) ::
           {:ok, method(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6654,10 +6840,10 @@ defmodule AWS.APIGateway do
   """
   @spec put_method_response(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           put_method_response_request(),
           list()
         ) ::
@@ -6703,7 +6889,7 @@ defmodule AWS.APIGateway do
   The update can take the form of merging the supplied definition into the
   existing API or overwriting the existing API.
   """
-  @spec put_rest_api(map(), String.t(), put_rest_api_request(), list()) ::
+  @spec put_rest_api(map(), String.t() | atom(), put_rest_api_request(), list()) ::
           {:ok, rest_api(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6783,7 +6969,7 @@ defmodule AWS.APIGateway do
   @doc """
   Adds or updates a tag on a given resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6815,8 +7001,8 @@ defmodule AWS.APIGateway do
   """
   @spec test_invoke_authorizer(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           test_invoke_authorizer_request(),
           list()
         ) ::
@@ -6853,9 +7039,9 @@ defmodule AWS.APIGateway do
   """
   @spec test_invoke_method(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           test_invoke_method_request(),
           list()
         ) ::
@@ -6896,7 +7082,7 @@ defmodule AWS.APIGateway do
   @doc """
   Removes a tag from a given resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6959,7 +7145,7 @@ defmodule AWS.APIGateway do
   @doc """
   Changes information about an ApiKey resource.
   """
-  @spec update_api_key(map(), String.t(), update_api_key_request(), list()) ::
+  @spec update_api_key(map(), String.t() | atom(), update_api_key_request(), list()) ::
           {:ok, api_key(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6988,7 +7174,13 @@ defmodule AWS.APIGateway do
   @doc """
   Updates an existing Authorizer resource.
   """
-  @spec update_authorizer(map(), String.t(), String.t(), update_authorizer_request(), list()) ::
+  @spec update_authorizer(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_authorizer_request(),
+          list()
+        ) ::
           {:ok, authorizer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7021,8 +7213,8 @@ defmodule AWS.APIGateway do
   """
   @spec update_base_path_mapping(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_base_path_mapping_request(),
           list()
         ) ::
@@ -7061,7 +7253,12 @@ defmodule AWS.APIGateway do
   @doc """
   Changes information about an ClientCertificate resource.
   """
-  @spec update_client_certificate(map(), String.t(), update_client_certificate_request(), list()) ::
+  @spec update_client_certificate(
+          map(),
+          String.t() | atom(),
+          update_client_certificate_request(),
+          list()
+        ) ::
           {:ok, client_certificate(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7090,7 +7287,13 @@ defmodule AWS.APIGateway do
   @doc """
   Changes information about a Deployment resource.
   """
-  @spec update_deployment(map(), String.t(), String.t(), update_deployment_request(), list()) ::
+  @spec update_deployment(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_deployment_request(),
+          list()
+        ) ::
           {:ok, deployment(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7123,8 +7326,8 @@ defmodule AWS.APIGateway do
   """
   @spec update_documentation_part(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_documentation_part_request(),
           list()
         ) ::
@@ -7166,8 +7369,8 @@ defmodule AWS.APIGateway do
   """
   @spec update_documentation_version(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_documentation_version_request(),
           list()
         ) ::
@@ -7207,7 +7410,7 @@ defmodule AWS.APIGateway do
   @doc """
   Changes information about the DomainName resource.
   """
-  @spec update_domain_name(map(), String.t(), update_domain_name_request(), list()) ::
+  @spec update_domain_name(map(), String.t() | atom(), update_domain_name_request(), list()) ::
           {:ok, domain_name(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7243,8 +7446,8 @@ defmodule AWS.APIGateway do
   """
   @spec update_gateway_response(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_gateway_response_request(),
           list()
         ) ::
@@ -7286,9 +7489,9 @@ defmodule AWS.APIGateway do
   """
   @spec update_integration(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_integration_request(),
           list()
         ) ::
@@ -7331,10 +7534,10 @@ defmodule AWS.APIGateway do
   """
   @spec update_integration_response(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_integration_response_request(),
           list()
         ) ::
@@ -7376,7 +7579,14 @@ defmodule AWS.APIGateway do
   @doc """
   Updates an existing Method resource.
   """
-  @spec update_method(map(), String.t(), String.t(), String.t(), update_method_request(), list()) ::
+  @spec update_method(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_method_request(),
+          list()
+        ) ::
           {:ok, method(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7416,10 +7626,10 @@ defmodule AWS.APIGateway do
   """
   @spec update_method_response(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_method_response_request(),
           list()
         ) ::
@@ -7463,7 +7673,13 @@ defmodule AWS.APIGateway do
 
   The maximum size of the model is 400 KB.
   """
-  @spec update_model(map(), String.t(), String.t(), update_model_request(), list()) ::
+  @spec update_model(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_model_request(),
+          list()
+        ) ::
           {:ok, model(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7496,8 +7712,8 @@ defmodule AWS.APIGateway do
   """
   @spec update_request_validator(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_request_validator_request(),
           list()
         ) ::
@@ -7537,7 +7753,13 @@ defmodule AWS.APIGateway do
   @doc """
   Changes information about a Resource resource.
   """
-  @spec update_resource(map(), String.t(), String.t(), update_resource_request(), list()) ::
+  @spec update_resource(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_resource_request(),
+          list()
+        ) ::
           {:ok, resource(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7568,7 +7790,7 @@ defmodule AWS.APIGateway do
   @doc """
   Changes information about the specified API.
   """
-  @spec update_rest_api(map(), String.t(), update_rest_api_request(), list()) ::
+  @spec update_rest_api(map(), String.t() | atom(), update_rest_api_request(), list()) ::
           {:ok, rest_api(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7597,7 +7819,13 @@ defmodule AWS.APIGateway do
   @doc """
   Changes information about a Stage resource.
   """
-  @spec update_stage(map(), String.t(), String.t(), update_stage_request(), list()) ::
+  @spec update_stage(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_stage_request(),
+          list()
+        ) ::
           {:ok, stage(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7629,7 +7857,13 @@ defmodule AWS.APIGateway do
   Grants a temporary extension to the remaining quota of a usage plan associated
   with a specified API key.
   """
-  @spec update_usage(map(), String.t(), String.t(), update_usage_request(), list()) ::
+  @spec update_usage(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_usage_request(),
+          list()
+        ) ::
           {:ok, usage(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7660,7 +7894,7 @@ defmodule AWS.APIGateway do
   @doc """
   Updates a usage plan of a given plan Id.
   """
-  @spec update_usage_plan(map(), String.t(), update_usage_plan_request(), list()) ::
+  @spec update_usage_plan(map(), String.t() | atom(), update_usage_plan_request(), list()) ::
           {:ok, usage_plan(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7689,7 +7923,7 @@ defmodule AWS.APIGateway do
   @doc """
   Updates an existing VpcLink of a specified identifier.
   """
-  @spec update_vpc_link(map(), String.t(), update_vpc_link_request(), list()) ::
+  @spec update_vpc_link(map(), String.t() | atom(), update_vpc_link_request(), list()) ::
           {:ok, vpc_link(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

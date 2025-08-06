@@ -197,24 +197,24 @@ defmodule AWS.Proton do
   ## Example:
       
       list_environment_template_versions_output() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("templateVersions") => list(environment_template_version_summary())
       }
       
   """
-  @type list_environment_template_versions_output() :: %{String.t() => any()}
+  @type list_environment_template_versions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_service_pipeline_provisioned_resources_output() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("provisionedResources") => list(provisioned_resource())
       }
       
   """
-  @type list_service_pipeline_provisioned_resources_output() :: %{String.t() => any()}
+  @type list_service_pipeline_provisioned_resources_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -225,7 +225,7 @@ defmodule AWS.Proton do
       }
       
   """
-  @type get_component_output() :: %{String.t() => any()}
+  @type get_component_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -233,55 +233,55 @@ defmodule AWS.Proton do
       
       update_service_template_version_input() :: %{
         "compatibleEnvironmentTemplates" => list(compatible_environment_template_input()),
-        "description" => String.t(),
-        "majorVersion" => String.t(),
-        "minorVersion" => String.t(),
-        "status" => String.t(),
-        "supportedComponentSources" => list(String.t()),
-        "templateName" => String.t()
+        "description" => String.t() | atom(),
+        "majorVersion" => String.t() | atom(),
+        "minorVersion" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "supportedComponentSources" => list(String.t() | atom()),
+        "templateName" => String.t() | atom()
       }
       
   """
-  @type update_service_template_version_input() :: %{String.t() => any()}
+  @type update_service_template_version_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_branch_input() :: %{
-        "branch" => String.t(),
-        "name" => String.t(),
-        "provider" => String.t()
+        "branch" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "provider" => String.t() | atom()
       }
       
   """
-  @type repository_branch_input() :: %{String.t() => any()}
+  @type repository_branch_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_environment_template_version_input() :: %{
-        "description" => String.t(),
-        "majorVersion" => String.t(),
-        "minorVersion" => String.t(),
-        "status" => String.t(),
-        "templateName" => String.t()
+        "description" => String.t() | atom(),
+        "majorVersion" => String.t() | atom(),
+        "minorVersion" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "templateName" => String.t() | atom()
       }
       
   """
-  @type update_environment_template_version_input() :: %{String.t() => any()}
+  @type update_environment_template_version_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_service_input() :: %{
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
       
   """
-  @type get_service_input() :: %{String.t() => any()}
+  @type get_service_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -294,19 +294,19 @@ defmodule AWS.Proton do
       }
       
   """
-  @type get_service_instance_sync_status_output() :: %{String.t() => any()}
+  @type get_service_instance_sync_status_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       environment_template_filter() :: %{
-        "majorVersion" => String.t(),
-        "templateName" => String.t()
+        "majorVersion" => String.t() | atom(),
+        "templateName" => String.t() | atom()
       }
       
   """
-  @type environment_template_filter() :: %{String.t() => any()}
+  @type environment_template_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -317,50 +317,50 @@ defmodule AWS.Proton do
       }
       
   """
-  @type accept_environment_account_connection_output() :: %{String.t() => any()}
+  @type accept_environment_account_connection_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_component_input() :: %{
-        "clientToken" => String.t(),
-        "deploymentType" => String.t(),
-        "description" => String.t(),
-        "name" => String.t(),
-        "serviceInstanceName" => String.t(),
-        "serviceName" => String.t(),
-        "serviceSpec" => String.t(),
-        "templateFile" => String.t()
+        "clientToken" => String.t() | atom(),
+        "deploymentType" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "serviceInstanceName" => String.t() | atom(),
+        "serviceName" => String.t() | atom(),
+        "serviceSpec" => String.t() | atom(),
+        "templateFile" => String.t() | atom()
       }
       
   """
-  @type update_component_input() :: %{String.t() => any()}
+  @type update_component_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deployment_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "completedAt" => [non_neg_integer()],
-        "componentName" => String.t(),
+        "componentName" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
-        "deploymentStatus" => String.t(),
-        "environmentName" => String.t(),
-        "id" => String.t(),
-        "lastAttemptedDeploymentId" => String.t(),
+        "deploymentStatus" => String.t() | atom(),
+        "environmentName" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastAttemptedDeploymentId" => String.t() | atom(),
         "lastModifiedAt" => [non_neg_integer()],
-        "lastSucceededDeploymentId" => String.t(),
-        "serviceInstanceName" => String.t(),
-        "serviceName" => String.t(),
-        "targetArn" => String.t(),
+        "lastSucceededDeploymentId" => String.t() | atom(),
+        "serviceInstanceName" => String.t() | atom(),
+        "serviceName" => String.t() | atom(),
+        "targetArn" => String.t() | atom(),
         "targetResourceCreatedAt" => [non_neg_integer()],
-        "targetResourceType" => String.t()
+        "targetResourceType" => String.t() | atom()
       }
       
   """
-  @type deployment_summary() :: %{String.t() => any()}
+  @type deployment_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -369,28 +369,28 @@ defmodule AWS.Proton do
       repository_sync_attempt() :: %{
         "events" => list(repository_sync_event()),
         "startedAt" => [non_neg_integer()],
-        "status" => String.t()
+        "status" => String.t() | atom()
       }
       
   """
-  @type repository_sync_attempt() :: %{String.t() => any()}
+  @type repository_sync_attempt() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_service_instance_input() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | atom(),
         optional("tags") => list(tag()),
-        optional("templateMajorVersion") => String.t(),
-        optional("templateMinorVersion") => String.t(),
-        required("name") => String.t(),
-        required("serviceName") => String.t(),
-        required("spec") => String.t()
+        optional("templateMajorVersion") => String.t() | atom(),
+        optional("templateMinorVersion") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("serviceName") => String.t() | atom(),
+        required("spec") => String.t() | atom()
       }
       
   """
-  @type create_service_instance_input() :: %{String.t() => any()}
+  @type create_service_instance_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -401,19 +401,19 @@ defmodule AWS.Proton do
       }
       
   """
-  @type delete_environment_template_output() :: %{String.t() => any()}
+  @type delete_environment_template_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_repository_input() :: %{
-        "name" => String.t(),
-        "provider" => String.t()
+        "name" => String.t() | atom(),
+        "provider" => String.t() | atom()
       }
       
   """
-  @type get_repository_input() :: %{String.t() => any()}
+  @type get_repository_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -424,22 +424,22 @@ defmodule AWS.Proton do
       }
       
   """
-  @type update_template_sync_config_output() :: %{String.t() => any()}
+  @type update_template_sync_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_sync_config() :: %{
-        "branch" => String.t(),
-        "filePath" => String.t(),
-        "repositoryName" => String.t(),
-        "repositoryProvider" => String.t(),
-        "serviceName" => String.t()
+        "branch" => String.t() | atom(),
+        "filePath" => String.t() | atom(),
+        "repositoryName" => String.t() | atom(),
+        "repositoryProvider" => String.t() | atom(),
+        "serviceName" => String.t() | atom()
       }
       
   """
-  @type service_sync_config() :: %{String.t() => any()}
+  @type service_sync_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -450,7 +450,7 @@ defmodule AWS.Proton do
       }
       
   """
-  @type create_environment_account_connection_output() :: %{String.t() => any()}
+  @type create_environment_account_connection_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -461,7 +461,7 @@ defmodule AWS.Proton do
       }
       
   """
-  @type get_service_sync_config_output() :: %{String.t() => any()}
+  @type get_service_sync_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -472,58 +472,58 @@ defmodule AWS.Proton do
       }
       
   """
-  @type update_service_instance_output() :: %{String.t() => any()}
+  @type update_service_instance_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_environment_templates_output() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("templates") => list(environment_template_summary())
       }
       
   """
-  @type list_environment_templates_output() :: %{String.t() => any()}
+  @type list_environment_templates_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       accept_environment_account_connection_input() :: %{
-        "id" => String.t()
+        "id" => String.t() | atom()
       }
       
   """
-  @type accept_environment_account_connection_input() :: %{String.t() => any()}
+  @type accept_environment_account_connection_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deployment() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "completedAt" => [non_neg_integer()],
-        "componentName" => String.t(),
+        "componentName" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
-        "deploymentStatus" => String.t(),
-        "deploymentStatusMessage" => String.t(),
-        "environmentName" => String.t(),
-        "id" => String.t(),
+        "deploymentStatus" => String.t() | atom(),
+        "deploymentStatusMessage" => String.t() | atom(),
+        "environmentName" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "initialState" => list(),
-        "lastAttemptedDeploymentId" => String.t(),
+        "lastAttemptedDeploymentId" => String.t() | atom(),
         "lastModifiedAt" => [non_neg_integer()],
-        "lastSucceededDeploymentId" => String.t(),
-        "serviceInstanceName" => String.t(),
-        "serviceName" => String.t(),
-        "targetArn" => String.t(),
+        "lastSucceededDeploymentId" => String.t() | atom(),
+        "serviceInstanceName" => String.t() | atom(),
+        "serviceName" => String.t() | atom(),
+        "targetArn" => String.t() | atom(),
         "targetResourceCreatedAt" => [non_neg_integer()],
-        "targetResourceType" => String.t(),
+        "targetResourceType" => String.t() | atom(),
         "targetState" => list()
       }
       
   """
-  @type deployment() :: %{String.t() => any()}
+  @type deployment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -534,7 +534,7 @@ defmodule AWS.Proton do
       }
       
   """
-  @type get_environment_output() :: %{String.t() => any()}
+  @type get_environment_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -545,23 +545,23 @@ defmodule AWS.Proton do
       }
       
   """
-  @type create_repository_output() :: %{String.t() => any()}
+  @type create_repository_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_template_sync_config_input() :: %{
-        optional("subdirectory") => String.t(),
-        required("branch") => String.t(),
-        required("repositoryName") => String.t(),
-        required("repositoryProvider") => String.t(),
-        required("templateName") => String.t(),
-        required("templateType") => String.t()
+        optional("subdirectory") => String.t() | atom(),
+        required("branch") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom(),
+        required("repositoryProvider") => String.t() | atom(),
+        required("templateName") => String.t() | atom(),
+        required("templateType") => String.t() | atom()
       }
       
   """
-  @type update_template_sync_config_input() :: %{String.t() => any()}
+  @type update_template_sync_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -572,7 +572,7 @@ defmodule AWS.Proton do
       }
       
   """
-  @type update_service_sync_config_output() :: %{String.t() => any()}
+  @type update_service_sync_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -583,48 +583,48 @@ defmodule AWS.Proton do
       }
       
   """
-  @type update_environment_template_version_output() :: %{String.t() => any()}
+  @type update_environment_template_version_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_service_sync_config_input() :: %{
-        required("branch") => String.t(),
-        required("filePath") => String.t(),
-        required("repositoryName") => String.t(),
-        required("repositoryProvider") => String.t(),
-        required("serviceName") => String.t()
+        required("branch") => String.t() | atom(),
+        required("filePath") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom(),
+        required("repositoryProvider") => String.t() | atom(),
+        required("serviceName") => String.t() | atom()
       }
       
   """
-  @type create_service_sync_config_input() :: %{String.t() => any()}
+  @type create_service_sync_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_service_sync_blocker_input() :: %{
-        required("id") => [String.t()],
-        required("resolvedReason") => [String.t()]
+        required("id") => [String.t() | atom()],
+        required("resolvedReason") => [String.t() | atom()]
       }
       
   """
-  @type update_service_sync_blocker_input() :: %{String.t() => any()}
+  @type update_service_sync_blocker_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_environment_template_versions_input() :: %{
-        optional("majorVersion") => String.t(),
+        optional("majorVersion") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("templateName") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("templateName") => String.t() | atom()
       }
       
   """
-  @type list_environment_template_versions_input() :: %{String.t() => any()}
+  @type list_environment_template_versions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -635,83 +635,83 @@ defmodule AWS.Proton do
       }
       
   """
-  @type get_deployment_output() :: %{String.t() => any()}
+  @type get_deployment_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_environment_input() :: %{
-        optional("codebuildRoleArn") => String.t(),
-        optional("componentRoleArn") => String.t(),
-        optional("description") => String.t(),
-        optional("environmentAccountConnectionId") => String.t(),
-        optional("protonServiceRoleArn") => String.t(),
+        optional("codebuildRoleArn") => String.t() | atom(),
+        optional("componentRoleArn") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("environmentAccountConnectionId") => String.t() | atom(),
+        optional("protonServiceRoleArn") => String.t() | atom(),
         optional("provisioningRepository") => repository_branch_input(),
         optional("tags") => list(tag()),
-        optional("templateMinorVersion") => String.t(),
-        required("name") => String.t(),
-        required("spec") => String.t(),
-        required("templateMajorVersion") => String.t(),
-        required("templateName") => String.t()
+        optional("templateMinorVersion") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("spec") => String.t() | atom(),
+        required("templateMajorVersion") => String.t() | atom(),
+        required("templateName") => String.t() | atom()
       }
       
   """
-  @type create_environment_input() :: %{String.t() => any()}
+  @type create_environment_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       environment_template_version_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "lastModifiedAt" => [non_neg_integer()],
-        "majorVersion" => String.t(),
-        "minorVersion" => String.t(),
-        "recommendedMinorVersion" => String.t(),
-        "status" => String.t(),
-        "statusMessage" => String.t(),
-        "templateName" => String.t()
+        "majorVersion" => String.t() | atom(),
+        "minorVersion" => String.t() | atom(),
+        "recommendedMinorVersion" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "templateName" => String.t() | atom()
       }
       
   """
-  @type environment_template_version_summary() :: %{String.t() => any()}
+  @type environment_template_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_environment_account_connection_input() :: %{
-        "id" => String.t()
+        "id" => String.t() | atom()
       }
       
   """
-  @type get_environment_account_connection_input() :: %{String.t() => any()}
+  @type get_environment_account_connection_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_service_sync_config_input() :: %{
-        required("serviceName") => String.t()
+        required("serviceName") => String.t() | atom()
       }
       
   """
-  @type delete_service_sync_config_input() :: %{String.t() => any()}
+  @type delete_service_sync_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       sync_blocker_context() :: %{
-        "key" => [String.t()],
-        "value" => [String.t()]
+        "key" => [String.t() | atom()],
+        "value" => [String.t() | atom()]
       }
       
   """
-  @type sync_blocker_context() :: %{String.t() => any()}
+  @type sync_blocker_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -722,7 +722,7 @@ defmodule AWS.Proton do
       }
       
   """
-  @type get_service_instance_output() :: %{String.t() => any()}
+  @type get_service_instance_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -733,135 +733,135 @@ defmodule AWS.Proton do
       }
       
   """
-  @type delete_component_output() :: %{String.t() => any()}
+  @type delete_component_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_component_provisioned_resources_input() :: %{
-        optional("nextToken") => String.t(),
-        required("componentName") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("componentName") => String.t() | atom()
       }
       
   """
-  @type list_component_provisioned_resources_input() :: %{String.t() => any()}
+  @type list_component_provisioned_resources_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_branch() :: %{
-        "arn" => String.t(),
-        "branch" => String.t(),
-        "name" => String.t(),
-        "provider" => String.t()
+        "arn" => String.t() | atom(),
+        "branch" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "provider" => String.t() | atom()
       }
       
   """
-  @type repository_branch() :: %{String.t() => any()}
+  @type repository_branch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       environment_summary() :: %{
-        "arn" => String.t(),
-        "componentRoleArn" => String.t(),
+        "arn" => String.t() | atom(),
+        "componentRoleArn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
-        "deploymentStatus" => String.t(),
-        "deploymentStatusMessage" => String.t(),
-        "description" => String.t(),
-        "environmentAccountConnectionId" => String.t(),
-        "environmentAccountId" => String.t(),
-        "lastAttemptedDeploymentId" => String.t(),
+        "deploymentStatus" => String.t() | atom(),
+        "deploymentStatusMessage" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "environmentAccountConnectionId" => String.t() | atom(),
+        "environmentAccountId" => String.t() | atom(),
+        "lastAttemptedDeploymentId" => String.t() | atom(),
         "lastDeploymentAttemptedAt" => [non_neg_integer()],
         "lastDeploymentSucceededAt" => [non_neg_integer()],
-        "lastSucceededDeploymentId" => String.t(),
-        "name" => String.t(),
-        "protonServiceRoleArn" => String.t(),
-        "provisioning" => String.t(),
-        "templateMajorVersion" => String.t(),
-        "templateMinorVersion" => String.t(),
-        "templateName" => String.t()
+        "lastSucceededDeploymentId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "protonServiceRoleArn" => String.t() | atom(),
+        "provisioning" => String.t() | atom(),
+        "templateMajorVersion" => String.t() | atom(),
+        "templateMinorVersion" => String.t() | atom(),
+        "templateName" => String.t() | atom()
       }
       
   """
-  @type environment_summary() :: %{String.t() => any()}
+  @type environment_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_object_source() :: %{
-        "bucket" => String.t(),
-        "key" => String.t()
+        "bucket" => String.t() | atom(),
+        "key" => String.t() | atom()
       }
       
   """
-  @type s3_object_source() :: %{String.t() => any()}
+  @type s3_object_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_environment_input() :: %{
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
       
   """
-  @type delete_environment_input() :: %{String.t() => any()}
+  @type delete_environment_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_service_instance_provisioned_resources_input() :: %{
-        optional("nextToken") => String.t(),
-        required("serviceInstanceName") => String.t(),
-        required("serviceName") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("serviceInstanceName") => String.t() | atom(),
+        required("serviceName") => String.t() | atom()
       }
       
   """
-  @type list_service_instance_provisioned_resources_input() :: %{String.t() => any()}
+  @type list_service_instance_provisioned_resources_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_deployment_input() :: %{
-        optional("componentName") => String.t(),
-        optional("environmentName") => String.t(),
-        optional("serviceInstanceName") => String.t(),
-        optional("serviceName") => String.t(),
-        required("id") => String.t()
+        optional("componentName") => String.t() | atom(),
+        optional("environmentName") => String.t() | atom(),
+        optional("serviceInstanceName") => String.t() | atom(),
+        optional("serviceName") => String.t() | atom(),
+        required("id") => String.t() | atom()
       }
       
   """
-  @type get_deployment_input() :: %{String.t() => any()}
+  @type get_deployment_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_service_instance_sync_status_input() :: %{
-        required("serviceInstanceName") => String.t(),
-        required("serviceName") => String.t()
+        required("serviceInstanceName") => String.t() | atom(),
+        required("serviceName") => String.t() | atom()
       }
       
   """
-  @type get_service_instance_sync_status_input() :: %{String.t() => any()}
+  @type get_service_instance_sync_status_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_environment_template_input() :: %{
-        required("name") => String.t()
+        required("name") => String.t() | atom()
       }
       
   """
-  @type get_environment_template_input() :: %{String.t() => any()}
+  @type get_environment_template_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -872,18 +872,18 @@ defmodule AWS.Proton do
       }
       
   """
-  @type get_environment_template_version_output() :: %{String.t() => any()}
+  @type get_environment_template_version_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_environment_template_input() :: %{
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
       
   """
-  @type delete_environment_template_input() :: %{String.t() => any()}
+  @type delete_environment_template_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -891,11 +891,11 @@ defmodule AWS.Proton do
       
       list_repositories_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_repositories_input() :: %{String.t() => any()}
+  @type list_repositories_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -906,36 +906,36 @@ defmodule AWS.Proton do
       }
       
   """
-  @type update_service_output() :: %{String.t() => any()}
+  @type update_service_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       compatible_environment_template_input() :: %{
-        "majorVersion" => String.t(),
-        "templateName" => String.t()
+        "majorVersion" => String.t() | atom(),
+        "templateName" => String.t() | atom()
       }
       
   """
-  @type compatible_environment_template_input() :: %{String.t() => any()}
+  @type compatible_environment_template_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_service_instance_input() :: %{
-        "clientToken" => String.t(),
-        "deploymentType" => String.t(),
-        "name" => String.t(),
-        "serviceName" => String.t(),
-        "spec" => String.t(),
-        "templateMajorVersion" => String.t(),
-        "templateMinorVersion" => String.t()
+        "clientToken" => String.t() | atom(),
+        "deploymentType" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "serviceName" => String.t() | atom(),
+        "spec" => String.t() | atom(),
+        "templateMajorVersion" => String.t() | atom(),
+        "templateMinorVersion" => String.t() | atom()
       }
       
   """
-  @type update_service_instance_input() :: %{String.t() => any()}
+  @type update_service_instance_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -946,7 +946,7 @@ defmodule AWS.Proton do
       }
       
   """
-  @type create_service_instance_output() :: %{String.t() => any()}
+  @type create_service_instance_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -957,67 +957,67 @@ defmodule AWS.Proton do
       }
       
   """
-  @type get_repository_output() :: %{String.t() => any()}
+  @type get_repository_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_pipeline_state() :: %{
-        "spec" => String.t(),
-        "templateMajorVersion" => String.t(),
-        "templateMinorVersion" => String.t(),
-        "templateName" => String.t()
+        "spec" => String.t() | atom(),
+        "templateMajorVersion" => String.t() | atom(),
+        "templateMinorVersion" => String.t() | atom(),
+        "templateName" => String.t() | atom()
       }
       
   """
-  @type service_pipeline_state() :: %{String.t() => any()}
+  @type service_pipeline_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service() :: %{
-        "arn" => String.t(),
-        "branchName" => String.t(),
+        "arn" => String.t() | atom(),
+        "branchName" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "lastModifiedAt" => [non_neg_integer()],
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "pipeline" => service_pipeline(),
-        "repositoryConnectionArn" => String.t(),
-        "repositoryId" => String.t(),
-        "spec" => String.t(),
-        "status" => String.t(),
-        "statusMessage" => String.t(),
-        "templateName" => String.t()
+        "repositoryConnectionArn" => String.t() | atom(),
+        "repositoryId" => String.t() | atom(),
+        "spec" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "templateName" => String.t() | atom()
       }
       
   """
-  @type service() :: %{String.t() => any()}
+  @type service() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_service_pipeline_deployment_input() :: %{
-        "serviceName" => String.t()
+        "serviceName" => String.t() | atom()
       }
       
   """
-  @type cancel_service_pipeline_deployment_input() :: %{String.t() => any()}
+  @type cancel_service_pipeline_deployment_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_service_instance_provisioned_resources_output() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("provisionedResources") => list(provisioned_resource())
       }
       
   """
-  @type list_service_instance_provisioned_resources_output() :: %{String.t() => any()}
+  @type list_service_instance_provisioned_resources_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1028,7 +1028,7 @@ defmodule AWS.Proton do
       }
       
   """
-  @type create_service_template_output() :: %{String.t() => any()}
+  @type create_service_template_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1037,11 +1037,11 @@ defmodule AWS.Proton do
       list_environments_input() :: %{
         optional("environmentTemplates") => list(environment_template_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_environments_input() :: %{String.t() => any()}
+  @type list_environments_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1052,55 +1052,55 @@ defmodule AWS.Proton do
       }
       
   """
-  @type create_service_sync_config_output() :: %{String.t() => any()}
+  @type create_service_sync_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_environment_template_version_input() :: %{
-        "majorVersion" => String.t(),
-        "minorVersion" => String.t(),
-        "templateName" => String.t()
+        "majorVersion" => String.t() | atom(),
+        "minorVersion" => String.t() | atom(),
+        "templateName" => String.t() | atom()
       }
       
   """
-  @type delete_environment_template_version_input() :: %{String.t() => any()}
+  @type delete_environment_template_version_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_output() :: %{
-        optional("nextToken") => [String.t()],
+        optional("nextToken") => [String.t() | atom()],
         required("tags") => list(tag())
       }
       
   """
-  @type list_tags_for_resource_output() :: %{String.t() => any()}
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       component_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
-        "deploymentStatus" => String.t(),
-        "deploymentStatusMessage" => String.t(),
-        "environmentName" => String.t(),
-        "lastAttemptedDeploymentId" => String.t(),
+        "deploymentStatus" => String.t() | atom(),
+        "deploymentStatusMessage" => String.t() | atom(),
+        "environmentName" => String.t() | atom(),
+        "lastAttemptedDeploymentId" => String.t() | atom(),
         "lastDeploymentAttemptedAt" => [non_neg_integer()],
         "lastDeploymentSucceededAt" => [non_neg_integer()],
         "lastModifiedAt" => [non_neg_integer()],
-        "lastSucceededDeploymentId" => String.t(),
-        "name" => String.t(),
-        "serviceInstanceName" => String.t(),
-        "serviceName" => String.t()
+        "lastSucceededDeploymentId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "serviceInstanceName" => String.t() | atom(),
+        "serviceName" => String.t() | atom()
       }
       
   """
-  @type component_summary() :: %{String.t() => any()}
+  @type component_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1111,7 +1111,7 @@ defmodule AWS.Proton do
       }
       
   """
-  @type delete_service_template_output() :: %{String.t() => any()}
+  @type delete_service_template_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1122,65 +1122,65 @@ defmodule AWS.Proton do
       }
       
   """
-  @type cancel_environment_deployment_output() :: %{String.t() => any()}
+  @type cancel_environment_deployment_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_sync_definition() :: %{
-        "branch" => String.t(),
-        "directory" => [String.t()],
-        "parent" => [String.t()],
-        "target" => [String.t()]
+        "branch" => String.t() | atom(),
+        "directory" => [String.t() | atom()],
+        "parent" => [String.t() | atom()],
+        "target" => [String.t() | atom()]
       }
       
   """
-  @type repository_sync_definition() :: %{String.t() => any()}
+  @type repository_sync_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       environment_template_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
-        "description" => String.t(),
-        "displayName" => String.t(),
+        "description" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
         "lastModifiedAt" => [non_neg_integer()],
-        "name" => String.t(),
-        "provisioning" => String.t(),
-        "recommendedVersion" => String.t()
+        "name" => String.t() | atom(),
+        "provisioning" => String.t() | atom(),
+        "recommendedVersion" => String.t() | atom()
       }
       
   """
-  @type environment_template_summary() :: %{String.t() => any()}
+  @type environment_template_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_components_output() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("components") => list(component_summary())
       }
       
   """
-  @type list_components_output() :: %{String.t() => any()}
+  @type list_components_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       component_state() :: %{
-        "serviceInstanceName" => String.t(),
-        "serviceName" => String.t(),
-        "serviceSpec" => String.t(),
-        "templateFile" => String.t()
+        "serviceInstanceName" => String.t() | atom(),
+        "serviceName" => String.t() | atom(),
+        "serviceSpec" => String.t() | atom(),
+        "templateFile" => String.t() | atom()
       }
       
   """
-  @type component_state() :: %{String.t() => any()}
+  @type component_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1191,34 +1191,34 @@ defmodule AWS.Proton do
       }
       
   """
-  @type create_component_output() :: %{String.t() => any()}
+  @type create_component_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_template_sync_config_input() :: %{
-        optional("subdirectory") => String.t(),
-        required("branch") => String.t(),
-        required("repositoryName") => String.t(),
-        required("repositoryProvider") => String.t(),
-        required("templateName") => String.t(),
-        required("templateType") => String.t()
+        optional("subdirectory") => String.t() | atom(),
+        required("branch") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom(),
+        required("repositoryProvider") => String.t() | atom(),
+        required("templateName") => String.t() | atom(),
+        required("templateType") => String.t() | atom()
       }
       
   """
-  @type create_template_sync_config_input() :: %{String.t() => any()}
+  @type create_template_sync_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reject_environment_account_connection_input() :: %{
-        "id" => String.t()
+        "id" => String.t() | atom()
       }
       
   """
-  @type reject_environment_account_connection_input() :: %{String.t() => any()}
+  @type reject_environment_account_connection_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1229,62 +1229,62 @@ defmodule AWS.Proton do
       }
       
   """
-  @type create_environment_output() :: %{String.t() => any()}
+  @type create_environment_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_template_version() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "compatibleEnvironmentTemplates" => list(compatible_environment_template()),
         "createdAt" => [non_neg_integer()],
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "lastModifiedAt" => [non_neg_integer()],
-        "majorVersion" => String.t(),
-        "minorVersion" => String.t(),
-        "recommendedMinorVersion" => String.t(),
-        "schema" => String.t(),
-        "status" => String.t(),
-        "statusMessage" => String.t(),
-        "supportedComponentSources" => list(String.t()),
-        "templateName" => String.t()
+        "majorVersion" => String.t() | atom(),
+        "minorVersion" => String.t() | atom(),
+        "recommendedMinorVersion" => String.t() | atom(),
+        "schema" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "supportedComponentSources" => list(String.t() | atom()),
+        "templateName" => String.t() | atom()
       }
       
   """
-  @type service_template_version() :: %{String.t() => any()}
+  @type service_template_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_environment_account_connection_input() :: %{
-        "codebuildRoleArn" => String.t(),
-        "componentRoleArn" => String.t(),
-        "id" => String.t(),
-        "roleArn" => String.t()
+        "codebuildRoleArn" => String.t() | atom(),
+        "componentRoleArn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
       }
       
   """
-  @type update_environment_account_connection_input() :: %{String.t() => any()}
+  @type update_environment_account_connection_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_service_template_version_input() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        optional("majorVersion") => String.t(),
-        optional("supportedComponentSources") => list(String.t()),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("majorVersion") => String.t() | atom(),
+        optional("supportedComponentSources") => list(String.t() | atom()),
         optional("tags") => list(tag()),
         required("compatibleEnvironmentTemplates") => list(compatible_environment_template_input()),
         required("source") => list(),
-        required("templateName") => String.t()
+        required("templateName") => String.t() | atom()
       }
       
   """
-  @type create_service_template_version_input() :: %{String.t() => any()}
+  @type create_service_template_version_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1295,7 +1295,7 @@ defmodule AWS.Proton do
       }
       
   """
-  @type delete_repository_output() :: %{String.t() => any()}
+  @type delete_repository_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1306,21 +1306,21 @@ defmodule AWS.Proton do
       }
       
   """
-  @type get_service_template_version_output() :: %{String.t() => any()}
+  @type get_service_template_version_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_summary() :: %{
-        "arn" => String.t(),
-        "connectionArn" => String.t(),
-        "name" => String.t(),
-        "provider" => String.t()
+        "arn" => String.t() | atom(),
+        "connectionArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "provider" => String.t() | atom()
       }
       
   """
-  @type repository_summary() :: %{String.t() => any()}
+  @type repository_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1331,81 +1331,81 @@ defmodule AWS.Proton do
       }
       
   """
-  @type delete_environment_account_connection_output() :: %{String.t() => any()}
+  @type delete_environment_account_connection_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_environment_template_version_input() :: %{
-        "majorVersion" => String.t(),
-        "minorVersion" => String.t(),
-        "templateName" => String.t()
+        "majorVersion" => String.t() | atom(),
+        "minorVersion" => String.t() | atom(),
+        "templateName" => String.t() | atom()
       }
       
   """
-  @type get_environment_template_version_input() :: %{String.t() => any()}
+  @type get_environment_template_version_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_environment_outputs_output() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("outputs") => list(output())
       }
       
   """
-  @type list_environment_outputs_output() :: %{String.t() => any()}
+  @type list_environment_outputs_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_environment_template_input() :: %{
-        optional("description") => String.t(),
-        optional("displayName") => String.t(),
-        optional("encryptionKey") => String.t(),
-        optional("provisioning") => String.t(),
+        optional("description") => String.t() | atom(),
+        optional("displayName") => String.t() | atom(),
+        optional("encryptionKey") => String.t() | atom(),
+        optional("provisioning") => String.t() | atom(),
         optional("tags") => list(tag()),
-        required("name") => String.t()
+        required("name") => String.t() | atom()
       }
       
   """
-  @type create_environment_template_input() :: %{String.t() => any()}
+  @type create_environment_template_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_service_sync_config_input() :: %{
-        required("serviceName") => String.t()
+        required("serviceName") => String.t() | atom()
       }
       
   """
-  @type get_service_sync_config_input() :: %{String.t() => any()}
+  @type get_service_sync_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1416,22 +1416,22 @@ defmodule AWS.Proton do
       }
       
   """
-  @type update_environment_template_output() :: %{String.t() => any()}
+  @type update_environment_template_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       notify_resource_deployment_status_change_input() :: %{
-        optional("deploymentId") => String.t(),
+        optional("deploymentId") => String.t() | atom(),
         optional("outputs") => list(output()),
-        optional("status") => String.t(),
-        optional("statusMessage") => String.t(),
-        required("resourceArn") => String.t()
+        optional("status") => String.t() | atom(),
+        optional("statusMessage") => String.t() | atom(),
+        required("resourceArn") => String.t() | atom()
       }
       
   """
-  @type notify_resource_deployment_status_change_input() :: %{String.t() => any()}
+  @type notify_resource_deployment_status_change_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1442,7 +1442,7 @@ defmodule AWS.Proton do
       }
       
   """
-  @type update_environment_output() :: %{String.t() => any()}
+  @type update_environment_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1453,45 +1453,45 @@ defmodule AWS.Proton do
       }
       
   """
-  @type delete_template_sync_config_output() :: %{String.t() => any()}
+  @type delete_template_sync_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       environment_account_connection() :: %{
-        "arn" => String.t(),
-        "codebuildRoleArn" => String.t(),
-        "componentRoleArn" => String.t(),
-        "environmentAccountId" => String.t(),
-        "environmentName" => String.t(),
-        "id" => String.t(),
+        "arn" => String.t() | atom(),
+        "codebuildRoleArn" => String.t() | atom(),
+        "componentRoleArn" => String.t() | atom(),
+        "environmentAccountId" => String.t() | atom(),
+        "environmentName" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "lastModifiedAt" => [non_neg_integer()],
-        "managementAccountId" => String.t(),
+        "managementAccountId" => String.t() | atom(),
         "requestedAt" => [non_neg_integer()],
-        "roleArn" => String.t(),
-        "status" => String.t()
+        "roleArn" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
       
   """
-  @type environment_account_connection() :: %{String.t() => any()}
+  @type environment_account_connection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_instance_state() :: %{
-        "lastSuccessfulComponentDeploymentIds" => list(String.t()),
-        "lastSuccessfulEnvironmentDeploymentId" => String.t(),
-        "lastSuccessfulServicePipelineDeploymentId" => String.t(),
-        "spec" => String.t(),
-        "templateMajorVersion" => String.t(),
-        "templateMinorVersion" => String.t(),
-        "templateName" => String.t()
+        "lastSuccessfulComponentDeploymentIds" => list(String.t() | atom()),
+        "lastSuccessfulEnvironmentDeploymentId" => String.t() | atom(),
+        "lastSuccessfulServicePipelineDeploymentId" => String.t() | atom(),
+        "spec" => String.t() | atom(),
+        "templateMajorVersion" => String.t() | atom(),
+        "templateMinorVersion" => String.t() | atom(),
+        "templateName" => String.t() | atom()
       }
       
   """
-  @type service_instance_state() :: %{String.t() => any()}
+  @type service_instance_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1502,70 +1502,70 @@ defmodule AWS.Proton do
       }
       
   """
-  @type get_service_output() :: %{String.t() => any()}
+  @type get_service_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_component_input() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        optional("environmentName") => String.t(),
-        optional("serviceInstanceName") => String.t(),
-        optional("serviceName") => String.t(),
-        optional("serviceSpec") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("environmentName") => String.t() | atom(),
+        optional("serviceInstanceName") => String.t() | atom(),
+        optional("serviceName") => String.t() | atom(),
+        optional("serviceSpec") => String.t() | atom(),
         optional("tags") => list(tag()),
-        required("manifest") => String.t(),
-        required("name") => String.t(),
-        required("templateFile") => String.t()
+        required("manifest") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("templateFile") => String.t() | atom()
       }
       
   """
-  @type create_component_input() :: %{String.t() => any()}
+  @type create_component_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       environment() :: %{
-        "arn" => String.t(),
-        "codebuildRoleArn" => String.t(),
-        "componentRoleArn" => String.t(),
+        "arn" => String.t() | atom(),
+        "codebuildRoleArn" => String.t() | atom(),
+        "componentRoleArn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
-        "deploymentStatus" => String.t(),
-        "deploymentStatusMessage" => String.t(),
-        "description" => String.t(),
-        "environmentAccountConnectionId" => String.t(),
-        "environmentAccountId" => String.t(),
-        "lastAttemptedDeploymentId" => String.t(),
+        "deploymentStatus" => String.t() | atom(),
+        "deploymentStatusMessage" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "environmentAccountConnectionId" => String.t() | atom(),
+        "environmentAccountId" => String.t() | atom(),
+        "lastAttemptedDeploymentId" => String.t() | atom(),
         "lastDeploymentAttemptedAt" => [non_neg_integer()],
         "lastDeploymentSucceededAt" => [non_neg_integer()],
-        "lastSucceededDeploymentId" => String.t(),
-        "name" => String.t(),
-        "protonServiceRoleArn" => String.t(),
-        "provisioning" => String.t(),
+        "lastSucceededDeploymentId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "protonServiceRoleArn" => String.t() | atom(),
+        "provisioning" => String.t() | atom(),
         "provisioningRepository" => repository_branch(),
-        "spec" => String.t(),
-        "templateMajorVersion" => String.t(),
-        "templateMinorVersion" => String.t(),
-        "templateName" => String.t()
+        "spec" => String.t() | atom(),
+        "templateMajorVersion" => String.t() | atom(),
+        "templateMinorVersion" => String.t() | atom(),
+        "templateName" => String.t() | atom()
       }
       
   """
-  @type environment() :: %{String.t() => any()}
+  @type environment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1581,133 +1581,133 @@ defmodule AWS.Proton do
   ## Example:
       
       list_component_outputs_input() :: %{
-        optional("deploymentId") => String.t(),
-        optional("nextToken") => String.t(),
-        required("componentName") => String.t()
+        optional("deploymentId") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        required("componentName") => String.t() | atom()
       }
       
   """
-  @type list_component_outputs_input() :: %{String.t() => any()}
+  @type list_component_outputs_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       repository() :: %{
-        "arn" => String.t(),
-        "connectionArn" => String.t(),
-        "encryptionKey" => String.t(),
-        "name" => String.t(),
-        "provider" => String.t()
+        "arn" => String.t() | atom(),
+        "connectionArn" => String.t() | atom(),
+        "encryptionKey" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "provider" => String.t() | atom()
       }
       
   """
-  @type repository() :: %{String.t() => any()}
+  @type repository() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_template_sync_status_input() :: %{
-        required("templateName") => String.t(),
-        required("templateType") => String.t(),
-        required("templateVersion") => String.t()
+        required("templateName") => String.t() | atom(),
+        required("templateType") => String.t() | atom(),
+        required("templateVersion") => String.t() | atom()
       }
       
   """
-  @type get_template_sync_status_input() :: %{String.t() => any()}
+  @type get_template_sync_status_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "lastModifiedAt" => [non_neg_integer()],
-        "name" => String.t(),
-        "status" => String.t(),
-        "statusMessage" => String.t(),
-        "templateName" => String.t()
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "templateName" => String.t() | atom()
       }
       
   """
-  @type service_summary() :: %{String.t() => any()}
+  @type service_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_instance() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
-        "deploymentStatus" => String.t(),
-        "deploymentStatusMessage" => String.t(),
-        "environmentName" => String.t(),
-        "lastAttemptedDeploymentId" => String.t(),
-        "lastClientRequestToken" => [String.t()],
+        "deploymentStatus" => String.t() | atom(),
+        "deploymentStatusMessage" => String.t() | atom(),
+        "environmentName" => String.t() | atom(),
+        "lastAttemptedDeploymentId" => String.t() | atom(),
+        "lastClientRequestToken" => [String.t() | atom()],
         "lastDeploymentAttemptedAt" => [non_neg_integer()],
         "lastDeploymentSucceededAt" => [non_neg_integer()],
-        "lastSucceededDeploymentId" => String.t(),
-        "name" => String.t(),
-        "serviceName" => String.t(),
-        "spec" => String.t(),
-        "templateMajorVersion" => String.t(),
-        "templateMinorVersion" => String.t(),
-        "templateName" => String.t()
+        "lastSucceededDeploymentId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "serviceName" => String.t() | atom(),
+        "spec" => String.t() | atom(),
+        "templateMajorVersion" => String.t() | atom(),
+        "templateMinorVersion" => String.t() | atom(),
+        "templateName" => String.t() | atom()
       }
       
   """
-  @type service_instance() :: %{String.t() => any()}
+  @type service_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_environment_deployment_input() :: %{
-        "environmentName" => String.t()
+        "environmentName" => String.t() | atom()
       }
       
   """
-  @type cancel_environment_deployment_input() :: %{String.t() => any()}
+  @type cancel_environment_deployment_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       component() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
-        "deploymentStatus" => String.t(),
-        "deploymentStatusMessage" => String.t(),
-        "description" => String.t(),
-        "environmentName" => String.t(),
-        "lastAttemptedDeploymentId" => String.t(),
-        "lastClientRequestToken" => [String.t()],
+        "deploymentStatus" => String.t() | atom(),
+        "deploymentStatusMessage" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "environmentName" => String.t() | atom(),
+        "lastAttemptedDeploymentId" => String.t() | atom(),
+        "lastClientRequestToken" => [String.t() | atom()],
         "lastDeploymentAttemptedAt" => [non_neg_integer()],
         "lastDeploymentSucceededAt" => [non_neg_integer()],
         "lastModifiedAt" => [non_neg_integer()],
-        "lastSucceededDeploymentId" => String.t(),
-        "name" => String.t(),
-        "serviceInstanceName" => String.t(),
-        "serviceName" => String.t(),
-        "serviceSpec" => String.t()
+        "lastSucceededDeploymentId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "serviceInstanceName" => String.t() | atom(),
+        "serviceName" => String.t() | atom(),
+        "serviceSpec" => String.t() | atom()
       }
       
   """
-  @type component() :: %{String.t() => any()}
+  @type component() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1722,101 +1722,101 @@ defmodule AWS.Proton do
       }
       
   """
-  @type resource_counts_summary() :: %{String.t() => any()}
+  @type resource_counts_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_pipeline() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
-        "deploymentStatus" => String.t(),
-        "deploymentStatusMessage" => String.t(),
-        "lastAttemptedDeploymentId" => String.t(),
+        "deploymentStatus" => String.t() | atom(),
+        "deploymentStatusMessage" => String.t() | atom(),
+        "lastAttemptedDeploymentId" => String.t() | atom(),
         "lastDeploymentAttemptedAt" => [non_neg_integer()],
         "lastDeploymentSucceededAt" => [non_neg_integer()],
-        "lastSucceededDeploymentId" => String.t(),
-        "spec" => String.t(),
-        "templateMajorVersion" => String.t(),
-        "templateMinorVersion" => String.t(),
-        "templateName" => String.t()
+        "lastSucceededDeploymentId" => String.t() | atom(),
+        "spec" => String.t() | atom(),
+        "templateMajorVersion" => String.t() | atom(),
+        "templateMinorVersion" => String.t() | atom(),
+        "templateName" => String.t() | atom()
       }
       
   """
-  @type service_pipeline() :: %{String.t() => any()}
+  @type service_pipeline() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_service_pipeline_outputs_input() :: %{
-        optional("deploymentId") => String.t(),
-        optional("nextToken") => String.t(),
-        required("serviceName") => String.t()
+        optional("deploymentId") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        required("serviceName") => String.t() | atom()
       }
       
   """
-  @type list_service_pipeline_outputs_input() :: %{String.t() => any()}
+  @type list_service_pipeline_outputs_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_components_input() :: %{
-        optional("environmentName") => String.t(),
+        optional("environmentName") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("serviceInstanceName") => String.t(),
-        optional("serviceName") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("serviceInstanceName") => String.t() | atom(),
+        optional("serviceName") => String.t() | atom()
       }
       
   """
-  @type list_components_input() :: %{String.t() => any()}
+  @type list_components_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_environment_input() :: %{
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
       
   """
-  @type get_environment_input() :: %{String.t() => any()}
+  @type get_environment_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_environments_output() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("environments") => list(environment_summary())
       }
       
   """
-  @type list_environments_output() :: %{String.t() => any()}
+  @type list_environments_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_environment_input() :: %{
-        "codebuildRoleArn" => String.t(),
-        "componentRoleArn" => String.t(),
-        "deploymentType" => String.t(),
-        "description" => String.t(),
-        "environmentAccountConnectionId" => String.t(),
-        "name" => String.t(),
-        "protonServiceRoleArn" => String.t(),
+        "codebuildRoleArn" => String.t() | atom(),
+        "componentRoleArn" => String.t() | atom(),
+        "deploymentType" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "environmentAccountConnectionId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "protonServiceRoleArn" => String.t() | atom(),
         "provisioningRepository" => repository_branch_input(),
-        "spec" => String.t(),
-        "templateMajorVersion" => String.t(),
-        "templateMinorVersion" => String.t()
+        "spec" => String.t() | atom(),
+        "templateMajorVersion" => String.t() | atom(),
+        "templateMinorVersion" => String.t() | atom()
       }
       
   """
-  @type update_environment_input() :: %{String.t() => any()}
+  @type update_environment_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1827,19 +1827,19 @@ defmodule AWS.Proton do
       }
       
   """
-  @type get_repository_sync_status_output() :: %{String.t() => any()}
+  @type get_repository_sync_status_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_service_instance_outputs_output() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("outputs") => list(output())
       }
       
   """
-  @type list_service_instance_outputs_output() :: %{String.t() => any()}
+  @type list_service_instance_outputs_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1848,16 +1848,16 @@ defmodule AWS.Proton do
       sync_blocker() :: %{
         "contexts" => list(sync_blocker_context()),
         "createdAt" => [non_neg_integer()],
-        "createdReason" => [String.t()],
-        "id" => [String.t()],
+        "createdReason" => [String.t() | atom()],
+        "id" => [String.t() | atom()],
         "resolvedAt" => [non_neg_integer()],
-        "resolvedReason" => [String.t()],
-        "status" => String.t(),
-        "type" => String.t()
+        "resolvedReason" => [String.t() | atom()],
+        "status" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
       
   """
-  @type sync_blocker() :: %{String.t() => any()}
+  @type sync_blocker() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1868,21 +1868,21 @@ defmodule AWS.Proton do
       }
       
   """
-  @type get_environment_template_output() :: %{String.t() => any()}
+  @type get_environment_template_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       environment_state() :: %{
-        "spec" => String.t(),
-        "templateMajorVersion" => String.t(),
-        "templateMinorVersion" => String.t(),
-        "templateName" => String.t()
+        "spec" => String.t() | atom(),
+        "templateMajorVersion" => String.t() | atom(),
+        "templateMinorVersion" => String.t() | atom(),
+        "templateName" => String.t() | atom()
       }
       
   """
-  @type environment_state() :: %{String.t() => any()}
+  @type environment_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1898,32 +1898,32 @@ defmodule AWS.Proton do
   ## Example:
       
       list_service_instances_output() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("serviceInstances") => list(service_instance_summary())
       }
       
   """
-  @type list_service_instances_output() :: %{String.t() => any()}
+  @type list_service_instances_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       environment_account_connection_summary() :: %{
-        "arn" => String.t(),
-        "componentRoleArn" => String.t(),
-        "environmentAccountId" => String.t(),
-        "environmentName" => String.t(),
-        "id" => String.t(),
+        "arn" => String.t() | atom(),
+        "componentRoleArn" => String.t() | atom(),
+        "environmentAccountId" => String.t() | atom(),
+        "environmentName" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "lastModifiedAt" => [non_neg_integer()],
-        "managementAccountId" => String.t(),
+        "managementAccountId" => String.t() | atom(),
         "requestedAt" => [non_neg_integer()],
-        "roleArn" => String.t(),
-        "status" => String.t()
+        "roleArn" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
       
   """
-  @type environment_account_connection_summary() :: %{String.t() => any()}
+  @type environment_account_connection_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1934,19 +1934,19 @@ defmodule AWS.Proton do
       }
       
   """
-  @type delete_service_sync_config_output() :: %{String.t() => any()}
+  @type delete_service_sync_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_component_provisioned_resources_output() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("provisionedResources") => list(provisioned_resource())
       }
       
   """
-  @type list_component_provisioned_resources_output() :: %{String.t() => any()}
+  @type list_component_provisioned_resources_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1957,20 +1957,20 @@ defmodule AWS.Proton do
       }
       
   """
-  @type create_environment_template_output() :: %{String.t() => any()}
+  @type create_environment_template_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_service_template_version_input() :: %{
-        "majorVersion" => String.t(),
-        "minorVersion" => String.t(),
-        "templateName" => String.t()
+        "majorVersion" => String.t() | atom(),
+        "minorVersion" => String.t() | atom(),
+        "templateName" => String.t() | atom()
       }
       
   """
-  @type delete_service_template_version_input() :: %{String.t() => any()}
+  @type delete_service_template_version_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1981,18 +1981,18 @@ defmodule AWS.Proton do
       }
       
   """
-  @type update_service_template_output() :: %{String.t() => any()}
+  @type update_service_template_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_deployment_input() :: %{
-        required("id") => String.t()
+        required("id") => String.t() | atom()
       }
       
   """
-  @type delete_deployment_input() :: %{String.t() => any()}
+  @type delete_deployment_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2001,14 +2001,14 @@ defmodule AWS.Proton do
       list_service_instances_input() :: %{
         optional("filters") => list(list_service_instances_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("serviceName") => String.t(),
-        optional("sortBy") => String.t(),
-        optional("sortOrder") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("serviceName") => String.t() | atom(),
+        optional("sortBy") => String.t() | atom(),
+        optional("sortOrder") => String.t() | atom()
       }
       
   """
-  @type list_service_instances_input() :: %{String.t() => any()}
+  @type list_service_instances_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2025,35 +2025,35 @@ defmodule AWS.Proton do
       }
       
   """
-  @type counts_summary() :: %{String.t() => any()}
+  @type counts_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_input() :: %{
-        required("resourceArn") => String.t(),
+        required("resourceArn") => String.t() | atom(),
         required("tags") => list(tag())
       }
       
   """
-  @type tag_resource_input() :: %{String.t() => any()}
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       template_sync_config() :: %{
-        "branch" => String.t(),
-        "repositoryName" => String.t(),
-        "repositoryProvider" => String.t(),
-        "subdirectory" => String.t(),
-        "templateName" => String.t(),
-        "templateType" => String.t()
+        "branch" => String.t() | atom(),
+        "repositoryName" => String.t() | atom(),
+        "repositoryProvider" => String.t() | atom(),
+        "subdirectory" => String.t() | atom(),
+        "templateName" => String.t() | atom(),
+        "templateType" => String.t() | atom()
       }
       
   """
-  @type template_sync_config() :: %{String.t() => any()}
+  @type template_sync_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2064,7 +2064,7 @@ defmodule AWS.Proton do
       }
       
   """
-  @type delete_service_output() :: %{String.t() => any()}
+  @type delete_service_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2075,40 +2075,40 @@ defmodule AWS.Proton do
       }
       
   """
-  @type delete_environment_template_version_output() :: %{String.t() => any()}
+  @type delete_environment_template_version_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       environment_template_version() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "lastModifiedAt" => [non_neg_integer()],
-        "majorVersion" => String.t(),
-        "minorVersion" => String.t(),
-        "recommendedMinorVersion" => String.t(),
-        "schema" => String.t(),
-        "status" => String.t(),
-        "statusMessage" => String.t(),
-        "templateName" => String.t()
+        "majorVersion" => String.t() | atom(),
+        "minorVersion" => String.t() | atom(),
+        "recommendedMinorVersion" => String.t() | atom(),
+        "schema" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "templateName" => String.t() | atom()
       }
       
   """
-  @type environment_template_version() :: %{String.t() => any()}
+  @type environment_template_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_service_templates_output() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("templates") => list(service_template_summary())
       }
       
   """
-  @type list_service_templates_output() :: %{String.t() => any()}
+  @type list_service_templates_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2116,37 +2116,37 @@ defmodule AWS.Proton do
       
       list_environment_templates_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_environment_templates_input() :: %{String.t() => any()}
+  @type list_environment_templates_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_repository_sync_definitions_input() :: %{
-        optional("nextToken") => String.t(),
-        required("repositoryName") => String.t(),
-        required("repositoryProvider") => String.t(),
-        required("syncType") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom(),
+        required("repositoryProvider") => String.t() | atom(),
+        required("syncType") => String.t() | atom()
       }
       
   """
-  @type list_repository_sync_definitions_input() :: %{String.t() => any()}
+  @type list_repository_sync_definitions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_service_instance_deployment_input() :: %{
-        "serviceInstanceName" => String.t(),
-        "serviceName" => String.t()
+        "serviceInstanceName" => String.t() | atom(),
+        "serviceName" => String.t() | atom()
       }
       
   """
-  @type cancel_service_instance_deployment_input() :: %{String.t() => any()}
+  @type cancel_service_instance_deployment_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2157,7 +2157,7 @@ defmodule AWS.Proton do
       }
       
   """
-  @type update_service_template_version_output() :: %{String.t() => any()}
+  @type update_service_template_version_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2173,13 +2173,13 @@ defmodule AWS.Proton do
   ## Example:
       
       list_environment_outputs_input() :: %{
-        optional("deploymentId") => String.t(),
-        optional("nextToken") => String.t(),
-        required("environmentName") => String.t()
+        optional("deploymentId") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        required("environmentName") => String.t() | atom()
       }
       
   """
-  @type list_environment_outputs_input() :: %{String.t() => any()}
+  @type list_environment_outputs_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2190,32 +2190,32 @@ defmodule AWS.Proton do
       }
       
   """
-  @type delete_service_template_version_output() :: %{String.t() => any()}
+  @type delete_service_template_version_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_service_instance_outputs_input() :: %{
-        optional("deploymentId") => String.t(),
-        optional("nextToken") => String.t(),
-        required("serviceInstanceName") => String.t(),
-        required("serviceName") => String.t()
+        optional("deploymentId") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        required("serviceInstanceName") => String.t() | atom(),
+        required("serviceName") => String.t() | atom()
       }
       
   """
-  @type list_service_instance_outputs_input() :: %{String.t() => any()}
+  @type list_service_instance_outputs_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2226,45 +2226,45 @@ defmodule AWS.Proton do
       }
       
   """
-  @type delete_environment_output() :: %{String.t() => any()}
+  @type delete_environment_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_component_input() :: %{
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
       
   """
-  @type get_component_input() :: %{String.t() => any()}
+  @type get_component_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_service_template_versions_input() :: %{
-        optional("majorVersion") => String.t(),
+        optional("majorVersion") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("templateName") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("templateName") => String.t() | atom()
       }
       
   """
-  @type list_service_template_versions_input() :: %{String.t() => any()}
+  @type list_service_template_versions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_service_sync_blocker_output() :: %{
-        optional("serviceInstanceName") => String.t(),
-        required("serviceName") => String.t(),
+        optional("serviceInstanceName") => String.t() | atom(),
+        required("serviceName") => String.t() | atom(),
         required("serviceSyncBlocker") => sync_blocker()
       }
       
   """
-  @type update_service_sync_blocker_output() :: %{String.t() => any()}
+  @type update_service_sync_blocker_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2272,49 +2272,49 @@ defmodule AWS.Proton do
       
       update_account_settings_input() :: %{
         optional("deletePipelineProvisioningRepository") => [boolean()],
-        optional("pipelineCodebuildRoleArn") => String.t(),
+        optional("pipelineCodebuildRoleArn") => String.t() | atom(),
         optional("pipelineProvisioningRepository") => repository_branch_input(),
-        optional("pipelineServiceRoleArn") => String.t()
+        optional("pipelineServiceRoleArn") => String.t() | atom()
       }
       
   """
-  @type update_account_settings_input() :: %{String.t() => any()}
+  @type update_account_settings_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_repository_input() :: %{
-        "name" => String.t(),
-        "provider" => String.t()
+        "name" => String.t() | atom(),
+        "provider" => String.t() | atom()
       }
       
   """
-  @type delete_repository_input() :: %{String.t() => any()}
+  @type delete_repository_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       provisioned_resource() :: %{
-        "identifier" => String.t(),
-        "name" => String.t(),
-        "provisioningEngine" => String.t()
+        "identifier" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "provisioningEngine" => String.t() | atom()
       }
       
   """
-  @type provisioned_resource() :: %{String.t() => any()}
+  @type provisioned_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_service_input() :: %{
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
       
   """
-  @type delete_service_input() :: %{String.t() => any()}
+  @type delete_service_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2325,89 +2325,89 @@ defmodule AWS.Proton do
       }
       
   """
-  @type update_account_settings_output() :: %{String.t() => any()}
+  @type update_account_settings_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_service_template_input() :: %{
-        optional("description") => String.t(),
-        optional("displayName") => String.t(),
-        optional("encryptionKey") => String.t(),
-        optional("pipelineProvisioning") => String.t(),
+        optional("description") => String.t() | atom(),
+        optional("displayName") => String.t() | atom(),
+        optional("encryptionKey") => String.t() | atom(),
+        optional("pipelineProvisioning") => String.t() | atom(),
         optional("tags") => list(tag()),
-        required("name") => String.t()
+        required("name") => String.t() | atom()
       }
       
   """
-  @type create_service_template_input() :: %{String.t() => any()}
+  @type create_service_template_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_environment_provisioned_resources_output() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("provisionedResources") => list(provisioned_resource())
       }
       
   """
-  @type list_environment_provisioned_resources_output() :: %{String.t() => any()}
+  @type list_environment_provisioned_resources_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       environment_template() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
-        "description" => String.t(),
-        "displayName" => String.t(),
-        "encryptionKey" => String.t(),
+        "description" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
+        "encryptionKey" => String.t() | atom(),
         "lastModifiedAt" => [non_neg_integer()],
-        "name" => String.t(),
-        "provisioning" => String.t(),
-        "recommendedVersion" => String.t()
+        "name" => String.t() | atom(),
+        "provisioning" => String.t() | atom(),
+        "recommendedVersion" => String.t() | atom()
       }
       
   """
-  @type environment_template() :: %{String.t() => any()}
+  @type environment_template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_input() :: %{
-        required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t())
+        required("resourceArn") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_input() :: %{String.t() => any()}
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_service_instances_filter() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
       
   """
-  @type list_service_instances_filter() :: %{String.t() => any()}
+  @type list_service_instances_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2418,7 +2418,7 @@ defmodule AWS.Proton do
       }
       
   """
-  @type get_environment_account_connection_output() :: %{String.t() => any()}
+  @type get_environment_account_connection_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2438,53 +2438,53 @@ defmodule AWS.Proton do
       }
       
   """
-  @type delete_deployment_output() :: %{String.t() => any()}
+  @type delete_deployment_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_component_deployment_input() :: %{
-        "componentName" => String.t()
+        "componentName" => String.t() | atom()
       }
       
   """
-  @type cancel_component_deployment_input() :: %{String.t() => any()}
+  @type cancel_component_deployment_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_service_template_versions_output() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("templateVersions") => list(service_template_version_summary())
       }
       
   """
-  @type list_service_template_versions_output() :: %{String.t() => any()}
+  @type list_service_template_versions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_environment_account_connection_input() :: %{
-        "id" => String.t()
+        "id" => String.t() | atom()
       }
       
   """
-  @type delete_environment_account_connection_input() :: %{String.t() => any()}
+  @type delete_environment_account_connection_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_service_sync_blocker_summary_input() :: %{
-        optional("serviceInstanceName") => String.t(),
-        required("serviceName") => String.t()
+        optional("serviceInstanceName") => String.t() | atom(),
+        required("serviceName") => String.t() | atom()
       }
       
   """
-  @type get_service_sync_blocker_summary_input() :: %{String.t() => any()}
+  @type get_service_sync_blocker_summary_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2495,7 +2495,7 @@ defmodule AWS.Proton do
       }
       
   """
-  @type create_service_output() :: %{String.t() => any()}
+  @type create_service_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2503,47 +2503,47 @@ defmodule AWS.Proton do
       
       list_service_templates_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_service_templates_input() :: %{String.t() => any()}
+  @type list_service_templates_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_service_template_input() :: %{
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
       
   """
-  @type get_service_template_input() :: %{String.t() => any()}
+  @type get_service_template_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_service_pipeline_provisioned_resources_input() :: %{
-        optional("nextToken") => String.t(),
-        required("serviceName") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("serviceName") => String.t() | atom()
       }
       
   """
-  @type list_service_pipeline_provisioned_resources_input() :: %{String.t() => any()}
+  @type list_service_pipeline_provisioned_resources_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       account_settings() :: %{
-        "pipelineCodebuildRoleArn" => String.t(),
+        "pipelineCodebuildRoleArn" => String.t() | atom(),
         "pipelineProvisioningRepository" => repository_branch(),
-        "pipelineServiceRoleArn" => String.t()
+        "pipelineServiceRoleArn" => String.t() | atom()
       }
       
   """
-  @type account_settings() :: %{String.t() => any()}
+  @type account_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2554,18 +2554,18 @@ defmodule AWS.Proton do
       }
       
   """
-  @type update_service_pipeline_output() :: %{String.t() => any()}
+  @type update_service_pipeline_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2573,12 +2573,12 @@ defmodule AWS.Proton do
       
       list_tags_for_resource_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => [String.t()],
-        required("resourceArn") => String.t()
+        optional("nextToken") => [String.t() | atom()],
+        required("resourceArn") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_input() :: %{String.t() => any()}
+  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2589,19 +2589,19 @@ defmodule AWS.Proton do
       }
       
   """
-  @type update_component_output() :: %{String.t() => any()}
+  @type update_component_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_service_pipeline_outputs_output() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("outputs") => list(output())
       }
       
   """
-  @type list_service_pipeline_outputs_output() :: %{String.t() => any()}
+  @type list_service_pipeline_outputs_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2611,13 +2611,13 @@ defmodule AWS.Proton do
         "events" => list(resource_sync_event()),
         "initialRevision" => revision(),
         "startedAt" => [non_neg_integer()],
-        "status" => String.t(),
-        "target" => [String.t()],
+        "status" => String.t() | atom(),
+        "target" => [String.t() | atom()],
         "targetRevision" => revision()
       }
       
   """
-  @type resource_sync_attempt() :: %{String.t() => any()}
+  @type resource_sync_attempt() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2628,7 +2628,7 @@ defmodule AWS.Proton do
       }
       
   """
-  @type create_service_template_version_output() :: %{String.t() => any()}
+  @type create_service_template_version_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2644,56 +2644,56 @@ defmodule AWS.Proton do
   ## Example:
       
       list_environment_account_connections_input() :: %{
-        optional("environmentName") => String.t(),
+        optional("environmentName") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("statuses") => list(String.t()),
-        required("requestedBy") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("statuses") => list(String.t() | atom()),
+        required("requestedBy") => String.t() | atom()
       }
       
   """
-  @type list_environment_account_connections_input() :: %{String.t() => any()}
+  @type list_environment_account_connections_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_repositories_output() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("repositories") => list(repository_summary())
       }
       
   """
-  @type list_repositories_output() :: %{String.t() => any()}
+  @type list_repositories_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_template_sync_config_input() :: %{
-        required("templateName") => String.t(),
-        required("templateType") => String.t()
+        required("templateName") => String.t() | atom(),
+        required("templateType") => String.t() | atom()
       }
       
   """
-  @type get_template_sync_config_input() :: %{String.t() => any()}
+  @type get_template_sync_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_environment_account_connection_input() :: %{
-        optional("clientToken") => String.t(),
-        optional("codebuildRoleArn") => String.t(),
-        optional("componentRoleArn") => String.t(),
-        optional("roleArn") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("codebuildRoleArn") => String.t() | atom(),
+        optional("componentRoleArn") => String.t() | atom(),
+        optional("roleArn") => String.t() | atom(),
         optional("tags") => list(tag()),
-        required("environmentName") => String.t(),
-        required("managementAccountId") => String.t()
+        required("environmentName") => String.t() | atom(),
+        required("managementAccountId") => String.t() | atom()
       }
       
   """
-  @type create_environment_account_connection_input() :: %{String.t() => any()}
+  @type create_environment_account_connection_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2704,18 +2704,18 @@ defmodule AWS.Proton do
       }
       
   """
-  @type create_environment_template_version_output() :: %{String.t() => any()}
+  @type create_environment_template_version_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2726,90 +2726,90 @@ defmodule AWS.Proton do
       }
       
   """
-  @type get_account_settings_output() :: %{String.t() => any()}
+  @type get_account_settings_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_repository_sync_status_input() :: %{
-        required("branch") => String.t(),
-        required("repositoryName") => String.t(),
-        required("repositoryProvider") => String.t(),
-        required("syncType") => String.t()
+        required("branch") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom(),
+        required("repositoryProvider") => String.t() | atom(),
+        required("syncType") => String.t() | atom()
       }
       
   """
-  @type get_repository_sync_status_input() :: %{String.t() => any()}
+  @type get_repository_sync_status_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_instance_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
-        "deploymentStatus" => String.t(),
-        "deploymentStatusMessage" => String.t(),
-        "environmentName" => String.t(),
-        "lastAttemptedDeploymentId" => String.t(),
+        "deploymentStatus" => String.t() | atom(),
+        "deploymentStatusMessage" => String.t() | atom(),
+        "environmentName" => String.t() | atom(),
+        "lastAttemptedDeploymentId" => String.t() | atom(),
         "lastDeploymentAttemptedAt" => [non_neg_integer()],
         "lastDeploymentSucceededAt" => [non_neg_integer()],
-        "lastSucceededDeploymentId" => String.t(),
-        "name" => String.t(),
-        "serviceName" => String.t(),
-        "templateMajorVersion" => String.t(),
-        "templateMinorVersion" => String.t(),
-        "templateName" => String.t()
+        "lastSucceededDeploymentId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "serviceName" => String.t() | atom(),
+        "templateMajorVersion" => String.t() | atom(),
+        "templateMinorVersion" => String.t() | atom(),
+        "templateName" => String.t() | atom()
       }
       
   """
-  @type service_instance_summary() :: %{String.t() => any()}
+  @type service_instance_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_template_version_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "lastModifiedAt" => [non_neg_integer()],
-        "majorVersion" => String.t(),
-        "minorVersion" => String.t(),
-        "recommendedMinorVersion" => String.t(),
-        "status" => String.t(),
-        "statusMessage" => String.t(),
-        "templateName" => String.t()
+        "majorVersion" => String.t() | atom(),
+        "minorVersion" => String.t() | atom(),
+        "recommendedMinorVersion" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "templateName" => String.t() | atom()
       }
       
   """
-  @type service_template_version_summary() :: %{String.t() => any()}
+  @type service_template_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_repository_sync_definitions_output() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("syncDefinitions") => list(repository_sync_definition())
       }
       
   """
-  @type list_repository_sync_definitions_output() :: %{String.t() => any()}
+  @type list_repository_sync_definitions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_service_template_version_input() :: %{
-        "majorVersion" => String.t(),
-        "minorVersion" => String.t(),
-        "templateName" => String.t()
+        "majorVersion" => String.t() | atom(),
+        "minorVersion" => String.t() | atom(),
+        "templateName" => String.t() | atom()
       }
       
   """
-  @type get_service_template_version_input() :: %{String.t() => any()}
+  @type get_service_template_version_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2820,7 +2820,7 @@ defmodule AWS.Proton do
       }
       
   """
-  @type update_environment_account_connection_output() :: %{String.t() => any()}
+  @type update_environment_account_connection_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2831,32 +2831,32 @@ defmodule AWS.Proton do
       }
       
   """
-  @type get_service_sync_blocker_summary_output() :: %{String.t() => any()}
+  @type get_service_sync_blocker_summary_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_environment_template_input() :: %{
-        "description" => String.t(),
-        "displayName" => String.t(),
-        "name" => String.t()
+        "description" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
       
   """
-  @type update_environment_template_input() :: %{String.t() => any()}
+  @type update_environment_template_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_environment_provisioned_resources_input() :: %{
-        optional("nextToken") => String.t(),
-        required("environmentName") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("environmentName") => String.t() | atom()
       }
       
   """
-  @type list_environment_provisioned_resources_input() :: %{String.t() => any()}
+  @type list_environment_provisioned_resources_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2867,18 +2867,18 @@ defmodule AWS.Proton do
       }
       
   """
-  @type cancel_service_instance_deployment_output() :: %{String.t() => any()}
+  @type cancel_service_instance_deployment_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_service_template_input() :: %{
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
       
   """
-  @type delete_service_template_input() :: %{String.t() => any()}
+  @type delete_service_template_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2889,7 +2889,7 @@ defmodule AWS.Proton do
       }
       
   """
-  @type get_resources_summary_output() :: %{String.t() => any()}
+  @type get_resources_summary_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2897,88 +2897,88 @@ defmodule AWS.Proton do
       
       list_deployments_output() :: %{
         "deployments" => list(deployment_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_deployments_output() :: %{String.t() => any()}
+  @type list_deployments_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_service_input() :: %{
-        optional("branchName") => String.t(),
-        optional("description") => String.t(),
-        optional("repositoryConnectionArn") => String.t(),
-        optional("repositoryId") => String.t(),
+        optional("branchName") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("repositoryConnectionArn") => String.t() | atom(),
+        optional("repositoryId") => String.t() | atom(),
         optional("tags") => list(tag()),
-        optional("templateMinorVersion") => String.t(),
-        required("name") => String.t(),
-        required("spec") => String.t(),
-        required("templateMajorVersion") => String.t(),
-        required("templateName") => String.t()
+        optional("templateMinorVersion") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("spec") => String.t() | atom(),
+        required("templateMajorVersion") => String.t() | atom(),
+        required("templateName") => String.t() | atom()
       }
       
   """
-  @type create_service_input() :: %{String.t() => any()}
+  @type create_service_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_deployments_input() :: %{
-        optional("componentName") => String.t(),
-        optional("environmentName") => String.t(),
+        optional("componentName") => String.t() | atom(),
+        optional("environmentName") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("serviceInstanceName") => String.t(),
-        optional("serviceName") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("serviceInstanceName") => String.t() | atom(),
+        optional("serviceName") => String.t() | atom()
       }
       
   """
-  @type list_deployments_input() :: %{String.t() => any()}
+  @type list_deployments_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_repository_input() :: %{
-        optional("encryptionKey") => String.t(),
+        optional("encryptionKey") => String.t() | atom(),
         optional("tags") => list(tag()),
-        required("connectionArn") => String.t(),
-        required("name") => String.t(),
-        required("provider") => String.t()
+        required("connectionArn") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("provider") => String.t() | atom()
       }
       
   """
-  @type create_repository_input() :: %{String.t() => any()}
+  @type create_repository_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_component_input() :: %{
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
       
   """
-  @type delete_component_input() :: %{String.t() => any()}
+  @type delete_component_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_service_pipeline_input() :: %{
-        "deploymentType" => String.t(),
-        "serviceName" => String.t(),
-        "spec" => String.t(),
-        "templateMajorVersion" => String.t(),
-        "templateMinorVersion" => String.t()
+        "deploymentType" => String.t() | atom(),
+        "serviceName" => String.t() | atom(),
+        "spec" => String.t() | atom(),
+        "templateMajorVersion" => String.t() | atom(),
+        "templateMinorVersion" => String.t() | atom()
       }
       
   """
-  @type update_service_pipeline_input() :: %{String.t() => any()}
+  @type update_service_pipeline_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2989,7 +2989,7 @@ defmodule AWS.Proton do
       }
       
   """
-  @type get_service_template_output() :: %{String.t() => any()}
+  @type get_service_template_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3000,19 +3000,19 @@ defmodule AWS.Proton do
       }
       
   """
-  @type cancel_component_deployment_output() :: %{String.t() => any()}
+  @type cancel_component_deployment_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_component_outputs_output() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("outputs") => list(output())
       }
       
   """
-  @type list_component_outputs_output() :: %{String.t() => any()}
+  @type list_component_outputs_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3025,148 +3025,148 @@ defmodule AWS.Proton do
       }
       
   """
-  @type get_template_sync_status_output() :: %{String.t() => any()}
+  @type get_template_sync_status_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_service_sync_config_input() :: %{
-        required("branch") => String.t(),
-        required("filePath") => String.t(),
-        required("repositoryName") => String.t(),
-        required("repositoryProvider") => String.t(),
-        required("serviceName") => String.t()
+        required("branch") => String.t() | atom(),
+        required("filePath") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom(),
+        required("repositoryProvider") => String.t() | atom(),
+        required("serviceName") => String.t() | atom()
       }
       
   """
-  @type update_service_sync_config_input() :: %{String.t() => any()}
+  @type update_service_sync_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_service_input() :: %{
-        "description" => String.t(),
-        "name" => String.t(),
-        "spec" => String.t()
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "spec" => String.t() | atom()
       }
       
   """
-  @type update_service_input() :: %{String.t() => any()}
+  @type update_service_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_sync_event() :: %{
-        "event" => [String.t()],
-        "externalId" => [String.t()],
+        "event" => [String.t() | atom()],
+        "externalId" => [String.t() | atom()],
         "time" => [non_neg_integer()],
-        "type" => [String.t()]
+        "type" => [String.t() | atom()]
       }
       
   """
-  @type resource_sync_event() :: %{String.t() => any()}
+  @type resource_sync_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_template_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
-        "description" => String.t(),
-        "displayName" => String.t(),
+        "description" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
         "lastModifiedAt" => [non_neg_integer()],
-        "name" => String.t(),
-        "pipelineProvisioning" => String.t(),
-        "recommendedVersion" => String.t()
+        "name" => String.t() | atom(),
+        "pipelineProvisioning" => String.t() | atom(),
+        "recommendedVersion" => String.t() | atom()
       }
       
   """
-  @type service_template_summary() :: %{String.t() => any()}
+  @type service_template_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_environment_template_version_input() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        optional("majorVersion") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("majorVersion") => String.t() | atom(),
         optional("tags") => list(tag()),
         required("source") => list(),
-        required("templateName") => String.t()
+        required("templateName") => String.t() | atom()
       }
       
   """
-  @type create_environment_template_version_input() :: %{String.t() => any()}
+  @type create_environment_template_version_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_sync_event() :: %{
-        "event" => [String.t()],
-        "externalId" => [String.t()],
+        "event" => [String.t() | atom()],
+        "externalId" => [String.t() | atom()],
         "time" => [non_neg_integer()],
-        "type" => [String.t()]
+        "type" => [String.t() | atom()]
       }
       
   """
-  @type repository_sync_event() :: %{String.t() => any()}
+  @type repository_sync_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_service_instance_input() :: %{
-        "name" => String.t(),
-        "serviceName" => String.t()
+        "name" => String.t() | atom(),
+        "serviceName" => String.t() | atom()
       }
       
   """
-  @type get_service_instance_input() :: %{String.t() => any()}
+  @type get_service_instance_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       revision() :: %{
-        "branch" => String.t(),
-        "directory" => [String.t()],
-        "repositoryName" => String.t(),
-        "repositoryProvider" => String.t(),
-        "sha" => String.t()
+        "branch" => String.t() | atom(),
+        "directory" => [String.t() | atom()],
+        "repositoryName" => String.t() | atom(),
+        "repositoryProvider" => String.t() | atom(),
+        "sha" => String.t() | atom()
       }
       
   """
-  @type revision() :: %{String.t() => any()}
+  @type revision() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       compatible_environment_template() :: %{
-        "majorVersion" => String.t(),
-        "templateName" => String.t()
+        "majorVersion" => String.t() | atom(),
+        "templateName" => String.t() | atom()
       }
       
   """
-  @type compatible_environment_template() :: %{String.t() => any()}
+  @type compatible_environment_template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_services_output() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("services") => list(service_summary())
       }
       
   """
-  @type list_services_output() :: %{String.t() => any()}
+  @type list_services_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3177,38 +3177,38 @@ defmodule AWS.Proton do
       }
       
   """
-  @type cancel_service_pipeline_deployment_output() :: %{String.t() => any()}
+  @type cancel_service_pipeline_deployment_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_template_sync_config_input() :: %{
-        required("templateName") => String.t(),
-        required("templateType") => String.t()
+        required("templateName") => String.t() | atom(),
+        required("templateType") => String.t() | atom()
       }
       
   """
-  @type delete_template_sync_config_input() :: %{String.t() => any()}
+  @type delete_template_sync_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_template() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
-        "description" => String.t(),
-        "displayName" => String.t(),
-        "encryptionKey" => String.t(),
+        "description" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
+        "encryptionKey" => String.t() | atom(),
         "lastModifiedAt" => [non_neg_integer()],
-        "name" => String.t(),
-        "pipelineProvisioning" => String.t(),
-        "recommendedVersion" => String.t()
+        "name" => String.t() | atom(),
+        "pipelineProvisioning" => String.t() | atom(),
+        "recommendedVersion" => String.t() | atom()
       }
       
   """
-  @type service_template() :: %{String.t() => any()}
+  @type service_template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3219,7 +3219,7 @@ defmodule AWS.Proton do
       }
       
   """
-  @type reject_environment_account_connection_output() :: %{String.t() => any()}
+  @type reject_environment_account_connection_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3230,44 +3230,44 @@ defmodule AWS.Proton do
       }
       
   """
-  @type create_template_sync_config_output() :: %{String.t() => any()}
+  @type create_template_sync_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       output() :: %{
-        "key" => String.t(),
-        "valueString" => String.t()
+        "key" => String.t() | atom(),
+        "valueString" => String.t() | atom()
       }
       
   """
-  @type output() :: %{String.t() => any()}
+  @type output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_service_template_input() :: %{
-        "description" => String.t(),
-        "displayName" => String.t(),
-        "name" => String.t()
+        "description" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
       
   """
-  @type update_service_template_input() :: %{String.t() => any()}
+  @type update_service_template_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_environment_account_connections_output() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("environmentAccountConnections") => list(environment_account_connection_summary())
       }
       
   """
-  @type list_environment_account_connections_output() :: %{String.t() => any()}
+  @type list_environment_account_connections_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3275,11 +3275,11 @@ defmodule AWS.Proton do
       
       list_services_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_services_input() :: %{String.t() => any()}
+  @type list_services_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3287,12 +3287,12 @@ defmodule AWS.Proton do
       
       service_sync_blocker_summary() :: %{
         "latestBlockers" => list(sync_blocker()),
-        "serviceInstanceName" => [String.t()],
-        "serviceName" => [String.t()]
+        "serviceInstanceName" => [String.t() | atom()],
+        "serviceName" => [String.t() | atom()]
       }
       
   """
-  @type service_sync_blocker_summary() :: %{String.t() => any()}
+  @type service_sync_blocker_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3303,7 +3303,7 @@ defmodule AWS.Proton do
       }
       
   """
-  @type get_template_sync_config_output() :: %{String.t() => any()}
+  @type get_template_sync_config_output() :: %{(String.t() | atom()) => any()}
 
   @type accept_environment_account_connection_errors() ::
           throttling_exception()
@@ -3996,7 +3996,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, accept_environment_account_connection_errors()}
   def accept_environment_account_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptEnvironmentAccountConnection", input, options)
   end
@@ -4016,7 +4017,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, cancel_component_deployment_errors()}
   def cancel_component_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelComponentDeployment", input, options)
   end
@@ -4050,7 +4052,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, cancel_environment_deployment_errors()}
   def cancel_environment_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelEnvironmentDeployment", input, options)
   end
@@ -4088,7 +4091,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, cancel_service_instance_deployment_errors()}
   def cancel_service_instance_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelServiceInstanceDeployment", input, options)
   end
@@ -4126,7 +4130,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, cancel_service_pipeline_deployment_errors()}
   def cancel_service_pipeline_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelServicePipelineDeployment", input, options)
   end
@@ -4147,7 +4152,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, create_component_errors()}
   def create_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateComponent", input, options)
   end
@@ -4182,7 +4188,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, create_environment_errors()}
   def create_environment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEnvironment", input, options)
   end
@@ -4209,7 +4216,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, create_environment_account_connection_errors()}
   def create_environment_account_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEnvironmentAccountConnection", input, options)
   end
@@ -4244,7 +4252,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, create_environment_template_errors()}
   def create_environment_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEnvironmentTemplate", input, options)
   end
@@ -4267,7 +4276,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, create_environment_template_version_errors()}
   def create_environment_template_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEnvironmentTemplateVersion", input, options)
   end
@@ -4296,7 +4306,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, create_repository_errors()}
   def create_repository(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRepository", input, options)
   end
@@ -4317,7 +4328,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, create_service_errors()}
   def create_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateService", input, options)
   end
@@ -4331,7 +4343,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, create_service_instance_errors()}
   def create_service_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateServiceInstance", input, options)
   end
@@ -4345,7 +4358,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, create_service_sync_config_errors()}
   def create_service_sync_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateServiceSyncConfig", input, options)
   end
@@ -4371,7 +4385,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, create_service_template_errors()}
   def create_service_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateServiceTemplate", input, options)
   end
@@ -4390,7 +4405,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, create_service_template_version_errors()}
   def create_service_template_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateServiceTemplateVersion", input, options)
   end
@@ -4415,7 +4431,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, create_template_sync_config_errors()}
   def create_template_sync_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTemplateSyncConfig", input, options)
   end
@@ -4434,7 +4451,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, delete_component_errors()}
   def delete_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteComponent", input, options)
   end
@@ -4448,7 +4466,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, delete_deployment_errors()}
   def delete_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDeployment", input, options)
   end
@@ -4462,7 +4481,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, delete_environment_errors()}
   def delete_environment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEnvironment", input, options)
   end
@@ -4490,7 +4510,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, delete_environment_account_connection_errors()}
   def delete_environment_account_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEnvironmentAccountConnection", input, options)
   end
@@ -4505,7 +4526,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, delete_environment_template_errors()}
   def delete_environment_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEnvironmentTemplate", input, options)
   end
@@ -4536,7 +4558,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, delete_environment_template_version_errors()}
   def delete_environment_template_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEnvironmentTemplateVersion", input, options)
   end
@@ -4550,7 +4573,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, delete_repository_errors()}
   def delete_repository(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRepository", input, options)
   end
@@ -4573,7 +4597,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, delete_service_errors()}
   def delete_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteService", input, options)
   end
@@ -4587,7 +4612,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, delete_service_sync_config_errors()}
   def delete_service_sync_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteServiceSyncConfig", input, options)
   end
@@ -4603,7 +4629,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, delete_service_template_errors()}
   def delete_service_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteServiceTemplate", input, options)
   end
@@ -4633,7 +4660,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, delete_service_template_version_errors()}
   def delete_service_template_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteServiceTemplateVersion", input, options)
   end
@@ -4647,7 +4675,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, delete_template_sync_config_errors()}
   def delete_template_sync_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTemplateSyncConfig", input, options)
   end
@@ -4661,7 +4690,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_account_settings_errors()}
   def get_account_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAccountSettings", input, options)
   end
@@ -4680,7 +4710,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_component_errors()}
   def get_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetComponent", input, options)
   end
@@ -4694,7 +4725,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_deployment_errors()}
   def get_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDeployment", input, options)
   end
@@ -4708,7 +4740,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_environment_errors()}
   def get_environment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEnvironment", input, options)
   end
@@ -4730,7 +4763,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_environment_account_connection_errors()}
   def get_environment_account_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEnvironmentAccountConnection", input, options)
   end
@@ -4744,7 +4778,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_environment_template_errors()}
   def get_environment_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEnvironmentTemplate", input, options)
   end
@@ -4758,7 +4793,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_environment_template_version_errors()}
   def get_environment_template_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEnvironmentTemplateVersion", input, options)
   end
@@ -4772,7 +4808,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_repository_errors()}
   def get_repository(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRepository", input, options)
   end
@@ -4799,7 +4836,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_repository_sync_status_errors()}
   def get_repository_sync_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRepositorySyncStatus", input, options)
   end
@@ -4833,7 +4871,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_resources_summary_errors()}
   def get_resources_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourcesSummary", input, options)
   end
@@ -4847,7 +4886,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_service_errors()}
   def get_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetService", input, options)
   end
@@ -4864,7 +4904,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_service_instance_errors()}
   def get_service_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetServiceInstance", input, options)
   end
@@ -4878,7 +4919,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_service_instance_sync_status_errors()}
   def get_service_instance_sync_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetServiceInstanceSyncStatus", input, options)
   end
@@ -4892,7 +4934,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_service_sync_blocker_summary_errors()}
   def get_service_sync_blocker_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetServiceSyncBlockerSummary", input, options)
   end
@@ -4906,7 +4949,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_service_sync_config_errors()}
   def get_service_sync_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetServiceSyncConfig", input, options)
   end
@@ -4920,7 +4964,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_service_template_errors()}
   def get_service_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetServiceTemplate", input, options)
   end
@@ -4934,7 +4979,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_service_template_version_errors()}
   def get_service_template_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetServiceTemplateVersion", input, options)
   end
@@ -4948,7 +4994,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_template_sync_config_errors()}
   def get_template_sync_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTemplateSyncConfig", input, options)
   end
@@ -4962,7 +5009,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_template_sync_status_errors()}
   def get_template_sync_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTemplateSyncStatus", input, options)
   end
@@ -4981,7 +5029,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_component_outputs_errors()}
   def list_component_outputs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListComponentOutputs", input, options)
   end
@@ -5004,7 +5053,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_component_provisioned_resources_errors()}
   def list_component_provisioned_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListComponentProvisionedResources", input, options)
   end
@@ -5026,7 +5076,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_components_errors()}
   def list_components(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListComponents", input, options)
   end
@@ -5043,7 +5094,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_deployments_errors()}
   def list_deployments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDeployments", input, options)
   end
@@ -5064,7 +5116,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_environment_account_connections_errors()}
   def list_environment_account_connections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEnvironmentAccountConnections", input, options)
   end
@@ -5078,7 +5131,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_environment_outputs_errors()}
   def list_environment_outputs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEnvironmentOutputs", input, options)
   end
@@ -5096,7 +5150,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_environment_provisioned_resources_errors()}
   def list_environment_provisioned_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEnvironmentProvisionedResources", input, options)
   end
@@ -5114,7 +5169,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_environment_template_versions_errors()}
   def list_environment_template_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEnvironmentTemplateVersions", input, options)
   end
@@ -5128,7 +5184,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_environment_templates_errors()}
   def list_environment_templates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEnvironmentTemplates", input, options)
   end
@@ -5142,7 +5199,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_environments_errors()}
   def list_environments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEnvironments", input, options)
   end
@@ -5156,7 +5214,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_repositories_errors()}
   def list_repositories(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRepositories", input, options)
   end
@@ -5170,7 +5229,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_repository_sync_definitions_errors()}
   def list_repository_sync_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRepositorySyncDefinitions", input, options)
   end
@@ -5184,7 +5244,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_service_instance_outputs_errors()}
   def list_service_instance_outputs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListServiceInstanceOutputs", input, options)
   end
@@ -5202,7 +5263,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_service_instance_provisioned_resources_errors()}
   def list_service_instance_provisioned_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListServiceInstanceProvisionedResources", input, options)
   end
@@ -5219,7 +5281,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_service_instances_errors()}
   def list_service_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListServiceInstances", input, options)
   end
@@ -5233,7 +5296,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_service_pipeline_outputs_errors()}
   def list_service_pipeline_outputs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListServicePipelineOutputs", input, options)
   end
@@ -5251,7 +5315,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_service_pipeline_provisioned_resources_errors()}
   def list_service_pipeline_provisioned_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListServicePipelineProvisionedResources", input, options)
   end
@@ -5265,7 +5330,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_service_template_versions_errors()}
   def list_service_template_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListServiceTemplateVersions", input, options)
   end
@@ -5279,7 +5345,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_service_templates_errors()}
   def list_service_templates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListServiceTemplates", input, options)
   end
@@ -5293,7 +5360,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_services_errors()}
   def list_services(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListServices", input, options)
   end
@@ -5311,7 +5379,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -5333,7 +5402,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, notify_resource_deployment_status_change_errors()}
   def notify_resource_deployment_status_change(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "NotifyResourceDeploymentStatusChange", input, options)
   end
@@ -5362,7 +5432,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, reject_environment_account_connection_errors()}
   def reject_environment_account_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RejectEnvironmentAccountConnection", input, options)
   end
@@ -5382,7 +5453,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -5401,7 +5473,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -5416,7 +5489,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, update_account_settings_errors()}
   def update_account_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAccountSettings", input, options)
   end
@@ -5442,7 +5516,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, update_component_errors()}
   def update_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateComponent", input, options)
   end
@@ -5528,7 +5603,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, update_environment_errors()}
   def update_environment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEnvironment", input, options)
   end
@@ -5550,7 +5626,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, update_environment_account_connection_errors()}
   def update_environment_account_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEnvironmentAccountConnection", input, options)
   end
@@ -5564,7 +5641,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, update_environment_template_errors()}
   def update_environment_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEnvironmentTemplate", input, options)
   end
@@ -5582,7 +5660,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, update_environment_template_version_errors()}
   def update_environment_template_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEnvironmentTemplateVersion", input, options)
   end
@@ -5612,7 +5691,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, update_service_errors()}
   def update_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateService", input, options)
   end
@@ -5638,7 +5718,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, update_service_instance_errors()}
   def update_service_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateServiceInstance", input, options)
   end
@@ -5693,7 +5774,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, update_service_pipeline_errors()}
   def update_service_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateServicePipeline", input, options)
   end
@@ -5707,7 +5789,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, update_service_sync_blocker_errors()}
   def update_service_sync_blocker(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateServiceSyncBlocker", input, options)
   end
@@ -5721,7 +5804,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, update_service_sync_config_errors()}
   def update_service_sync_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateServiceSyncConfig", input, options)
   end
@@ -5735,7 +5819,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, update_service_template_errors()}
   def update_service_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateServiceTemplate", input, options)
   end
@@ -5749,7 +5834,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, update_service_template_version_errors()}
   def update_service_template_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateServiceTemplateVersion", input, options)
   end
@@ -5769,7 +5855,8 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, update_template_sync_config_errors()}
   def update_template_sync_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTemplateSyncConfig", input, options)
   end

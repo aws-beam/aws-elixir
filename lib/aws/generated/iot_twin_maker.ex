@@ -24,83 +24,83 @@ defmodule AWS.IoTTwinMaker do
 
       execute_query_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("queryStatement") => String.t(),
-        required("workspaceId") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("queryStatement") => String.t() | atom(),
+        required("workspaceId") => String.t() | atom()
       }
 
   """
-  @type execute_query_request() :: %{String.t() => any()}
+  @type execute_query_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_sync_job_request() :: %{
-        optional("workspaceId") => String.t()
+        optional("workspaceId") => String.t() | atom()
       }
 
   """
-  @type get_sync_job_request() :: %{String.t() => any()}
+  @type get_sync_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_scene_response() :: %{
-        required("arn") => String.t(),
+        required("arn") => String.t() | atom(),
         required("creationDateTime") => non_neg_integer()
       }
 
   """
-  @type create_scene_response() :: %{String.t() => any()}
+  @type create_scene_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_sync_job_response() :: %{
-        required("arn") => String.t(),
+        required("arn") => String.t() | atom(),
         required("creationDateTime") => non_neg_integer(),
         required("status") => sync_job_status(),
-        required("syncRole") => String.t(),
-        required("syncSource") => String.t(),
+        required("syncRole") => String.t() | atom(),
+        required("syncSource") => String.t() | atom(),
         required("updateDateTime") => non_neg_integer(),
-        required("workspaceId") => String.t()
+        required("workspaceId") => String.t() | atom()
       }
 
   """
-  @type get_sync_job_response() :: %{String.t() => any()}
+  @type get_sync_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       component_update_request() :: %{
-        "componentTypeId" => String.t(),
-        "description" => String.t(),
+        "componentTypeId" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "propertyGroupUpdates" => map(),
         "propertyUpdates" => map(),
-        "updateType" => String.t()
+        "updateType" => String.t() | atom()
       }
 
   """
-  @type component_update_request() :: %{String.t() => any()}
+  @type component_update_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_metadata_transfer_job_response() :: %{
-        "arn" => String.t(),
-        "metadataTransferJobId" => String.t(),
+        "arn" => String.t() | atom(),
+        "metadataTransferJobId" => String.t() | atom(),
         "progress" => metadata_transfer_job_progress(),
         "status" => metadata_transfer_job_status(),
         "updateDateTime" => non_neg_integer()
       }
 
   """
-  @type cancel_metadata_transfer_job_response() :: %{String.t() => any()}
+  @type cancel_metadata_transfer_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -109,22 +109,22 @@ defmodule AWS.IoTTwinMaker do
       list_entities_request() :: %{
         optional("filters") => list(list()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_entities_request() :: %{String.t() => any()}
+  @type list_entities_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_source_configuration() :: %{
-        "location" => String.t()
+        "location" => String.t() | atom()
       }
 
   """
-  @type s3_source_configuration() :: %{String.t() => any()}
+  @type s3_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -140,11 +140,11 @@ defmodule AWS.IoTTwinMaker do
   ## Example:
 
       delete_entity_response() :: %{
-        required("state") => String.t()
+        required("state") => String.t() | atom()
       }
 
   """
-  @type delete_entity_response() :: %{String.t() => any()}
+  @type delete_entity_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -156,19 +156,19 @@ defmodule AWS.IoTTwinMaker do
       }
 
   """
-  @type tabular_conditions() :: %{String.t() => any()}
+  @type tabular_conditions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_resource_request() :: %{
-        required("resourceARN") => String.t(),
+        required("resourceARN") => String.t() | atom(),
         required("tags") => map()
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -176,34 +176,34 @@ defmodule AWS.IoTTwinMaker do
 
       list_scenes_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_scenes_request() :: %{String.t() => any()}
+  @type list_scenes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       connector_failure_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type connector_failure_exception() :: %{String.t() => any()}
+  @type connector_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_properties_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "propertySummaries" => list(property_summary())
       }
 
   """
-  @type list_properties_response() :: %{String.t() => any()}
+  @type list_properties_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -211,11 +211,11 @@ defmodule AWS.IoTTwinMaker do
 
       iot_twin_maker_source_configuration() :: %{
         "filters" => list(list()),
-        "workspace" => String.t()
+        "workspace" => String.t() | atom()
       }
 
   """
-  @type iot_twin_maker_source_configuration() :: %{String.t() => any()}
+  @type iot_twin_maker_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -223,41 +223,41 @@ defmodule AWS.IoTTwinMaker do
 
       property_request() :: %{
         "definition" => property_definition_request(),
-        "updateType" => String.t(),
+        "updateType" => String.t() | atom(),
         "value" => data_value()
       }
 
   """
-  @type property_request() :: %{String.t() => any()}
+  @type property_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_property_value_request() :: %{
-        optional("componentName") => String.t(),
-        optional("componentPath") => String.t(),
-        optional("componentTypeId") => String.t(),
-        optional("entityId") => String.t(),
+        optional("componentName") => String.t() | atom(),
+        optional("componentPath") => String.t() | atom(),
+        optional("componentTypeId") => String.t() | atom(),
+        optional("entityId") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("propertyGroupName") => String.t(),
+        optional("nextToken") => String.t() | atom(),
+        optional("propertyGroupName") => String.t() | atom(),
         optional("tabularConditions") => tabular_conditions(),
-        required("selectedProperties") => list(String.t())
+        required("selectedProperties") => list(String.t() | atom())
       }
 
   """
-  @type get_property_value_request() :: %{String.t() => any()}
+  @type get_property_value_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_component_type_request() :: %{
-        optional("componentTypeName") => String.t(),
+        optional("componentTypeName") => String.t() | atom(),
         optional("compositeComponentTypes") => map(),
-        optional("description") => String.t(),
-        optional("extendsFrom") => list(String.t()),
+        optional("description") => String.t() | atom(),
+        optional("extendsFrom") => list(String.t() | atom()),
         optional("functions") => map(),
         optional("isSingleton") => boolean(),
         optional("propertyDefinitions") => map(),
@@ -266,19 +266,19 @@ defmodule AWS.IoTTwinMaker do
       }
 
   """
-  @type create_component_type_request() :: %{String.t() => any()}
+  @type create_component_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       composite_component_type_response() :: %{
-        "componentTypeId" => String.t(),
+        "componentTypeId" => String.t() | atom(),
         "isInherited" => boolean()
       }
 
   """
-  @type composite_component_type_response() :: %{String.t() => any()}
+  @type composite_component_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -294,12 +294,12 @@ defmodule AWS.IoTTwinMaker do
   ## Example:
 
       column_description() :: %{
-        "name" => String.t(),
-        "type" => String.t()
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type column_description() :: %{String.t() => any()}
+  @type column_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -327,125 +327,125 @@ defmodule AWS.IoTTwinMaker do
         "billableEntityCount" => float(),
         "bundleInformation" => bundle_information(),
         "effectiveDateTime" => non_neg_integer(),
-        "pricingMode" => String.t(),
+        "pricingMode" => String.t() | atom(),
         "updateDateTime" => non_neg_integer(),
-        "updateReason" => String.t()
+        "updateReason" => String.t() | atom()
       }
 
   """
-  @type pricing_plan() :: %{String.t() => any()}
+  @type pricing_plan() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       relationship() :: %{
-        "relationshipType" => String.t(),
-        "targetComponentTypeId" => String.t()
+        "relationshipType" => String.t() | atom(),
+        "targetComponentTypeId" => String.t() | atom()
       }
 
   """
-  @type relationship() :: %{String.t() => any()}
+  @type relationship() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       lambda_function() :: %{
-        "arn" => String.t()
+        "arn" => String.t() | atom()
       }
 
   """
-  @type lambda_function() :: %{String.t() => any()}
+  @type lambda_function() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       entity_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t(),
-        "entityId" => String.t(),
-        "entityName" => String.t(),
+        "description" => String.t() | atom(),
+        "entityId" => String.t() | atom(),
+        "entityName" => String.t() | atom(),
         "hasChildEntities" => boolean(),
-        "parentEntityId" => String.t(),
+        "parentEntityId" => String.t() | atom(),
         "status" => status(),
         "updateDateTime" => non_neg_integer()
       }
 
   """
-  @type entity_summary() :: %{String.t() => any()}
+  @type entity_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       workspace_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t(),
-        "linkedServices" => list(String.t()),
+        "description" => String.t() | atom(),
+        "linkedServices" => list(String.t() | atom()),
         "updateDateTime" => non_neg_integer(),
-        "workspaceId" => String.t()
+        "workspaceId" => String.t() | atom()
       }
 
   """
-  @type workspace_summary() :: %{String.t() => any()}
+  @type workspace_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       component_property_group_response() :: %{
-        "groupType" => String.t(),
+        "groupType" => String.t() | atom(),
         "isInherited" => boolean(),
-        "propertyNames" => list(String.t())
+        "propertyNames" => list(String.t() | atom())
       }
 
   """
-  @type component_property_group_response() :: %{String.t() => any()}
+  @type component_property_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       composite_component_update_request() :: %{
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "propertyGroupUpdates" => map(),
         "propertyUpdates" => map(),
-        "updateType" => String.t()
+        "updateType" => String.t() | atom()
       }
 
   """
-  @type composite_component_update_request() :: %{String.t() => any()}
+  @type composite_component_update_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sync_job_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "creationDateTime" => non_neg_integer(),
         "status" => sync_job_status(),
-        "syncSource" => String.t(),
+        "syncSource" => String.t() | atom(),
         "updateDateTime" => non_neg_integer(),
-        "workspaceId" => String.t()
+        "workspaceId" => String.t() | atom()
       }
 
   """
-  @type sync_job_summary() :: %{String.t() => any()}
+  @type sync_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       iot_twin_maker_destination_configuration() :: %{
-        "workspace" => String.t()
+        "workspace" => String.t() | atom()
       }
 
   """
-  @type iot_twin_maker_destination_configuration() :: %{String.t() => any()}
+  @type iot_twin_maker_destination_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -454,26 +454,26 @@ defmodule AWS.IoTTwinMaker do
       update_entity_request() :: %{
         optional("componentUpdates") => map(),
         optional("compositeComponentUpdates") => map(),
-        optional("description") => String.t(),
-        optional("entityName") => String.t(),
+        optional("description") => String.t() | atom(),
+        optional("entityName") => String.t() | atom(),
         optional("parentEntityUpdate") => parent_entity_update_request()
       }
 
   """
-  @type update_entity_request() :: %{String.t() => any()}
+  @type update_entity_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       composite_component_request() :: %{
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "properties" => map(),
         "propertyGroups" => map()
       }
 
   """
-  @type composite_component_request() :: %{String.t() => any()}
+  @type composite_component_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -484,23 +484,23 @@ defmodule AWS.IoTTwinMaker do
       }
 
   """
-  @type update_scene_response() :: %{String.t() => any()}
+  @type update_scene_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       scene_summary() :: %{
-        "arn" => String.t(),
-        "contentLocation" => String.t(),
+        "arn" => String.t() | atom(),
+        "contentLocation" => String.t() | atom(),
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t(),
-        "sceneId" => String.t(),
+        "description" => String.t() | atom(),
+        "sceneId" => String.t() | atom(),
         "updateDateTime" => non_neg_integer()
       }
 
   """
-  @type scene_summary() :: %{String.t() => any()}
+  @type scene_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -510,82 +510,82 @@ defmodule AWS.IoTTwinMaker do
         "allowedValues" => list(data_value()),
         "nestedType" => data_type(),
         "relationship" => relationship(),
-        "type" => String.t(),
-        "unitOfMeasure" => String.t()
+        "type" => String.t() | atom(),
+        "unitOfMeasure" => String.t() | atom()
       }
 
   """
-  @type data_type() :: %{String.t() => any()}
+  @type data_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_component_type_response() :: %{
-        required("arn") => String.t(),
+        required("arn") => String.t() | atom(),
         required("creationDateTime") => non_neg_integer(),
-        required("state") => String.t()
+        required("state") => String.t() | atom()
       }
 
   """
-  @type create_component_type_response() :: %{String.t() => any()}
+  @type create_component_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_properties_request() :: %{
-        optional("componentName") => String.t(),
-        optional("componentPath") => String.t(),
+        optional("componentName") => String.t() | atom(),
+        optional("componentPath") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("entityId") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("entityId") => String.t() | atom()
       }
 
   """
-  @type list_properties_request() :: %{String.t() => any()}
+  @type list_properties_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       order_by() :: %{
-        "order" => String.t(),
-        "propertyName" => String.t()
+        "order" => String.t() | atom(),
+        "propertyName" => String.t() | atom()
       }
 
   """
-  @type order_by() :: %{String.t() => any()}
+  @type order_by() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("resourceARN") => String.t(),
-        required("tagKeys") => list(String.t())
+        required("resourceARN") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       component_summary() :: %{
-        "componentName" => String.t(),
-        "componentPath" => String.t(),
-        "componentTypeId" => String.t(),
-        "definedIn" => String.t(),
-        "description" => String.t(),
+        "componentName" => String.t() | atom(),
+        "componentPath" => String.t() | atom(),
+        "componentTypeId" => String.t() | atom(),
+        "definedIn" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "propertyGroups" => map(),
         "status" => status(),
-        "syncSource" => String.t()
+        "syncSource" => String.t() | atom()
       }
 
   """
-  @type component_summary() :: %{String.t() => any()}
+  @type component_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -597,52 +597,52 @@ defmodule AWS.IoTTwinMaker do
       }
 
   """
-  @type property_latest_value() :: %{String.t() => any()}
+  @type property_latest_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_workspace_response() :: %{
-        optional("message") => String.t()
+        optional("message") => String.t() | atom()
       }
 
   """
-  @type delete_workspace_response() :: %{String.t() => any()}
+  @type delete_workspace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_sync_job_response() :: %{
-        required("state") => String.t()
+        required("state") => String.t() | atom()
       }
 
   """
-  @type delete_sync_job_response() :: %{String.t() => any()}
+  @type delete_sync_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       property_value() :: %{
-        "time" => String.t(),
+        "time" => String.t() | atom(),
         "timestamp" => non_neg_integer(),
         "value" => data_value()
       }
 
   """
-  @type property_value() :: %{String.t() => any()}
+  @type property_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_component_type_request() :: %{
-        optional("componentTypeName") => String.t(),
+        optional("componentTypeName") => String.t() | atom(),
         optional("compositeComponentTypes") => map(),
-        optional("description") => String.t(),
-        optional("extendsFrom") => list(String.t()),
+        optional("description") => String.t() | atom(),
+        optional("extendsFrom") => list(String.t() | atom()),
         optional("functions") => map(),
         optional("isSingleton") => boolean(),
         optional("propertyDefinitions") => map(),
@@ -650,34 +650,34 @@ defmodule AWS.IoTTwinMaker do
       }
 
   """
-  @type update_component_type_request() :: %{String.t() => any()}
+  @type update_component_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       property_group_request() :: %{
-        "groupType" => String.t(),
-        "propertyNames" => list(String.t())
+        "groupType" => String.t() | atom(),
+        "propertyNames" => list(String.t() | atom())
       }
 
   """
-  @type property_group_request() :: %{String.t() => any()}
+  @type property_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       entity_property_reference() :: %{
-        "componentName" => String.t(),
-        "componentPath" => String.t(),
-        "entityId" => String.t(),
+        "componentName" => String.t() | atom(),
+        "componentPath" => String.t() | atom(),
+        "entityId" => String.t() | atom(),
         "externalIdProperty" => map(),
-        "propertyName" => String.t()
+        "propertyName" => String.t() | atom()
       }
 
   """
-  @type entity_property_reference() :: %{String.t() => any()}
+  @type entity_property_reference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -685,12 +685,12 @@ defmodule AWS.IoTTwinMaker do
 
       batch_put_property_error() :: %{
         "entry" => property_value_entry(),
-        "errorCode" => String.t(),
-        "errorMessage" => String.t()
+        "errorCode" => String.t() | atom(),
+        "errorMessage" => String.t() | atom()
       }
 
   """
-  @type batch_put_property_error() :: %{String.t() => any()}
+  @type batch_put_property_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -711,53 +711,53 @@ defmodule AWS.IoTTwinMaker do
       }
 
   """
-  @type property_value_entry() :: %{String.t() => any()}
+  @type property_value_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       component_property_group_request() :: %{
-        "groupType" => String.t(),
-        "propertyNames" => list(String.t()),
-        "updateType" => String.t()
+        "groupType" => String.t() | atom(),
+        "propertyNames" => list(String.t() | atom()),
+        "updateType" => String.t() | atom()
       }
 
   """
-  @type component_property_group_request() :: %{String.t() => any()}
+  @type component_property_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_metadata_transfer_job_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "destination" => destination_configuration(),
-        "metadataTransferJobId" => String.t(),
-        "metadataTransferJobRole" => String.t(),
+        "metadataTransferJobId" => String.t() | atom(),
+        "metadataTransferJobRole" => String.t() | atom(),
         "progress" => metadata_transfer_job_progress(),
-        "reportUrl" => String.t(),
+        "reportUrl" => String.t() | atom(),
         "sources" => list(source_configuration()),
         "status" => metadata_transfer_job_status(),
         "updateDateTime" => non_neg_integer()
       }
 
   """
-  @type get_metadata_transfer_job_response() :: %{String.t() => any()}
+  @type get_metadata_transfer_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_property_value_history_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("propertyValues") => list(property_value_history())
       }
 
   """
-  @type get_property_value_history_response() :: %{String.t() => any()}
+  @type get_property_value_history_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -768,39 +768,39 @@ defmodule AWS.IoTTwinMaker do
       }
 
   """
-  @type batch_put_property_values_request() :: %{String.t() => any()}
+  @type batch_put_property_values_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_component_type_response() :: %{
-        optional("componentTypeName") => String.t(),
+        optional("componentTypeName") => String.t() | atom(),
         optional("compositeComponentTypes") => map(),
-        optional("description") => String.t(),
-        optional("extendsFrom") => list(String.t()),
+        optional("description") => String.t() | atom(),
+        optional("extendsFrom") => list(String.t() | atom()),
         optional("functions") => map(),
         optional("isAbstract") => boolean(),
         optional("isSchemaInitialized") => boolean(),
@@ -808,16 +808,16 @@ defmodule AWS.IoTTwinMaker do
         optional("propertyDefinitions") => map(),
         optional("propertyGroups") => map(),
         optional("status") => status(),
-        optional("syncSource") => String.t(),
-        required("arn") => String.t(),
-        required("componentTypeId") => String.t(),
+        optional("syncSource") => String.t() | atom(),
+        required("arn") => String.t() | atom(),
+        required("componentTypeId") => String.t() | atom(),
         required("creationDateTime") => non_neg_integer(),
         required("updateDateTime") => non_neg_integer(),
-        required("workspaceId") => String.t()
+        required("workspaceId") => String.t() | atom()
       }
 
   """
-  @type get_component_type_response() :: %{String.t() => any()}
+  @type get_component_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -825,36 +825,36 @@ defmodule AWS.IoTTwinMaker do
 
       sync_resource_status() :: %{
         "error" => error_details(),
-        "state" => String.t()
+        "state" => String.t() | atom()
       }
 
   """
-  @type sync_resource_status() :: %{String.t() => any()}
+  @type sync_resource_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_components_request() :: %{
-        optional("componentPath") => String.t(),
+        optional("componentPath") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_components_request() :: %{String.t() => any()}
+  @type list_components_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_sync_jobs_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("syncJobSummaries") => list(sync_job_summary())
       }
 
   """
-  @type list_sync_jobs_response() :: %{String.t() => any()}
+  @type list_sync_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -865,7 +865,7 @@ defmodule AWS.IoTTwinMaker do
       }
 
   """
-  @type delete_entity_request() :: %{String.t() => any()}
+  @type delete_entity_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -885,7 +885,7 @@ defmodule AWS.IoTTwinMaker do
       }
 
   """
-  @type batch_put_property_values_response() :: %{String.t() => any()}
+  @type batch_put_property_values_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -893,11 +893,11 @@ defmodule AWS.IoTTwinMaker do
 
       create_sync_job_request() :: %{
         optional("tags") => map(),
-        required("syncRole") => String.t()
+        required("syncRole") => String.t() | atom()
       }
 
   """
-  @type create_sync_job_request() :: %{String.t() => any()}
+  @type create_sync_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -908,7 +908,7 @@ defmodule AWS.IoTTwinMaker do
       }
 
   """
-  @type row() :: %{String.t() => any()}
+  @type row() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -918,7 +918,7 @@ defmodule AWS.IoTTwinMaker do
         "configuration" => map(),
         "dataType" => data_type(),
         "defaultValue" => data_value(),
-        "displayName" => String.t(),
+        "displayName" => String.t() | atom(),
         "isExternalId" => boolean(),
         "isRequiredInEntity" => boolean(),
         "isStoredExternally" => boolean(),
@@ -926,29 +926,29 @@ defmodule AWS.IoTTwinMaker do
       }
 
   """
-  @type property_definition_request() :: %{String.t() => any()}
+  @type property_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       composite_component_type_request() :: %{
-        "componentTypeId" => String.t()
+        "componentTypeId" => String.t() | atom()
       }
 
   """
-  @type composite_component_type_request() :: %{String.t() => any()}
+  @type composite_component_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -956,34 +956,34 @@ defmodule AWS.IoTTwinMaker do
 
       sync_job_status() :: %{
         "error" => error_details(),
-        "state" => String.t()
+        "state" => String.t() | atom()
       }
 
   """
-  @type sync_job_status() :: %{String.t() => any()}
+  @type sync_job_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_destination_configuration() :: %{
-        "location" => String.t()
+        "location" => String.t() | atom()
       }
 
   """
-  @type s3_destination_configuration() :: %{String.t() => any()}
+  @type s3_destination_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       scene_error() :: %{
-        "code" => String.t(),
-        "message" => String.t()
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
 
   """
-  @type scene_error() :: %{String.t() => any()}
+  @type scene_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -999,72 +999,72 @@ defmodule AWS.IoTTwinMaker do
   ## Example:
 
       get_scene_response() :: %{
-        optional("capabilities") => list(String.t()),
-        optional("description") => String.t(),
+        optional("capabilities") => list(String.t() | atom()),
+        optional("description") => String.t() | atom(),
         optional("error") => scene_error(),
         optional("generatedSceneMetadata") => map(),
         optional("sceneMetadata") => map(),
-        required("arn") => String.t(),
-        required("contentLocation") => String.t(),
+        required("arn") => String.t() | atom(),
+        required("contentLocation") => String.t() | atom(),
         required("creationDateTime") => non_neg_integer(),
-        required("sceneId") => String.t(),
+        required("sceneId") => String.t() | atom(),
         required("updateDateTime") => non_neg_integer(),
-        required("workspaceId") => String.t()
+        required("workspaceId") => String.t() | atom()
       }
 
   """
-  @type get_scene_response() :: %{String.t() => any()}
+  @type get_scene_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       component_request() :: %{
-        "componentTypeId" => String.t(),
-        "description" => String.t(),
+        "componentTypeId" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "properties" => map(),
         "propertyGroups" => map()
       }
 
   """
-  @type component_request() :: %{String.t() => any()}
+  @type component_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_sync_job_response() :: %{
-        required("arn") => String.t(),
+        required("arn") => String.t() | atom(),
         required("creationDateTime") => non_neg_integer(),
-        required("state") => String.t()
+        required("state") => String.t() | atom()
       }
 
   """
-  @type create_sync_job_response() :: %{String.t() => any()}
+  @type create_sync_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       error_details() :: %{
-        "code" => String.t(),
-        "message" => String.t()
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
 
   """
-  @type error_details() :: %{String.t() => any()}
+  @type error_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("tags") => map()
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1076,7 +1076,7 @@ defmodule AWS.IoTTwinMaker do
       }
 
   """
-  @type update_pricing_plan_response() :: %{String.t() => any()}
+  @type update_pricing_plan_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1086,11 +1086,11 @@ defmodule AWS.IoTTwinMaker do
         "iotSiteWiseConfiguration" => iot_site_wise_source_configuration(),
         "iotTwinMakerConfiguration" => iot_twin_maker_source_configuration(),
         "s3Configuration" => s3_source_configuration(),
-        "type" => String.t()
+        "type" => String.t() | atom()
       }
 
   """
-  @type source_configuration() :: %{String.t() => any()}
+  @type source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1101,7 +1101,7 @@ defmodule AWS.IoTTwinMaker do
       }
 
   """
-  @type batch_put_property_error_entry() :: %{String.t() => any()}
+  @type batch_put_property_error_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1112,7 +1112,7 @@ defmodule AWS.IoTTwinMaker do
       }
 
   """
-  @type update_workspace_response() :: %{String.t() => any()}
+  @type update_workspace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1121,35 +1121,35 @@ defmodule AWS.IoTTwinMaker do
       metadata_transfer_job_status() :: %{
         "error" => error_details(),
         "queuedPosition" => integer(),
-        "state" => String.t()
+        "state" => String.t() | atom()
       }
 
   """
-  @type metadata_transfer_job_status() :: %{String.t() => any()}
+  @type metadata_transfer_job_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       parent_entity_update_request() :: %{
-        "parentEntityId" => String.t(),
-        "updateType" => String.t()
+        "parentEntityId" => String.t() | atom(),
+        "updateType" => String.t() | atom()
       }
 
   """
-  @type parent_entity_update_request() :: %{String.t() => any()}
+  @type parent_entity_update_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_entity_response() :: %{
-        required("state") => String.t(),
+        required("state") => String.t() | atom(),
         required("updateDateTime") => non_neg_integer()
       }
 
   """
-  @type update_entity_response() :: %{String.t() => any()}
+  @type update_entity_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1167,36 +1167,36 @@ defmodule AWS.IoTTwinMaker do
       component_response() :: %{
         "areAllCompositeComponentsReturned" => boolean(),
         "areAllPropertiesReturned" => boolean(),
-        "componentName" => String.t(),
-        "componentTypeId" => String.t(),
+        "componentName" => String.t() | atom(),
+        "componentTypeId" => String.t() | atom(),
         "compositeComponents" => map(),
-        "definedIn" => String.t(),
-        "description" => String.t(),
+        "definedIn" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "properties" => map(),
         "propertyGroups" => map(),
         "status" => status(),
-        "syncSource" => String.t()
+        "syncSource" => String.t() | atom()
       }
 
   """
-  @type component_response() :: %{String.t() => any()}
+  @type component_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       component_type_summary() :: %{
-        "arn" => String.t(),
-        "componentTypeId" => String.t(),
-        "componentTypeName" => String.t(),
+        "arn" => String.t() | atom(),
+        "componentTypeId" => String.t() | atom(),
+        "componentTypeName" => String.t() | atom(),
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "status" => status(),
         "updateDateTime" => non_neg_integer()
       }
 
   """
-  @type component_type_summary() :: %{String.t() => any()}
+  @type component_type_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1204,68 +1204,68 @@ defmodule AWS.IoTTwinMaker do
 
       function_request() :: %{
         "implementedBy" => data_connector(),
-        "requiredProperties" => list(String.t()),
-        "scope" => String.t()
+        "requiredProperties" => list(String.t() | atom()),
+        "scope" => String.t() | atom()
       }
 
   """
-  @type function_request() :: %{String.t() => any()}
+  @type function_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_workspace_request() :: %{
-        optional("description") => String.t(),
-        optional("role") => String.t(),
-        optional("s3Location") => String.t()
+        optional("description") => String.t() | atom(),
+        optional("role") => String.t() | atom(),
+        optional("s3Location") => String.t() | atom()
       }
 
   """
-  @type update_workspace_request() :: %{String.t() => any()}
+  @type update_workspace_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       property_group_response() :: %{
-        "groupType" => String.t(),
+        "groupType" => String.t() | atom(),
         "isInherited" => boolean(),
-        "propertyNames" => list(String.t())
+        "propertyNames" => list(String.t() | atom())
       }
 
   """
-  @type property_group_response() :: %{String.t() => any()}
+  @type property_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       filter_by_asset() :: %{
-        "assetExternalId" => String.t(),
-        "assetId" => String.t(),
+        "assetExternalId" => String.t() | atom(),
+        "assetId" => String.t() | atom(),
         "includeAssetModel" => boolean(),
         "includeOffspring" => boolean()
       }
 
   """
-  @type filter_by_asset() :: %{String.t() => any()}
+  @type filter_by_asset() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       metadata_transfer_job_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "creationDateTime" => non_neg_integer(),
-        "metadataTransferJobId" => String.t(),
+        "metadataTransferJobId" => String.t() | atom(),
         "progress" => metadata_transfer_job_progress(),
         "status" => metadata_transfer_job_status(),
         "updateDateTime" => non_neg_integer()
       }
 
   """
-  @type metadata_transfer_job_summary() :: %{String.t() => any()}
+  @type metadata_transfer_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1277,7 +1277,7 @@ defmodule AWS.IoTTwinMaker do
       }
 
   """
-  @type data_connector() :: %{String.t() => any()}
+  @type data_connector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1286,12 +1286,12 @@ defmodule AWS.IoTTwinMaker do
       property_summary() :: %{
         "areAllPropertyValuesReturned" => boolean(),
         "definition" => property_definition_response(),
-        "propertyName" => String.t(),
+        "propertyName" => String.t() | atom(),
         "value" => data_value()
       }
 
   """
-  @type property_summary() :: %{String.t() => any()}
+  @type property_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1299,75 +1299,75 @@ defmodule AWS.IoTTwinMaker do
 
       list_component_types_response() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("componentTypeSummaries") => list(component_type_summary()),
-        required("workspaceId") => String.t()
+        required("workspaceId") => String.t() | atom()
       }
 
   """
-  @type list_component_types_response() :: %{String.t() => any()}
+  @type list_component_types_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sync_resource_summary() :: %{
-        "externalId" => String.t(),
-        "resourceId" => String.t(),
-        "resourceType" => String.t(),
+        "externalId" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom(),
         "status" => sync_resource_status(),
         "updateDateTime" => non_neg_integer()
       }
 
   """
-  @type sync_resource_summary() :: %{String.t() => any()}
+  @type sync_resource_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_workspace_response() :: %{
-        required("arn") => String.t(),
+        required("arn") => String.t() | atom(),
         required("creationDateTime") => non_neg_integer()
       }
 
   """
-  @type create_workspace_response() :: %{String.t() => any()}
+  @type create_workspace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_sync_resources_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("syncResources") => list(sync_resource_summary())
       }
 
   """
-  @type list_sync_resources_response() :: %{String.t() => any()}
+  @type list_sync_resources_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_workspaces_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("workspaceSummaries") => list(workspace_summary())
       }
 
   """
-  @type list_workspaces_response() :: %{String.t() => any()}
+  @type list_workspaces_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1383,12 +1383,12 @@ defmodule AWS.IoTTwinMaker do
   ## Example:
 
       relationship_value() :: %{
-        "targetComponentName" => String.t(),
-        "targetEntityId" => String.t()
+        "targetComponentName" => String.t() | atom(),
+        "targetEntityId" => String.t() | atom()
       }
 
   """
-  @type relationship_value() :: %{String.t() => any()}
+  @type relationship_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1397,13 +1397,13 @@ defmodule AWS.IoTTwinMaker do
       list_metadata_transfer_jobs_request() :: %{
         optional("filters") => list(list()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("destinationType") => String.t(),
-        required("sourceType") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("destinationType") => String.t() | atom(),
+        required("sourceType") => String.t() | atom()
       }
 
   """
-  @type list_metadata_transfer_jobs_request() :: %{String.t() => any()}
+  @type list_metadata_transfer_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1424,18 +1424,18 @@ defmodule AWS.IoTTwinMaker do
       }
 
   """
-  @type get_pricing_plan_response() :: %{String.t() => any()}
+  @type get_pricing_plan_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1444,28 +1444,28 @@ defmodule AWS.IoTTwinMaker do
       create_entity_request() :: %{
         optional("components") => map(),
         optional("compositeComponents") => map(),
-        optional("description") => String.t(),
-        optional("entityId") => String.t(),
-        optional("parentEntityId") => String.t(),
+        optional("description") => String.t() | atom(),
+        optional("entityId") => String.t() | atom(),
+        optional("parentEntityId") => String.t() | atom(),
         optional("tags") => map(),
-        required("entityName") => String.t()
+        required("entityName") => String.t() | atom()
       }
 
   """
-  @type create_entity_request() :: %{String.t() => any()}
+  @type create_entity_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       property_filter() :: %{
-        "operator" => String.t(),
-        "propertyName" => String.t(),
+        "operator" => String.t() | atom(),
+        "propertyName" => String.t() | atom(),
         "value" => data_value()
       }
 
   """
-  @type property_filter() :: %{String.t() => any()}
+  @type property_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1474,11 +1474,11 @@ defmodule AWS.IoTTwinMaker do
       list_sync_resources_request() :: %{
         optional("filters") => list(list()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_sync_resources_request() :: %{String.t() => any()}
+  @type list_sync_resources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1492,7 +1492,7 @@ defmodule AWS.IoTTwinMaker do
       }
 
   """
-  @type metadata_transfer_job_progress() :: %{String.t() => any()}
+  @type metadata_transfer_job_progress() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1523,18 +1523,18 @@ defmodule AWS.IoTTwinMaker do
       }
 
   """
-  @type property_response() :: %{String.t() => any()}
+  @type property_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       filter_by_component_type() :: %{
-        "componentTypeId" => String.t()
+        "componentTypeId" => String.t() | atom()
       }
 
   """
-  @type filter_by_component_type() :: %{String.t() => any()}
+  @type filter_by_component_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1543,35 +1543,35 @@ defmodule AWS.IoTTwinMaker do
       get_entity_response() :: %{
         optional("areAllComponentsReturned") => boolean(),
         optional("components") => map(),
-        optional("description") => String.t(),
-        optional("syncSource") => String.t(),
-        required("arn") => String.t(),
+        optional("description") => String.t() | atom(),
+        optional("syncSource") => String.t() | atom(),
+        required("arn") => String.t() | atom(),
         required("creationDateTime") => non_neg_integer(),
-        required("entityId") => String.t(),
-        required("entityName") => String.t(),
+        required("entityId") => String.t() | atom(),
+        required("entityName") => String.t() | atom(),
         required("hasChildEntities") => boolean(),
-        required("parentEntityId") => String.t(),
+        required("parentEntityId") => String.t() | atom(),
         required("status") => status(),
         required("updateDateTime") => non_neg_integer(),
-        required("workspaceId") => String.t()
+        required("workspaceId") => String.t() | atom()
       }
 
   """
-  @type get_entity_response() :: %{String.t() => any()}
+  @type get_entity_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       filter_by_asset_model() :: %{
-        "assetModelExternalId" => String.t(),
-        "assetModelId" => String.t(),
+        "assetModelExternalId" => String.t() | atom(),
+        "assetModelId" => String.t() | atom(),
         "includeAssets" => boolean(),
         "includeOffspring" => boolean()
       }
 
   """
-  @type filter_by_asset_model() :: %{String.t() => any()}
+  @type filter_by_asset_model() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1579,22 +1579,22 @@ defmodule AWS.IoTTwinMaker do
 
       list_sync_jobs_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_sync_jobs_request() :: %{String.t() => any()}
+  @type list_sync_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1602,12 +1602,12 @@ defmodule AWS.IoTTwinMaker do
 
       list_tags_for_resource_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("resourceARN") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("resourceARN") => String.t() | atom()
       }
 
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1615,37 +1615,37 @@ defmodule AWS.IoTTwinMaker do
 
       list_workspaces_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_workspaces_request() :: %{String.t() => any()}
+  @type list_workspaces_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_pricing_plan_request() :: %{
-        optional("bundleNames") => list(String.t()),
-        required("pricingMode") => String.t()
+        optional("bundleNames") => list(String.t() | atom()),
+        required("pricingMode") => String.t() | atom()
       }
 
   """
-  @type update_pricing_plan_request() :: %{String.t() => any()}
+  @type update_pricing_plan_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_component_type_response() :: %{
-        required("arn") => String.t(),
-        required("componentTypeId") => String.t(),
-        required("state") => String.t(),
-        required("workspaceId") => String.t()
+        required("arn") => String.t() | atom(),
+        required("componentTypeId") => String.t() | atom(),
+        required("state") => String.t() | atom(),
+        required("workspaceId") => String.t() | atom()
       }
 
   """
-  @type update_component_type_response() :: %{String.t() => any()}
+  @type update_component_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1653,69 +1653,69 @@ defmodule AWS.IoTTwinMaker do
 
       execute_query_response() :: %{
         optional("columnDescriptions") => list(column_description()),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("rows") => list(row())
       }
 
   """
-  @type execute_query_response() :: %{String.t() => any()}
+  @type execute_query_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       query_timeout_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type query_timeout_exception() :: %{String.t() => any()}
+  @type query_timeout_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_component_type_response() :: %{
-        required("state") => String.t()
+        required("state") => String.t() | atom()
       }
 
   """
-  @type delete_component_type_response() :: %{String.t() => any()}
+  @type delete_component_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_property_value_history_request() :: %{
-        optional("componentName") => String.t(),
-        optional("componentPath") => String.t(),
-        optional("componentTypeId") => String.t(),
+        optional("componentName") => String.t() | atom(),
+        optional("componentPath") => String.t() | atom(),
+        optional("componentTypeId") => String.t() | atom(),
         optional("endDateTime") => non_neg_integer(),
-        optional("endTime") => String.t(),
-        optional("entityId") => String.t(),
+        optional("endTime") => String.t() | atom(),
+        optional("entityId") => String.t() | atom(),
         optional("interpolation") => interpolation_parameters(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("orderByTime") => String.t(),
+        optional("nextToken") => String.t() | atom(),
+        optional("orderByTime") => String.t() | atom(),
         optional("propertyFilters") => list(property_filter()),
         optional("startDateTime") => non_neg_integer(),
-        optional("startTime") => String.t(),
-        required("selectedProperties") => list(String.t())
+        optional("startTime") => String.t() | atom(),
+        required("selectedProperties") => list(String.t() | atom())
       }
 
   """
-  @type get_property_value_history_request() :: %{String.t() => any()}
+  @type get_property_value_history_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1723,78 +1723,78 @@ defmodule AWS.IoTTwinMaker do
 
       list_components_response() :: %{
         "componentSummaries" => list(component_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_components_response() :: %{String.t() => any()}
+  @type list_components_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_entity_response() :: %{
-        required("arn") => String.t(),
+        required("arn") => String.t() | atom(),
         required("creationDateTime") => non_neg_integer(),
-        required("entityId") => String.t(),
-        required("state") => String.t()
+        required("entityId") => String.t() | atom(),
+        required("state") => String.t() | atom()
       }
 
   """
-  @type create_entity_response() :: %{String.t() => any()}
+  @type create_entity_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_metadata_transfer_job_request() :: %{
-        optional("description") => String.t(),
-        optional("metadataTransferJobId") => String.t(),
+        optional("description") => String.t() | atom(),
+        optional("metadataTransferJobId") => String.t() | atom(),
         required("destination") => destination_configuration(),
         required("sources") => list(source_configuration())
       }
 
   """
-  @type create_metadata_transfer_job_request() :: %{String.t() => any()}
+  @type create_metadata_transfer_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       bundle_information() :: %{
-        "bundleNames" => list(String.t()),
-        "pricingTier" => String.t()
+        "bundleNames" => list(String.t() | atom()),
+        "pricingTier" => String.t() | atom()
       }
 
   """
-  @type bundle_information() :: %{String.t() => any()}
+  @type bundle_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       connector_timeout_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type connector_timeout_exception() :: %{String.t() => any()}
+  @type connector_timeout_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_scene_request() :: %{
-        optional("capabilities") => list(String.t()),
-        optional("description") => String.t(),
+        optional("capabilities") => list(String.t() | atom()),
+        optional("description") => String.t() | atom(),
         optional("sceneMetadata") => map(),
         optional("tags") => map(),
-        required("contentLocation") => String.t(),
-        required("sceneId") => String.t()
+        required("contentLocation") => String.t() | atom(),
+        required("sceneId") => String.t() | atom()
       }
 
   """
-  @type create_scene_request() :: %{String.t() => any()}
+  @type create_scene_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1802,11 +1802,11 @@ defmodule AWS.IoTTwinMaker do
 
       list_metadata_transfer_jobs_response() :: %{
         "metadataTransferJobSummaries" => list(metadata_transfer_job_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_metadata_transfer_jobs_response() :: %{String.t() => any()}
+  @type list_metadata_transfer_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1816,7 +1816,7 @@ defmodule AWS.IoTTwinMaker do
         "configuration" => map(),
         "dataType" => data_type(),
         "defaultValue" => data_value(),
-        "displayName" => String.t(),
+        "displayName" => String.t() | atom(),
         "isExternalId" => boolean(),
         "isFinal" => boolean(),
         "isImported" => boolean(),
@@ -1827,7 +1827,7 @@ defmodule AWS.IoTTwinMaker do
       }
 
   """
-  @type property_definition_response() :: %{String.t() => any()}
+  @type property_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1839,7 +1839,7 @@ defmodule AWS.IoTTwinMaker do
       }
 
   """
-  @type property_value_history() :: %{String.t() => any()}
+  @type property_value_history() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1856,11 +1856,11 @@ defmodule AWS.IoTTwinMaker do
 
       status() :: %{
         "error" => error_details(),
-        "state" => String.t()
+        "state" => String.t() | atom()
       }
 
   """
-  @type status() :: %{String.t() => any()}
+  @type status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1869,12 +1869,12 @@ defmodule AWS.IoTTwinMaker do
       function_response() :: %{
         "implementedBy" => data_connector(),
         "isInherited" => boolean(),
-        "requiredProperties" => list(String.t()),
-        "scope" => String.t()
+        "requiredProperties" => list(String.t() | atom()),
+        "scope" => String.t() | atom()
       }
 
   """
-  @type function_response() :: %{String.t() => any()}
+  @type function_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1882,22 +1882,22 @@ defmodule AWS.IoTTwinMaker do
 
       list_entities_response() :: %{
         optional("entitySummaries") => list(entity_summary()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_entities_response() :: %{String.t() => any()}
+  @type list_entities_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       filter_by_entity() :: %{
-        "entityId" => String.t()
+        "entityId" => String.t() | atom()
       }
 
   """
-  @type filter_by_entity() :: %{String.t() => any()}
+  @type filter_by_entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1908,7 +1908,7 @@ defmodule AWS.IoTTwinMaker do
       }
 
   """
-  @type iot_site_wise_source_configuration() :: %{String.t() => any()}
+  @type iot_site_wise_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1924,12 +1924,12 @@ defmodule AWS.IoTTwinMaker do
   ## Example:
 
       interpolation_parameters() :: %{
-        "interpolationType" => String.t(),
+        "interpolationType" => String.t() | atom(),
         "intervalInSeconds" => float()
       }
 
   """
-  @type interpolation_parameters() :: %{String.t() => any()}
+  @type interpolation_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1938,11 +1938,11 @@ defmodule AWS.IoTTwinMaker do
       list_component_types_request() :: %{
         optional("filters") => list(list()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_component_types_request() :: %{String.t() => any()}
+  @type list_component_types_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1951,72 +1951,72 @@ defmodule AWS.IoTTwinMaker do
       data_value() :: %{
         "booleanValue" => boolean(),
         "doubleValue" => float(),
-        "expression" => String.t(),
+        "expression" => String.t() | atom(),
         "integerValue" => integer(),
         "listValue" => list(data_value()),
         "longValue" => float(),
         "mapValue" => map(),
         "relationshipValue" => relationship_value(),
-        "stringValue" => String.t()
+        "stringValue" => String.t() | atom()
       }
 
   """
-  @type data_value() :: %{String.t() => any()}
+  @type data_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_metadata_transfer_job_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "creationDateTime" => non_neg_integer(),
-        "metadataTransferJobId" => String.t(),
+        "metadataTransferJobId" => String.t() | atom(),
         "status" => metadata_transfer_job_status()
       }
 
   """
-  @type create_metadata_transfer_job_response() :: %{String.t() => any()}
+  @type create_metadata_transfer_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_tags_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type too_many_tags_exception() :: %{String.t() => any()}
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_workspace_response() :: %{
-        optional("description") => String.t(),
-        optional("linkedServices") => list(String.t()),
-        optional("role") => String.t(),
-        optional("s3Location") => String.t(),
-        required("arn") => String.t(),
+        optional("description") => String.t() | atom(),
+        optional("linkedServices") => list(String.t() | atom()),
+        optional("role") => String.t() | atom(),
+        optional("s3Location") => String.t() | atom(),
+        required("arn") => String.t() | atom(),
         required("creationDateTime") => non_neg_integer(),
         required("updateDateTime") => non_neg_integer(),
-        required("workspaceId") => String.t()
+        required("workspaceId") => String.t() | atom()
       }
 
   """
-  @type get_workspace_response() :: %{String.t() => any()}
+  @type get_workspace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_scenes_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("sceneSummaries") => list(scene_summary())
       }
 
   """
-  @type list_scenes_response() :: %{String.t() => any()}
+  @type list_scenes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2025,52 +2025,52 @@ defmodule AWS.IoTTwinMaker do
       destination_configuration() :: %{
         "iotTwinMakerConfiguration" => iot_twin_maker_destination_configuration(),
         "s3Configuration" => s3_destination_configuration(),
-        "type" => String.t()
+        "type" => String.t() | atom()
       }
 
   """
-  @type destination_configuration() :: %{String.t() => any()}
+  @type destination_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_workspace_request() :: %{
-        optional("description") => String.t(),
-        optional("role") => String.t(),
-        optional("s3Location") => String.t(),
+        optional("description") => String.t() | atom(),
+        optional("role") => String.t() | atom(),
+        optional("s3Location") => String.t() | atom(),
         optional("tags") => map()
       }
 
   """
-  @type create_workspace_request() :: %{String.t() => any()}
+  @type create_workspace_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_property_value_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("propertyValues") => map(),
         optional("tabularPropertyValues") => list(list(map())())
       }
 
   """
-  @type get_property_value_response() :: %{String.t() => any()}
+  @type get_property_value_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_scene_request() :: %{
-        optional("capabilities") => list(String.t()),
-        optional("contentLocation") => String.t(),
-        optional("description") => String.t(),
+        optional("capabilities") => list(String.t() | atom()),
+        optional("contentLocation") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("sceneMetadata") => map()
       }
 
   """
-  @type update_scene_request() :: %{String.t() => any()}
+  @type update_scene_request() :: %{(String.t() | atom()) => any()}
 
   @type batch_put_property_values_errors() ::
           throttling_exception()
@@ -2369,7 +2369,12 @@ defmodule AWS.IoTTwinMaker do
   @doc """
   Sets values for multiple time series properties.
   """
-  @spec batch_put_property_values(map(), String.t(), batch_put_property_values_request(), list()) ::
+  @spec batch_put_property_values(
+          map(),
+          String.t() | atom(),
+          batch_put_property_values_request(),
+          list()
+        ) ::
           {:ok, batch_put_property_values_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2400,7 +2405,7 @@ defmodule AWS.IoTTwinMaker do
   """
   @spec cancel_metadata_transfer_job(
           map(),
-          String.t(),
+          String.t() | atom(),
           cancel_metadata_transfer_job_request(),
           list()
         ) ::
@@ -2439,8 +2444,8 @@ defmodule AWS.IoTTwinMaker do
   """
   @spec create_component_type(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_component_type_request(),
           list()
         ) ::
@@ -2480,7 +2485,7 @@ defmodule AWS.IoTTwinMaker do
   @doc """
   Creates an entity.
   """
-  @spec create_entity(map(), String.t(), create_entity_request(), list()) ::
+  @spec create_entity(map(), String.t() | atom(), create_entity_request(), list()) ::
           {:ok, create_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2538,7 +2543,7 @@ defmodule AWS.IoTTwinMaker do
   @doc """
   Creates a scene.
   """
-  @spec create_scene(map(), String.t(), create_scene_request(), list()) ::
+  @spec create_scene(map(), String.t() | atom(), create_scene_request(), list()) ::
           {:ok, create_scene_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2567,7 +2572,13 @@ defmodule AWS.IoTTwinMaker do
   @doc """
   This action creates a SyncJob.
   """
-  @spec create_sync_job(map(), String.t(), String.t(), create_sync_job_request(), list()) ::
+  @spec create_sync_job(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          create_sync_job_request(),
+          list()
+        ) ::
           {:ok, create_sync_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2598,7 +2609,7 @@ defmodule AWS.IoTTwinMaker do
   @doc """
   Creates a workplace.
   """
-  @spec create_workspace(map(), String.t(), create_workspace_request(), list()) ::
+  @spec create_workspace(map(), String.t() | atom(), create_workspace_request(), list()) ::
           {:ok, create_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2629,8 +2640,8 @@ defmodule AWS.IoTTwinMaker do
   """
   @spec delete_component_type(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_component_type_request(),
           list()
         ) ::
@@ -2670,7 +2681,13 @@ defmodule AWS.IoTTwinMaker do
   @doc """
   Deletes an entity.
   """
-  @spec delete_entity(map(), String.t(), String.t(), delete_entity_request(), list()) ::
+  @spec delete_entity(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_entity_request(),
+          list()
+        ) ::
           {:ok, delete_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2706,7 +2723,13 @@ defmodule AWS.IoTTwinMaker do
   @doc """
   Deletes a scene.
   """
-  @spec delete_scene(map(), String.t(), String.t(), delete_scene_request(), list()) ::
+  @spec delete_scene(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_scene_request(),
+          list()
+        ) ::
           {:ok, delete_scene_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2737,7 +2760,13 @@ defmodule AWS.IoTTwinMaker do
   @doc """
   Delete the SyncJob.
   """
-  @spec delete_sync_job(map(), String.t(), String.t(), delete_sync_job_request(), list()) ::
+  @spec delete_sync_job(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_sync_job_request(),
+          list()
+        ) ::
           {:ok, delete_sync_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2768,7 +2797,7 @@ defmodule AWS.IoTTwinMaker do
   @doc """
   Deletes a workspace.
   """
-  @spec delete_workspace(map(), String.t(), delete_workspace_request(), list()) ::
+  @spec delete_workspace(map(), String.t() | atom(), delete_workspace_request(), list()) ::
           {:ok, delete_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2830,7 +2859,7 @@ defmodule AWS.IoTTwinMaker do
   @doc """
   Retrieves information about a component type.
   """
-  @spec get_component_type(map(), String.t(), String.t(), list()) ::
+  @spec get_component_type(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_component_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2850,7 +2879,7 @@ defmodule AWS.IoTTwinMaker do
   @doc """
   Retrieves information about an entity.
   """
-  @spec get_entity(map(), String.t(), String.t(), list()) ::
+  @spec get_entity(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2870,7 +2899,7 @@ defmodule AWS.IoTTwinMaker do
   @doc """
   Gets a nmetadata transfer job.
   """
-  @spec get_metadata_transfer_job(map(), String.t(), list()) ::
+  @spec get_metadata_transfer_job(map(), String.t() | atom(), list()) ::
           {:ok, get_metadata_transfer_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2909,7 +2938,7 @@ defmodule AWS.IoTTwinMaker do
   You must specify a value for either `componentName`,
   `componentTypeId`, `entityId`, or `workspaceId`.
   """
-  @spec get_property_value(map(), String.t(), get_property_value_request(), list()) ::
+  @spec get_property_value(map(), String.t() | atom(), get_property_value_request(), list()) ::
           {:ok, get_property_value_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2946,7 +2975,7 @@ defmodule AWS.IoTTwinMaker do
   """
   @spec get_property_value_history(
           map(),
-          String.t(),
+          String.t() | atom(),
           get_property_value_history_request(),
           list()
         ) ::
@@ -2978,7 +3007,7 @@ defmodule AWS.IoTTwinMaker do
   @doc """
   Retrieves information about a scene.
   """
-  @spec get_scene(map(), String.t(), String.t(), list()) ::
+  @spec get_scene(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_scene_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2998,7 +3027,7 @@ defmodule AWS.IoTTwinMaker do
   @doc """
   Gets the SyncJob.
   """
-  @spec get_sync_job(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_sync_job(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_sync_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3023,7 +3052,7 @@ defmodule AWS.IoTTwinMaker do
   @doc """
   Retrieves information about a workspace.
   """
-  @spec get_workspace(map(), String.t(), list()) ::
+  @spec get_workspace(map(), String.t() | atom(), list()) ::
           {:ok, get_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3041,7 +3070,7 @@ defmodule AWS.IoTTwinMaker do
   @doc """
   Lists all component types in a workspace.
   """
-  @spec list_component_types(map(), String.t(), list_component_types_request(), list()) ::
+  @spec list_component_types(map(), String.t() | atom(), list_component_types_request(), list()) ::
           {:ok, list_component_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3070,7 +3099,13 @@ defmodule AWS.IoTTwinMaker do
   @doc """
   This API lists the components of an entity.
   """
-  @spec list_components(map(), String.t(), String.t(), list_components_request(), list()) ::
+  @spec list_components(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list_components_request(),
+          list()
+        ) ::
           {:ok, list_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3101,7 +3136,7 @@ defmodule AWS.IoTTwinMaker do
   @doc """
   Lists all entities in a workspace.
   """
-  @spec list_entities(map(), String.t(), list_entities_request(), list()) ::
+  @spec list_entities(map(), String.t() | atom(), list_entities_request(), list()) ::
           {:ok, list_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3159,7 +3194,7 @@ defmodule AWS.IoTTwinMaker do
   @doc """
   This API lists the properties of a component.
   """
-  @spec list_properties(map(), String.t(), list_properties_request(), list()) ::
+  @spec list_properties(map(), String.t() | atom(), list_properties_request(), list()) ::
           {:ok, list_properties_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3188,7 +3223,7 @@ defmodule AWS.IoTTwinMaker do
   @doc """
   Lists all scenes in a workspace.
   """
-  @spec list_scenes(map(), String.t(), list_scenes_request(), list()) ::
+  @spec list_scenes(map(), String.t() | atom(), list_scenes_request(), list()) ::
           {:ok, list_scenes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3217,7 +3252,7 @@ defmodule AWS.IoTTwinMaker do
   @doc """
   List all SyncJobs.
   """
-  @spec list_sync_jobs(map(), String.t(), list_sync_jobs_request(), list()) ::
+  @spec list_sync_jobs(map(), String.t() | atom(), list_sync_jobs_request(), list()) ::
           {:ok, list_sync_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3246,7 +3281,13 @@ defmodule AWS.IoTTwinMaker do
   @doc """
   Lists the sync resources.
   """
-  @spec list_sync_resources(map(), String.t(), String.t(), list_sync_resources_request(), list()) ::
+  @spec list_sync_resources(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list_sync_resources_request(),
+          list()
+        ) ::
           {:ok, list_sync_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3401,8 +3442,8 @@ defmodule AWS.IoTTwinMaker do
   """
   @spec update_component_type(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_component_type_request(),
           list()
         ) ::
@@ -3442,7 +3483,13 @@ defmodule AWS.IoTTwinMaker do
   @doc """
   Updates an entity.
   """
-  @spec update_entity(map(), String.t(), String.t(), update_entity_request(), list()) ::
+  @spec update_entity(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_entity_request(),
+          list()
+        ) ::
           {:ok, update_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3502,7 +3549,13 @@ defmodule AWS.IoTTwinMaker do
   @doc """
   Updates a scene.
   """
-  @spec update_scene(map(), String.t(), String.t(), update_scene_request(), list()) ::
+  @spec update_scene(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_scene_request(),
+          list()
+        ) ::
           {:ok, update_scene_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3533,7 +3586,7 @@ defmodule AWS.IoTTwinMaker do
   @doc """
   Updates a workspace.
   """
-  @spec update_workspace(map(), String.t(), update_workspace_request(), list()) ::
+  @spec update_workspace(map(), String.t() | atom(), update_workspace_request(), list()) ::
           {:ok, update_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

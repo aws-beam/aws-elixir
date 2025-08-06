@@ -36,19 +36,19 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type step_adjustment() :: %{String.t() => any()}
+  @type step_adjustment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_lifecycle_hooks_type() :: %{
-        optional("LifecycleHookNames") => list(String.t()),
-        required("AutoScalingGroupName") => String.t()
+        optional("LifecycleHookNames") => list(String.t() | atom()),
+        required("AutoScalingGroupName") => String.t() | atom()
       }
       
   """
-  @type describe_lifecycle_hooks_type() :: %{String.t() => any()}
+  @type describe_lifecycle_hooks_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -60,7 +60,7 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type describe_metric_collection_types_answer() :: %{String.t() => any()}
+  @type describe_metric_collection_types_answer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -74,18 +74,18 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type describe_account_limits_answer() :: %{String.t() => any()}
+  @type describe_account_limits_answer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       adjustment_type() :: %{
-        "AdjustmentType" => String.t()
+        "AdjustmentType" => String.t() | atom()
       }
       
   """
-  @type adjustment_type() :: %{String.t() => any()}
+  @type adjustment_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -93,12 +93,12 @@ defmodule AWS.AutoScaling do
       
       describe_load_balancers_request() :: %{
         optional("MaxRecords") => integer(),
-        optional("NextToken") => String.t(),
-        required("AutoScalingGroupName") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("AutoScalingGroupName") => String.t() | atom()
       }
       
   """
-  @type describe_load_balancers_request() :: %{String.t() => any()}
+  @type describe_load_balancers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -115,31 +115,31 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type predictive_scaling_metric_specification() :: %{String.t() => any()}
+  @type predictive_scaling_metric_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rollback_instance_refresh_answer() :: %{
-        optional("InstanceRefreshId") => String.t()
+        optional("InstanceRefreshId") => String.t() | atom()
       }
       
   """
-  @type rollback_instance_refresh_answer() :: %{String.t() => any()}
+  @type rollback_instance_refresh_answer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_notification_configurations_type() :: %{
-        optional("AutoScalingGroupNames") => list(String.t()),
+        optional("AutoScalingGroupNames") => list(String.t() | atom()),
         optional("MaxRecords") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_notification_configurations_type() :: %{String.t() => any()}
+  @type describe_notification_configurations_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -147,21 +147,21 @@ defmodule AWS.AutoScaling do
       
       policy_arn_type() :: %{
         "Alarms" => list(alarm()),
-        "PolicyARN" => String.t()
+        "PolicyARN" => String.t() | atom()
       }
       
   """
-  @type policy_arn_type() :: %{String.t() => any()}
+  @type policy_arn_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_refresh() :: %{
-        "AutoScalingGroupName" => String.t(),
+        "AutoScalingGroupName" => String.t() | atom(),
         "DesiredConfiguration" => desired_configuration(),
         "EndTime" => non_neg_integer(),
-        "InstanceRefreshId" => String.t(),
+        "InstanceRefreshId" => String.t() | atom(),
         "InstancesToUpdate" => integer(),
         "PercentageComplete" => integer(),
         "Preferences" => refresh_preferences(),
@@ -169,11 +169,11 @@ defmodule AWS.AutoScaling do
         "RollbackDetails" => rollback_details(),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
-        "StatusReason" => String.t()
+        "StatusReason" => String.t() | atom()
       }
       
   """
-  @type instance_refresh() :: %{String.t() => any()}
+  @type instance_refresh() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -182,27 +182,27 @@ defmodule AWS.AutoScaling do
       create_launch_configuration_type() :: %{
         optional("AssociatePublicIpAddress") => boolean(),
         optional("BlockDeviceMappings") => list(block_device_mapping()),
-        optional("ClassicLinkVPCId") => String.t(),
-        optional("ClassicLinkVPCSecurityGroups") => list(String.t()),
+        optional("ClassicLinkVPCId") => String.t() | atom(),
+        optional("ClassicLinkVPCSecurityGroups") => list(String.t() | atom()),
         optional("EbsOptimized") => boolean(),
-        optional("IamInstanceProfile") => String.t(),
-        optional("ImageId") => String.t(),
-        optional("InstanceId") => String.t(),
+        optional("IamInstanceProfile") => String.t() | atom(),
+        optional("ImageId") => String.t() | atom(),
+        optional("InstanceId") => String.t() | atom(),
         optional("InstanceMonitoring") => instance_monitoring(),
-        optional("InstanceType") => String.t(),
-        optional("KernelId") => String.t(),
-        optional("KeyName") => String.t(),
+        optional("InstanceType") => String.t() | atom(),
+        optional("KernelId") => String.t() | atom(),
+        optional("KeyName") => String.t() | atom(),
         optional("MetadataOptions") => instance_metadata_options(),
-        optional("PlacementTenancy") => String.t(),
-        optional("RamdiskId") => String.t(),
-        optional("SecurityGroups") => list(String.t()),
-        optional("SpotPrice") => String.t(),
-        optional("UserData") => String.t(),
-        required("LaunchConfigurationName") => String.t()
+        optional("PlacementTenancy") => String.t() | atom(),
+        optional("RamdiskId") => String.t() | atom(),
+        optional("SecurityGroups") => list(String.t() | atom()),
+        optional("SpotPrice") => String.t() | atom(),
+        optional("UserData") => String.t() | atom(),
+        required("LaunchConfigurationName") => String.t() | atom()
       }
       
   """
-  @type create_launch_configuration_type() :: %{String.t() => any()}
+  @type create_launch_configuration_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -223,43 +223,43 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type instance_refresh_progress_details() :: %{String.t() => any()}
+  @type instance_refresh_progress_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tags_type() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Tags") => list(tag_description())
       }
       
   """
-  @type tags_type() :: %{String.t() => any()}
+  @type tags_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       traffic_source_identifier() :: %{
-        "Identifier" => String.t(),
-        "Type" => String.t()
+        "Identifier" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
       
   """
-  @type traffic_source_identifier() :: %{String.t() => any()}
+  @type traffic_source_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       exit_standby_query() :: %{
-        optional("InstanceIds") => list(String.t()),
-        required("AutoScalingGroupName") => String.t()
+        optional("InstanceIds") => list(String.t() | atom()),
+        required("AutoScalingGroupName") => String.t() | atom()
       }
       
   """
-  @type exit_standby_query() :: %{String.t() => any()}
+  @type exit_standby_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -270,7 +270,7 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type delete_tags_type() :: %{String.t() => any()}
+  @type delete_tags_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -280,52 +280,52 @@ defmodule AWS.AutoScaling do
         optional("DesiredConfiguration") => desired_configuration(),
         optional("Preferences") => refresh_preferences(),
         optional("Strategy") => list(any()),
-        required("AutoScalingGroupName") => String.t()
+        required("AutoScalingGroupName") => String.t() | atom()
       }
       
   """
-  @type start_instance_refresh_type() :: %{String.t() => any()}
+  @type start_instance_refresh_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       process_type() :: %{
-        "ProcessName" => String.t()
+        "ProcessName" => String.t() | atom()
       }
       
   """
-  @type process_type() :: %{String.t() => any()}
+  @type process_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_scheduled_actions_type() :: %{
-        optional("AutoScalingGroupName") => String.t(),
+        optional("AutoScalingGroupName") => String.t() | atom(),
         optional("EndTime") => non_neg_integer(),
         optional("MaxRecords") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ScheduledActionNames") => list(String.t()),
+        optional("NextToken") => String.t() | atom(),
+        optional("ScheduledActionNames") => list(String.t() | atom()),
         optional("StartTime") => non_neg_integer()
       }
       
   """
-  @type describe_scheduled_actions_type() :: %{String.t() => any()}
+  @type describe_scheduled_actions_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       block_device_mapping() :: %{
-        "DeviceName" => String.t(),
+        "DeviceName" => String.t() | atom(),
         "Ebs" => ebs(),
         "NoDevice" => boolean(),
-        "VirtualName" => String.t()
+        "VirtualName" => String.t() | atom()
       }
       
   """
-  @type block_device_mapping() :: %{String.t() => any()}
+  @type block_device_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -333,12 +333,12 @@ defmodule AWS.AutoScaling do
       
       metric() :: %{
         "Dimensions" => list(metric_dimension()),
-        "MetricName" => String.t(),
-        "Namespace" => String.t()
+        "MetricName" => String.t() | atom(),
+        "Namespace" => String.t() | atom()
       }
       
   """
-  @type metric() :: %{String.t() => any()}
+  @type metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -346,11 +346,11 @@ defmodule AWS.AutoScaling do
       
       predictive_scaling_predefined_metric_pair() :: %{
         "PredefinedMetricType" => list(any()),
-        "ResourceLabel" => String.t()
+        "ResourceLabel" => String.t() | atom()
       }
       
   """
-  @type predictive_scaling_predefined_metric_pair() :: %{String.t() => any()}
+  @type predictive_scaling_predefined_metric_pair() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -361,7 +361,7 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type enter_standby_answer() :: %{String.t() => any()}
+  @type enter_standby_answer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -372,33 +372,33 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type instance_reuse_policy() :: %{String.t() => any()}
+  @type instance_reuse_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       alarm() :: %{
-        "AlarmARN" => String.t(),
-        "AlarmName" => String.t()
+        "AlarmARN" => String.t() | atom(),
+        "AlarmName" => String.t() | atom()
       }
       
   """
-  @type alarm() :: %{String.t() => any()}
+  @type alarm() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       traffic_source_state() :: %{
-        "Identifier" => String.t(),
-        "State" => String.t(),
-        "TrafficSource" => String.t(),
-        "Type" => String.t()
+        "Identifier" => String.t() | atom(),
+        "State" => String.t() | atom(),
+        "TrafficSource" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
       
   """
-  @type traffic_source_state() :: %{String.t() => any()}
+  @type traffic_source_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -409,18 +409,18 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type baseline_performance_factors_request() :: %{String.t() => any()}
+  @type baseline_performance_factors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       metric_granularity_type() :: %{
-        "Granularity" => String.t()
+        "Granularity" => String.t() | atom()
       }
       
   """
-  @type metric_granularity_type() :: %{String.t() => any()}
+  @type metric_granularity_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -432,7 +432,7 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type availability_zone_impairment_policy() :: %{String.t() => any()}
+  @type availability_zone_impairment_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -440,42 +440,42 @@ defmodule AWS.AutoScaling do
       
       describe_warm_pool_type() :: %{
         optional("MaxRecords") => integer(),
-        optional("NextToken") => String.t(),
-        required("AutoScalingGroupName") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("AutoScalingGroupName") => String.t() | atom()
       }
       
   """
-  @type describe_warm_pool_type() :: %{String.t() => any()}
+  @type describe_warm_pool_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       lifecycle_hook() :: %{
-        "AutoScalingGroupName" => String.t(),
-        "DefaultResult" => String.t(),
+        "AutoScalingGroupName" => String.t() | atom(),
+        "DefaultResult" => String.t() | atom(),
         "GlobalTimeout" => integer(),
         "HeartbeatTimeout" => integer(),
-        "LifecycleHookName" => String.t(),
-        "LifecycleTransition" => String.t(),
-        "NotificationMetadata" => String.t(),
-        "NotificationTargetARN" => String.t(),
-        "RoleARN" => String.t()
+        "LifecycleHookName" => String.t() | atom(),
+        "LifecycleTransition" => String.t() | atom(),
+        "NotificationMetadata" => String.t() | atom(),
+        "NotificationTargetARN" => String.t() | atom(),
+        "RoleARN" => String.t() | atom()
       }
       
   """
-  @type lifecycle_hook() :: %{String.t() => any()}
+  @type lifecycle_hook() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_fault() :: %{String.t() => any()}
+  @type limit_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -483,13 +483,13 @@ defmodule AWS.AutoScaling do
       
       describe_traffic_sources_request() :: %{
         optional("MaxRecords") => integer(),
-        optional("NextToken") => String.t(),
-        optional("TrafficSourceType") => String.t(),
-        required("AutoScalingGroupName") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("TrafficSourceType") => String.t() | atom(),
+        required("AutoScalingGroupName") => String.t() | atom()
       }
       
   """
-  @type describe_traffic_sources_request() :: %{String.t() => any()}
+  @type describe_traffic_sources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -497,23 +497,23 @@ defmodule AWS.AutoScaling do
       
       delete_auto_scaling_group_type() :: %{
         optional("ForceDelete") => boolean(),
-        required("AutoScalingGroupName") => String.t()
+        required("AutoScalingGroupName") => String.t() | atom()
       }
       
   """
-  @type delete_auto_scaling_group_type() :: %{String.t() => any()}
+  @type delete_auto_scaling_group_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       capacity_reservation_target() :: %{
-        "CapacityReservationIds" => list(String.t()),
-        "CapacityReservationResourceGroupArns" => list(String.t())
+        "CapacityReservationIds" => list(String.t() | atom()),
+        "CapacityReservationResourceGroupArns" => list(String.t() | atom())
       }
       
   """
-  @type capacity_reservation_target() :: %{String.t() => any()}
+  @type capacity_reservation_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -533,7 +533,7 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type describe_lifecycle_hooks_answer() :: %{String.t() => any()}
+  @type describe_lifecycle_hooks_answer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -554,36 +554,36 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type memory_gi_b_per_v_cpu_request() :: %{String.t() => any()}
+  @type memory_gi_b_per_v_cpu_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_instance_refresh_answer() :: %{
-        optional("InstanceRefreshId") => String.t()
+        optional("InstanceRefreshId") => String.t() | atom()
       }
       
   """
-  @type cancel_instance_refresh_answer() :: %{String.t() => any()}
+  @type cancel_instance_refresh_answer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       scaling_policy() :: %{
-        "AdjustmentType" => String.t(),
+        "AdjustmentType" => String.t() | atom(),
         "Alarms" => list(alarm()),
-        "AutoScalingGroupName" => String.t(),
+        "AutoScalingGroupName" => String.t() | atom(),
         "Cooldown" => integer(),
         "Enabled" => boolean(),
         "EstimatedInstanceWarmup" => integer(),
-        "MetricAggregationType" => String.t(),
+        "MetricAggregationType" => String.t() | atom(),
         "MinAdjustmentMagnitude" => integer(),
         "MinAdjustmentStep" => integer(),
-        "PolicyARN" => String.t(),
-        "PolicyName" => String.t(),
-        "PolicyType" => String.t(),
+        "PolicyARN" => String.t() | atom(),
+        "PolicyName" => String.t() | atom(),
+        "PolicyType" => String.t() | atom(),
         "PredictiveScalingConfiguration" => predictive_scaling_configuration(),
         "ScalingAdjustment" => integer(),
         "StepAdjustments" => list(step_adjustment()),
@@ -591,19 +591,19 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type scaling_policy() :: %{String.t() => any()}
+  @type scaling_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_notification_configurations_answer() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("NotificationConfigurations") => list(notification_configuration())
       }
       
   """
-  @type describe_notification_configurations_answer() :: %{String.t() => any()}
+  @type describe_notification_configurations_answer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -615,48 +615,48 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type instance_maintenance_policy() :: %{String.t() => any()}
+  @type instance_maintenance_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       scheduled_actions_type() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("ScheduledUpdateGroupActions") => list(scheduled_update_group_action())
       }
       
   """
-  @type scheduled_actions_type() :: %{String.t() => any()}
+  @type scheduled_actions_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       attach_load_balancers_type() :: %{
-        required("AutoScalingGroupName") => String.t(),
-        required("LoadBalancerNames") => list(String.t())
+        required("AutoScalingGroupName") => String.t() | atom(),
+        required("LoadBalancerNames") => list(String.t() | atom())
       }
       
   """
-  @type attach_load_balancers_type() :: %{String.t() => any()}
+  @type attach_load_balancers_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       lifecycle_hook_specification() :: %{
-        "DefaultResult" => String.t(),
+        "DefaultResult" => String.t() | atom(),
         "HeartbeatTimeout" => integer(),
-        "LifecycleHookName" => String.t(),
-        "LifecycleTransition" => String.t(),
-        "NotificationMetadata" => String.t(),
-        "NotificationTargetARN" => String.t(),
-        "RoleARN" => String.t()
+        "LifecycleHookName" => String.t() | atom(),
+        "LifecycleTransition" => String.t() | atom(),
+        "NotificationMetadata" => String.t() | atom(),
+        "NotificationTargetARN" => String.t() | atom(),
+        "RoleARN" => String.t() | atom()
       }
       
   """
-  @type lifecycle_hook_specification() :: %{String.t() => any()}
+  @type lifecycle_hook_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -664,36 +664,36 @@ defmodule AWS.AutoScaling do
       
       describe_load_balancer_target_groups_response() :: %{
         "LoadBalancerTargetGroups" => list(load_balancer_target_group_state()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_load_balancer_target_groups_response() :: %{String.t() => any()}
+  @type describe_load_balancer_target_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       scaling_process_query() :: %{
-        optional("ScalingProcesses") => list(String.t()),
-        required("AutoScalingGroupName") => String.t()
+        optional("ScalingProcesses") => list(String.t() | atom()),
+        required("AutoScalingGroupName") => String.t() | atom()
       }
       
   """
-  @type scaling_process_query() :: %{String.t() => any()}
+  @type scaling_process_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       launch_configuration_names_type() :: %{
-        optional("LaunchConfigurationNames") => list(String.t()),
+        optional("LaunchConfigurationNames") => list(String.t() | atom()),
         optional("MaxRecords") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type launch_configuration_names_type() :: %{String.t() => any()}
+  @type launch_configuration_names_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -713,19 +713,19 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type detach_instances_answer() :: %{String.t() => any()}
+  @type detach_instances_answer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       enabled_metric() :: %{
-        "Granularity" => String.t(),
-        "Metric" => String.t()
+        "Granularity" => String.t() | atom(),
+        "Metric" => String.t() | atom()
       }
       
   """
-  @type enabled_metric() :: %{String.t() => any()}
+  @type enabled_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -738,33 +738,33 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type get_predictive_scaling_forecast_answer() :: %{String.t() => any()}
+  @type get_predictive_scaling_forecast_answer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       scaling_activity_in_progress_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type scaling_activity_in_progress_fault() :: %{String.t() => any()}
+  @type scaling_activity_in_progress_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_policies_type() :: %{
-        optional("AutoScalingGroupName") => String.t(),
+        optional("AutoScalingGroupName") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        optional("NextToken") => String.t(),
-        optional("PolicyNames") => list(String.t()),
-        optional("PolicyTypes") => list(String.t())
+        optional("NextToken") => String.t() | atom(),
+        optional("PolicyNames") => list(String.t() | atom()),
+        optional("PolicyTypes") => list(String.t() | atom())
       }
       
   """
-  @type describe_policies_type() :: %{String.t() => any()}
+  @type describe_policies_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -776,31 +776,31 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type mixed_instances_policy() :: %{String.t() => any()}
+  @type mixed_instances_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       launch_configurations_type() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("LaunchConfigurations") => list(launch_configuration())
       }
       
   """
-  @type launch_configurations_type() :: %{String.t() => any()}
+  @type launch_configurations_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_notification_configuration_type() :: %{
-        required("AutoScalingGroupName") => String.t(),
-        required("TopicARN") => String.t()
+        required("AutoScalingGroupName") => String.t() | atom(),
+        required("TopicARN") => String.t() | atom()
       }
       
   """
-  @type delete_notification_configuration_type() :: %{String.t() => any()}
+  @type delete_notification_configuration_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -808,11 +808,11 @@ defmodule AWS.AutoScaling do
       
       predictive_scaling_predefined_load_metric() :: %{
         "PredefinedMetricType" => list(any()),
-        "ResourceLabel" => String.t()
+        "ResourceLabel" => String.t() | atom()
       }
       
   """
-  @type predictive_scaling_predefined_load_metric() :: %{String.t() => any()}
+  @type predictive_scaling_predefined_load_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -820,108 +820,108 @@ defmodule AWS.AutoScaling do
       
       customized_metric_specification() :: %{
         "Dimensions" => list(metric_dimension()),
-        "MetricName" => String.t(),
+        "MetricName" => String.t() | atom(),
         "Metrics" => list(target_tracking_metric_data_query()),
-        "Namespace" => String.t(),
+        "Namespace" => String.t() | atom(),
         "Period" => integer(),
         "Statistic" => list(any()),
-        "Unit" => String.t()
+        "Unit" => String.t() | atom()
       }
       
   """
-  @type customized_metric_specification() :: %{String.t() => any()}
+  @type customized_metric_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       auto_scaling_group_names_type() :: %{
-        optional("AutoScalingGroupNames") => list(String.t()),
+        optional("AutoScalingGroupNames") => list(String.t() | atom()),
         optional("Filters") => list(filter()),
         optional("IncludeInstances") => boolean(),
         optional("MaxRecords") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type auto_scaling_group_names_type() :: %{String.t() => any()}
+  @type auto_scaling_group_names_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_traffic_sources_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "TrafficSources" => list(traffic_source_state())
       }
       
   """
-  @type describe_traffic_sources_response() :: %{String.t() => any()}
+  @type describe_traffic_sources_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_instance_refreshes_type() :: %{
-        optional("InstanceRefreshIds") => list(String.t()),
+        optional("InstanceRefreshIds") => list(String.t() | atom()),
         optional("MaxRecords") => integer(),
-        optional("NextToken") => String.t(),
-        required("AutoScalingGroupName") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("AutoScalingGroupName") => String.t() | atom()
       }
       
   """
-  @type describe_instance_refreshes_type() :: %{String.t() => any()}
+  @type describe_instance_refreshes_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_notification_configuration_type() :: %{
-        required("AutoScalingGroupName") => String.t(),
-        required("NotificationTypes") => list(String.t()),
-        required("TopicARN") => String.t()
+        required("AutoScalingGroupName") => String.t() | atom(),
+        required("NotificationTypes") => list(String.t() | atom()),
+        required("TopicARN") => String.t() | atom()
       }
       
   """
-  @type put_notification_configuration_type() :: %{String.t() => any()}
+  @type put_notification_configuration_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       policies_type() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("ScalingPolicies") => list(scaling_policy())
       }
       
   """
-  @type policies_type() :: %{String.t() => any()}
+  @type policies_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_instance_refresh_type() :: %{
-        required("AutoScalingGroupName") => String.t()
+        required("AutoScalingGroupName") => String.t() | atom()
       }
       
   """
-  @type cancel_instance_refresh_type() :: %{String.t() => any()}
+  @type cancel_instance_refresh_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       execute_policy_type() :: %{
-        optional("AutoScalingGroupName") => String.t(),
+        optional("AutoScalingGroupName") => String.t() | atom(),
         optional("BreachThreshold") => float(),
         optional("HonorCooldown") => boolean(),
         optional("MetricValue") => float(),
-        required("PolicyName") => String.t()
+        required("PolicyName") => String.t() | atom()
       }
       
   """
-  @type execute_policy_type() :: %{String.t() => any()}
+  @type execute_policy_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -937,11 +937,11 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       active_instance_refresh_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type active_instance_refresh_not_found_fault() :: %{String.t() => any()}
+  @type active_instance_refresh_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -949,11 +949,11 @@ defmodule AWS.AutoScaling do
       
       predictive_scaling_predefined_scaling_metric() :: %{
         "PredefinedMetricType" => list(any()),
-        "ResourceLabel" => String.t()
+        "ResourceLabel" => String.t() | atom()
       }
       
   """
-  @type predictive_scaling_predefined_scaling_metric() :: %{String.t() => any()}
+  @type predictive_scaling_predefined_scaling_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -964,7 +964,7 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type predictive_scaling_customized_load_metric() :: %{String.t() => any()}
+  @type predictive_scaling_customized_load_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -973,11 +973,11 @@ defmodule AWS.AutoScaling do
       describe_tags_type() :: %{
         optional("Filters") => list(filter()),
         optional("MaxRecords") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_tags_type() :: %{String.t() => any()}
+  @type describe_tags_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -992,7 +992,7 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type warm_pool_configuration() :: %{String.t() => any()}
+  @type warm_pool_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1004,72 +1004,72 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type v_cpu_count_request() :: %{String.t() => any()}
+  @type v_cpu_count_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       terminate_instance_in_auto_scaling_group_type() :: %{
-        required("InstanceId") => String.t(),
+        required("InstanceId") => String.t() | atom(),
         required("ShouldDecrementDesiredCapacity") => boolean()
       }
       
   """
-  @type terminate_instance_in_auto_scaling_group_type() :: %{String.t() => any()}
+  @type terminate_instance_in_auto_scaling_group_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       complete_lifecycle_action_type() :: %{
-        optional("InstanceId") => String.t(),
-        optional("LifecycleActionToken") => String.t(),
-        required("AutoScalingGroupName") => String.t(),
-        required("LifecycleActionResult") => String.t(),
-        required("LifecycleHookName") => String.t()
+        optional("InstanceId") => String.t() | atom(),
+        optional("LifecycleActionToken") => String.t() | atom(),
+        required("AutoScalingGroupName") => String.t() | atom(),
+        required("LifecycleActionResult") => String.t() | atom(),
+        required("LifecycleHookName") => String.t() | atom()
       }
       
   """
-  @type complete_lifecycle_action_type() :: %{String.t() => any()}
+  @type complete_lifecycle_action_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       activity() :: %{
-        "ActivityId" => String.t(),
-        "AutoScalingGroupARN" => String.t(),
-        "AutoScalingGroupName" => String.t(),
-        "AutoScalingGroupState" => String.t(),
-        "Cause" => String.t(),
-        "Description" => String.t(),
-        "Details" => String.t(),
+        "ActivityId" => String.t() | atom(),
+        "AutoScalingGroupARN" => String.t() | atom(),
+        "AutoScalingGroupName" => String.t() | atom(),
+        "AutoScalingGroupState" => String.t() | atom(),
+        "Cause" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Details" => String.t() | atom(),
         "EndTime" => non_neg_integer(),
         "Progress" => integer(),
         "StartTime" => non_neg_integer(),
         "StatusCode" => list(any()),
-        "StatusMessage" => String.t()
+        "StatusMessage" => String.t() | atom()
       }
       
   """
-  @type activity() :: %{String.t() => any()}
+  @type activity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instances_distribution() :: %{
-        "OnDemandAllocationStrategy" => String.t(),
+        "OnDemandAllocationStrategy" => String.t() | atom(),
         "OnDemandBaseCapacity" => integer(),
         "OnDemandPercentageAboveBaseCapacity" => integer(),
-        "SpotAllocationStrategy" => String.t(),
+        "SpotAllocationStrategy" => String.t() | atom(),
         "SpotInstancePools" => integer(),
-        "SpotMaxPrice" => String.t()
+        "SpotMaxPrice" => String.t() | atom()
       }
       
   """
-  @type instances_distribution() :: %{String.t() => any()}
+  @type instances_distribution() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1086,47 +1086,47 @@ defmodule AWS.AutoScaling do
       
       describe_load_balancers_response() :: %{
         "LoadBalancers" => list(load_balancer_state()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_load_balancers_response() :: %{String.t() => any()}
+  @type describe_load_balancers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
+        "Key" => String.t() | atom(),
         "PropagateAtLaunch" => boolean(),
-        "ResourceId" => String.t(),
-        "ResourceType" => String.t(),
-        "Value" => String.t()
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       scheduled_update_group_action() :: %{
-        "AutoScalingGroupName" => String.t(),
+        "AutoScalingGroupName" => String.t() | atom(),
         "DesiredCapacity" => integer(),
         "EndTime" => non_neg_integer(),
         "MaxSize" => integer(),
         "MinSize" => integer(),
-        "Recurrence" => String.t(),
-        "ScheduledActionARN" => String.t(),
-        "ScheduledActionName" => String.t(),
+        "Recurrence" => String.t() | atom(),
+        "ScheduledActionARN" => String.t() | atom(),
+        "ScheduledActionName" => String.t() | atom(),
         "StartTime" => non_neg_integer(),
         "Time" => non_neg_integer(),
-        "TimeZone" => String.t()
+        "TimeZone" => String.t() | atom()
       }
       
   """
-  @type scheduled_update_group_action() :: %{String.t() => any()}
+  @type scheduled_update_group_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1139,32 +1139,32 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type load_forecast() :: %{String.t() => any()}
+  @type load_forecast() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       irreversible_instance_refresh_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type irreversible_instance_refresh_fault() :: %{String.t() => any()}
+  @type irreversible_instance_refresh_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       record_lifecycle_action_heartbeat_type() :: %{
-        optional("InstanceId") => String.t(),
-        optional("LifecycleActionToken") => String.t(),
-        required("AutoScalingGroupName") => String.t(),
-        required("LifecycleHookName") => String.t()
+        optional("InstanceId") => String.t() | atom(),
+        optional("LifecycleActionToken") => String.t() | atom(),
+        required("AutoScalingGroupName") => String.t() | atom(),
+        required("LifecycleHookName") => String.t() | atom()
       }
       
   """
-  @type record_lifecycle_action_heartbeat_type() :: %{String.t() => any()}
+  @type record_lifecycle_action_heartbeat_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1176,22 +1176,22 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type accelerator_count_request() :: %{String.t() => any()}
+  @type accelerator_count_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       metric_data_query() :: %{
-        "Expression" => String.t(),
-        "Id" => String.t(),
-        "Label" => String.t(),
+        "Expression" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Label" => String.t() | atom(),
         "MetricStat" => metric_stat(),
         "ReturnData" => boolean()
       }
       
   """
-  @type metric_data_query() :: %{String.t() => any()}
+  @type metric_data_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1201,14 +1201,14 @@ defmodule AWS.AutoScaling do
         "DeleteOnTermination" => boolean(),
         "Encrypted" => boolean(),
         "Iops" => integer(),
-        "SnapshotId" => String.t(),
+        "SnapshotId" => String.t() | atom(),
         "Throughput" => integer(),
         "VolumeSize" => integer(),
-        "VolumeType" => String.t()
+        "VolumeType" => String.t() | atom()
       }
       
   """
-  @type ebs() :: %{String.t() => any()}
+  @type ebs() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1219,31 +1219,31 @@ defmodule AWS.AutoScaling do
         optional("EndTime") => non_neg_integer(),
         optional("MaxSize") => integer(),
         optional("MinSize") => integer(),
-        optional("Recurrence") => String.t(),
+        optional("Recurrence") => String.t() | atom(),
         optional("StartTime") => non_neg_integer(),
         optional("Time") => non_neg_integer(),
-        optional("TimeZone") => String.t(),
-        required("AutoScalingGroupName") => String.t(),
-        required("ScheduledActionName") => String.t()
+        optional("TimeZone") => String.t() | atom(),
+        required("AutoScalingGroupName") => String.t() | atom(),
+        required("ScheduledActionName") => String.t() | atom()
       }
       
   """
-  @type put_scheduled_update_group_action_type() :: %{String.t() => any()}
+  @type put_scheduled_update_group_action_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_description() :: %{
-        "Key" => String.t(),
+        "Key" => String.t() | atom(),
         "PropagateAtLaunch" => boolean(),
-        "ResourceId" => String.t(),
-        "ResourceType" => String.t(),
-        "Value" => String.t()
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag_description() :: %{String.t() => any()}
+  @type tag_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1252,79 +1252,79 @@ defmodule AWS.AutoScaling do
       target_tracking_metric_stat() :: %{
         "Metric" => metric(),
         "Period" => integer(),
-        "Stat" => String.t(),
-        "Unit" => String.t()
+        "Stat" => String.t() | atom(),
+        "Unit" => String.t() | atom()
       }
       
   """
-  @type target_tracking_metric_stat() :: %{String.t() => any()}
+  @type target_tracking_metric_stat() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       detach_traffic_sources_type() :: %{
-        required("AutoScalingGroupName") => String.t(),
+        required("AutoScalingGroupName") => String.t() | atom(),
         required("TrafficSources") => list(traffic_source_identifier())
       }
       
   """
-  @type detach_traffic_sources_type() :: %{String.t() => any()}
+  @type detach_traffic_sources_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       detach_load_balancers_type() :: %{
-        required("AutoScalingGroupName") => String.t(),
-        required("LoadBalancerNames") => list(String.t())
+        required("AutoScalingGroupName") => String.t() | atom(),
+        required("LoadBalancerNames") => list(String.t() | atom())
       }
       
   """
-  @type detach_load_balancers_type() :: %{String.t() => any()}
+  @type detach_load_balancers_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_contention_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type resource_contention_fault() :: %{String.t() => any()}
+  @type resource_contention_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       auto_scaling_instance_details() :: %{
-        "AutoScalingGroupName" => String.t(),
-        "AvailabilityZone" => String.t(),
-        "HealthStatus" => String.t(),
-        "InstanceId" => String.t(),
-        "InstanceType" => String.t(),
-        "LaunchConfigurationName" => String.t(),
+        "AutoScalingGroupName" => String.t() | atom(),
+        "AvailabilityZone" => String.t() | atom(),
+        "HealthStatus" => String.t() | atom(),
+        "InstanceId" => String.t() | atom(),
+        "InstanceType" => String.t() | atom(),
+        "LaunchConfigurationName" => String.t() | atom(),
         "LaunchTemplate" => launch_template_specification(),
-        "LifecycleState" => String.t(),
+        "LifecycleState" => String.t() | atom(),
         "ProtectedFromScaleIn" => boolean(),
-        "WeightedCapacity" => String.t()
+        "WeightedCapacity" => String.t() | atom()
       }
       
   """
-  @type auto_scaling_instance_details() :: %{String.t() => any()}
+  @type auto_scaling_instance_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       load_balancer_state() :: %{
-        "LoadBalancerName" => String.t(),
-        "State" => String.t()
+        "LoadBalancerName" => String.t() | atom(),
+        "State" => String.t() | atom()
       }
       
   """
-  @type load_balancer_state() :: %{String.t() => any()}
+  @type load_balancer_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1332,12 +1332,12 @@ defmodule AWS.AutoScaling do
       
       attach_traffic_sources_type() :: %{
         optional("SkipZonalShiftValidation") => boolean(),
-        required("AutoScalingGroupName") => String.t(),
+        required("AutoScalingGroupName") => String.t() | atom(),
         required("TrafficSources") => list(traffic_source_identifier())
       }
       
   """
-  @type attach_traffic_sources_type() :: %{String.t() => any()}
+  @type attach_traffic_sources_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1348,30 +1348,30 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type predictive_scaling_customized_scaling_metric() :: %{String.t() => any()}
+  @type predictive_scaling_customized_scaling_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       suspended_process() :: %{
-        "ProcessName" => String.t(),
-        "SuspensionReason" => String.t()
+        "ProcessName" => String.t() | atom(),
+        "SuspensionReason" => String.t() | atom()
       }
       
   """
-  @type suspended_process() :: %{String.t() => any()}
+  @type suspended_process() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       performance_factor_reference_request() :: %{
-        "InstanceFamily" => String.t()
+        "InstanceFamily" => String.t() | atom()
       }
       
   """
-  @type performance_factor_reference_request() :: %{String.t() => any()}
+  @type performance_factor_reference_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1382,27 +1382,27 @@ defmodule AWS.AutoScaling do
         "EndTime" => non_neg_integer(),
         "MaxSize" => integer(),
         "MinSize" => integer(),
-        "Recurrence" => String.t(),
-        "ScheduledActionName" => String.t(),
+        "Recurrence" => String.t() | atom(),
+        "ScheduledActionName" => String.t() | atom(),
         "StartTime" => non_neg_integer(),
-        "TimeZone" => String.t()
+        "TimeZone" => String.t() | atom()
       }
       
   """
-  @type scheduled_update_group_action_request() :: %{String.t() => any()}
+  @type scheduled_update_group_action_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       enter_standby_query() :: %{
-        optional("InstanceIds") => list(String.t()),
-        required("AutoScalingGroupName") => String.t(),
+        optional("InstanceIds") => list(String.t() | atom()),
+        required("AutoScalingGroupName") => String.t() | atom(),
         required("ShouldDecrementDesiredCapacity") => boolean()
       }
       
   """
-  @type enter_standby_query() :: %{String.t() => any()}
+  @type enter_standby_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1418,41 +1418,41 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       describe_lifecycle_hook_types_answer() :: %{
-        optional("LifecycleHookTypes") => list(String.t())
+        optional("LifecycleHookTypes") => list(String.t() | atom())
       }
       
   """
-  @type describe_lifecycle_hook_types_answer() :: %{String.t() => any()}
+  @type describe_lifecycle_hook_types_answer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       detach_load_balancer_target_groups_type() :: %{
-        required("AutoScalingGroupName") => String.t(),
-        required("TargetGroupARNs") => list(String.t())
+        required("AutoScalingGroupName") => String.t() | atom(),
+        required("TargetGroupARNs") => list(String.t() | atom())
       }
       
   """
-  @type detach_load_balancer_target_groups_type() :: %{String.t() => any()}
+  @type detach_load_balancer_target_groups_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_lifecycle_hook_type() :: %{
-        optional("DefaultResult") => String.t(),
+        optional("DefaultResult") => String.t() | atom(),
         optional("HeartbeatTimeout") => integer(),
-        optional("LifecycleTransition") => String.t(),
-        optional("NotificationMetadata") => String.t(),
-        optional("NotificationTargetARN") => String.t(),
-        optional("RoleARN") => String.t(),
-        required("AutoScalingGroupName") => String.t(),
-        required("LifecycleHookName") => String.t()
+        optional("LifecycleTransition") => String.t() | atom(),
+        optional("NotificationMetadata") => String.t() | atom(),
+        optional("NotificationTargetARN") => String.t() | atom(),
+        optional("RoleARN") => String.t() | atom(),
+        required("AutoScalingGroupName") => String.t() | atom(),
+        required("LifecycleHookName") => String.t() | atom()
       }
       
   """
-  @type put_lifecycle_hook_type() :: %{String.t() => any()}
+  @type put_lifecycle_hook_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1464,7 +1464,7 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type capacity_reservation_specification() :: %{String.t() => any()}
+  @type capacity_reservation_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1472,24 +1472,24 @@ defmodule AWS.AutoScaling do
       
       launch_template_overrides() :: %{
         "InstanceRequirements" => instance_requirements(),
-        "InstanceType" => String.t(),
+        "InstanceType" => String.t() | atom(),
         "LaunchTemplateSpecification" => launch_template_specification(),
-        "WeightedCapacity" => String.t()
+        "WeightedCapacity" => String.t() | atom()
       }
       
   """
-  @type launch_template_overrides() :: %{String.t() => any()}
+  @type launch_template_overrides() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_termination_policy_types_answer() :: %{
-        optional("TerminationPolicyTypes") => list(String.t())
+        optional("TerminationPolicyTypes") => list(String.t() | atom())
       }
       
   """
-  @type describe_termination_policy_types_answer() :: %{String.t() => any()}
+  @type describe_termination_policy_types_answer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1500,44 +1500,44 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type create_or_update_tags_type() :: %{String.t() => any()}
+  @type create_or_update_tags_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       failed_scheduled_update_group_action_request() :: %{
-        "ErrorCode" => String.t(),
-        "ErrorMessage" => String.t(),
-        "ScheduledActionName" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "ScheduledActionName" => String.t() | atom()
       }
       
   """
-  @type failed_scheduled_update_group_action_request() :: %{String.t() => any()}
+  @type failed_scheduled_update_group_action_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       filter() :: %{
-        "Name" => String.t(),
-        "Values" => list(String.t())
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       metric_dimension() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type metric_dimension() :: %{String.t() => any()}
+  @type metric_dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1546,54 +1546,54 @@ defmodule AWS.AutoScaling do
       create_auto_scaling_group_type() :: %{
         optional("AvailabilityZoneDistribution") => availability_zone_distribution(),
         optional("AvailabilityZoneImpairmentPolicy") => availability_zone_impairment_policy(),
-        optional("AvailabilityZones") => list(String.t()),
+        optional("AvailabilityZones") => list(String.t() | atom()),
         optional("CapacityRebalance") => boolean(),
         optional("CapacityReservationSpecification") => capacity_reservation_specification(),
-        optional("Context") => String.t(),
+        optional("Context") => String.t() | atom(),
         optional("DefaultCooldown") => integer(),
         optional("DefaultInstanceWarmup") => integer(),
         optional("DesiredCapacity") => integer(),
-        optional("DesiredCapacityType") => String.t(),
+        optional("DesiredCapacityType") => String.t() | atom(),
         optional("HealthCheckGracePeriod") => integer(),
-        optional("HealthCheckType") => String.t(),
-        optional("InstanceId") => String.t(),
+        optional("HealthCheckType") => String.t() | atom(),
+        optional("InstanceId") => String.t() | atom(),
         optional("InstanceMaintenancePolicy") => instance_maintenance_policy(),
-        optional("LaunchConfigurationName") => String.t(),
+        optional("LaunchConfigurationName") => String.t() | atom(),
         optional("LaunchTemplate") => launch_template_specification(),
         optional("LifecycleHookSpecificationList") => list(lifecycle_hook_specification()),
-        optional("LoadBalancerNames") => list(String.t()),
+        optional("LoadBalancerNames") => list(String.t() | atom()),
         optional("MaxInstanceLifetime") => integer(),
         optional("MixedInstancesPolicy") => mixed_instances_policy(),
         optional("NewInstancesProtectedFromScaleIn") => boolean(),
-        optional("PlacementGroup") => String.t(),
-        optional("ServiceLinkedRoleARN") => String.t(),
+        optional("PlacementGroup") => String.t() | atom(),
+        optional("ServiceLinkedRoleARN") => String.t() | atom(),
         optional("SkipZonalShiftValidation") => boolean(),
         optional("Tags") => list(tag()),
-        optional("TargetGroupARNs") => list(String.t()),
-        optional("TerminationPolicies") => list(String.t()),
+        optional("TargetGroupARNs") => list(String.t() | atom()),
+        optional("TerminationPolicies") => list(String.t() | atom()),
         optional("TrafficSources") => list(traffic_source_identifier()),
-        optional("VPCZoneIdentifier") => String.t(),
-        required("AutoScalingGroupName") => String.t(),
+        optional("VPCZoneIdentifier") => String.t() | atom(),
+        required("AutoScalingGroupName") => String.t() | atom(),
         required("MaxSize") => integer(),
         required("MinSize") => integer()
       }
       
   """
-  @type create_auto_scaling_group_type() :: %{String.t() => any()}
+  @type create_auto_scaling_group_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_predictive_scaling_forecast_type() :: %{
-        required("AutoScalingGroupName") => String.t(),
+        required("AutoScalingGroupName") => String.t() | atom(),
         required("EndTime") => non_neg_integer(),
-        required("PolicyName") => String.t(),
+        required("PolicyName") => String.t() | atom(),
         required("StartTime") => non_neg_integer()
       }
       
   """
-  @type get_predictive_scaling_forecast_type() :: %{String.t() => any()}
+  @type get_predictive_scaling_forecast_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1605,7 +1605,7 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type network_bandwidth_gbps_request() :: %{String.t() => any()}
+  @type network_bandwidth_gbps_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1616,46 +1616,46 @@ defmodule AWS.AutoScaling do
         optional("MaxGroupPreparedCapacity") => integer(),
         optional("MinSize") => integer(),
         optional("PoolState") => list(any()),
-        required("AutoScalingGroupName") => String.t()
+        required("AutoScalingGroupName") => String.t() | atom()
       }
       
   """
-  @type put_warm_pool_type() :: %{String.t() => any()}
+  @type put_warm_pool_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_instance_refresh_answer() :: %{
-        optional("InstanceRefreshId") => String.t()
+        optional("InstanceRefreshId") => String.t() | atom()
       }
       
   """
-  @type start_instance_refresh_answer() :: %{String.t() => any()}
+  @type start_instance_refresh_answer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       notification_configuration() :: %{
-        "AutoScalingGroupName" => String.t(),
-        "NotificationType" => String.t(),
-        "TopicARN" => String.t()
+        "AutoScalingGroupName" => String.t() | atom(),
+        "NotificationType" => String.t() | atom(),
+        "TopicARN" => String.t() | atom()
       }
       
   """
-  @type notification_configuration() :: %{String.t() => any()}
+  @type notification_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_in_use_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type resource_in_use_fault() :: %{String.t() => any()}
+  @type resource_in_use_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1667,19 +1667,19 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type instance_refresh_warm_pool_progress() :: %{String.t() => any()}
+  @type instance_refresh_warm_pool_progress() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_delete_scheduled_action_type() :: %{
-        required("AutoScalingGroupName") => String.t(),
-        required("ScheduledActionNames") => list(String.t())
+        required("AutoScalingGroupName") => String.t() | atom(),
+        required("ScheduledActionNames") => list(String.t() | atom())
       }
       
   """
-  @type batch_delete_scheduled_action_type() :: %{String.t() => any()}
+  @type batch_delete_scheduled_action_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1690,7 +1690,7 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type exit_standby_answer() :: %{String.t() => any()}
+  @type exit_standby_answer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1701,29 +1701,29 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type describe_adjustment_types_answer() :: %{String.t() => any()}
+  @type describe_adjustment_types_answer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type already_exists_fault() :: %{String.t() => any()}
+  @type already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       launch_configuration_name_type() :: %{
-        required("LaunchConfigurationName") => String.t()
+        required("LaunchConfigurationName") => String.t() | atom()
       }
       
   """
-  @type launch_configuration_name_type() :: %{String.t() => any()}
+  @type launch_configuration_name_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1735,7 +1735,7 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type accelerator_total_memory_mi_b_request() :: %{String.t() => any()}
+  @type accelerator_total_memory_mi_b_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1746,7 +1746,7 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type activity_type() :: %{String.t() => any()}
+  @type activity_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1757,7 +1757,7 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type processes_type() :: %{String.t() => any()}
+  @type processes_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1774,11 +1774,11 @@ defmodule AWS.AutoScaling do
       
       delete_warm_pool_type() :: %{
         optional("ForceDelete") => boolean(),
-        required("AutoScalingGroupName") => String.t()
+        required("AutoScalingGroupName") => String.t() | atom()
       }
       
   """
-  @type delete_warm_pool_type() :: %{String.t() => any()}
+  @type delete_warm_pool_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1786,44 +1786,44 @@ defmodule AWS.AutoScaling do
       
       describe_warm_pool_answer() :: %{
         optional("Instances") => list(instance()),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("WarmPoolConfiguration") => warm_pool_configuration()
       }
       
   """
-  @type describe_warm_pool_answer() :: %{String.t() => any()}
+  @type describe_warm_pool_answer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance() :: %{
-        "AvailabilityZone" => String.t(),
-        "HealthStatus" => String.t(),
-        "InstanceId" => String.t(),
-        "InstanceType" => String.t(),
-        "LaunchConfigurationName" => String.t(),
+        "AvailabilityZone" => String.t() | atom(),
+        "HealthStatus" => String.t() | atom(),
+        "InstanceId" => String.t() | atom(),
+        "InstanceType" => String.t() | atom(),
+        "LaunchConfigurationName" => String.t() | atom(),
         "LaunchTemplate" => launch_template_specification(),
         "LifecycleState" => list(any()),
         "ProtectedFromScaleIn" => boolean(),
-        "WeightedCapacity" => String.t()
+        "WeightedCapacity" => String.t() | atom()
       }
       
   """
-  @type instance() :: %{String.t() => any()}
+  @type instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       detach_instances_query() :: %{
-        optional("InstanceIds") => list(String.t()),
-        required("AutoScalingGroupName") => String.t(),
+        optional("InstanceIds") => list(String.t() | atom()),
+        required("AutoScalingGroupName") => String.t() | atom(),
         required("ShouldDecrementDesiredCapacity") => boolean()
       }
       
   """
-  @type detach_instances_query() :: %{String.t() => any()}
+  @type detach_instances_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1836,19 +1836,19 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type instance_metadata_options() :: %{String.t() => any()}
+  @type instance_metadata_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       load_balancer_target_group_state() :: %{
-        "LoadBalancerTargetGroupARN" => String.t(),
-        "State" => String.t()
+        "LoadBalancerTargetGroupARN" => String.t() | atom(),
+        "State" => String.t() | atom()
       }
       
   """
-  @type load_balancer_target_group_state() :: %{String.t() => any()}
+  @type load_balancer_target_group_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1856,11 +1856,11 @@ defmodule AWS.AutoScaling do
       
       predefined_metric_specification() :: %{
         "PredefinedMetricType" => list(any()),
-        "ResourceLabel" => String.t()
+        "ResourceLabel" => String.t() | atom()
       }
       
   """
-  @type predefined_metric_specification() :: %{String.t() => any()}
+  @type predefined_metric_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1868,36 +1868,36 @@ defmodule AWS.AutoScaling do
       
       metric_stat() :: %{
         "Metric" => metric(),
-        "Stat" => String.t(),
-        "Unit" => String.t()
+        "Stat" => String.t() | atom(),
+        "Unit" => String.t() | atom()
       }
       
   """
-  @type metric_stat() :: %{String.t() => any()}
+  @type metric_stat() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       activities_type() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("Activities") => list(activity())
       }
       
   """
-  @type activities_type() :: %{String.t() => any()}
+  @type activities_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       attach_instances_query() :: %{
-        optional("InstanceIds") => list(String.t()),
-        required("AutoScalingGroupName") => String.t()
+        optional("InstanceIds") => list(String.t() | atom()),
+        required("AutoScalingGroupName") => String.t() | atom()
       }
       
   """
-  @type attach_instances_query() :: %{String.t() => any()}
+  @type attach_instances_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1909,13 +1909,13 @@ defmodule AWS.AutoScaling do
         "AcceleratorNames" => list(list(any())()),
         "AcceleratorTotalMemoryMiB" => accelerator_total_memory_mi_b_request(),
         "AcceleratorTypes" => list(list(any())()),
-        "AllowedInstanceTypes" => list(String.t()),
+        "AllowedInstanceTypes" => list(String.t() | atom()),
         "BareMetal" => list(any()),
         "BaselineEbsBandwidthMbps" => baseline_ebs_bandwidth_mbps_request(),
         "BaselinePerformanceFactors" => baseline_performance_factors_request(),
         "BurstablePerformance" => list(any()),
         "CpuManufacturers" => list(list(any())()),
-        "ExcludedInstanceTypes" => list(String.t()),
+        "ExcludedInstanceTypes" => list(String.t() | atom()),
         "InstanceGenerations" => list(list(any())()),
         "LocalStorage" => list(any()),
         "LocalStorageTypes" => list(list(any())()),
@@ -1932,7 +1932,7 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type instance_requirements() :: %{String.t() => any()}
+  @type instance_requirements() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1943,7 +1943,7 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type instance_monitoring() :: %{String.t() => any()}
+  @type instance_monitoring() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1951,52 +1951,52 @@ defmodule AWS.AutoScaling do
       
       set_desired_capacity_type() :: %{
         optional("HonorCooldown") => boolean(),
-        required("AutoScalingGroupName") => String.t(),
+        required("AutoScalingGroupName") => String.t() | atom(),
         required("DesiredCapacity") => integer()
       }
       
   """
-  @type set_desired_capacity_type() :: %{String.t() => any()}
+  @type set_desired_capacity_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       auto_scaling_group() :: %{
-        "Status" => String.t(),
+        "Status" => String.t() | atom(),
         "InstanceMaintenancePolicy" => instance_maintenance_policy(),
         "EnabledMetrics" => list(enabled_metric()),
         "SuspendedProcesses" => list(suspended_process()),
         "Tags" => list(tag_description()),
         "WarmPoolSize" => integer(),
-        "ServiceLinkedRoleARN" => String.t(),
-        "Context" => String.t(),
+        "ServiceLinkedRoleARN" => String.t() | atom(),
+        "Context" => String.t() | atom(),
         "DefaultCooldown" => integer(),
         "MaxInstanceLifetime" => integer(),
-        "LoadBalancerNames" => list(String.t()),
+        "LoadBalancerNames" => list(String.t() | atom()),
         "CapacityReservationSpecification" => capacity_reservation_specification(),
         "MinSize" => integer(),
         "HealthCheckGracePeriod" => integer(),
-        "AvailabilityZones" => list(String.t()),
-        "DesiredCapacityType" => String.t(),
+        "AvailabilityZones" => list(String.t() | atom()),
+        "DesiredCapacityType" => String.t() | atom(),
         "TrafficSources" => list(traffic_source_identifier()),
-        "VPCZoneIdentifier" => String.t(),
+        "VPCZoneIdentifier" => String.t() | atom(),
         "MaxSize" => integer(),
         "CapacityRebalance" => boolean(),
         "Instances" => list(instance()),
-        "TerminationPolicies" => list(String.t()),
+        "TerminationPolicies" => list(String.t() | atom()),
         "AvailabilityZoneDistribution" => availability_zone_distribution(),
-        "LaunchConfigurationName" => String.t(),
-        "HealthCheckType" => String.t(),
-        "PlacementGroup" => String.t(),
-        "AutoScalingGroupARN" => String.t(),
+        "LaunchConfigurationName" => String.t() | atom(),
+        "HealthCheckType" => String.t() | atom(),
+        "PlacementGroup" => String.t() | atom(),
+        "AutoScalingGroupARN" => String.t() | atom(),
         "DesiredCapacity" => integer(),
         "WarmPoolConfiguration" => warm_pool_configuration(),
         "AvailabilityZoneImpairmentPolicy" => availability_zone_impairment_policy(),
         "DefaultInstanceWarmup" => integer(),
-        "AutoScalingGroupName" => String.t(),
+        "AutoScalingGroupName" => String.t() | atom(),
         "PredictedCapacity" => integer(),
-        "TargetGroupARNs" => list(String.t()),
+        "TargetGroupARNs" => list(String.t() | atom()),
         "MixedInstancesPolicy" => mixed_instances_policy(),
         "CreatedTime" => non_neg_integer(),
         "NewInstancesProtectedFromScaleIn" => boolean(),
@@ -2004,7 +2004,7 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type auto_scaling_group() :: %{String.t() => any()}
+  @type auto_scaling_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2015,18 +2015,18 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type batch_put_scheduled_update_group_action_answer() :: %{String.t() => any()}
+  @type batch_put_scheduled_update_group_action_answer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_auto_scaling_notification_types_answer() :: %{
-        optional("AutoScalingNotificationTypes") => list(String.t())
+        optional("AutoScalingNotificationTypes") => list(String.t() | atom())
       }
       
   """
-  @type describe_auto_scaling_notification_types_answer() :: %{String.t() => any()}
+  @type describe_auto_scaling_notification_types_answer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2047,7 +2047,7 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type refresh_preferences() :: %{String.t() => any()}
+  @type refresh_preferences() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2059,19 +2059,19 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type launch_template() :: %{String.t() => any()}
+  @type launch_template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_put_scheduled_update_group_action_type() :: %{
-        required("AutoScalingGroupName") => String.t(),
+        required("AutoScalingGroupName") => String.t() | atom(),
         required("ScheduledUpdateGroupActions") => list(scheduled_update_group_action_request())
       }
       
   """
-  @type batch_put_scheduled_update_group_action_type() :: %{String.t() => any()}
+  @type batch_put_scheduled_update_group_action_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2079,11 +2079,11 @@ defmodule AWS.AutoScaling do
       
       describe_instance_refreshes_answer() :: %{
         optional("InstanceRefreshes") => list(instance_refresh()),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_instance_refreshes_answer() :: %{String.t() => any()}
+  @type describe_instance_refreshes_answer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2101,34 +2101,34 @@ defmodule AWS.AutoScaling do
       update_auto_scaling_group_type() :: %{
         optional("AvailabilityZoneDistribution") => availability_zone_distribution(),
         optional("AvailabilityZoneImpairmentPolicy") => availability_zone_impairment_policy(),
-        optional("AvailabilityZones") => list(String.t()),
+        optional("AvailabilityZones") => list(String.t() | atom()),
         optional("CapacityRebalance") => boolean(),
         optional("CapacityReservationSpecification") => capacity_reservation_specification(),
-        optional("Context") => String.t(),
+        optional("Context") => String.t() | atom(),
         optional("DefaultCooldown") => integer(),
         optional("DefaultInstanceWarmup") => integer(),
         optional("DesiredCapacity") => integer(),
-        optional("DesiredCapacityType") => String.t(),
+        optional("DesiredCapacityType") => String.t() | atom(),
         optional("HealthCheckGracePeriod") => integer(),
-        optional("HealthCheckType") => String.t(),
+        optional("HealthCheckType") => String.t() | atom(),
         optional("InstanceMaintenancePolicy") => instance_maintenance_policy(),
-        optional("LaunchConfigurationName") => String.t(),
+        optional("LaunchConfigurationName") => String.t() | atom(),
         optional("LaunchTemplate") => launch_template_specification(),
         optional("MaxInstanceLifetime") => integer(),
         optional("MaxSize") => integer(),
         optional("MinSize") => integer(),
         optional("MixedInstancesPolicy") => mixed_instances_policy(),
         optional("NewInstancesProtectedFromScaleIn") => boolean(),
-        optional("PlacementGroup") => String.t(),
-        optional("ServiceLinkedRoleARN") => String.t(),
+        optional("PlacementGroup") => String.t() | atom(),
+        optional("ServiceLinkedRoleARN") => String.t() | atom(),
         optional("SkipZonalShiftValidation") => boolean(),
-        optional("TerminationPolicies") => list(String.t()),
-        optional("VPCZoneIdentifier") => String.t(),
-        required("AutoScalingGroupName") => String.t()
+        optional("TerminationPolicies") => list(String.t() | atom()),
+        optional("VPCZoneIdentifier") => String.t() | atom(),
+        required("AutoScalingGroupName") => String.t() | atom()
       }
       
   """
-  @type update_auto_scaling_group_type() :: %{String.t() => any()}
+  @type update_auto_scaling_group_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2136,35 +2136,35 @@ defmodule AWS.AutoScaling do
       
       describe_load_balancer_target_groups_request() :: %{
         optional("MaxRecords") => integer(),
-        optional("NextToken") => String.t(),
-        required("AutoScalingGroupName") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("AutoScalingGroupName") => String.t() | atom()
       }
       
   """
-  @type describe_load_balancer_target_groups_request() :: %{String.t() => any()}
+  @type describe_load_balancer_target_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_refresh_in_progress_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type instance_refresh_in_progress_fault() :: %{String.t() => any()}
+  @type instance_refresh_in_progress_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_scheduled_action_type() :: %{
-        required("AutoScalingGroupName") => String.t(),
-        required("ScheduledActionName") => String.t()
+        required("AutoScalingGroupName") => String.t() | atom(),
+        required("ScheduledActionName") => String.t() | atom()
       }
       
   """
-  @type delete_scheduled_action_type() :: %{String.t() => any()}
+  @type delete_scheduled_action_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2173,28 +2173,28 @@ defmodule AWS.AutoScaling do
       launch_configuration() :: %{
         "AssociatePublicIpAddress" => boolean(),
         "BlockDeviceMappings" => list(block_device_mapping()),
-        "ClassicLinkVPCId" => String.t(),
-        "ClassicLinkVPCSecurityGroups" => list(String.t()),
+        "ClassicLinkVPCId" => String.t() | atom(),
+        "ClassicLinkVPCSecurityGroups" => list(String.t() | atom()),
         "CreatedTime" => non_neg_integer(),
         "EbsOptimized" => boolean(),
-        "IamInstanceProfile" => String.t(),
-        "ImageId" => String.t(),
+        "IamInstanceProfile" => String.t() | atom(),
+        "ImageId" => String.t() | atom(),
         "InstanceMonitoring" => instance_monitoring(),
-        "InstanceType" => String.t(),
-        "KernelId" => String.t(),
-        "KeyName" => String.t(),
-        "LaunchConfigurationARN" => String.t(),
-        "LaunchConfigurationName" => String.t(),
+        "InstanceType" => String.t() | atom(),
+        "KernelId" => String.t() | atom(),
+        "KeyName" => String.t() | atom(),
+        "LaunchConfigurationARN" => String.t() | atom(),
+        "LaunchConfigurationName" => String.t() | atom(),
         "MetadataOptions" => instance_metadata_options(),
-        "PlacementTenancy" => String.t(),
-        "RamdiskId" => String.t(),
-        "SecurityGroups" => list(String.t()),
-        "SpotPrice" => String.t(),
-        "UserData" => String.t()
+        "PlacementTenancy" => String.t() | atom(),
+        "RamdiskId" => String.t() | atom(),
+        "SecurityGroups" => list(String.t() | atom()),
+        "SpotPrice" => String.t() | atom(),
+        "UserData" => String.t() | atom()
       }
       
   """
-  @type launch_configuration() :: %{String.t() => any()}
+  @type launch_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2205,32 +2205,32 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type cpu_performance_factor_request() :: %{String.t() => any()}
+  @type cpu_performance_factor_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       attach_load_balancer_target_groups_type() :: %{
-        required("AutoScalingGroupName") => String.t(),
-        required("TargetGroupARNs") => list(String.t())
+        required("AutoScalingGroupName") => String.t() | atom(),
+        required("TargetGroupARNs") => list(String.t() | atom())
       }
       
   """
-  @type attach_load_balancer_target_groups_type() :: %{String.t() => any()}
+  @type attach_load_balancer_target_groups_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       launch_template_specification() :: %{
-        "LaunchTemplateId" => String.t(),
-        "LaunchTemplateName" => String.t(),
-        "Version" => String.t()
+        "LaunchTemplateId" => String.t() | atom(),
+        "LaunchTemplateName" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
       
   """
-  @type launch_template_specification() :: %{String.t() => any()}
+  @type launch_template_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2240,25 +2240,25 @@ defmodule AWS.AutoScaling do
         "InstancesToUpdateOnRollback" => integer(),
         "PercentageCompleteOnRollback" => integer(),
         "ProgressDetailsOnRollback" => instance_refresh_progress_details(),
-        "RollbackReason" => String.t(),
+        "RollbackReason" => String.t() | atom(),
         "RollbackStartTime" => non_neg_integer()
       }
       
   """
-  @type rollback_details() :: %{String.t() => any()}
+  @type rollback_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       set_instance_protection_query() :: %{
-        required("AutoScalingGroupName") => String.t(),
-        required("InstanceIds") => list(String.t()),
+        required("AutoScalingGroupName") => String.t() | atom(),
+        required("InstanceIds") => list(String.t() | atom()),
         required("ProtectedFromScaleIn") => boolean()
       }
       
   """
-  @type set_instance_protection_query() :: %{String.t() => any()}
+  @type set_instance_protection_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2270,7 +2270,7 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type memory_mi_b_request() :: %{String.t() => any()}
+  @type memory_mi_b_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2282,7 +2282,7 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type network_interface_count_request() :: %{String.t() => any()}
+  @type network_interface_count_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2290,36 +2290,36 @@ defmodule AWS.AutoScaling do
       
       set_instance_health_query() :: %{
         optional("ShouldRespectGracePeriod") => boolean(),
-        required("HealthStatus") => String.t(),
-        required("InstanceId") => String.t()
+        required("HealthStatus") => String.t() | atom(),
+        required("InstanceId") => String.t() | atom()
       }
       
   """
-  @type set_instance_health_query() :: %{String.t() => any()}
+  @type set_instance_health_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_lifecycle_hook_type() :: %{
-        required("AutoScalingGroupName") => String.t(),
-        required("LifecycleHookName") => String.t()
+        required("AutoScalingGroupName") => String.t() | atom(),
+        required("LifecycleHookName") => String.t() | atom()
       }
       
   """
-  @type delete_lifecycle_hook_type() :: %{String.t() => any()}
+  @type delete_lifecycle_hook_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disable_metrics_collection_query() :: %{
-        optional("Metrics") => list(String.t()),
-        required("AutoScalingGroupName") => String.t()
+        optional("Metrics") => list(String.t() | atom()),
+        required("AutoScalingGroupName") => String.t() | atom()
       }
       
   """
-  @type disable_metrics_collection_query() :: %{String.t() => any()}
+  @type disable_metrics_collection_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2331,18 +2331,18 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type total_local_storage_g_b_request() :: %{String.t() => any()}
+  @type total_local_storage_g_b_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_linked_role_failure() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type service_linked_role_failure() :: %{String.t() => any()}
+  @type service_linked_role_failure() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2362,18 +2362,18 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type predictive_scaling_customized_capacity_metric() :: %{String.t() => any()}
+  @type predictive_scaling_customized_capacity_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rollback_instance_refresh_type() :: %{
-        required("AutoScalingGroupName") => String.t()
+        required("AutoScalingGroupName") => String.t() | atom()
       }
       
   """
-  @type rollback_instance_refresh_type() :: %{String.t() => any()}
+  @type rollback_instance_refresh_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2384,23 +2384,23 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type availability_zone_distribution() :: %{String.t() => any()}
+  @type availability_zone_distribution() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       target_tracking_metric_data_query() :: %{
-        "Expression" => String.t(),
-        "Id" => String.t(),
-        "Label" => String.t(),
+        "Expression" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Label" => String.t() | atom(),
         "MetricStat" => target_tracking_metric_stat(),
         "Period" => integer(),
         "ReturnData" => boolean()
       }
       
   """
-  @type target_tracking_metric_data_query() :: %{String.t() => any()}
+  @type target_tracking_metric_data_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2412,7 +2412,7 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type capacity_forecast() :: %{String.t() => any()}
+  @type capacity_forecast() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2420,11 +2420,11 @@ defmodule AWS.AutoScaling do
       
       auto_scaling_instances_type() :: %{
         optional("AutoScalingInstances") => list(auto_scaling_instance_details()),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type auto_scaling_instances_type() :: %{String.t() => any()}
+  @type auto_scaling_instances_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2440,26 +2440,26 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       alarm_specification() :: %{
-        "Alarms" => list(String.t())
+        "Alarms" => list(String.t() | atom())
       }
       
   """
-  @type alarm_specification() :: %{String.t() => any()}
+  @type alarm_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_scaling_activities_type() :: %{
-        optional("ActivityIds") => list(String.t()),
-        optional("AutoScalingGroupName") => String.t(),
+        optional("ActivityIds") => list(String.t() | atom()),
+        optional("AutoScalingGroupName") => String.t() | atom(),
         optional("IncludeDeletedGroups") => boolean(),
         optional("MaxRecords") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_scaling_activities_type() :: %{String.t() => any()}
+  @type describe_scaling_activities_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2475,13 +2475,13 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       describe_auto_scaling_instances_type() :: %{
-        optional("InstanceIds") => list(String.t()),
+        optional("InstanceIds") => list(String.t() | atom()),
         optional("MaxRecords") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_auto_scaling_instances_type() :: %{String.t() => any()}
+  @type describe_auto_scaling_instances_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2493,30 +2493,30 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type instance_refresh_live_pool_progress() :: %{String.t() => any()}
+  @type instance_refresh_live_pool_progress() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       auto_scaling_groups_type() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("AutoScalingGroups") => list(auto_scaling_group())
       }
       
   """
-  @type auto_scaling_groups_type() :: %{String.t() => any()}
+  @type auto_scaling_groups_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       metric_collection_type() :: %{
-        "Metric" => String.t()
+        "Metric" => String.t() | atom()
       }
       
   """
-  @type metric_collection_type() :: %{String.t() => any()}
+  @type metric_collection_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2527,20 +2527,20 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type batch_delete_scheduled_action_answer() :: %{String.t() => any()}
+  @type batch_delete_scheduled_action_answer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       enable_metrics_collection_query() :: %{
-        optional("Metrics") => list(String.t()),
-        required("AutoScalingGroupName") => String.t(),
-        required("Granularity") => String.t()
+        optional("Metrics") => list(String.t() | atom()),
+        required("AutoScalingGroupName") => String.t() | atom(),
+        required("Granularity") => String.t() | atom()
       }
       
   """
-  @type enable_metrics_collection_query() :: %{String.t() => any()}
+  @type enable_metrics_collection_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2552,18 +2552,18 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type desired_configuration() :: %{String.t() => any()}
+  @type desired_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_next_token() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_next_token() :: %{String.t() => any()}
+  @type invalid_next_token() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2575,31 +2575,31 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type baseline_ebs_bandwidth_mbps_request() :: %{String.t() => any()}
+  @type baseline_ebs_bandwidth_mbps_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_scaling_policy_type() :: %{
-        optional("AdjustmentType") => String.t(),
+        optional("AdjustmentType") => String.t() | atom(),
         optional("Cooldown") => integer(),
         optional("Enabled") => boolean(),
         optional("EstimatedInstanceWarmup") => integer(),
-        optional("MetricAggregationType") => String.t(),
+        optional("MetricAggregationType") => String.t() | atom(),
         optional("MinAdjustmentMagnitude") => integer(),
         optional("MinAdjustmentStep") => integer(),
-        optional("PolicyType") => String.t(),
+        optional("PolicyType") => String.t() | atom(),
         optional("PredictiveScalingConfiguration") => predictive_scaling_configuration(),
         optional("ScalingAdjustment") => integer(),
         optional("StepAdjustments") => list(step_adjustment()),
         optional("TargetTrackingConfiguration") => target_tracking_configuration(),
-        required("AutoScalingGroupName") => String.t(),
-        required("PolicyName") => String.t()
+        required("AutoScalingGroupName") => String.t() | atom(),
+        required("PolicyName") => String.t() | atom()
       }
       
   """
-  @type put_scaling_policy_type() :: %{String.t() => any()}
+  @type put_scaling_policy_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2623,7 +2623,7 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type predictive_scaling_configuration() :: %{String.t() => any()}
+  @type predictive_scaling_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2637,19 +2637,19 @@ defmodule AWS.AutoScaling do
       }
       
   """
-  @type target_tracking_configuration() :: %{String.t() => any()}
+  @type target_tracking_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_policy_type() :: %{
-        optional("AutoScalingGroupName") => String.t(),
-        required("PolicyName") => String.t()
+        optional("AutoScalingGroupName") => String.t() | atom(),
+        required("PolicyName") => String.t() | atom()
       }
       
   """
-  @type delete_policy_type() :: %{String.t() => any()}
+  @type delete_policy_type() :: %{(String.t() | atom()) => any()}
 
   @type attach_instances_errors() :: service_linked_role_failure() | resource_contention_fault()
 
@@ -2871,7 +2871,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, attach_instances_errors()}
   def attach_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AttachInstances", input, options)
   end
@@ -2931,7 +2932,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, attach_load_balancer_target_groups_errors()}
   def attach_load_balancer_target_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AttachLoadBalancerTargetGroups", input, options)
   end
@@ -2974,7 +2976,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, attach_load_balancers_errors()}
   def attach_load_balancers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AttachLoadBalancers", input, options)
   end
@@ -3017,7 +3020,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, attach_traffic_sources_errors()}
   def attach_traffic_sources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AttachTrafficSources", input, options)
   end
@@ -3031,7 +3035,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, batch_delete_scheduled_action_errors()}
   def batch_delete_scheduled_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteScheduledAction", input, options)
   end
@@ -3050,7 +3055,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, batch_put_scheduled_update_group_action_errors()}
   def batch_put_scheduled_update_group_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchPutScheduledUpdateGroupAction", input, options)
   end
@@ -3079,7 +3085,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, cancel_instance_refresh_errors()}
   def cancel_instance_refresh(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelInstanceRefresh", input, options)
   end
@@ -3135,7 +3142,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, complete_lifecycle_action_errors()}
   def complete_lifecycle_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CompleteLifecycleAction", input, options)
   end
@@ -3175,7 +3183,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, create_auto_scaling_group_errors()}
   def create_auto_scaling_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAutoScalingGroup", input, options)
   end
@@ -3210,7 +3219,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, create_launch_configuration_errors()}
   def create_launch_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLaunchConfiguration", input, options)
   end
@@ -3231,7 +3241,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, create_or_update_tags_errors()}
   def create_or_update_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateOrUpdateTags", input, options)
   end
@@ -3271,7 +3282,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, delete_auto_scaling_group_errors()}
   def delete_auto_scaling_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAutoScalingGroup", input, options)
   end
@@ -3289,7 +3301,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, delete_launch_configuration_errors()}
   def delete_launch_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLaunchConfiguration", input, options)
   end
@@ -3307,7 +3320,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, delete_lifecycle_hook_errors()}
   def delete_lifecycle_hook(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLifecycleHook", input, options)
   end
@@ -3321,7 +3335,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, delete_notification_configuration_errors()}
   def delete_notification_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteNotificationConfiguration", input, options)
   end
@@ -3343,7 +3358,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, delete_policy_errors()}
   def delete_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePolicy", input, options)
   end
@@ -3357,7 +3373,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, delete_scheduled_action_errors()}
   def delete_scheduled_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteScheduledAction", input, options)
   end
@@ -3371,7 +3388,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, delete_tags_errors()}
   def delete_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTags", input, options)
   end
@@ -3389,7 +3407,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, delete_warm_pool_errors()}
   def delete_warm_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWarmPool", input, options)
   end
@@ -3411,7 +3430,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_account_limits_errors()}
   def describe_account_limits(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAccountLimits", input, options)
   end
@@ -3440,7 +3460,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_adjustment_types_errors()}
   def describe_adjustment_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAdjustmentTypes", input, options)
   end
@@ -3468,7 +3489,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_auto_scaling_groups_errors()}
   def describe_auto_scaling_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAutoScalingGroups", input, options)
   end
@@ -3482,7 +3504,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_auto_scaling_instances_errors()}
   def describe_auto_scaling_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAutoScalingInstances", input, options)
   end
@@ -3496,7 +3519,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_auto_scaling_notification_types_errors()}
   def describe_auto_scaling_notification_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAutoScalingNotificationTypes", input, options)
   end
@@ -3529,7 +3553,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_instance_refreshes_errors()}
   def describe_instance_refreshes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInstanceRefreshes", input, options)
   end
@@ -3543,7 +3568,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_launch_configurations_errors()}
   def describe_launch_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLaunchConfigurations", input, options)
   end
@@ -3567,7 +3593,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_lifecycle_hook_types_errors()}
   def describe_lifecycle_hook_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLifecycleHookTypes", input, options)
   end
@@ -3581,7 +3608,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_lifecycle_hooks_errors()}
   def describe_lifecycle_hooks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLifecycleHooks", input, options)
   end
@@ -3648,7 +3676,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_load_balancer_target_groups_errors()}
   def describe_load_balancer_target_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLoadBalancerTargetGroups", input, options)
   end
@@ -3709,7 +3738,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_load_balancers_errors()}
   def describe_load_balancers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLoadBalancers", input, options)
   end
@@ -3723,7 +3753,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_metric_collection_types_errors()}
   def describe_metric_collection_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMetricCollectionTypes", input, options)
   end
@@ -3743,7 +3774,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_notification_configurations_errors()}
   def describe_notification_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeNotificationConfigurations", input, options)
   end
@@ -3757,7 +3789,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_policies_errors()}
   def describe_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePolicies", input, options)
   end
@@ -3785,7 +3818,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_scaling_activities_errors()}
   def describe_scaling_activities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeScalingActivities", input, options)
   end
@@ -3802,7 +3836,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_scaling_process_types_errors()}
   def describe_scaling_process_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeScalingProcessTypes", input, options)
   end
@@ -3824,7 +3859,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_scheduled_actions_errors()}
   def describe_scheduled_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeScheduledActions", input, options)
   end
@@ -3852,7 +3888,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTags", input, options)
   end
@@ -3871,7 +3908,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_termination_policy_types_errors()}
   def describe_termination_policy_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTerminationPolicyTypes", input, options)
   end
@@ -3893,7 +3931,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_traffic_sources_errors()}
   def describe_traffic_sources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrafficSources", input, options)
   end
@@ -3911,7 +3950,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_warm_pool_errors()}
   def describe_warm_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWarmPool", input, options)
   end
@@ -3943,7 +3983,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, detach_instances_errors()}
   def detach_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetachInstances", input, options)
   end
@@ -3985,7 +4026,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, detach_load_balancer_target_groups_errors()}
   def detach_load_balancer_target_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetachLoadBalancerTargetGroups", input, options)
   end
@@ -4024,7 +4066,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, detach_load_balancers_errors()}
   def detach_load_balancers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetachLoadBalancers", input, options)
   end
@@ -4046,7 +4089,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, detach_traffic_sources_errors()}
   def detach_traffic_sources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetachTrafficSources", input, options)
   end
@@ -4060,7 +4104,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, disable_metrics_collection_errors()}
   def disable_metrics_collection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableMetricsCollection", input, options)
   end
@@ -4083,7 +4128,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, enable_metrics_collection_errors()}
   def enable_metrics_collection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableMetricsCollection", input, options)
   end
@@ -4113,7 +4159,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, enter_standby_errors()}
   def enter_standby(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnterStandby", input, options)
   end
@@ -4130,7 +4177,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, execute_policy_errors()}
   def execute_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExecutePolicy", input, options)
   end
@@ -4152,7 +4200,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, exit_standby_errors()}
   def exit_standby(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExitStandby", input, options)
   end
@@ -4182,7 +4231,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, get_predictive_scaling_forecast_errors()}
   def get_predictive_scaling_forecast(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPredictiveScalingForecast", input, options)
   end
@@ -4250,7 +4300,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, put_lifecycle_hook_errors()}
   def put_lifecycle_hook(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutLifecycleHook", input, options)
   end
@@ -4280,7 +4331,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, put_notification_configuration_errors()}
   def put_notification_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutNotificationConfiguration", input, options)
   end
@@ -4314,7 +4366,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, put_scaling_policy_errors()}
   def put_scaling_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutScalingPolicy", input, options)
   end
@@ -4342,7 +4395,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, put_scheduled_update_group_action_errors()}
   def put_scheduled_update_group_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutScheduledUpdateGroupAction", input, options)
   end
@@ -4377,7 +4431,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, put_warm_pool_errors()}
   def put_warm_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutWarmPool", input, options)
   end
@@ -4434,7 +4489,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, record_lifecycle_action_heartbeat_errors()}
   def record_lifecycle_action_heartbeat(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RecordLifecycleActionHeartbeat", input, options)
   end
@@ -4454,7 +4510,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, resume_processes_errors()}
   def resume_processes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResumeProcesses", input, options)
   end
@@ -4502,7 +4559,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, rollback_instance_refresh_errors()}
   def rollback_instance_refresh(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RollbackInstanceRefresh", input, options)
   end
@@ -4524,7 +4582,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, set_desired_capacity_errors()}
   def set_desired_capacity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetDesiredCapacity", input, options)
   end
@@ -4543,7 +4602,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, set_instance_health_errors()}
   def set_instance_health(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetInstanceHealth", input, options)
   end
@@ -4569,7 +4629,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, set_instance_protection_errors()}
   def set_instance_protection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetInstanceProtection", input, options)
   end
@@ -4625,7 +4686,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, start_instance_refresh_errors()}
   def start_instance_refresh(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartInstanceRefresh", input, options)
   end
@@ -4652,7 +4714,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, suspend_processes_errors()}
   def suspend_processes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SuspendProcesses", input, options)
   end
@@ -4691,7 +4754,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, terminate_instance_in_auto_scaling_group_errors()}
   def terminate_instance_in_auto_scaling_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TerminateInstanceInAutoScalingGroup", input, options)
   end
@@ -4766,7 +4830,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, update_auto_scaling_group_errors()}
   def update_auto_scaling_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAutoScalingGroup", input, options)
   end

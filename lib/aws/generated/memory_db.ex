@@ -26,75 +26,75 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type batch_update_cluster_response() :: %{String.t() => any()}
+  @type batch_update_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_acl_request() :: %{
-        optional("UserNamesToAdd") => list(String.t()),
-        optional("UserNamesToRemove") => list(String.t()),
-        required("ACLName") => String.t()
+        optional("UserNamesToAdd") => list(String.t() | atom()),
+        optional("UserNamesToRemove") => list(String.t() | atom()),
+        required("ACLName") => String.t() | atom()
       }
       
   """
-  @type update_acl_request() :: %{String.t() => any()}
+  @type update_acl_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_user_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_user_state_fault() :: %{String.t() => any()}
+  @type invalid_user_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       node_quota_for_customer_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type node_quota_for_customer_exceeded_fault() :: %{String.t() => any()}
+  @type node_quota_for_customer_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type snapshot_quota_exceeded_fault() :: %{String.t() => any()}
+  @type snapshot_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type snapshot_not_found_fault() :: %{String.t() => any()}
+  @type snapshot_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_snapshot_request() :: %{
-        required("SnapshotName") => String.t()
+        required("SnapshotName") => String.t() | atom()
       }
       
   """
-  @type delete_snapshot_request() :: %{String.t() => any()}
+  @type delete_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -105,30 +105,30 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type create_subnet_group_response() :: %{String.t() => any()}
+  @type create_subnet_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | atom(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       multi_region_cluster_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type multi_region_cluster_not_found_fault() :: %{String.t() => any()}
+  @type multi_region_cluster_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -139,7 +139,7 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type failover_shard_response() :: %{String.t() => any()}
+  @type failover_shard_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -147,63 +147,63 @@ defmodule AWS.MemoryDB do
       
       describe_engine_versions_request() :: %{
         optional("DefaultOnly") => boolean(),
-        optional("Engine") => String.t(),
-        optional("EngineVersion") => String.t(),
+        optional("Engine") => String.t() | atom(),
+        optional("EngineVersion") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ParameterGroupFamily") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("ParameterGroupFamily") => String.t() | atom()
       }
       
   """
-  @type describe_engine_versions_request() :: %{String.t() => any()}
+  @type describe_engine_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_parameter_group_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("Family") => String.t(),
-        required("ParameterGroupName") => String.t()
+        required("Family") => String.t() | atom(),
+        required("ParameterGroupName") => String.t() | atom()
       }
       
   """
-  @type create_parameter_group_request() :: %{String.t() => any()}
+  @type create_parameter_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       availability_zone() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type availability_zone() :: %{String.t() => any()}
+  @type availability_zone() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_multi_region_cluster_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_multi_region_cluster_state_fault() :: %{String.t() => any()}
+  @type invalid_multi_region_cluster_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_parameter_groups_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "ParameterGroups" => list(parameter_group())
       }
       
   """
-  @type describe_parameter_groups_response() :: %{String.t() => any()}
+  @type describe_parameter_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -214,36 +214,36 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type update_user_response() :: %{String.t() => any()}
+  @type update_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_service_updates_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "ServiceUpdates" => list(service_update())
       }
       
   """
-  @type describe_service_updates_response() :: %{String.t() => any()}
+  @type describe_service_updates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_reserved_nodes_request() :: %{
-        optional("Duration") => String.t(),
+        optional("Duration") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("NodeType") => String.t(),
-        optional("OfferingType") => String.t(),
-        optional("ReservationId") => String.t(),
-        optional("ReservedNodesOfferingId") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("NodeType") => String.t() | atom(),
+        optional("OfferingType") => String.t() | atom(),
+        optional("ReservationId") => String.t() | atom(),
+        optional("ReservedNodesOfferingId") => String.t() | atom()
       }
       
   """
-  @type describe_reserved_nodes_request() :: %{String.t() => any()}
+  @type describe_reserved_nodes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -254,7 +254,7 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -265,42 +265,42 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type create_cluster_response() :: %{String.t() => any()}
+  @type create_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       unprocessed_cluster() :: %{
-        "ClusterName" => String.t(),
-        "ErrorMessage" => String.t(),
-        "ErrorType" => String.t()
+        "ClusterName" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "ErrorType" => String.t() | atom()
       }
       
   """
-  @type unprocessed_cluster() :: %{String.t() => any()}
+  @type unprocessed_cluster() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_update_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type service_update_not_found_fault() :: %{String.t() => any()}
+  @type service_update_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       subnet_group_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type subnet_group_already_exists_fault() :: %{String.t() => any()}
+  @type subnet_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -311,44 +311,44 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type create_parameter_group_response() :: %{String.t() => any()}
+  @type create_parameter_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_snapshot_request() :: %{
-        optional("KmsKeyId") => String.t(),
+        optional("KmsKeyId") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("ClusterName") => String.t(),
-        required("SnapshotName") => String.t()
+        required("ClusterName") => String.t() | atom(),
+        required("SnapshotName") => String.t() | atom()
       }
       
   """
-  @type create_snapshot_request() :: %{String.t() => any()}
+  @type create_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_users_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Users" => list(user())
       }
       
   """
-  @type describe_users_response() :: %{String.t() => any()}
+  @type describe_users_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_node_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type reserved_node_already_exists_fault() :: %{String.t() => any()}
+  @type reserved_node_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -357,25 +357,25 @@ defmodule AWS.MemoryDB do
       reserved_nodes_offering() :: %{
         "Duration" => integer(),
         "FixedPrice" => float(),
-        "NodeType" => String.t(),
-        "OfferingType" => String.t(),
+        "NodeType" => String.t() | atom(),
+        "OfferingType" => String.t() | atom(),
         "RecurringCharges" => list(recurring_charge()),
-        "ReservedNodesOfferingId" => String.t()
+        "ReservedNodesOfferingId" => String.t() | atom()
       }
       
   """
-  @type reserved_nodes_offering() :: %{String.t() => any()}
+  @type reserved_nodes_offering() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_acl_request() :: %{
-        required("ACLName") => String.t()
+        required("ACLName") => String.t() | atom()
       }
       
   """
-  @type delete_acl_request() :: %{String.t() => any()}
+  @type delete_acl_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -383,12 +383,12 @@ defmodule AWS.MemoryDB do
       
       describe_parameters_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ParameterGroupName") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ParameterGroupName") => String.t() | atom()
       }
       
   """
-  @type describe_parameters_request() :: %{String.t() => any()}
+  @type describe_parameters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -396,35 +396,35 @@ defmodule AWS.MemoryDB do
       
       describe_multi_region_clusters_response() :: %{
         "MultiRegionClusters" => list(multi_region_cluster()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_multi_region_clusters_response() :: %{String.t() => any()}
+  @type describe_multi_region_clusters_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       security_group_membership() :: %{
-        "SecurityGroupId" => String.t(),
-        "Status" => String.t()
+        "SecurityGroupId" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type security_group_membership() :: %{String.t() => any()}
+  @type security_group_membership() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_snapshots_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Snapshots" => list(snapshot())
       }
       
   """
-  @type describe_snapshots_response() :: %{String.t() => any()}
+  @type describe_snapshots_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -432,11 +432,11 @@ defmodule AWS.MemoryDB do
       
       recurring_charge() :: %{
         "RecurringChargeAmount" => float(),
-        "RecurringChargeFrequency" => String.t()
+        "RecurringChargeFrequency" => String.t() | atom()
       }
       
   """
-  @type recurring_charge() :: %{String.t() => any()}
+  @type recurring_charge() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -444,45 +444,45 @@ defmodule AWS.MemoryDB do
       
       reset_parameter_group_request() :: %{
         optional("AllParameters") => boolean(),
-        optional("ParameterNames") => list(String.t()),
-        required("ParameterGroupName") => String.t()
+        optional("ParameterNames") => list(String.t() | atom()),
+        required("ParameterGroupName") => String.t() | atom()
       }
       
   """
-  @type reset_parameter_group_request() :: %{String.t() => any()}
+  @type reset_parameter_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_kms_key_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_kms_key_fault() :: %{String.t() => any()}
+  @type invalid_kms_key_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       user_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type user_not_found_fault() :: %{String.t() => any()}
+  @type user_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type cluster_not_found_fault() :: %{String.t() => any()}
+  @type cluster_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -493,29 +493,29 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type create_snapshot_response() :: %{String.t() => any()}
+  @type create_snapshot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_allowed_multi_region_cluster_updates_request() :: %{
-        required("MultiRegionClusterName") => String.t()
+        required("MultiRegionClusterName") => String.t() | atom()
       }
       
   """
-  @type list_allowed_multi_region_cluster_updates_request() :: %{String.t() => any()}
+  @type list_allowed_multi_region_cluster_updates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       acls_update_status() :: %{
-        "ACLToApply" => String.t()
+        "ACLToApply" => String.t() | atom()
       }
       
   """
-  @type acls_update_status() :: %{String.t() => any()}
+  @type acls_update_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -523,64 +523,64 @@ defmodule AWS.MemoryDB do
       
       subnet() :: %{
         "AvailabilityZone" => availability_zone(),
-        "Identifier" => String.t(),
+        "Identifier" => String.t() | atom(),
         "SupportedNetworkTypes" => list(list(any())())
       }
       
   """
-  @type subnet() :: %{String.t() => any()}
+  @type subnet() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_multi_region_cluster_request() :: %{
-        optional("Description") => String.t(),
-        optional("EngineVersion") => String.t(),
-        optional("MultiRegionParameterGroupName") => String.t(),
-        optional("NodeType") => String.t(),
+        optional("Description") => String.t() | atom(),
+        optional("EngineVersion") => String.t() | atom(),
+        optional("MultiRegionParameterGroupName") => String.t() | atom(),
+        optional("NodeType") => String.t() | atom(),
         optional("ShardConfiguration") => shard_configuration_request(),
         optional("UpdateStrategy") => list(any()),
-        required("MultiRegionClusterName") => String.t()
+        required("MultiRegionClusterName") => String.t() | atom()
       }
       
   """
-  @type update_multi_region_cluster_request() :: %{String.t() => any()}
+  @type update_multi_region_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_subnet() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_subnet() :: %{String.t() => any()}
+  @type invalid_subnet() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       parameter_name_value() :: %{
-        "ParameterName" => String.t(),
-        "ParameterValue" => String.t()
+        "ParameterName" => String.t() | atom(),
+        "ParameterValue" => String.t() | atom()
       }
       
   """
-  @type parameter_name_value() :: %{String.t() => any()}
+  @type parameter_name_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_allowed_node_type_updates_response() :: %{
-        "ScaleDownNodeTypes" => list(String.t()),
-        "ScaleUpNodeTypes" => list(String.t())
+        "ScaleDownNodeTypes" => list(String.t() | atom()),
+        "ScaleUpNodeTypes" => list(String.t() | atom())
       }
       
   """
-  @type list_allowed_node_type_updates_response() :: %{String.t() => any()}
+  @type list_allowed_node_type_updates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -591,7 +591,7 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type list_tags_response() :: %{String.t() => any()}
+  @type list_tags_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -600,12 +600,12 @@ defmodule AWS.MemoryDB do
       describe_users_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("UserName") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("UserName") => String.t() | atom()
       }
       
   """
-  @type describe_users_request() :: %{String.t() => any()}
+  @type describe_users_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -616,19 +616,19 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type resharding_status() :: %{String.t() => any()}
+  @type resharding_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_parameters_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Parameters" => list(parameter())
       }
       
   """
-  @type describe_parameters_response() :: %{String.t() => any()}
+  @type describe_parameters_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -639,7 +639,7 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type update_acl_response() :: %{String.t() => any()}
+  @type update_acl_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -650,18 +650,18 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type reset_parameter_group_response() :: %{String.t() => any()}
+  @type reset_parameter_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_group_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_parameter_group_state_fault() :: %{String.t() => any()}
+  @type invalid_parameter_group_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -669,274 +669,274 @@ defmodule AWS.MemoryDB do
       
       create_acl_request() :: %{
         optional("Tags") => list(tag()),
-        optional("UserNames") => list(String.t()),
-        required("ACLName") => String.t()
+        optional("UserNames") => list(String.t() | atom()),
+        required("ACLName") => String.t() | atom()
       }
       
   """
-  @type create_acl_request() :: %{String.t() => any()}
+  @type create_acl_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       acl() :: %{
-        "ARN" => String.t(),
-        "Clusters" => list(String.t()),
-        "MinimumEngineVersion" => String.t(),
-        "Name" => String.t(),
+        "ARN" => String.t() | atom(),
+        "Clusters" => list(String.t() | atom()),
+        "MinimumEngineVersion" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "PendingChanges" => acl_pending_changes(),
-        "Status" => String.t(),
-        "UserNames" => list(String.t())
+        "Status" => String.t() | atom(),
+        "UserNames" => list(String.t() | atom())
       }
       
   """
-  @type acl() :: %{String.t() => any()}
+  @type acl() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       memorydb_node() :: %{
-        "AvailabilityZone" => String.t(),
+        "AvailabilityZone" => String.t() | atom(),
         "CreateTime" => non_neg_integer(),
         "Endpoint" => endpoint(),
-        "Name" => String.t(),
-        "Status" => String.t()
+        "Name" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type memorydb_node() :: %{String.t() => any()}
+  @type memorydb_node() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       subnet_group_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type subnet_group_not_found_fault() :: %{String.t() => any()}
+  @type subnet_group_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_parameter_group_request() :: %{
-        required("ParameterGroupName") => String.t()
+        required("ParameterGroupName") => String.t() | atom()
       }
       
   """
-  @type delete_parameter_group_request() :: %{String.t() => any()}
+  @type delete_parameter_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       acl_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type acl_not_found_fault() :: %{String.t() => any()}
+  @type acl_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_reserved_nodes_offerings_request() :: %{
-        optional("Duration") => String.t(),
+        optional("Duration") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("NodeType") => String.t(),
-        optional("OfferingType") => String.t(),
-        optional("ReservedNodesOfferingId") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("NodeType") => String.t() | atom(),
+        optional("OfferingType") => String.t() | atom(),
+        optional("ReservedNodesOfferingId") => String.t() | atom()
       }
       
   """
-  @type describe_reserved_nodes_offerings_request() :: %{String.t() => any()}
+  @type describe_reserved_nodes_offerings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type tag_not_found_fault() :: %{String.t() => any()}
+  @type tag_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_cluster_request() :: %{
-        optional("ACLName") => String.t(),
-        optional("Description") => String.t(),
-        optional("Engine") => String.t(),
-        optional("EngineVersion") => String.t(),
+        optional("ACLName") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Engine") => String.t() | atom(),
+        optional("EngineVersion") => String.t() | atom(),
         optional("IpDiscovery") => list(any()),
-        optional("MaintenanceWindow") => String.t(),
-        optional("NodeType") => String.t(),
-        optional("ParameterGroupName") => String.t(),
+        optional("MaintenanceWindow") => String.t() | atom(),
+        optional("NodeType") => String.t() | atom(),
+        optional("ParameterGroupName") => String.t() | atom(),
         optional("ReplicaConfiguration") => replica_configuration_request(),
-        optional("SecurityGroupIds") => list(String.t()),
+        optional("SecurityGroupIds") => list(String.t() | atom()),
         optional("ShardConfiguration") => shard_configuration_request(),
         optional("SnapshotRetentionLimit") => integer(),
-        optional("SnapshotWindow") => String.t(),
-        optional("SnsTopicArn") => String.t(),
-        optional("SnsTopicStatus") => String.t(),
-        required("ClusterName") => String.t()
+        optional("SnapshotWindow") => String.t() | atom(),
+        optional("SnsTopicArn") => String.t() | atom(),
+        optional("SnsTopicStatus") => String.t() | atom(),
+        required("ClusterName") => String.t() | atom()
       }
       
   """
-  @type update_cluster_request() :: %{String.t() => any()}
+  @type update_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_combination_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_parameter_combination_exception() :: %{String.t() => any()}
+  @type invalid_parameter_combination_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_configuration() :: %{
-        "Description" => String.t(),
-        "Engine" => String.t(),
-        "EngineVersion" => String.t(),
-        "MaintenanceWindow" => String.t(),
-        "MultiRegionClusterName" => String.t(),
-        "MultiRegionParameterGroupName" => String.t(),
-        "Name" => String.t(),
-        "NodeType" => String.t(),
+        "Description" => String.t() | atom(),
+        "Engine" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
+        "MaintenanceWindow" => String.t() | atom(),
+        "MultiRegionClusterName" => String.t() | atom(),
+        "MultiRegionParameterGroupName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "NodeType" => String.t() | atom(),
         "NumShards" => integer(),
-        "ParameterGroupName" => String.t(),
+        "ParameterGroupName" => String.t() | atom(),
         "Port" => integer(),
         "Shards" => list(shard_detail()),
         "SnapshotRetentionLimit" => integer(),
-        "SnapshotWindow" => String.t(),
-        "SubnetGroupName" => String.t(),
-        "TopicArn" => String.t(),
-        "VpcId" => String.t()
+        "SnapshotWindow" => String.t() | atom(),
+        "SubnetGroupName" => String.t() | atom(),
+        "TopicArn" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
       
   """
-  @type cluster_configuration() :: %{String.t() => any()}
+  @type cluster_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_vpc_network_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_vpc_network_state_fault() :: %{String.t() => any()}
+  @type invalid_vpc_network_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_quota_per_resource_exceeded() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type tag_quota_per_resource_exceeded() :: %{String.t() => any()}
+  @type tag_quota_per_resource_exceeded() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       subnet_not_allowed_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type subnet_not_allowed_fault() :: %{String.t() => any()}
+  @type subnet_not_allowed_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_allowed_multi_region_cluster_updates_response() :: %{
-        "ScaleDownNodeTypes" => list(String.t()),
-        "ScaleUpNodeTypes" => list(String.t())
+        "ScaleDownNodeTypes" => list(String.t() | atom()),
+        "ScaleUpNodeTypes" => list(String.t() | atom())
       }
       
   """
-  @type list_allowed_multi_region_cluster_updates_response() :: %{String.t() => any()}
+  @type list_allowed_multi_region_cluster_updates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_subnet_group_request() :: %{
-        required("SubnetGroupName") => String.t()
+        required("SubnetGroupName") => String.t() | atom()
       }
       
   """
-  @type delete_subnet_group_request() :: %{String.t() => any()}
+  @type delete_subnet_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       shards_per_cluster_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type shards_per_cluster_quota_exceeded_fault() :: %{String.t() => any()}
+  @type shards_per_cluster_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       subnet_group() :: %{
-        "ARN" => String.t(),
-        "Description" => String.t(),
-        "Name" => String.t(),
+        "ARN" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Subnets" => list(subnet()),
         "SupportedNetworkTypes" => list(list(any())()),
-        "VpcId" => String.t()
+        "VpcId" => String.t() | atom()
       }
       
   """
-  @type subnet_group() :: %{String.t() => any()}
+  @type subnet_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_multi_region_cluster_request() :: %{
-        required("MultiRegionClusterName") => String.t()
+        required("MultiRegionClusterName") => String.t() | atom()
       }
       
   """
-  @type delete_multi_region_cluster_request() :: %{String.t() => any()}
+  @type delete_multi_region_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -945,122 +945,122 @@ defmodule AWS.MemoryDB do
       create_cluster_request() :: %{
         optional("AutoMinorVersionUpgrade") => boolean(),
         optional("DataTiering") => boolean(),
-        optional("Description") => String.t(),
-        optional("Engine") => String.t(),
-        optional("EngineVersion") => String.t(),
+        optional("Description") => String.t() | atom(),
+        optional("Engine") => String.t() | atom(),
+        optional("EngineVersion") => String.t() | atom(),
         optional("IpDiscovery") => list(any()),
-        optional("KmsKeyId") => String.t(),
-        optional("MaintenanceWindow") => String.t(),
-        optional("MultiRegionClusterName") => String.t(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("MaintenanceWindow") => String.t() | atom(),
+        optional("MultiRegionClusterName") => String.t() | atom(),
         optional("NetworkType") => list(any()),
         optional("NumReplicasPerShard") => integer(),
         optional("NumShards") => integer(),
-        optional("ParameterGroupName") => String.t(),
+        optional("ParameterGroupName") => String.t() | atom(),
         optional("Port") => integer(),
-        optional("SecurityGroupIds") => list(String.t()),
-        optional("SnapshotArns") => list(String.t()),
-        optional("SnapshotName") => String.t(),
+        optional("SecurityGroupIds") => list(String.t() | atom()),
+        optional("SnapshotArns") => list(String.t() | atom()),
+        optional("SnapshotName") => String.t() | atom(),
         optional("SnapshotRetentionLimit") => integer(),
-        optional("SnapshotWindow") => String.t(),
-        optional("SnsTopicArn") => String.t(),
-        optional("SubnetGroupName") => String.t(),
+        optional("SnapshotWindow") => String.t() | atom(),
+        optional("SnsTopicArn") => String.t() | atom(),
+        optional("SubnetGroupName") => String.t() | atom(),
         optional("TLSEnabled") => boolean(),
         optional("Tags") => list(tag()),
-        required("ACLName") => String.t(),
-        required("ClusterName") => String.t(),
-        required("NodeType") => String.t()
+        required("ACLName") => String.t() | atom(),
+        required("ClusterName") => String.t() | atom(),
+        required("NodeType") => String.t() | atom()
       }
       
   """
-  @type create_cluster_request() :: %{String.t() => any()}
+  @type create_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       engine_version_info() :: %{
-        "Engine" => String.t(),
-        "EnginePatchVersion" => String.t(),
-        "EngineVersion" => String.t(),
-        "ParameterGroupFamily" => String.t()
+        "Engine" => String.t() | atom(),
+        "EnginePatchVersion" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
+        "ParameterGroupFamily" => String.t() | atom()
       }
       
   """
-  @type engine_version_info() :: %{String.t() => any()}
+  @type engine_version_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       no_operation_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type no_operation_fault() :: %{String.t() => any()}
+  @type no_operation_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster() :: %{
-        "ACLName" => String.t(),
-        "ARN" => String.t(),
+        "ACLName" => String.t() | atom(),
+        "ARN" => String.t() | atom(),
         "AutoMinorVersionUpgrade" => boolean(),
         "AvailabilityMode" => list(any()),
         "ClusterEndpoint" => endpoint(),
         "DataTiering" => list(any()),
-        "Description" => String.t(),
-        "Engine" => String.t(),
-        "EnginePatchVersion" => String.t(),
-        "EngineVersion" => String.t(),
+        "Description" => String.t() | atom(),
+        "Engine" => String.t() | atom(),
+        "EnginePatchVersion" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
         "IpDiscovery" => list(any()),
-        "KmsKeyId" => String.t(),
-        "MaintenanceWindow" => String.t(),
-        "MultiRegionClusterName" => String.t(),
-        "Name" => String.t(),
+        "KmsKeyId" => String.t() | atom(),
+        "MaintenanceWindow" => String.t() | atom(),
+        "MultiRegionClusterName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "NetworkType" => list(any()),
-        "NodeType" => String.t(),
+        "NodeType" => String.t() | atom(),
         "NumberOfShards" => integer(),
-        "ParameterGroupName" => String.t(),
-        "ParameterGroupStatus" => String.t(),
+        "ParameterGroupName" => String.t() | atom(),
+        "ParameterGroupStatus" => String.t() | atom(),
         "PendingUpdates" => cluster_pending_updates(),
         "SecurityGroups" => list(security_group_membership()),
         "Shards" => list(shard()),
         "SnapshotRetentionLimit" => integer(),
-        "SnapshotWindow" => String.t(),
-        "SnsTopicArn" => String.t(),
-        "SnsTopicStatus" => String.t(),
-        "Status" => String.t(),
-        "SubnetGroupName" => String.t(),
+        "SnapshotWindow" => String.t() | atom(),
+        "SnsTopicArn" => String.t() | atom(),
+        "SnsTopicStatus" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "SubnetGroupName" => String.t() | atom(),
         "TLSEnabled" => boolean()
       }
       
   """
-  @type cluster() :: %{String.t() => any()}
+  @type cluster() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       subnet_group_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type subnet_group_quota_exceeded_fault() :: %{String.t() => any()}
+  @type subnet_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1068,123 +1068,123 @@ defmodule AWS.MemoryDB do
       
       shard_detail() :: %{
         "Configuration" => shard_configuration(),
-        "Name" => String.t(),
-        "Size" => String.t(),
+        "Name" => String.t() | atom(),
+        "Size" => String.t() | atom(),
         "SnapshotCreationTime" => non_neg_integer()
       }
       
   """
-  @type shard_detail() :: %{String.t() => any()}
+  @type shard_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_snapshot_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_snapshot_state_fault() :: %{String.t() => any()}
+  @type invalid_snapshot_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_acls_request() :: %{
-        optional("ACLName") => String.t(),
+        optional("ACLName") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_acls_request() :: %{String.t() => any()}
+  @type describe_acls_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       test_failover_not_available_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type test_failover_not_available_fault() :: %{String.t() => any()}
+  @type test_failover_not_available_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_value_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_parameter_value_exception() :: %{String.t() => any()}
+  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_acl_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_acl_state_fault() :: %{String.t() => any()}
+  @type invalid_acl_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_allowed_node_type_updates_request() :: %{
-        required("ClusterName") => String.t()
+        required("ClusterName") => String.t() | atom()
       }
       
   """
-  @type list_allowed_node_type_updates_request() :: %{String.t() => any()}
+  @type list_allowed_node_type_updates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_multi_region_cluster_request() :: %{
-        optional("Description") => String.t(),
-        optional("Engine") => String.t(),
-        optional("EngineVersion") => String.t(),
-        optional("MultiRegionParameterGroupName") => String.t(),
+        optional("Description") => String.t() | atom(),
+        optional("Engine") => String.t() | atom(),
+        optional("EngineVersion") => String.t() | atom(),
+        optional("MultiRegionParameterGroupName") => String.t() | atom(),
         optional("NumShards") => integer(),
         optional("TLSEnabled") => boolean(),
         optional("Tags") => list(tag()),
-        required("MultiRegionClusterNameSuffix") => String.t(),
-        required("NodeType") => String.t()
+        required("MultiRegionClusterNameSuffix") => String.t() | atom(),
+        required("NodeType") => String.t() | atom()
       }
       
   """
-  @type create_multi_region_cluster_request() :: %{String.t() => any()}
+  @type create_multi_region_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_subnet_groups_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "SubnetGroups" => list(subnet_group())
       }
       
   """
-  @type describe_subnet_groups_response() :: %{String.t() => any()}
+  @type describe_subnet_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_update_request() :: %{
-        "ServiceUpdateNameToApply" => String.t()
+        "ServiceUpdateNameToApply" => String.t() | atom()
       }
       
   """
-  @type service_update_request() :: %{String.t() => any()}
+  @type service_update_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1195,47 +1195,47 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type delete_multi_region_cluster_response() :: %{String.t() => any()}
+  @type delete_multi_region_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       parameter() :: %{
-        "AllowedValues" => String.t(),
-        "DataType" => String.t(),
-        "Description" => String.t(),
-        "MinimumEngineVersion" => String.t(),
-        "Name" => String.t(),
-        "Value" => String.t()
+        "AllowedValues" => String.t() | atom(),
+        "DataType" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "MinimumEngineVersion" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type parameter() :: %{String.t() => any()}
+  @type parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_subnet_group_request() :: %{
-        optional("Description") => String.t(),
-        optional("SubnetIds") => list(String.t()),
-        required("SubnetGroupName") => String.t()
+        optional("Description") => String.t() | atom(),
+        optional("SubnetIds") => list(String.t() | atom()),
+        required("SubnetGroupName") => String.t() | atom()
       }
       
   """
-  @type update_subnet_group_request() :: %{String.t() => any()}
+  @type update_subnet_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_arn_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_arn_fault() :: %{String.t() => any()}
+  @type invalid_arn_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1247,42 +1247,42 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type authentication() :: %{String.t() => any()}
+  @type authentication() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_node() :: %{
-        "ARN" => String.t(),
+        "ARN" => String.t() | atom(),
         "Duration" => integer(),
         "FixedPrice" => float(),
         "NodeCount" => integer(),
-        "NodeType" => String.t(),
-        "OfferingType" => String.t(),
+        "NodeType" => String.t() | atom(),
+        "OfferingType" => String.t() | atom(),
         "RecurringCharges" => list(recurring_charge()),
-        "ReservationId" => String.t(),
-        "ReservedNodesOfferingId" => String.t(),
+        "ReservationId" => String.t() | atom(),
+        "ReservedNodesOfferingId" => String.t() | atom(),
         "StartTime" => non_neg_integer(),
-        "State" => String.t()
+        "State" => String.t() | atom()
       }
       
   """
-  @type reserved_node() :: %{String.t() => any()}
+  @type reserved_node() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_subnet_group_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("SubnetGroupName") => String.t(),
-        required("SubnetIds") => list(String.t())
+        required("SubnetGroupName") => String.t() | atom(),
+        required("SubnetIds") => list(String.t() | atom())
       }
       
   """
-  @type create_subnet_group_request() :: %{String.t() => any()}
+  @type create_subnet_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1293,30 +1293,30 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type create_multi_region_cluster_response() :: %{String.t() => any()}
+  @type create_multi_region_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       acl_pending_changes() :: %{
-        "UserNamesToAdd" => list(String.t()),
-        "UserNamesToRemove" => list(String.t())
+        "UserNamesToAdd" => list(String.t() | atom()),
+        "UserNamesToRemove" => list(String.t() | atom())
       }
       
   """
-  @type acl_pending_changes() :: %{String.t() => any()}
+  @type acl_pending_changes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       api_call_rate_for_customer_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type api_call_rate_for_customer_exceeded_fault() :: %{String.t() => any()}
+  @type api_call_rate_for_customer_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1324,22 +1324,22 @@ defmodule AWS.MemoryDB do
       
       batch_update_cluster_request() :: %{
         optional("ServiceUpdate") => service_update_request(),
-        required("ClusterNames") => list(String.t())
+        required("ClusterNames") => list(String.t() | atom())
       }
       
   """
-  @type batch_update_cluster_request() :: %{String.t() => any()}
+  @type batch_update_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       parameter_group_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type parameter_group_already_exists_fault() :: %{String.t() => any()}
+  @type parameter_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1350,7 +1350,7 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type delete_cluster_response() :: %{String.t() => any()}
+  @type delete_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1361,30 +1361,30 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type delete_subnet_group_response() :: %{String.t() => any()}
+  @type delete_subnet_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_user_request() :: %{
-        required("UserName") => String.t()
+        required("UserName") => String.t() | atom()
       }
       
   """
-  @type delete_user_request() :: %{String.t() => any()}
+  @type delete_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       filter() :: %{
-        "Name" => String.t(),
-        "Values" => list(String.t())
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1395,7 +1395,7 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type create_acl_response() :: %{String.t() => any()}
+  @type create_acl_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1403,24 +1403,24 @@ defmodule AWS.MemoryDB do
       
       purchase_reserved_nodes_offering_request() :: %{
         optional("NodeCount") => integer(),
-        optional("ReservationId") => String.t(),
+        optional("ReservationId") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("ReservedNodesOfferingId") => String.t()
+        required("ReservedNodesOfferingId") => String.t() | atom()
       }
       
   """
-  @type purchase_reserved_nodes_offering_request() :: %{String.t() => any()}
+  @type purchase_reserved_nodes_offering_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       shard_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type shard_not_found_fault() :: %{String.t() => any()}
+  @type shard_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1431,29 +1431,29 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type delete_user_response() :: %{String.t() => any()}
+  @type delete_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_quota_for_customer_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type cluster_quota_for_customer_exceeded_fault() :: %{String.t() => any()}
+  @type cluster_quota_for_customer_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       user_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type user_already_exists_fault() :: %{String.t() => any()}
+  @type user_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1464,30 +1464,30 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type delete_parameter_group_response() :: %{String.t() => any()}
+  @type delete_parameter_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint() :: %{
-        "Address" => String.t(),
+        "Address" => String.t() | atom(),
         "Port" => integer()
       }
       
   """
-  @type endpoint() :: %{String.t() => any()}
+  @type endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       user_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type user_quota_exceeded_fault() :: %{String.t() => any()}
+  @type user_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1495,11 +1495,11 @@ defmodule AWS.MemoryDB do
       
       describe_acls_response() :: %{
         "ACLs" => list(acl()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_acls_response() :: %{String.t() => any()}
+  @type describe_acls_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1510,33 +1510,33 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type purchase_reserved_nodes_offering_response() :: %{String.t() => any()}
+  @type purchase_reserved_nodes_offering_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_node_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type reserved_node_not_found_fault() :: %{String.t() => any()}
+  @type reserved_node_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       shard() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Nodes" => list(node()),
         "NumberOfNodes" => integer(),
-        "Slots" => String.t(),
-        "Status" => String.t()
+        "Slots" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type shard() :: %{String.t() => any()}
+  @type shard() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1547,7 +1547,7 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type shard_configuration_request() :: %{String.t() => any()}
+  @type shard_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1555,24 +1555,24 @@ defmodule AWS.MemoryDB do
       
       describe_multi_region_clusters_request() :: %{
         optional("MaxResults") => integer(),
-        optional("MultiRegionClusterName") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("MultiRegionClusterName") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("ShowClusterDetails") => boolean()
       }
       
   """
-  @type describe_multi_region_clusters_request() :: %{String.t() => any()}
+  @type describe_multi_region_clusters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       duplicate_user_name_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type duplicate_user_name_fault() :: %{String.t() => any()}
+  @type duplicate_user_name_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1580,37 +1580,37 @@ defmodule AWS.MemoryDB do
       
       event() :: %{
         "Date" => non_neg_integer(),
-        "Message" => String.t(),
-        "SourceName" => String.t(),
+        "Message" => String.t() | atom(),
+        "SourceName" => String.t() | atom(),
         "SourceType" => list(any())
       }
       
   """
-  @type event() :: %{String.t() => any()}
+  @type event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_cluster_request() :: %{
-        optional("FinalSnapshotName") => String.t(),
-        optional("MultiRegionClusterName") => String.t(),
-        required("ClusterName") => String.t()
+        optional("FinalSnapshotName") => String.t() | atom(),
+        optional("MultiRegionClusterName") => String.t() | atom(),
+        required("ClusterName") => String.t() | atom()
       }
       
   """
-  @type delete_cluster_request() :: %{String.t() => any()}
+  @type delete_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       parameter_group_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type parameter_group_quota_exceeded_fault() :: %{String.t() => any()}
+  @type parameter_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1620,31 +1620,31 @@ defmodule AWS.MemoryDB do
         optional("Duration") => integer(),
         optional("EndTime") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("SourceName") => String.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SourceName") => String.t() | atom(),
         optional("SourceType") => list(any()),
         optional("StartTime") => non_neg_integer()
       }
       
   """
-  @type describe_events_request() :: %{String.t() => any()}
+  @type describe_events_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot() :: %{
-        "ARN" => String.t(),
+        "ARN" => String.t() | atom(),
         "ClusterConfiguration" => cluster_configuration(),
         "DataTiering" => list(any()),
-        "KmsKeyId" => String.t(),
-        "Name" => String.t(),
-        "Source" => String.t(),
-        "Status" => String.t()
+        "KmsKeyId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Source" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type snapshot() :: %{String.t() => any()}
+  @type snapshot() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1652,34 +1652,34 @@ defmodule AWS.MemoryDB do
       
       describe_subnet_groups_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("SubnetGroupName") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("SubnetGroupName") => String.t() | atom()
       }
       
   """
-  @type describe_subnet_groups_request() :: %{String.t() => any()}
+  @type describe_subnet_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       subnet_in_use() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type subnet_in_use() :: %{String.t() => any()}
+  @type subnet_in_use() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_linked_role_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type service_linked_role_not_found_fault() :: %{String.t() => any()}
+  @type service_linked_role_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1690,7 +1690,7 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1701,44 +1701,44 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type update_multi_region_cluster_response() :: %{String.t() => any()}
+  @type update_multi_region_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       acl_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type acl_already_exists_fault() :: %{String.t() => any()}
+  @type acl_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_reserved_nodes_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "ReservedNodes" => list(reserved_node())
       }
       
   """
-  @type describe_reserved_nodes_response() :: %{String.t() => any()}
+  @type describe_reserved_nodes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       regional_cluster() :: %{
-        "ARN" => String.t(),
-        "ClusterName" => String.t(),
-        "Region" => String.t(),
-        "Status" => String.t()
+        "ARN" => String.t() | atom(),
+        "ClusterName" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type regional_cluster() :: %{String.t() => any()}
+  @type regional_cluster() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1746,27 +1746,27 @@ defmodule AWS.MemoryDB do
       
       describe_parameter_groups_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ParameterGroupName") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("ParameterGroupName") => String.t() | atom()
       }
       
   """
-  @type describe_parameter_groups_request() :: %{String.t() => any()}
+  @type describe_parameter_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       copy_snapshot_request() :: %{
-        optional("KmsKeyId") => String.t(),
+        optional("KmsKeyId") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        optional("TargetBucket") => String.t(),
-        required("SourceSnapshotName") => String.t(),
-        required("TargetSnapshotName") => String.t()
+        optional("TargetBucket") => String.t() | atom(),
+        required("SourceSnapshotName") => String.t() | atom(),
+        required("TargetSnapshotName") => String.t() | atom()
       }
       
   """
-  @type copy_snapshot_request() :: %{String.t() => any()}
+  @type copy_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1774,11 +1774,11 @@ defmodule AWS.MemoryDB do
       
       describe_clusters_response() :: %{
         "Clusters" => list(cluster()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_clusters_response() :: %{String.t() => any()}
+  @type describe_clusters_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1791,31 +1791,31 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type cluster_pending_updates() :: %{String.t() => any()}
+  @type cluster_pending_updates() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type snapshot_already_exists_fault() :: %{String.t() => any()}
+  @type snapshot_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_user_request() :: %{
-        optional("AccessString") => String.t(),
+        optional("AccessString") => String.t() | atom(),
         optional("AuthenticationMode") => authentication_mode(),
-        required("UserName") => String.t()
+        required("UserName") => String.t() | atom()
       }
       
   """
-  @type update_user_request() :: %{String.t() => any()}
+  @type update_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1826,35 +1826,35 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type replica_configuration_request() :: %{String.t() => any()}
+  @type replica_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_nodes_offering_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type reserved_nodes_offering_not_found_fault() :: %{String.t() => any()}
+  @type reserved_nodes_offering_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       user() :: %{
-        "ACLNames" => list(String.t()),
-        "ARN" => String.t(),
-        "AccessString" => String.t(),
+        "ACLNames" => list(String.t() | atom()),
+        "ARN" => String.t() | atom(),
+        "AccessString" => String.t() | atom(),
         "Authentication" => authentication(),
-        "MinimumEngineVersion" => String.t(),
-        "Name" => String.t(),
-        "Status" => String.t()
+        "MinimumEngineVersion" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type user() :: %{String.t() => any()}
+  @type user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1862,88 +1862,88 @@ defmodule AWS.MemoryDB do
       
       service_update() :: %{
         "AutoUpdateStartDate" => non_neg_integer(),
-        "ClusterName" => String.t(),
-        "Description" => String.t(),
-        "Engine" => String.t(),
-        "NodesUpdated" => String.t(),
+        "ClusterName" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Engine" => String.t() | atom(),
+        "NodesUpdated" => String.t() | atom(),
         "ReleaseDate" => non_neg_integer(),
-        "ServiceUpdateName" => String.t(),
+        "ServiceUpdateName" => String.t() | atom(),
         "Status" => list(any()),
         "Type" => list(any())
       }
       
   """
-  @type service_update() :: %{String.t() => any()}
+  @type service_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       multi_region_cluster() :: %{
-        "ARN" => String.t(),
+        "ARN" => String.t() | atom(),
         "Clusters" => list(regional_cluster()),
-        "Description" => String.t(),
-        "Engine" => String.t(),
-        "EngineVersion" => String.t(),
-        "MultiRegionClusterName" => String.t(),
-        "MultiRegionParameterGroupName" => String.t(),
-        "NodeType" => String.t(),
+        "Description" => String.t() | atom(),
+        "Engine" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
+        "MultiRegionClusterName" => String.t() | atom(),
+        "MultiRegionParameterGroupName" => String.t() | atom(),
+        "NodeType" => String.t() | atom(),
         "NumberOfShards" => integer(),
-        "Status" => String.t(),
+        "Status" => String.t() | atom(),
         "TLSEnabled" => boolean()
       }
       
   """
-  @type multi_region_cluster() :: %{String.t() => any()}
+  @type multi_region_cluster() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_cluster_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_cluster_state_fault() :: %{String.t() => any()}
+  @type invalid_cluster_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       default_user_required() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type default_user_required() :: %{String.t() => any()}
+  @type default_user_required() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_snapshots_request() :: %{
-        optional("ClusterName") => String.t(),
+        optional("ClusterName") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("ShowDetail") => boolean(),
-        optional("SnapshotName") => String.t(),
-        optional("Source") => String.t()
+        optional("SnapshotName") => String.t() | atom(),
+        optional("Source") => String.t() | atom()
       }
       
   """
-  @type describe_snapshots_request() :: %{String.t() => any()}
+  @type describe_snapshots_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_node_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type reserved_node_quota_exceeded_fault() :: %{String.t() => any()}
+  @type reserved_node_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1954,135 +1954,135 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type update_parameter_group_response() :: %{String.t() => any()}
+  @type update_parameter_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       authentication_mode() :: %{
-        "Passwords" => list(String.t()),
+        "Passwords" => list(String.t() | atom()),
         "Type" => list(any())
       }
       
   """
-  @type authentication_mode() :: %{String.t() => any()}
+  @type authentication_mode() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_reserved_nodes_offerings_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "ReservedNodesOfferings" => list(reserved_nodes_offering())
       }
       
   """
-  @type describe_reserved_nodes_offerings_response() :: %{String.t() => any()}
+  @type describe_reserved_nodes_offerings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       subnet_group_in_use_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type subnet_group_in_use_fault() :: %{String.t() => any()}
+  @type subnet_group_in_use_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_parameter_group_request() :: %{
-        required("ParameterGroupName") => String.t(),
+        required("ParameterGroupName") => String.t() | atom(),
         required("ParameterNameValues") => list(parameter_name_value())
       }
       
   """
-  @type update_parameter_group_request() :: %{String.t() => any()}
+  @type update_parameter_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       pending_modified_service_update() :: %{
-        "ServiceUpdateName" => String.t(),
+        "ServiceUpdateName" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type pending_modified_service_update() :: %{String.t() => any()}
+  @type pending_modified_service_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       parameter_group() :: %{
-        "ARN" => String.t(),
-        "Description" => String.t(),
-        "Family" => String.t(),
-        "Name" => String.t()
+        "ARN" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Family" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type parameter_group() :: %{String.t() => any()}
+  @type parameter_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_node_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_node_state_fault() :: %{String.t() => any()}
+  @type invalid_node_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       insufficient_cluster_capacity_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type insufficient_cluster_capacity_fault() :: %{String.t() => any()}
+  @type insufficient_cluster_capacity_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type cluster_already_exists_fault() :: %{String.t() => any()}
+  @type cluster_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       multi_region_cluster_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type multi_region_cluster_already_exists_fault() :: %{String.t() => any()}
+  @type multi_region_cluster_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type list_tags_request() :: %{String.t() => any()}
+  @type list_tags_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2093,22 +2093,22 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type copy_snapshot_response() :: %{String.t() => any()}
+  @type copy_snapshot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_service_updates_request() :: %{
-        optional("ClusterNames") => list(String.t()),
+        optional("ClusterNames") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ServiceUpdateName") => String.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ServiceUpdateName") => String.t() | atom(),
         optional("Status") => list(list(any())())
       }
       
   """
-  @type describe_service_updates_request() :: %{String.t() => any()}
+  @type describe_service_updates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2116,22 +2116,22 @@ defmodule AWS.MemoryDB do
       
       describe_engine_versions_response() :: %{
         "EngineVersions" => list(engine_version_info()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_engine_versions_response() :: %{String.t() => any()}
+  @type describe_engine_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_credentials_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_credentials_exception() :: %{String.t() => any()}
+  @type invalid_credentials_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2142,29 +2142,29 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type delete_acl_response() :: %{String.t() => any()}
+  @type delete_acl_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       subnet_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type subnet_quota_exceeded_fault() :: %{String.t() => any()}
+  @type subnet_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       acl_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type acl_quota_exceeded_fault() :: %{String.t() => any()}
+  @type acl_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2175,7 +2175,7 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type create_user_response() :: %{String.t() => any()}
+  @type create_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2186,44 +2186,44 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type slot_migration() :: %{String.t() => any()}
+  @type slot_migration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       parameter_group_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type parameter_group_not_found_fault() :: %{String.t() => any()}
+  @type parameter_group_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       failover_shard_request() :: %{
-        required("ClusterName") => String.t(),
-        required("ShardName") => String.t()
+        required("ClusterName") => String.t() | atom(),
+        required("ShardName") => String.t() | atom()
       }
       
   """
-  @type failover_shard_request() :: %{String.t() => any()}
+  @type failover_shard_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_clusters_request() :: %{
-        optional("ClusterName") => String.t(),
+        optional("ClusterName") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("ShowShardDetails") => boolean()
       }
       
   """
-  @type describe_clusters_request() :: %{String.t() => any()}
+  @type describe_clusters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2231,11 +2231,11 @@ defmodule AWS.MemoryDB do
       
       describe_events_response() :: %{
         "Events" => list(event()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_events_response() :: %{String.t() => any()}
+  @type describe_events_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2246,7 +2246,7 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type update_subnet_group_response() :: %{String.t() => any()}
+  @type update_subnet_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2254,22 +2254,22 @@ defmodule AWS.MemoryDB do
       
       shard_configuration() :: %{
         "ReplicaCount" => integer(),
-        "Slots" => String.t()
+        "Slots" => String.t() | atom()
       }
       
   """
-  @type shard_configuration() :: %{String.t() => any()}
+  @type shard_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       multi_region_parameter_group_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type multi_region_parameter_group_not_found_fault() :: %{String.t() => any()}
+  @type multi_region_parameter_group_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2280,7 +2280,7 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type delete_snapshot_response() :: %{String.t() => any()}
+  @type delete_snapshot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2288,24 +2288,24 @@ defmodule AWS.MemoryDB do
       
       create_user_request() :: %{
         optional("Tags") => list(tag()),
-        required("AccessString") => String.t(),
+        required("AccessString") => String.t() | atom(),
         required("AuthenticationMode") => authentication_mode(),
-        required("UserName") => String.t()
+        required("UserName") => String.t() | atom()
       }
       
   """
-  @type create_user_request() :: %{String.t() => any()}
+  @type create_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       node_quota_for_cluster_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type node_quota_for_cluster_exceeded_fault() :: %{String.t() => any()}
+  @type node_quota_for_cluster_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2316,7 +2316,7 @@ defmodule AWS.MemoryDB do
       }
       
   """
-  @type update_cluster_response() :: %{String.t() => any()}
+  @type update_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @type batch_update_cluster_errors() ::
           invalid_parameter_value_exception() | service_update_not_found_fault()
@@ -2671,7 +2671,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, batch_update_cluster_errors()}
   def batch_update_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchUpdateCluster", input, options)
   end
@@ -2685,7 +2686,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, copy_snapshot_errors()}
   def copy_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopySnapshot", input, options)
   end
@@ -2701,7 +2703,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, create_acl_errors()}
   def create_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateACL", input, options)
   end
@@ -2717,7 +2720,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCluster", input, options)
   end
@@ -2731,7 +2735,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, create_multi_region_cluster_errors()}
   def create_multi_region_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMultiRegionCluster", input, options)
   end
@@ -2749,7 +2754,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, create_parameter_group_errors()}
   def create_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateParameterGroup", input, options)
   end
@@ -2763,7 +2769,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, create_snapshot_errors()}
   def create_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSnapshot", input, options)
   end
@@ -2786,7 +2793,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, create_subnet_group_errors()}
   def create_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSubnetGroup", input, options)
   end
@@ -2802,7 +2810,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUser", input, options)
   end
@@ -2819,7 +2828,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, delete_acl_errors()}
   def delete_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteACL", input, options)
   end
@@ -2839,7 +2849,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCluster", input, options)
   end
@@ -2853,7 +2864,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, delete_multi_region_cluster_errors()}
   def delete_multi_region_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMultiRegionCluster", input, options)
   end
@@ -2870,7 +2882,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, delete_parameter_group_errors()}
   def delete_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteParameterGroup", input, options)
   end
@@ -2887,7 +2900,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, delete_snapshot_errors()}
   def delete_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSnapshot", input, options)
   end
@@ -2904,7 +2918,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, delete_subnet_group_errors()}
   def delete_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSubnetGroup", input, options)
   end
@@ -2920,7 +2935,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUser", input, options)
   end
@@ -2934,7 +2950,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_acls_errors()}
   def describe_acls(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeACLs", input, options)
   end
@@ -2949,7 +2966,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_clusters_errors()}
   def describe_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClusters", input, options)
   end
@@ -2963,7 +2981,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_engine_versions_errors()}
   def describe_engine_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEngineVersions", input, options)
   end
@@ -2983,7 +3002,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_events_errors()}
   def describe_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEvents", input, options)
   end
@@ -2997,7 +3017,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_multi_region_clusters_errors()}
   def describe_multi_region_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMultiRegionClusters", input, options)
   end
@@ -3014,7 +3035,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_parameter_groups_errors()}
   def describe_parameter_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeParameterGroups", input, options)
   end
@@ -3028,7 +3050,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_parameters_errors()}
   def describe_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeParameters", input, options)
   end
@@ -3043,7 +3066,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_reserved_nodes_errors()}
   def describe_reserved_nodes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReservedNodes", input, options)
   end
@@ -3061,7 +3085,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_reserved_nodes_offerings_errors()}
   def describe_reserved_nodes_offerings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReservedNodesOfferings", input, options)
   end
@@ -3075,7 +3100,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_service_updates_errors()}
   def describe_service_updates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeServiceUpdates", input, options)
   end
@@ -3093,7 +3119,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_snapshots_errors()}
   def describe_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSnapshots", input, options)
   end
@@ -3110,7 +3137,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_subnet_groups_errors()}
   def describe_subnet_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSubnetGroups", input, options)
   end
@@ -3124,7 +3152,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_users_errors()}
   def describe_users(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUsers", input, options)
   end
@@ -3145,7 +3174,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, failover_shard_errors()}
   def failover_shard(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "FailoverShard", input, options)
   end
@@ -3163,7 +3193,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, list_allowed_multi_region_cluster_updates_errors()}
   def list_allowed_multi_region_cluster_updates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAllowedMultiRegionClusterUpdates", input, options)
   end
@@ -3181,7 +3212,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, list_allowed_node_type_updates_errors()}
   def list_allowed_node_type_updates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAllowedNodeTypeUpdates", input, options)
   end
@@ -3204,7 +3236,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTags", input, options)
   end
@@ -3224,7 +3257,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, purchase_reserved_nodes_offering_errors()}
   def purchase_reserved_nodes_offering(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PurchaseReservedNodesOffering", input, options)
   end
@@ -3243,7 +3277,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, reset_parameter_group_errors()}
   def reset_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetParameterGroup", input, options)
   end
@@ -3275,7 +3310,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3307,7 +3343,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -3321,7 +3358,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, update_acl_errors()}
   def update_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateACL", input, options)
   end
@@ -3338,7 +3376,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, update_cluster_errors()}
   def update_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCluster", input, options)
   end
@@ -3352,7 +3391,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, update_multi_region_cluster_errors()}
   def update_multi_region_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMultiRegionCluster", input, options)
   end
@@ -3369,7 +3409,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, update_parameter_group_errors()}
   def update_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateParameterGroup", input, options)
   end
@@ -3385,7 +3426,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, update_subnet_group_errors()}
   def update_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSubnetGroup", input, options)
   end
@@ -3399,7 +3441,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, update_user_errors()}
   def update_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUser", input, options)
   end

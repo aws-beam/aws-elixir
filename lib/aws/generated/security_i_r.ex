@@ -15,29 +15,29 @@ defmodule AWS.SecurityIR do
   ## Example:
 
       case_attachment_attributes() :: %{
-        "attachmentId" => String.t(),
+        "attachmentId" => String.t() | atom(),
         "attachmentStatus" => list(any()),
         "createdDate" => [non_neg_integer()],
-        "creator" => String.t(),
-        "fileName" => String.t()
+        "creator" => String.t() | atom(),
+        "fileName" => String.t() | atom()
       }
 
   """
-  @type case_attachment_attributes() :: %{String.t() => any()}
+  @type case_attachment_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_membership_response() :: %{
-        "accountId" => String.t(),
+        "accountId" => String.t() | atom(),
         "customerType" => list(any()),
         "incidentResponseTeam" => list(incident_responder()),
         "membershipActivationTimestamp" => [non_neg_integer()],
-        "membershipArn" => String.t(),
+        "membershipArn" => String.t() | atom(),
         "membershipDeactivationTimestamp" => [non_neg_integer()],
-        "membershipId" => String.t(),
-        "membershipName" => String.t(),
+        "membershipId" => String.t() | atom(),
+        "membershipName" => String.t() | atom(),
         "membershipStatus" => list(any()),
         "numberOfAccountsCovered" => [float()],
         "optInFeatures" => list(opt_in_feature()),
@@ -45,84 +45,84 @@ defmodule AWS.SecurityIR do
       }
 
   """
-  @type get_membership_response() :: %{String.t() => any()}
+  @type get_membership_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       security_incident_response_not_active_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type security_incident_response_not_active_exception() :: %{String.t() => any()}
+  @type security_incident_response_not_active_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_membership_account_detail_error() :: %{
-        "accountId" => String.t(),
-        "error" => [String.t()],
-        "message" => [String.t()]
+        "accountId" => String.t() | atom(),
+        "error" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type get_membership_account_detail_error() :: %{String.t() => any()}
+  @type get_membership_account_detail_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_membership_item() :: %{
-        "accountId" => String.t(),
-        "membershipArn" => String.t(),
-        "membershipId" => String.t(),
+        "accountId" => String.t() | atom(),
+        "membershipArn" => String.t() | atom(),
+        "membershipId" => String.t() | atom(),
         "membershipStatus" => list(any()),
         "region" => list(any())
       }
 
   """
-  @type list_membership_item() :: %{String.t() => any()}
+  @type list_membership_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_membership_account_detail_item() :: %{
-        "accountId" => String.t(),
+        "accountId" => String.t() | atom(),
         "relationshipStatus" => list(any()),
         "relationshipType" => list(any())
       }
 
   """
-  @type get_membership_account_detail_item() :: %{String.t() => any()}
+  @type get_membership_account_detail_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_case_comment_request() :: %{
-        optional("clientToken") => [String.t()],
-        required("body") => String.t()
+        optional("clientToken") => [String.t() | atom()],
+        required("body") => String.t() | atom()
       }
 
   """
-  @type create_case_comment_request() :: %{String.t() => any()}
+  @type create_case_comment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       watcher() :: %{
-        "email" => String.t(),
-        "jobTitle" => String.t(),
-        "name" => String.t()
+        "email" => String.t() | atom(),
+        "jobTitle" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type watcher() :: %{String.t() => any()}
+  @type watcher() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -130,11 +130,11 @@ defmodule AWS.SecurityIR do
 
       list_memberships_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_memberships_request() :: %{String.t() => any()}
+  @type list_memberships_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -145,77 +145,77 @@ defmodule AWS.SecurityIR do
       }
 
   """
-  @type impacted_aws_region() :: %{String.t() => any()}
+  @type impacted_aws_region() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_case_request() :: %{
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => [String.t() | atom()],
         optional("impactedAwsRegions") => list(impacted_aws_region()),
-        optional("impactedServices") => list(String.t()),
+        optional("impactedServices") => list(String.t() | atom()),
         optional("tags") => map(),
         optional("threatActorIpAddresses") => list(threat_actor_ip()),
-        required("description") => String.t(),
+        required("description") => String.t() | atom(),
         required("engagementType") => list(any()),
-        required("impactedAccounts") => list(String.t()),
+        required("impactedAccounts") => list(String.t() | atom()),
         required("reportedIncidentStartDate") => [non_neg_integer()],
         required("resolverType") => list(any()),
-        required("title") => String.t(),
+        required("title") => String.t() | atom(),
         required("watchers") => list(watcher())
       }
 
   """
-  @type create_case_request() :: %{String.t() => any()}
+  @type create_case_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       incident_responder() :: %{
-        "email" => String.t(),
-        "jobTitle" => String.t(),
-        "name" => String.t()
+        "email" => String.t() | atom(),
+        "jobTitle" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type incident_responder() :: %{String.t() => any()}
+  @type incident_responder() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_case_response() :: %{
-        "caseId" => String.t()
+        "caseId" => String.t() | atom()
       }
 
   """
-  @type create_case_response() :: %{String.t() => any()}
+  @type create_case_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_member_account_details_request() :: %{
-        required("accountIds") => list(String.t())
+        required("accountIds") => list(String.t() | atom())
       }
 
   """
-  @type batch_get_member_account_details_request() :: %{String.t() => any()}
+  @type batch_get_member_account_details_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_resolver_type_response() :: %{
-        "caseId" => String.t(),
+        "caseId" => String.t() | atom(),
         "caseStatus" => list(any()),
         "resolverType" => list(any())
       }
 
   """
-  @type update_resolver_type_response() :: %{String.t() => any()}
+  @type update_resolver_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -223,11 +223,11 @@ defmodule AWS.SecurityIR do
 
       list_cases_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_cases_request() :: %{String.t() => any()}
+  @type list_cases_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -235,28 +235,28 @@ defmodule AWS.SecurityIR do
 
       get_case_response() :: %{
         "actualIncidentStartDate" => [non_neg_integer()],
-        "caseArn" => String.t(),
+        "caseArn" => String.t() | atom(),
         "caseAttachments" => list(case_attachment_attributes()),
         "caseStatus" => list(any()),
         "closedDate" => [non_neg_integer()],
         "closureCode" => list(any()),
         "createdDate" => [non_neg_integer()],
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "engagementType" => list(any()),
-        "impactedAccounts" => list(String.t()),
+        "impactedAccounts" => list(String.t() | atom()),
         "impactedAwsRegions" => list(impacted_aws_region()),
-        "impactedServices" => list(String.t()),
+        "impactedServices" => list(String.t() | atom()),
         "lastUpdatedDate" => [non_neg_integer()],
         "pendingAction" => list(any()),
         "reportedIncidentStartDate" => [non_neg_integer()],
         "resolverType" => list(any()),
         "threatActorIpAddresses" => list(threat_actor_ip()),
-        "title" => String.t(),
+        "title" => String.t() | atom(),
         "watchers" => list(watcher())
       }
 
   """
-  @type get_case_response() :: %{String.t() => any()}
+  @type get_case_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -267,7 +267,7 @@ defmodule AWS.SecurityIR do
       }
 
   """
-  @type list_tags_for_resource_output() :: %{String.t() => any()}
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -275,12 +275,12 @@ defmodule AWS.SecurityIR do
 
       list_cases_response() :: %{
         "items" => list(list_cases_item()),
-        "nextToken" => [String.t()],
+        "nextToken" => [String.t() | atom()],
         "total" => [float()]
       }
 
   """
-  @type list_cases_response() :: %{String.t() => any()}
+  @type list_cases_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -288,19 +288,19 @@ defmodule AWS.SecurityIR do
 
       list_comments_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_comments_request() :: %{String.t() => any()}
+  @type list_comments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_cases_item() :: %{
-        "caseArn" => String.t(),
-        "caseId" => String.t(),
+        "caseArn" => String.t() | atom(),
+        "caseId" => String.t() | atom(),
         "caseStatus" => list(any()),
         "closedDate" => [non_neg_integer()],
         "createdDate" => [non_neg_integer()],
@@ -308,11 +308,11 @@ defmodule AWS.SecurityIR do
         "lastUpdatedDate" => [non_neg_integer()],
         "pendingAction" => list(any()),
         "resolverType" => list(any()),
-        "title" => String.t()
+        "title" => String.t() | atom()
       }
 
   """
-  @type list_cases_item() :: %{String.t() => any()}
+  @type list_cases_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -324,7 +324,7 @@ defmodule AWS.SecurityIR do
       }
 
   """
-  @type close_case_response() :: %{String.t() => any()}
+  @type close_case_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -340,37 +340,37 @@ defmodule AWS.SecurityIR do
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_case_attachment_upload_url_request() :: %{
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => [String.t() | atom()],
         required("contentLength") => float(),
-        required("fileName") => String.t()
+        required("fileName") => String.t() | atom()
       }
 
   """
-  @type get_case_attachment_upload_url_request() :: %{String.t() => any()}
+  @type get_case_attachment_upload_url_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -386,15 +386,15 @@ defmodule AWS.SecurityIR do
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()],
-        "quotaCode" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()],
-        "serviceCode" => [String.t()]
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()],
+        "serviceCode" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -402,11 +402,11 @@ defmodule AWS.SecurityIR do
 
       list_case_edits_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_case_edits_request() :: %{String.t() => any()}
+  @type list_case_edits_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -426,41 +426,41 @@ defmodule AWS.SecurityIR do
       }
 
   """
-  @type update_case_status_response() :: %{String.t() => any()}
+  @type update_case_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => [String.t()],
-        "name" => [String.t()]
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_case_attachment_download_url_response() :: %{
-        "attachmentPresignedUrl" => String.t()
+        "attachmentPresignedUrl" => String.t() | atom()
       }
 
   """
-  @type get_case_attachment_download_url_response() :: %{String.t() => any()}
+  @type get_case_attachment_download_url_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_case_comment_request() :: %{
-        required("body") => String.t()
+        required("body") => String.t() | atom()
       }
 
   """
-  @type update_case_comment_request() :: %{String.t() => any()}
+  @type update_case_comment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -468,12 +468,12 @@ defmodule AWS.SecurityIR do
 
       list_case_edits_response() :: %{
         "items" => list(case_edit_item()),
-        "nextToken" => [String.t()],
+        "nextToken" => [String.t() | atom()],
         "total" => [integer()]
       }
 
   """
-  @type list_case_edits_response() :: %{String.t() => any()}
+  @type list_case_edits_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -484,7 +484,7 @@ defmodule AWS.SecurityIR do
       }
 
   """
-  @type tag_resource_input() :: %{String.t() => any()}
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -513,7 +513,7 @@ defmodule AWS.SecurityIR do
       }
 
   """
-  @type update_case_status_request() :: %{String.t() => any()}
+  @type update_case_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -530,24 +530,24 @@ defmodule AWS.SecurityIR do
 
       update_membership_request() :: %{
         optional("incidentResponseTeam") => list(incident_responder()),
-        optional("membershipName") => String.t(),
+        optional("membershipName") => String.t() | atom(),
         optional("optInFeatures") => list(opt_in_feature())
       }
 
   """
-  @type update_membership_request() :: %{String.t() => any()}
+  @type update_membership_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()],
+        "message" => [String.t() | atom()],
         "retryAfterSeconds" => [integer()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -555,35 +555,35 @@ defmodule AWS.SecurityIR do
 
       update_case_request() :: %{
         optional("actualIncidentStartDate") => [non_neg_integer()],
-        optional("description") => String.t(),
+        optional("description") => String.t() | atom(),
         optional("engagementType") => list(any()),
-        optional("impactedAccountsToAdd") => list(String.t()),
-        optional("impactedAccountsToDelete") => list(String.t()),
+        optional("impactedAccountsToAdd") => list(String.t() | atom()),
+        optional("impactedAccountsToDelete") => list(String.t() | atom()),
         optional("impactedAwsRegionsToAdd") => list(impacted_aws_region()),
         optional("impactedAwsRegionsToDelete") => list(impacted_aws_region()),
-        optional("impactedServicesToAdd") => list(String.t()),
-        optional("impactedServicesToDelete") => list(String.t()),
+        optional("impactedServicesToAdd") => list(String.t() | atom()),
+        optional("impactedServicesToDelete") => list(String.t() | atom()),
         optional("reportedIncidentStartDate") => [non_neg_integer()],
         optional("threatActorIpAddressesToAdd") => list(threat_actor_ip()),
         optional("threatActorIpAddressesToDelete") => list(threat_actor_ip()),
-        optional("title") => String.t(),
+        optional("title") => String.t() | atom(),
         optional("watchersToAdd") => list(watcher()),
         optional("watchersToDelete") => list(watcher())
       }
 
   """
-  @type update_case_request() :: %{String.t() => any()}
+  @type update_case_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -595,32 +595,32 @@ defmodule AWS.SecurityIR do
       }
 
   """
-  @type opt_in_feature() :: %{String.t() => any()}
+  @type opt_in_feature() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_input() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_input() :: %{String.t() => any()}
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       case_edit_item() :: %{
-        "action" => String.t(),
+        "action" => String.t() | atom(),
         "eventTimestamp" => [non_neg_integer()],
-        "message" => String.t(),
-        "principal" => [String.t()]
+        "message" => String.t() | atom(),
+        "principal" => [String.t() | atom()]
       }
 
   """
-  @type case_edit_item() :: %{String.t() => any()}
+  @type case_edit_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -628,22 +628,22 @@ defmodule AWS.SecurityIR do
 
       list_memberships_response() :: %{
         "items" => list(list_membership_item()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_memberships_response() :: %{String.t() => any()}
+  @type list_memberships_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_case_attachment_upload_url_response() :: %{
-        "attachmentPresignedUrl" => String.t()
+        "attachmentPresignedUrl" => String.t() | atom()
       }
 
   """
-  @type get_case_attachment_upload_url_response() :: %{String.t() => any()}
+  @type get_case_attachment_upload_url_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -651,12 +651,12 @@ defmodule AWS.SecurityIR do
 
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
-        "message" => [String.t()],
+        "message" => [String.t() | atom()],
         "reason" => list(any())
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -681,14 +681,14 @@ defmodule AWS.SecurityIR do
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()],
-        "quotaCode" => [String.t()],
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
         "retryAfterSeconds" => [integer()],
-        "serviceCode" => [String.t()]
+        "serviceCode" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -700,46 +700,46 @@ defmodule AWS.SecurityIR do
       }
 
   """
-  @type batch_get_member_account_details_response() :: %{String.t() => any()}
+  @type batch_get_member_account_details_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_case_comment_response() :: %{
-        "body" => String.t(),
-        "commentId" => String.t()
+        "body" => String.t() | atom(),
+        "commentId" => String.t() | atom()
       }
 
   """
-  @type update_case_comment_response() :: %{String.t() => any()}
+  @type update_case_comment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_comments_item() :: %{
-        "body" => String.t(),
-        "commentId" => String.t(),
+        "body" => String.t() | atom(),
+        "commentId" => String.t() | atom(),
         "createdDate" => [non_neg_integer()],
-        "creator" => String.t(),
-        "lastUpdatedBy" => String.t(),
+        "creator" => String.t() | atom(),
+        "lastUpdatedBy" => String.t() | atom(),
         "lastUpdatedDate" => [non_neg_integer()]
       }
 
   """
-  @type list_comments_item() :: %{String.t() => any()}
+  @type list_comments_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_case_comment_response() :: %{
-        "commentId" => String.t()
+        "commentId" => String.t() | atom()
       }
 
   """
-  @type create_case_comment_response() :: %{String.t() => any()}
+  @type create_case_comment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -750,22 +750,22 @@ defmodule AWS.SecurityIR do
       }
 
   """
-  @type update_resolver_type_request() :: %{String.t() => any()}
+  @type update_resolver_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_membership_request() :: %{
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => [String.t() | atom()],
         optional("optInFeatures") => list(opt_in_feature()),
         optional("tags") => map(),
         required("incidentResponseTeam") => list(incident_responder()),
-        required("membershipName") => String.t()
+        required("membershipName") => String.t() | atom()
       }
 
   """
-  @type create_membership_request() :: %{String.t() => any()}
+  @type create_membership_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -791,57 +791,57 @@ defmodule AWS.SecurityIR do
 
       list_comments_response() :: %{
         "items" => list(list_comments_item()),
-        "nextToken" => [String.t()],
+        "nextToken" => [String.t() | atom()],
         "total" => [integer()]
       }
 
   """
-  @type list_comments_response() :: %{String.t() => any()}
+  @type list_comments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_token_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type invalid_token_exception() :: %{String.t() => any()}
+  @type invalid_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_membership_response() :: %{
-        "membershipId" => String.t()
+        "membershipId" => String.t() | atom()
       }
 
   """
-  @type create_membership_response() :: %{String.t() => any()}
+  @type create_membership_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_membership_response() :: %{
-        "membershipId" => String.t()
+        "membershipId" => String.t() | atom()
       }
 
   """
-  @type cancel_membership_response() :: %{String.t() => any()}
+  @type cancel_membership_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       threat_actor_ip() :: %{
-        "ipAddress" => String.t(),
-        "userAgent" => String.t()
+        "ipAddress" => String.t() | atom(),
+        "userAgent" => String.t() | atom()
       }
 
   """
-  @type threat_actor_ip() :: %{String.t() => any()}
+  @type threat_actor_ip() :: %{(String.t() | atom()) => any()}
 
   @type list_tags_for_resource_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
@@ -873,7 +873,7 @@ defmodule AWS.SecurityIR do
   """
   @spec batch_get_member_account_details(
           map(),
-          String.t(),
+          String.t() | atom(),
           batch_get_member_account_details_request(),
           list()
         ) ::
@@ -904,7 +904,7 @@ defmodule AWS.SecurityIR do
   @doc """
   Grants permissions to cancel an existing membership.
   """
-  @spec cancel_membership(map(), String.t(), cancel_membership_request(), list()) ::
+  @spec cancel_membership(map(), String.t() | atom(), cancel_membership_request(), list()) ::
           {:ok, cancel_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -932,7 +932,7 @@ defmodule AWS.SecurityIR do
   @doc """
   Grants permission to close an existing case.
   """
-  @spec close_case(map(), String.t(), close_case_request(), list()) ::
+  @spec close_case(map(), String.t() | atom(), close_case_request(), list()) ::
           {:ok, close_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -988,7 +988,7 @@ defmodule AWS.SecurityIR do
   @doc """
   Grants permission to add a comment to an existing case.
   """
-  @spec create_case_comment(map(), String.t(), create_case_comment_request(), list()) ::
+  @spec create_case_comment(map(), String.t() | atom(), create_case_comment_request(), list()) ::
           {:ok, create_case_comment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1044,7 +1044,7 @@ defmodule AWS.SecurityIR do
   @doc """
   Grant permission to view a designated case.
   """
-  @spec get_case(map(), String.t(), list()) ::
+  @spec get_case(map(), String.t() | atom(), list()) ::
           {:ok, get_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1062,7 +1062,7 @@ defmodule AWS.SecurityIR do
   Grants permission to obtain an Amazon S3 presigned URL to download an
   attachment.
   """
-  @spec get_case_attachment_download_url(map(), String.t(), String.t(), list()) ::
+  @spec get_case_attachment_download_url(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_case_attachment_download_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1083,7 +1083,7 @@ defmodule AWS.SecurityIR do
   """
   @spec get_case_attachment_upload_url(
           map(),
-          String.t(),
+          String.t() | atom(),
           get_case_attachment_upload_url_request(),
           list()
         ) ::
@@ -1114,7 +1114,7 @@ defmodule AWS.SecurityIR do
   @doc """
   Grants permission to get details of a designated service membership.
   """
-  @spec get_membership(map(), String.t(), list()) ::
+  @spec get_membership(map(), String.t() | atom(), list()) ::
           {:ok, get_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1131,7 +1131,7 @@ defmodule AWS.SecurityIR do
   @doc """
   Grants permissions to view the aidt log for edits made to a designated case.
   """
-  @spec list_case_edits(map(), String.t(), list_case_edits_request(), list()) ::
+  @spec list_case_edits(map(), String.t() | atom(), list_case_edits_request(), list()) ::
           {:ok, list_case_edits_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1187,7 +1187,7 @@ defmodule AWS.SecurityIR do
   @doc """
   Grants permissions to list and view comments for a designated case.
   """
-  @spec list_comments(map(), String.t(), list_comments_request(), list()) ::
+  @spec list_comments(map(), String.t() | atom(), list_comments_request(), list()) ::
           {:ok, list_comments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1243,7 +1243,7 @@ defmodule AWS.SecurityIR do
   @doc """
   Grants permission to view currently configured tags on a resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1261,7 +1261,7 @@ defmodule AWS.SecurityIR do
   @doc """
   Grants permission to add a tag(s) to a designated resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1290,7 +1290,7 @@ defmodule AWS.SecurityIR do
   @doc """
   Grants permission to remove a tag(s) from a designate resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1324,7 +1324,7 @@ defmodule AWS.SecurityIR do
   @doc """
   Grants permission to update an existing case.
   """
-  @spec update_case(map(), String.t(), update_case_request(), list()) ::
+  @spec update_case(map(), String.t() | atom(), update_case_request(), list()) ::
           {:ok, update_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1352,7 +1352,13 @@ defmodule AWS.SecurityIR do
   @doc """
   Grants permission to update an existing case comment.
   """
-  @spec update_case_comment(map(), String.t(), String.t(), update_case_comment_request(), list()) ::
+  @spec update_case_comment(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_case_comment_request(),
+          list()
+        ) ::
           {:ok, update_case_comment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1385,7 +1391,7 @@ defmodule AWS.SecurityIR do
   Options include `Submitted | Detection and Analysis | Eradication, Containment
   and Recovery | Post-Incident Activities | Closed`.
   """
-  @spec update_case_status(map(), String.t(), update_case_status_request(), list()) ::
+  @spec update_case_status(map(), String.t() | atom(), update_case_status_request(), list()) ::
           {:ok, update_case_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1413,7 +1419,7 @@ defmodule AWS.SecurityIR do
   @doc """
   Grants access to UpdateMembership to change membership configuration.
   """
-  @spec update_membership(map(), String.t(), update_membership_request(), list()) ::
+  @spec update_membership(map(), String.t() | atom(), update_membership_request(), list()) ::
           {:ok, update_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1445,7 +1451,7 @@ defmodule AWS.SecurityIR do
 
   Options include self-supported > AWS-supported.
   """
-  @spec update_resolver_type(map(), String.t(), update_resolver_type_request(), list()) ::
+  @spec update_resolver_type(map(), String.t() | atom(), update_resolver_type_request(), list()) ::
           {:ok, update_resolver_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

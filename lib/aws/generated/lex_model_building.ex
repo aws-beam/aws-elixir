@@ -20,24 +20,24 @@ defmodule AWS.LexModelBuilding do
   ## Example:
 
       builtin_slot_type_metadata() :: %{
-        "signature" => String.t(),
+        "signature" => String.t() | atom(),
         "supportedLocales" => list(list(any())())
       }
 
   """
-  @type builtin_slot_type_metadata() :: %{String.t() => any()}
+  @type builtin_slot_type_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_slot_types_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "slotTypes" => list(slot_type_metadata())
       }
 
   """
-  @type get_slot_types_response() :: %{String.t() => any()}
+  @type get_slot_types_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -45,10 +45,10 @@ defmodule AWS.LexModelBuilding do
 
       put_bot_request() :: %{
         optional("abortStatement") => statement(),
-        optional("checksum") => String.t(),
+        optional("checksum") => String.t() | atom(),
         optional("clarificationPrompt") => prompt(),
         optional("createVersion") => boolean(),
-        optional("description") => String.t(),
+        optional("description") => String.t() | atom(),
         optional("detectSentiment") => boolean(),
         optional("enableModelImprovements") => boolean(),
         optional("idleSessionTTLInSeconds") => integer(),
@@ -56,13 +56,13 @@ defmodule AWS.LexModelBuilding do
         optional("nluIntentConfidenceThreshold") => float(),
         optional("processBehavior") => list(any()),
         optional("tags") => list(tag()),
-        optional("voiceId") => String.t(),
+        optional("voiceId") => String.t() | atom(),
         required("childDirected") => boolean(),
         required("locale") => list(any())
       }
 
   """
-  @type put_bot_request() :: %{String.t() => any()}
+  @type put_bot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -73,7 +73,7 @@ defmodule AWS.LexModelBuilding do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -81,11 +81,11 @@ defmodule AWS.LexModelBuilding do
 
       get_bot_channel_associations_response() :: %{
         "botChannelAssociations" => list(bot_channel_association()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type get_bot_channel_associations_response() :: %{String.t() => any()}
+  @type get_bot_channel_associations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -94,23 +94,23 @@ defmodule AWS.LexModelBuilding do
       get_builtin_intents_request() :: %{
         optional("locale") => list(any()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("signatureContains") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("signatureContains") => String.t() | atom()
       }
 
   """
-  @type get_builtin_intents_request() :: %{String.t() => any()}
+  @type get_builtin_intents_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_failure_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_failure_exception() :: %{String.t() => any()}
+  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -122,26 +122,26 @@ defmodule AWS.LexModelBuilding do
       }
 
   """
-  @type fulfillment_activity() :: %{String.t() => any()}
+  @type fulfillment_activity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       migration_summary() :: %{
-        "migrationId" => String.t(),
+        "migrationId" => String.t() | atom(),
         "migrationStatus" => list(any()),
         "migrationStrategy" => list(any()),
         "migrationTimestamp" => non_neg_integer(),
         "v1BotLocale" => list(any()),
-        "v1BotName" => String.t(),
-        "v1BotVersion" => String.t(),
-        "v2BotId" => String.t(),
-        "v2BotRole" => String.t()
+        "v1BotName" => String.t() | atom(),
+        "v1BotVersion" => String.t() | atom(),
+        "v2BotId" => String.t() | atom(),
+        "v2BotRole" => String.t() | atom()
       }
 
   """
-  @type migration_summary() :: %{String.t() => any()}
+  @type migration_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -149,43 +149,43 @@ defmodule AWS.LexModelBuilding do
 
       get_migration_response() :: %{
         "alerts" => list(migration_alert()),
-        "migrationId" => String.t(),
+        "migrationId" => String.t() | atom(),
         "migrationStatus" => list(any()),
         "migrationStrategy" => list(any()),
         "migrationTimestamp" => non_neg_integer(),
         "v1BotLocale" => list(any()),
-        "v1BotName" => String.t(),
-        "v1BotVersion" => String.t(),
-        "v2BotId" => String.t(),
-        "v2BotRole" => String.t()
+        "v1BotName" => String.t() | atom(),
+        "v1BotVersion" => String.t() | atom(),
+        "v2BotId" => String.t() | atom(),
+        "v2BotRole" => String.t() | atom()
       }
 
   """
-  @type get_migration_response() :: %{String.t() => any()}
+  @type get_migration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_reference() :: %{
-        "name" => String.t(),
-        "version" => String.t()
+        "name" => String.t() | atom(),
+        "version" => String.t() | atom()
       }
 
   """
-  @type resource_reference() :: %{String.t() => any()}
+  @type resource_reference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_builtin_slot_types_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "slotTypes" => list(builtin_slot_type_metadata())
       }
 
   """
-  @type get_builtin_slot_types_response() :: %{String.t() => any()}
+  @type get_builtin_slot_types_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -201,21 +201,21 @@ defmodule AWS.LexModelBuilding do
   ## Example:
 
       put_slot_type_response() :: %{
-        "checksum" => String.t(),
+        "checksum" => String.t() | atom(),
         "createVersion" => boolean(),
         "createdDate" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "enumerationValues" => list(enumeration_value()),
         "lastUpdatedDate" => non_neg_integer(),
-        "name" => String.t(),
-        "parentSlotTypeSignature" => String.t(),
+        "name" => String.t() | atom(),
+        "parentSlotTypeSignature" => String.t() | atom(),
         "slotTypeConfigurations" => list(slot_type_configuration()),
         "valueSelectionStrategy" => list(any()),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type put_slot_type_response() :: %{String.t() => any()}
+  @type put_slot_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -223,16 +223,16 @@ defmodule AWS.LexModelBuilding do
 
       get_import_response() :: %{
         "createdDate" => non_neg_integer(),
-        "failureReason" => list(String.t()),
-        "importId" => String.t(),
+        "failureReason" => list(String.t() | atom()),
+        "importId" => String.t() | atom(),
         "importStatus" => list(any()),
         "mergeStrategy" => list(any()),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "resourceType" => list(any())
       }
 
   """
-  @type get_import_response() :: %{String.t() => any()}
+  @type get_import_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -253,7 +253,7 @@ defmodule AWS.LexModelBuilding do
       }
 
   """
-  @type resource_in_use_exception() :: %{String.t() => any()}
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -261,34 +261,34 @@ defmodule AWS.LexModelBuilding do
 
       start_migration_request() :: %{
         required("migrationStrategy") => list(any()),
-        required("v1BotName") => String.t(),
-        required("v1BotVersion") => String.t(),
-        required("v2BotName") => String.t(),
-        required("v2BotRole") => String.t()
+        required("v1BotName") => String.t() | atom(),
+        required("v1BotVersion") => String.t() | atom(),
+        required("v2BotName") => String.t() | atom(),
+        required("v2BotRole") => String.t() | atom()
       }
 
   """
-  @type start_migration_request() :: %{String.t() => any()}
+  @type start_migration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_slot_type_version_response() :: %{
-        "checksum" => String.t(),
+        "checksum" => String.t() | atom(),
         "createdDate" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "enumerationValues" => list(enumeration_value()),
         "lastUpdatedDate" => non_neg_integer(),
-        "name" => String.t(),
-        "parentSlotTypeSignature" => String.t(),
+        "name" => String.t() | atom(),
+        "parentSlotTypeSignature" => String.t() | atom(),
         "slotTypeConfigurations" => list(slot_type_configuration()),
         "valueSelectionStrategy" => list(any()),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type create_slot_type_version_response() :: %{String.t() => any()}
+  @type create_slot_type_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -296,13 +296,13 @@ defmodule AWS.LexModelBuilding do
 
       log_settings_request() :: %{
         "destination" => list(any()),
-        "kmsKeyArn" => String.t(),
+        "kmsKeyArn" => String.t() | atom(),
         "logType" => list(any()),
-        "resourceArn" => String.t()
+        "resourceArn" => String.t() | atom()
       }
 
   """
-  @type log_settings_request() :: %{String.t() => any()}
+  @type log_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -319,27 +319,27 @@ defmodule AWS.LexModelBuilding do
 
       get_bot_response() :: %{
         "abortStatement" => statement(),
-        "checksum" => String.t(),
+        "checksum" => String.t() | atom(),
         "childDirected" => boolean(),
         "clarificationPrompt" => prompt(),
         "createdDate" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "detectSentiment" => boolean(),
         "enableModelImprovements" => boolean(),
-        "failureReason" => String.t(),
+        "failureReason" => String.t() | atom(),
         "idleSessionTTLInSeconds" => integer(),
         "intents" => list(intent()),
         "lastUpdatedDate" => non_neg_integer(),
         "locale" => list(any()),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "nluIntentConfidenceThreshold" => float(),
         "status" => list(any()),
-        "version" => String.t(),
-        "voiceId" => String.t()
+        "version" => String.t() | atom(),
+        "voiceId" => String.t() | atom()
       }
 
   """
-  @type get_bot_response() :: %{String.t() => any()}
+  @type get_bot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -351,20 +351,20 @@ defmodule AWS.LexModelBuilding do
       }
 
   """
-  @type follow_up_prompt() :: %{String.t() => any()}
+  @type follow_up_prompt() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       output_context() :: %{
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "timeToLiveInSeconds" => integer(),
         "turnsToLive" => integer()
       }
 
   """
-  @type output_context() :: %{String.t() => any()}
+  @type output_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -372,20 +372,20 @@ defmodule AWS.LexModelBuilding do
 
       slot() :: %{
         "defaultValueSpec" => slot_default_value_spec(),
-        "description" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "obfuscationSetting" => list(any()),
         "priority" => integer(),
-        "responseCard" => String.t(),
-        "sampleUtterances" => list(String.t()),
+        "responseCard" => String.t() | atom(),
+        "sampleUtterances" => list(String.t() | atom()),
         "slotConstraint" => list(any()),
-        "slotType" => String.t(),
-        "slotTypeVersion" => String.t(),
+        "slotType" => String.t() | atom(),
+        "slotTypeVersion" => String.t() | atom(),
         "valueElicitationPrompt" => prompt()
       }
 
   """
-  @type slot() :: %{String.t() => any()}
+  @type slot() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -394,78 +394,78 @@ defmodule AWS.LexModelBuilding do
       get_builtin_slot_types_request() :: %{
         optional("locale") => list(any()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("signatureContains") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("signatureContains") => String.t() | atom()
       }
 
   """
-  @type get_builtin_slot_types_request() :: %{String.t() => any()}
+  @type get_builtin_slot_types_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_bot_version_request() :: %{
-        optional("checksum") => String.t()
+        optional("checksum") => String.t() | atom()
       }
 
   """
-  @type create_bot_version_request() :: %{String.t() => any()}
+  @type create_bot_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bot_channel_association_response() :: %{
-        "botAlias" => String.t(),
+        "botAlias" => String.t() | atom(),
         "botConfiguration" => map(),
-        "botName" => String.t(),
+        "botName" => String.t() | atom(),
         "createdDate" => non_neg_integer(),
-        "description" => String.t(),
-        "failureReason" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | atom(),
+        "failureReason" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
         "type" => list(any())
       }
 
   """
-  @type get_bot_channel_association_response() :: %{String.t() => any()}
+  @type get_bot_channel_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_builtin_intent_response() :: %{
-        "signature" => String.t(),
+        "signature" => String.t() | atom(),
         "slots" => list(builtin_intent_slot()),
         "supportedLocales" => list(list(any())())
       }
 
   """
-  @type get_builtin_intent_response() :: %{String.t() => any()}
+  @type get_builtin_intent_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_slot_type_version_request() :: %{
-        optional("checksum") => String.t()
+        optional("checksum") => String.t() | atom()
       }
 
   """
-  @type create_slot_type_version_request() :: %{String.t() => any()}
+  @type create_slot_type_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_slot_type_versions_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "slotTypes" => list(slot_type_metadata())
       }
 
   """
-  @type get_slot_type_versions_response() :: %{String.t() => any()}
+  @type get_slot_type_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -482,11 +482,11 @@ defmodule AWS.LexModelBuilding do
 
       statement() :: %{
         "messages" => list(message()),
-        "responseCard" => String.t()
+        "responseCard" => String.t() | atom()
       }
 
   """
-  @type statement() :: %{String.t() => any()}
+  @type statement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -494,23 +494,23 @@ defmodule AWS.LexModelBuilding do
 
       get_bots_response() :: %{
         "bots" => list(bot_metadata()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type get_bots_response() :: %{String.t() => any()}
+  @type get_bots_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       builtin_intent_metadata() :: %{
-        "signature" => String.t(),
+        "signature" => String.t() | atom(),
         "supportedLocales" => list(list(any())())
       }
 
   """
-  @type builtin_intent_metadata() :: %{String.t() => any()}
+  @type builtin_intent_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -518,59 +518,59 @@ defmodule AWS.LexModelBuilding do
 
       get_migrations_response() :: %{
         "migrationSummaries" => list(migration_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type get_migrations_response() :: %{String.t() => any()}
+  @type get_migrations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       bot_alias_metadata() :: %{
-        "botName" => String.t(),
-        "botVersion" => String.t(),
-        "checksum" => String.t(),
+        "botName" => String.t() | atom(),
+        "botVersion" => String.t() | atom(),
+        "checksum" => String.t() | atom(),
         "conversationLogs" => conversation_logs_response(),
         "createdDate" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "lastUpdatedDate" => non_neg_integer(),
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type bot_alias_metadata() :: %{String.t() => any()}
+  @type bot_alias_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       bot_channel_association() :: %{
-        "botAlias" => String.t(),
+        "botAlias" => String.t() | atom(),
         "botConfiguration" => map(),
-        "botName" => String.t(),
+        "botName" => String.t() | atom(),
         "createdDate" => non_neg_integer(),
-        "description" => String.t(),
-        "failureReason" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | atom(),
+        "failureReason" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
         "type" => list(any())
       }
 
   """
-  @type bot_channel_association() :: %{String.t() => any()}
+  @type bot_channel_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -579,26 +579,26 @@ defmodule AWS.LexModelBuilding do
       get_migrations_request() :: %{
         optional("maxResults") => integer(),
         optional("migrationStatusEquals") => list(any()),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("sortByAttribute") => list(any()),
         optional("sortByOrder") => list(any()),
-        optional("v1BotNameContains") => String.t()
+        optional("v1BotNameContains") => String.t() | atom()
       }
 
   """
-  @type get_migrations_request() :: %{String.t() => any()}
+  @type get_migrations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       intent() :: %{
-        "intentName" => String.t(),
-        "intentVersion" => String.t()
+        "intentName" => String.t() | atom(),
+        "intentVersion" => String.t() | atom()
       }
 
   """
-  @type intent() :: %{String.t() => any()}
+  @type intent() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -606,11 +606,11 @@ defmodule AWS.LexModelBuilding do
 
       get_intents_response() :: %{
         "intents" => list(intent_metadata()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type get_intents_response() :: %{String.t() => any()}
+  @type get_intents_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -618,24 +618,24 @@ defmodule AWS.LexModelBuilding do
 
       get_intent_versions_response() :: %{
         "intents" => list(intent_metadata()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type get_intent_versions_response() :: %{String.t() => any()}
+  @type get_intent_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       kendra_configuration() :: %{
-        "kendraIndex" => String.t(),
-        "queryFilterString" => String.t(),
-        "role" => String.t()
+        "kendraIndex" => String.t() | atom(),
+        "queryFilterString" => String.t() | atom(),
+        "role" => String.t() | atom()
       }
 
   """
-  @type kendra_configuration() :: %{String.t() => any()}
+  @type kendra_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -651,50 +651,50 @@ defmodule AWS.LexModelBuilding do
   ## Example:
 
       slot_type_regex_configuration() :: %{
-        "pattern" => String.t()
+        "pattern" => String.t() | atom()
       }
 
   """
-  @type slot_type_regex_configuration() :: %{String.t() => any()}
+  @type slot_type_regex_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_intent_response() :: %{
-        "checksum" => String.t(),
+        "checksum" => String.t() | atom(),
         "conclusionStatement" => statement(),
         "confirmationPrompt" => prompt(),
         "createdDate" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "dialogCodeHook" => code_hook(),
         "followUpPrompt" => follow_up_prompt(),
         "fulfillmentActivity" => fulfillment_activity(),
         "inputContexts" => list(input_context()),
         "kendraConfiguration" => kendra_configuration(),
         "lastUpdatedDate" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "outputContexts" => list(output_context()),
-        "parentIntentSignature" => String.t(),
+        "parentIntentSignature" => String.t() | atom(),
         "rejectionStatement" => statement(),
-        "sampleUtterances" => list(String.t()),
+        "sampleUtterances" => list(String.t() | atom()),
         "slots" => list(slot()),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type get_intent_response() :: %{String.t() => any()}
+  @type get_intent_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -702,24 +702,24 @@ defmodule AWS.LexModelBuilding do
 
       get_bots_request() :: %{
         optional("maxResults") => integer(),
-        optional("nameContains") => String.t(),
-        optional("nextToken") => String.t()
+        optional("nameContains") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type get_bots_request() :: %{String.t() => any()}
+  @type get_bots_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       code_hook() :: %{
-        "messageVersion" => String.t(),
-        "uri" => String.t()
+        "messageVersion" => String.t() | atom(),
+        "uri" => String.t() | atom()
       }
 
   """
-  @type code_hook() :: %{String.t() => any()}
+  @type code_hook() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -727,39 +727,39 @@ defmodule AWS.LexModelBuilding do
 
       bot_metadata() :: %{
         "createdDate" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "lastUpdatedDate" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type bot_metadata() :: %{String.t() => any()}
+  @type bot_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conversation_logs_response() :: %{
-        "iamRoleArn" => String.t(),
+        "iamRoleArn" => String.t() | atom(),
         "logSettings" => list(log_settings_response())
       }
 
   """
-  @type conversation_logs_response() :: %{String.t() => any()}
+  @type conversation_logs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -775,26 +775,26 @@ defmodule AWS.LexModelBuilding do
   ## Example:
 
       put_bot_alias_request() :: %{
-        optional("checksum") => String.t(),
+        optional("checksum") => String.t() | atom(),
         optional("conversationLogs") => conversation_logs_request(),
-        optional("description") => String.t(),
+        optional("description") => String.t() | atom(),
         optional("tags") => list(tag()),
-        required("botVersion") => String.t()
+        required("botVersion") => String.t() | atom()
       }
 
   """
-  @type put_bot_alias_request() :: %{String.t() => any()}
+  @type put_bot_alias_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type not_found_exception() :: %{String.t() => any()}
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -805,7 +805,7 @@ defmodule AWS.LexModelBuilding do
       }
 
   """
-  @type slot_default_value_spec() :: %{String.t() => any()}
+  @type slot_default_value_spec() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -825,19 +825,19 @@ defmodule AWS.LexModelBuilding do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_utterances_view_response() :: %{
-        "botName" => String.t(),
+        "botName" => String.t() | atom(),
         "utterances" => list(utterance_list())
       }
 
   """
-  @type get_utterances_view_response() :: %{String.t() => any()}
+  @type get_utterances_view_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -845,29 +845,29 @@ defmodule AWS.LexModelBuilding do
 
       put_bot_response() :: %{
         "abortStatement" => statement(),
-        "checksum" => String.t(),
+        "checksum" => String.t() | atom(),
         "childDirected" => boolean(),
         "clarificationPrompt" => prompt(),
         "createVersion" => boolean(),
         "createdDate" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "detectSentiment" => boolean(),
         "enableModelImprovements" => boolean(),
-        "failureReason" => String.t(),
+        "failureReason" => String.t() | atom(),
         "idleSessionTTLInSeconds" => integer(),
         "intents" => list(intent()),
         "lastUpdatedDate" => non_neg_integer(),
         "locale" => list(any()),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "nluIntentConfidenceThreshold" => float(),
         "status" => list(any()),
         "tags" => list(tag()),
-        "version" => String.t(),
-        "voiceId" => String.t()
+        "version" => String.t() | atom(),
+        "voiceId" => String.t() | atom()
       }
 
   """
-  @type put_bot_response() :: %{String.t() => any()}
+  @type put_bot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -875,11 +875,11 @@ defmodule AWS.LexModelBuilding do
 
       get_intent_versions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type get_intent_versions_request() :: %{String.t() => any()}
+  @type get_intent_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -887,11 +887,11 @@ defmodule AWS.LexModelBuilding do
 
       get_bot_versions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type get_bot_versions_request() :: %{String.t() => any()}
+  @type get_bot_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -899,11 +899,11 @@ defmodule AWS.LexModelBuilding do
 
       get_slot_type_versions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type get_slot_type_versions_request() :: %{String.t() => any()}
+  @type get_slot_type_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -929,43 +929,43 @@ defmodule AWS.LexModelBuilding do
 
       get_bot_aliases_response() :: %{
         "BotAliases" => list(bot_alias_metadata()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type get_bot_aliases_response() :: %{String.t() => any()}
+  @type get_bot_aliases_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_slot_type_response() :: %{
-        "checksum" => String.t(),
+        "checksum" => String.t() | atom(),
         "createdDate" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "enumerationValues" => list(enumeration_value()),
         "lastUpdatedDate" => non_neg_integer(),
-        "name" => String.t(),
-        "parentSlotTypeSignature" => String.t(),
+        "name" => String.t() | atom(),
+        "parentSlotTypeSignature" => String.t() | atom(),
         "slotTypeConfigurations" => list(slot_type_configuration()),
         "valueSelectionStrategy" => list(any()),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type get_slot_type_response() :: %{String.t() => any()}
+  @type get_slot_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       utterance_list() :: %{
-        "botVersion" => String.t(),
+        "botVersion" => String.t() | atom(),
         "utterances" => list(utterance_data())
       }
 
   """
-  @type utterance_list() :: %{String.t() => any()}
+  @type utterance_list() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1000,36 +1000,36 @@ defmodule AWS.LexModelBuilding do
 
       get_bot_versions_response() :: %{
         "bots" => list(bot_metadata()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type get_bot_versions_response() :: %{String.t() => any()}
+  @type get_bot_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_intent_request() :: %{
-        optional("checksum") => String.t(),
+        optional("checksum") => String.t() | atom(),
         optional("conclusionStatement") => statement(),
         optional("confirmationPrompt") => prompt(),
         optional("createVersion") => boolean(),
-        optional("description") => String.t(),
+        optional("description") => String.t() | atom(),
         optional("dialogCodeHook") => code_hook(),
         optional("followUpPrompt") => follow_up_prompt(),
         optional("fulfillmentActivity") => fulfillment_activity(),
         optional("inputContexts") => list(input_context()),
         optional("kendraConfiguration") => kendra_configuration(),
         optional("outputContexts") => list(output_context()),
-        optional("parentIntentSignature") => String.t(),
+        optional("parentIntentSignature") => String.t() | atom(),
         optional("rejectionStatement") => statement(),
-        optional("sampleUtterances") => list(String.t()),
+        optional("sampleUtterances") => list(String.t() | atom()),
         optional("slots") => list(slot())
       }
 
   """
-  @type put_intent_request() :: %{String.t() => any()}
+  @type put_intent_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1037,12 +1037,12 @@ defmodule AWS.LexModelBuilding do
 
       get_intents_request() :: %{
         optional("maxResults") => integer(),
-        optional("nameContains") => String.t(),
-        optional("nextToken") => String.t()
+        optional("nameContains") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type get_intents_request() :: %{String.t() => any()}
+  @type get_intents_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1050,60 +1050,60 @@ defmodule AWS.LexModelBuilding do
 
       get_export_request() :: %{
         required("exportType") => list(any()),
-        required("name") => String.t(),
+        required("name") => String.t() | atom(),
         required("resourceType") => list(any()),
-        required("version") => String.t()
+        required("version") => String.t() | atom()
       }
 
   """
-  @type get_export_request() :: %{String.t() => any()}
+  @type get_export_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_slot_type_request() :: %{
-        optional("checksum") => String.t(),
+        optional("checksum") => String.t() | atom(),
         optional("createVersion") => boolean(),
-        optional("description") => String.t(),
+        optional("description") => String.t() | atom(),
         optional("enumerationValues") => list(enumeration_value()),
-        optional("parentSlotTypeSignature") => String.t(),
+        optional("parentSlotTypeSignature") => String.t() | atom(),
         optional("slotTypeConfigurations") => list(slot_type_configuration()),
         optional("valueSelectionStrategy") => list(any())
       }
 
   """
-  @type put_slot_type_request() :: %{String.t() => any()}
+  @type put_slot_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_migration_response() :: %{
-        "migrationId" => String.t(),
+        "migrationId" => String.t() | atom(),
         "migrationStrategy" => list(any()),
         "migrationTimestamp" => non_neg_integer(),
         "v1BotLocale" => list(any()),
-        "v1BotName" => String.t(),
-        "v1BotVersion" => String.t(),
-        "v2BotId" => String.t(),
-        "v2BotRole" => String.t()
+        "v1BotName" => String.t() | atom(),
+        "v1BotVersion" => String.t() | atom(),
+        "v2BotId" => String.t() | atom(),
+        "v2BotRole" => String.t() | atom()
       }
 
   """
-  @type start_migration_response() :: %{String.t() => any()}
+  @type start_migration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conversation_logs_request() :: %{
-        "iamRoleArn" => String.t(),
+        "iamRoleArn" => String.t() | atom(),
         "logSettings" => list(log_settings_request())
       }
 
   """
-  @type conversation_logs_request() :: %{String.t() => any()}
+  @type conversation_logs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1114,7 +1114,7 @@ defmodule AWS.LexModelBuilding do
       }
 
   """
-  @type slot_type_configuration() :: %{String.t() => any()}
+  @type slot_type_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1122,62 +1122,62 @@ defmodule AWS.LexModelBuilding do
 
       get_builtin_intents_response() :: %{
         "intents" => list(builtin_intent_metadata()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type get_builtin_intents_response() :: %{String.t() => any()}
+  @type get_builtin_intents_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_intent_response() :: %{
-        "checksum" => String.t(),
+        "checksum" => String.t() | atom(),
         "conclusionStatement" => statement(),
         "confirmationPrompt" => prompt(),
         "createVersion" => boolean(),
         "createdDate" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "dialogCodeHook" => code_hook(),
         "followUpPrompt" => follow_up_prompt(),
         "fulfillmentActivity" => fulfillment_activity(),
         "inputContexts" => list(input_context()),
         "kendraConfiguration" => kendra_configuration(),
         "lastUpdatedDate" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "outputContexts" => list(output_context()),
-        "parentIntentSignature" => String.t(),
+        "parentIntentSignature" => String.t() | atom(),
         "rejectionStatement" => statement(),
-        "sampleUtterances" => list(String.t()),
+        "sampleUtterances" => list(String.t() | atom()),
         "slots" => list(slot()),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type put_intent_response() :: %{String.t() => any()}
+  @type put_intent_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_intent_version_request() :: %{
-        optional("checksum") => String.t()
+        optional("checksum") => String.t() | atom()
       }
 
   """
-  @type create_intent_version_request() :: %{String.t() => any()}
+  @type create_intent_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1202,11 +1202,11 @@ defmodule AWS.LexModelBuilding do
   ## Example:
 
       builtin_intent_slot() :: %{
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type builtin_intent_slot() :: %{String.t() => any()}
+  @type builtin_intent_slot() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1214,23 +1214,23 @@ defmodule AWS.LexModelBuilding do
 
       get_slot_types_request() :: %{
         optional("maxResults") => integer(),
-        optional("nameContains") => String.t(),
-        optional("nextToken") => String.t()
+        optional("nameContains") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type get_slot_types_request() :: %{String.t() => any()}
+  @type get_slot_types_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       input_context() :: %{
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type input_context() :: %{String.t() => any()}
+  @type input_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1256,14 +1256,14 @@ defmodule AWS.LexModelBuilding do
 
       log_settings_response() :: %{
         "destination" => list(any()),
-        "kmsKeyArn" => String.t(),
+        "kmsKeyArn" => String.t() | atom(),
         "logType" => list(any()),
-        "resourceArn" => String.t(),
-        "resourcePrefix" => String.t()
+        "resourceArn" => String.t() | atom(),
+        "resourcePrefix" => String.t() | atom()
       }
 
   """
-  @type log_settings_response() :: %{String.t() => any()}
+  @type log_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1281,77 +1281,77 @@ defmodule AWS.LexModelBuilding do
       get_export_response() :: %{
         "exportStatus" => list(any()),
         "exportType" => list(any()),
-        "failureReason" => String.t(),
-        "name" => String.t(),
+        "failureReason" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "resourceType" => list(any()),
-        "url" => String.t(),
-        "version" => String.t()
+        "url" => String.t() | atom(),
+        "version" => String.t() | atom()
       }
 
   """
-  @type get_export_response() :: %{String.t() => any()}
+  @type get_export_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "message" => String.t(),
-        "retryAfterSeconds" => String.t()
+        "message" => String.t() | atom(),
+        "retryAfterSeconds" => String.t() | atom()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       slot_default_value() :: %{
-        "defaultValue" => String.t()
+        "defaultValue" => String.t() | atom()
       }
 
   """
-  @type slot_default_value() :: %{String.t() => any()}
+  @type slot_default_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_intent_version_response() :: %{
-        "checksum" => String.t(),
+        "checksum" => String.t() | atom(),
         "conclusionStatement" => statement(),
         "confirmationPrompt" => prompt(),
         "createdDate" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "dialogCodeHook" => code_hook(),
         "followUpPrompt" => follow_up_prompt(),
         "fulfillmentActivity" => fulfillment_activity(),
         "inputContexts" => list(input_context()),
         "kendraConfiguration" => kendra_configuration(),
         "lastUpdatedDate" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "outputContexts" => list(output_context()),
-        "parentIntentSignature" => String.t(),
+        "parentIntentSignature" => String.t() | atom(),
         "rejectionStatement" => statement(),
-        "sampleUtterances" => list(String.t()),
+        "sampleUtterances" => list(String.t() | atom()),
         "slots" => list(slot()),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type create_intent_version_response() :: %{String.t() => any()}
+  @type create_intent_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1368,14 +1368,14 @@ defmodule AWS.LexModelBuilding do
 
       intent_metadata() :: %{
         "createdDate" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "lastUpdatedDate" => non_neg_integer(),
-        "name" => String.t(),
-        "version" => String.t()
+        "name" => String.t() | atom(),
+        "version" => String.t() | atom()
       }
 
   """
-  @type intent_metadata() :: %{String.t() => any()}
+  @type intent_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1386,11 +1386,11 @@ defmodule AWS.LexModelBuilding do
         "distinctUsers" => integer(),
         "firstUtteredDate" => non_neg_integer(),
         "lastUtteredDate" => non_neg_integer(),
-        "utteranceString" => String.t()
+        "utteranceString" => String.t() | atom()
       }
 
   """
-  @type utterance_data() :: %{String.t() => any()}
+  @type utterance_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1406,68 +1406,68 @@ defmodule AWS.LexModelBuilding do
   ## Example:
 
       enumeration_value() :: %{
-        "synonyms" => list(String.t()),
-        "value" => String.t()
+        "synonyms" => list(String.t() | atom()),
+        "value" => String.t() | atom()
       }
 
   """
-  @type enumeration_value() :: %{String.t() => any()}
+  @type enumeration_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_utterances_view_request() :: %{
-        required("botVersions") => list(String.t()),
+        required("botVersions") => list(String.t() | atom()),
         required("statusType") => list(any())
       }
 
   """
-  @type get_utterances_view_request() :: %{String.t() => any()}
+  @type get_utterances_view_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_bot_alias_response() :: %{
-        "botName" => String.t(),
-        "botVersion" => String.t(),
-        "checksum" => String.t(),
+        "botName" => String.t() | atom(),
+        "botVersion" => String.t() | atom(),
+        "checksum" => String.t() | atom(),
         "conversationLogs" => conversation_logs_response(),
         "createdDate" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "lastUpdatedDate" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "tags" => list(tag())
       }
 
   """
-  @type put_bot_alias_response() :: %{String.t() => any()}
+  @type put_bot_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       precondition_failed_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type precondition_failed_exception() :: %{String.t() => any()}
+  @type precondition_failed_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       migration_alert() :: %{
-        "details" => list(String.t()),
-        "message" => String.t(),
-        "referenceURLs" => list(String.t()),
+        "details" => list(String.t() | atom()),
+        "message" => String.t() | atom(),
+        "referenceURLs" => list(String.t() | atom()),
         "type" => list(any())
       }
 
   """
-  @type migration_alert() :: %{String.t() => any()}
+  @type migration_alert() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1484,30 +1484,30 @@ defmodule AWS.LexModelBuilding do
 
       get_bot_aliases_request() :: %{
         optional("maxResults") => integer(),
-        optional("nameContains") => String.t(),
-        optional("nextToken") => String.t()
+        optional("nameContains") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type get_bot_aliases_request() :: %{String.t() => any()}
+  @type get_bot_aliases_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bot_alias_response() :: %{
-        "botName" => String.t(),
-        "botVersion" => String.t(),
-        "checksum" => String.t(),
+        "botName" => String.t() | atom(),
+        "botVersion" => String.t() | atom(),
+        "checksum" => String.t() | atom(),
         "conversationLogs" => conversation_logs_response(),
         "createdDate" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "lastUpdatedDate" => non_neg_integer(),
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type get_bot_alias_response() :: %{String.t() => any()}
+  @type get_bot_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1521,7 +1521,7 @@ defmodule AWS.LexModelBuilding do
       }
 
   """
-  @type start_import_request() :: %{String.t() => any()}
+  @type start_import_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1529,14 +1529,14 @@ defmodule AWS.LexModelBuilding do
 
       slot_type_metadata() :: %{
         "createdDate" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "lastUpdatedDate" => non_neg_integer(),
-        "name" => String.t(),
-        "version" => String.t()
+        "name" => String.t() | atom(),
+        "version" => String.t() | atom()
       }
 
   """
-  @type slot_type_metadata() :: %{String.t() => any()}
+  @type slot_type_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1544,16 +1544,16 @@ defmodule AWS.LexModelBuilding do
 
       start_import_response() :: %{
         "createdDate" => non_neg_integer(),
-        "importId" => String.t(),
+        "importId" => String.t() | atom(),
         "importStatus" => list(any()),
         "mergeStrategy" => list(any()),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "resourceType" => list(any()),
         "tags" => list(tag())
       }
 
   """
-  @type start_import_response() :: %{String.t() => any()}
+  @type start_import_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1562,11 +1562,11 @@ defmodule AWS.LexModelBuilding do
       prompt() :: %{
         "maxAttempts" => integer(),
         "messages" => list(message()),
-        "responseCard" => String.t()
+        "responseCard" => String.t() | atom()
       }
 
   """
-  @type prompt() :: %{String.t() => any()}
+  @type prompt() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1574,39 +1574,39 @@ defmodule AWS.LexModelBuilding do
 
       create_bot_version_response() :: %{
         "abortStatement" => statement(),
-        "checksum" => String.t(),
+        "checksum" => String.t() | atom(),
         "childDirected" => boolean(),
         "clarificationPrompt" => prompt(),
         "createdDate" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "detectSentiment" => boolean(),
         "enableModelImprovements" => boolean(),
-        "failureReason" => String.t(),
+        "failureReason" => String.t() | atom(),
         "idleSessionTTLInSeconds" => integer(),
         "intents" => list(intent()),
         "lastUpdatedDate" => non_neg_integer(),
         "locale" => list(any()),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
-        "version" => String.t(),
-        "voiceId" => String.t()
+        "version" => String.t() | atom(),
+        "voiceId" => String.t() | atom()
       }
 
   """
-  @type create_bot_version_response() :: %{String.t() => any()}
+  @type create_bot_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       message() :: %{
-        "content" => String.t(),
+        "content" => String.t() | atom(),
         "contentType" => list(any()),
         "groupNumber" => integer()
       }
 
   """
-  @type message() :: %{String.t() => any()}
+  @type message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1614,12 +1614,12 @@ defmodule AWS.LexModelBuilding do
 
       get_bot_channel_associations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nameContains") => String.t(),
-        optional("nextToken") => String.t()
+        optional("nameContains") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type get_bot_channel_associations_request() :: %{String.t() => any()}
+  @type get_bot_channel_associations_request() :: %{(String.t() | atom()) => any()}
 
   @type create_bot_version_errors() ::
           precondition_failed_exception()
@@ -1915,7 +1915,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permission for the
   `lex:CreateBotVersion` action.
   """
-  @spec create_bot_version(map(), String.t(), create_bot_version_request(), list()) ::
+  @spec create_bot_version(map(), String.t() | atom(), create_bot_version_request(), list()) ::
           {:ok, create_bot_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1961,7 +1961,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions to perform the
   `lex:CreateIntentVersion` action.
   """
-  @spec create_intent_version(map(), String.t(), create_intent_version_request(), list()) ::
+  @spec create_intent_version(map(), String.t() | atom(), create_intent_version_request(), list()) ::
           {:ok, create_intent_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2007,7 +2007,12 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:CreateSlotTypeVersion` action.
   """
-  @spec create_slot_type_version(map(), String.t(), create_slot_type_version_request(), list()) ::
+  @spec create_slot_type_version(
+          map(),
+          String.t() | atom(),
+          create_slot_type_version_request(),
+          list()
+        ) ::
           {:ok, create_slot_type_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2058,7 +2063,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:DeleteBot` action.
   """
-  @spec delete_bot(map(), String.t(), delete_bot_request(), list()) ::
+  @spec delete_bot(map(), String.t() | atom(), delete_bot_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2096,7 +2101,13 @@ defmodule AWS.LexModelBuilding do
   same exception again, delete the referring association until the
   `DeleteBotAlias` operation is successful.
   """
-  @spec delete_bot_alias(map(), String.t(), String.t(), delete_bot_alias_request(), list()) ::
+  @spec delete_bot_alias(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_bot_alias_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2131,9 +2142,9 @@ defmodule AWS.LexModelBuilding do
   """
   @spec delete_bot_channel_association(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_bot_channel_association_request(),
           list()
         ) ::
@@ -2180,7 +2191,13 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:DeleteBotVersion` action.
   """
-  @spec delete_bot_version(map(), String.t(), String.t(), delete_bot_version_request(), list()) ::
+  @spec delete_bot_version(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_bot_version_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2228,7 +2245,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permission for the
   `lex:DeleteIntent` action.
   """
-  @spec delete_intent(map(), String.t(), delete_intent_request(), list()) ::
+  @spec delete_intent(map(), String.t() | atom(), delete_intent_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2265,8 +2282,8 @@ defmodule AWS.LexModelBuilding do
   """
   @spec delete_intent_version(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_intent_version_request(),
           list()
         ) ::
@@ -2317,7 +2334,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permission for the
   `lex:DeleteSlotType` action.
   """
-  @spec delete_slot_type(map(), String.t(), delete_slot_type_request(), list()) ::
+  @spec delete_slot_type(map(), String.t() | atom(), delete_slot_type_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2354,8 +2371,8 @@ defmodule AWS.LexModelBuilding do
   """
   @spec delete_slot_type_version(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_slot_type_version_request(),
           list()
         ) ::
@@ -2402,7 +2419,13 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:DeleteUtterances` action.
   """
-  @spec delete_utterances(map(), String.t(), String.t(), delete_utterances_request(), list()) ::
+  @spec delete_utterances(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_utterances_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2437,7 +2460,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:GetBot` action.
   """
-  @spec get_bot(map(), String.t(), String.t(), list()) ::
+  @spec get_bot(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2463,7 +2486,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:GetBotAlias` action.
   """
-  @spec get_bot_alias(map(), String.t(), String.t(), list()) ::
+  @spec get_bot_alias(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_bot_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2486,10 +2509,10 @@ defmodule AWS.LexModelBuilding do
   """
   @spec get_bot_aliases(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_bot_aliases_response(), any()}
@@ -2541,7 +2564,13 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:GetBotChannelAssociation` action.
   """
-  @spec get_bot_channel_association(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_bot_channel_association(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, get_bot_channel_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2568,11 +2597,11 @@ defmodule AWS.LexModelBuilding do
   """
   @spec get_bot_channel_associations(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_bot_channel_associations_response(), any()}
@@ -2636,7 +2665,13 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:GetBotVersions` action.
   """
-  @spec get_bot_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_bot_versions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_bot_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2687,7 +2722,13 @@ defmodule AWS.LexModelBuilding do
   This operation requires permission for the `lex:GetBots`
   action.
   """
-  @spec get_bots(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec get_bots(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_bots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2735,7 +2776,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permission for the
   `lex:GetBuiltinIntent` action.
   """
-  @spec get_builtin_intent(map(), String.t(), list()) ::
+  @spec get_builtin_intent(map(), String.t() | atom(), list()) ::
           {:ok, get_builtin_intent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2759,10 +2800,10 @@ defmodule AWS.LexModelBuilding do
   """
   @spec get_builtin_intents(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_builtin_intents_response(), any()}
@@ -2827,10 +2868,10 @@ defmodule AWS.LexModelBuilding do
   """
   @spec get_builtin_slot_types(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_builtin_slot_types_response(), any()}
@@ -2885,7 +2926,14 @@ defmodule AWS.LexModelBuilding do
   @doc """
   Exports the contents of a Amazon Lex resource in a specified format.
   """
-  @spec get_export(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_export(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, get_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2932,7 +2980,7 @@ defmodule AWS.LexModelBuilding do
   Gets information about an import job started with the
   `StartImport` operation.
   """
-  @spec get_import(map(), String.t(), list()) ::
+  @spec get_import(map(), String.t() | atom(), list()) ::
           {:ok, get_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2956,7 +3004,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions to perform the
   `lex:GetIntent` action.
   """
-  @spec get_intent(map(), String.t(), String.t(), list()) ::
+  @spec get_intent(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_intent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2987,7 +3035,13 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:GetIntentVersions` action.
   """
-  @spec get_intent_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_intent_versions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_intent_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3038,7 +3092,13 @@ defmodule AWS.LexModelBuilding do
   The operation requires permission for the
   `lex:GetIntents` action.
   """
-  @spec get_intents(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec get_intents(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_intents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3087,7 +3147,7 @@ defmodule AWS.LexModelBuilding do
   Use this operation to view the migration
   alerts and warnings related to the migration.
   """
-  @spec get_migration(map(), String.t(), list()) ::
+  @spec get_migration(map(), String.t() | atom(), list()) ::
           {:ok, get_migration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3107,12 +3167,12 @@ defmodule AWS.LexModelBuilding do
   """
   @spec get_migrations(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_migrations_response(), any()}
@@ -3190,7 +3250,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:GetSlotType` action.
   """
-  @spec get_slot_type(map(), String.t(), String.t(), list()) ::
+  @spec get_slot_type(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_slot_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3221,7 +3281,13 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:GetSlotTypeVersions` action.
   """
-  @spec get_slot_type_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_slot_type_versions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_slot_type_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3272,7 +3338,13 @@ defmodule AWS.LexModelBuilding do
   The operation requires permission for the
   `lex:GetSlotTypes` action.
   """
-  @spec get_slot_types(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec get_slot_types(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_slot_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3347,7 +3419,13 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:GetUtterancesView` action.
   """
-  @spec get_utterances_view(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_utterances_view(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, get_utterances_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3382,7 +3460,7 @@ defmodule AWS.LexModelBuilding do
   Only bots,
   bot aliases, and bot channels can have tags associated with them.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3419,7 +3497,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the `lex:PutBot`
   action. For more information, see `security-iam`.
   """
-  @spec put_bot(map(), String.t(), put_bot_request(), list()) ::
+  @spec put_bot(map(), String.t() | atom(), put_bot_request(), list()) ::
           {:ok, put_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3456,7 +3534,13 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:PutBotAlias` action.
   """
-  @spec put_bot_alias(map(), String.t(), String.t(), put_bot_alias_request(), list()) ::
+  @spec put_bot_alias(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          put_bot_alias_request(),
+          list()
+        ) ::
           {:ok, put_bot_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3543,7 +3627,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:PutIntent` action.
   """
-  @spec put_intent(map(), String.t(), put_intent_request(), list()) ::
+  @spec put_intent(map(), String.t() | atom(), put_intent_request(), list()) ::
           {:ok, put_intent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3589,7 +3673,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:PutSlotType` action.
   """
-  @spec put_slot_type(map(), String.t(), put_slot_type_request(), list()) ::
+  @spec put_slot_type(map(), String.t() | atom(), put_slot_type_request(), list()) ::
           {:ok, put_slot_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3685,7 +3769,7 @@ defmodule AWS.LexModelBuilding do
   If a tag key
   already exists, the existing value is replaced with the new value.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3714,7 +3798,7 @@ defmodule AWS.LexModelBuilding do
   @doc """
   Removes tags from a bot, bot alias or bot channel.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

@@ -114,44 +114,44 @@ defmodule AWS.CodeDeploy do
   ## Example:
       
       batch_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type batch_limit_exceeded_exception() :: %{String.t() => any()}
+  @type batch_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       traffic_route() :: %{
-        "listenerArns" => list(String.t())
+        "listenerArns" => list(String.t() | atom())
       }
       
   """
-  @type traffic_route() :: %{String.t() => any()}
+  @type traffic_route() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_deployment_config_input() :: %{
-        required("deploymentConfigName") => String.t()
+        required("deploymentConfigName") => String.t() | atom()
       }
       
   """
-  @type get_deployment_config_input() :: %{String.t() => any()}
+  @type get_deployment_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_load_balancer_info_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_load_balancer_info_exception() :: %{String.t() => any()}
+  @type invalid_load_balancer_info_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -163,7 +163,7 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type minimum_healthy_hosts_per_zone() :: %{String.t() => any()}
+  @type minimum_healthy_hosts_per_zone() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -175,62 +175,62 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type auto_rollback_configuration() :: %{String.t() => any()}
+  @type auto_rollback_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deployment_target_id_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type deployment_target_id_required_exception() :: %{String.t() => any()}
+  @type deployment_target_id_required_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deployment_config_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type deployment_config_limit_exceeded_exception() :: %{String.t() => any()}
+  @type deployment_config_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       lifecycle_event_already_completed_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type lifecycle_event_already_completed_exception() :: %{String.t() => any()}
+  @type lifecycle_event_already_completed_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_deployments_input() :: %{
-        required("deploymentIds") => list(String.t())
+        required("deploymentIds") => list(String.t() | atom())
       }
       
   """
-  @type batch_get_deployments_input() :: %{String.t() => any()}
+  @type batch_get_deployments_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       application_does_not_exist_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type application_does_not_exist_exception() :: %{String.t() => any()}
+  @type application_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -241,51 +241,51 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type delete_deployment_group_output() :: %{String.t() => any()}
+  @type delete_deployment_group_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type instance_limit_exceeded_exception() :: %{String.t() => any()}
+  @type instance_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_action_for_deployment_type_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type unsupported_action_for_deployment_type_exception() :: %{String.t() => any()}
+  @type unsupported_action_for_deployment_type_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       skip_wait_time_for_instance_termination_input() :: %{
-        optional("deploymentId") => String.t()
+        optional("deploymentId") => String.t() | atom()
       }
       
   """
-  @type skip_wait_time_for_instance_termination_input() :: %{String.t() => any()}
+  @type skip_wait_time_for_instance_termination_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deployment_is_not_in_ready_state_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type deployment_is_not_in_ready_state_exception() :: %{String.t() => any()}
+  @type deployment_is_not_in_ready_state_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -300,42 +300,42 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type revision_location() :: %{String.t() => any()}
+  @type revision_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_deployment_instances_output() :: %{
-        "instancesList" => list(String.t()),
-        "nextToken" => String.t()
+        "instancesList" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_deployment_instances_output() :: %{String.t() => any()}
+  @type list_deployment_instances_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_application_revisions_input() :: %{
-        required("applicationName") => String.t(),
+        required("applicationName") => String.t() | atom(),
         required("revisions") => list(revision_location())
       }
       
   """
-  @type batch_get_application_revisions_input() :: %{String.t() => any()}
+  @type batch_get_application_revisions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_trigger_config_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_trigger_config_exception() :: %{String.t() => any()}
+  @type invalid_trigger_config_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -344,36 +344,36 @@ defmodule AWS.CodeDeploy do
       list_deployment_instances_input() :: %{
         optional("instanceStatusFilter") => list(list(any())()),
         optional("instanceTypeFilter") => list(list(any())()),
-        optional("nextToken") => String.t(),
-        required("deploymentId") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("deploymentId") => String.t() | atom()
       }
       
   """
-  @type list_deployment_instances_input() :: %{String.t() => any()}
+  @type list_deployment_instances_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_deployment_target_input() :: %{
-        required("deploymentId") => String.t(),
-        required("targetId") => String.t()
+        required("deploymentId") => String.t() | atom(),
+        required("targetId") => String.t() | atom()
       }
       
   """
-  @type get_deployment_target_input() :: %{String.t() => any()}
+  @type get_deployment_target_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_deployment_instance_input() :: %{
-        required("deploymentId") => String.t(),
-        required("instanceId") => String.t()
+        required("deploymentId") => String.t() | atom(),
+        required("instanceId") => String.t() | atom()
       }
       
   """
-  @type get_deployment_instance_input() :: %{String.t() => any()}
+  @type get_deployment_instance_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -384,42 +384,42 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type get_deployment_output() :: %{String.t() => any()}
+  @type get_deployment_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       application_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type application_limit_exceeded_exception() :: %{String.t() => any()}
+  @type application_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_on_premises_instances_input() :: %{
-        required("instanceNames") => list(String.t())
+        required("instanceNames") => list(String.t() | atom())
       }
       
   """
-  @type batch_get_on_premises_instances_input() :: %{String.t() => any()}
+  @type batch_get_on_premises_instances_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ec2_tag_filter() :: %{
-        "Key" => String.t(),
+        "Key" => String.t() | atom(),
         "Type" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | atom()
       }
       
   """
-  @type ec2_tag_filter() :: %{String.t() => any()}
+  @type ec2_tag_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -427,53 +427,53 @@ defmodule AWS.CodeDeploy do
       
       create_deployment_input() :: %{
         optional("autoRollbackConfiguration") => auto_rollback_configuration(),
-        optional("deploymentConfigName") => String.t(),
-        optional("deploymentGroupName") => String.t(),
-        optional("description") => String.t(),
+        optional("deploymentConfigName") => String.t() | atom(),
+        optional("deploymentGroupName") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("fileExistsBehavior") => list(any()),
         optional("ignoreApplicationStopFailures") => boolean(),
         optional("overrideAlarmConfiguration") => alarm_configuration(),
         optional("revision") => revision_location(),
         optional("targetInstances") => target_instances(),
         optional("updateOutdatedInstancesOnly") => boolean(),
-        required("applicationName") => String.t()
+        required("applicationName") => String.t() | atom()
       }
       
   """
-  @type create_deployment_input() :: %{String.t() => any()}
+  @type create_deployment_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       alarm() :: %{
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
       
   """
-  @type alarm() :: %{String.t() => any()}
+  @type alarm() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       revision_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type revision_required_exception() :: %{String.t() => any()}
+  @type revision_required_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_sort_order_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_sort_order_exception() :: %{String.t() => any()}
+  @type invalid_sort_order_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -481,28 +481,28 @@ defmodule AWS.CodeDeploy do
       
       e_c_s_task_set() :: %{
         "desiredCount" => float(),
-        "identifer" => String.t(),
+        "identifer" => String.t() | atom(),
         "pendingCount" => float(),
         "runningCount" => float(),
-        "status" => String.t(),
+        "status" => String.t() | atom(),
         "targetGroup" => target_group_info(),
         "taskSetLabel" => list(any()),
         "trafficWeight" => float()
       }
       
   """
-  @type e_c_s_task_set() :: %{String.t() => any()}
+  @type e_c_s_task_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_instance_status_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_instance_status_exception() :: %{String.t() => any()}
+  @type invalid_instance_status_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -510,28 +510,28 @@ defmodule AWS.CodeDeploy do
       
       batch_get_deployment_groups_output() :: %{
         "deploymentGroupsInfo" => list(deployment_group_info()),
-        "errorMessage" => String.t()
+        "errorMessage" => String.t() | atom()
       }
       
   """
-  @type batch_get_deployment_groups_output() :: %{String.t() => any()}
+  @type batch_get_deployment_groups_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       e_c_s_target() :: %{
-        "deploymentId" => String.t(),
+        "deploymentId" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
         "lifecycleEvents" => list(lifecycle_event()),
         "status" => list(any()),
-        "targetArn" => String.t(),
-        "targetId" => String.t(),
+        "targetArn" => String.t() | atom(),
+        "targetId" => String.t() | atom(),
         "taskSetsInfo" => list(e_c_s_task_set())
       }
       
   """
-  @type e_c_s_target() :: %{String.t() => any()}
+  @type e_c_s_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -542,30 +542,30 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type batch_get_deployment_targets_output() :: %{String.t() => any()}
+  @type batch_get_deployment_targets_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_deployment_instances_input() :: %{
-        required("deploymentId") => String.t(),
-        required("instanceIds") => list(String.t())
+        required("deploymentId") => String.t() | atom(),
+        required("instanceIds") => list(String.t() | atom())
       }
       
   """
-  @type batch_get_deployment_instances_input() :: %{String.t() => any()}
+  @type batch_get_deployment_instances_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type tag_required_exception() :: %{String.t() => any()}
+  @type tag_required_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -576,52 +576,52 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type update_deployment_group_output() :: %{String.t() => any()}
+  @type update_deployment_group_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_application_revisions_output() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "revisions" => list(revision_location())
       }
       
   """
-  @type list_application_revisions_output() :: %{String.t() => any()}
+  @type list_application_revisions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       git_hub_account_token_does_not_exist_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type git_hub_account_token_does_not_exist_exception() :: %{String.t() => any()}
+  @type git_hub_account_token_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_deployment_input() :: %{
-        required("deploymentId") => String.t()
+        required("deploymentId") => String.t() | atom()
       }
       
   """
-  @type get_deployment_input() :: %{String.t() => any()}
+  @type get_deployment_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_deployment_status_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_deployment_status_exception() :: %{String.t() => any()}
+  @type invalid_deployment_status_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -636,7 +636,7 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type deployment_target() :: %{String.t() => any()}
+  @type deployment_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -648,84 +648,84 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type deployment_style() :: %{String.t() => any()}
+  @type deployment_style() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_name_already_registered_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type instance_name_already_registered_exception() :: %{String.t() => any()}
+  @type instance_name_already_registered_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_deployment_style_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_deployment_style_exception() :: %{String.t() => any()}
+  @type invalid_deployment_style_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_operation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_operation_exception() :: %{String.t() => any()}
+  @type invalid_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_application_output() :: %{
-        "applicationId" => String.t()
+        "applicationId" => String.t() | atom()
       }
       
   """
-  @type create_application_output() :: %{String.t() => any()}
+  @type create_application_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deployment_config_name_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type deployment_config_name_required_exception() :: %{String.t() => any()}
+  @type deployment_config_name_required_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_minimum_healthy_host_value_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_minimum_healthy_host_value_exception() :: %{String.t() => any()}
+  @type invalid_minimum_healthy_host_value_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_deployment_target_id_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_deployment_target_id_exception() :: %{String.t() => any()}
+  @type invalid_deployment_target_id_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -741,160 +741,162 @@ defmodule AWS.CodeDeploy do
   ## Example:
       
       deployment_config_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type deployment_config_already_exists_exception() :: %{String.t() => any()}
+  @type deployment_config_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_git_hub_account_token_name_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_git_hub_account_token_name_exception() :: %{String.t() => any()}
+  @type invalid_git_hub_account_token_name_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_tags_to_add_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_tags_to_add_exception() :: %{String.t() => any()}
+  @type invalid_tags_to_add_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_registration_status_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_registration_status_exception() :: %{String.t() => any()}
+  @type invalid_registration_status_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_update_outdated_instances_only_value_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_update_outdated_instances_only_value_exception() :: %{String.t() => any()}
+  @type invalid_update_outdated_instances_only_value_exception() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       list_deployment_targets_input() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("targetFilters") => map(),
-        required("deploymentId") => String.t()
+        required("deploymentId") => String.t() | atom()
       }
       
   """
-  @type list_deployment_targets_input() :: %{String.t() => any()}
+  @type list_deployment_targets_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_does_not_exist_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type instance_does_not_exist_exception() :: %{String.t() => any()}
+  @type instance_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       app_spec_content() :: %{
-        "content" => String.t(),
-        "sha256" => String.t()
+        "content" => String.t() | atom(),
+        "sha256" => String.t() | atom()
       }
       
   """
-  @type app_spec_content() :: %{String.t() => any()}
+  @type app_spec_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_deployment_targets_input() :: %{
-        required("deploymentId") => String.t(),
-        required("targetIds") => list(String.t())
+        required("deploymentId") => String.t() | atom(),
+        required("targetIds") => list(String.t() | atom())
       }
       
   """
-  @type batch_get_deployment_targets_input() :: %{String.t() => any()}
+  @type batch_get_deployment_targets_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_bucket_name_filter_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_bucket_name_filter_exception() :: %{String.t() => any()}
+  @type invalid_bucket_name_filter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Tags" => list(tag())
       }
       
   """
-  @type list_tags_for_resource_output() :: %{String.t() => any()}
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_deployment_group_input() :: %{
-        required("applicationName") => String.t(),
-        required("deploymentGroupName") => String.t()
+        required("applicationName") => String.t() | atom(),
+        required("deploymentGroupName") => String.t() | atom()
       }
       
   """
-  @type get_deployment_group_input() :: %{String.t() => any()}
+  @type get_deployment_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_iam_session_arn_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_iam_session_arn_exception() :: %{String.t() => any()}
+  @type invalid_iam_session_arn_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_deployment_group_output() :: %{
-        "deploymentGroupId" => String.t()
+        "deploymentGroupId" => String.t() | atom()
       }
       
   """
-  @type create_deployment_group_output() :: %{String.t() => any()}
+  @type create_deployment_group_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -907,42 +909,42 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type zonal_config() :: %{String.t() => any()}
+  @type zonal_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_deployment_configs_output() :: %{
-        "deploymentConfigsList" => list(String.t()),
-        "nextToken" => String.t()
+        "deploymentConfigsList" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_deployment_configs_output() :: %{String.t() => any()}
+  @type list_deployment_configs_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deployment_info() :: %{
-        "additionalDeploymentStatusInfo" => String.t(),
-        "applicationName" => String.t(),
+        "additionalDeploymentStatusInfo" => String.t() | atom(),
+        "applicationName" => String.t() | atom(),
         "autoRollbackConfiguration" => auto_rollback_configuration(),
         "blueGreenDeploymentConfiguration" => blue_green_deployment_configuration(),
         "completeTime" => non_neg_integer(),
         "computePlatform" => list(any()),
         "createTime" => non_neg_integer(),
         "creator" => list(any()),
-        "deploymentConfigName" => String.t(),
-        "deploymentGroupName" => String.t(),
-        "deploymentId" => String.t(),
+        "deploymentConfigName" => String.t() | atom(),
+        "deploymentGroupName" => String.t() | atom(),
+        "deploymentId" => String.t() | atom(),
         "deploymentOverview" => deployment_overview(),
-        "deploymentStatusMessages" => list(String.t()),
+        "deploymentStatusMessages" => list(String.t() | atom()),
         "deploymentStyle" => deployment_style(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "errorInformation" => error_information(),
-        "externalId" => String.t(),
+        "externalId" => String.t() | atom(),
         "fileExistsBehavior" => list(any()),
         "ignoreApplicationStopFailures" => boolean(),
         "instanceTerminationWaitTimeStarted" => boolean(),
@@ -959,29 +961,29 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type deployment_info() :: %{String.t() => any()}
+  @type deployment_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_arn_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_arn_exception() :: %{String.t() => any()}
+  @type invalid_arn_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deployment_id_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type deployment_id_required_exception() :: %{String.t() => any()}
+  @type deployment_id_required_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -993,7 +995,7 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type time_based_linear() :: %{String.t() => any()}
+  @type time_based_linear() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1006,30 +1008,30 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type target_group_pair_info() :: %{String.t() => any()}
+  @type target_group_pair_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_on_premises_instances_output() :: %{
-        "instanceNames" => list(String.t()),
-        "nextToken" => String.t()
+        "instanceNames" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_on_premises_instances_output() :: %{String.t() => any()}
+  @type list_on_premises_instances_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       iam_user_arn_already_registered_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type iam_user_arn_already_registered_exception() :: %{String.t() => any()}
+  @type iam_user_arn_already_registered_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1040,64 +1042,64 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type batch_get_deployments_output() :: %{String.t() => any()}
+  @type batch_get_deployments_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       application_name_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type application_name_required_exception() :: %{String.t() => any()}
+  @type application_name_required_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       register_application_revision_input() :: %{
-        optional("description") => String.t(),
-        required("applicationName") => String.t(),
+        optional("description") => String.t() | atom(),
+        required("applicationName") => String.t() | atom(),
         required("revision") => revision_location()
       }
       
   """
-  @type register_application_revision_input() :: %{String.t() => any()}
+  @type register_application_revision_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_git_hub_account_token_names_input() :: %{
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_git_hub_account_token_names_input() :: %{String.t() => any()}
+  @type list_git_hub_account_token_names_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_file_exists_behavior_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_file_exists_behavior_exception() :: %{String.t() => any()}
+  @type invalid_file_exists_behavior_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_revision_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_revision_exception() :: %{String.t() => any()}
+  @type invalid_revision_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1108,18 +1110,18 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type get_deployment_instance_output() :: %{String.t() => any()}
+  @type get_deployment_instance_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       description_too_long_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type description_too_long_exception() :: %{String.t() => any()}
+  @type description_too_long_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1130,171 +1132,171 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type get_on_premises_instance_output() :: %{String.t() => any()}
+  @type get_on_premises_instance_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_applications_output() :: %{
-        "applications" => list(String.t()),
-        "nextToken" => String.t()
+        "applications" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_applications_output() :: %{String.t() => any()}
+  @type list_applications_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       git_hub_location() :: %{
-        "commitId" => String.t(),
-        "repository" => String.t()
+        "commitId" => String.t() | atom(),
+        "repository" => String.t() | atom()
       }
       
   """
-  @type git_hub_location() :: %{String.t() => any()}
+  @type git_hub_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_e_c_s_service_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_e_c_s_service_exception() :: %{String.t() => any()}
+  @type invalid_e_c_s_service_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_applications_input() :: %{
-        required("applicationNames") => list(String.t())
+        required("applicationNames") => list(String.t() | atom())
       }
       
   """
-  @type batch_get_applications_input() :: %{String.t() => any()}
+  @type batch_get_applications_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_alarm_config_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_alarm_config_exception() :: %{String.t() => any()}
+  @type invalid_alarm_config_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_deployment_groups_output() :: %{
-        "applicationName" => String.t(),
-        "deploymentGroups" => list(String.t()),
-        "nextToken" => String.t()
+        "applicationName" => String.t() | atom(),
+        "deploymentGroups" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_deployment_groups_output() :: %{String.t() => any()}
+  @type list_deployment_groups_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       application_info() :: %{
-        "applicationId" => String.t(),
-        "applicationName" => String.t(),
+        "applicationId" => String.t() | atom(),
+        "applicationName" => String.t() | atom(),
         "computePlatform" => list(any()),
         "createTime" => non_neg_integer(),
-        "gitHubAccountName" => String.t(),
+        "gitHubAccountName" => String.t() | atom(),
         "linkedToGitHub" => boolean()
       }
       
   """
-  @type application_info() :: %{String.t() => any()}
+  @type application_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       arn_not_supported_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type arn_not_supported_exception() :: %{String.t() => any()}
+  @type arn_not_supported_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_id_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type instance_id_required_exception() :: %{String.t() => any()}
+  @type instance_id_required_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_applications_input() :: %{
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_applications_input() :: %{String.t() => any()}
+  @type list_applications_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deployment_not_started_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type deployment_not_started_exception() :: %{String.t() => any()}
+  @type deployment_not_started_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_auto_scaling_group_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_auto_scaling_group_exception() :: %{String.t() => any()}
+  @type invalid_auto_scaling_group_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       e_c_s_service() :: %{
-        "clusterName" => String.t(),
-        "serviceName" => String.t()
+        "clusterName" => String.t() | atom(),
+        "serviceName" => String.t() | atom()
       }
       
   """
-  @type e_c_s_service() :: %{String.t() => any()}
+  @type e_c_s_service() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_time_range_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_time_range_exception() :: %{String.t() => any()}
+  @type invalid_time_range_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1302,14 +1304,14 @@ defmodule AWS.CodeDeploy do
       
       deployment_group_info() :: %{
         "alarmConfiguration" => alarm_configuration(),
-        "applicationName" => String.t(),
+        "applicationName" => String.t() | atom(),
         "autoRollbackConfiguration" => auto_rollback_configuration(),
         "autoScalingGroups" => list(auto_scaling_group()),
         "blueGreenDeploymentConfiguration" => blue_green_deployment_configuration(),
         "computePlatform" => list(any()),
-        "deploymentConfigName" => String.t(),
-        "deploymentGroupId" => String.t(),
-        "deploymentGroupName" => String.t(),
+        "deploymentConfigName" => String.t() | atom(),
+        "deploymentGroupId" => String.t() | atom(),
+        "deploymentGroupName" => String.t() | atom(),
         "deploymentStyle" => deployment_style(),
         "ec2TagFilters" => list(ec2_tag_filter()),
         "ec2TagSet" => ec2_tag_set(),
@@ -1320,25 +1322,25 @@ defmodule AWS.CodeDeploy do
         "onPremisesInstanceTagFilters" => list(tag_filter()),
         "onPremisesTagSet" => on_premises_tag_set(),
         "outdatedInstancesStrategy" => list(any()),
-        "serviceRoleArn" => String.t(),
+        "serviceRoleArn" => String.t() | atom(),
         "targetRevision" => revision_location(),
         "terminationHookEnabled" => boolean(),
         "triggerConfigurations" => list(trigger_config())
       }
       
   """
-  @type deployment_group_info() :: %{String.t() => any()}
+  @type deployment_group_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_on_premises_tag_combination_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_on_premises_tag_combination_exception() :: %{String.t() => any()}
+  @type invalid_on_premises_tag_combination_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1349,75 +1351,75 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type on_premises_tag_set() :: %{String.t() => any()}
+  @type on_premises_tag_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_application_revision_input() :: %{
-        required("applicationName") => String.t(),
+        required("applicationName") => String.t() | atom(),
         required("revision") => revision_location()
       }
       
   """
-  @type get_application_revision_input() :: %{String.t() => any()}
+  @type get_application_revision_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_lifecycle_event_hook_execution_status_output() :: %{
-        "lifecycleEventHookExecutionId" => String.t()
+        "lifecycleEventHookExecutionId" => String.t() | atom()
       }
       
   """
-  @type put_lifecycle_event_hook_execution_status_output() :: %{String.t() => any()}
+  @type put_lifecycle_event_hook_execution_status_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_git_hub_account_token_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_git_hub_account_token_exception() :: %{String.t() => any()}
+  @type invalid_git_hub_account_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deployment_target_list_size_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type deployment_target_list_size_exceeded_exception() :: %{String.t() => any()}
+  @type deployment_target_list_size_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deployment_does_not_exist_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type deployment_does_not_exist_exception() :: %{String.t() => any()}
+  @type deployment_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1426,22 +1428,22 @@ defmodule AWS.CodeDeploy do
       create_application_input() :: %{
         optional("computePlatform") => list(any()),
         optional("tags") => list(tag()),
-        required("applicationName") => String.t()
+        required("applicationName") => String.t() | atom()
       }
       
   """
-  @type create_application_input() :: %{String.t() => any()}
+  @type create_application_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_next_token_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_next_token_exception() :: %{String.t() => any()}
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1449,24 +1451,24 @@ defmodule AWS.CodeDeploy do
       
       last_deployment_info() :: %{
         "createTime" => non_neg_integer(),
-        "deploymentId" => String.t(),
+        "deploymentId" => String.t() | atom(),
         "endTime" => non_neg_integer(),
         "status" => list(any())
       }
       
   """
-  @type last_deployment_info() :: %{String.t() => any()}
+  @type last_deployment_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       e_lb_info() :: %{
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
       
   """
-  @type e_lb_info() :: %{String.t() => any()}
+  @type e_lb_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1475,109 +1477,109 @@ defmodule AWS.CodeDeploy do
       update_deployment_group_input() :: %{
         optional("alarmConfiguration") => alarm_configuration(),
         optional("autoRollbackConfiguration") => auto_rollback_configuration(),
-        optional("autoScalingGroups") => list(String.t()),
+        optional("autoScalingGroups") => list(String.t() | atom()),
         optional("blueGreenDeploymentConfiguration") => blue_green_deployment_configuration(),
-        optional("deploymentConfigName") => String.t(),
+        optional("deploymentConfigName") => String.t() | atom(),
         optional("deploymentStyle") => deployment_style(),
         optional("ec2TagFilters") => list(ec2_tag_filter()),
         optional("ec2TagSet") => ec2_tag_set(),
         optional("ecsServices") => list(e_c_s_service()),
         optional("loadBalancerInfo") => load_balancer_info(),
-        optional("newDeploymentGroupName") => String.t(),
+        optional("newDeploymentGroupName") => String.t() | atom(),
         optional("onPremisesInstanceTagFilters") => list(tag_filter()),
         optional("onPremisesTagSet") => on_premises_tag_set(),
         optional("outdatedInstancesStrategy") => list(any()),
-        optional("serviceRoleArn") => String.t(),
+        optional("serviceRoleArn") => String.t() | atom(),
         optional("terminationHookEnabled") => boolean(),
         optional("triggerConfigurations") => list(trigger_config()),
-        required("applicationName") => String.t(),
-        required("currentDeploymentGroupName") => String.t()
+        required("applicationName") => String.t() | atom(),
+        required("currentDeploymentGroupName") => String.t() | atom()
       }
       
   """
-  @type update_deployment_group_input() :: %{String.t() => any()}
+  @type update_deployment_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type tag_limit_exceeded_exception() :: %{String.t() => any()}
+  @type tag_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_external_id_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_external_id_exception() :: %{String.t() => any()}
+  @type invalid_external_id_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_git_hub_account_token_input() :: %{
-        optional("tokenName") => String.t()
+        optional("tokenName") => String.t() | atom()
       }
       
   """
-  @type delete_git_hub_account_token_input() :: %{String.t() => any()}
+  @type delete_git_hub_account_token_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deployment_target_does_not_exist_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type deployment_target_does_not_exist_exception() :: %{String.t() => any()}
+  @type deployment_target_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_deployment_config_output() :: %{
-        "deploymentConfigId" => String.t()
+        "deploymentConfigId" => String.t() | atom()
       }
       
   """
-  @type create_deployment_config_output() :: %{String.t() => any()}
+  @type create_deployment_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       lambda_function_info() :: %{
-        "currentVersion" => String.t(),
-        "functionAlias" => String.t(),
-        "functionName" => String.t(),
-        "targetVersion" => String.t(),
+        "currentVersion" => String.t() | atom(),
+        "functionAlias" => String.t() | atom(),
+        "functionName" => String.t() | atom(),
+        "targetVersion" => String.t() | atom(),
         "targetVersionWeight" => float()
       }
       
   """
-  @type lambda_function_info() :: %{String.t() => any()}
+  @type lambda_function_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_deployment_targets_output() :: %{
-        "nextToken" => String.t(),
-        "targetIds" => list(String.t())
+        "nextToken" => String.t() | atom(),
+        "targetIds" => list(String.t() | atom())
       }
       
   """
-  @type list_deployment_targets_output() :: %{String.t() => any()}
+  @type list_deployment_targets_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1588,144 +1590,144 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type green_fleet_provisioning_option() :: %{String.t() => any()}
+  @type green_fleet_provisioning_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_input_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_input_exception() :: %{String.t() => any()}
+  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_deployment_group_input() :: %{
-        required("applicationName") => String.t(),
-        required("deploymentGroupName") => String.t()
+        required("applicationName") => String.t() | atom(),
+        required("deploymentGroupName") => String.t() | atom()
       }
       
   """
-  @type delete_deployment_group_input() :: %{String.t() => any()}
+  @type delete_deployment_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_on_premises_instances_input() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("registrationStatus") => list(any()),
         optional("tagFilters") => list(tag_filter())
       }
       
   """
-  @type list_on_premises_instances_input() :: %{String.t() => any()}
+  @type list_on_premises_instances_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       iam_session_arn_already_registered_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type iam_session_arn_already_registered_exception() :: %{String.t() => any()}
+  @type iam_session_arn_already_registered_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       raw_string() :: %{
-        "content" => String.t(),
-        "sha256" => String.t()
+        "content" => String.t() | atom(),
+        "sha256" => String.t() | atom()
       }
       
   """
-  @type raw_string() :: %{String.t() => any()}
+  @type raw_string() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_target() :: %{
-        "deploymentId" => String.t(),
+        "deploymentId" => String.t() | atom(),
         "instanceLabel" => list(any()),
         "lastUpdatedAt" => non_neg_integer(),
         "lifecycleEvents" => list(lifecycle_event()),
         "status" => list(any()),
-        "targetArn" => String.t(),
-        "targetId" => String.t()
+        "targetArn" => String.t() | atom(),
+        "targetId" => String.t() | atom()
       }
       
   """
-  @type instance_target() :: %{String.t() => any()}
+  @type instance_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_deployment_group_name_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_deployment_group_name_exception() :: %{String.t() => any()}
+  @type invalid_deployment_group_name_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deployment_config_in_use_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type deployment_config_in_use_exception() :: %{String.t() => any()}
+  @type deployment_config_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_key_prefix_filter_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_key_prefix_filter_exception() :: %{String.t() => any()}
+  @type invalid_key_prefix_filter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       target_instances() :: %{
-        "autoScalingGroups" => list(String.t()),
+        "autoScalingGroups" => list(String.t() | atom()),
         "ec2TagSet" => ec2_tag_set(),
         "tagFilters" => list(ec2_tag_filter())
       }
       
   """
-  @type target_instances() :: %{String.t() => any()}
+  @type target_instances() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_location() :: %{
-        "bucket" => String.t(),
+        "bucket" => String.t() | atom(),
         "bundleType" => list(any()),
-        "eTag" => String.t(),
-        "key" => String.t(),
-        "version" => String.t()
+        "eTag" => String.t() | atom(),
+        "key" => String.t() | atom(),
+        "version" => String.t() | atom()
       }
       
   """
-  @type s3_location() :: %{String.t() => any()}
+  @type s3_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1738,19 +1740,19 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type blue_green_deployment_configuration() :: %{String.t() => any()}
+  @type blue_green_deployment_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_input() :: %{
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | atom(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_input() :: %{String.t() => any()}
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1762,19 +1764,19 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type minimum_healthy_hosts() :: %{String.t() => any()}
+  @type minimum_healthy_hosts() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_deployment_groups_input() :: %{
-        required("applicationName") => String.t(),
-        required("deploymentGroupNames") => list(String.t())
+        required("applicationName") => String.t() | atom(),
+        required("deploymentGroupNames") => list(String.t() | atom())
       }
       
   """
-  @type batch_get_deployment_groups_input() :: %{String.t() => any()}
+  @type batch_get_deployment_groups_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1782,83 +1784,83 @@ defmodule AWS.CodeDeploy do
       
       list_application_revisions_input() :: %{
         optional("deployed") => list(any()),
-        optional("nextToken") => String.t(),
-        optional("s3Bucket") => String.t(),
-        optional("s3KeyPrefix") => String.t(),
+        optional("nextToken") => String.t() | atom(),
+        optional("s3Bucket") => String.t() | atom(),
+        optional("s3KeyPrefix") => String.t() | atom(),
         optional("sortBy") => list(any()),
         optional("sortOrder") => list(any()),
-        required("applicationName") => String.t()
+        required("applicationName") => String.t() | atom()
       }
       
   """
-  @type list_application_revisions_input() :: %{String.t() => any()}
+  @type list_application_revisions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_deployment_wait_type_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_deployment_wait_type_exception() :: %{String.t() => any()}
+  @type invalid_deployment_wait_type_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deployment_group_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type deployment_group_already_exists_exception() :: %{String.t() => any()}
+  @type deployment_group_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_role_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_role_exception() :: %{String.t() => any()}
+  @type invalid_role_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_zonal_deployment_configuration_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_zonal_deployment_configuration_exception() :: %{String.t() => any()}
+  @type invalid_zonal_deployment_configuration_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_on_premises_instance_input() :: %{
-        required("instanceName") => String.t()
+        required("instanceName") => String.t() | atom()
       }
       
   """
-  @type get_on_premises_instance_input() :: %{String.t() => any()}
+  @type get_on_premises_instance_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       continue_deployment_input() :: %{
-        optional("deploymentId") => String.t(),
+        optional("deploymentId") => String.t() | atom(),
         optional("deploymentWaitType") => list(any())
       }
       
   """
-  @type continue_deployment_input() :: %{String.t() => any()}
+  @type continue_deployment_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1869,18 +1871,18 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type get_application_output() :: %{String.t() => any()}
+  @type get_application_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       application_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type application_already_exists_exception() :: %{String.t() => any()}
+  @type application_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1905,7 +1907,7 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type deployment_overview() :: %{String.t() => any()}
+  @type deployment_overview() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1916,29 +1918,29 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type batch_get_on_premises_instances_output() :: %{String.t() => any()}
+  @type batch_get_on_premises_instances_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_instance_name_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_instance_name_exception() :: %{String.t() => any()}
+  @type invalid_instance_name_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       iam_arn_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type iam_arn_required_exception() :: %{String.t() => any()}
+  @type iam_arn_required_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1949,61 +1951,61 @@ defmodule AWS.CodeDeploy do
         optional("minimumHealthyHosts") => minimum_healthy_hosts(),
         optional("trafficRoutingConfig") => traffic_routing_config(),
         optional("zonalConfig") => zonal_config(),
-        required("deploymentConfigName") => String.t()
+        required("deploymentConfigName") => String.t() | atom()
       }
       
   """
-  @type create_deployment_config_input() :: %{String.t() => any()}
+  @type create_deployment_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_formation_target() :: %{
-        "deploymentId" => String.t(),
+        "deploymentId" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
         "lifecycleEvents" => list(lifecycle_event()),
-        "resourceType" => String.t(),
+        "resourceType" => String.t() | atom(),
         "status" => list(any()),
-        "targetId" => String.t(),
+        "targetId" => String.t() | atom(),
         "targetVersionWeight" => float()
       }
       
   """
-  @type cloud_formation_target() :: %{String.t() => any()}
+  @type cloud_formation_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       trigger_targets_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type trigger_targets_limit_exceeded_exception() :: %{String.t() => any()}
+  @type trigger_targets_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       git_hub_account_token_name_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type git_hub_account_token_name_required_exception() :: %{String.t() => any()}
+  @type git_hub_account_token_name_required_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_arn_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type resource_arn_required_exception() :: %{String.t() => any()}
+  @type resource_arn_required_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2014,18 +2016,18 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type get_deployment_config_output() :: %{String.t() => any()}
+  @type get_deployment_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_traffic_routing_configuration_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_traffic_routing_configuration_exception() :: %{String.t() => any()}
+  @type invalid_traffic_routing_configuration_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2034,9 +2036,9 @@ defmodule AWS.CodeDeploy do
       create_deployment_group_input() :: %{
         optional("alarmConfiguration") => alarm_configuration(),
         optional("autoRollbackConfiguration") => auto_rollback_configuration(),
-        optional("autoScalingGroups") => list(String.t()),
+        optional("autoScalingGroups") => list(String.t() | atom()),
         optional("blueGreenDeploymentConfiguration") => blue_green_deployment_configuration(),
-        optional("deploymentConfigName") => String.t(),
+        optional("deploymentConfigName") => String.t() | atom(),
         optional("deploymentStyle") => deployment_style(),
         optional("ec2TagFilters") => list(ec2_tag_filter()),
         optional("ec2TagSet") => ec2_tag_set(),
@@ -2048,13 +2050,13 @@ defmodule AWS.CodeDeploy do
         optional("tags") => list(tag()),
         optional("terminationHookEnabled") => boolean(),
         optional("triggerConfigurations") => list(trigger_config()),
-        required("applicationName") => String.t(),
-        required("deploymentGroupName") => String.t(),
-        required("serviceRoleArn") => String.t()
+        required("applicationName") => String.t() | atom(),
+        required("deploymentGroupName") => String.t() | atom(),
+        required("serviceRoleArn") => String.t() | atom()
       }
       
   """
-  @type create_deployment_group_input() :: %{String.t() => any()}
+  @type create_deployment_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2066,30 +2068,30 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type blue_instance_termination_option() :: %{String.t() => any()}
+  @type blue_instance_termination_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       related_deployments() :: %{
-        "autoUpdateOutdatedInstancesDeploymentIds" => list(String.t()),
-        "autoUpdateOutdatedInstancesRootDeploymentId" => String.t()
+        "autoUpdateOutdatedInstancesDeploymentIds" => list(String.t() | atom()),
+        "autoUpdateOutdatedInstancesRootDeploymentId" => String.t() | atom()
       }
       
   """
-  @type related_deployments() :: %{String.t() => any()}
+  @type related_deployments() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deployment_group_does_not_exist_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type deployment_group_does_not_exist_exception() :: %{String.t() => any()}
+  @type deployment_group_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2101,18 +2103,18 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type time_range() :: %{String.t() => any()}
+  @type time_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       iam_user_arn_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type iam_user_arn_required_exception() :: %{String.t() => any()}
+  @type iam_user_arn_required_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2120,26 +2122,26 @@ defmodule AWS.CodeDeploy do
       
       diagnostics() :: %{
         "errorCode" => list(any()),
-        "logTail" => String.t(),
-        "message" => String.t(),
-        "scriptName" => String.t()
+        "logTail" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "scriptName" => String.t() | atom()
       }
       
   """
-  @type diagnostics() :: %{String.t() => any()}
+  @type diagnostics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       register_on_premises_instance_input() :: %{
-        optional("iamSessionArn") => String.t(),
-        optional("iamUserArn") => String.t(),
-        required("instanceName") => String.t()
+        optional("iamSessionArn") => String.t() | atom(),
+        optional("iamUserArn") => String.t() | atom(),
+        required("instanceName") => String.t() | atom()
       }
       
   """
-  @type register_on_premises_instance_input() :: %{String.t() => any()}
+  @type register_on_premises_instance_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2150,7 +2152,7 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type ec2_tag_set() :: %{String.t() => any()}
+  @type ec2_tag_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2162,88 +2164,88 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type revision_info() :: %{String.t() => any()}
+  @type revision_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_application_input() :: %{
-        required("applicationName") => String.t()
+        required("applicationName") => String.t() | atom()
       }
       
   """
-  @type delete_application_input() :: %{String.t() => any()}
+  @type delete_application_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       lifecycle_hook_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type lifecycle_hook_limit_exceeded_exception() :: %{String.t() => any()}
+  @type lifecycle_hook_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_input() :: %{
-        required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_input() :: %{String.t() => any()}
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_deployment_config_name_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_deployment_config_name_exception() :: %{String.t() => any()}
+  @type invalid_deployment_config_name_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_application_revisions_output() :: %{
-        "applicationName" => String.t(),
-        "errorMessage" => String.t(),
+        "applicationName" => String.t() | atom(),
+        "errorMessage" => String.t() | atom(),
         "revisions" => list(revision_info())
       }
       
   """
-  @type batch_get_application_revisions_output() :: %{String.t() => any()}
+  @type batch_get_application_revisions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_sort_by_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_sort_by_exception() :: %{String.t() => any()}
+  @type invalid_sort_by_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_deployment_groups_input() :: %{
-        optional("nextToken") => String.t(),
-        required("applicationName") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("applicationName") => String.t() | atom()
       }
       
   """
-  @type list_deployment_groups_input() :: %{String.t() => any()}
+  @type list_deployment_groups_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2254,7 +2256,7 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type batch_get_applications_output() :: %{String.t() => any()}
+  @type batch_get_applications_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2262,11 +2264,11 @@ defmodule AWS.CodeDeploy do
       
       stop_deployment_input() :: %{
         optional("autoRollbackEnabled") => boolean(),
-        required("deploymentId") => String.t()
+        required("deploymentId") => String.t() | atom()
       }
       
   """
-  @type stop_deployment_input() :: %{String.t() => any()}
+  @type stop_deployment_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2279,104 +2281,104 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type traffic_routing_config() :: %{String.t() => any()}
+  @type traffic_routing_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       role_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type role_required_exception() :: %{String.t() => any()}
+  @type role_required_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       generic_revision_info() :: %{
-        "deploymentGroups" => list(String.t()),
-        "description" => String.t(),
+        "deploymentGroups" => list(String.t() | atom()),
+        "description" => String.t() | atom(),
         "firstUsedTime" => non_neg_integer(),
         "lastUsedTime" => non_neg_integer(),
         "registerTime" => non_neg_integer()
       }
       
   """
-  @type generic_revision_info() :: %{String.t() => any()}
+  @type generic_revision_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_deployment_instances_output() :: %{
-        "errorMessage" => String.t(),
+        "errorMessage" => String.t() | atom(),
         "instancesSummary" => list(instance_summary())
       }
       
   """
-  @type batch_get_deployment_instances_output() :: %{String.t() => any()}
+  @type batch_get_deployment_instances_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       auto_scaling_group() :: %{
-        "hook" => String.t(),
-        "name" => String.t(),
-        "terminationHook" => String.t()
+        "hook" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "terminationHook" => String.t() | atom()
       }
       
   """
-  @type auto_scaling_group() :: %{String.t() => any()}
+  @type auto_scaling_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_input() :: %{
-        optional("NextToken") => String.t(),
-        required("ResourceArn") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_input() :: %{String.t() => any()}
+  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_tags_to_on_premises_instances_input() :: %{
-        required("instanceNames") => list(String.t()),
+        required("instanceNames") => list(String.t() | atom()),
         required("tags") => list(tag())
       }
       
   """
-  @type add_tags_to_on_premises_instances_input() :: %{String.t() => any()}
+  @type add_tags_to_on_premises_instances_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_validation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type resource_validation_exception() :: %{String.t() => any()}
+  @type resource_validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_deployed_state_filter_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_deployed_state_filter_exception() :: %{String.t() => any()}
+  @type invalid_deployed_state_filter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2387,7 +2389,7 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type get_deployment_group_output() :: %{String.t() => any()}
+  @type get_deployment_group_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2403,11 +2405,11 @@ defmodule AWS.CodeDeploy do
   ## Example:
       
       revision_does_not_exist_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type revision_does_not_exist_exception() :: %{String.t() => any()}
+  @type revision_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2420,48 +2422,48 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type load_balancer_info() :: %{String.t() => any()}
+  @type load_balancer_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       e_c_s_service_mapping_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type e_c_s_service_mapping_limit_exceeded_exception() :: %{String.t() => any()}
+  @type e_c_s_service_mapping_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_iam_user_arn_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_iam_user_arn_exception() :: %{String.t() => any()}
+  @type invalid_iam_user_arn_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deregister_on_premises_instance_input() :: %{
-        required("instanceName") => String.t()
+        required("instanceName") => String.t() | atom()
       }
       
   """
-  @type deregister_on_premises_instance_input() :: %{String.t() => any()}
+  @type deregister_on_premises_instance_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_summary() :: %{
-        "deploymentId" => String.t(),
-        "instanceId" => String.t(),
+        "deploymentId" => String.t() | atom(),
+        "instanceId" => String.t() | atom(),
         "instanceType" => list(any()),
         "lastUpdatedAt" => non_neg_integer(),
         "lifecycleEvents" => list(lifecycle_event()),
@@ -2469,98 +2471,98 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type instance_summary() :: %{String.t() => any()}
+  @type instance_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_application_name_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_application_name_exception() :: %{String.t() => any()}
+  @type invalid_application_name_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       bucket_name_filter_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type bucket_name_filter_required_exception() :: %{String.t() => any()}
+  @type bucket_name_filter_required_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deployment_already_completed_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type deployment_already_completed_exception() :: %{String.t() => any()}
+  @type deployment_already_completed_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_instance_type_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_instance_type_exception() :: %{String.t() => any()}
+  @type invalid_instance_type_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rollback_info() :: %{
-        "rollbackDeploymentId" => String.t(),
-        "rollbackMessage" => String.t(),
-        "rollbackTriggeringDeploymentId" => String.t()
+        "rollbackDeploymentId" => String.t() | atom(),
+        "rollbackMessage" => String.t() | atom(),
+        "rollbackTriggeringDeploymentId" => String.t() | atom()
       }
       
   """
-  @type rollback_info() :: %{String.t() => any()}
+  @type rollback_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_application_input() :: %{
-        optional("applicationName") => String.t(),
-        optional("newApplicationName") => String.t()
+        optional("applicationName") => String.t() | atom(),
+        optional("newApplicationName") => String.t() | atom()
       }
       
   """
-  @type update_application_input() :: %{String.t() => any()}
+  @type update_application_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deployment_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type deployment_limit_exceeded_exception() :: %{String.t() => any()}
+  @type deployment_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2569,13 +2571,13 @@ defmodule AWS.CodeDeploy do
       lifecycle_event() :: %{
         "diagnostics" => diagnostics(),
         "endTime" => non_neg_integer(),
-        "lifecycleEventName" => String.t(),
+        "lifecycleEventName" => String.t() | atom(),
         "startTime" => non_neg_integer(),
         "status" => list(any())
       }
       
   """
-  @type lifecycle_event() :: %{String.t() => any()}
+  @type lifecycle_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2584,60 +2586,62 @@ defmodule AWS.CodeDeploy do
       deployment_config_info() :: %{
         "computePlatform" => list(any()),
         "createTime" => non_neg_integer(),
-        "deploymentConfigId" => String.t(),
-        "deploymentConfigName" => String.t(),
+        "deploymentConfigId" => String.t() | atom(),
+        "deploymentConfigName" => String.t() | atom(),
         "minimumHealthyHosts" => minimum_healthy_hosts(),
         "trafficRoutingConfig" => traffic_routing_config(),
         "zonalConfig" => zonal_config()
       }
       
   """
-  @type deployment_config_info() :: %{String.t() => any()}
+  @type deployment_config_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_blue_green_deployment_configuration_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_blue_green_deployment_configuration_exception() :: %{String.t() => any()}
+  @type invalid_blue_green_deployment_configuration_exception() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       delete_deployment_config_input() :: %{
-        required("deploymentConfigName") => String.t()
+        required("deploymentConfigName") => String.t() | atom()
       }
       
   """
-  @type delete_deployment_config_input() :: %{String.t() => any()}
+  @type delete_deployment_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_target_filter_name_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_target_filter_name_exception() :: %{String.t() => any()}
+  @type invalid_target_filter_name_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_deployments_output() :: %{
-        "deployments" => list(String.t()),
-        "nextToken" => String.t()
+        "deployments" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_deployments_output() :: %{String.t() => any()}
+  @type list_deployments_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2645,33 +2649,33 @@ defmodule AWS.CodeDeploy do
       
       error_information() :: %{
         "code" => list(any()),
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type error_information() :: %{String.t() => any()}
+  @type error_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_set_list_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type tag_set_list_limit_exceeded_exception() :: %{String.t() => any()}
+  @type tag_set_list_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_deployment_output() :: %{
-        "deploymentId" => String.t()
+        "deploymentId" => String.t() | atom()
       }
       
   """
-  @type create_deployment_output() :: %{String.t() => any()}
+  @type create_deployment_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2683,47 +2687,47 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type deployment_ready_option() :: %{String.t() => any()}
+  @type deployment_ready_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_deployments_input() :: %{
-        optional("applicationName") => String.t(),
+        optional("applicationName") => String.t() | atom(),
         optional("createTimeRange") => time_range(),
-        optional("deploymentGroupName") => String.t(),
-        optional("externalId") => String.t(),
+        optional("deploymentGroupName") => String.t() | atom(),
+        optional("externalId") => String.t() | atom(),
         optional("includeOnlyStatuses") => list(list(any())()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_deployments_input() :: %{String.t() => any()}
+  @type list_deployments_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_deployment_configs_input() :: %{
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_deployment_configs_input() :: %{String.t() => any()}
+  @type list_deployment_configs_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_application_revision_output() :: %{
-        "applicationName" => String.t(),
+        "applicationName" => String.t() | atom(),
         "revision" => revision_location(),
         "revisionInfo" => generic_revision_info()
       }
       
   """
-  @type get_application_revision_output() :: %{String.t() => any()}
+  @type get_application_revision_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2731,90 +2735,90 @@ defmodule AWS.CodeDeploy do
       
       instance_info() :: %{
         "deregisterTime" => non_neg_integer(),
-        "iamSessionArn" => String.t(),
-        "iamUserArn" => String.t(),
-        "instanceArn" => String.t(),
-        "instanceName" => String.t(),
+        "iamSessionArn" => String.t() | atom(),
+        "iamUserArn" => String.t() | atom(),
+        "instanceArn" => String.t() | atom(),
+        "instanceName" => String.t() | atom(),
         "registerTime" => non_neg_integer(),
         "tags" => list(tag())
       }
       
   """
-  @type instance_info() :: %{String.t() => any()}
+  @type instance_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deployment_group_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type deployment_group_limit_exceeded_exception() :: %{String.t() => any()}
+  @type deployment_group_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       lambda_target() :: %{
-        "deploymentId" => String.t(),
+        "deploymentId" => String.t() | atom(),
         "lambdaFunctionInfo" => lambda_function_info(),
         "lastUpdatedAt" => non_neg_integer(),
         "lifecycleEvents" => list(lifecycle_event()),
         "status" => list(any()),
-        "targetArn" => String.t(),
-        "targetId" => String.t()
+        "targetArn" => String.t() | atom(),
+        "targetId" => String.t() | atom()
       }
       
   """
-  @type lambda_target() :: %{String.t() => any()}
+  @type lambda_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_filter() :: %{
-        "Key" => String.t(),
+        "Key" => String.t() | atom(),
         "Type" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag_filter() :: %{String.t() => any()}
+  @type tag_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_application_input() :: %{
-        required("applicationName") => String.t()
+        required("applicationName") => String.t() | atom()
       }
       
   """
-  @type get_application_input() :: %{String.t() => any()}
+  @type get_application_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_deployment_instance_type_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_deployment_instance_type_exception() :: %{String.t() => any()}
+  @type invalid_deployment_instance_type_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       operation_not_supported_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type operation_not_supported_exception() :: %{String.t() => any()}
+  @type operation_not_supported_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2825,18 +2829,18 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type get_deployment_target_output() :: %{String.t() => any()}
+  @type get_deployment_target_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       multiple_iam_arns_provided_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type multiple_iam_arns_provided_exception() :: %{String.t() => any()}
+  @type multiple_iam_arns_provided_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2848,7 +2852,7 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type time_based_canary() :: %{String.t() => any()}
+  @type time_based_canary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2856,158 +2860,160 @@ defmodule AWS.CodeDeploy do
       
       stop_deployment_output() :: %{
         "status" => list(any()),
-        "statusMessage" => String.t()
+        "statusMessage" => String.t() | atom()
       }
       
   """
-  @type stop_deployment_output() :: %{String.t() => any()}
+  @type stop_deployment_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_git_hub_account_token_output() :: %{
-        "tokenName" => String.t()
+        "tokenName" => String.t() | atom()
       }
       
   """
-  @type delete_git_hub_account_token_output() :: %{String.t() => any()}
+  @type delete_git_hub_account_token_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_tags_from_on_premises_instances_input() :: %{
-        required("instanceNames") => list(String.t()),
+        required("instanceNames") => list(String.t() | atom()),
         required("tags") => list(tag())
       }
       
   """
-  @type remove_tags_from_on_premises_instances_input() :: %{String.t() => any()}
+  @type remove_tags_from_on_premises_instances_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_target_instances_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_target_instances_exception() :: %{String.t() => any()}
+  @type invalid_target_instances_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_compute_platform_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_compute_platform_exception() :: %{String.t() => any()}
+  @type invalid_compute_platform_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deployment_config_does_not_exist_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type deployment_config_does_not_exist_exception() :: %{String.t() => any()}
+  @type deployment_config_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_ignore_application_stop_failures_value_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_ignore_application_stop_failures_value_exception() :: %{String.t() => any()}
+  @type invalid_ignore_application_stop_failures_value_exception() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       invalid_tag_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_tag_exception() :: %{String.t() => any()}
+  @type invalid_tag_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_tag_filter_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_tag_filter_exception() :: %{String.t() => any()}
+  @type invalid_tag_filter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_target_group_pair_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_target_group_pair_exception() :: %{String.t() => any()}
+  @type invalid_target_group_pair_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       alarms_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type alarms_limit_exceeded_exception() :: %{String.t() => any()}
+  @type alarms_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_git_hub_account_token_names_output() :: %{
-        "nextToken" => String.t(),
-        "tokenNameList" => list(String.t())
+        "nextToken" => String.t() | atom(),
+        "tokenNameList" => list(String.t() | atom())
       }
       
   """
-  @type list_git_hub_account_token_names_output() :: %{String.t() => any()}
+  @type list_git_hub_account_token_names_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_lifecycle_event_hook_execution_status_input() :: %{
-        optional("deploymentId") => String.t(),
-        optional("lifecycleEventHookExecutionId") => String.t(),
+        optional("deploymentId") => String.t() | atom(),
+        optional("lifecycleEventHookExecutionId") => String.t() | atom(),
         optional("status") => list(any())
       }
       
   """
-  @type put_lifecycle_event_hook_execution_status_input() :: %{String.t() => any()}
+  @type put_lifecycle_event_hook_execution_status_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_name_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type instance_name_required_exception() :: %{String.t() => any()}
+  @type instance_name_required_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3015,34 +3021,34 @@ defmodule AWS.CodeDeploy do
       
       trigger_config() :: %{
         "triggerEvents" => list(list(any())()),
-        "triggerName" => String.t(),
-        "triggerTargetArn" => String.t()
+        "triggerName" => String.t() | atom(),
+        "triggerTargetArn" => String.t() | atom()
       }
       
   """
-  @type trigger_config() :: %{String.t() => any()}
+  @type trigger_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_deployment_id_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_deployment_id_exception() :: %{String.t() => any()}
+  @type invalid_deployment_id_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_not_registered_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type instance_not_registered_exception() :: %{String.t() => any()}
+  @type instance_not_registered_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3055,95 +3061,97 @@ defmodule AWS.CodeDeploy do
       }
       
   """
-  @type alarm_configuration() :: %{String.t() => any()}
+  @type alarm_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_ec2_tag_combination_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_ec2_tag_combination_exception() :: %{String.t() => any()}
+  @type invalid_ec2_tag_combination_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_ec2_tag_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_ec2_tag_exception() :: %{String.t() => any()}
+  @type invalid_ec2_tag_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_auto_rollback_config_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_auto_rollback_config_exception() :: %{String.t() => any()}
+  @type invalid_auto_rollback_config_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_lifecycle_event_hook_execution_id_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_lifecycle_event_hook_execution_id_exception() :: %{String.t() => any()}
+  @type invalid_lifecycle_event_hook_execution_id_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deployment_group_name_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type deployment_group_name_required_exception() :: %{String.t() => any()}
+  @type deployment_group_name_required_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_lifecycle_event_hook_execution_status_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_lifecycle_event_hook_execution_status_exception() :: %{String.t() => any()}
+  @type invalid_lifecycle_event_hook_execution_status_exception() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       delete_resources_by_external_id_input() :: %{
-        optional("externalId") => String.t()
+        optional("externalId") => String.t() | atom()
       }
       
   """
-  @type delete_resources_by_external_id_input() :: %{String.t() => any()}
+  @type delete_resources_by_external_id_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       target_group_info() :: %{
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
       
   """
-  @type target_group_info() :: %{String.t() => any()}
+  @type target_group_info() :: %{(String.t() | atom()) => any()}
 
   @type add_tags_to_on_premises_instances_errors() ::
           instance_not_registered_exception()
@@ -3598,7 +3606,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, add_tags_to_on_premises_instances_errors()}
   def add_tags_to_on_premises_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTagsToOnPremisesInstances", input, options)
   end
@@ -3615,7 +3624,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, batch_get_application_revisions_errors()}
   def batch_get_application_revisions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetApplicationRevisions", input, options)
   end
@@ -3632,7 +3642,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, batch_get_applications_errors()}
   def batch_get_applications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetApplications", input, options)
   end
@@ -3646,7 +3657,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, batch_get_deployment_groups_errors()}
   def batch_get_deployment_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetDeploymentGroups", input, options)
   end
@@ -3670,7 +3682,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, batch_get_deployment_instances_errors()}
   def batch_get_deployment_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetDeploymentInstances", input, options)
   end
@@ -3711,7 +3724,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, batch_get_deployment_targets_errors()}
   def batch_get_deployment_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetDeploymentTargets", input, options)
   end
@@ -3728,7 +3742,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, batch_get_deployments_errors()}
   def batch_get_deployments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetDeployments", input, options)
   end
@@ -3745,7 +3760,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, batch_get_on_premises_instances_errors()}
   def batch_get_on_premises_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetOnPremisesInstances", input, options)
   end
@@ -3768,7 +3784,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, continue_deployment_errors()}
   def continue_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ContinueDeployment", input, options)
   end
@@ -3782,7 +3799,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApplication", input, options)
   end
@@ -3796,7 +3814,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, create_deployment_errors()}
   def create_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDeployment", input, options)
   end
@@ -3810,7 +3829,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, create_deployment_config_errors()}
   def create_deployment_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDeploymentConfig", input, options)
   end
@@ -3824,7 +3844,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, create_deployment_group_errors()}
   def create_deployment_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDeploymentGroup", input, options)
   end
@@ -3838,7 +3859,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplication", input, options)
   end
@@ -3856,7 +3878,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, delete_deployment_config_errors()}
   def delete_deployment_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDeploymentConfig", input, options)
   end
@@ -3870,7 +3893,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, delete_deployment_group_errors()}
   def delete_deployment_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDeploymentGroup", input, options)
   end
@@ -3884,7 +3908,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, delete_git_hub_account_token_errors()}
   def delete_git_hub_account_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGitHubAccountToken", input, options)
   end
@@ -3906,7 +3931,8 @@ defmodule AWS.CodeDeploy do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_resources_by_external_id(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourcesByExternalId", input, options)
   end
@@ -3920,7 +3946,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, deregister_on_premises_instance_errors()}
   def deregister_on_premises_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterOnPremisesInstance", input, options)
   end
@@ -3934,7 +3961,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, get_application_errors()}
   def get_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetApplication", input, options)
   end
@@ -3948,7 +3976,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, get_application_revision_errors()}
   def get_application_revision(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetApplicationRevision", input, options)
   end
@@ -3967,7 +3996,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, get_deployment_errors()}
   def get_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDeployment", input, options)
   end
@@ -3981,7 +4011,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, get_deployment_config_errors()}
   def get_deployment_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDeploymentConfig", input, options)
   end
@@ -3995,7 +4026,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, get_deployment_group_errors()}
   def get_deployment_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDeploymentGroup", input, options)
   end
@@ -4009,7 +4041,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, get_deployment_instance_errors()}
   def get_deployment_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDeploymentInstance", input, options)
   end
@@ -4023,7 +4056,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, get_deployment_target_errors()}
   def get_deployment_target(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDeploymentTarget", input, options)
   end
@@ -4037,7 +4071,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, get_on_premises_instance_errors()}
   def get_on_premises_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetOnPremisesInstance", input, options)
   end
@@ -4051,7 +4086,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_application_revisions_errors()}
   def list_application_revisions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListApplicationRevisions", input, options)
   end
@@ -4065,7 +4101,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_applications_errors()}
   def list_applications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListApplications", input, options)
   end
@@ -4080,7 +4117,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_deployment_configs_errors()}
   def list_deployment_configs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDeploymentConfigs", input, options)
   end
@@ -4096,7 +4134,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_deployment_groups_errors()}
   def list_deployment_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDeploymentGroups", input, options)
   end
@@ -4119,7 +4158,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_deployment_instances_errors()}
   def list_deployment_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDeploymentInstances", input, options)
   end
@@ -4133,7 +4173,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_deployment_targets_errors()}
   def list_deployment_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDeploymentTargets", input, options)
   end
@@ -4149,7 +4190,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_deployments_errors()}
   def list_deployments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDeployments", input, options)
   end
@@ -4163,7 +4205,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_git_hub_account_token_names_errors()}
   def list_git_hub_account_token_names(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGitHubAccountTokenNames", input, options)
   end
@@ -4183,7 +4226,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_on_premises_instances_errors()}
   def list_on_premises_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListOnPremisesInstances", input, options)
   end
@@ -4201,7 +4245,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -4232,7 +4277,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, put_lifecycle_event_hook_execution_status_errors()}
   def put_lifecycle_event_hook_execution_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutLifecycleEventHookExecutionStatus", input, options)
   end
@@ -4246,7 +4292,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, register_application_revision_errors()}
   def register_application_revision(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterApplicationRevision", input, options)
   end
@@ -4263,7 +4310,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, register_on_premises_instance_errors()}
   def register_on_premises_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterOnPremisesInstance", input, options)
   end
@@ -4281,7 +4329,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, remove_tags_from_on_premises_instances_errors()}
   def remove_tags_from_on_premises_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromOnPremisesInstances", input, options)
   end
@@ -4301,7 +4350,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, skip_wait_time_for_instance_termination_errors()}
   def skip_wait_time_for_instance_termination(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SkipWaitTimeForInstanceTermination", input, options)
   end
@@ -4315,7 +4365,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, stop_deployment_errors()}
   def stop_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopDeployment", input, options)
   end
@@ -4330,7 +4381,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -4348,7 +4400,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -4362,7 +4415,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateApplication", input, options)
   end
@@ -4376,7 +4430,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, update_deployment_group_errors()}
   def update_deployment_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDeploymentGroup", input, options)
   end

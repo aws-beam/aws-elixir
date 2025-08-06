@@ -49,7 +49,7 @@ defmodule AWS.TranscribeStreaming do
       }
 
   """
-  @type issue_detected() :: %{String.t() => any()}
+  @type issue_detected() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -59,9 +59,9 @@ defmodule AWS.TranscribeStreaming do
         optional("ContentIdentificationType") => list(any()),
         optional("EnableChannelIdentification") => boolean(),
         optional("NumberOfChannels") => integer(),
-        optional("SessionId") => String.t(),
+        optional("SessionId") => String.t() | atom(),
         optional("ShowSpeakerLabel") => boolean(),
-        optional("VocabularyName") => String.t(),
+        optional("VocabularyName") => String.t() | atom(),
         required("AudioStream") => list(),
         required("LanguageCode") => list(any()),
         required("MediaEncoding") => list(any()),
@@ -71,7 +71,7 @@ defmodule AWS.TranscribeStreaming do
       }
 
   """
-  @type start_medical_stream_transcription_request() :: %{String.t() => any()}
+  @type start_medical_stream_transcription_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -79,11 +79,11 @@ defmodule AWS.TranscribeStreaming do
 
       medical_scribe_encryption_settings() :: %{
         "KmsEncryptionContext" => map(),
-        "KmsKeyId" => String.t()
+        "KmsKeyId" => String.t() | atom()
       }
 
   """
-  @type medical_scribe_encryption_settings() :: %{String.t() => any()}
+  @type medical_scribe_encryption_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -93,24 +93,24 @@ defmodule AWS.TranscribeStreaming do
         "LanguageCode" => list(any()),
         "MediaEncoding" => list(any()),
         "MediaSampleRateHertz" => integer(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "ResultStream" => list(),
-        "SessionId" => String.t()
+        "SessionId" => String.t() | atom()
       }
 
   """
-  @type start_medical_scribe_stream_response() :: %{String.t() => any()}
+  @type start_medical_scribe_stream_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_failure_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type internal_failure_exception() :: %{String.t() => any()}
+  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -121,7 +121,7 @@ defmodule AWS.TranscribeStreaming do
       }
 
   """
-  @type points_of_interest() :: %{String.t() => any()}
+  @type points_of_interest() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -135,18 +135,18 @@ defmodule AWS.TranscribeStreaming do
         "MediaSampleRateHertz" => integer(),
         "PostStreamAnalyticsResult" => medical_scribe_post_stream_analytics_result(),
         "PostStreamAnalyticsSettings" => medical_scribe_post_stream_analytics_settings(),
-        "ResourceAccessRoleArn" => String.t(),
-        "SessionId" => String.t(),
+        "ResourceAccessRoleArn" => String.t() | atom(),
+        "SessionId" => String.t() | atom(),
         "StreamCreatedAt" => non_neg_integer(),
         "StreamEndedAt" => non_neg_integer(),
         "StreamStatus" => list(any()),
         "VocabularyFilterMethod" => list(any()),
-        "VocabularyFilterName" => String.t(),
-        "VocabularyName" => String.t()
+        "VocabularyFilterName" => String.t() | atom(),
+        "VocabularyName" => String.t() | atom()
       }
 
   """
-  @type medical_scribe_stream_details() :: %{String.t() => any()}
+  @type medical_scribe_stream_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -157,7 +157,7 @@ defmodule AWS.TranscribeStreaming do
       }
 
   """
-  @type medical_scribe_audio_event() :: %{String.t() => any()}
+  @type medical_scribe_audio_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -168,23 +168,23 @@ defmodule AWS.TranscribeStreaming do
       }
 
   """
-  @type medical_scribe_post_stream_analytics_settings() :: %{String.t() => any()}
+  @type medical_scribe_post_stream_analytics_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       entity() :: %{
-        "Category" => String.t(),
+        "Category" => String.t() | atom(),
         "Confidence" => float(),
-        "Content" => String.t(),
+        "Content" => String.t() | atom(),
         "EndTime" => float(),
         "StartTime" => float(),
-        "Type" => String.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type entity() :: %{String.t() => any()}
+  @type entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -196,7 +196,7 @@ defmodule AWS.TranscribeStreaming do
       }
 
   """
-  @type character_offsets() :: %{String.t() => any()}
+  @type character_offsets() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -207,7 +207,7 @@ defmodule AWS.TranscribeStreaming do
       }
 
   """
-  @type audio_event() :: %{String.t() => any()}
+  @type audio_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -215,11 +215,11 @@ defmodule AWS.TranscribeStreaming do
 
       clinical_note_generation_settings() :: %{
         "NoteTemplate" => list(any()),
-        "OutputBucketName" => String.t()
+        "OutputBucketName" => String.t() | atom()
       }
 
   """
-  @type clinical_note_generation_settings() :: %{String.t() => any()}
+  @type clinical_note_generation_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -228,23 +228,23 @@ defmodule AWS.TranscribeStreaming do
       medical_alternative() :: %{
         "Entities" => list(medical_entity()),
         "Items" => list(medical_item()),
-        "Transcript" => String.t()
+        "Transcript" => String.t() | atom()
       }
 
   """
-  @type medical_alternative() :: %{String.t() => any()}
+  @type medical_alternative() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       category_event() :: %{
-        "MatchedCategories" => list(String.t()),
+        "MatchedCategories" => list(String.t() | atom()),
         "MatchedDetails" => map()
       }
 
   """
-  @type category_event() :: %{String.t() => any()}
+  @type category_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -255,7 +255,7 @@ defmodule AWS.TranscribeStreaming do
       }
 
   """
-  @type medical_scribe_post_stream_analytics_result() :: %{String.t() => any()}
+  @type medical_scribe_post_stream_analytics_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -265,14 +265,14 @@ defmodule AWS.TranscribeStreaming do
         "ChannelDefinitions" => list(medical_scribe_channel_definition()),
         "EncryptionSettings" => medical_scribe_encryption_settings(),
         "PostStreamAnalyticsSettings" => medical_scribe_post_stream_analytics_settings(),
-        "ResourceAccessRoleArn" => String.t(),
+        "ResourceAccessRoleArn" => String.t() | atom(),
         "VocabularyFilterMethod" => list(any()),
-        "VocabularyFilterName" => String.t(),
-        "VocabularyName" => String.t()
+        "VocabularyFilterName" => String.t() | atom(),
+        "VocabularyName" => String.t() | atom()
       }
 
   """
-  @type medical_scribe_configuration_event() :: %{String.t() => any()}
+  @type medical_scribe_configuration_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -284,7 +284,7 @@ defmodule AWS.TranscribeStreaming do
       }
 
   """
-  @type language_with_score() :: %{String.t() => any()}
+  @type language_with_score() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -295,7 +295,7 @@ defmodule AWS.TranscribeStreaming do
       }
 
   """
-  @type transcript() :: %{String.t() => any()}
+  @type transcript() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -306,22 +306,22 @@ defmodule AWS.TranscribeStreaming do
       }
 
   """
-  @type medical_scribe_transcript_event() :: %{String.t() => any()}
+  @type medical_scribe_transcript_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       medical_entity() :: %{
-        "Category" => String.t(),
+        "Category" => String.t() | atom(),
         "Confidence" => float(),
-        "Content" => String.t(),
+        "Content" => String.t() | atom(),
         "EndTime" => float(),
         "StartTime" => float()
       }
 
   """
-  @type medical_entity() :: %{String.t() => any()}
+  @type medical_entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -332,7 +332,7 @@ defmodule AWS.TranscribeStreaming do
       }
 
   """
-  @type medical_transcript() :: %{String.t() => any()}
+  @type medical_transcript() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -343,7 +343,7 @@ defmodule AWS.TranscribeStreaming do
       }
 
   """
-  @type get_medical_scribe_stream_response() :: %{String.t() => any()}
+  @type get_medical_scribe_stream_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -355,20 +355,20 @@ defmodule AWS.TranscribeStreaming do
         "ContentRedactionType" => list(any()),
         "EnablePartialResultsStabilization" => boolean(),
         "LanguageCode" => list(any()),
-        "LanguageModelName" => String.t(),
+        "LanguageModelName" => String.t() | atom(),
         "MediaEncoding" => list(any()),
         "MediaSampleRateHertz" => integer(),
         "PartialResultsStability" => list(any()),
-        "PiiEntityTypes" => String.t(),
-        "RequestId" => String.t(),
-        "SessionId" => String.t(),
+        "PiiEntityTypes" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "SessionId" => String.t() | atom(),
         "VocabularyFilterMethod" => list(any()),
-        "VocabularyFilterName" => String.t(),
-        "VocabularyName" => String.t()
+        "VocabularyFilterName" => String.t() | atom(),
+        "VocabularyName" => String.t() | atom()
       }
 
   """
-  @type start_call_analytics_stream_transcription_response() :: %{String.t() => any()}
+  @type start_call_analytics_stream_transcription_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -376,9 +376,9 @@ defmodule AWS.TranscribeStreaming do
 
       item() :: %{
         "Confidence" => float(),
-        "Content" => String.t(),
+        "Content" => String.t() | atom(),
         "EndTime" => float(),
-        "Speaker" => String.t(),
+        "Speaker" => String.t() | atom(),
         "Stable" => boolean(),
         "StartTime" => float(),
         "Type" => list(any()),
@@ -386,18 +386,18 @@ defmodule AWS.TranscribeStreaming do
       }
 
   """
-  @type item() :: %{String.t() => any()}
+  @type item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -410,28 +410,28 @@ defmodule AWS.TranscribeStreaming do
         "MediaEncoding" => list(any()),
         "MediaSampleRateHertz" => integer(),
         "NumberOfChannels" => integer(),
-        "RequestId" => String.t(),
-        "SessionId" => String.t(),
+        "RequestId" => String.t() | atom(),
+        "SessionId" => String.t() | atom(),
         "ShowSpeakerLabel" => boolean(),
         "Specialty" => list(any()),
         "TranscriptResultStream" => list(),
         "Type" => list(any()),
-        "VocabularyName" => String.t()
+        "VocabularyName" => String.t() | atom()
       }
 
   """
-  @type start_medical_stream_transcription_response() :: %{String.t() => any()}
+  @type start_medical_stream_transcription_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -440,7 +440,7 @@ defmodule AWS.TranscribeStreaming do
       call_analytics_item() :: %{
         "BeginOffsetMillis" => float(),
         "Confidence" => float(),
-        "Content" => String.t(),
+        "Content" => String.t() | atom(),
         "EndOffsetMillis" => float(),
         "Stable" => boolean(),
         "Type" => list(any()),
@@ -448,7 +448,7 @@ defmodule AWS.TranscribeStreaming do
       }
 
   """
-  @type call_analytics_item() :: %{String.t() => any()}
+  @type call_analytics_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -460,7 +460,7 @@ defmodule AWS.TranscribeStreaming do
       }
 
   """
-  @type channel_definition() :: %{String.t() => any()}
+  @type channel_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -468,17 +468,17 @@ defmodule AWS.TranscribeStreaming do
 
       result() :: %{
         "Alternatives" => list(alternative()),
-        "ChannelId" => String.t(),
+        "ChannelId" => String.t() | atom(),
         "EndTime" => float(),
         "IsPartial" => boolean(),
         "LanguageCode" => list(any()),
         "LanguageIdentification" => list(language_with_score()),
-        "ResultId" => String.t(),
+        "ResultId" => String.t() | atom(),
         "StartTime" => float()
       }
 
   """
-  @type result() :: %{String.t() => any()}
+  @type result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -486,13 +486,13 @@ defmodule AWS.TranscribeStreaming do
 
       post_call_analytics_settings() :: %{
         "ContentRedactionOutput" => list(any()),
-        "DataAccessRoleArn" => String.t(),
-        "OutputEncryptionKMSKeyId" => String.t(),
-        "OutputLocation" => String.t()
+        "DataAccessRoleArn" => String.t() | atom(),
+        "OutputEncryptionKMSKeyId" => String.t() | atom(),
+        "OutputLocation" => String.t() | atom()
       }
 
   """
-  @type post_call_analytics_settings() :: %{String.t() => any()}
+  @type post_call_analytics_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -500,26 +500,26 @@ defmodule AWS.TranscribeStreaming do
 
       call_analytics_entity() :: %{
         "BeginOffsetMillis" => float(),
-        "Category" => String.t(),
+        "Category" => String.t() | atom(),
         "Confidence" => float(),
-        "Content" => String.t(),
+        "Content" => String.t() | atom(),
         "EndOffsetMillis" => float(),
-        "Type" => String.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type call_analytics_entity() :: %{String.t() => any()}
+  @type call_analytics_entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_unavailable_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type service_unavailable_exception() :: %{String.t() => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -533,27 +533,27 @@ defmodule AWS.TranscribeStreaming do
         "IdentifyLanguage" => boolean(),
         "IdentifyMultipleLanguages" => boolean(),
         "LanguageCode" => list(any()),
-        "LanguageModelName" => String.t(),
-        "LanguageOptions" => String.t(),
+        "LanguageModelName" => String.t() | atom(),
+        "LanguageOptions" => String.t() | atom(),
         "MediaEncoding" => list(any()),
         "MediaSampleRateHertz" => integer(),
         "NumberOfChannels" => integer(),
         "PartialResultsStability" => list(any()),
-        "PiiEntityTypes" => String.t(),
+        "PiiEntityTypes" => String.t() | atom(),
         "PreferredLanguage" => list(any()),
-        "RequestId" => String.t(),
-        "SessionId" => String.t(),
+        "RequestId" => String.t() | atom(),
+        "SessionId" => String.t() | atom(),
         "ShowSpeakerLabel" => boolean(),
         "TranscriptResultStream" => list(),
         "VocabularyFilterMethod" => list(any()),
-        "VocabularyFilterName" => String.t(),
-        "VocabularyFilterNames" => String.t(),
-        "VocabularyName" => String.t(),
-        "VocabularyNames" => String.t()
+        "VocabularyFilterName" => String.t() | atom(),
+        "VocabularyFilterNames" => String.t() | atom(),
+        "VocabularyName" => String.t() | atom(),
+        "VocabularyNames" => String.t() | atom()
       }
 
   """
-  @type start_stream_transcription_response() :: %{String.t() => any()}
+  @type start_stream_transcription_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -564,7 +564,7 @@ defmodule AWS.TranscribeStreaming do
       }
 
   """
-  @type medical_transcript_event() :: %{String.t() => any()}
+  @type medical_transcript_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -578,26 +578,26 @@ defmodule AWS.TranscribeStreaming do
         optional("IdentifyLanguage") => boolean(),
         optional("IdentifyMultipleLanguages") => boolean(),
         optional("LanguageCode") => list(any()),
-        optional("LanguageModelName") => String.t(),
-        optional("LanguageOptions") => String.t(),
+        optional("LanguageModelName") => String.t() | atom(),
+        optional("LanguageOptions") => String.t() | atom(),
         optional("NumberOfChannels") => integer(),
         optional("PartialResultsStability") => list(any()),
-        optional("PiiEntityTypes") => String.t(),
+        optional("PiiEntityTypes") => String.t() | atom(),
         optional("PreferredLanguage") => list(any()),
-        optional("SessionId") => String.t(),
+        optional("SessionId") => String.t() | atom(),
         optional("ShowSpeakerLabel") => boolean(),
         optional("VocabularyFilterMethod") => list(any()),
-        optional("VocabularyFilterName") => String.t(),
-        optional("VocabularyFilterNames") => String.t(),
-        optional("VocabularyName") => String.t(),
-        optional("VocabularyNames") => String.t(),
+        optional("VocabularyFilterName") => String.t() | atom(),
+        optional("VocabularyFilterNames") => String.t() | atom(),
+        optional("VocabularyName") => String.t() | atom(),
+        optional("VocabularyNames") => String.t() | atom(),
         required("AudioStream") => list(),
         required("MediaEncoding") => list(any()),
         required("MediaSampleRateHertz") => integer()
       }
 
   """
-  @type start_stream_transcription_request() :: %{String.t() => any()}
+  @type start_stream_transcription_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -605,15 +605,15 @@ defmodule AWS.TranscribeStreaming do
 
       medical_result() :: %{
         "Alternatives" => list(medical_alternative()),
-        "ChannelId" => String.t(),
+        "ChannelId" => String.t() | atom(),
         "EndTime" => float(),
         "IsPartial" => boolean(),
-        "ResultId" => String.t(),
+        "ResultId" => String.t() | atom(),
         "StartTime" => float()
       }
 
   """
-  @type medical_result() :: %{String.t() => any()}
+  @type medical_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -623,13 +623,13 @@ defmodule AWS.TranscribeStreaming do
         optional("ContentIdentificationType") => list(any()),
         optional("ContentRedactionType") => list(any()),
         optional("EnablePartialResultsStabilization") => boolean(),
-        optional("LanguageModelName") => String.t(),
+        optional("LanguageModelName") => String.t() | atom(),
         optional("PartialResultsStability") => list(any()),
-        optional("PiiEntityTypes") => String.t(),
-        optional("SessionId") => String.t(),
+        optional("PiiEntityTypes") => String.t() | atom(),
+        optional("SessionId") => String.t() | atom(),
         optional("VocabularyFilterMethod") => list(any()),
-        optional("VocabularyFilterName") => String.t(),
-        optional("VocabularyName") => String.t(),
+        optional("VocabularyFilterName") => String.t() | atom(),
+        optional("VocabularyName") => String.t() | atom(),
         required("AudioStream") => list(),
         required("LanguageCode") => list(any()),
         required("MediaEncoding") => list(any()),
@@ -637,7 +637,7 @@ defmodule AWS.TranscribeStreaming do
       }
 
   """
-  @type start_call_analytics_stream_transcription_request() :: %{String.t() => any()}
+  @type start_call_analytics_stream_transcription_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -649,7 +649,7 @@ defmodule AWS.TranscribeStreaming do
       }
 
   """
-  @type timestamp_range() :: %{String.t() => any()}
+  @type timestamp_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -661,14 +661,14 @@ defmodule AWS.TranscribeStreaming do
       }
 
   """
-  @type configuration_event() :: %{String.t() => any()}
+  @type configuration_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_medical_scribe_stream_request() :: %{
-        optional("SessionId") => String.t(),
+        optional("SessionId") => String.t() | atom(),
         required("InputStream") => list(),
         required("LanguageCode") => list(any()),
         required("MediaEncoding") => list(any()),
@@ -676,7 +676,7 @@ defmodule AWS.TranscribeStreaming do
       }
 
   """
-  @type start_medical_scribe_stream_request() :: %{String.t() => any()}
+  @type start_medical_scribe_stream_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -700,12 +700,12 @@ defmodule AWS.TranscribeStreaming do
         "Items" => list(call_analytics_item()),
         "ParticipantRole" => list(any()),
         "Sentiment" => list(any()),
-        "Transcript" => String.t(),
-        "UtteranceId" => String.t()
+        "Transcript" => String.t() | atom(),
+        "UtteranceId" => String.t() | atom()
       }
 
   """
-  @type utterance_event() :: %{String.t() => any()}
+  @type utterance_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -714,25 +714,25 @@ defmodule AWS.TranscribeStreaming do
       medical_scribe_transcript_item() :: %{
         "BeginAudioTime" => float(),
         "Confidence" => float(),
-        "Content" => String.t(),
+        "Content" => String.t() | atom(),
         "EndAudioTime" => float(),
         "Type" => list(any()),
         "VocabularyFilterMatch" => boolean()
       }
 
   """
-  @type medical_scribe_transcript_item() :: %{String.t() => any()}
+  @type medical_scribe_transcript_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -743,18 +743,18 @@ defmodule AWS.TranscribeStreaming do
       }
 
   """
-  @type medical_scribe_session_control_event() :: %{String.t() => any()}
+  @type medical_scribe_session_control_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -762,16 +762,16 @@ defmodule AWS.TranscribeStreaming do
 
       medical_scribe_transcript_segment() :: %{
         "BeginAudioTime" => float(),
-        "ChannelId" => String.t(),
-        "Content" => String.t(),
+        "ChannelId" => String.t() | atom(),
+        "Content" => String.t() | atom(),
         "EndAudioTime" => float(),
         "IsPartial" => boolean(),
         "Items" => list(medical_scribe_transcript_item()),
-        "SegmentId" => String.t()
+        "SegmentId" => String.t() | atom()
       }
 
   """
-  @type medical_scribe_transcript_segment() :: %{String.t() => any()}
+  @type medical_scribe_transcript_segment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -779,15 +779,15 @@ defmodule AWS.TranscribeStreaming do
 
       medical_item() :: %{
         "Confidence" => float(),
-        "Content" => String.t(),
+        "Content" => String.t() | atom(),
         "EndTime" => float(),
-        "Speaker" => String.t(),
+        "Speaker" => String.t() | atom(),
         "StartTime" => float(),
         "Type" => list(any())
       }
 
   """
-  @type medical_item() :: %{String.t() => any()}
+  @type medical_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -799,7 +799,7 @@ defmodule AWS.TranscribeStreaming do
       }
 
   """
-  @type medical_scribe_channel_definition() :: %{String.t() => any()}
+  @type medical_scribe_channel_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -810,21 +810,21 @@ defmodule AWS.TranscribeStreaming do
       }
 
   """
-  @type transcript_event() :: %{String.t() => any()}
+  @type transcript_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       clinical_note_generation_result() :: %{
-        "ClinicalNoteOutputLocation" => String.t(),
-        "FailureReason" => String.t(),
+        "ClinicalNoteOutputLocation" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
         "Status" => list(any()),
-        "TranscriptOutputLocation" => String.t()
+        "TranscriptOutputLocation" => String.t() | atom()
       }
 
   """
-  @type clinical_note_generation_result() :: %{String.t() => any()}
+  @type clinical_note_generation_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -833,11 +833,11 @@ defmodule AWS.TranscribeStreaming do
       alternative() :: %{
         "Entities" => list(entity()),
         "Items" => list(item()),
-        "Transcript" => String.t()
+        "Transcript" => String.t() | atom()
       }
 
   """
-  @type alternative() :: %{String.t() => any()}
+  @type alternative() :: %{(String.t() | atom()) => any()}
 
   @type get_medical_scribe_stream_errors() ::
           bad_request_exception()
@@ -898,7 +898,7 @@ defmodule AWS.TranscribeStreaming do
   details of post-stream analytics, including its status, check the
   `PostStreamAnalyticsResult` field in the response.
   """
-  @spec get_medical_scribe_stream(map(), String.t(), list()) ::
+  @spec get_medical_scribe_stream(map(), String.t() | atom(), list()) ::
           {:ok, get_medical_scribe_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

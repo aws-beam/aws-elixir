@@ -42,11 +42,11 @@ defmodule AWS.MigrationHubConfig do
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -54,12 +54,12 @@ defmodule AWS.MigrationHubConfig do
       
       create_home_region_control_request() :: %{
         optional("DryRun") => boolean(),
-        required("HomeRegion") => String.t(),
+        required("HomeRegion") => String.t() | atom(),
         required("Target") => target()
       }
       
   """
-  @type create_home_region_control_request() :: %{String.t() => any()}
+  @type create_home_region_control_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -70,18 +70,18 @@ defmodule AWS.MigrationHubConfig do
       }
       
   """
-  @type create_home_region_control_result() :: %{String.t() => any()}
+  @type create_home_region_control_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_home_region_control_request() :: %{
-        required("ControlId") => String.t()
+        required("ControlId") => String.t() | atom()
       }
       
   """
-  @type delete_home_region_control_request() :: %{String.t() => any()}
+  @type delete_home_region_control_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -97,15 +97,15 @@ defmodule AWS.MigrationHubConfig do
   ## Example:
       
       describe_home_region_controls_request() :: %{
-        optional("ControlId") => String.t(),
-        optional("HomeRegion") => String.t(),
+        optional("ControlId") => String.t() | atom(),
+        optional("HomeRegion") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Target") => target()
       }
       
   """
-  @type describe_home_region_controls_request() :: %{String.t() => any()}
+  @type describe_home_region_controls_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -113,22 +113,22 @@ defmodule AWS.MigrationHubConfig do
       
       describe_home_region_controls_result() :: %{
         "HomeRegionControls" => list(home_region_control()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_home_region_controls_result() :: %{String.t() => any()}
+  @type describe_home_region_controls_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       dry_run_operation() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type dry_run_operation() :: %{String.t() => any()}
+  @type dry_run_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -144,82 +144,82 @@ defmodule AWS.MigrationHubConfig do
   ## Example:
       
       get_home_region_result() :: %{
-        "HomeRegion" => String.t()
+        "HomeRegion" => String.t() | atom()
       }
       
   """
-  @type get_home_region_result() :: %{String.t() => any()}
+  @type get_home_region_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       home_region_control() :: %{
-        "ControlId" => String.t(),
-        "HomeRegion" => String.t(),
+        "ControlId" => String.t() | atom(),
+        "HomeRegion" => String.t() | atom(),
         "RequestedTime" => non_neg_integer(),
         "Target" => target()
       }
       
   """
-  @type home_region_control() :: %{String.t() => any()}
+  @type home_region_control() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_error() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type internal_server_error() :: %{String.t() => any()}
+  @type internal_server_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_input_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_input_exception() :: %{String.t() => any()}
+  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_unavailable_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type service_unavailable_exception() :: %{String.t() => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       target() :: %{
-        "Id" => String.t(),
+        "Id" => String.t() | atom(),
         "Type" => list(any())
       }
       
   """
-  @type target() :: %{String.t() => any()}
+  @type target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | atom(),
         "RetryAfterSeconds" => integer()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @type create_home_region_control_errors() ::
           throttling_exception()
@@ -275,7 +275,8 @@ defmodule AWS.MigrationHubConfig do
           | {:error, term()}
           | {:error, create_home_region_control_errors()}
   def create_home_region_control(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHomeRegionControl", input, options)
   end
@@ -292,7 +293,8 @@ defmodule AWS.MigrationHubConfig do
           | {:error, term()}
           | {:error, delete_home_region_control_errors()}
   def delete_home_region_control(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteHomeRegionControl", input, options)
   end
@@ -307,7 +309,8 @@ defmodule AWS.MigrationHubConfig do
           | {:error, term()}
           | {:error, describe_home_region_controls_errors()}
   def describe_home_region_controls(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeHomeRegionControls", input, options)
   end
@@ -329,7 +332,8 @@ defmodule AWS.MigrationHubConfig do
           | {:error, term()}
           | {:error, get_home_region_errors()}
   def get_home_region(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetHomeRegion", input, options)
   end

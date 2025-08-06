@@ -16,65 +16,65 @@ defmodule AWS.IoTFleetHub do
 
       application_summary() :: %{
         "applicationCreationDate" => float(),
-        "applicationDescription" => String.t(),
-        "applicationId" => String.t(),
+        "applicationDescription" => String.t() | atom(),
+        "applicationId" => String.t() | atom(),
         "applicationLastUpdateDate" => float(),
-        "applicationName" => String.t(),
+        "applicationName" => String.t() | atom(),
         "applicationState" => list(any()),
-        "applicationUrl" => String.t()
+        "applicationUrl" => String.t() | atom()
       }
 
   """
-  @type application_summary() :: %{String.t() => any()}
+  @type application_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_application_request() :: %{
-        optional("applicationDescription") => String.t(),
-        optional("clientToken") => String.t(),
+        optional("applicationDescription") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
         optional("tags") => map(),
-        required("applicationName") => String.t(),
-        required("roleArn") => String.t()
+        required("applicationName") => String.t() | atom(),
+        required("roleArn") => String.t() | atom()
       }
 
   """
-  @type create_application_request() :: %{String.t() => any()}
+  @type create_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_application_response() :: %{
-        "applicationArn" => String.t(),
-        "applicationId" => String.t()
+        "applicationArn" => String.t() | atom(),
+        "applicationId" => String.t() | atom()
       }
 
   """
-  @type create_application_response() :: %{String.t() => any()}
+  @type create_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_application_request() :: %{
-        optional("clientToken") => String.t()
+        optional("clientToken") => String.t() | atom()
       }
 
   """
-  @type delete_application_request() :: %{String.t() => any()}
+  @type delete_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -99,66 +99,66 @@ defmodule AWS.IoTFleetHub do
   ## Example:
 
       describe_application_response() :: %{
-        "applicationArn" => String.t(),
+        "applicationArn" => String.t() | atom(),
         "applicationCreationDate" => float(),
-        "applicationDescription" => String.t(),
-        "applicationId" => String.t(),
+        "applicationDescription" => String.t() | atom(),
+        "applicationId" => String.t() | atom(),
         "applicationLastUpdateDate" => float(),
-        "applicationName" => String.t(),
+        "applicationName" => String.t() | atom(),
         "applicationState" => list(any()),
-        "applicationUrl" => String.t(),
-        "errorMessage" => String.t(),
-        "roleArn" => String.t(),
-        "ssoClientId" => String.t(),
+        "applicationUrl" => String.t() | atom(),
+        "errorMessage" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "ssoClientId" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type describe_application_response() :: %{String.t() => any()}
+  @type describe_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_failure_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_failure_exception() :: %{String.t() => any()}
+  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_request_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_request_exception() :: %{String.t() => any()}
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_applications_request() :: %{
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_applications_request() :: %{String.t() => any()}
+  @type list_applications_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -166,11 +166,11 @@ defmodule AWS.IoTFleetHub do
 
       list_applications_response() :: %{
         "applicationSummaries" => list(application_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_applications_response() :: %{String.t() => any()}
+  @type list_applications_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -190,18 +190,18 @@ defmodule AWS.IoTFleetHub do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -212,7 +212,7 @@ defmodule AWS.IoTFleetHub do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -228,22 +228,22 @@ defmodule AWS.IoTFleetHub do
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -259,13 +259,13 @@ defmodule AWS.IoTFleetHub do
   ## Example:
 
       update_application_request() :: %{
-        optional("applicationDescription") => String.t(),
-        optional("applicationName") => String.t(),
-        optional("clientToken") => String.t()
+        optional("applicationDescription") => String.t() | atom(),
+        optional("applicationName") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom()
       }
 
   """
-  @type update_application_request() :: %{String.t() => any()}
+  @type update_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -376,7 +376,7 @@ defmodule AWS.IoTFleetHub do
   @doc """
   Deletes a Fleet Hub for IoT Device Management web application.
   """
-  @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
+  @spec delete_application(map(), String.t() | atom(), delete_application_request(), list()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -410,7 +410,7 @@ defmodule AWS.IoTFleetHub do
   @doc """
   Gets information about a Fleet Hub for IoT Device Management web application.
   """
-  @spec describe_application(map(), String.t(), list()) ::
+  @spec describe_application(map(), String.t() | atom(), list()) ::
           {:ok, describe_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -429,7 +429,7 @@ defmodule AWS.IoTFleetHub do
   Gets a list of Fleet Hub for IoT Device Management web applications for the
   current account.
   """
-  @spec list_applications(map(), String.t() | nil, list()) ::
+  @spec list_applications(map(), String.t() | atom() | nil, list()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -454,7 +454,7 @@ defmodule AWS.IoTFleetHub do
   @doc """
   Lists the tags for the specified resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -474,7 +474,7 @@ defmodule AWS.IoTFleetHub do
 
   Tags are metadata which can be used to manage a resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -503,7 +503,7 @@ defmodule AWS.IoTFleetHub do
   @doc """
   Removes the specified tags (metadata) from the resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -537,7 +537,7 @@ defmodule AWS.IoTFleetHub do
   @doc """
   Updates information about a Fleet Hub for IoT Device Management web application.
   """
-  @spec update_application(map(), String.t(), update_application_request(), list()) ::
+  @spec update_application(map(), String.t() | atom(), update_application_request(), list()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

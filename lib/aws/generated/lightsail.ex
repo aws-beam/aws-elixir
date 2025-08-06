@@ -41,13 +41,13 @@ defmodule AWS.Lightsail do
       
       attach_disk_request() :: %{
         optional("autoMounting") => boolean(),
-        required("diskName") => String.t(),
-        required("diskPath") => String.t(),
-        required("instanceName") => String.t()
+        required("diskName") => String.t() | atom(),
+        required("diskPath") => String.t() | atom(),
+        required("instanceName") => String.t() | atom()
       }
       
   """
-  @type attach_disk_request() :: %{String.t() => any()}
+  @type attach_disk_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -56,33 +56,33 @@ defmodule AWS.Lightsail do
       create_instances_from_snapshot_request() :: %{
         optional("addOns") => list(add_on_request()),
         optional("attachedDiskMapping") => map(),
-        optional("instanceSnapshotName") => String.t(),
+        optional("instanceSnapshotName") => String.t() | atom(),
         optional("ipAddressType") => list(any()),
-        optional("keyPairName") => String.t(),
-        optional("restoreDate") => String.t(),
-        optional("sourceInstanceName") => String.t(),
+        optional("keyPairName") => String.t() | atom(),
+        optional("restoreDate") => String.t() | atom(),
+        optional("sourceInstanceName") => String.t() | atom(),
         optional("tags") => list(tag()),
         optional("useLatestRestorableAutoSnapshot") => boolean(),
-        optional("userData") => String.t(),
-        required("availabilityZone") => String.t(),
-        required("bundleId") => String.t(),
-        required("instanceNames") => list(String.t())
+        optional("userData") => String.t() | atom(),
+        required("availabilityZone") => String.t() | atom(),
+        required("bundleId") => String.t() | atom(),
+        required("instanceNames") => list(String.t() | atom())
       }
       
   """
-  @type create_instances_from_snapshot_request() :: %{String.t() => any()}
+  @type create_instances_from_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_bucket_bundle_request() :: %{
-        required("bucketName") => String.t(),
-        required("bundleId") => String.t()
+        required("bucketName") => String.t() | atom(),
+        required("bundleId") => String.t() | atom()
       }
       
   """
-  @type update_bucket_bundle_request() :: %{String.t() => any()}
+  @type update_bucket_bundle_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -99,21 +99,21 @@ defmodule AWS.Lightsail do
       
       operation() :: %{
         "createdAt" => non_neg_integer(),
-        "errorCode" => String.t(),
-        "errorDetails" => String.t(),
-        "id" => String.t(),
+        "errorCode" => String.t() | atom(),
+        "errorDetails" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "isTerminal" => boolean(),
         "location" => resource_location(),
-        "operationDetails" => String.t(),
+        "operationDetails" => String.t() | atom(),
         "operationType" => list(any()),
-        "resourceName" => String.t(),
+        "resourceName" => String.t() | atom(),
         "resourceType" => list(any()),
         "status" => list(any()),
         "statusChangedAt" => non_neg_integer()
       }
       
   """
-  @type operation() :: %{String.t() => any()}
+  @type operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -125,18 +125,18 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type create_container_service_deployment_request() :: %{String.t() => any()}
+  @type create_container_service_deployment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_distribution_latest_cache_reset_request() :: %{
-        optional("distributionName") => String.t()
+        optional("distributionName") => String.t() | atom()
       }
       
   """
-  @type get_distribution_latest_cache_reset_request() :: %{String.t() => any()}
+  @type get_distribution_latest_cache_reset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -147,7 +147,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type disable_add_on_result() :: %{String.t() => any()}
+  @type disable_add_on_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -155,28 +155,28 @@ defmodule AWS.Lightsail do
       
       container_service_registry_login() :: %{
         "expiresAt" => non_neg_integer(),
-        "password" => String.t(),
-        "registry" => String.t(),
-        "username" => String.t()
+        "password" => String.t() | atom(),
+        "registry" => String.t() | atom(),
+        "username" => String.t() | atom()
       }
       
   """
-  @type container_service_registry_login() :: %{String.t() => any()}
+  @type container_service_registry_login() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       distribution_bundle() :: %{
-        "bundleId" => String.t(),
+        "bundleId" => String.t() | atom(),
         "isActive" => boolean(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "price" => float(),
         "transferPerMonthInGb" => integer()
       }
       
   """
-  @type distribution_bundle() :: %{String.t() => any()}
+  @type distribution_bundle() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -187,43 +187,43 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type delete_disk_snapshot_result() :: %{String.t() => any()}
+  @type delete_disk_snapshot_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       register_container_image_request() :: %{
-        required("digest") => String.t(),
-        required("label") => String.t()
+        required("digest") => String.t() | atom(),
+        required("label") => String.t() | atom()
       }
       
   """
-  @type register_container_image_request() :: %{String.t() => any()}
+  @type register_container_image_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       pending_maintenance_action() :: %{
-        "action" => String.t(),
+        "action" => String.t() | atom(),
         "currentApplyDate" => non_neg_integer(),
-        "description" => String.t()
+        "description" => String.t() | atom()
       }
       
   """
-  @type pending_maintenance_action() :: %{String.t() => any()}
+  @type pending_maintenance_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_domain_request() :: %{
-        required("domainName") => String.t()
+        required("domainName") => String.t() | atom()
       }
       
   """
-  @type get_domain_request() :: %{String.t() => any()}
+  @type get_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -231,12 +231,12 @@ defmodule AWS.Lightsail do
       
       set_resource_access_for_bucket_request() :: %{
         required("access") => list(any()),
-        required("bucketName") => String.t(),
-        required("resourceName") => String.t()
+        required("bucketName") => String.t() | atom(),
+        required("resourceName") => String.t() | atom()
       }
       
   """
-  @type set_resource_access_for_bucket_request() :: %{String.t() => any()}
+  @type set_resource_access_for_bucket_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -247,7 +247,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type delete_contact_method_request() :: %{String.t() => any()}
+  @type delete_contact_method_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -258,38 +258,38 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_regions_result() :: %{String.t() => any()}
+  @type get_regions_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       test_alarm_request() :: %{
-        required("alarmName") => String.t(),
+        required("alarmName") => String.t() | atom(),
         required("state") => list(any())
       }
       
   """
-  @type test_alarm_request() :: %{String.t() => any()}
+  @type test_alarm_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       contact_method() :: %{
-        "arn" => String.t(),
-        "contactEndpoint" => String.t(),
+        "arn" => String.t() | atom(),
+        "contactEndpoint" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "location" => resource_location(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "protocol" => list(any()),
         "resourceType" => list(any()),
         "status" => list(any()),
-        "supportCode" => String.t()
+        "supportCode" => String.t() | atom()
       }
       
   """
-  @type contact_method() :: %{String.t() => any()}
+  @type contact_method() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -297,11 +297,11 @@ defmodule AWS.Lightsail do
       
       enable_add_on_request() :: %{
         required("addOnRequest") => add_on_request(),
-        required("resourceName") => String.t()
+        required("resourceName") => String.t() | atom()
       }
       
   """
-  @type enable_add_on_request() :: %{String.t() => any()}
+  @type enable_add_on_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -312,7 +312,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type disk_snapshot_info() :: %{String.t() => any()}
+  @type disk_snapshot_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -320,11 +320,11 @@ defmodule AWS.Lightsail do
       
       dns_record_creation_state() :: %{
         "code" => list(any()),
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type dns_record_creation_state() :: %{String.t() => any()}
+  @type dns_record_creation_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -335,20 +335,20 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_load_balancer_result() :: %{String.t() => any()}
+  @type get_load_balancer_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        optional("resourceArn") => String.t(),
-        required("resourceName") => String.t(),
+        optional("resourceArn") => String.t() | atom(),
+        required("resourceName") => String.t() | atom(),
         required("tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -359,19 +359,19 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_static_ip_result() :: %{String.t() => any()}
+  @type get_static_ip_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_instance_public_ports_request() :: %{
-        required("instanceName") => String.t(),
+        required("instanceName") => String.t() | atom(),
         required("portInfos") => list(port_info())
       }
       
   """
-  @type put_instance_public_ports_request() :: %{String.t() => any()}
+  @type put_instance_public_ports_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -379,26 +379,26 @@ defmodule AWS.Lightsail do
       
       get_export_snapshot_records_result() :: %{
         "exportSnapshotRecords" => list(export_snapshot_record()),
-        "nextPageToken" => String.t()
+        "nextPageToken" => String.t() | atom()
       }
       
   """
-  @type get_export_snapshot_records_result() :: %{String.t() => any()}
+  @type get_export_snapshot_records_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       load_balancer_tls_policy() :: %{
-        "ciphers" => list(String.t()),
-        "description" => String.t(),
+        "ciphers" => list(String.t() | atom()),
+        "description" => String.t() | atom(),
         "isDefault" => boolean(),
-        "name" => String.t(),
-        "protocols" => list(String.t())
+        "name" => String.t() | atom(),
+        "protocols" => list(String.t() | atom())
       }
       
   """
-  @type load_balancer_tls_policy() :: %{String.t() => any()}
+  @type load_balancer_tls_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -410,21 +410,21 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type access_rules() :: %{String.t() => any()}
+  @type access_rules() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       container() :: %{
-        "command" => list(String.t()),
+        "command" => list(String.t() | atom()),
         "environment" => map(),
-        "image" => String.t(),
+        "image" => String.t() | atom(),
         "ports" => map()
       }
       
   """
-  @type container() :: %{String.t() => any()}
+  @type container() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -432,13 +432,13 @@ defmodule AWS.Lightsail do
       
       domain_validation_record() :: %{
         "dnsRecordCreationState" => dns_record_creation_state(),
-        "domainName" => String.t(),
+        "domainName" => String.t() | atom(),
         "resourceRecord" => resource_record(),
         "validationStatus" => list(any())
       }
       
   """
-  @type domain_validation_record() :: %{String.t() => any()}
+  @type domain_validation_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -449,7 +449,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type create_container_service_registry_login_result() :: %{String.t() => any()}
+  @type create_container_service_registry_login_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -460,7 +460,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type attach_instances_to_load_balancer_result() :: %{String.t() => any()}
+  @type attach_instances_to_load_balancer_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -471,7 +471,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type start_instance_result() :: %{String.t() => any()}
+  @type start_instance_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -482,19 +482,19 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type send_contact_method_verification_request() :: %{String.t() => any()}
+  @type send_contact_method_verification_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       availability_zone() :: %{
-        "state" => String.t(),
-        "zoneName" => String.t()
+        "state" => String.t() | atom(),
+        "zoneName" => String.t() | atom()
       }
       
   """
-  @type availability_zone() :: %{String.t() => any()}
+  @type availability_zone() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -506,32 +506,32 @@ defmodule AWS.Lightsail do
         optional("notificationEnabled") => boolean(),
         optional("notificationTriggers") => list(list(any())()),
         optional("treatMissingData") => list(any()),
-        required("alarmName") => String.t(),
+        required("alarmName") => String.t() | atom(),
         required("comparisonOperator") => list(any()),
         required("evaluationPeriods") => integer(),
         required("metricName") => list(any()),
-        required("monitoredResourceName") => String.t(),
+        required("monitoredResourceName") => String.t() | atom(),
         required("threshold") => float()
       }
       
   """
-  @type put_alarm_request() :: %{String.t() => any()}
+  @type put_alarm_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_on() :: %{
-        "duration" => String.t(),
-        "name" => String.t(),
-        "nextSnapshotTimeOfDay" => String.t(),
-        "snapshotTimeOfDay" => String.t(),
-        "status" => String.t(),
-        "threshold" => String.t()
+        "duration" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "nextSnapshotTimeOfDay" => String.t() | atom(),
+        "snapshotTimeOfDay" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "threshold" => String.t() | atom()
       }
       
   """
-  @type add_on() :: %{String.t() => any()}
+  @type add_on() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -539,12 +539,12 @@ defmodule AWS.Lightsail do
       
       delete_load_balancer_tls_certificate_request() :: %{
         optional("force") => boolean(),
-        required("certificateName") => String.t(),
-        required("loadBalancerName") => String.t()
+        required("certificateName") => String.t() | atom(),
+        required("loadBalancerName") => String.t() | atom()
       }
       
   """
-  @type delete_load_balancer_tls_certificate_request() :: %{String.t() => any()}
+  @type delete_load_balancer_tls_certificate_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -555,18 +555,18 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type create_instances_from_snapshot_result() :: %{String.t() => any()}
+  @type create_instances_from_snapshot_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_load_balancer_request() :: %{
-        required("loadBalancerName") => String.t()
+        required("loadBalancerName") => String.t() | atom()
       }
       
   """
-  @type get_load_balancer_request() :: %{String.t() => any()}
+  @type get_load_balancer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -578,21 +578,21 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_regions_request() :: %{String.t() => any()}
+  @type get_regions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       region_setup_in_progress_exception() :: %{
-        "code" => String.t(),
-        "docs" => String.t(),
-        "message" => String.t(),
-        "tip" => String.t()
+        "code" => String.t() | atom(),
+        "docs" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "tip" => String.t() | atom()
       }
       
   """
-  @type region_setup_in_progress_exception() :: %{String.t() => any()}
+  @type region_setup_in_progress_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -603,7 +603,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type untag_resource_result() :: %{String.t() => any()}
+  @type untag_resource_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -614,7 +614,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_instance_port_states_result() :: %{String.t() => any()}
+  @type get_instance_port_states_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -622,11 +622,11 @@ defmodule AWS.Lightsail do
       
       get_relational_database_master_user_password_result() :: %{
         "createdAt" => non_neg_integer(),
-        "masterUserPassword" => String.t()
+        "masterUserPassword" => String.t() | atom()
       }
       
   """
-  @type get_relational_database_master_user_password_result() :: %{String.t() => any()}
+  @type get_relational_database_master_user_password_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -634,20 +634,20 @@ defmodule AWS.Lightsail do
       
       update_relational_database_request() :: %{
         optional("applyImmediately") => boolean(),
-        optional("caCertificateIdentifier") => String.t(),
+        optional("caCertificateIdentifier") => String.t() | atom(),
         optional("disableBackupRetention") => boolean(),
         optional("enableBackupRetention") => boolean(),
-        optional("masterUserPassword") => String.t(),
-        optional("preferredBackupWindow") => String.t(),
-        optional("preferredMaintenanceWindow") => String.t(),
+        optional("masterUserPassword") => String.t() | atom(),
+        optional("preferredBackupWindow") => String.t() | atom(),
+        optional("preferredMaintenanceWindow") => String.t() | atom(),
         optional("publiclyAccessible") => boolean(),
-        optional("relationalDatabaseBlueprintId") => String.t(),
+        optional("relationalDatabaseBlueprintId") => String.t() | atom(),
         optional("rotateMasterUserPassword") => boolean(),
-        required("relationalDatabaseName") => String.t()
+        required("relationalDatabaseName") => String.t() | atom()
       }
       
   """
-  @type update_relational_database_request() :: %{String.t() => any()}
+  @type update_relational_database_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -656,14 +656,14 @@ defmodule AWS.Lightsail do
       container_service_health_check_config() :: %{
         "healthyThreshold" => integer(),
         "intervalSeconds" => integer(),
-        "path" => String.t(),
-        "successCodes" => String.t(),
+        "path" => String.t() | atom(),
+        "successCodes" => String.t() | atom(),
         "timeoutSeconds" => integer(),
         "unhealthyThreshold" => integer()
       }
       
   """
-  @type container_service_health_check_config() :: %{String.t() => any()}
+  @type container_service_health_check_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -674,7 +674,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type detach_instances_from_load_balancer_result() :: %{String.t() => any()}
+  @type detach_instances_from_load_balancer_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -685,7 +685,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_bucket_bundles_result() :: %{String.t() => any()}
+  @type get_bucket_bundles_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -693,12 +693,12 @@ defmodule AWS.Lightsail do
       
       update_load_balancer_attribute_request() :: %{
         required("attributeName") => list(any()),
-        required("attributeValue") => String.t(),
-        required("loadBalancerName") => String.t()
+        required("attributeValue") => String.t() | atom(),
+        required("loadBalancerName") => String.t() | atom()
       }
       
   """
-  @type update_load_balancer_attribute_request() :: %{String.t() => any()}
+  @type update_load_balancer_attribute_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -710,7 +710,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type create_certificate_result() :: %{String.t() => any()}
+  @type create_certificate_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -718,15 +718,17 @@ defmodule AWS.Lightsail do
       
       load_balancer_tls_certificate_domain_validation_record() :: %{
         "dnsRecordCreationState" => load_balancer_tls_certificate_dns_record_creation_state(),
-        "domainName" => String.t(),
-        "name" => String.t(),
-        "type" => String.t(),
+        "domainName" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom(),
         "validationStatus" => list(any()),
-        "value" => String.t()
+        "value" => String.t() | atom()
       }
       
   """
-  @type load_balancer_tls_certificate_domain_validation_record() :: %{String.t() => any()}
+  @type load_balancer_tls_certificate_domain_validation_record() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -734,30 +736,30 @@ defmodule AWS.Lightsail do
       
       lightsail_distribution() :: %{
         "ableToUpdateBundle" => boolean(),
-        "alternativeDomainNames" => list(String.t()),
-        "arn" => String.t(),
-        "bundleId" => String.t(),
+        "alternativeDomainNames" => list(String.t() | atom()),
+        "arn" => String.t() | atom(),
+        "bundleId" => String.t() | atom(),
         "cacheBehaviorSettings" => cache_settings(),
         "cacheBehaviors" => list(cache_behavior_per_path()),
-        "certificateName" => String.t(),
+        "certificateName" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "defaultCacheBehavior" => cache_behavior(),
-        "domainName" => String.t(),
+        "domainName" => String.t() | atom(),
         "ipAddressType" => list(any()),
         "isEnabled" => boolean(),
         "location" => resource_location(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "origin" => origin(),
-        "originPublicDNS" => String.t(),
+        "originPublicDNS" => String.t() | atom(),
         "resourceType" => list(any()),
-        "status" => String.t(),
-        "supportCode" => String.t(),
+        "status" => String.t() | atom(),
+        "supportCode" => String.t() | atom(),
         "tags" => list(tag()),
-        "viewerMinimumTlsProtocolVersion" => String.t()
+        "viewerMinimumTlsProtocolVersion" => String.t() | atom()
       }
       
   """
-  @type lightsail_distribution() :: %{String.t() => any()}
+  @type lightsail_distribution() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -768,66 +770,66 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type container_service_e_c_r_image_puller_role_request() :: %{String.t() => any()}
+  @type container_service_e_c_r_image_puller_role_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_container_services_request() :: %{
-        optional("serviceName") => String.t()
+        optional("serviceName") => String.t() | atom()
       }
       
   """
-  @type get_container_services_request() :: %{String.t() => any()}
+  @type get_container_services_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_formation_stack_record_source_info() :: %{
-        "arn" => String.t(),
-        "name" => String.t(),
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "resourceType" => list(any())
       }
       
   """
-  @type cloud_formation_stack_record_source_info() :: %{String.t() => any()}
+  @type cloud_formation_stack_record_source_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       load_balancer_tls_certificate() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "domainName" => String.t(),
+        "domainName" => String.t() | atom(),
         "domainValidationRecords" => list(load_balancer_tls_certificate_domain_validation_record()),
         "failureReason" => list(any()),
         "isAttached" => boolean(),
         "issuedAt" => non_neg_integer(),
-        "issuer" => String.t(),
-        "keyAlgorithm" => String.t(),
-        "loadBalancerName" => String.t(),
+        "issuer" => String.t() | atom(),
+        "keyAlgorithm" => String.t() | atom(),
+        "loadBalancerName" => String.t() | atom(),
         "location" => resource_location(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "notAfter" => non_neg_integer(),
         "notBefore" => non_neg_integer(),
         "renewalSummary" => load_balancer_tls_certificate_renewal_summary(),
         "resourceType" => list(any()),
         "revocationReason" => list(any()),
         "revokedAt" => non_neg_integer(),
-        "serial" => String.t(),
-        "signatureAlgorithm" => String.t(),
+        "serial" => String.t() | atom(),
+        "signatureAlgorithm" => String.t() | atom(),
         "status" => list(any()),
-        "subject" => String.t(),
-        "subjectAlternativeNames" => list(String.t()),
-        "supportCode" => String.t(),
+        "subject" => String.t() | atom(),
+        "subjectAlternativeNames" => list(String.t() | atom()),
+        "supportCode" => String.t() | atom(),
         "tags" => list(tag())
       }
       
   """
-  @type load_balancer_tls_certificate() :: %{String.t() => any()}
+  @type load_balancer_tls_certificate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -835,11 +837,11 @@ defmodule AWS.Lightsail do
       
       stop_instance_request() :: %{
         optional("force") => boolean(),
-        required("instanceName") => String.t()
+        required("instanceName") => String.t() | atom()
       }
       
   """
-  @type stop_instance_request() :: %{String.t() => any()}
+  @type stop_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -850,7 +852,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_bucket_bundles_request() :: %{String.t() => any()}
+  @type get_bucket_bundles_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -861,7 +863,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type delete_distribution_result() :: %{String.t() => any()}
+  @type delete_distribution_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -872,7 +874,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type create_load_balancer_result() :: %{String.t() => any()}
+  @type create_load_balancer_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -883,18 +885,18 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type delete_instance_snapshot_result() :: %{String.t() => any()}
+  @type delete_instance_snapshot_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_alarm_request() :: %{
-        required("alarmName") => String.t()
+        required("alarmName") => String.t() | atom()
       }
       
   """
-  @type delete_alarm_request() :: %{String.t() => any()}
+  @type delete_alarm_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -902,12 +904,12 @@ defmodule AWS.Lightsail do
       
       get_relational_database_events_request() :: %{
         optional("durationInMinutes") => integer(),
-        optional("pageToken") => String.t(),
-        required("relationalDatabaseName") => String.t()
+        optional("pageToken") => String.t() | atom(),
+        required("relationalDatabaseName") => String.t() | atom()
       }
       
   """
-  @type get_relational_database_events_request() :: %{String.t() => any()}
+  @type get_relational_database_events_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -918,7 +920,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type stop_instance_result() :: %{String.t() => any()}
+  @type stop_instance_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -929,57 +931,57 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type create_load_balancer_tls_certificate_result() :: %{String.t() => any()}
+  @type create_load_balancer_tls_certificate_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_disk_snapshot_request() :: %{
-        optional("diskName") => String.t(),
-        optional("instanceName") => String.t(),
+        optional("diskName") => String.t() | atom(),
+        optional("instanceName") => String.t() | atom(),
         optional("tags") => list(tag()),
-        required("diskSnapshotName") => String.t()
+        required("diskSnapshotName") => String.t() | atom()
       }
       
   """
-  @type create_disk_snapshot_request() :: %{String.t() => any()}
+  @type create_disk_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       relational_database() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "backupRetentionEnabled" => boolean(),
-        "caCertificateIdentifier" => String.t(),
+        "caCertificateIdentifier" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "engine" => String.t(),
-        "engineVersion" => String.t(),
+        "engine" => String.t() | atom(),
+        "engineVersion" => String.t() | atom(),
         "hardware" => relational_database_hardware(),
         "latestRestorableTime" => non_neg_integer(),
         "location" => resource_location(),
-        "masterDatabaseName" => String.t(),
+        "masterDatabaseName" => String.t() | atom(),
         "masterEndpoint" => relational_database_endpoint(),
-        "masterUsername" => String.t(),
-        "name" => String.t(),
-        "parameterApplyStatus" => String.t(),
+        "masterUsername" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "parameterApplyStatus" => String.t() | atom(),
         "pendingMaintenanceActions" => list(pending_maintenance_action()),
         "pendingModifiedValues" => pending_modified_relational_database_values(),
-        "preferredBackupWindow" => String.t(),
-        "preferredMaintenanceWindow" => String.t(),
+        "preferredBackupWindow" => String.t() | atom(),
+        "preferredMaintenanceWindow" => String.t() | atom(),
         "publiclyAccessible" => boolean(),
-        "relationalDatabaseBlueprintId" => String.t(),
-        "relationalDatabaseBundleId" => String.t(),
+        "relationalDatabaseBlueprintId" => String.t() | atom(),
+        "relationalDatabaseBundleId" => String.t() | atom(),
         "resourceType" => list(any()),
-        "secondaryAvailabilityZone" => String.t(),
-        "state" => String.t(),
-        "supportCode" => String.t(),
+        "secondaryAvailabilityZone" => String.t() | atom(),
+        "state" => String.t() | atom(),
+        "supportCode" => String.t() | atom(),
         "tags" => list(tag())
       }
       
   """
-  @type relational_database() :: %{String.t() => any()}
+  @type relational_database() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -990,7 +992,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type stop_g_ui_session_result() :: %{String.t() => any()}
+  @type stop_g_ui_session_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -998,22 +1000,22 @@ defmodule AWS.Lightsail do
       
       get_instance_snapshots_result() :: %{
         "instanceSnapshots" => list(instance_snapshot()),
-        "nextPageToken" => String.t()
+        "nextPageToken" => String.t() | atom()
       }
       
   """
-  @type get_instance_snapshots_result() :: %{String.t() => any()}
+  @type get_instance_snapshots_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_bucket_access_key_request() :: %{
-        required("bucketName") => String.t()
+        required("bucketName") => String.t() | atom()
       }
       
   """
-  @type create_bucket_access_key_request() :: %{String.t() => any()}
+  @type create_bucket_access_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1024,26 +1026,26 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type delete_disk_result() :: %{String.t() => any()}
+  @type delete_disk_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_distributions_request() :: %{
-        optional("distributionName") => String.t(),
-        optional("pageToken") => String.t()
+        optional("distributionName") => String.t() | atom(),
+        optional("pageToken") => String.t() | atom()
       }
       
   """
-  @type get_distributions_request() :: %{String.t() => any()}
+  @type get_distributions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       alarm() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "comparisonOperator" => list(any()),
         "contactProtocols" => list(list(any())()),
         "createdAt" => non_neg_integer(),
@@ -1052,33 +1054,33 @@ defmodule AWS.Lightsail do
         "location" => resource_location(),
         "metricName" => list(any()),
         "monitoredResourceInfo" => monitored_resource_info(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "notificationEnabled" => boolean(),
         "notificationTriggers" => list(list(any())()),
         "period" => integer(),
         "resourceType" => list(any()),
         "state" => list(any()),
         "statistic" => list(any()),
-        "supportCode" => String.t(),
+        "supportCode" => String.t() | atom(),
         "threshold" => float(),
         "treatMissingData" => list(any()),
         "unit" => list(any())
       }
       
   """
-  @type alarm() :: %{String.t() => any()}
+  @type alarm() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_operations_result() :: %{
-        "nextPageToken" => String.t(),
+        "nextPageToken" => String.t() | atom(),
         "operations" => list(operation())
       }
       
   """
-  @type get_operations_result() :: %{String.t() => any()}
+  @type get_operations_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1086,50 +1088,50 @@ defmodule AWS.Lightsail do
       
       get_cost_estimate_request() :: %{
         required("endTime") => non_neg_integer(),
-        required("resourceName") => String.t(),
+        required("resourceName") => String.t() | atom(),
         required("startTime") => non_neg_integer()
       }
       
   """
-  @type get_cost_estimate_request() :: %{String.t() => any()}
+  @type get_cost_estimate_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_relational_database_request() :: %{
-        optional("finalRelationalDatabaseSnapshotName") => String.t(),
+        optional("finalRelationalDatabaseSnapshotName") => String.t() | atom(),
         optional("skipFinalSnapshot") => boolean(),
-        required("relationalDatabaseName") => String.t()
+        required("relationalDatabaseName") => String.t() | atom()
       }
       
   """
-  @type delete_relational_database_request() :: %{String.t() => any()}
+  @type delete_relational_database_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_static_ip_request() :: %{
-        required("staticIpName") => String.t()
+        required("staticIpName") => String.t() | atom()
       }
       
   """
-  @type get_static_ip_request() :: %{String.t() => any()}
+  @type get_static_ip_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       unauthenticated_exception() :: %{
-        "code" => String.t(),
-        "docs" => String.t(),
-        "message" => String.t(),
-        "tip" => String.t()
+        "code" => String.t() | atom(),
+        "docs" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "tip" => String.t() | atom()
       }
       
   """
-  @type unauthenticated_exception() :: %{String.t() => any()}
+  @type unauthenticated_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1142,11 +1144,11 @@ defmodule AWS.Lightsail do
         optional("tags") => list(tag()),
         required("power") => list(any()),
         required("scale") => integer(),
-        required("serviceName") => String.t()
+        required("serviceName") => String.t() | atom()
       }
       
   """
-  @type create_container_service_request() :: %{String.t() => any()}
+  @type create_container_service_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1157,24 +1159,24 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type stop_relational_database_result() :: %{String.t() => any()}
+  @type stop_relational_database_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_port_state() :: %{
-        "cidrListAliases" => list(String.t()),
-        "cidrs" => list(String.t()),
+        "cidrListAliases" => list(String.t() | atom()),
+        "cidrs" => list(String.t() | atom()),
         "fromPort" => integer(),
-        "ipv6Cidrs" => list(String.t()),
+        "ipv6Cidrs" => list(String.t() | atom()),
         "protocol" => list(any()),
         "state" => list(any()),
         "toPort" => integer()
       }
       
   """
-  @type instance_port_state() :: %{String.t() => any()}
+  @type instance_port_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1185,7 +1187,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_domain_result() :: %{String.t() => any()}
+  @type get_domain_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1193,12 +1195,12 @@ defmodule AWS.Lightsail do
       
       get_auto_snapshots_result() :: %{
         "autoSnapshots" => list(auto_snapshot_details()),
-        "resourceName" => String.t(),
+        "resourceName" => String.t() | atom(),
         "resourceType" => list(any())
       }
       
   """
-  @type get_auto_snapshots_result() :: %{String.t() => any()}
+  @type get_auto_snapshots_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1206,12 +1208,12 @@ defmodule AWS.Lightsail do
       
       create_instance_snapshot_request() :: %{
         optional("tags") => list(tag()),
-        required("instanceName") => String.t(),
-        required("instanceSnapshotName") => String.t()
+        required("instanceName") => String.t() | atom(),
+        required("instanceSnapshotName") => String.t() | atom()
       }
       
   """
-  @type create_instance_snapshot_request() :: %{String.t() => any()}
+  @type create_instance_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1222,7 +1224,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_key_pair_result() :: %{String.t() => any()}
+  @type get_key_pair_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1233,7 +1235,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type delete_key_pair_result() :: %{String.t() => any()}
+  @type delete_key_pair_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1241,14 +1243,14 @@ defmodule AWS.Lightsail do
       
       setup_history() :: %{
         "executionDetails" => list(setup_execution_details()),
-        "operationId" => String.t(),
+        "operationId" => String.t() | atom(),
         "request" => setup_request(),
         "resource" => setup_history_resource(),
         "status" => list(any())
       }
       
   """
-  @type setup_history() :: %{String.t() => any()}
+  @type setup_history() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1260,29 +1262,29 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type container_service_deployment_request() :: %{String.t() => any()}
+  @type container_service_deployment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_auto_snapshots_request() :: %{
-        required("resourceName") => String.t()
+        required("resourceName") => String.t() | atom()
       }
       
   """
-  @type get_auto_snapshots_request() :: %{String.t() => any()}
+  @type get_auto_snapshots_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_relational_database_snapshot_request() :: %{
-        required("relationalDatabaseSnapshotName") => String.t()
+        required("relationalDatabaseSnapshotName") => String.t() | atom()
       }
       
   """
-  @type delete_relational_database_snapshot_request() :: %{String.t() => any()}
+  @type delete_relational_database_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1294,7 +1296,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_container_service_metric_data_result() :: %{String.t() => any()}
+  @type get_container_service_metric_data_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1305,7 +1307,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type send_contact_method_verification_result() :: %{String.t() => any()}
+  @type send_contact_method_verification_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1316,7 +1318,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_container_api_metadata_result() :: %{String.t() => any()}
+  @type get_container_api_metadata_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1325,78 +1327,78 @@ defmodule AWS.Lightsail do
       set_ip_address_type_request() :: %{
         optional("acceptBundleUpdate") => boolean(),
         required("ipAddressType") => list(any()),
-        required("resourceName") => String.t(),
+        required("resourceName") => String.t() | atom(),
         required("resourceType") => list(any())
       }
       
   """
-  @type set_ip_address_type_request() :: %{String.t() => any()}
+  @type set_ip_address_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_g_ui_session_request() :: %{
-        required("resourceName") => String.t()
+        required("resourceName") => String.t() | atom()
       }
       
   """
-  @type stop_g_ui_session_request() :: %{String.t() => any()}
+  @type stop_g_ui_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       domain() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "domainEntries" => list(domain_entry()),
         "location" => resource_location(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "registeredDomainDelegationInfo" => registered_domain_delegation_info(),
         "resourceType" => list(any()),
-        "supportCode" => String.t(),
+        "supportCode" => String.t() | atom(),
         "tags" => list(tag())
       }
       
   """
-  @type domain() :: %{String.t() => any()}
+  @type domain() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_load_balancer_request() :: %{
-        required("loadBalancerName") => String.t()
+        required("loadBalancerName") => String.t() | atom()
       }
       
   """
-  @type delete_load_balancer_request() :: %{String.t() => any()}
+  @type delete_load_balancer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_buckets_request() :: %{
-        optional("bucketName") => String.t(),
+        optional("bucketName") => String.t() | atom(),
         optional("includeConnectedResources") => boolean(),
-        optional("pageToken") => String.t()
+        optional("pageToken") => String.t() | atom()
       }
       
   """
-  @type get_buckets_request() :: %{String.t() => any()}
+  @type get_buckets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       bucket_state() :: %{
-        "code" => String.t(),
-        "message" => String.t()
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
       
   """
-  @type bucket_state() :: %{String.t() => any()}
+  @type bucket_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1407,18 +1409,18 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type attach_disk_result() :: %{String.t() => any()}
+  @type attach_disk_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_relational_database_request() :: %{
-        required("relationalDatabaseName") => String.t()
+        required("relationalDatabaseName") => String.t() | atom()
       }
       
   """
-  @type start_relational_database_request() :: %{String.t() => any()}
+  @type start_relational_database_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1429,7 +1431,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type update_bucket_bundle_result() :: %{String.t() => any()}
+  @type update_bucket_bundle_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1440,29 +1442,29 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type reboot_instance_result() :: %{String.t() => any()}
+  @type reboot_instance_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_disk_snapshots_request() :: %{
-        optional("pageToken") => String.t()
+        optional("pageToken") => String.t() | atom()
       }
       
   """
-  @type get_disk_snapshots_request() :: %{String.t() => any()}
+  @type get_disk_snapshots_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reset_distribution_cache_request() :: %{
-        optional("distributionName") => String.t()
+        optional("distributionName") => String.t() | atom()
       }
       
   """
-  @type reset_distribution_cache_request() :: %{String.t() => any()}
+  @type reset_distribution_cache_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1471,14 +1473,14 @@ defmodule AWS.Lightsail do
       container_service_power() :: %{
         "cpuCount" => float(),
         "isActive" => boolean(),
-        "name" => String.t(),
-        "powerId" => String.t(),
+        "name" => String.t() | atom(),
+        "powerId" => String.t() | atom(),
         "price" => float(),
         "ramSizeInGb" => float()
       }
       
   """
-  @type container_service_power() :: %{String.t() => any()}
+  @type container_service_power() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1486,11 +1488,11 @@ defmodule AWS.Lightsail do
       
       cache_behavior_per_path() :: %{
         "behavior" => list(any()),
-        "path" => String.t()
+        "path" => String.t() | atom()
       }
       
   """
-  @type cache_behavior_per_path() :: %{String.t() => any()}
+  @type cache_behavior_per_path() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1499,11 +1501,11 @@ defmodule AWS.Lightsail do
       get_buckets_result() :: %{
         "accountLevelBpaSync" => account_level_bpa_sync(),
         "buckets" => list(bucket()),
-        "nextPageToken" => String.t()
+        "nextPageToken" => String.t() | atom()
       }
       
   """
-  @type get_buckets_result() :: %{String.t() => any()}
+  @type get_buckets_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1514,7 +1516,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type create_domain_result() :: %{String.t() => any()}
+  @type create_domain_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1525,7 +1527,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type create_relational_database_result() :: %{String.t() => any()}
+  @type create_relational_database_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1536,7 +1538,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type attach_load_balancer_tls_certificate_result() :: %{String.t() => any()}
+  @type attach_load_balancer_tls_certificate_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1544,11 +1546,11 @@ defmodule AWS.Lightsail do
       
       delete_disk_request() :: %{
         optional("forceDeleteAddOns") => boolean(),
-        required("diskName") => String.t()
+        required("diskName") => String.t() | atom()
       }
       
   """
-  @type delete_disk_request() :: %{String.t() => any()}
+  @type delete_disk_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1557,11 +1559,11 @@ defmodule AWS.Lightsail do
       reset_distribution_cache_result() :: %{
         "createTime" => non_neg_integer(),
         "operation" => operation(),
-        "status" => String.t()
+        "status" => String.t() | atom()
       }
       
   """
-  @type reset_distribution_cache_result() :: %{String.t() => any()}
+  @type reset_distribution_cache_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1572,7 +1574,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_load_balancer_tls_certificates_result() :: %{String.t() => any()}
+  @type get_load_balancer_tls_certificates_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1586,7 +1588,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type account_level_bpa_sync() :: %{String.t() => any()}
+  @type account_level_bpa_sync() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1597,41 +1599,41 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type delete_contact_method_result() :: %{String.t() => any()}
+  @type delete_contact_method_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_relational_database_request() :: %{
-        optional("availabilityZone") => String.t(),
-        optional("masterUserPassword") => String.t(),
-        optional("preferredBackupWindow") => String.t(),
-        optional("preferredMaintenanceWindow") => String.t(),
+        optional("availabilityZone") => String.t() | atom(),
+        optional("masterUserPassword") => String.t() | atom(),
+        optional("preferredBackupWindow") => String.t() | atom(),
+        optional("preferredMaintenanceWindow") => String.t() | atom(),
         optional("publiclyAccessible") => boolean(),
         optional("tags") => list(tag()),
-        required("masterDatabaseName") => String.t(),
-        required("masterUsername") => String.t(),
-        required("relationalDatabaseBlueprintId") => String.t(),
-        required("relationalDatabaseBundleId") => String.t(),
-        required("relationalDatabaseName") => String.t()
+        required("masterDatabaseName") => String.t() | atom(),
+        required("masterUsername") => String.t() | atom(),
+        required("relationalDatabaseBlueprintId") => String.t() | atom(),
+        required("relationalDatabaseBundleId") => String.t() | atom(),
+        required("relationalDatabaseName") => String.t() | atom()
       }
       
   """
-  @type create_relational_database_request() :: %{String.t() => any()}
+  @type create_relational_database_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_relational_database_log_events_result() :: %{
-        "nextBackwardToken" => String.t(),
-        "nextForwardToken" => String.t(),
+        "nextBackwardToken" => String.t() | atom(),
+        "nextForwardToken" => String.t() | atom(),
         "resourceLogEvents" => list(log_event())
       }
       
   """
-  @type get_relational_database_log_events_result() :: %{String.t() => any()}
+  @type get_relational_database_log_events_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1640,12 +1642,12 @@ defmodule AWS.Lightsail do
       renewal_summary() :: %{
         "domainValidationRecords" => list(domain_validation_record()),
         "renewalStatus" => list(any()),
-        "renewalStatusReason" => String.t(),
+        "renewalStatusReason" => String.t() | atom(),
         "updatedAt" => non_neg_integer()
       }
       
   """
-  @type renewal_summary() :: %{String.t() => any()}
+  @type renewal_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1654,18 +1656,18 @@ defmodule AWS.Lightsail do
       create_distribution_request() :: %{
         optional("cacheBehaviorSettings") => cache_settings(),
         optional("cacheBehaviors") => list(cache_behavior_per_path()),
-        optional("certificateName") => String.t(),
+        optional("certificateName") => String.t() | atom(),
         optional("ipAddressType") => list(any()),
         optional("tags") => list(tag()),
         optional("viewerMinimumTlsProtocolVersion") => list(any()),
-        required("bundleId") => String.t(),
+        required("bundleId") => String.t() | atom(),
         required("defaultCacheBehavior") => cache_behavior(),
-        required("distributionName") => String.t(),
+        required("distributionName") => String.t() | atom(),
         required("origin") => input_origin()
       }
       
   """
-  @type create_distribution_request() :: %{String.t() => any()}
+  @type create_distribution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1673,19 +1675,19 @@ defmodule AWS.Lightsail do
       
       create_instances_request() :: %{
         optional("addOns") => list(add_on_request()),
-        optional("customImageName") => String.t(),
+        optional("customImageName") => String.t() | atom(),
         optional("ipAddressType") => list(any()),
-        optional("keyPairName") => String.t(),
+        optional("keyPairName") => String.t() | atom(),
         optional("tags") => list(tag()),
-        optional("userData") => String.t(),
-        required("availabilityZone") => String.t(),
-        required("blueprintId") => String.t(),
-        required("bundleId") => String.t(),
-        required("instanceNames") => list(String.t())
+        optional("userData") => String.t() | atom(),
+        required("availabilityZone") => String.t() | atom(),
+        required("blueprintId") => String.t() | atom(),
+        required("bundleId") => String.t() | atom(),
+        required("instanceNames") => list(String.t() | atom())
       }
       
   """
-  @type create_instances_request() :: %{String.t() => any()}
+  @type create_instances_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1698,32 +1700,32 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type relational_database_hardware() :: %{String.t() => any()}
+  @type relational_database_hardware() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_instance_snapshot_request() :: %{
-        required("instanceSnapshotName") => String.t()
+        required("instanceSnapshotName") => String.t() | atom()
       }
       
   """
-  @type delete_instance_snapshot_request() :: %{String.t() => any()}
+  @type delete_instance_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_certificate_request() :: %{
-        optional("subjectAlternativeNames") => list(String.t()),
+        optional("subjectAlternativeNames") => list(String.t() | atom()),
         optional("tags") => list(tag()),
-        required("certificateName") => String.t(),
-        required("domainName") => String.t()
+        required("certificateName") => String.t() | atom(),
+        required("domainName") => String.t() | atom()
       }
       
   """
-  @type create_certificate_request() :: %{String.t() => any()}
+  @type create_certificate_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1734,38 +1736,38 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_container_service_powers_result() :: %{String.t() => any()}
+  @type get_container_service_powers_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_relational_database_request() :: %{
-        required("relationalDatabaseName") => String.t()
+        required("relationalDatabaseName") => String.t() | atom()
       }
       
   """
-  @type get_relational_database_request() :: %{String.t() => any()}
+  @type get_relational_database_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        optional("resourceArn") => String.t(),
-        required("resourceName") => String.t(),
-        required("tagKeys") => list(String.t())
+        optional("resourceArn") => String.t() | atom(),
+        required("resourceName") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_distribution_metric_data_request() :: %{
-        required("distributionName") => String.t(),
+        required("distributionName") => String.t() | atom(),
         required("endTime") => non_neg_integer(),
         required("metricName") => list(any()),
         required("period") => integer(),
@@ -1775,7 +1777,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_distribution_metric_data_request() :: %{String.t() => any()}
+  @type get_distribution_metric_data_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1788,7 +1790,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type instance_hardware() :: %{String.t() => any()}
+  @type instance_hardware() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1799,18 +1801,18 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_relational_database_snapshot_result() :: %{String.t() => any()}
+  @type get_relational_database_snapshot_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_instance_snapshots_request() :: %{
-        optional("pageToken") => String.t()
+        optional("pageToken") => String.t() | atom()
       }
       
   """
-  @type get_instance_snapshots_request() :: %{String.t() => any()}
+  @type get_instance_snapshots_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1818,22 +1820,22 @@ defmodule AWS.Lightsail do
       
       get_bundles_result() :: %{
         "bundles" => list(bundle()),
-        "nextPageToken" => String.t()
+        "nextPageToken" => String.t() | atom()
       }
       
   """
-  @type get_bundles_result() :: %{String.t() => any()}
+  @type get_bundles_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_load_balancer_tls_policies_request() :: %{
-        optional("pageToken") => String.t()
+        optional("pageToken") => String.t() | atom()
       }
       
   """
-  @type get_load_balancer_tls_policies_request() :: %{String.t() => any()}
+  @type get_load_balancer_tls_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1845,18 +1847,18 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type time_period() :: %{String.t() => any()}
+  @type time_period() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_known_host_keys_request() :: %{
-        required("instanceName") => String.t()
+        required("instanceName") => String.t() | atom()
       }
       
   """
-  @type delete_known_host_keys_request() :: %{String.t() => any()}
+  @type delete_known_host_keys_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1867,7 +1869,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_disk_snapshot_result() :: %{String.t() => any()}
+  @type get_disk_snapshot_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1878,42 +1880,44 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type create_relational_database_from_snapshot_result() :: %{String.t() => any()}
+  @type create_relational_database_from_snapshot_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_key_pair_request() :: %{
-        optional("expectedFingerprint") => String.t(),
-        required("keyPairName") => String.t()
+        optional("expectedFingerprint") => String.t() | atom(),
+        required("keyPairName") => String.t() | atom()
       }
       
   """
-  @type delete_key_pair_request() :: %{String.t() => any()}
+  @type delete_key_pair_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       load_balancer_tls_certificate_domain_validation_option() :: %{
-        "domainName" => String.t(),
+        "domainName" => String.t() | atom(),
         "validationStatus" => list(any())
       }
       
   """
-  @type load_balancer_tls_certificate_domain_validation_option() :: %{String.t() => any()}
+  @type load_balancer_tls_certificate_domain_validation_option() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       get_instance_request() :: %{
-        required("instanceName") => String.t()
+        required("instanceName") => String.t() | atom()
       }
       
   """
-  @type get_instance_request() :: %{String.t() => any()}
+  @type get_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1924,19 +1928,19 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type create_disk_snapshot_result() :: %{String.t() => any()}
+  @type create_disk_snapshot_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       bundle() :: %{
-        "bundleId" => String.t(),
+        "bundleId" => String.t() | atom(),
         "cpuCount" => integer(),
         "diskSizeInGb" => integer(),
-        "instanceType" => String.t(),
+        "instanceType" => String.t() | atom(),
         "isActive" => boolean(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "power" => integer(),
         "price" => float(),
         "publicIpv4AddressCount" => integer(),
@@ -1947,56 +1951,56 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type bundle() :: %{String.t() => any()}
+  @type bundle() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_snapshot() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "fromAttachedDisks" => list(disk()),
-        "fromBlueprintId" => String.t(),
-        "fromBundleId" => String.t(),
-        "fromInstanceArn" => String.t(),
-        "fromInstanceName" => String.t(),
+        "fromBlueprintId" => String.t() | atom(),
+        "fromBundleId" => String.t() | atom(),
+        "fromInstanceArn" => String.t() | atom(),
+        "fromInstanceName" => String.t() | atom(),
         "isFromAutoSnapshot" => boolean(),
         "location" => resource_location(),
-        "name" => String.t(),
-        "progress" => String.t(),
+        "name" => String.t() | atom(),
+        "progress" => String.t() | atom(),
         "resourceType" => list(any()),
         "sizeInGb" => integer(),
         "state" => list(any()),
-        "supportCode" => String.t(),
+        "supportCode" => String.t() | atom(),
         "tags" => list(tag())
       }
       
   """
-  @type instance_snapshot() :: %{String.t() => any()}
+  @type instance_snapshot() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_g_ui_session_access_details_request() :: %{
-        required("resourceName") => String.t()
+        required("resourceName") => String.t() | atom()
       }
       
   """
-  @type create_g_ui_session_access_details_request() :: %{String.t() => any()}
+  @type create_g_ui_session_access_details_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_location() :: %{
-        "availabilityZone" => String.t(),
+        "availabilityZone" => String.t() | atom(),
         "regionName" => list(any())
       }
       
   """
-  @type resource_location() :: %{String.t() => any()}
+  @type resource_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2006,26 +2010,26 @@ defmodule AWS.Lightsail do
         required("endTime") => non_neg_integer(),
         required("metricName") => list(any()),
         required("period") => integer(),
-        required("relationalDatabaseName") => String.t(),
+        required("relationalDatabaseName") => String.t() | atom(),
         required("startTime") => non_neg_integer(),
         required("statistics") => list(list(any())()),
         required("unit") => list(any())
       }
       
   """
-  @type get_relational_database_metric_data_request() :: %{String.t() => any()}
+  @type get_relational_database_metric_data_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_contact_method_request() :: %{
-        required("contactEndpoint") => String.t(),
+        required("contactEndpoint") => String.t() | atom(),
         required("protocol") => list(any())
       }
       
   """
-  @type create_contact_method_request() :: %{String.t() => any()}
+  @type create_contact_method_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2033,99 +2037,99 @@ defmodule AWS.Lightsail do
       
       auto_snapshot_details() :: %{
         "createdAt" => non_neg_integer(),
-        "date" => String.t(),
+        "date" => String.t() | atom(),
         "fromAttachedDisks" => list(attached_disk()),
         "status" => list(any())
       }
       
   """
-  @type auto_snapshot_details() :: %{String.t() => any()}
+  @type auto_snapshot_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       certificate_summary() :: %{
-        "certificateArn" => String.t(),
+        "certificateArn" => String.t() | atom(),
         "certificateDetail" => certificate(),
-        "certificateName" => String.t(),
-        "domainName" => String.t(),
+        "certificateName" => String.t() | atom(),
+        "domainName" => String.t() | atom(),
         "tags" => list(tag())
       }
       
   """
-  @type certificate_summary() :: %{String.t() => any()}
+  @type certificate_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_export_snapshot_records_request() :: %{
-        optional("pageToken") => String.t()
+        optional("pageToken") => String.t() | atom()
       }
       
   """
-  @type get_export_snapshot_records_request() :: %{String.t() => any()}
+  @type get_export_snapshot_records_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       bucket_bundle() :: %{
-        "bundleId" => String.t(),
+        "bundleId" => String.t() | atom(),
         "isActive" => boolean(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "price" => float(),
         "storagePerMonthInGb" => integer(),
         "transferPerMonthInGb" => integer()
       }
       
   """
-  @type bucket_bundle() :: %{String.t() => any()}
+  @type bucket_bundle() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_load_balancer_request() :: %{
-        optional("certificateAlternativeNames") => list(String.t()),
-        optional("certificateDomainName") => String.t(),
-        optional("certificateName") => String.t(),
-        optional("healthCheckPath") => String.t(),
+        optional("certificateAlternativeNames") => list(String.t() | atom()),
+        optional("certificateDomainName") => String.t() | atom(),
+        optional("certificateName") => String.t() | atom(),
+        optional("healthCheckPath") => String.t() | atom(),
         optional("ipAddressType") => list(any()),
         optional("tags") => list(tag()),
-        optional("tlsPolicyName") => String.t(),
+        optional("tlsPolicyName") => String.t() | atom(),
         required("instancePort") => integer(),
-        required("loadBalancerName") => String.t()
+        required("loadBalancerName") => String.t() | atom()
       }
       
   """
-  @type create_load_balancer_request() :: %{String.t() => any()}
+  @type create_load_balancer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       relational_database_snapshot() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "engine" => String.t(),
-        "engineVersion" => String.t(),
-        "fromRelationalDatabaseArn" => String.t(),
-        "fromRelationalDatabaseBlueprintId" => String.t(),
-        "fromRelationalDatabaseBundleId" => String.t(),
-        "fromRelationalDatabaseName" => String.t(),
+        "engine" => String.t() | atom(),
+        "engineVersion" => String.t() | atom(),
+        "fromRelationalDatabaseArn" => String.t() | atom(),
+        "fromRelationalDatabaseBlueprintId" => String.t() | atom(),
+        "fromRelationalDatabaseBundleId" => String.t() | atom(),
+        "fromRelationalDatabaseName" => String.t() | atom(),
         "location" => resource_location(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "resourceType" => list(any()),
         "sizeInGb" => integer(),
-        "state" => String.t(),
-        "supportCode" => String.t(),
+        "state" => String.t() | atom(),
+        "supportCode" => String.t() | atom(),
         "tags" => list(tag())
       }
       
   """
-  @type relational_database_snapshot() :: %{String.t() => any()}
+  @type relational_database_snapshot() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2133,11 +2137,11 @@ defmodule AWS.Lightsail do
       
       delete_bucket_request() :: %{
         optional("forceDelete") => boolean(),
-        required("bucketName") => String.t()
+        required("bucketName") => String.t() | atom()
       }
       
   """
-  @type delete_bucket_request() :: %{String.t() => any()}
+  @type delete_bucket_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2148,7 +2152,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type set_ip_address_type_result() :: %{String.t() => any()}
+  @type set_ip_address_type_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2156,22 +2160,22 @@ defmodule AWS.Lightsail do
       
       name_servers_update_state() :: %{
         "code" => list(any()),
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type name_servers_update_state() :: %{String.t() => any()}
+  @type name_servers_update_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reboot_instance_request() :: %{
-        required("instanceName") => String.t()
+        required("instanceName") => String.t() | atom()
       }
       
   """
-  @type reboot_instance_request() :: %{String.t() => any()}
+  @type reboot_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2183,19 +2187,19 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type instance_networking() :: %{String.t() => any()}
+  @type instance_networking() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_active_names_result() :: %{
-        "activeNames" => list(String.t()),
-        "nextPageToken" => String.t()
+        "activeNames" => list(String.t() | atom()),
+        "nextPageToken" => String.t() | atom()
       }
       
   """
-  @type get_active_names_result() :: %{String.t() => any()}
+  @type get_active_names_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2206,7 +2210,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type reboot_relational_database_result() :: %{String.t() => any()}
+  @type reboot_relational_database_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2217,14 +2221,14 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type setup_instance_https_result() :: %{String.t() => any()}
+  @type setup_instance_https_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_bucket_metric_data_request() :: %{
-        required("bucketName") => String.t(),
+        required("bucketName") => String.t() | atom(),
         required("endTime") => non_neg_integer(),
         required("metricName") => list(any()),
         required("period") => integer(),
@@ -2234,29 +2238,29 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_bucket_metric_data_request() :: %{String.t() => any()}
+  @type get_bucket_metric_data_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_domain_request() :: %{
-        required("domainName") => String.t()
+        required("domainName") => String.t() | atom()
       }
       
   """
-  @type delete_domain_request() :: %{String.t() => any()}
+  @type delete_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_instance_snapshot_request() :: %{
-        required("instanceSnapshotName") => String.t()
+        required("instanceSnapshotName") => String.t() | atom()
       }
       
   """
-  @type get_instance_snapshot_request() :: %{String.t() => any()}
+  @type get_instance_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2271,7 +2275,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type container_service_deployment() :: %{String.t() => any()}
+  @type container_service_deployment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2280,11 +2284,11 @@ defmodule AWS.Lightsail do
       instance_health_summary() :: %{
         "instanceHealth" => list(any()),
         "instanceHealthReason" => list(any()),
-        "instanceName" => String.t()
+        "instanceName" => String.t() | atom()
       }
       
   """
-  @type instance_health_summary() :: %{String.t() => any()}
+  @type instance_health_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2295,7 +2299,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type delete_relational_database_result() :: %{String.t() => any()}
+  @type delete_relational_database_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2303,27 +2307,27 @@ defmodule AWS.Lightsail do
       
       region() :: %{
         "availabilityZones" => list(availability_zone()),
-        "continentCode" => String.t(),
-        "description" => String.t(),
-        "displayName" => String.t(),
+        "continentCode" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
         "name" => list(any()),
         "relationalDatabaseAvailabilityZones" => list(availability_zone())
       }
       
   """
-  @type region() :: %{String.t() => any()}
+  @type region() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_relational_database_parameters_request() :: %{
-        optional("pageToken") => String.t(),
-        required("relationalDatabaseName") => String.t()
+        optional("pageToken") => String.t() | atom(),
+        required("relationalDatabaseName") => String.t() | atom()
       }
       
   """
-  @type get_relational_database_parameters_request() :: %{String.t() => any()}
+  @type get_relational_database_parameters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2334,7 +2338,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type export_snapshot_result() :: %{String.t() => any()}
+  @type export_snapshot_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2342,22 +2346,22 @@ defmodule AWS.Lightsail do
       
       get_key_pairs_request() :: %{
         optional("includeDefaultKeyPair") => boolean(),
-        optional("pageToken") => String.t()
+        optional("pageToken") => String.t() | atom()
       }
       
   """
-  @type get_key_pairs_request() :: %{String.t() => any()}
+  @type get_key_pairs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_static_ips_request() :: %{
-        optional("pageToken") => String.t()
+        optional("pageToken") => String.t() | atom()
       }
       
   """
-  @type get_static_ips_request() :: %{String.t() => any()}
+  @type get_static_ips_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2368,7 +2372,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type update_instance_metadata_options_result() :: %{String.t() => any()}
+  @type update_instance_metadata_options_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2379,19 +2383,19 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type detach_static_ip_result() :: %{String.t() => any()}
+  @type detach_static_ip_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       destination_info() :: %{
-        "id" => String.t(),
-        "service" => String.t()
+        "id" => String.t() | atom(),
+        "service" => String.t() | atom()
       }
       
   """
-  @type destination_info() :: %{String.t() => any()}
+  @type destination_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2403,19 +2407,19 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_distribution_metric_data_result() :: %{String.t() => any()}
+  @type get_distribution_metric_data_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_operations_for_resource_request() :: %{
-        optional("pageToken") => String.t(),
-        required("resourceName") => String.t()
+        optional("pageToken") => String.t() | atom(),
+        required("resourceName") => String.t() | atom()
       }
       
   """
-  @type get_operations_for_resource_request() :: %{String.t() => any()}
+  @type get_operations_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2426,19 +2430,19 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type monthly_transfer() :: %{String.t() => any()}
+  @type monthly_transfer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_load_balancer_tls_policies_result() :: %{
-        "nextPageToken" => String.t(),
+        "nextPageToken" => String.t() | atom(),
         "tlsPolicies" => list(load_balancer_tls_policy())
       }
       
   """
-  @type get_load_balancer_tls_policies_result() :: %{String.t() => any()}
+  @type get_load_balancer_tls_policies_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2447,13 +2451,13 @@ defmodule AWS.Lightsail do
       resource_budget_estimate() :: %{
         "costEstimates" => list(cost_estimate()),
         "endTime" => non_neg_integer(),
-        "resourceName" => String.t(),
+        "resourceName" => String.t() | atom(),
         "resourceType" => list(any()),
         "startTime" => non_neg_integer()
       }
       
   """
-  @type resource_budget_estimate() :: %{String.t() => any()}
+  @type resource_budget_estimate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2465,7 +2469,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_relational_database_metric_data_result() :: %{String.t() => any()}
+  @type get_relational_database_metric_data_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2476,7 +2480,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type update_distribution_bundle_result() :: %{String.t() => any()}
+  @type update_distribution_bundle_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2484,30 +2488,30 @@ defmodule AWS.Lightsail do
       
       create_disk_from_snapshot_request() :: %{
         optional("addOns") => list(add_on_request()),
-        optional("diskSnapshotName") => String.t(),
-        optional("restoreDate") => String.t(),
-        optional("sourceDiskName") => String.t(),
+        optional("diskSnapshotName") => String.t() | atom(),
+        optional("restoreDate") => String.t() | atom(),
+        optional("sourceDiskName") => String.t() | atom(),
         optional("tags") => list(tag()),
         optional("useLatestRestorableAutoSnapshot") => boolean(),
-        required("availabilityZone") => String.t(),
-        required("diskName") => String.t(),
+        required("availabilityZone") => String.t() | atom(),
+        required("diskName") => String.t() | atom(),
         required("sizeInGb") => integer()
       }
       
   """
-  @type create_disk_from_snapshot_request() :: %{String.t() => any()}
+  @type create_disk_from_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       attach_certificate_to_distribution_request() :: %{
-        required("certificateName") => String.t(),
-        required("distributionName") => String.t()
+        required("certificateName") => String.t() | atom(),
+        required("distributionName") => String.t() | atom()
       }
       
   """
-  @type attach_certificate_to_distribution_request() :: %{String.t() => any()}
+  @type attach_certificate_to_distribution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2515,11 +2519,11 @@ defmodule AWS.Lightsail do
       
       create_domain_request() :: %{
         optional("tags") => list(tag()),
-        required("domainName") => String.t()
+        required("domainName") => String.t() | atom()
       }
       
   """
-  @type create_domain_request() :: %{String.t() => any()}
+  @type create_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2530,7 +2534,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type test_alarm_result() :: %{String.t() => any()}
+  @type test_alarm_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2541,7 +2545,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_instance_access_details_result() :: %{String.t() => any()}
+  @type get_instance_access_details_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2552,7 +2556,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type create_cloud_formation_stack_request() :: %{String.t() => any()}
+  @type create_cloud_formation_stack_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2563,7 +2567,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type delete_known_host_keys_result() :: %{String.t() => any()}
+  @type delete_known_host_keys_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2571,46 +2575,46 @@ defmodule AWS.Lightsail do
       
       setup_request() :: %{
         "certificateProvider" => list(any()),
-        "domainNames" => list(String.t()),
-        "instanceName" => String.t()
+        "domainNames" => list(String.t() | atom()),
+        "instanceName" => String.t() | atom()
       }
       
   """
-  @type setup_request() :: %{String.t() => any()}
+  @type setup_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reboot_relational_database_request() :: %{
-        required("relationalDatabaseName") => String.t()
+        required("relationalDatabaseName") => String.t() | atom()
       }
       
   """
-  @type reboot_relational_database_request() :: %{String.t() => any()}
+  @type reboot_relational_database_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       allocate_static_ip_request() :: %{
-        required("staticIpName") => String.t()
+        required("staticIpName") => String.t() | atom()
       }
       
   """
-  @type allocate_static_ip_request() :: %{String.t() => any()}
+  @type allocate_static_ip_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2621,7 +2625,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type put_alarm_result() :: %{String.t() => any()}
+  @type put_alarm_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2632,7 +2636,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type close_instance_public_ports_result() :: %{String.t() => any()}
+  @type close_instance_public_ports_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2643,7 +2647,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type create_container_service_deployment_result() :: %{String.t() => any()}
+  @type create_container_service_deployment_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2652,17 +2656,17 @@ defmodule AWS.Lightsail do
       update_distribution_request() :: %{
         optional("cacheBehaviorSettings") => cache_settings(),
         optional("cacheBehaviors") => list(cache_behavior_per_path()),
-        optional("certificateName") => String.t(),
+        optional("certificateName") => String.t() | atom(),
         optional("defaultCacheBehavior") => cache_behavior(),
         optional("isEnabled") => boolean(),
         optional("origin") => input_origin(),
         optional("useDefaultCertificate") => boolean(),
         optional("viewerMinimumTlsProtocolVersion") => list(any()),
-        required("distributionName") => String.t()
+        required("distributionName") => String.t() | atom()
       }
       
   """
-  @type update_distribution_request() :: %{String.t() => any()}
+  @type update_distribution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2673,62 +2677,62 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type delete_domain_entry_result() :: %{String.t() => any()}
+  @type delete_domain_entry_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       setup_history_resource() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "location" => resource_location(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "resourceType" => list(any())
       }
       
   """
-  @type setup_history_resource() :: %{String.t() => any()}
+  @type setup_history_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       attached_disk() :: %{
-        "path" => String.t(),
+        "path" => String.t() | atom(),
         "sizeInGb" => integer()
       }
       
   """
-  @type attached_disk() :: %{String.t() => any()}
+  @type attached_disk() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_operation_request() :: %{
-        required("operationId") => String.t()
+        required("operationId") => String.t() | atom()
       }
       
   """
-  @type get_operation_request() :: %{String.t() => any()}
+  @type get_operation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       container_service() :: %{
-        "arn" => String.t(),
-        "containerServiceName" => String.t(),
+        "arn" => String.t() | atom(),
+        "containerServiceName" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "currentDeployment" => container_service_deployment(),
         "isDisabled" => boolean(),
         "location" => resource_location(),
         "nextDeployment" => container_service_deployment(),
         "power" => list(any()),
-        "powerId" => String.t(),
-        "principalArn" => String.t(),
-        "privateDomainName" => String.t(),
+        "powerId" => String.t() | atom(),
+        "principalArn" => String.t() | atom(),
+        "privateDomainName" => String.t() | atom(),
         "privateRegistryAccess" => private_registry_access(),
         "publicDomainNames" => map(),
         "resourceType" => list(any()),
@@ -2736,11 +2740,11 @@ defmodule AWS.Lightsail do
         "state" => list(any()),
         "stateDetail" => container_service_state_detail(),
         "tags" => list(tag()),
-        "url" => String.t()
+        "url" => String.t() | atom()
       }
       
   """
-  @type container_service() :: %{String.t() => any()}
+  @type container_service() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2748,26 +2752,26 @@ defmodule AWS.Lightsail do
       
       get_relational_database_bundles_result() :: %{
         "bundles" => list(relational_database_bundle()),
-        "nextPageToken" => String.t()
+        "nextPageToken" => String.t() | atom()
       }
       
   """
-  @type get_relational_database_bundles_result() :: %{String.t() => any()}
+  @type get_relational_database_bundles_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       access_key() :: %{
-        "accessKeyId" => String.t(),
+        "accessKeyId" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "lastUsed" => access_key_last_used(),
-        "secretAccessKey" => String.t(),
+        "secretAccessKey" => String.t() | atom(),
         "status" => list(any())
       }
       
   """
-  @type access_key() :: %{String.t() => any()}
+  @type access_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2776,13 +2780,13 @@ defmodule AWS.Lightsail do
       update_bucket_request() :: %{
         optional("accessLogConfig") => bucket_access_log_config(),
         optional("accessRules") => access_rules(),
-        optional("readonlyAccessAccounts") => list(String.t()),
-        optional("versioning") => String.t(),
-        required("bucketName") => String.t()
+        optional("readonlyAccessAccounts") => list(String.t() | atom()),
+        optional("versioning") => String.t() | atom(),
+        required("bucketName") => String.t() | atom()
       }
       
   """
-  @type update_bucket_request() :: %{String.t() => any()}
+  @type update_bucket_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2793,7 +2797,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type delete_domain_result() :: %{String.t() => any()}
+  @type delete_domain_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2804,19 +2808,19 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type create_instance_snapshot_result() :: %{String.t() => any()}
+  @type create_instance_snapshot_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       attach_instances_to_load_balancer_request() :: %{
-        required("instanceNames") => list(String.t()),
-        required("loadBalancerName") => String.t()
+        required("instanceNames") => list(String.t() | atom()),
+        required("loadBalancerName") => String.t() | atom()
       }
       
   """
-  @type attach_instances_to_load_balancer_request() :: %{String.t() => any()}
+  @type attach_instances_to_load_balancer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2825,24 +2829,24 @@ defmodule AWS.Lightsail do
       create_disk_request() :: %{
         optional("addOns") => list(add_on_request()),
         optional("tags") => list(tag()),
-        required("availabilityZone") => String.t(),
-        required("diskName") => String.t(),
+        required("availabilityZone") => String.t() | atom(),
+        required("diskName") => String.t() | atom(),
         required("sizeInGb") => integer()
       }
       
   """
-  @type create_disk_request() :: %{String.t() => any()}
+  @type create_disk_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       release_static_ip_request() :: %{
-        required("staticIpName") => String.t()
+        required("staticIpName") => String.t() | atom()
       }
       
   """
-  @type release_static_ip_request() :: %{String.t() => any()}
+  @type release_static_ip_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2853,18 +2857,18 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type is_vpc_peered_result() :: %{String.t() => any()}
+  @type is_vpc_peered_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_instance_port_states_request() :: %{
-        required("instanceName") => String.t()
+        required("instanceName") => String.t() | atom()
       }
       
   """
-  @type get_instance_port_states_request() :: %{String.t() => any()}
+  @type get_instance_port_states_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2872,11 +2876,11 @@ defmodule AWS.Lightsail do
       
       disable_add_on_request() :: %{
         required("addOnType") => list(any()),
-        required("resourceName") => String.t()
+        required("resourceName") => String.t() | atom()
       }
       
   """
-  @type disable_add_on_request() :: %{String.t() => any()}
+  @type disable_add_on_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2884,25 +2888,25 @@ defmodule AWS.Lightsail do
       
       create_relational_database_snapshot_request() :: %{
         optional("tags") => list(tag()),
-        required("relationalDatabaseName") => String.t(),
-        required("relationalDatabaseSnapshotName") => String.t()
+        required("relationalDatabaseName") => String.t() | atom(),
+        required("relationalDatabaseSnapshotName") => String.t() | atom()
       }
       
   """
-  @type create_relational_database_snapshot_request() :: %{String.t() => any()}
+  @type create_relational_database_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       monitored_resource_info() :: %{
-        "arn" => String.t(),
-        "name" => String.t(),
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "resourceType" => list(any())
       }
       
   """
-  @type monitored_resource_info() :: %{String.t() => any()}
+  @type monitored_resource_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2913,7 +2917,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_contact_methods_request() :: %{String.t() => any()}
+  @type get_contact_methods_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2925,34 +2929,34 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type load_balancer_tls_certificate_renewal_summary() :: %{String.t() => any()}
+  @type load_balancer_tls_certificate_renewal_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_snapshot_info() :: %{
-        "fromBlueprintId" => String.t(),
-        "fromBundleId" => String.t(),
+        "fromBlueprintId" => String.t() | atom(),
+        "fromBundleId" => String.t() | atom(),
         "fromDiskInfo" => list(disk_info())
       }
       
   """
-  @type instance_snapshot_info() :: %{String.t() => any()}
+  @type instance_snapshot_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       not_found_exception() :: %{
-        "code" => String.t(),
-        "docs" => String.t(),
-        "message" => String.t(),
-        "tip" => String.t()
+        "code" => String.t() | atom(),
+        "docs" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "tip" => String.t() | atom()
       }
       
   """
-  @type not_found_exception() :: %{String.t() => any()}
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2963,7 +2967,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_cost_estimate_result() :: %{String.t() => any()}
+  @type get_cost_estimate_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2971,11 +2975,11 @@ defmodule AWS.Lightsail do
       
       r53_hosted_zone_deletion_state() :: %{
         "code" => list(any()),
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type r53_hosted_zone_deletion_state() :: %{String.t() => any()}
+  @type r53_hosted_zone_deletion_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2983,12 +2987,12 @@ defmodule AWS.Lightsail do
       
       container_image() :: %{
         "createdAt" => non_neg_integer(),
-        "digest" => String.t(),
-        "image" => String.t()
+        "digest" => String.t() | atom(),
+        "image" => String.t() | atom()
       }
       
   """
-  @type container_image() :: %{String.t() => any()}
+  @type container_image() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2996,37 +3000,37 @@ defmodule AWS.Lightsail do
       
       create_domain_entry_request() :: %{
         required("domainEntry") => domain_entry(),
-        required("domainName") => String.t()
+        required("domainName") => String.t() | atom()
       }
       
   """
-  @type create_domain_entry_request() :: %{String.t() => any()}
+  @type create_domain_entry_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_receiving_access() :: %{
-        "name" => String.t(),
-        "resourceType" => String.t()
+        "name" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
       }
       
   """
-  @type resource_receiving_access() :: %{String.t() => any()}
+  @type resource_receiving_access() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_exception() :: %{
-        "code" => String.t(),
-        "docs" => String.t(),
-        "message" => String.t(),
-        "tip" => String.t()
+        "code" => String.t() | atom(),
+        "docs" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "tip" => String.t() | atom()
       }
       
   """
-  @type service_exception() :: %{String.t() => any()}
+  @type service_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3037,7 +3041,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type peer_vpc_result() :: %{String.t() => any()}
+  @type peer_vpc_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3053,14 +3057,14 @@ defmodule AWS.Lightsail do
   ## Example:
       
       invalid_input_exception() :: %{
-        "code" => String.t(),
-        "docs" => String.t(),
-        "message" => String.t(),
-        "tip" => String.t()
+        "code" => String.t() | atom(),
+        "docs" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "tip" => String.t() | atom()
       }
       
   """
-  @type invalid_input_exception() :: %{String.t() => any()}
+  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3071,7 +3075,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type create_disk_from_snapshot_result() :: %{String.t() => any()}
+  @type create_disk_from_snapshot_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3082,18 +3086,18 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_operation_result() :: %{String.t() => any()}
+  @type get_operation_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_relational_database_log_streams_request() :: %{
-        required("relationalDatabaseName") => String.t()
+        required("relationalDatabaseName") => String.t() | atom()
       }
       
   """
-  @type get_relational_database_log_streams_request() :: %{String.t() => any()}
+  @type get_relational_database_log_streams_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3101,11 +3105,11 @@ defmodule AWS.Lightsail do
       
       get_domains_result() :: %{
         "domains" => list(domain()),
-        "nextPageToken" => String.t()
+        "nextPageToken" => String.t() | atom()
       }
       
   """
-  @type get_domains_result() :: %{String.t() => any()}
+  @type get_domains_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3116,32 +3120,32 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_bucket_access_keys_result() :: %{String.t() => any()}
+  @type get_bucket_access_keys_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disk_snapshot() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "fromDiskArn" => String.t(),
-        "fromDiskName" => String.t(),
-        "fromInstanceArn" => String.t(),
-        "fromInstanceName" => String.t(),
+        "fromDiskArn" => String.t() | atom(),
+        "fromDiskName" => String.t() | atom(),
+        "fromInstanceArn" => String.t() | atom(),
+        "fromInstanceName" => String.t() | atom(),
         "isFromAutoSnapshot" => boolean(),
         "location" => resource_location(),
-        "name" => String.t(),
-        "progress" => String.t(),
+        "name" => String.t() | atom(),
+        "progress" => String.t() | atom(),
         "resourceType" => list(any()),
         "sizeInGb" => integer(),
         "state" => list(any()),
-        "supportCode" => String.t(),
+        "supportCode" => String.t() | atom(),
         "tags" => list(tag())
       }
       
   """
-  @type disk_snapshot() :: %{String.t() => any()}
+  @type disk_snapshot() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3152,28 +3156,28 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type delete_bucket_result() :: %{String.t() => any()}
+  @type delete_bucket_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_access_details() :: %{
-        "certKey" => String.t(),
+        "certKey" => String.t() | atom(),
         "expiresAt" => non_neg_integer(),
         "hostKeys" => list(host_key_attributes()),
-        "instanceName" => String.t(),
-        "ipAddress" => String.t(),
-        "ipv6Addresses" => list(String.t()),
-        "password" => String.t(),
+        "instanceName" => String.t() | atom(),
+        "ipAddress" => String.t() | atom(),
+        "ipv6Addresses" => list(String.t() | atom()),
+        "password" => String.t() | atom(),
         "passwordData" => password_data(),
-        "privateKey" => String.t(),
+        "privateKey" => String.t() | atom(),
         "protocol" => list(any()),
-        "username" => String.t()
+        "username" => String.t() | atom()
       }
       
   """
-  @type instance_access_details() :: %{String.t() => any()}
+  @type instance_access_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3181,11 +3185,11 @@ defmodule AWS.Lightsail do
       
       get_key_pairs_result() :: %{
         "keyPairs" => list(key_pair()),
-        "nextPageToken" => String.t()
+        "nextPageToken" => String.t() | atom()
       }
       
   """
-  @type get_key_pairs_result() :: %{String.t() => any()}
+  @type get_key_pairs_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3193,11 +3197,11 @@ defmodule AWS.Lightsail do
       
       container_service_log_event() :: %{
         "createdAt" => non_neg_integer(),
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type container_service_log_event() :: %{String.t() => any()}
+  @type container_service_log_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3214,22 +3218,22 @@ defmodule AWS.Lightsail do
       
       blueprint() :: %{
         "appCategory" => list(any()),
-        "blueprintId" => String.t(),
-        "description" => String.t(),
-        "group" => String.t(),
+        "blueprintId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "group" => String.t() | atom(),
         "isActive" => boolean(),
-        "licenseUrl" => String.t(),
+        "licenseUrl" => String.t() | atom(),
         "minPower" => integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "platform" => list(any()),
-        "productUrl" => String.t(),
+        "productUrl" => String.t() | atom(),
         "type" => list(any()),
-        "version" => String.t(),
-        "versionCode" => String.t()
+        "version" => String.t() | atom(),
+        "versionCode" => String.t() | atom()
       }
       
   """
-  @type blueprint() :: %{String.t() => any()}
+  @type blueprint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3237,7 +3241,7 @@ defmodule AWS.Lightsail do
       
       get_instance_metric_data_request() :: %{
         required("endTime") => non_neg_integer(),
-        required("instanceName") => String.t(),
+        required("instanceName") => String.t() | atom(),
         required("metricName") => list(any()),
         required("period") => integer(),
         required("startTime") => non_neg_integer(),
@@ -3246,7 +3250,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_instance_metric_data_request() :: %{String.t() => any()}
+  @type get_instance_metric_data_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3257,7 +3261,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type update_load_balancer_attribute_result() :: %{String.t() => any()}
+  @type update_load_balancer_attribute_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3268,7 +3272,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type delete_bucket_access_key_result() :: %{String.t() => any()}
+  @type delete_bucket_access_key_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3277,11 +3281,11 @@ defmodule AWS.Lightsail do
       get_blueprints_request() :: %{
         optional("appCategory") => list(any()),
         optional("includeInactive") => boolean(),
-        optional("pageToken") => String.t()
+        optional("pageToken") => String.t() | atom()
       }
       
   """
-  @type get_blueprints_request() :: %{String.t() => any()}
+  @type get_blueprints_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3293,49 +3297,49 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_instance_metric_data_result() :: %{String.t() => any()}
+  @type get_instance_metric_data_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       password_data() :: %{
-        "ciphertext" => String.t(),
-        "keyPairName" => String.t()
+        "ciphertext" => String.t() | atom(),
+        "keyPairName" => String.t() | atom()
       }
       
   """
-  @type password_data() :: %{String.t() => any()}
+  @type password_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_disk_request() :: %{
-        required("diskName") => String.t()
+        required("diskName") => String.t() | atom()
       }
       
   """
-  @type get_disk_request() :: %{String.t() => any()}
+  @type get_disk_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       static_ip() :: %{
-        "arn" => String.t(),
-        "attachedTo" => String.t(),
+        "arn" => String.t() | atom(),
+        "attachedTo" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "ipAddress" => String.t(),
+        "ipAddress" => String.t() | atom(),
         "isAttached" => boolean(),
         "location" => resource_location(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "resourceType" => list(any()),
-        "supportCode" => String.t()
+        "supportCode" => String.t() | atom()
       }
       
   """
-  @type static_ip() :: %{String.t() => any()}
+  @type static_ip() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3346,7 +3350,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type delete_load_balancer_result() :: %{String.t() => any()}
+  @type delete_load_balancer_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3354,11 +3358,11 @@ defmodule AWS.Lightsail do
       
       get_instances_result() :: %{
         "instances" => list(instance()),
-        "nextPageToken" => String.t()
+        "nextPageToken" => String.t() | atom()
       }
       
   """
-  @type get_instances_result() :: %{String.t() => any()}
+  @type get_instances_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3370,7 +3374,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type update_bucket_result() :: %{String.t() => any()}
+  @type update_bucket_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3381,7 +3385,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type put_instance_public_ports_result() :: %{String.t() => any()}
+  @type put_instance_public_ports_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3389,22 +3393,22 @@ defmodule AWS.Lightsail do
       
       delete_domain_entry_request() :: %{
         required("domainEntry") => domain_entry(),
-        required("domainName") => String.t()
+        required("domainName") => String.t() | atom()
       }
       
   """
-  @type delete_domain_entry_request() :: %{String.t() => any()}
+  @type delete_domain_entry_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       detach_static_ip_request() :: %{
-        required("staticIpName") => String.t()
+        required("staticIpName") => String.t() | atom()
       }
       
   """
-  @type detach_static_ip_request() :: %{String.t() => any()}
+  @type detach_static_ip_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3415,7 +3419,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type detach_disk_result() :: %{String.t() => any()}
+  @type detach_disk_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3423,12 +3427,12 @@ defmodule AWS.Lightsail do
       
       session() :: %{
         "isPrimary" => boolean(),
-        "name" => String.t(),
-        "url" => String.t()
+        "name" => String.t() | atom(),
+        "url" => String.t() | atom()
       }
       
   """
-  @type session() :: %{String.t() => any()}
+  @type session() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3436,52 +3440,52 @@ defmodule AWS.Lightsail do
       
       get_distributions_result() :: %{
         "distributions" => list(lightsail_distribution()),
-        "nextPageToken" => String.t()
+        "nextPageToken" => String.t() | atom()
       }
       
   """
-  @type get_distributions_result() :: %{String.t() => any()}
+  @type get_distributions_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       key_pair() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "fingerprint" => String.t(),
+        "fingerprint" => String.t() | atom(),
         "location" => resource_location(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "resourceType" => list(any()),
-        "supportCode" => String.t(),
+        "supportCode" => String.t() | atom(),
         "tags" => list(tag())
       }
       
   """
-  @type key_pair() :: %{String.t() => any()}
+  @type key_pair() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_relational_databases_request() :: %{
-        optional("pageToken") => String.t()
+        optional("pageToken") => String.t() | atom()
       }
       
   """
-  @type get_relational_databases_request() :: %{String.t() => any()}
+  @type get_relational_databases_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_instance_on_idle_request() :: %{
-        "duration" => String.t(),
-        "threshold" => String.t()
+        "duration" => String.t() | atom(),
+        "threshold" => String.t() | atom()
       }
       
   """
-  @type stop_instance_on_idle_request() :: %{String.t() => any()}
+  @type stop_instance_on_idle_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3489,22 +3493,22 @@ defmodule AWS.Lightsail do
       
       instance_state() :: %{
         "code" => integer(),
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
       
   """
-  @type instance_state() :: %{String.t() => any()}
+  @type instance_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       export_snapshot_request() :: %{
-        required("sourceSnapshotName") => String.t()
+        required("sourceSnapshotName") => String.t() | atom()
       }
       
   """
-  @type export_snapshot_request() :: %{String.t() => any()}
+  @type export_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3516,18 +3520,18 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type create_bucket_result() :: %{String.t() => any()}
+  @type create_bucket_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_disk_snapshot_request() :: %{
-        required("diskSnapshotName") => String.t()
+        required("diskSnapshotName") => String.t() | atom()
       }
       
   """
-  @type delete_disk_snapshot_request() :: %{String.t() => any()}
+  @type delete_disk_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3547,7 +3551,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type allocate_static_ip_result() :: %{String.t() => any()}
+  @type allocate_static_ip_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3558,7 +3562,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_instance_snapshot_result() :: %{String.t() => any()}
+  @type get_instance_snapshot_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3566,11 +3570,13 @@ defmodule AWS.Lightsail do
       
       load_balancer_tls_certificate_dns_record_creation_state() :: %{
         "code" => list(any()),
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type load_balancer_tls_certificate_dns_record_creation_state() :: %{String.t() => any()}
+  @type load_balancer_tls_certificate_dns_record_creation_state() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -3587,23 +3593,23 @@ defmodule AWS.Lightsail do
       
       pending_modified_relational_database_values() :: %{
         "backupRetentionEnabled" => boolean(),
-        "engineVersion" => String.t(),
-        "masterUserPassword" => String.t()
+        "engineVersion" => String.t() | atom(),
+        "masterUserPassword" => String.t() | atom()
       }
       
   """
-  @type pending_modified_relational_database_values() :: %{String.t() => any()}
+  @type pending_modified_relational_database_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_load_balancer_tls_certificates_request() :: %{
-        required("loadBalancerName") => String.t()
+        required("loadBalancerName") => String.t() | atom()
       }
       
   """
-  @type get_load_balancer_tls_certificates_request() :: %{String.t() => any()}
+  @type get_load_balancer_tls_certificates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3611,11 +3617,11 @@ defmodule AWS.Lightsail do
       
       load_balancer_tls_certificate_summary() :: %{
         "isAttached" => boolean(),
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
       
   """
-  @type load_balancer_tls_certificate_summary() :: %{String.t() => any()}
+  @type load_balancer_tls_certificate_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3626,7 +3632,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type copy_snapshot_result() :: %{String.t() => any()}
+  @type copy_snapshot_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3634,15 +3640,15 @@ defmodule AWS.Lightsail do
       
       get_relational_database_log_events_request() :: %{
         optional("endTime") => non_neg_integer(),
-        optional("pageToken") => String.t(),
+        optional("pageToken") => String.t() | atom(),
         optional("startFromHead") => boolean(),
         optional("startTime") => non_neg_integer(),
-        required("logStreamName") => String.t(),
-        required("relationalDatabaseName") => String.t()
+        required("logStreamName") => String.t() | atom(),
+        required("relationalDatabaseName") => String.t() | atom()
       }
       
   """
-  @type get_relational_database_log_events_request() :: %{String.t() => any()}
+  @type get_relational_database_log_events_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3650,11 +3656,11 @@ defmodule AWS.Lightsail do
       
       container_service_state_detail() :: %{
         "code" => list(any()),
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type container_service_state_detail() :: %{String.t() => any()}
+  @type container_service_state_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3662,13 +3668,13 @@ defmodule AWS.Lightsail do
       
       setup_instance_https_request() :: %{
         required("certificateProvider") => list(any()),
-        required("domainNames") => list(String.t()),
-        required("emailAddress") => String.t(),
-        required("instanceName") => String.t()
+        required("domainNames") => list(String.t() | atom()),
+        required("emailAddress") => String.t() | atom(),
+        required("instanceName") => String.t() | atom()
       }
       
   """
-  @type setup_instance_https_request() :: %{String.t() => any()}
+  @type setup_instance_https_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3676,22 +3682,22 @@ defmodule AWS.Lightsail do
       
       container_service_e_c_r_image_puller_role() :: %{
         "isActive" => boolean(),
-        "principalArn" => String.t()
+        "principalArn" => String.t() | atom()
       }
       
   """
-  @type container_service_e_c_r_image_puller_role() :: %{String.t() => any()}
+  @type container_service_e_c_r_image_puller_role() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_relational_database_log_streams_result() :: %{
-        "logStreams" => list(String.t())
+        "logStreams" => list(String.t() | atom())
       }
       
   """
-  @type get_relational_database_log_streams_result() :: %{String.t() => any()}
+  @type get_relational_database_log_streams_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3702,31 +3708,31 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_distribution_bundles_result() :: %{String.t() => any()}
+  @type get_distribution_bundles_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_auto_snapshot_request() :: %{
-        required("date") => String.t(),
-        required("resourceName") => String.t()
+        required("date") => String.t() | atom(),
+        required("resourceName") => String.t() | atom()
       }
       
   """
-  @type delete_auto_snapshot_request() :: %{String.t() => any()}
+  @type delete_auto_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_relational_database_snapshots_result() :: %{
-        "nextPageToken" => String.t(),
+        "nextPageToken" => String.t() | atom(),
         "relationalDatabaseSnapshots" => list(relational_database_snapshot())
       }
       
   """
-  @type get_relational_database_snapshots_result() :: %{String.t() => any()}
+  @type get_relational_database_snapshots_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3737,7 +3743,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type container_services_list_result() :: %{String.t() => any()}
+  @type container_services_list_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3753,31 +3759,31 @@ defmodule AWS.Lightsail do
   ## Example:
       
       certificate() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "domainName" => String.t(),
+        "domainName" => String.t() | atom(),
         "domainValidationRecords" => list(domain_validation_record()),
-        "eligibleToRenew" => String.t(),
+        "eligibleToRenew" => String.t() | atom(),
         "inUseResourceCount" => integer(),
         "issuedAt" => non_neg_integer(),
-        "issuerCA" => String.t(),
-        "keyAlgorithm" => String.t(),
-        "name" => String.t(),
+        "issuerCA" => String.t() | atom(),
+        "keyAlgorithm" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "notAfter" => non_neg_integer(),
         "notBefore" => non_neg_integer(),
         "renewalSummary" => renewal_summary(),
-        "requestFailureReason" => String.t(),
-        "revocationReason" => String.t(),
+        "requestFailureReason" => String.t() | atom(),
+        "revocationReason" => String.t() | atom(),
         "revokedAt" => non_neg_integer(),
-        "serialNumber" => String.t(),
+        "serialNumber" => String.t() | atom(),
         "status" => list(any()),
-        "subjectAlternativeNames" => list(String.t()),
-        "supportCode" => String.t(),
+        "subjectAlternativeNames" => list(String.t() | atom()),
+        "supportCode" => String.t() | atom(),
         "tags" => list(tag())
       }
       
   """
-  @type certificate() :: %{String.t() => any()}
+  @type certificate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3785,11 +3791,11 @@ defmodule AWS.Lightsail do
       
       update_domain_entry_request() :: %{
         required("domainEntry") => domain_entry(),
-        required("domainName") => String.t()
+        required("domainName") => String.t() | atom()
       }
       
   """
-  @type update_domain_entry_request() :: %{String.t() => any()}
+  @type update_domain_entry_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3800,7 +3806,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type enable_add_on_result() :: %{String.t() => any()}
+  @type enable_add_on_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3811,18 +3817,18 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type import_key_pair_result() :: %{String.t() => any()}
+  @type import_key_pair_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_domains_request() :: %{
-        optional("pageToken") => String.t()
+        optional("pageToken") => String.t() | atom()
       }
       
   """
-  @type get_domains_request() :: %{String.t() => any()}
+  @type get_domains_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3833,7 +3839,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type update_domain_entry_result() :: %{String.t() => any()}
+  @type update_domain_entry_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3845,7 +3851,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_bucket_metric_data_result() :: %{String.t() => any()}
+  @type get_bucket_metric_data_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3864,23 +3870,23 @@ defmodule AWS.Lightsail do
         "ableToUpdateBundle" => boolean(),
         "accessLogConfig" => bucket_access_log_config(),
         "accessRules" => access_rules(),
-        "arn" => String.t(),
-        "bundleId" => String.t(),
+        "arn" => String.t() | atom(),
+        "bundleId" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "location" => resource_location(),
-        "name" => String.t(),
-        "objectVersioning" => String.t(),
-        "readonlyAccessAccounts" => list(String.t()),
-        "resourceType" => String.t(),
+        "name" => String.t() | atom(),
+        "objectVersioning" => String.t() | atom(),
+        "readonlyAccessAccounts" => list(String.t() | atom()),
+        "resourceType" => String.t() | atom(),
         "resourcesReceivingAccess" => list(resource_receiving_access()),
         "state" => bucket_state(),
-        "supportCode" => String.t(),
+        "supportCode" => String.t() | atom(),
         "tags" => list(tag()),
-        "url" => String.t()
+        "url" => String.t() | atom()
       }
       
   """
-  @type bucket() :: %{String.t() => any()}
+  @type bucket() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3898,38 +3904,38 @@ defmodule AWS.Lightsail do
       create_bucket_request() :: %{
         optional("enableObjectVersioning") => boolean(),
         optional("tags") => list(tag()),
-        required("bucketName") => String.t(),
-        required("bundleId") => String.t()
+        required("bucketName") => String.t() | atom(),
+        required("bundleId") => String.t() | atom()
       }
       
   """
-  @type create_bucket_request() :: %{String.t() => any()}
+  @type create_bucket_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       input_origin() :: %{
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "protocolPolicy" => list(any()),
         "regionName" => list(any()),
         "responseTimeout" => integer()
       }
       
   """
-  @type input_origin() :: %{String.t() => any()}
+  @type input_origin() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disk_map() :: %{
-        "newDiskName" => String.t(),
-        "originalDiskPath" => String.t()
+        "newDiskName" => String.t() | atom(),
+        "originalDiskPath" => String.t() | atom()
       }
       
   """
-  @type disk_map() :: %{String.t() => any()}
+  @type disk_map() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3941,7 +3947,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type create_distribution_result() :: %{String.t() => any()}
+  @type create_distribution_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3950,11 +3956,11 @@ defmodule AWS.Lightsail do
       get_bundles_request() :: %{
         optional("appCategory") => list(any()),
         optional("includeInactive") => boolean(),
-        optional("pageToken") => String.t()
+        optional("pageToken") => String.t() | atom()
       }
       
   """
-  @type get_bundles_request() :: %{String.t() => any()}
+  @type get_bundles_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3962,31 +3968,31 @@ defmodule AWS.Lightsail do
       
       instance() :: %{
         "addOns" => list(add_on()),
-        "arn" => String.t(),
-        "blueprintId" => String.t(),
-        "blueprintName" => String.t(),
-        "bundleId" => String.t(),
+        "arn" => String.t() | atom(),
+        "blueprintId" => String.t() | atom(),
+        "blueprintName" => String.t() | atom(),
+        "bundleId" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "hardware" => instance_hardware(),
         "ipAddressType" => list(any()),
-        "ipv6Addresses" => list(String.t()),
+        "ipv6Addresses" => list(String.t() | atom()),
         "isStaticIp" => boolean(),
         "location" => resource_location(),
         "metadataOptions" => instance_metadata_options(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "networking" => instance_networking(),
-        "privateIpAddress" => String.t(),
-        "publicIpAddress" => String.t(),
+        "privateIpAddress" => String.t() | atom(),
+        "publicIpAddress" => String.t() | atom(),
         "resourceType" => list(any()),
-        "sshKeyName" => String.t(),
+        "sshKeyName" => String.t() | atom(),
         "state" => instance_state(),
-        "supportCode" => String.t(),
+        "supportCode" => String.t() | atom(),
         "tags" => list(tag()),
-        "username" => String.t()
+        "username" => String.t() | atom()
       }
       
   """
-  @type instance() :: %{String.t() => any()}
+  @type instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4001,33 +4007,33 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type instance_metadata_options() :: %{String.t() => any()}
+  @type instance_metadata_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "code" => String.t(),
-        "docs" => String.t(),
-        "message" => String.t(),
-        "tip" => String.t()
+        "code" => String.t() | atom(),
+        "docs" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "tip" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       import_key_pair_request() :: %{
-        required("keyPairName") => String.t(),
-        required("publicKeyBase64") => String.t()
+        required("keyPairName") => String.t() | atom(),
+        required("publicKeyBase64") => String.t() | atom()
       }
       
   """
-  @type import_key_pair_request() :: %{String.t() => any()}
+  @type import_key_pair_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4038,7 +4044,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type create_instances_result() :: %{String.t() => any()}
+  @type create_instances_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4051,29 +4057,29 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type add_on_request() :: %{String.t() => any()}
+  @type add_on_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_certificate_request() :: %{
-        required("certificateName") => String.t()
+        required("certificateName") => String.t() | atom()
       }
       
   """
-  @type delete_certificate_request() :: %{String.t() => any()}
+  @type delete_certificate_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_active_names_request() :: %{
-        optional("pageToken") => String.t()
+        optional("pageToken") => String.t() | atom()
       }
       
   """
-  @type get_active_names_request() :: %{String.t() => any()}
+  @type get_active_names_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4081,23 +4087,23 @@ defmodule AWS.Lightsail do
       
       create_key_pair_request() :: %{
         optional("tags") => list(tag()),
-        required("keyPairName") => String.t()
+        required("keyPairName") => String.t() | atom()
       }
       
   """
-  @type create_key_pair_request() :: %{String.t() => any()}
+  @type create_key_pair_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       attach_load_balancer_tls_certificate_request() :: %{
-        required("certificateName") => String.t(),
-        required("loadBalancerName") => String.t()
+        required("certificateName") => String.t() | atom(),
+        required("loadBalancerName") => String.t() | atom()
       }
       
   """
-  @type attach_load_balancer_tls_certificate_request() :: %{String.t() => any()}
+  @type attach_load_balancer_tls_certificate_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4105,32 +4111,32 @@ defmodule AWS.Lightsail do
       
       get_container_log_request() :: %{
         optional("endTime") => non_neg_integer(),
-        optional("filterPattern") => String.t(),
-        optional("pageToken") => String.t(),
+        optional("filterPattern") => String.t() | atom(),
+        optional("pageToken") => String.t() | atom(),
         optional("startTime") => non_neg_integer()
       }
       
   """
-  @type get_container_log_request() :: %{String.t() => any()}
+  @type get_container_log_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_setup_history_result() :: %{
-        "nextPageToken" => String.t(),
+        "nextPageToken" => String.t() | atom(),
         "setupHistory" => list(setup_history())
       }
       
   """
-  @type get_setup_history_result() :: %{String.t() => any()}
+  @type get_setup_history_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       origin() :: %{
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "protocolPolicy" => list(any()),
         "regionName" => list(any()),
         "resourceType" => list(any()),
@@ -4138,18 +4144,18 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type origin() :: %{String.t() => any()}
+  @type origin() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_disk_snapshot_request() :: %{
-        required("diskSnapshotName") => String.t()
+        required("diskSnapshotName") => String.t() | atom()
       }
       
   """
-  @type get_disk_snapshot_request() :: %{String.t() => any()}
+  @type get_disk_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4160,7 +4166,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type update_relational_database_parameters_result() :: %{String.t() => any()}
+  @type update_relational_database_parameters_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4171,34 +4177,34 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type delete_instance_result() :: %{String.t() => any()}
+  @type delete_instance_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_bucket_access_keys_request() :: %{
-        required("bucketName") => String.t()
+        required("bucketName") => String.t() | atom()
       }
       
   """
-  @type get_bucket_access_keys_request() :: %{String.t() => any()}
+  @type get_bucket_access_keys_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       port_info() :: %{
-        "cidrListAliases" => list(String.t()),
-        "cidrs" => list(String.t()),
+        "cidrListAliases" => list(String.t() | atom()),
+        "cidrs" => list(String.t() | atom()),
         "fromPort" => integer(),
-        "ipv6Cidrs" => list(String.t()),
+        "ipv6Cidrs" => list(String.t() | atom()),
         "protocol" => list(any()),
         "toPort" => integer()
       }
       
   """
-  @type port_info() :: %{String.t() => any()}
+  @type port_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4206,12 +4212,12 @@ defmodule AWS.Lightsail do
       
       download_default_key_pair_result() :: %{
         "createdAt" => non_neg_integer(),
-        "privateKeyBase64" => String.t(),
-        "publicKeyBase64" => String.t()
+        "privateKeyBase64" => String.t() | atom(),
+        "publicKeyBase64" => String.t() | atom()
       }
       
   """
-  @type download_default_key_pair_result() :: %{String.t() => any()}
+  @type download_default_key_pair_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4222,7 +4228,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type update_relational_database_result() :: %{String.t() => any()}
+  @type update_relational_database_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4230,7 +4236,7 @@ defmodule AWS.Lightsail do
       
       get_load_balancer_metric_data_request() :: %{
         required("endTime") => non_neg_integer(),
-        required("loadBalancerName") => String.t(),
+        required("loadBalancerName") => String.t() | atom(),
         required("metricName") => list(any()),
         required("period") => integer(),
         required("startTime") => non_neg_integer(),
@@ -4239,18 +4245,18 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_load_balancer_metric_data_request() :: %{String.t() => any()}
+  @type get_load_balancer_metric_data_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_relational_database_snapshot_request() :: %{
-        required("relationalDatabaseSnapshotName") => String.t()
+        required("relationalDatabaseSnapshotName") => String.t() | atom()
       }
       
   """
-  @type get_relational_database_snapshot_request() :: %{String.t() => any()}
+  @type get_relational_database_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4261,11 +4267,11 @@ defmodule AWS.Lightsail do
         optional("httpProtocolIpv6") => list(any()),
         optional("httpPutResponseHopLimit") => integer(),
         optional("httpTokens") => list(any()),
-        required("instanceName") => String.t()
+        required("instanceName") => String.t() | atom()
       }
       
   """
-  @type update_instance_metadata_options_request() :: %{String.t() => any()}
+  @type update_instance_metadata_options_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4276,34 +4282,34 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type delete_certificate_result() :: %{String.t() => any()}
+  @type delete_certificate_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       copy_snapshot_request() :: %{
-        optional("restoreDate") => String.t(),
-        optional("sourceResourceName") => String.t(),
-        optional("sourceSnapshotName") => String.t(),
+        optional("restoreDate") => String.t() | atom(),
+        optional("sourceResourceName") => String.t() | atom(),
+        optional("sourceSnapshotName") => String.t() | atom(),
         optional("useLatestRestorableAutoSnapshot") => boolean(),
         required("sourceRegion") => list(any()),
-        required("targetSnapshotName") => String.t()
+        required("targetSnapshotName") => String.t() | atom()
       }
       
   """
-  @type copy_snapshot_request() :: %{String.t() => any()}
+  @type copy_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       detach_disk_request() :: %{
-        required("diskName") => String.t()
+        required("diskName") => String.t() | atom()
       }
       
   """
-  @type detach_disk_request() :: %{String.t() => any()}
+  @type detach_disk_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4319,29 +4325,29 @@ defmodule AWS.Lightsail do
   ## Example:
       
       load_balancer() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "configurationOptions" => map(),
         "createdAt" => non_neg_integer(),
-        "dnsName" => String.t(),
-        "healthCheckPath" => String.t(),
+        "dnsName" => String.t() | atom(),
+        "healthCheckPath" => String.t() | atom(),
         "httpsRedirectionEnabled" => boolean(),
         "instanceHealthSummary" => list(instance_health_summary()),
         "instancePort" => integer(),
         "ipAddressType" => list(any()),
         "location" => resource_location(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "protocol" => list(any()),
         "publicPorts" => list(integer()),
         "resourceType" => list(any()),
         "state" => list(any()),
-        "supportCode" => String.t(),
+        "supportCode" => String.t() | atom(),
         "tags" => list(tag()),
         "tlsCertificateSummaries" => list(load_balancer_tls_certificate_summary()),
-        "tlsPolicyName" => String.t()
+        "tlsPolicyName" => String.t() | atom()
       }
       
   """
-  @type load_balancer() :: %{String.t() => any()}
+  @type load_balancer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4349,11 +4355,11 @@ defmodule AWS.Lightsail do
       
       get_relational_database_bundles_request() :: %{
         optional("includeInactive") => boolean(),
-        optional("pageToken") => String.t()
+        optional("pageToken") => String.t() | atom()
       }
       
   """
-  @type get_relational_database_bundles_request() :: %{String.t() => any()}
+  @type get_relational_database_bundles_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4361,9 +4367,9 @@ defmodule AWS.Lightsail do
       
       disk() :: %{
         "addOns" => list(add_on()),
-        "arn" => String.t(),
-        "attachedTo" => String.t(),
-        "attachmentState" => String.t(),
+        "arn" => String.t() | atom(),
+        "attachedTo" => String.t() | atom(),
+        "attachmentState" => String.t() | atom(),
         "autoMountStatus" => list(any()),
         "createdAt" => non_neg_integer(),
         "gbInUse" => integer(),
@@ -4371,17 +4377,17 @@ defmodule AWS.Lightsail do
         "isAttached" => boolean(),
         "isSystemDisk" => boolean(),
         "location" => resource_location(),
-        "name" => String.t(),
-        "path" => String.t(),
+        "name" => String.t() | atom(),
+        "path" => String.t() | atom(),
         "resourceType" => list(any()),
         "sizeInGb" => integer(),
         "state" => list(any()),
-        "supportCode" => String.t(),
+        "supportCode" => String.t() | atom(),
         "tags" => list(tag())
       }
       
   """
-  @type disk() :: %{String.t() => any()}
+  @type disk() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4392,25 +4398,25 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type create_cloud_formation_stack_result() :: %{String.t() => any()}
+  @type create_cloud_formation_stack_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_formation_stack_record() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "destinationInfo" => destination_info(),
         "location" => resource_location(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "resourceType" => list(any()),
         "sourceInfo" => list(cloud_formation_stack_record_source_info()),
         "state" => list(any())
       }
       
   """
-  @type cloud_formation_stack_record() :: %{String.t() => any()}
+  @type cloud_formation_stack_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4421,53 +4427,53 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type create_relational_database_snapshot_result() :: %{String.t() => any()}
+  @type create_relational_database_snapshot_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_load_balancer_tls_certificate_request() :: %{
-        optional("certificateAlternativeNames") => list(String.t()),
+        optional("certificateAlternativeNames") => list(String.t() | atom()),
         optional("tags") => list(tag()),
-        required("certificateDomainName") => String.t(),
-        required("certificateName") => String.t(),
-        required("loadBalancerName") => String.t()
+        required("certificateDomainName") => String.t() | atom(),
+        required("certificateName") => String.t() | atom(),
+        required("loadBalancerName") => String.t() | atom()
       }
       
   """
-  @type create_load_balancer_tls_certificate_request() :: %{String.t() => any()}
+  @type create_load_balancer_tls_certificate_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_relational_database_parameters_result() :: %{
-        "nextPageToken" => String.t(),
+        "nextPageToken" => String.t() | atom(),
         "parameters" => list(relational_database_parameter())
       }
       
   """
-  @type get_relational_database_parameters_result() :: %{String.t() => any()}
+  @type get_relational_database_parameters_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_key_pair_request() :: %{
-        required("keyPairName") => String.t()
+        required("keyPairName") => String.t() | atom()
       }
       
   """
-  @type get_key_pair_request() :: %{String.t() => any()}
+  @type get_key_pair_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cache_settings() :: %{
-        "allowedHTTPMethods" => String.t(),
-        "cachedHTTPMethods" => String.t(),
+        "allowedHTTPMethods" => String.t() | atom(),
+        "cachedHTTPMethods" => String.t() | atom(),
         "defaultTTL" => float(),
         "forwardedCookies" => cookie_object(),
         "forwardedHeaders" => header_object(),
@@ -4477,7 +4483,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type cache_settings() :: %{String.t() => any()}
+  @type cache_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4485,23 +4491,23 @@ defmodule AWS.Lightsail do
       
       get_instance_access_details_request() :: %{
         optional("protocol") => list(any()),
-        required("instanceName") => String.t()
+        required("instanceName") => String.t() | atom()
       }
       
   """
-  @type get_instance_access_details_request() :: %{String.t() => any()}
+  @type get_instance_access_details_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       attach_static_ip_request() :: %{
-        required("instanceName") => String.t(),
-        required("staticIpName") => String.t()
+        required("instanceName") => String.t() | atom(),
+        required("staticIpName") => String.t() | atom()
       }
       
   """
-  @type attach_static_ip_request() :: %{String.t() => any()}
+  @type attach_static_ip_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4512,7 +4518,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type private_registry_access_request() :: %{String.t() => any()}
+  @type private_registry_access_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4523,18 +4529,18 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type unpeer_vpc_result() :: %{String.t() => any()}
+  @type unpeer_vpc_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_instances_request() :: %{
-        optional("pageToken") => String.t()
+        optional("pageToken") => String.t() | atom()
       }
       
   """
-  @type get_instances_request() :: %{String.t() => any()}
+  @type get_instances_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4542,24 +4548,24 @@ defmodule AWS.Lightsail do
       
       get_alarms_result() :: %{
         "alarms" => list(alarm()),
-        "nextPageToken" => String.t()
+        "nextPageToken" => String.t() | atom()
       }
       
   """
-  @type get_alarms_result() :: %{String.t() => any()}
+  @type get_alarms_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint_request() :: %{
-        "containerName" => String.t(),
+        "containerName" => String.t() | atom(),
         "containerPort" => integer(),
         "healthCheck" => container_service_health_check_config()
       }
       
   """
-  @type endpoint_request() :: %{String.t() => any()}
+  @type endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4567,31 +4573,31 @@ defmodule AWS.Lightsail do
       
       instance_port_info() :: %{
         "accessDirection" => list(any()),
-        "accessFrom" => String.t(),
+        "accessFrom" => String.t() | atom(),
         "accessType" => list(any()),
-        "cidrListAliases" => list(String.t()),
-        "cidrs" => list(String.t()),
-        "commonName" => String.t(),
+        "cidrListAliases" => list(String.t() | atom()),
+        "cidrs" => list(String.t() | atom()),
+        "commonName" => String.t() | atom(),
         "fromPort" => integer(),
-        "ipv6Cidrs" => list(String.t()),
+        "ipv6Cidrs" => list(String.t() | atom()),
         "protocol" => list(any()),
         "toPort" => integer()
       }
       
   """
-  @type instance_port_info() :: %{String.t() => any()}
+  @type instance_port_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_relational_database_events_result() :: %{
-        "nextPageToken" => String.t(),
+        "nextPageToken" => String.t() | atom(),
         "relationalDatabaseEvents" => list(relational_database_event())
       }
       
   """
-  @type get_relational_database_events_result() :: %{String.t() => any()}
+  @type get_relational_database_events_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4599,11 +4605,11 @@ defmodule AWS.Lightsail do
       
       get_container_log_result() :: %{
         "logEvents" => list(container_service_log_event()),
-        "nextPageToken" => String.t()
+        "nextPageToken" => String.t() | atom()
       }
       
   """
-  @type get_container_log_result() :: %{String.t() => any()}
+  @type get_container_log_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4611,11 +4617,11 @@ defmodule AWS.Lightsail do
       
       get_load_balancers_result() :: %{
         "loadBalancers" => list(load_balancer()),
-        "nextPageToken" => String.t()
+        "nextPageToken" => String.t() | atom()
       }
       
   """
-  @type get_load_balancers_result() :: %{String.t() => any()}
+  @type get_load_balancers_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4623,11 +4629,11 @@ defmodule AWS.Lightsail do
       
       delete_instance_request() :: %{
         optional("forceDeleteAddOns") => boolean(),
-        required("instanceName") => String.t()
+        required("instanceName") => String.t() | atom()
       }
       
   """
-  @type delete_instance_request() :: %{String.t() => any()}
+  @type delete_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4635,11 +4641,11 @@ defmodule AWS.Lightsail do
       
       get_certificates_result() :: %{
         "certificates" => list(certificate_summary()),
-        "nextPageToken" => String.t()
+        "nextPageToken" => String.t() | atom()
       }
       
   """
-  @type get_certificates_result() :: %{String.t() => any()}
+  @type get_certificates_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4647,11 +4653,11 @@ defmodule AWS.Lightsail do
       
       update_relational_database_parameters_request() :: %{
         required("parameters") => list(relational_database_parameter()),
-        required("relationalDatabaseName") => String.t()
+        required("relationalDatabaseName") => String.t() | atom()
       }
       
   """
-  @type update_relational_database_parameters_request() :: %{String.t() => any()}
+  @type update_relational_database_parameters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4666,20 +4672,20 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_container_service_metric_data_request() :: %{String.t() => any()}
+  @type get_container_service_metric_data_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_alarms_request() :: %{
-        optional("alarmName") => String.t(),
-        optional("monitoredResourceName") => String.t(),
-        optional("pageToken") => String.t()
+        optional("alarmName") => String.t() | atom(),
+        optional("monitoredResourceName") => String.t() | atom(),
+        optional("pageToken") => String.t() | atom()
       }
       
   """
-  @type get_alarms_request() :: %{String.t() => any()}
+  @type get_alarms_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4690,19 +4696,19 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type open_instance_public_ports_result() :: %{String.t() => any()}
+  @type open_instance_public_ports_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       detach_instances_from_load_balancer_request() :: %{
-        required("instanceNames") => list(String.t()),
-        required("loadBalancerName") => String.t()
+        required("instanceNames") => list(String.t() | atom()),
+        required("loadBalancerName") => String.t() | atom()
       }
       
   """
-  @type detach_instances_from_load_balancer_request() :: %{String.t() => any()}
+  @type detach_instances_from_load_balancer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4717,18 +4723,18 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type update_container_service_request() :: %{String.t() => any()}
+  @type update_container_service_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_g_ui_session_request() :: %{
-        required("resourceName") => String.t()
+        required("resourceName") => String.t() | atom()
       }
       
   """
-  @type start_g_ui_session_request() :: %{String.t() => any()}
+  @type start_g_ui_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4739,7 +4745,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type update_distribution_result() :: %{String.t() => any()}
+  @type update_distribution_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4750,7 +4756,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_container_images_result() :: %{String.t() => any()}
+  @type get_container_images_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4766,26 +4772,26 @@ defmodule AWS.Lightsail do
   ## Example:
       
       create_g_ui_session_access_details_result() :: %{
-        "failureReason" => String.t(),
+        "failureReason" => String.t() | atom(),
         "percentageComplete" => integer(),
-        "resourceName" => String.t(),
+        "resourceName" => String.t() | atom(),
         "sessions" => list(session()),
         "status" => list(any())
       }
       
   """
-  @type create_g_ui_session_access_details_result() :: %{String.t() => any()}
+  @type create_g_ui_session_access_details_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_load_balancers_request() :: %{
-        optional("pageToken") => String.t()
+        optional("pageToken") => String.t() | atom()
       }
       
   """
-  @type get_load_balancers_request() :: %{String.t() => any()}
+  @type get_load_balancers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4801,24 +4807,24 @@ defmodule AWS.Lightsail do
   ## Example:
       
       get_disks_request() :: %{
-        optional("pageToken") => String.t()
+        optional("pageToken") => String.t() | atom()
       }
       
   """
-  @type get_disks_request() :: %{String.t() => any()}
+  @type get_disks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_operations_for_resource_result() :: %{
-        "nextPageCount" => String.t(),
-        "nextPageToken" => String.t(),
+        "nextPageCount" => String.t() | atom(),
+        "nextPageToken" => String.t() | atom(),
         "operations" => list(operation())
       }
       
   """
-  @type get_operations_for_resource_result() :: %{String.t() => any()}
+  @type get_operations_for_resource_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4826,11 +4832,11 @@ defmodule AWS.Lightsail do
       
       get_distribution_latest_cache_reset_result() :: %{
         "createTime" => non_neg_integer(),
-        "status" => String.t()
+        "status" => String.t() | atom()
       }
       
   """
-  @type get_distribution_latest_cache_reset_result() :: %{String.t() => any()}
+  @type get_distribution_latest_cache_reset_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4842,7 +4848,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type create_bucket_access_key_result() :: %{String.t() => any()}
+  @type create_bucket_access_key_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4853,7 +4859,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type tag_resource_result() :: %{String.t() => any()}
+  @type tag_resource_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4864,7 +4870,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_instance_state_result() :: %{String.t() => any()}
+  @type get_instance_state_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4880,69 +4886,69 @@ defmodule AWS.Lightsail do
   ## Example:
       
       open_instance_public_ports_request() :: %{
-        required("instanceName") => String.t(),
+        required("instanceName") => String.t() | atom(),
         required("portInfo") => port_info()
       }
       
   """
-  @type open_instance_public_ports_request() :: %{String.t() => any()}
+  @type open_instance_public_ports_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_cloud_formation_stack_records_request() :: %{
-        optional("pageToken") => String.t()
+        optional("pageToken") => String.t() | atom()
       }
       
   """
-  @type get_cloud_formation_stack_records_request() :: %{String.t() => any()}
+  @type get_cloud_formation_stack_records_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_distribution_bundle_request() :: %{
-        optional("bundleId") => String.t(),
-        optional("distributionName") => String.t()
+        optional("bundleId") => String.t() | atom(),
+        optional("distributionName") => String.t() | atom()
       }
       
   """
-  @type update_distribution_bundle_request() :: %{String.t() => any()}
+  @type update_distribution_bundle_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_operations_request() :: %{
-        optional("pageToken") => String.t()
+        optional("pageToken") => String.t() | atom()
       }
       
   """
-  @type get_operations_request() :: %{String.t() => any()}
+  @type get_operations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_relational_databases_result() :: %{
-        "nextPageToken" => String.t(),
+        "nextPageToken" => String.t() | atom(),
         "relationalDatabases" => list(relational_database())
       }
       
   """
-  @type get_relational_databases_result() :: %{String.t() => any()}
+  @type get_relational_databases_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_distribution_request() :: %{
-        optional("distributionName") => String.t()
+        optional("distributionName") => String.t() | atom()
       }
       
   """
-  @type delete_distribution_request() :: %{String.t() => any()}
+  @type delete_distribution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4950,11 +4956,11 @@ defmodule AWS.Lightsail do
       
       get_relational_database_blueprints_result() :: %{
         "blueprints" => list(relational_database_blueprint()),
-        "nextPageToken" => String.t()
+        "nextPageToken" => String.t() | atom()
       }
       
   """
-  @type get_relational_database_blueprints_result() :: %{String.t() => any()}
+  @type get_relational_database_blueprints_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4963,12 +4969,12 @@ defmodule AWS.Lightsail do
       create_key_pair_result() :: %{
         "keyPair" => key_pair(),
         "operation" => operation(),
-        "privateKeyBase64" => String.t(),
-        "publicKeyBase64" => String.t()
+        "privateKeyBase64" => String.t() | atom(),
+        "publicKeyBase64" => String.t() | atom()
       }
       
   """
-  @type create_key_pair_result() :: %{String.t() => any()}
+  @type create_key_pair_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4979,7 +4985,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type attach_static_ip_result() :: %{String.t() => any()}
+  @type attach_static_ip_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4990,7 +4996,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_relational_database_result() :: %{String.t() => any()}
+  @type get_relational_database_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5007,7 +5013,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type metric_datapoint() :: %{String.t() => any()}
+  @type metric_datapoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5018,7 +5024,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type start_g_ui_session_result() :: %{String.t() => any()}
+  @type start_g_ui_session_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5029,49 +5035,49 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type delete_load_balancer_tls_certificate_result() :: %{String.t() => any()}
+  @type delete_load_balancer_tls_certificate_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       relational_database_parameter() :: %{
-        "allowedValues" => String.t(),
-        "applyMethod" => String.t(),
-        "applyType" => String.t(),
-        "dataType" => String.t(),
-        "description" => String.t(),
+        "allowedValues" => String.t() | atom(),
+        "applyMethod" => String.t() | atom(),
+        "applyType" => String.t() | atom(),
+        "dataType" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "isModifiable" => boolean(),
-        "parameterName" => String.t(),
-        "parameterValue" => String.t()
+        "parameterName" => String.t() | atom(),
+        "parameterValue" => String.t() | atom()
       }
       
   """
-  @type relational_database_parameter() :: %{String.t() => any()}
+  @type relational_database_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_setup_history_request() :: %{
-        optional("pageToken") => String.t(),
-        required("resourceName") => String.t()
+        optional("pageToken") => String.t() | atom(),
+        required("resourceName") => String.t() | atom()
       }
       
   """
-  @type get_setup_history_request() :: %{String.t() => any()}
+  @type get_setup_history_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_static_ips_result() :: %{
-        "nextPageToken" => String.t(),
+        "nextPageToken" => String.t() | atom(),
         "staticIps" => list(static_ip())
       }
       
   """
-  @type get_static_ips_result() :: %{String.t() => any()}
+  @type get_static_ips_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5079,11 +5085,11 @@ defmodule AWS.Lightsail do
       
       get_cloud_formation_stack_records_result() :: %{
         "cloudFormationStackRecords" => list(cloud_formation_stack_record()),
-        "nextPageToken" => String.t()
+        "nextPageToken" => String.t() | atom()
       }
       
   """
-  @type get_cloud_formation_stack_records_result() :: %{String.t() => any()}
+  @type get_cloud_formation_stack_records_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5091,40 +5097,42 @@ defmodule AWS.Lightsail do
       
       get_relational_database_master_user_password_request() :: %{
         optional("passwordVersion") => list(any()),
-        required("relationalDatabaseName") => String.t()
+        required("relationalDatabaseName") => String.t() | atom()
       }
       
   """
-  @type get_relational_database_master_user_password_request() :: %{String.t() => any()}
+  @type get_relational_database_master_user_password_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       get_relational_database_snapshots_request() :: %{
-        optional("pageToken") => String.t()
+        optional("pageToken") => String.t() | atom()
       }
       
   """
-  @type get_relational_database_snapshots_request() :: %{String.t() => any()}
+  @type get_relational_database_snapshots_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       export_snapshot_record_source_info() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "diskSnapshotInfo" => disk_snapshot_info(),
-        "fromResourceArn" => String.t(),
-        "fromResourceName" => String.t(),
+        "fromResourceArn" => String.t() | atom(),
+        "fromResourceName" => String.t() | atom(),
         "instanceSnapshotInfo" => instance_snapshot_info(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "resourceType" => list(any())
       }
       
   """
-  @type export_snapshot_record_source_info() :: %{String.t() => any()}
+  @type export_snapshot_record_source_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5132,11 +5140,11 @@ defmodule AWS.Lightsail do
       
       get_disks_result() :: %{
         "disks" => list(disk()),
-        "nextPageToken" => String.t()
+        "nextPageToken" => String.t() | atom()
       }
       
   """
-  @type get_disks_result() :: %{String.t() => any()}
+  @type get_disks_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5147,18 +5155,18 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_instance_result() :: %{String.t() => any()}
+  @type get_instance_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_instance_state_request() :: %{
-        required("instanceName") => String.t()
+        required("instanceName") => String.t() | atom()
       }
       
   """
-  @type get_instance_state_request() :: %{String.t() => any()}
+  @type get_instance_state_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5170,19 +5178,19 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_load_balancer_metric_data_result() :: %{String.t() => any()}
+  @type get_load_balancer_metric_data_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_bucket_access_key_request() :: %{
-        required("accessKeyId") => String.t(),
-        required("bucketName") => String.t()
+        required("accessKeyId") => String.t() | atom(),
+        required("bucketName") => String.t() | atom()
       }
       
   """
-  @type delete_bucket_access_key_request() :: %{String.t() => any()}
+  @type delete_bucket_access_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5190,11 +5198,11 @@ defmodule AWS.Lightsail do
       
       get_blueprints_result() :: %{
         "blueprints" => list(blueprint()),
-        "nextPageToken" => String.t()
+        "nextPageToken" => String.t() | atom()
       }
       
   """
-  @type get_blueprints_result() :: %{String.t() => any()}
+  @type get_blueprints_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5202,33 +5210,33 @@ defmodule AWS.Lightsail do
       
       query_string_object() :: %{
         "option" => boolean(),
-        "queryStringsAllowList" => list(String.t())
+        "queryStringsAllowList" => list(String.t() | atom())
       }
       
   """
-  @type query_string_object() :: %{String.t() => any()}
+  @type query_string_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       detach_certificate_from_distribution_request() :: %{
-        required("distributionName") => String.t()
+        required("distributionName") => String.t() | atom()
       }
       
   """
-  @type detach_certificate_from_distribution_request() :: %{String.t() => any()}
+  @type detach_certificate_from_distribution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_instance_request() :: %{
-        required("instanceName") => String.t()
+        required("instanceName") => String.t() | atom()
       }
       
   """
-  @type start_instance_request() :: %{String.t() => any()}
+  @type start_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5239,23 +5247,23 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_disk_result() :: %{String.t() => any()}
+  @type get_disk_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       domain_entry() :: %{
-        "id" => String.t(),
+        "id" => String.t() | atom(),
         "isAlias" => boolean(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "options" => map(),
-        "target" => String.t(),
-        "type" => String.t()
+        "target" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
       
   """
-  @type domain_entry() :: %{String.t() => any()}
+  @type domain_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5263,13 +5271,13 @@ defmodule AWS.Lightsail do
       
       disk_info() :: %{
         "isSystemDisk" => boolean(),
-        "name" => String.t(),
-        "path" => String.t(),
+        "name" => String.t() | atom(),
+        "path" => String.t() | atom(),
         "sizeInGb" => integer()
       }
       
   """
-  @type disk_info() :: %{String.t() => any()}
+  @type disk_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5280,20 +5288,20 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type create_domain_entry_result() :: %{String.t() => any()}
+  @type create_domain_entry_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_record() :: %{
-        "name" => String.t(),
-        "type" => String.t(),
-        "value" => String.t()
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
       
   """
-  @type resource_record() :: %{String.t() => any()}
+  @type resource_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5305,7 +5313,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type registered_domain_delegation_info() :: %{String.t() => any()}
+  @type registered_domain_delegation_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5317,38 +5325,38 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type header_object() :: %{String.t() => any()}
+  @type header_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_certificates_request() :: %{
-        optional("certificateName") => String.t(),
+        optional("certificateName") => String.t() | atom(),
         optional("certificateStatuses") => list(list(any())()),
         optional("includeCertificateDetails") => boolean(),
-        optional("pageToken") => String.t()
+        optional("pageToken") => String.t() | atom()
       }
       
   """
-  @type get_certificates_request() :: %{String.t() => any()}
+  @type get_certificates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       host_key_attributes() :: %{
-        "algorithm" => String.t(),
-        "fingerprintSHA1" => String.t(),
-        "fingerprintSHA256" => String.t(),
+        "algorithm" => String.t() | atom(),
+        "fingerprintSHA1" => String.t() | atom(),
+        "fingerprintSHA256" => String.t() | atom(),
         "notValidAfter" => non_neg_integer(),
         "notValidBefore" => non_neg_integer(),
-        "publicKey" => String.t(),
+        "publicKey" => String.t() | atom(),
         "witnessedAt" => non_neg_integer()
       }
       
   """
-  @type host_key_attributes() :: %{String.t() => any()}
+  @type host_key_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5359,7 +5367,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type cache_behavior() :: %{String.t() => any()}
+  @type cache_behavior() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5367,24 +5375,24 @@ defmodule AWS.Lightsail do
       
       access_key_last_used() :: %{
         "lastUsedDate" => non_neg_integer(),
-        "region" => String.t(),
-        "serviceName" => String.t()
+        "region" => String.t() | atom(),
+        "serviceName" => String.t() | atom()
       }
       
   """
-  @type access_key_last_used() :: %{String.t() => any()}
+  @type access_key_last_used() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       relational_database_endpoint() :: %{
-        "address" => String.t(),
+        "address" => String.t() | atom(),
         "port" => integer()
       }
       
   """
-  @type relational_database_endpoint() :: %{String.t() => any()}
+  @type relational_database_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5400,12 +5408,12 @@ defmodule AWS.Lightsail do
   ## Example:
       
       stop_relational_database_request() :: %{
-        optional("relationalDatabaseSnapshotName") => String.t(),
-        required("relationalDatabaseName") => String.t()
+        optional("relationalDatabaseSnapshotName") => String.t() | atom(),
+        required("relationalDatabaseName") => String.t() | atom()
       }
       
   """
-  @type stop_relational_database_request() :: %{String.t() => any()}
+  @type stop_relational_database_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5416,20 +5424,20 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type create_container_service_result() :: %{String.t() => any()}
+  @type create_container_service_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       container_service_endpoint() :: %{
-        "containerName" => String.t(),
+        "containerName" => String.t() | atom(),
         "containerPort" => integer(),
         "healthCheck" => container_service_health_check_config()
       }
       
   """
-  @type container_service_endpoint() :: %{String.t() => any()}
+  @type container_service_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5444,7 +5452,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type estimate_by_time() :: %{String.t() => any()}
+  @type estimate_by_time() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5452,30 +5460,30 @@ defmodule AWS.Lightsail do
       
       cost_estimate() :: %{
         "resultsByTime" => list(estimate_by_time()),
-        "usageType" => String.t()
+        "usageType" => String.t() | atom()
       }
       
   """
-  @type cost_estimate() :: %{String.t() => any()}
+  @type cost_estimate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       relational_database_bundle() :: %{
-        "bundleId" => String.t(),
+        "bundleId" => String.t() | atom(),
         "cpuCount" => integer(),
         "diskSizeInGb" => integer(),
         "isActive" => boolean(),
         "isEncrypted" => boolean(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "price" => float(),
         "ramSizeInGb" => float(),
         "transferPerMonthInGb" => integer()
       }
       
   """
-  @type relational_database_bundle() :: %{String.t() => any()}
+  @type relational_database_bundle() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5483,11 +5491,11 @@ defmodule AWS.Lightsail do
       
       get_disk_snapshots_result() :: %{
         "diskSnapshots" => list(disk_snapshot()),
-        "nextPageToken" => String.t()
+        "nextPageToken" => String.t() | atom()
       }
       
   """
-  @type get_disk_snapshots_result() :: %{String.t() => any()}
+  @type get_disk_snapshots_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5507,52 +5515,52 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type detach_certificate_from_distribution_result() :: %{String.t() => any()}
+  @type detach_certificate_from_distribution_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_relational_database_from_snapshot_request() :: %{
-        optional("availabilityZone") => String.t(),
+        optional("availabilityZone") => String.t() | atom(),
         optional("publiclyAccessible") => boolean(),
-        optional("relationalDatabaseBundleId") => String.t(),
-        optional("relationalDatabaseSnapshotName") => String.t(),
+        optional("relationalDatabaseBundleId") => String.t() | atom(),
+        optional("relationalDatabaseSnapshotName") => String.t() | atom(),
         optional("restoreTime") => non_neg_integer(),
-        optional("sourceRelationalDatabaseName") => String.t(),
+        optional("sourceRelationalDatabaseName") => String.t() | atom(),
         optional("tags") => list(tag()),
         optional("useLatestRestorableTime") => boolean(),
-        required("relationalDatabaseName") => String.t()
+        required("relationalDatabaseName") => String.t() | atom()
       }
       
   """
-  @type create_relational_database_from_snapshot_request() :: %{String.t() => any()}
+  @type create_relational_database_from_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_relational_database_blueprints_request() :: %{
-        optional("pageToken") => String.t()
+        optional("pageToken") => String.t() | atom()
       }
       
   """
-  @type get_relational_database_blueprints_request() :: %{String.t() => any()}
+  @type get_relational_database_blueprints_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_entry() :: %{
-        "availabilityZone" => String.t(),
-        "instanceType" => String.t(),
+        "availabilityZone" => String.t() | atom(),
+        "instanceType" => String.t() | atom(),
         "portInfoSource" => list(any()),
-        "sourceName" => String.t(),
-        "userData" => String.t()
+        "sourceName" => String.t() | atom(),
+        "userData" => String.t() | atom()
       }
       
   """
-  @type instance_entry() :: %{String.t() => any()}
+  @type instance_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5563,19 +5571,19 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type set_resource_access_for_bucket_result() :: %{String.t() => any()}
+  @type set_resource_access_for_bucket_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cookie_object() :: %{
-        "cookiesAllowList" => list(String.t()),
+        "cookiesAllowList" => list(String.t() | atom()),
         "option" => list(any())
       }
       
   """
-  @type cookie_object() :: %{String.t() => any()}
+  @type cookie_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5586,23 +5594,23 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type delete_auto_snapshot_result() :: %{String.t() => any()}
+  @type delete_auto_snapshot_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       relational_database_blueprint() :: %{
-        "blueprintId" => String.t(),
+        "blueprintId" => String.t() | atom(),
         "engine" => list(any()),
-        "engineDescription" => String.t(),
-        "engineVersion" => String.t(),
-        "engineVersionDescription" => String.t(),
+        "engineDescription" => String.t() | atom(),
+        "engineVersion" => String.t() | atom(),
+        "engineVersionDescription" => String.t() | atom(),
         "isEngineDefault" => boolean()
       }
       
   """
-  @type relational_database_blueprint() :: %{String.t() => any()}
+  @type relational_database_blueprint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5613,7 +5621,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type delete_alarm_result() :: %{String.t() => any()}
+  @type delete_alarm_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5624,18 +5632,18 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type attach_certificate_to_distribution_result() :: %{String.t() => any()}
+  @type attach_certificate_to_distribution_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       auto_snapshot_add_on_request() :: %{
-        "snapshotTimeOfDay" => String.t()
+        "snapshotTimeOfDay" => String.t() | atom()
       }
       
   """
-  @type auto_snapshot_add_on_request() :: %{String.t() => any()}
+  @type auto_snapshot_add_on_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5646,25 +5654,25 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type update_container_service_result() :: %{String.t() => any()}
+  @type update_container_service_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       export_snapshot_record() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "destinationInfo" => destination_info(),
         "location" => resource_location(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "resourceType" => list(any()),
         "sourceInfo" => export_snapshot_record_source_info(),
         "state" => list(any())
       }
       
   """
-  @type export_snapshot_record() :: %{String.t() => any()}
+  @type export_snapshot_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5675,19 +5683,19 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type private_registry_access() :: %{String.t() => any()}
+  @type private_registry_access() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       close_instance_public_ports_request() :: %{
-        required("instanceName") => String.t(),
+        required("instanceName") => String.t() | atom(),
         required("portInfo") => port_info()
       }
       
   """
-  @type close_instance_public_ports_request() :: %{String.t() => any()}
+  @type close_instance_public_ports_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5698,7 +5706,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type create_contact_method_result() :: %{String.t() => any()}
+  @type create_contact_method_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5709,7 +5717,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type start_relational_database_result() :: %{String.t() => any()}
+  @type start_relational_database_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5720,34 +5728,34 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type delete_relational_database_snapshot_result() :: %{String.t() => any()}
+  @type delete_relational_database_snapshot_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       account_setup_in_progress_exception() :: %{
-        "code" => String.t(),
-        "docs" => String.t(),
-        "message" => String.t(),
-        "tip" => String.t()
+        "code" => String.t() | atom(),
+        "docs" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "tip" => String.t() | atom()
       }
       
   """
-  @type account_setup_in_progress_exception() :: %{String.t() => any()}
+  @type account_setup_in_progress_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       bucket_access_log_config() :: %{
-        "destination" => String.t(),
+        "destination" => String.t() | atom(),
         "enabled" => boolean(),
-        "prefix" => String.t()
+        "prefix" => String.t() | atom()
       }
       
   """
-  @type bucket_access_log_config() :: %{String.t() => any()}
+  @type bucket_access_log_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5758,7 +5766,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type create_disk_result() :: %{String.t() => any()}
+  @type create_disk_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5766,13 +5774,13 @@ defmodule AWS.Lightsail do
       
       relational_database_event() :: %{
         "createdAt" => non_neg_integer(),
-        "eventCategories" => list(String.t()),
-        "message" => String.t(),
-        "resource" => String.t()
+        "eventCategories" => list(String.t() | atom()),
+        "message" => String.t() | atom(),
+        "resource" => String.t() | atom()
       }
       
   """
-  @type relational_database_event() :: %{String.t() => any()}
+  @type relational_database_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5783,7 +5791,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type release_static_ip_result() :: %{String.t() => any()}
+  @type release_static_ip_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5794,21 +5802,21 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_container_service_deployments_result() :: %{String.t() => any()}
+  @type get_container_service_deployments_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       operation_failure_exception() :: %{
-        "code" => String.t(),
-        "docs" => String.t(),
-        "message" => String.t(),
-        "tip" => String.t()
+        "code" => String.t() | atom(),
+        "docs" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "tip" => String.t() | atom()
       }
       
   """
-  @type operation_failure_exception() :: %{String.t() => any()}
+  @type operation_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5816,28 +5824,28 @@ defmodule AWS.Lightsail do
       
       log_event() :: %{
         "createdAt" => non_neg_integer(),
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type log_event() :: %{String.t() => any()}
+  @type log_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       setup_execution_details() :: %{
-        "command" => String.t(),
+        "command" => String.t() | atom(),
         "dateTime" => non_neg_integer(),
-        "name" => String.t(),
-        "standardError" => String.t(),
-        "standardOutput" => String.t(),
+        "name" => String.t() | atom(),
+        "standardError" => String.t() | atom(),
+        "standardOutput" => String.t() | atom(),
         "status" => list(any()),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
       
   """
-  @type setup_execution_details() :: %{String.t() => any()}
+  @type setup_execution_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5848,7 +5856,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type get_contact_methods_result() :: %{String.t() => any()}
+  @type get_contact_methods_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5859,7 +5867,7 @@ defmodule AWS.Lightsail do
       }
       
   """
-  @type register_container_image_result() :: %{String.t() => any()}
+  @type register_container_image_result() :: %{(String.t() | atom()) => any()}
 
   @type allocate_static_ip_errors() ::
           operation_failure_exception()
@@ -7388,7 +7396,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, allocate_static_ip_errors()}
   def allocate_static_ip(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AllocateStaticIp", input, options)
   end
@@ -7423,7 +7432,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, attach_certificate_to_distribution_errors()}
   def attach_certificate_to_distribution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AttachCertificateToDistribution", input, options)
   end
@@ -7443,7 +7453,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, attach_disk_errors()}
   def attach_disk(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AttachDisk", input, options)
   end
@@ -7475,7 +7486,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, attach_instances_to_load_balancer_errors()}
   def attach_instances_to_load_balancer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AttachInstancesToLoadBalancer", input, options)
   end
@@ -7512,7 +7524,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, attach_load_balancer_tls_certificate_errors()}
   def attach_load_balancer_tls_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AttachLoadBalancerTlsCertificate", input, options)
   end
@@ -7526,7 +7539,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, attach_static_ip_errors()}
   def attach_static_ip(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AttachStaticIp", input, options)
   end
@@ -7544,7 +7558,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, close_instance_public_ports_errors()}
   def close_instance_public_ports(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CloseInstancePublicPorts", input, options)
   end
@@ -7591,7 +7606,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, copy_snapshot_errors()}
   def copy_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopySnapshot", input, options)
   end
@@ -7613,7 +7629,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_bucket_errors()}
   def create_bucket(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBucket", input, options)
   end
@@ -7645,7 +7662,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_bucket_access_key_errors()}
   def create_bucket_access_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBucketAccessKey", input, options)
   end
@@ -7674,7 +7692,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_certificate_errors()}
   def create_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCertificate", input, options)
   end
@@ -7709,7 +7728,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_cloud_formation_stack_errors()}
   def create_cloud_formation_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCloudFormationStack", input, options)
   end
@@ -7732,7 +7752,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_contact_method_errors()}
   def create_contact_method(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateContactMethod", input, options)
   end
@@ -7752,7 +7773,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_container_service_errors()}
   def create_container_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateContainerService", input, options)
   end
@@ -7788,7 +7810,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_container_service_deployment_errors()}
   def create_container_service_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateContainerServiceDeployment", input, options)
   end
@@ -7836,7 +7859,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_container_service_registry_login_errors()}
   def create_container_service_registry_login(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateContainerServiceRegistryLogin", input, options)
   end
@@ -7855,7 +7879,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_disk_errors()}
   def create_disk(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDisk", input, options)
   end
@@ -7884,7 +7909,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_disk_from_snapshot_errors()}
   def create_disk_from_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDiskFromSnapshot", input, options)
   end
@@ -7934,7 +7960,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_disk_snapshot_errors()}
   def create_disk_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDiskSnapshot", input, options)
   end
@@ -7954,7 +7981,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_distribution_errors()}
   def create_distribution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDistribution", input, options)
   end
@@ -7971,7 +7999,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_domain_errors()}
   def create_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDomain", input, options)
   end
@@ -7993,7 +8022,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_domain_entry_errors()}
   def create_domain_entry(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDomainEntry", input, options)
   end
@@ -8020,7 +8050,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_g_ui_session_access_details_errors()}
   def create_g_ui_session_access_details(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGUISessionAccessDetails", input, options)
   end
@@ -8039,7 +8070,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_instance_snapshot_errors()}
   def create_instance_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateInstanceSnapshot", input, options)
   end
@@ -8056,7 +8088,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_instances_errors()}
   def create_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateInstances", input, options)
   end
@@ -8076,7 +8109,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_instances_from_snapshot_errors()}
   def create_instances_from_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateInstancesFromSnapshot", input, options)
   end
@@ -8101,7 +8135,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_key_pair_errors()}
   def create_key_pair(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateKeyPair", input, options)
   end
@@ -8128,7 +8163,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_load_balancer_errors()}
   def create_load_balancer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLoadBalancer", input, options)
   end
@@ -8158,7 +8194,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_load_balancer_tls_certificate_errors()}
   def create_load_balancer_tls_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLoadBalancerTlsCertificate", input, options)
   end
@@ -8175,7 +8212,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_relational_database_errors()}
   def create_relational_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRelationalDatabase", input, options)
   end
@@ -8205,7 +8243,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_relational_database_from_snapshot_errors()}
   def create_relational_database_from_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRelationalDatabaseFromSnapshot", input, options)
   end
@@ -8230,7 +8269,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_relational_database_snapshot_errors()}
   def create_relational_database_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRelationalDatabaseSnapshot", input, options)
   end
@@ -8251,7 +8291,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_alarm_errors()}
   def delete_alarm(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAlarm", input, options)
   end
@@ -8267,7 +8308,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_auto_snapshot_errors()}
   def delete_auto_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAutoSnapshot", input, options)
   end
@@ -8285,7 +8327,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_bucket_errors()}
   def delete_bucket(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBucket", input, options)
   end
@@ -8307,7 +8350,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_bucket_access_key_errors()}
   def delete_bucket_access_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBucketAccessKey", input, options)
   end
@@ -8328,7 +8372,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_certificate_errors()}
   def delete_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCertificate", input, options)
   end
@@ -8351,7 +8396,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_contact_method_errors()}
   def delete_contact_method(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteContactMethod", input, options)
   end
@@ -8366,7 +8412,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_container_image_errors()}
   def delete_container_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteContainerImage", input, options)
   end
@@ -8380,7 +8427,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_container_service_errors()}
   def delete_container_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteContainerService", input, options)
   end
@@ -8403,7 +8451,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_disk_errors()}
   def delete_disk(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDisk", input, options)
   end
@@ -8432,7 +8481,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_disk_snapshot_errors()}
   def delete_disk_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDiskSnapshot", input, options)
   end
@@ -8446,7 +8496,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_distribution_errors()}
   def delete_distribution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDistribution", input, options)
   end
@@ -8465,7 +8516,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDomain", input, options)
   end
@@ -8483,7 +8535,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_domain_entry_errors()}
   def delete_domain_entry(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDomainEntry", input, options)
   end
@@ -8502,7 +8555,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_instance_errors()}
   def delete_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteInstance", input, options)
   end
@@ -8522,7 +8576,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_instance_snapshot_errors()}
   def delete_instance_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteInstanceSnapshot", input, options)
   end
@@ -8551,7 +8606,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_key_pair_errors()}
   def delete_key_pair(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteKeyPair", input, options)
   end
@@ -8577,7 +8633,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_known_host_keys_errors()}
   def delete_known_host_keys(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteKnownHostKeys", input, options)
   end
@@ -8601,7 +8658,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_load_balancer_errors()}
   def delete_load_balancer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLoadBalancer", input, options)
   end
@@ -8629,7 +8687,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_load_balancer_tls_certificate_errors()}
   def delete_load_balancer_tls_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLoadBalancerTlsCertificate", input, options)
   end
@@ -8648,7 +8707,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_relational_database_errors()}
   def delete_relational_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRelationalDatabase", input, options)
   end
@@ -8671,7 +8731,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_relational_database_snapshot_errors()}
   def delete_relational_database_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRelationalDatabaseSnapshot", input, options)
   end
@@ -8695,7 +8756,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, detach_certificate_from_distribution_errors()}
   def detach_certificate_from_distribution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetachCertificateFromDistribution", input, options)
   end
@@ -8718,7 +8780,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, detach_disk_errors()}
   def detach_disk(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetachDisk", input, options)
   end
@@ -8750,7 +8813,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, detach_instances_from_load_balancer_errors()}
   def detach_instances_from_load_balancer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetachInstancesFromLoadBalancer", input, options)
   end
@@ -8764,7 +8828,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, detach_static_ip_errors()}
   def detach_static_ip(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetachStaticIp", input, options)
   end
@@ -8780,7 +8845,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, disable_add_on_errors()}
   def disable_add_on(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableAddOn", input, options)
   end
@@ -8797,7 +8863,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, download_default_key_pair_errors()}
   def download_default_key_pair(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DownloadDefaultKeyPair", input, options)
   end
@@ -8814,7 +8881,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, enable_add_on_errors()}
   def enable_add_on(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableAddOn", input, options)
   end
@@ -8853,7 +8921,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, export_snapshot_errors()}
   def export_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExportSnapshot", input, options)
   end
@@ -8867,7 +8936,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_active_names_errors()}
   def get_active_names(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetActiveNames", input, options)
   end
@@ -8893,7 +8963,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_alarms_errors()}
   def get_alarms(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAlarms", input, options)
   end
@@ -8910,7 +8981,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_auto_snapshots_errors()}
   def get_auto_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAutoSnapshots", input, options)
   end
@@ -8939,7 +9011,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_blueprints_errors()}
   def get_blueprints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBlueprints", input, options)
   end
@@ -8960,7 +9033,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_bucket_access_keys_errors()}
   def get_bucket_access_keys(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBucketAccessKeys", input, options)
   end
@@ -8983,7 +9057,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_bucket_bundles_errors()}
   def get_bucket_bundles(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBucketBundles", input, options)
   end
@@ -9003,7 +9078,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_bucket_metric_data_errors()}
   def get_bucket_metric_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBucketMetricData", input, options)
   end
@@ -9026,7 +9102,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_buckets_errors()}
   def get_buckets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBuckets", input, options)
   end
@@ -9051,7 +9128,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_bundles_errors()}
   def get_bundles(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBundles", input, options)
   end
@@ -9070,7 +9148,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_certificates_errors()}
   def get_certificates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCertificates", input, options)
   end
@@ -9099,7 +9178,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_cloud_formation_stack_records_errors()}
   def get_cloud_formation_stack_records(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCloudFormationStackRecords", input, options)
   end
@@ -9125,7 +9205,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_contact_methods_errors()}
   def get_contact_methods(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetContactMethods", input, options)
   end
@@ -9141,7 +9222,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_container_api_metadata_errors()}
   def get_container_api_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetContainerAPIMetadata", input, options)
   end
@@ -9163,7 +9245,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_container_images_errors()}
   def get_container_images(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetContainerImages", input, options)
   end
@@ -9191,7 +9274,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_container_log_errors()}
   def get_container_log(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetContainerLog", input, options)
   end
@@ -9224,7 +9308,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_container_service_deployments_errors()}
   def get_container_service_deployments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetContainerServiceDeployments", input, options)
   end
@@ -9248,7 +9333,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_container_service_metric_data_errors()}
   def get_container_service_metric_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetContainerServiceMetricData", input, options)
   end
@@ -9268,7 +9354,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_container_service_powers_errors()}
   def get_container_service_powers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetContainerServicePowers", input, options)
   end
@@ -9283,7 +9370,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_container_services_errors()}
   def get_container_services(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetContainerServices", input, options)
   end
@@ -9300,7 +9388,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_cost_estimate_errors()}
   def get_cost_estimate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCostEstimate", input, options)
   end
@@ -9314,7 +9403,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_disk_errors()}
   def get_disk(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDisk", input, options)
   end
@@ -9328,7 +9418,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_disk_snapshot_errors()}
   def get_disk_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDiskSnapshot", input, options)
   end
@@ -9344,7 +9435,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_disk_snapshots_errors()}
   def get_disk_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDiskSnapshots", input, options)
   end
@@ -9359,7 +9451,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_disks_errors()}
   def get_disks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDisks", input, options)
   end
@@ -9379,7 +9472,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_distribution_bundles_errors()}
   def get_distribution_bundles(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDistributionBundles", input, options)
   end
@@ -9399,7 +9493,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_distribution_latest_cache_reset_errors()}
   def get_distribution_latest_cache_reset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDistributionLatestCacheReset", input, options)
   end
@@ -9421,7 +9516,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_distribution_metric_data_errors()}
   def get_distribution_metric_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDistributionMetricData", input, options)
   end
@@ -9437,7 +9533,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_distributions_errors()}
   def get_distributions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDistributions", input, options)
   end
@@ -9451,7 +9548,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_domain_errors()}
   def get_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDomain", input, options)
   end
@@ -9465,7 +9563,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_domains_errors()}
   def get_domains(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDomains", input, options)
   end
@@ -9492,7 +9591,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_export_snapshot_records_errors()}
   def get_export_snapshot_records(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetExportSnapshotRecords", input, options)
   end
@@ -9508,7 +9608,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_instance_errors()}
   def get_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetInstance", input, options)
   end
@@ -9529,7 +9630,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_instance_access_details_errors()}
   def get_instance_access_details(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetInstanceAccessDetails", input, options)
   end
@@ -9551,7 +9653,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_instance_metric_data_errors()}
   def get_instance_metric_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetInstanceMetricData", input, options)
   end
@@ -9567,7 +9670,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_instance_port_states_errors()}
   def get_instance_port_states(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetInstancePortStates", input, options)
   end
@@ -9581,7 +9685,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_instance_snapshot_errors()}
   def get_instance_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetInstanceSnapshot", input, options)
   end
@@ -9595,7 +9700,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_instance_snapshots_errors()}
   def get_instance_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetInstanceSnapshots", input, options)
   end
@@ -9611,7 +9717,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_instance_state_errors()}
   def get_instance_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetInstanceState", input, options)
   end
@@ -9626,7 +9733,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_instances_errors()}
   def get_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetInstances", input, options)
   end
@@ -9640,7 +9748,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_key_pair_errors()}
   def get_key_pair(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetKeyPair", input, options)
   end
@@ -9654,7 +9763,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_key_pairs_errors()}
   def get_key_pairs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetKeyPairs", input, options)
   end
@@ -9668,7 +9778,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_load_balancer_errors()}
   def get_load_balancer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLoadBalancer", input, options)
   end
@@ -9688,7 +9799,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_load_balancer_metric_data_errors()}
   def get_load_balancer_metric_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLoadBalancerMetricData", input, options)
   end
@@ -9714,7 +9826,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_load_balancer_tls_certificates_errors()}
   def get_load_balancer_tls_certificates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLoadBalancerTlsCertificates", input, options)
   end
@@ -9733,7 +9846,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_load_balancer_tls_policies_errors()}
   def get_load_balancer_tls_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLoadBalancerTlsPolicies", input, options)
   end
@@ -9747,7 +9861,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_load_balancers_errors()}
   def get_load_balancers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLoadBalancers", input, options)
   end
@@ -9764,7 +9879,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_operation_errors()}
   def get_operation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetOperation", input, options)
   end
@@ -9783,7 +9899,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_operations_errors()}
   def get_operations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetOperations", input, options)
   end
@@ -9797,7 +9914,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_operations_for_resource_errors()}
   def get_operations_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetOperationsForResource", input, options)
   end
@@ -9821,7 +9939,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_regions_errors()}
   def get_regions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRegions", input, options)
   end
@@ -9835,7 +9954,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_relational_database_errors()}
   def get_relational_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRelationalDatabase", input, options)
   end
@@ -9860,7 +9980,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_relational_database_blueprints_errors()}
   def get_relational_database_blueprints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRelationalDatabaseBlueprints", input, options)
   end
@@ -9880,7 +10001,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_relational_database_bundles_errors()}
   def get_relational_database_bundles(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRelationalDatabaseBundles", input, options)
   end
@@ -9894,7 +10016,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_relational_database_events_errors()}
   def get_relational_database_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRelationalDatabaseEvents", input, options)
   end
@@ -9912,7 +10035,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_relational_database_log_events_errors()}
   def get_relational_database_log_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRelationalDatabaseLogEvents", input, options)
   end
@@ -9931,7 +10055,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_relational_database_log_streams_errors()}
   def get_relational_database_log_streams(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRelationalDatabaseLogStreams", input, options)
   end
@@ -9955,7 +10080,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_relational_database_master_user_password_errors()}
   def get_relational_database_master_user_password(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRelationalDatabaseMasterUserPassword", input, options)
   end
@@ -9980,7 +10106,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_relational_database_metric_data_errors()}
   def get_relational_database_metric_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRelationalDatabaseMetricData", input, options)
   end
@@ -10006,7 +10133,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_relational_database_parameters_errors()}
   def get_relational_database_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRelationalDatabaseParameters", input, options)
   end
@@ -10024,7 +10152,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_relational_database_snapshot_errors()}
   def get_relational_database_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRelationalDatabaseSnapshot", input, options)
   end
@@ -10042,7 +10171,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_relational_database_snapshots_errors()}
   def get_relational_database_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRelationalDatabaseSnapshots", input, options)
   end
@@ -10056,7 +10186,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_relational_databases_errors()}
   def get_relational_databases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRelationalDatabases", input, options)
   end
@@ -10071,7 +10202,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_setup_history_errors()}
   def get_setup_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSetupHistory", input, options)
   end
@@ -10085,7 +10217,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_static_ip_errors()}
   def get_static_ip(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetStaticIp", input, options)
   end
@@ -10099,7 +10232,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_static_ips_errors()}
   def get_static_ips(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetStaticIps", input, options)
   end
@@ -10113,7 +10247,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, import_key_pair_errors()}
   def import_key_pair(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportKeyPair", input, options)
   end
@@ -10127,7 +10262,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, is_vpc_peered_errors()}
   def is_vpc_peered(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "IsVpcPeered", input, options)
   end
@@ -10147,7 +10283,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, open_instance_public_ports_errors()}
   def open_instance_public_ports(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "OpenInstancePublicPorts", input, options)
   end
@@ -10161,7 +10298,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, peer_vpc_errors()}
   def peer_vpc(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PeerVpc", input, options)
   end
@@ -10192,7 +10330,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, put_alarm_errors()}
   def put_alarm(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutAlarm", input, options)
   end
@@ -10221,7 +10360,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, put_instance_public_ports_errors()}
   def put_instance_public_ports(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutInstancePublicPorts", input, options)
   end
@@ -10240,7 +10380,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, reboot_instance_errors()}
   def reboot_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebootInstance", input, options)
   end
@@ -10259,7 +10400,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, reboot_relational_database_errors()}
   def reboot_relational_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebootRelationalDatabase", input, options)
   end
@@ -10280,7 +10422,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, register_container_image_errors()}
   def register_container_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterContainerImage", input, options)
   end
@@ -10294,7 +10437,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, release_static_ip_errors()}
   def release_static_ip(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ReleaseStaticIp", input, options)
   end
@@ -10314,7 +10458,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, reset_distribution_cache_errors()}
   def reset_distribution_cache(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetDistributionCache", input, options)
   end
@@ -10355,7 +10500,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, send_contact_method_verification_errors()}
   def send_contact_method_verification(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendContactMethodVerification", input, options)
   end
@@ -10375,7 +10521,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, set_ip_address_type_errors()}
   def set_ip_address_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetIpAddressType", input, options)
   end
@@ -10394,7 +10541,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, set_resource_access_for_bucket_errors()}
   def set_resource_access_for_bucket(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetResourceAccessForBucket", input, options)
   end
@@ -10415,7 +10563,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, setup_instance_https_errors()}
   def setup_instance_https(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetupInstanceHttps", input, options)
   end
@@ -10434,7 +10583,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, start_g_ui_session_errors()}
   def start_g_ui_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartGUISession", input, options)
   end
@@ -10463,7 +10613,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, start_instance_errors()}
   def start_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartInstance", input, options)
   end
@@ -10485,7 +10636,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, start_relational_database_errors()}
   def start_relational_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartRelationalDatabase", input, options)
   end
@@ -10504,7 +10656,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, stop_g_ui_session_errors()}
   def stop_g_ui_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopGUISession", input, options)
   end
@@ -10530,7 +10683,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, stop_instance_errors()}
   def stop_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopInstance", input, options)
   end
@@ -10556,7 +10710,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, stop_relational_database_errors()}
   def stop_relational_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopRelationalDatabase", input, options)
   end
@@ -10581,7 +10736,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -10608,7 +10764,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, test_alarm_errors()}
   def test_alarm(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TestAlarm", input, options)
   end
@@ -10622,7 +10779,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, unpeer_vpc_errors()}
   def unpeer_vpc(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UnpeerVpc", input, options)
   end
@@ -10643,7 +10801,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -10662,7 +10821,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, update_bucket_errors()}
   def update_bucket(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateBucket", input, options)
   end
@@ -10700,7 +10860,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, update_bucket_bundle_errors()}
   def update_bucket_bundle(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateBucketBundle", input, options)
   end
@@ -10716,7 +10877,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, update_container_service_errors()}
   def update_container_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateContainerService", input, options)
   end
@@ -10733,7 +10895,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, update_distribution_errors()}
   def update_distribution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDistribution", input, options)
   end
@@ -10763,7 +10926,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, update_distribution_bundle_errors()}
   def update_distribution_bundle(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDistributionBundle", input, options)
   end
@@ -10781,7 +10945,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, update_domain_entry_errors()}
   def update_domain_entry(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDomainEntry", input, options)
   end
@@ -10809,7 +10974,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, update_instance_metadata_options_errors()}
   def update_instance_metadata_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateInstanceMetadataOptions", input, options)
   end
@@ -10836,7 +11002,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, update_load_balancer_attribute_errors()}
   def update_load_balancer_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLoadBalancerAttribute", input, options)
   end
@@ -10859,7 +11026,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, update_relational_database_errors()}
   def update_relational_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRelationalDatabase", input, options)
   end
@@ -10892,7 +11060,8 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, update_relational_database_parameters_errors()}
   def update_relational_database_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRelationalDatabaseParameters", input, options)
   end

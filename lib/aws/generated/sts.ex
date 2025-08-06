@@ -21,21 +21,21 @@ defmodule AWS.STS do
       
       assume_role_request() :: %{
         optional("DurationSeconds") => integer(),
-        optional("ExternalId") => String.t(),
-        optional("Policy") => String.t(),
+        optional("ExternalId") => String.t() | atom(),
+        optional("Policy") => String.t() | atom(),
         optional("PolicyArns") => list(policy_descriptor_type()),
         optional("ProvidedContexts") => list(provided_context()),
-        optional("SerialNumber") => String.t(),
-        optional("SourceIdentity") => String.t(),
+        optional("SerialNumber") => String.t() | atom(),
+        optional("SourceIdentity") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        optional("TokenCode") => String.t(),
-        optional("TransitiveTagKeys") => list(String.t()),
-        required("RoleArn") => String.t(),
-        required("RoleSessionName") => String.t()
+        optional("TokenCode") => String.t() | atom(),
+        optional("TransitiveTagKeys") => list(String.t() | atom()),
+        required("RoleArn") => String.t() | atom(),
+        required("RoleSessionName") => String.t() | atom()
       }
       
   """
-  @type assume_role_request() :: %{String.t() => any()}
+  @type assume_role_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -45,11 +45,11 @@ defmodule AWS.STS do
         "AssumedRoleUser" => assumed_role_user(),
         "Credentials" => credentials(),
         "PackedPolicySize" => integer(),
-        "SourceIdentity" => String.t()
+        "SourceIdentity" => String.t() | atom()
       }
       
   """
-  @type assume_role_response() :: %{String.t() => any()}
+  @type assume_role_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -57,15 +57,15 @@ defmodule AWS.STS do
       
       assume_role_with_saml_request() :: %{
         optional("DurationSeconds") => integer(),
-        optional("Policy") => String.t(),
+        optional("Policy") => String.t() | atom(),
         optional("PolicyArns") => list(policy_descriptor_type()),
-        required("PrincipalArn") => String.t(),
-        required("RoleArn") => String.t(),
-        required("SAMLAssertion") => String.t()
+        required("PrincipalArn") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom(),
+        required("SAMLAssertion") => String.t() | atom()
       }
       
   """
-  @type assume_role_with_saml_request() :: %{String.t() => any()}
+  @type assume_role_with_saml_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -73,18 +73,18 @@ defmodule AWS.STS do
       
       assume_role_with_saml_response() :: %{
         "AssumedRoleUser" => assumed_role_user(),
-        "Audience" => String.t(),
+        "Audience" => String.t() | atom(),
         "Credentials" => credentials(),
-        "Issuer" => String.t(),
-        "NameQualifier" => String.t(),
+        "Issuer" => String.t() | atom(),
+        "NameQualifier" => String.t() | atom(),
         "PackedPolicySize" => integer(),
-        "SourceIdentity" => String.t(),
-        "Subject" => String.t(),
-        "SubjectType" => String.t()
+        "SourceIdentity" => String.t() | atom(),
+        "Subject" => String.t() | atom(),
+        "SubjectType" => String.t() | atom()
       }
       
   """
-  @type assume_role_with_saml_response() :: %{String.t() => any()}
+  @type assume_role_with_saml_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -92,16 +92,16 @@ defmodule AWS.STS do
       
       assume_role_with_web_identity_request() :: %{
         optional("DurationSeconds") => integer(),
-        optional("Policy") => String.t(),
+        optional("Policy") => String.t() | atom(),
         optional("PolicyArns") => list(policy_descriptor_type()),
-        optional("ProviderId") => String.t(),
-        required("RoleArn") => String.t(),
-        required("RoleSessionName") => String.t(),
-        required("WebIdentityToken") => String.t()
+        optional("ProviderId") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom(),
+        required("RoleSessionName") => String.t() | atom(),
+        required("WebIdentityToken") => String.t() | atom()
       }
       
   """
-  @type assume_role_with_web_identity_request() :: %{String.t() => any()}
+  @type assume_role_with_web_identity_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -109,16 +109,16 @@ defmodule AWS.STS do
       
       assume_role_with_web_identity_response() :: %{
         "AssumedRoleUser" => assumed_role_user(),
-        "Audience" => String.t(),
+        "Audience" => String.t() | atom(),
         "Credentials" => credentials(),
         "PackedPolicySize" => integer(),
-        "Provider" => String.t(),
-        "SourceIdentity" => String.t(),
-        "SubjectFromWebIdentityToken" => String.t()
+        "Provider" => String.t() | atom(),
+        "SourceIdentity" => String.t() | atom(),
+        "SubjectFromWebIdentityToken" => String.t() | atom()
       }
       
   """
-  @type assume_role_with_web_identity_response() :: %{String.t() => any()}
+  @type assume_role_with_web_identity_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -126,12 +126,12 @@ defmodule AWS.STS do
       
       assume_root_request() :: %{
         optional("DurationSeconds") => integer(),
-        required("TargetPrincipal") => String.t(),
+        required("TargetPrincipal") => String.t() | atom(),
         required("TaskPolicyArn") => policy_descriptor_type()
       }
       
   """
-  @type assume_root_request() :: %{String.t() => any()}
+  @type assume_root_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -139,104 +139,104 @@ defmodule AWS.STS do
       
       assume_root_response() :: %{
         "Credentials" => credentials(),
-        "SourceIdentity" => String.t()
+        "SourceIdentity" => String.t() | atom()
       }
       
   """
-  @type assume_root_response() :: %{String.t() => any()}
+  @type assume_root_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       assumed_role_user() :: %{
-        "Arn" => String.t(),
-        "AssumedRoleId" => String.t()
+        "Arn" => String.t() | atom(),
+        "AssumedRoleId" => String.t() | atom()
       }
       
   """
-  @type assumed_role_user() :: %{String.t() => any()}
+  @type assumed_role_user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       credentials() :: %{
-        "AccessKeyId" => String.t(),
+        "AccessKeyId" => String.t() | atom(),
         "Expiration" => non_neg_integer(),
-        "SecretAccessKey" => String.t(),
-        "SessionToken" => String.t()
+        "SecretAccessKey" => String.t() | atom(),
+        "SessionToken" => String.t() | atom()
       }
       
   """
-  @type credentials() :: %{String.t() => any()}
+  @type credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       decode_authorization_message_request() :: %{
-        required("EncodedMessage") => String.t()
+        required("EncodedMessage") => String.t() | atom()
       }
       
   """
-  @type decode_authorization_message_request() :: %{String.t() => any()}
+  @type decode_authorization_message_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       decode_authorization_message_response() :: %{
-        "DecodedMessage" => String.t()
+        "DecodedMessage" => String.t() | atom()
       }
       
   """
-  @type decode_authorization_message_response() :: %{String.t() => any()}
+  @type decode_authorization_message_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       expired_token_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type expired_token_exception() :: %{String.t() => any()}
+  @type expired_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       federated_user() :: %{
-        "Arn" => String.t(),
-        "FederatedUserId" => String.t()
+        "Arn" => String.t() | atom(),
+        "FederatedUserId" => String.t() | atom()
       }
       
   """
-  @type federated_user() :: %{String.t() => any()}
+  @type federated_user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_access_key_info_request() :: %{
-        required("AccessKeyId") => String.t()
+        required("AccessKeyId") => String.t() | atom()
       }
       
   """
-  @type get_access_key_info_request() :: %{String.t() => any()}
+  @type get_access_key_info_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_access_key_info_response() :: %{
-        "Account" => String.t()
+        "Account" => String.t() | atom()
       }
       
   """
-  @type get_access_key_info_response() :: %{String.t() => any()}
+  @type get_access_key_info_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -252,13 +252,13 @@ defmodule AWS.STS do
   ## Example:
       
       get_caller_identity_response() :: %{
-        "Account" => String.t(),
-        "Arn" => String.t(),
-        "UserId" => String.t()
+        "Account" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "UserId" => String.t() | atom()
       }
       
   """
-  @type get_caller_identity_response() :: %{String.t() => any()}
+  @type get_caller_identity_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -266,14 +266,14 @@ defmodule AWS.STS do
       
       get_federation_token_request() :: %{
         optional("DurationSeconds") => integer(),
-        optional("Policy") => String.t(),
+        optional("Policy") => String.t() | atom(),
         optional("PolicyArns") => list(policy_descriptor_type()),
         optional("Tags") => list(tag()),
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type get_federation_token_request() :: %{String.t() => any()}
+  @type get_federation_token_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -286,7 +286,7 @@ defmodule AWS.STS do
       }
       
   """
-  @type get_federation_token_response() :: %{String.t() => any()}
+  @type get_federation_token_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -294,12 +294,12 @@ defmodule AWS.STS do
       
       get_session_token_request() :: %{
         optional("DurationSeconds") => integer(),
-        optional("SerialNumber") => String.t(),
-        optional("TokenCode") => String.t()
+        optional("SerialNumber") => String.t() | atom(),
+        optional("TokenCode") => String.t() | atom()
       }
       
   """
-  @type get_session_token_request() :: %{String.t() => any()}
+  @type get_session_token_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -310,119 +310,119 @@ defmodule AWS.STS do
       }
       
   """
-  @type get_session_token_response() :: %{String.t() => any()}
+  @type get_session_token_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       id_p_communication_error_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type id_p_communication_error_exception() :: %{String.t() => any()}
+  @type id_p_communication_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       id_p_rejected_claim_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type id_p_rejected_claim_exception() :: %{String.t() => any()}
+  @type id_p_rejected_claim_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_authorization_message_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_authorization_message_exception() :: %{String.t() => any()}
+  @type invalid_authorization_message_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_identity_token_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_identity_token_exception() :: %{String.t() => any()}
+  @type invalid_identity_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       malformed_policy_document_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type malformed_policy_document_exception() :: %{String.t() => any()}
+  @type malformed_policy_document_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       packed_policy_too_large_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type packed_policy_too_large_exception() :: %{String.t() => any()}
+  @type packed_policy_too_large_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       policy_descriptor_type() :: %{
-        "arn" => String.t()
+        "arn" => String.t() | atom()
       }
       
   """
-  @type policy_descriptor_type() :: %{String.t() => any()}
+  @type policy_descriptor_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       provided_context() :: %{
-        "ContextAssertion" => String.t(),
-        "ProviderArn" => String.t()
+        "ContextAssertion" => String.t() | atom(),
+        "ProviderArn" => String.t() | atom()
       }
       
   """
-  @type provided_context() :: %{String.t() => any()}
+  @type provided_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       region_disabled_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type region_disabled_exception() :: %{String.t() => any()}
+  @type region_disabled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @type assume_role_errors() ::
           region_disabled_exception()
@@ -609,7 +609,8 @@ defmodule AWS.STS do
           | {:error, term()}
           | {:error, assume_role_errors()}
   def assume_role(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssumeRole", input, options)
   end
@@ -800,7 +801,8 @@ defmodule AWS.STS do
           | {:error, term()}
           | {:error, assume_role_with_saml_errors()}
   def assume_role_with_saml(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssumeRoleWithSAML", input, options)
   end
@@ -985,7 +987,8 @@ defmodule AWS.STS do
           | {:error, term()}
           | {:error, assume_role_with_web_identity_errors()}
   def assume_role_with_web_identity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssumeRoleWithWebIdentity", input, options)
   end
@@ -1020,7 +1023,8 @@ defmodule AWS.STS do
           | {:error, term()}
           | {:error, assume_root_errors()}
   def assume_root(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssumeRoot", input, options)
   end
@@ -1082,7 +1086,8 @@ defmodule AWS.STS do
           | {:error, term()}
           | {:error, decode_authorization_message_errors()}
   def decode_authorization_message(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DecodeAuthorizationMessage", input, options)
   end
@@ -1121,7 +1126,8 @@ defmodule AWS.STS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_access_key_info(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAccessKeyInfo", input, options)
   end
@@ -1145,7 +1151,8 @@ defmodule AWS.STS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_caller_identity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCallerIdentity", input, options)
   end
@@ -1288,7 +1295,8 @@ defmodule AWS.STS do
           | {:error, term()}
           | {:error, get_federation_token_errors()}
   def get_federation_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetFederationToken", input, options)
   end
@@ -1377,7 +1385,8 @@ defmodule AWS.STS do
           | {:error, term()}
           | {:error, get_session_token_errors()}
   def get_session_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSessionToken", input, options)
   end

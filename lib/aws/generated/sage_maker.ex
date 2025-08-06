@@ -21,85 +21,85 @@ defmodule AWS.SageMaker do
       
       docker_settings() :: %{
         "EnableDockerAccess" => list(any()),
-        "VpcOnlyTrustedAccounts" => list(String.t())
+        "VpcOnlyTrustedAccounts" => list(String.t() | atom())
       }
       
   """
-  @type docker_settings() :: %{String.t() => any()}
+  @type docker_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       visibility_conditions() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type visibility_conditions() :: %{String.t() => any()}
+  @type visibility_conditions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_hub_request() :: %{
-        required("HubName") => String.t()
+        required("HubName") => String.t() | atom()
       }
       
   """
-  @type describe_hub_request() :: %{String.t() => any()}
+  @type describe_hub_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       auto_ml_output_data_config() :: %{
-        "KmsKeyId" => String.t(),
-        "S3OutputPath" => String.t()
+        "KmsKeyId" => String.t() | atom(),
+        "S3OutputPath" => String.t() | atom()
       }
       
   """
-  @type auto_ml_output_data_config() :: %{String.t() => any()}
+  @type auto_ml_output_data_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_context_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("Properties") => map(),
-        optional("PropertiesToRemove") => list(String.t()),
-        required("ContextName") => String.t()
+        optional("PropertiesToRemove") => list(String.t() | atom()),
+        required("ContextName") => String.t() | atom()
       }
       
   """
-  @type update_context_request() :: %{String.t() => any()}
+  @type update_context_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_group_metadata() :: %{
-        "AmiOverride" => [String.t()],
-        "AvailabilityZoneId" => [String.t()],
+        "AmiOverride" => [String.t() | atom()],
+        "AvailabilityZoneId" => [String.t() | atom()],
         "CapacityReservation" => capacity_reservation(),
-        "FailureMessage" => [String.t()],
-        "SecurityGroupIds" => list(String.t()),
-        "SubnetId" => [String.t()]
+        "FailureMessage" => [String.t() | atom()],
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetId" => [String.t() | atom()]
       }
       
   """
-  @type instance_group_metadata() :: %{String.t() => any()}
+  @type instance_group_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       action_summary() :: %{
-        "ActionArn" => String.t(),
-        "ActionName" => String.t(),
-        "ActionType" => String.t(),
+        "ActionArn" => String.t() | atom(),
+        "ActionName" => String.t() | atom(),
+        "ActionType" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
         "LastModifiedTime" => non_neg_integer(),
         "Source" => action_source(),
@@ -107,19 +107,19 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type action_summary() :: %{String.t() => any()}
+  @type action_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_aliases_response() :: %{
-        "NextToken" => String.t(),
-        "SageMakerImageVersionAliases" => list(String.t())
+        "NextToken" => String.t() | atom(),
+        "SageMakerImageVersionAliases" => list(String.t() | atom())
       }
       
   """
-  @type list_aliases_response() :: %{String.t() => any()}
+  @type list_aliases_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -130,19 +130,19 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type transform_data_source() :: %{String.t() => any()}
+  @type transform_data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_edge_deployment_stage_request() :: %{
-        required("EdgeDeploymentPlanName") => String.t(),
+        required("EdgeDeploymentPlanName") => String.t() | atom(),
         required("Stages") => list(deployment_stage())
       }
       
   """
-  @type create_edge_deployment_stage_request() :: %{String.t() => any()}
+  @type create_edge_deployment_stage_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -150,11 +150,11 @@ defmodule AWS.SageMaker do
       
       list_experiments_response() :: %{
         "ExperimentSummaries" => list(experiment_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_experiments_response() :: %{String.t() => any()}
+  @type list_experiments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -166,32 +166,32 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type production_variant_serverless_update_config() :: %{String.t() => any()}
+  @type production_variant_serverless_update_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_artifact_request() :: %{
-        optional("ArtifactName") => String.t(),
+        optional("ArtifactName") => String.t() | atom(),
         optional("Properties") => map(),
-        optional("PropertiesToRemove") => list(String.t()),
-        required("ArtifactArn") => String.t()
+        optional("PropertiesToRemove") => list(String.t() | atom()),
+        required("ArtifactArn") => String.t() | atom()
       }
       
   """
-  @type update_artifact_request() :: %{String.t() => any()}
+  @type update_artifact_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_inference_experiment_response() :: %{
-        "InferenceExperimentArn" => String.t()
+        "InferenceExperimentArn" => String.t() | atom()
       }
       
   """
-  @type stop_inference_experiment_response() :: %{String.t() => any()}
+  @type stop_inference_experiment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -201,13 +201,13 @@ defmodule AWS.SageMaker do
         "AvailableInstanceCount" => integer(),
         "CapacityReservationPreference" => list(any()),
         "Ec2CapacityReservations" => list(ec2_capacity_reservation()),
-        "MlReservationArn" => String.t(),
+        "MlReservationArn" => String.t() | atom(),
         "TotalInstanceCount" => integer(),
         "UsedByCurrentEndpoint" => integer()
       }
       
   """
-  @type production_variant_capacity_reservation_summary() :: %{String.t() => any()}
+  @type production_variant_capacity_reservation_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -218,44 +218,44 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type best_objective_not_improving() :: %{String.t() => any()}
+  @type best_objective_not_improving() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_cluster_request() :: %{
-        required("ClusterName") => String.t()
+        required("ClusterName") => String.t() | atom()
       }
       
   """
-  @type describe_cluster_request() :: %{String.t() => any()}
+  @type describe_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_trial_request() :: %{
-        required("TrialName") => String.t()
+        required("TrialName") => String.t() | atom()
       }
       
   """
-  @type describe_trial_request() :: %{String.t() => any()}
+  @type describe_trial_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_aliases_request() :: %{
-        optional("Alias") => String.t(),
+        optional("Alias") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Version") => integer(),
-        required("ImageName") => String.t()
+        required("ImageName") => String.t() | atom()
       }
       
   """
-  @type list_aliases_request() :: %{String.t() => any()}
+  @type list_aliases_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -265,14 +265,14 @@ defmodule AWS.SageMaker do
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_resource_catalogs_request() :: %{String.t() => any()}
+  @type list_resource_catalogs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -280,86 +280,86 @@ defmodule AWS.SageMaker do
       
       describe_model_quality_job_definition_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "JobDefinitionArn" => String.t(),
-        "JobDefinitionName" => String.t(),
+        "JobDefinitionArn" => String.t() | atom(),
+        "JobDefinitionName" => String.t() | atom(),
         "JobResources" => monitoring_resources(),
         "ModelQualityAppSpecification" => model_quality_app_specification(),
         "ModelQualityBaselineConfig" => model_quality_baseline_config(),
         "ModelQualityJobInput" => model_quality_job_input(),
         "ModelQualityJobOutputConfig" => monitoring_output_config(),
         "NetworkConfig" => monitoring_network_config(),
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | atom(),
         "StoppingCondition" => monitoring_stopping_condition()
       }
       
   """
-  @type describe_model_quality_job_definition_response() :: %{String.t() => any()}
+  @type describe_model_quality_job_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_scaling_configuration_recommendation_request() :: %{
-        optional("EndpointName") => String.t(),
-        optional("RecommendationId") => String.t(),
+        optional("EndpointName") => String.t() | atom(),
+        optional("RecommendationId") => String.t() | atom(),
         optional("ScalingPolicyObjective") => scaling_policy_objective(),
         optional("TargetCpuUtilizationPerCore") => integer(),
-        required("InferenceRecommendationsJobName") => String.t()
+        required("InferenceRecommendationsJobName") => String.t() | atom()
       }
       
   """
-  @type get_scaling_configuration_recommendation_request() :: %{String.t() => any()}
+  @type get_scaling_configuration_recommendation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_latency_threshold() :: %{
-        "Percentile" => String.t(),
+        "Percentile" => String.t() | atom(),
         "ValueInMilliseconds" => integer()
       }
       
   """
-  @type model_latency_threshold() :: %{String.t() => any()}
+  @type model_latency_threshold() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_experiment_response() :: %{
-        "ExperimentArn" => String.t()
+        "ExperimentArn" => String.t() | atom()
       }
       
   """
-  @type delete_experiment_response() :: %{String.t() => any()}
+  @type delete_experiment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       text_generation_job_config() :: %{
-        "BaseModelName" => String.t(),
+        "BaseModelName" => String.t() | atom(),
         "CompletionCriteria" => auto_ml_job_completion_criteria(),
         "ModelAccessConfig" => model_access_config(),
         "TextGenerationHyperParameters" => map()
       }
       
   """
-  @type text_generation_job_config() :: %{String.t() => any()}
+  @type text_generation_job_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_hub_request() :: %{
-        optional("HubDescription") => String.t(),
-        optional("HubDisplayName") => String.t(),
-        optional("HubSearchKeywords") => list(String.t()),
-        required("HubName") => String.t()
+        optional("HubDescription") => String.t() | atom(),
+        optional("HubDisplayName") => String.t() | atom(),
+        optional("HubSearchKeywords") => list(String.t() | atom()),
+        required("HubName") => String.t() | atom()
       }
       
   """
-  @type update_hub_request() :: %{String.t() => any()}
+  @type update_hub_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -367,11 +367,11 @@ defmodule AWS.SageMaker do
       
       list_apps_response() :: %{
         "Apps" => list(app_details()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_apps_response() :: %{String.t() => any()}
+  @type list_apps_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -379,14 +379,14 @@ defmodule AWS.SageMaker do
       
       inference_specification() :: %{
         "Containers" => list(model_package_container_definition()),
-        "SupportedContentTypes" => list(String.t()),
+        "SupportedContentTypes" => list(String.t() | atom()),
         "SupportedRealtimeInferenceInstanceTypes" => list(list(any())()),
-        "SupportedResponseMIMETypes" => list(String.t()),
+        "SupportedResponseMIMETypes" => list(String.t() | atom()),
         "SupportedTransformInstanceTypes" => list(list(any())())
       }
       
   """
-  @type inference_specification() :: %{String.t() => any()}
+  @type inference_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -395,17 +395,17 @@ defmodule AWS.SageMaker do
       time_series_forecasting_job_config() :: %{
         "CandidateGenerationConfig" => candidate_generation_config(),
         "CompletionCriteria" => auto_ml_job_completion_criteria(),
-        "FeatureSpecificationS3Uri" => String.t(),
-        "ForecastFrequency" => String.t(),
+        "FeatureSpecificationS3Uri" => String.t() | atom(),
+        "ForecastFrequency" => String.t() | atom(),
         "ForecastHorizon" => integer(),
-        "ForecastQuantiles" => list(String.t()),
+        "ForecastQuantiles" => list(String.t() | atom()),
         "HolidayConfig" => list(holiday_config_attributes()),
         "TimeSeriesConfig" => time_series_config(),
         "Transformations" => time_series_transformations()
       }
       
   """
-  @type time_series_forecasting_job_config() :: %{String.t() => any()}
+  @type time_series_forecasting_job_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -417,7 +417,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type get_search_suggestions_request() :: %{String.t() => any()}
+  @type get_search_suggestions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -426,14 +426,14 @@ defmodule AWS.SageMaker do
       create_inference_component_input() :: %{
         optional("RuntimeConfig") => inference_component_runtime_config(),
         optional("Tags") => list(tag()),
-        optional("VariantName") => String.t(),
-        required("EndpointName") => String.t(),
-        required("InferenceComponentName") => String.t(),
+        optional("VariantName") => String.t() | atom(),
+        required("EndpointName") => String.t() | atom(),
+        required("InferenceComponentName") => String.t() | atom(),
         required("Specification") => inference_component_specification()
       }
       
   """
-  @type create_inference_component_input() :: %{String.t() => any()}
+  @type create_inference_component_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -445,18 +445,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type hyperband_strategy_config() :: %{String.t() => any()}
+  @type hyperband_strategy_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_model_card_response() :: %{
-        "ModelCardArn" => String.t()
+        "ModelCardArn" => String.t() | atom()
       }
       
   """
-  @type update_model_card_response() :: %{String.t() => any()}
+  @type update_model_card_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -464,46 +464,46 @@ defmodule AWS.SageMaker do
       
       update_inference_experiment_request() :: %{
         optional("DataStorageConfig") => inference_experiment_data_storage_config(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("ModelVariants") => list(model_variant_config()),
         optional("Schedule") => inference_experiment_schedule(),
         optional("ShadowModeConfig") => shadow_mode_config(),
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type update_inference_experiment_request() :: %{String.t() => any()}
+  @type update_inference_experiment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_hub_content_request() :: %{
-        optional("HubContentDescription") => String.t(),
-        optional("HubContentDisplayName") => String.t(),
-        optional("HubContentMarkdown") => String.t(),
-        optional("HubContentSearchKeywords") => list(String.t()),
+        optional("HubContentDescription") => String.t() | atom(),
+        optional("HubContentDisplayName") => String.t() | atom(),
+        optional("HubContentMarkdown") => String.t() | atom(),
+        optional("HubContentSearchKeywords") => list(String.t() | atom()),
         optional("SupportStatus") => list(any()),
-        required("HubContentName") => String.t(),
+        required("HubContentName") => String.t() | atom(),
         required("HubContentType") => list(any()),
-        required("HubContentVersion") => String.t(),
-        required("HubName") => String.t()
+        required("HubContentVersion") => String.t() | atom(),
+        required("HubName") => String.t() | atom()
       }
       
   """
-  @type update_hub_content_request() :: %{String.t() => any()}
+  @type update_hub_content_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       hub_content_dependency() :: %{
-        "DependencyCopyPath" => String.t(),
-        "DependencyOriginPath" => String.t()
+        "DependencyCopyPath" => String.t() | atom(),
+        "DependencyOriginPath" => String.t() | atom()
       }
       
   """
-  @type hub_content_dependency() :: %{String.t() => any()}
+  @type hub_content_dependency() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -515,19 +515,19 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type inference_component_runtime_config_summary() :: %{String.t() => any()}
+  @type inference_component_runtime_config_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_space_request() :: %{
-        required("DomainId") => String.t(),
-        required("SpaceName") => String.t()
+        required("DomainId") => String.t() | atom(),
+        required("SpaceName") => String.t() | atom()
       }
       
   """
-  @type delete_space_request() :: %{String.t() => any()}
+  @type delete_space_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -538,49 +538,49 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type hyper_parameter_tuning_job_consumed_resources() :: %{String.t() => any()}
+  @type hyper_parameter_tuning_job_consumed_resources() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_transform_job_request() :: %{
-        required("TransformJobName") => String.t()
+        required("TransformJobName") => String.t() | atom()
       }
       
   """
-  @type stop_transform_job_request() :: %{String.t() => any()}
+  @type stop_transform_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_human_task_ui_request() :: %{
-        required("HumanTaskUiName") => String.t()
+        required("HumanTaskUiName") => String.t() | atom()
       }
       
   """
-  @type delete_human_task_ui_request() :: %{String.t() => any()}
+  @type delete_human_task_ui_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       notebook_instance_summary() :: %{
-        "AdditionalCodeRepositories" => list(String.t()),
+        "AdditionalCodeRepositories" => list(String.t() | atom()),
         "CreationTime" => non_neg_integer(),
-        "DefaultCodeRepository" => String.t(),
+        "DefaultCodeRepository" => String.t() | atom(),
         "InstanceType" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
-        "NotebookInstanceArn" => String.t(),
-        "NotebookInstanceLifecycleConfigName" => String.t(),
-        "NotebookInstanceName" => String.t(),
+        "NotebookInstanceArn" => String.t() | atom(),
+        "NotebookInstanceLifecycleConfigName" => String.t() | atom(),
+        "NotebookInstanceName" => String.t() | atom(),
         "NotebookInstanceStatus" => list(any()),
-        "Url" => String.t()
+        "Url" => String.t() | atom()
       }
       
   """
-  @type notebook_instance_summary() :: %{String.t() => any()}
+  @type notebook_instance_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -592,15 +592,15 @@ defmodule AWS.SageMaker do
         optional("LastModifiedTimeAfter") => non_neg_integer(),
         optional("LastModifiedTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
         optional("StatusEquals") => list(any())
       }
       
   """
-  @type list_endpoints_input() :: %{String.t() => any()}
+  @type list_endpoints_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -608,47 +608,47 @@ defmodule AWS.SageMaker do
       
       describe_inference_component_output() :: %{
         "CreationTime" => non_neg_integer(),
-        "EndpointArn" => String.t(),
-        "EndpointName" => String.t(),
-        "FailureReason" => String.t(),
-        "InferenceComponentArn" => String.t(),
-        "InferenceComponentName" => String.t(),
+        "EndpointArn" => String.t() | atom(),
+        "EndpointName" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
+        "InferenceComponentArn" => String.t() | atom(),
+        "InferenceComponentName" => String.t() | atom(),
         "InferenceComponentStatus" => list(any()),
         "LastDeploymentConfig" => inference_component_deployment_config(),
         "LastModifiedTime" => non_neg_integer(),
         "RuntimeConfig" => inference_component_runtime_config_summary(),
         "Specification" => inference_component_specification_summary(),
-        "VariantName" => String.t()
+        "VariantName" => String.t() | atom()
       }
       
   """
-  @type describe_inference_component_output() :: %{String.t() => any()}
+  @type describe_inference_component_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_inference_experiment_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CompletionTime" => non_neg_integer(),
         "CreationTime" => non_neg_integer(),
         "DataStorageConfig" => inference_experiment_data_storage_config(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "EndpointMetadata" => endpoint_metadata(),
-        "KmsKey" => String.t(),
+        "KmsKey" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
         "ModelVariants" => list(model_variant_config_summary()),
-        "Name" => String.t(),
-        "RoleArn" => String.t(),
+        "Name" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
         "Schedule" => inference_experiment_schedule(),
         "ShadowModeConfig" => shadow_mode_config(),
         "Status" => list(any()),
-        "StatusReason" => String.t(),
+        "StatusReason" => String.t() | atom(),
         "Type" => list(any())
       }
       
   """
-  @type describe_inference_experiment_response() :: %{String.t() => any()}
+  @type describe_inference_experiment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -656,40 +656,40 @@ defmodule AWS.SageMaker do
       
       update_user_profile_request() :: %{
         optional("UserSettings") => user_settings(),
-        required("DomainId") => String.t(),
-        required("UserProfileName") => String.t()
+        required("DomainId") => String.t() | atom(),
+        required("UserProfileName") => String.t() | atom()
       }
       
   """
-  @type update_user_profile_request() :: %{String.t() => any()}
+  @type update_user_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       metric_data() :: %{
-        "MetricName" => String.t(),
+        "MetricName" => String.t() | atom(),
         "Timestamp" => non_neg_integer(),
         "Value" => float()
       }
       
   """
-  @type metric_data() :: %{String.t() => any()}
+  @type metric_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_devices_request() :: %{
-        optional("DeviceFleetName") => String.t(),
+        optional("DeviceFleetName") => String.t() | atom(),
         optional("LatestHeartbeatAfter") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("ModelName") => String.t(),
-        optional("NextToken") => String.t()
+        optional("ModelName") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_devices_request() :: %{String.t() => any()}
+  @type list_devices_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -700,18 +700,18 @@ defmodule AWS.SageMaker do
         "CreationTime" => non_neg_integer(),
         "DataCaptureConfig" => data_capture_config(),
         "EnableNetworkIsolation" => boolean(),
-        "EndpointConfigArn" => String.t(),
-        "EndpointConfigName" => String.t(),
-        "ExecutionRoleArn" => String.t(),
+        "EndpointConfigArn" => String.t() | atom(),
+        "EndpointConfigName" => String.t() | atom(),
+        "ExecutionRoleArn" => String.t() | atom(),
         "ExplainerConfig" => explainer_config(),
-        "KmsKeyId" => String.t(),
+        "KmsKeyId" => String.t() | atom(),
         "ProductionVariants" => list(production_variant()),
         "ShadowProductionVariants" => list(production_variant()),
         "VpcConfig" => vpc_config()
       }
       
   """
-  @type describe_endpoint_config_output() :: %{String.t() => any()}
+  @type describe_endpoint_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -723,13 +723,13 @@ defmodule AWS.SageMaker do
         optional("DefaultSpaceSettings") => default_space_settings(),
         optional("DefaultUserSettings") => user_settings(),
         optional("DomainSettingsForUpdate") => domain_settings_for_update(),
-        optional("SubnetIds") => list(String.t()),
+        optional("SubnetIds") => list(String.t() | atom()),
         optional("TagPropagation") => list(any()),
-        required("DomainId") => String.t()
+        required("DomainId") => String.t() | atom()
       }
       
   """
-  @type update_domain_request() :: %{String.t() => any()}
+  @type update_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -742,7 +742,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type resolved_attributes() :: %{String.t() => any()}
+  @type resolved_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -750,35 +750,35 @@ defmodule AWS.SageMaker do
       
       training_plan_filter() :: %{
         "Name" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | atom()
       }
       
   """
-  @type training_plan_filter() :: %{String.t() => any()}
+  @type training_plan_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_user_profiles_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "UserProfiles" => list(user_profile_details())
       }
       
   """
-  @type list_user_profiles_response() :: %{String.t() => any()}
+  @type list_user_profiles_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       capacity_reservation() :: %{
-        "Arn" => [String.t()],
+        "Arn" => [String.t() | atom()],
         "Type" => list(any())
       }
       
   """
-  @type capacity_reservation() :: %{String.t() => any()}
+  @type capacity_reservation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -791,7 +791,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type resource_limits() :: %{String.t() => any()}
+  @type resource_limits() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -805,30 +805,30 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type idle_settings() :: %{String.t() => any()}
+  @type idle_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found() :: %{String.t() => any()}
+  @type resource_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ui_config() :: %{
-        "HumanTaskUiArn" => String.t(),
-        "UiTemplateS3Uri" => String.t()
+        "HumanTaskUiArn" => String.t() | atom(),
+        "UiTemplateS3Uri" => String.t() | atom()
       }
       
   """
-  @type ui_config() :: %{String.t() => any()}
+  @type ui_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -836,30 +836,30 @@ defmodule AWS.SageMaker do
       
       describe_processing_job_response() :: %{
         "AppSpecification" => app_specification(),
-        "AutoMLJobArn" => String.t(),
+        "AutoMLJobArn" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
         "Environment" => map(),
-        "ExitMessage" => String.t(),
+        "ExitMessage" => String.t() | atom(),
         "ExperimentConfig" => experiment_config(),
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
-        "MonitoringScheduleArn" => String.t(),
+        "MonitoringScheduleArn" => String.t() | atom(),
         "NetworkConfig" => network_config(),
         "ProcessingEndTime" => non_neg_integer(),
         "ProcessingInputs" => list(processing_input()),
-        "ProcessingJobArn" => String.t(),
-        "ProcessingJobName" => String.t(),
+        "ProcessingJobArn" => String.t() | atom(),
+        "ProcessingJobName" => String.t() | atom(),
         "ProcessingJobStatus" => list(any()),
         "ProcessingOutputConfig" => processing_output_config(),
         "ProcessingResources" => processing_resources(),
         "ProcessingStartTime" => non_neg_integer(),
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | atom(),
         "StoppingCondition" => processing_stopping_condition(),
-        "TrainingJobArn" => String.t()
+        "TrainingJobArn" => String.t() | atom()
       }
       
   """
-  @type describe_processing_job_response() :: %{String.t() => any()}
+  @type describe_processing_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -867,17 +867,17 @@ defmodule AWS.SageMaker do
       
       hub_info() :: %{
         "CreationTime" => non_neg_integer(),
-        "HubArn" => String.t(),
-        "HubDescription" => String.t(),
-        "HubDisplayName" => String.t(),
-        "HubName" => String.t(),
-        "HubSearchKeywords" => list(String.t()),
+        "HubArn" => String.t() | atom(),
+        "HubDescription" => String.t() | atom(),
+        "HubDisplayName" => String.t() | atom(),
+        "HubName" => String.t() | atom(),
+        "HubSearchKeywords" => list(String.t() | atom()),
         "HubStatus" => list(any()),
         "LastModifiedTime" => non_neg_integer()
       }
       
   """
-  @type hub_info() :: %{String.t() => any()}
+  @type hub_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -888,18 +888,20 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type monitoring_stopping_condition() :: %{String.t() => any()}
+  @type monitoring_stopping_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_presigned_mlflow_tracking_server_url_response() :: %{
-        "AuthorizedUrl" => String.t()
+        "AuthorizedUrl" => String.t() | atom()
       }
       
   """
-  @type create_presigned_mlflow_tracking_server_url_response() :: %{String.t() => any()}
+  @type create_presigned_mlflow_tracking_server_url_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -909,21 +911,21 @@ defmodule AWS.SageMaker do
         "CompletionTime" => non_neg_integer(),
         "CreationTime" => non_neg_integer(),
         "EndpointPerformances" => list(endpoint_performance()),
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | atom(),
         "InferenceRecommendations" => list(inference_recommendation()),
         "InputConfig" => recommendation_job_input_config(),
-        "JobArn" => String.t(),
-        "JobDescription" => String.t(),
-        "JobName" => String.t(),
+        "JobArn" => String.t() | atom(),
+        "JobDescription" => String.t() | atom(),
+        "JobName" => String.t() | atom(),
         "JobType" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | atom(),
         "Status" => list(any()),
         "StoppingConditions" => recommendation_job_stopping_conditions()
       }
       
   """
-  @type describe_inference_recommendations_job_response() :: %{String.t() => any()}
+  @type describe_inference_recommendations_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -932,26 +934,26 @@ defmodule AWS.SageMaker do
       monitoring_cluster_config() :: %{
         "InstanceCount" => integer(),
         "InstanceType" => list(any()),
-        "VolumeKmsKeyId" => String.t(),
+        "VolumeKmsKeyId" => String.t() | atom(),
         "VolumeSizeInGB" => integer()
       }
       
   """
-  @type monitoring_cluster_config() :: %{String.t() => any()}
+  @type monitoring_cluster_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       integer_parameter_range() :: %{
-        "MaxValue" => String.t(),
-        "MinValue" => String.t(),
-        "Name" => String.t(),
+        "MaxValue" => String.t() | atom(),
+        "MinValue" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "ScalingType" => list(any())
       }
       
   """
-  @type integer_parameter_range() :: %{String.t() => any()}
+  @type integer_parameter_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -960,14 +962,14 @@ defmodule AWS.SageMaker do
       instance_metadata() :: %{
         "AdditionalEnis" => additional_enis(),
         "CapacityReservation" => capacity_reservation(),
-        "CustomerEni" => [String.t()],
-        "FailureMessage" => [String.t()],
-        "LcsExecutionState" => [String.t()],
-        "NodeLogicalId" => String.t()
+        "CustomerEni" => [String.t() | atom()],
+        "FailureMessage" => [String.t() | atom()],
+        "LcsExecutionState" => [String.t() | atom()],
+        "NodeLogicalId" => String.t() | atom()
       }
       
   """
-  @type instance_metadata() :: %{String.t() => any()}
+  @type instance_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -975,13 +977,13 @@ defmodule AWS.SageMaker do
       
       update_pipeline_execution_request() :: %{
         optional("ParallelismConfiguration") => parallelism_configuration(),
-        optional("PipelineExecutionDescription") => String.t(),
-        optional("PipelineExecutionDisplayName") => String.t(),
-        required("PipelineExecutionArn") => String.t()
+        optional("PipelineExecutionDescription") => String.t() | atom(),
+        optional("PipelineExecutionDisplayName") => String.t() | atom(),
+        required("PipelineExecutionArn") => String.t() | atom()
       }
       
   """
-  @type update_pipeline_execution_request() :: %{String.t() => any()}
+  @type update_pipeline_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -994,18 +996,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type throughput_config_update() :: %{String.t() => any()}
+  @type throughput_config_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_app_image_config_response() :: %{
-        "AppImageConfigArn" => String.t()
+        "AppImageConfigArn" => String.t() | atom()
       }
       
   """
-  @type update_app_image_config_response() :: %{String.t() => any()}
+  @type update_app_image_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1014,11 +1016,11 @@ defmodule AWS.SageMaker do
       create_presigned_mlflow_tracking_server_url_request() :: %{
         optional("ExpiresInSeconds") => integer(),
         optional("SessionExpirationDurationInSeconds") => integer(),
-        required("TrackingServerName") => String.t()
+        required("TrackingServerName") => String.t() | atom()
       }
       
   """
-  @type create_presigned_mlflow_tracking_server_url_request() :: %{String.t() => any()}
+  @type create_presigned_mlflow_tracking_server_url_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1030,7 +1032,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type model_data_quality() :: %{String.t() => any()}
+  @type model_data_quality() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1038,15 +1040,15 @@ defmodule AWS.SageMaker do
       
       experiment_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "DisplayName" => String.t(),
-        "ExperimentArn" => String.t(),
-        "ExperimentName" => String.t(),
+        "DisplayName" => String.t() | atom(),
+        "ExperimentArn" => String.t() | atom(),
+        "ExperimentName" => String.t() | atom(),
         "ExperimentSource" => experiment_source(),
         "LastModifiedTime" => non_neg_integer()
       }
       
   """
-  @type experiment_summary() :: %{String.t() => any()}
+  @type experiment_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1054,34 +1056,34 @@ defmodule AWS.SageMaker do
       
       describe_pipeline_definition_for_execution_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "PipelineDefinition" => String.t()
+        "PipelineDefinition" => String.t() | atom()
       }
       
   """
-  @type describe_pipeline_definition_for_execution_response() :: %{String.t() => any()}
+  @type describe_pipeline_definition_for_execution_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       labeling_job_output() :: %{
-        "FinalActiveLearningModelArn" => String.t(),
-        "OutputDatasetS3Uri" => String.t()
+        "FinalActiveLearningModelArn" => String.t() | atom(),
+        "OutputDatasetS3Uri" => String.t() | atom()
       }
       
   """
-  @type labeling_job_output() :: %{String.t() => any()}
+  @type labeling_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_card_export_artifacts() :: %{
-        "S3ExportArtifacts" => String.t()
+        "S3ExportArtifacts" => String.t() | atom()
       }
       
   """
-  @type model_card_export_artifacts() :: %{String.t() => any()}
+  @type model_card_export_artifacts() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1089,11 +1091,11 @@ defmodule AWS.SageMaker do
       
       list_partner_apps_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_partner_apps_request() :: %{String.t() => any()}
+  @type list_partner_apps_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1102,27 +1104,27 @@ defmodule AWS.SageMaker do
       list_model_explainability_job_definitions_request() :: %{
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
-        optional("EndpointName") => String.t(),
+        optional("EndpointName") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_model_explainability_job_definitions_request() :: %{String.t() => any()}
+  @type list_model_explainability_job_definitions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_app_image_config_response() :: %{
-        "AppImageConfigArn" => String.t()
+        "AppImageConfigArn" => String.t() | atom()
       }
       
   """
-  @type create_app_image_config_response() :: %{String.t() => any()}
+  @type create_app_image_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1130,17 +1132,17 @@ defmodule AWS.SageMaker do
       
       edge_deployment_plan_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "DeviceFleetName" => String.t(),
+        "DeviceFleetName" => String.t() | atom(),
         "EdgeDeploymentFailed" => integer(),
         "EdgeDeploymentPending" => integer(),
-        "EdgeDeploymentPlanArn" => String.t(),
-        "EdgeDeploymentPlanName" => String.t(),
+        "EdgeDeploymentPlanArn" => String.t() | atom(),
+        "EdgeDeploymentPlanName" => String.t() | atom(),
         "EdgeDeploymentSuccess" => integer(),
         "LastModifiedTime" => non_neg_integer()
       }
       
   """
-  @type edge_deployment_plan_summary() :: %{String.t() => any()}
+  @type edge_deployment_plan_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1153,7 +1155,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type auto_ml_resolved_attributes() :: %{String.t() => any()}
+  @type auto_ml_resolved_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1161,35 +1163,35 @@ defmodule AWS.SageMaker do
       
       model_variant_config() :: %{
         "InfrastructureConfig" => model_infrastructure_config(),
-        "ModelName" => String.t(),
-        "VariantName" => String.t()
+        "ModelName" => String.t() | atom(),
+        "VariantName" => String.t() | atom()
       }
       
   """
-  @type model_variant_config() :: %{String.t() => any()}
+  @type model_variant_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_model_output() :: %{
-        "ModelArn" => String.t()
+        "ModelArn" => String.t() | atom()
       }
       
   """
-  @type create_model_output() :: %{String.t() => any()}
+  @type create_model_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       trial_component_source() :: %{
-        "SourceArn" => String.t(),
-        "SourceType" => String.t()
+        "SourceArn" => String.t() | atom(),
+        "SourceType" => String.t() | atom()
       }
       
   """
-  @type trial_component_source() :: %{String.t() => any()}
+  @type trial_component_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1200,42 +1202,42 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type environment_parameter_ranges() :: %{String.t() => any()}
+  @type environment_parameter_ranges() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_pipelines_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "PipelineSummaries" => list(pipeline_summary())
       }
       
   """
-  @type list_pipelines_response() :: %{String.t() => any()}
+  @type list_pipelines_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_card_security_config() :: %{
-        "KmsKeyId" => String.t()
+        "KmsKeyId" => String.t() | atom()
       }
       
   """
-  @type model_card_security_config() :: %{String.t() => any()}
+  @type model_card_security_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_workforces_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Workforces" => list(workforce())
       }
       
   """
-  @type list_workforces_response() :: %{String.t() => any()}
+  @type list_workforces_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1246,7 +1248,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type capture_option() :: %{String.t() => any()}
+  @type capture_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1254,13 +1256,13 @@ defmodule AWS.SageMaker do
       
       cfn_create_template_provider() :: %{
         "Parameters" => list(cfn_stack_create_parameter()),
-        "RoleARN" => String.t(),
-        "TemplateName" => String.t(),
-        "TemplateURL" => String.t()
+        "RoleARN" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
+        "TemplateURL" => String.t() | atom()
       }
       
   """
-  @type cfn_create_template_provider() :: %{String.t() => any()}
+  @type cfn_create_template_provider() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1268,34 +1270,34 @@ defmodule AWS.SageMaker do
       
       detach_cluster_node_volume_response() :: %{
         "AttachTime" => non_neg_integer(),
-        "ClusterArn" => String.t(),
-        "DeviceName" => String.t(),
-        "NodeId" => String.t(),
+        "ClusterArn" => String.t() | atom(),
+        "DeviceName" => String.t() | atom(),
+        "NodeId" => String.t() | atom(),
         "Status" => list(any()),
-        "VolumeId" => String.t()
+        "VolumeId" => String.t() | atom()
       }
       
   """
-  @type detach_cluster_node_volume_response() :: %{String.t() => any()}
+  @type detach_cluster_node_volume_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_inference_component_output() :: %{
-        "InferenceComponentArn" => String.t()
+        "InferenceComponentArn" => String.t() | atom()
       }
       
   """
-  @type update_inference_component_output() :: %{String.t() => any()}
+  @type update_inference_component_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_app_image_config_response() :: %{
-        "AppImageConfigArn" => String.t(),
-        "AppImageConfigName" => String.t(),
+        "AppImageConfigArn" => String.t() | atom(),
+        "AppImageConfigName" => String.t() | atom(),
         "CodeEditorAppImageConfig" => code_editor_app_image_config(),
         "CreationTime" => non_neg_integer(),
         "JupyterLabAppImageConfig" => jupyter_lab_app_image_config(),
@@ -1304,7 +1306,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type describe_app_image_config_response() :: %{String.t() => any()}
+  @type describe_app_image_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1313,16 +1315,16 @@ defmodule AWS.SageMaker do
       create_app_request() :: %{
         optional("RecoveryMode") => boolean(),
         optional("ResourceSpec") => resource_spec(),
-        optional("SpaceName") => String.t(),
+        optional("SpaceName") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        optional("UserProfileName") => String.t(),
-        required("AppName") => String.t(),
+        optional("UserProfileName") => String.t() | atom(),
+        required("AppName") => String.t() | atom(),
         required("AppType") => list(any()),
-        required("DomainId") => String.t()
+        required("DomainId") => String.t() | atom()
       }
       
   """
-  @type create_app_request() :: %{String.t() => any()}
+  @type create_app_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1333,42 +1335,42 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type monitoring_alert_actions() :: %{String.t() => any()}
+  @type monitoring_alert_actions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_pipeline_response() :: %{
-        "PipelineArn" => String.t(),
+        "PipelineArn" => String.t() | atom(),
         "PipelineVersionId" => float()
       }
       
   """
-  @type update_pipeline_response() :: %{String.t() => any()}
+  @type update_pipeline_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       import_hub_content_response() :: %{
-        "HubArn" => String.t(),
-        "HubContentArn" => String.t()
+        "HubArn" => String.t() | atom(),
+        "HubContentArn" => String.t() | atom()
       }
       
   """
-  @type import_hub_content_response() :: %{String.t() => any()}
+  @type import_hub_content_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ui_template() :: %{
-        "Content" => String.t()
+        "Content" => String.t() | atom()
       }
       
   """
-  @type ui_template() :: %{String.t() => any()}
+  @type ui_template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1378,38 +1380,38 @@ defmodule AWS.SageMaker do
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
         optional("IncludeNodeLogicalIds") => boolean(),
-        optional("InstanceGroupNameContains") => String.t(),
+        optional("InstanceGroupNameContains") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
-        required("ClusterName") => String.t()
+        required("ClusterName") => String.t() | atom()
       }
       
   """
-  @type list_cluster_nodes_request() :: %{String.t() => any()}
+  @type list_cluster_nodes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       git_config_for_update() :: %{
-        "SecretArn" => String.t()
+        "SecretArn" => String.t() | atom()
       }
       
   """
-  @type git_config_for_update() :: %{String.t() => any()}
+  @type git_config_for_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_image_response() :: %{
-        "ImageArn" => String.t()
+        "ImageArn" => String.t() | atom()
       }
       
   """
-  @type create_image_response() :: %{String.t() => any()}
+  @type create_image_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1417,12 +1419,12 @@ defmodule AWS.SageMaker do
       
       add_association_request() :: %{
         optional("AssociationType") => list(any()),
-        required("DestinationArn") => String.t(),
-        required("SourceArn") => String.t()
+        required("DestinationArn") => String.t() | atom(),
+        required("SourceArn") => String.t() | atom()
       }
       
   """
-  @type add_association_request() :: %{String.t() => any()}
+  @type add_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1448,7 +1450,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type pipeline_execution_step_metadata() :: %{String.t() => any()}
+  @type pipeline_execution_step_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1461,7 +1463,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type bias() :: %{String.t() => any()}
+  @type bias() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1473,7 +1475,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type drift_check_model_data_quality() :: %{String.t() => any()}
+  @type drift_check_model_data_quality() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1483,36 +1485,36 @@ defmodule AWS.SageMaker do
         optional("CreatedAfter") => non_neg_integer(),
         optional("CreatedBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("PipelineNamePrefix") => String.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PipelineNamePrefix") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_pipelines_request() :: %{String.t() => any()}
+  @type list_pipelines_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_model_package_input() :: %{
-        required("ModelPackageName") => String.t()
+        required("ModelPackageName") => String.t() | atom()
       }
       
   """
-  @type describe_model_package_input() :: %{String.t() => any()}
+  @type describe_model_package_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       categorical_parameter_range_specification() :: %{
-        "Values" => list(String.t())
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type categorical_parameter_range_specification() :: %{String.t() => any()}
+  @type categorical_parameter_range_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1520,29 +1522,29 @@ defmodule AWS.SageMaker do
       
       describe_hub_content_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "DocumentSchemaVersion" => String.t(),
-        "FailureReason" => String.t(),
-        "HubArn" => String.t(),
-        "HubContentArn" => String.t(),
+        "DocumentSchemaVersion" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
+        "HubArn" => String.t() | atom(),
+        "HubContentArn" => String.t() | atom(),
         "HubContentDependencies" => list(hub_content_dependency()),
-        "HubContentDescription" => String.t(),
-        "HubContentDisplayName" => String.t(),
-        "HubContentDocument" => String.t(),
-        "HubContentMarkdown" => String.t(),
-        "HubContentName" => String.t(),
-        "HubContentSearchKeywords" => list(String.t()),
+        "HubContentDescription" => String.t() | atom(),
+        "HubContentDisplayName" => String.t() | atom(),
+        "HubContentDocument" => String.t() | atom(),
+        "HubContentMarkdown" => String.t() | atom(),
+        "HubContentName" => String.t() | atom(),
+        "HubContentSearchKeywords" => list(String.t() | atom()),
         "HubContentStatus" => list(any()),
         "HubContentType" => list(any()),
-        "HubContentVersion" => String.t(),
-        "HubName" => String.t(),
+        "HubContentVersion" => String.t() | atom(),
+        "HubName" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
-        "ReferenceMinVersion" => String.t(),
-        "SageMakerPublicHubContentArn" => String.t(),
+        "ReferenceMinVersion" => String.t() | atom(),
+        "SageMakerPublicHubContentArn" => String.t() | atom(),
         "SupportStatus" => list(any())
       }
       
   """
-  @type describe_hub_content_response() :: %{String.t() => any()}
+  @type describe_hub_content_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1553,32 +1555,32 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type processing_resources() :: %{String.t() => any()}
+  @type processing_resources() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_inference_recommendations_job_request() :: %{
-        required("JobName") => String.t()
+        required("JobName") => String.t() | atom()
       }
       
   """
-  @type describe_inference_recommendations_job_request() :: %{String.t() => any()}
+  @type describe_inference_recommendations_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       metadata_properties() :: %{
-        "CommitId" => String.t(),
-        "GeneratedBy" => String.t(),
-        "ProjectId" => String.t(),
-        "Repository" => String.t()
+        "CommitId" => String.t() | atom(),
+        "GeneratedBy" => String.t() | atom(),
+        "ProjectId" => String.t() | atom(),
+        "Repository" => String.t() | atom()
       }
       
   """
-  @type metadata_properties() :: %{String.t() => any()}
+  @type metadata_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1590,27 +1592,27 @@ defmodule AWS.SageMaker do
         optional("LastModifiedTimeAfter") => non_neg_integer(),
         optional("LastModifiedTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
-        optional("OptimizationContains") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("OptimizationContains") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
         optional("StatusEquals") => list(any())
       }
       
   """
-  @type list_optimization_jobs_request() :: %{String.t() => any()}
+  @type list_optimization_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_training_plan_response() :: %{
-        "TrainingPlanArn" => String.t()
+        "TrainingPlanArn" => String.t() | atom()
       }
       
   """
-  @type create_training_plan_response() :: %{String.t() => any()}
+  @type create_training_plan_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1626,20 +1628,20 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type search_training_plan_offerings_request() :: %{String.t() => any()}
+  @type search_training_plan_offerings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_storage_config() :: %{
-        "KmsKeyId" => String.t(),
-        "ResolvedOutputS3Uri" => String.t(),
-        "S3Uri" => String.t()
+        "KmsKeyId" => String.t() | atom(),
+        "ResolvedOutputS3Uri" => String.t() | atom(),
+        "S3Uri" => String.t() | atom()
       }
       
   """
-  @type s3_storage_config() :: %{String.t() => any()}
+  @type s3_storage_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1647,12 +1649,12 @@ defmodule AWS.SageMaker do
       
       create_human_task_ui_request() :: %{
         optional("Tags") => list(tag()),
-        required("HumanTaskUiName") => String.t(),
+        required("HumanTaskUiName") => String.t() | atom(),
         required("UiTemplate") => ui_template()
       }
       
   """
-  @type create_human_task_ui_request() :: %{String.t() => any()}
+  @type create_human_task_ui_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1662,12 +1664,12 @@ defmodule AWS.SageMaker do
         "CreationTime" => non_neg_integer(),
         "LastModifiedTime" => non_neg_integer(),
         "StudioLifecycleConfigAppType" => list(any()),
-        "StudioLifecycleConfigArn" => String.t(),
-        "StudioLifecycleConfigName" => String.t()
+        "StudioLifecycleConfigArn" => String.t() | atom(),
+        "StudioLifecycleConfigName" => String.t() | atom()
       }
       
   """
-  @type studio_lifecycle_config_details() :: %{String.t() => any()}
+  @type studio_lifecycle_config_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1676,27 +1678,27 @@ defmodule AWS.SageMaker do
       search_request() :: %{
         optional("CrossAccountFilterOption") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SearchExpression") => search_expression(),
-        optional("SortBy") => String.t(),
+        optional("SortBy") => String.t() | atom(),
         optional("SortOrder") => list(any()),
         optional("VisibilityConditions") => list(visibility_conditions()),
         required("Resource") => list(any())
       }
       
   """
-  @type search_request() :: %{String.t() => any()}
+  @type search_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_cluster_response() :: %{
-        "ClusterArn" => String.t(),
-        "ClusterName" => String.t(),
+        "ClusterArn" => String.t() | atom(),
+        "ClusterName" => String.t() | atom(),
         "ClusterStatus" => list(any()),
         "CreationTime" => non_neg_integer(),
-        "FailureMessage" => String.t(),
+        "FailureMessage" => String.t() | atom(),
         "InstanceGroups" => list(cluster_instance_group_details()),
         "NodeProvisioningMode" => list(any()),
         "NodeRecovery" => list(any()),
@@ -1706,18 +1708,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type describe_cluster_response() :: %{String.t() => any()}
+  @type describe_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_action_request() :: %{
-        required("ActionName") => String.t()
+        required("ActionName") => String.t() | atom()
       }
       
   """
-  @type delete_action_request() :: %{String.t() => any()}
+  @type delete_action_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1726,25 +1728,25 @@ defmodule AWS.SageMaker do
       describe_model_package_group_output() :: %{
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
-        "ModelPackageGroupArn" => String.t(),
-        "ModelPackageGroupDescription" => String.t(),
-        "ModelPackageGroupName" => String.t(),
+        "ModelPackageGroupArn" => String.t() | atom(),
+        "ModelPackageGroupDescription" => String.t() | atom(),
+        "ModelPackageGroupName" => String.t() | atom(),
         "ModelPackageGroupStatus" => list(any())
       }
       
   """
-  @type describe_model_package_group_output() :: %{String.t() => any()}
+  @type describe_model_package_group_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_processing_job_request() :: %{
-        required("ProcessingJobName") => String.t()
+        required("ProcessingJobName") => String.t() | atom()
       }
       
   """
-  @type describe_processing_job_request() :: %{String.t() => any()}
+  @type describe_processing_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1757,7 +1759,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type blue_green_update_policy() :: %{String.t() => any()}
+  @type blue_green_update_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1765,40 +1767,40 @@ defmodule AWS.SageMaker do
       
       compute_quota_target() :: %{
         "FairShareWeight" => integer(),
-        "TeamName" => String.t()
+        "TeamName" => String.t() | atom()
       }
       
   """
-  @type compute_quota_target() :: %{String.t() => any()}
+  @type compute_quota_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       unified_studio_settings() :: %{
-        "DomainAccountId" => String.t(),
-        "DomainId" => String.t(),
-        "DomainRegion" => String.t(),
-        "EnvironmentId" => String.t(),
-        "ProjectId" => String.t(),
-        "ProjectS3Path" => String.t(),
-        "SingleSignOnApplicationArn" => String.t(),
+        "DomainAccountId" => String.t() | atom(),
+        "DomainId" => String.t() | atom(),
+        "DomainRegion" => String.t() | atom(),
+        "EnvironmentId" => String.t() | atom(),
+        "ProjectId" => String.t() | atom(),
+        "ProjectS3Path" => String.t() | atom(),
+        "SingleSignOnApplicationArn" => String.t() | atom(),
         "StudioWebPortalAccess" => list(any())
       }
       
   """
-  @type unified_studio_settings() :: %{String.t() => any()}
+  @type unified_studio_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_session_request() :: %{
-        required("ResourceIdentifier") => String.t()
+        required("ResourceIdentifier") => String.t() | atom()
       }
       
   """
-  @type start_session_request() :: %{String.t() => any()}
+  @type start_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1807,12 +1809,12 @@ defmodule AWS.SageMaker do
       create_studio_lifecycle_config_request() :: %{
         optional("Tags") => list(tag()),
         required("StudioLifecycleConfigAppType") => list(any()),
-        required("StudioLifecycleConfigContent") => String.t(),
-        required("StudioLifecycleConfigName") => String.t()
+        required("StudioLifecycleConfigContent") => String.t() | atom(),
+        required("StudioLifecycleConfigName") => String.t() | atom()
       }
       
   """
-  @type create_studio_lifecycle_config_request() :: %{String.t() => any()}
+  @type create_studio_lifecycle_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1823,7 +1825,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type source_algorithm_specification() :: %{String.t() => any()}
+  @type source_algorithm_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1836,7 +1838,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type network_config() :: %{String.t() => any()}
+  @type network_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1844,41 +1846,41 @@ defmodule AWS.SageMaker do
       
       describe_flow_definition_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "FailureReason" => String.t(),
-        "FlowDefinitionArn" => String.t(),
-        "FlowDefinitionName" => String.t(),
+        "FailureReason" => String.t() | atom(),
+        "FlowDefinitionArn" => String.t() | atom(),
+        "FlowDefinitionName" => String.t() | atom(),
         "FlowDefinitionStatus" => list(any()),
         "HumanLoopActivationConfig" => human_loop_activation_config(),
         "HumanLoopConfig" => human_loop_config(),
         "HumanLoopRequestSource" => human_loop_request_source(),
         "OutputConfig" => flow_definition_output_config(),
-        "RoleArn" => String.t()
+        "RoleArn" => String.t() | atom()
       }
       
   """
-  @type describe_flow_definition_response() :: %{String.t() => any()}
+  @type describe_flow_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_studio_lifecycle_config_request() :: %{
-        required("StudioLifecycleConfigName") => String.t()
+        required("StudioLifecycleConfigName") => String.t() | atom()
       }
       
   """
-  @type delete_studio_lifecycle_config_request() :: %{String.t() => any()}
+  @type delete_studio_lifecycle_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_feature_group_request() :: %{
-        required("FeatureGroupName") => String.t()
+        required("FeatureGroupName") => String.t() | atom()
       }
       
   """
-  @type delete_feature_group_request() :: %{String.t() => any()}
+  @type delete_feature_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1886,13 +1888,13 @@ defmodule AWS.SageMaker do
       
       update_cluster_software_request() :: %{
         optional("DeploymentConfig") => deployment_configuration(),
-        optional("ImageId") => String.t(),
+        optional("ImageId") => String.t() | atom(),
         optional("InstanceGroups") => list(update_cluster_software_instance_group_specification()),
-        required("ClusterName") => String.t()
+        required("ClusterName") => String.t() | atom()
       }
       
   """
-  @type update_cluster_software_request() :: %{String.t() => any()}
+  @type update_cluster_software_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1903,20 +1905,20 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type online_store_config_update() :: %{String.t() => any()}
+  @type online_store_config_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       pipeline_definition_s3_location() :: %{
-        "Bucket" => String.t(),
-        "ObjectKey" => String.t(),
-        "VersionId" => String.t()
+        "Bucket" => String.t() | atom(),
+        "ObjectKey" => String.t() | atom(),
+        "VersionId" => String.t() | atom()
       }
       
   """
-  @type pipeline_definition_s3_location() :: %{String.t() => any()}
+  @type pipeline_definition_s3_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1929,33 +1931,33 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type phase() :: %{String.t() => any()}
+  @type phase() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_inference_experiment_response() :: %{
-        "InferenceExperimentArn" => String.t()
+        "InferenceExperimentArn" => String.t() | atom()
       }
       
   """
-  @type create_inference_experiment_response() :: %{String.t() => any()}
+  @type create_inference_experiment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_project_input() :: %{
-        optional("ProjectDescription") => String.t(),
+        optional("ProjectDescription") => String.t() | atom(),
         optional("ServiceCatalogProvisioningUpdateDetails") => service_catalog_provisioning_update_details(),
         optional("Tags") => list(tag()),
         optional("TemplateProvidersToUpdate") => list(update_template_provider()),
-        required("ProjectName") => String.t()
+        required("ProjectName") => String.t() | atom()
       }
       
   """
-  @type update_project_input() :: %{String.t() => any()}
+  @type update_project_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1966,7 +1968,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type optimization_job_model_source() :: %{String.t() => any()}
+  @type optimization_job_model_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1974,46 +1976,46 @@ defmodule AWS.SageMaker do
       
       additional_s3_data_source() :: %{
         "CompressionType" => list(any()),
-        "ETag" => String.t(),
+        "ETag" => String.t() | atom(),
         "S3DataType" => list(any()),
-        "S3Uri" => String.t()
+        "S3Uri" => String.t() | atom()
       }
       
   """
-  @type additional_s3_data_source() :: %{String.t() => any()}
+  @type additional_s3_data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_digests() :: %{
-        "ArtifactDigest" => String.t()
+        "ArtifactDigest" => String.t() | atom()
       }
       
   """
-  @type model_digests() :: %{String.t() => any()}
+  @type model_digests() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_partner_app_presigned_url_response() :: %{
-        "Url" => String.t()
+        "Url" => String.t() | atom()
       }
       
   """
-  @type create_partner_app_presigned_url_response() :: %{String.t() => any()}
+  @type create_partner_app_presigned_url_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_mlflow_tracking_server_request() :: %{
-        required("TrackingServerName") => String.t()
+        required("TrackingServerName") => String.t() | atom()
       }
       
   """
-  @type start_mlflow_tracking_server_request() :: %{String.t() => any()}
+  @type start_mlflow_tracking_server_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2024,63 +2026,63 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type get_search_suggestions_response() :: %{String.t() => any()}
+  @type get_search_suggestions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_partner_apps_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Summaries" => list(partner_app_summary())
       }
       
   """
-  @type list_partner_apps_response() :: %{String.t() => any()}
+  @type list_partner_apps_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       oidc_member_definition() :: %{
-        "Groups" => list(String.t())
+        "Groups" => list(String.t() | atom())
       }
       
   """
-  @type oidc_member_definition() :: %{String.t() => any()}
+  @type oidc_member_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       time_series_config() :: %{
-        "GroupingAttributeNames" => list(String.t()),
-        "ItemIdentifierAttributeName" => String.t(),
-        "TargetAttributeName" => String.t(),
-        "TimestampAttributeName" => String.t()
+        "GroupingAttributeNames" => list(String.t() | atom()),
+        "ItemIdentifierAttributeName" => String.t() | atom(),
+        "TargetAttributeName" => String.t() | atom(),
+        "TimestampAttributeName" => String.t() | atom()
       }
       
   """
-  @type time_series_config() :: %{String.t() => any()}
+  @type time_series_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       redshift_dataset_definition() :: %{
-        "ClusterId" => String.t(),
-        "ClusterRoleArn" => String.t(),
-        "Database" => String.t(),
-        "DbUser" => String.t(),
-        "KmsKeyId" => String.t(),
+        "ClusterId" => String.t() | atom(),
+        "ClusterRoleArn" => String.t() | atom(),
+        "Database" => String.t() | atom(),
+        "DbUser" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
         "OutputCompression" => list(any()),
         "OutputFormat" => list(any()),
-        "OutputS3Uri" => String.t(),
-        "QueryString" => String.t()
+        "OutputS3Uri" => String.t() | atom(),
+        "QueryString" => String.t() | atom()
       }
       
   """
-  @type redshift_dataset_definition() :: %{String.t() => any()}
+  @type redshift_dataset_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2088,15 +2090,15 @@ defmodule AWS.SageMaker do
       
       project_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "ProjectArn" => String.t(),
-        "ProjectDescription" => String.t(),
-        "ProjectId" => String.t(),
-        "ProjectName" => String.t(),
+        "ProjectArn" => String.t() | atom(),
+        "ProjectDescription" => String.t() | atom(),
+        "ProjectId" => String.t() | atom(),
+        "ProjectName" => String.t() | atom(),
         "ProjectStatus" => list(any())
       }
       
   """
-  @type project_summary() :: %{String.t() => any()}
+  @type project_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2104,18 +2106,18 @@ defmodule AWS.SageMaker do
       
       shadow_model_variant_config() :: %{
         "SamplingPercentage" => integer(),
-        "ShadowModelVariantName" => String.t()
+        "ShadowModelVariantName" => String.t() | atom()
       }
       
   """
-  @type shadow_model_variant_config() :: %{String.t() => any()}
+  @type shadow_model_variant_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_trial_component_request() :: %{
-        optional("DisplayName") => String.t(),
+        optional("DisplayName") => String.t() | atom(),
         optional("EndTime") => non_neg_integer(),
         optional("InputArtifacts") => map(),
         optional("MetadataProperties") => metadata_properties(),
@@ -2124,11 +2126,11 @@ defmodule AWS.SageMaker do
         optional("StartTime") => non_neg_integer(),
         optional("Status") => trial_component_status(),
         optional("Tags") => list(tag()),
-        required("TrialComponentName") => String.t()
+        required("TrialComponentName") => String.t() | atom()
       }
       
   """
-  @type create_trial_component_request() :: %{String.t() => any()}
+  @type create_trial_component_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2137,13 +2139,13 @@ defmodule AWS.SageMaker do
       stop_inference_experiment_request() :: %{
         optional("DesiredModelVariants") => list(model_variant_config()),
         optional("DesiredState") => list(any()),
-        optional("Reason") => String.t(),
+        optional("Reason") => String.t() | atom(),
         required("ModelVariantActions") => map(),
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type stop_inference_experiment_request() :: %{String.t() => any()}
+  @type stop_inference_experiment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2155,8 +2157,8 @@ defmodule AWS.SageMaker do
         optional("LastModifiedTimeAfter") => non_neg_integer(),
         optional("LastModifiedTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
         optional("StatusEquals") => list(any()),
@@ -2164,20 +2166,20 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type list_inference_experiments_request() :: %{String.t() => any()}
+  @type list_inference_experiments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_cluster_node_request() :: %{
-        optional("NodeId") => String.t(),
-        optional("NodeLogicalId") => String.t(),
-        required("ClusterName") => String.t()
+        optional("NodeId") => String.t() | atom(),
+        optional("NodeLogicalId") => String.t() | atom(),
+        required("ClusterName") => String.t() | atom()
       }
       
   """
-  @type describe_cluster_node_request() :: %{String.t() => any()}
+  @type describe_cluster_node_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2185,46 +2187,46 @@ defmodule AWS.SageMaker do
       
       list_cluster_scheduler_configs_response() :: %{
         "ClusterSchedulerConfigSummaries" => list(cluster_scheduler_config_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_cluster_scheduler_configs_response() :: %{String.t() => any()}
+  @type list_cluster_scheduler_configs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_file_system() :: %{
-        "S3Uri" => String.t()
+        "S3Uri" => String.t() | atom()
       }
       
   """
-  @type s3_file_system() :: %{String.t() => any()}
+  @type s3_file_system() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       clarify_shap_baseline_config() :: %{
-        "MimeType" => String.t(),
-        "ShapBaseline" => String.t(),
-        "ShapBaselineUri" => String.t()
+        "MimeType" => String.t() | atom(),
+        "ShapBaseline" => String.t() | atom(),
+        "ShapBaselineUri" => String.t() | atom()
       }
       
   """
-  @type clarify_shap_baseline_config() :: %{String.t() => any()}
+  @type clarify_shap_baseline_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       processing_feature_store_output() :: %{
-        "FeatureGroupName" => String.t()
+        "FeatureGroupName" => String.t() | atom()
       }
       
   """
-  @type processing_feature_store_output() :: %{String.t() => any()}
+  @type processing_feature_store_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2232,27 +2234,27 @@ defmodule AWS.SageMaker do
       
       pipeline_version_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "LastExecutionPipelineExecutionArn" => String.t(),
-        "PipelineArn" => String.t(),
-        "PipelineVersionDescription" => String.t(),
-        "PipelineVersionDisplayName" => String.t(),
+        "LastExecutionPipelineExecutionArn" => String.t() | atom(),
+        "PipelineArn" => String.t() | atom(),
+        "PipelineVersionDescription" => String.t() | atom(),
+        "PipelineVersionDisplayName" => String.t() | atom(),
         "PipelineVersionId" => float()
       }
       
   """
-  @type pipeline_version_summary() :: %{String.t() => any()}
+  @type pipeline_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_lineage_group_policy_response() :: %{
-        "LineageGroupArn" => String.t(),
-        "ResourcePolicy" => String.t()
+        "LineageGroupArn" => String.t() | atom(),
+        "ResourcePolicy" => String.t() | atom()
       }
       
   """
-  @type get_lineage_group_policy_response() :: %{String.t() => any()}
+  @type get_lineage_group_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2263,12 +2265,12 @@ defmodule AWS.SageMaker do
         "InstanceConfigs" => list(hyper_parameter_tuning_instance_config()),
         "InstanceCount" => integer(),
         "InstanceType" => list(any()),
-        "VolumeKmsKeyId" => String.t(),
+        "VolumeKmsKeyId" => String.t() | atom(),
         "VolumeSizeInGB" => integer()
       }
       
   """
-  @type hyper_parameter_tuning_resource_config() :: %{String.t() => any()}
+  @type hyper_parameter_tuning_resource_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2276,16 +2278,16 @@ defmodule AWS.SageMaker do
       
       create_hub_content_presigned_urls_request() :: %{
         optional("AccessConfig") => presigned_url_access_config(),
-        optional("HubContentVersion") => String.t(),
+        optional("HubContentVersion") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("HubContentName") => String.t(),
+        optional("NextToken") => String.t() | atom(),
+        required("HubContentName") => String.t() | atom(),
         required("HubContentType") => list(any()),
-        required("HubName") => String.t()
+        required("HubName") => String.t() | atom()
       }
       
   """
-  @type create_hub_content_presigned_urls_request() :: %{String.t() => any()}
+  @type create_hub_content_presigned_urls_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2296,18 +2298,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type s3_presign() :: %{String.t() => any()}
+  @type s3_presign() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       annotation_consolidation_config() :: %{
-        "AnnotationConsolidationLambdaArn" => String.t()
+        "AnnotationConsolidationLambdaArn" => String.t() | atom()
       }
       
   """
-  @type annotation_consolidation_config() :: %{String.t() => any()}
+  @type annotation_consolidation_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2320,14 +2322,14 @@ defmodule AWS.SageMaker do
         optional("MaxResults") => integer(),
         optional("ModifiedTimeAfter") => non_neg_integer(),
         optional("ModifiedTimeBefore") => non_neg_integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_studio_lifecycle_configs_request() :: %{String.t() => any()}
+  @type list_studio_lifecycle_configs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2336,81 +2338,81 @@ defmodule AWS.SageMaker do
       kernel_gateway_app_settings() :: %{
         "CustomImages" => list(custom_image()),
         "DefaultResourceSpec" => resource_spec(),
-        "LifecycleConfigArns" => list(String.t())
+        "LifecycleConfigArns" => list(String.t() | atom())
       }
       
   """
-  @type kernel_gateway_app_settings() :: %{String.t() => any()}
+  @type kernel_gateway_app_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_context_request() :: %{
-        required("ContextName") => String.t()
+        required("ContextName") => String.t() | atom()
       }
       
   """
-  @type delete_context_request() :: %{String.t() => any()}
+  @type delete_context_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       kernel_spec() :: %{
-        "DisplayName" => String.t(),
-        "Name" => String.t()
+        "DisplayName" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type kernel_spec() :: %{String.t() => any()}
+  @type kernel_spec() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_auto_ml_job_response() :: %{
-        "AutoMLJobArn" => String.t()
+        "AutoMLJobArn" => String.t() | atom()
       }
       
   """
-  @type create_auto_ml_job_response() :: %{String.t() => any()}
+  @type create_auto_ml_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       derived_information() :: %{
-        "DerivedDataInputConfig" => String.t()
+        "DerivedDataInputConfig" => String.t() | atom()
       }
       
   """
-  @type derived_information() :: %{String.t() => any()}
+  @type derived_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_sharding_config() :: %{
-        "Image" => String.t(),
+        "Image" => String.t() | atom(),
         "OverrideEnvironment" => map()
       }
       
   """
-  @type model_sharding_config() :: %{String.t() => any()}
+  @type model_sharding_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       data_quality_baseline_config() :: %{
-        "BaseliningJobName" => String.t(),
+        "BaseliningJobName" => String.t() | atom(),
         "ConstraintsResource" => monitoring_constraints_resource(),
         "StatisticsResource" => monitoring_statistics_resource()
       }
       
   """
-  @type data_quality_baseline_config() :: %{String.t() => any()}
+  @type data_quality_baseline_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2421,30 +2423,30 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type shuffle_config() :: %{String.t() => any()}
+  @type shuffle_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_cluster_response() :: %{
-        "ClusterArn" => String.t()
+        "ClusterArn" => String.t() | atom()
       }
       
   """
-  @type create_cluster_response() :: %{String.t() => any()}
+  @type create_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_notebook_instances_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "NotebookInstances" => list(notebook_instance_summary())
       }
       
   """
-  @type list_notebook_instances_output() :: %{String.t() => any()}
+  @type list_notebook_instances_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2455,19 +2457,19 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type event_details() :: %{String.t() => any()}
+  @type event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_file_system_config() :: %{
-        "MountPath" => String.t(),
-        "S3Uri" => String.t()
+        "MountPath" => String.t() | atom(),
+        "S3Uri" => String.t() | atom()
       }
       
   """
-  @type s3_file_system_config() :: %{String.t() => any()}
+  @type s3_file_system_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2477,17 +2479,17 @@ defmodule AWS.SageMaker do
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("ModelCardExportJobNameContains") => String.t(),
+        optional("ModelCardExportJobNameContains") => String.t() | atom(),
         optional("ModelCardVersion") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
         optional("StatusEquals") => list(any()),
-        required("ModelCardName") => String.t()
+        required("ModelCardName") => String.t() | atom()
       }
       
   """
-  @type list_model_card_export_jobs_request() :: %{String.t() => any()}
+  @type list_model_card_export_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2496,24 +2498,24 @@ defmodule AWS.SageMaker do
       model_card_summary() :: %{
         "CreationTime" => non_neg_integer(),
         "LastModifiedTime" => non_neg_integer(),
-        "ModelCardArn" => String.t(),
-        "ModelCardName" => String.t(),
+        "ModelCardArn" => String.t() | atom(),
+        "ModelCardName" => String.t() | atom(),
         "ModelCardStatus" => list(any())
       }
       
   """
-  @type model_card_summary() :: %{String.t() => any()}
+  @type model_card_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_model_card_export_job_response() :: %{
-        "ModelCardExportJobArn" => String.t()
+        "ModelCardExportJobArn" => String.t() | atom()
       }
       
   """
-  @type create_model_card_export_job_response() :: %{String.t() => any()}
+  @type create_model_card_export_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2524,7 +2526,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type space_app_lifecycle_management() :: %{String.t() => any()}
+  @type space_app_lifecycle_management() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2536,33 +2538,33 @@ defmodule AWS.SageMaker do
         "InvocationStartTime" => non_neg_integer(),
         "Metrics" => recommendation_metrics(),
         "ModelConfiguration" => model_configuration(),
-        "RecommendationId" => String.t()
+        "RecommendationId" => String.t() | atom()
       }
       
   """
-  @type inference_recommendation() :: %{String.t() => any()}
+  @type inference_recommendation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_pipeline_response() :: %{
-        "PipelineArn" => String.t()
+        "PipelineArn" => String.t() | atom()
       }
       
   """
-  @type create_pipeline_response() :: %{String.t() => any()}
+  @type create_pipeline_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_monitoring_schedule_request() :: %{
-        required("MonitoringScheduleName") => String.t()
+        required("MonitoringScheduleName") => String.t() | atom()
       }
       
   """
-  @type start_monitoring_schedule_request() :: %{String.t() => any()}
+  @type start_monitoring_schedule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2571,57 +2573,57 @@ defmodule AWS.SageMaker do
       feature_definition() :: %{
         "CollectionConfig" => list(),
         "CollectionType" => list(any()),
-        "FeatureName" => String.t(),
+        "FeatureName" => String.t() | atom(),
         "FeatureType" => list(any())
       }
       
   """
-  @type feature_definition() :: %{String.t() => any()}
+  @type feature_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       property_name_query() :: %{
-        "PropertyNameHint" => String.t()
+        "PropertyNameHint" => String.t() | atom()
       }
       
   """
-  @type property_name_query() :: %{String.t() => any()}
+  @type property_name_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       partner_app_maintenance_config() :: %{
-        "MaintenanceWindowStart" => String.t()
+        "MaintenanceWindowStart" => String.t() | atom()
       }
       
   """
-  @type partner_app_maintenance_config() :: %{String.t() => any()}
+  @type partner_app_maintenance_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_inference_component_input() :: %{
-        required("InferenceComponentName") => String.t()
+        required("InferenceComponentName") => String.t() | atom()
       }
       
   """
-  @type describe_inference_component_input() :: %{String.t() => any()}
+  @type describe_inference_component_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       trial_component_status() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | atom(),
         "PrimaryStatus" => list(any())
       }
       
   """
-  @type trial_component_status() :: %{String.t() => any()}
+  @type trial_component_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2631,23 +2633,23 @@ defmodule AWS.SageMaker do
         optional("CodeEditorAppImageConfig") => code_editor_app_image_config(),
         optional("JupyterLabAppImageConfig") => jupyter_lab_app_image_config(),
         optional("KernelGatewayImageConfig") => kernel_gateway_image_config(),
-        required("AppImageConfigName") => String.t()
+        required("AppImageConfigName") => String.t() | atom()
       }
       
   """
-  @type update_app_image_config_request() :: %{String.t() => any()}
+  @type update_app_image_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       optimization_vpc_config() :: %{
-        "SecurityGroupIds" => list(String.t()),
-        "Subnets" => list(String.t())
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "Subnets" => list(String.t() | atom())
       }
       
   """
-  @type optimization_vpc_config() :: %{String.t() => any()}
+  @type optimization_vpc_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2659,30 +2661,30 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type training_image_config() :: %{String.t() => any()}
+  @type training_image_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_mlflow_tracking_server_response() :: %{
-        "TrackingServerArn" => String.t()
+        "TrackingServerArn" => String.t() | atom()
       }
       
   """
-  @type delete_mlflow_tracking_server_response() :: %{String.t() => any()}
+  @type delete_mlflow_tracking_server_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       priority_class() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Weight" => integer()
       }
       
   """
-  @type priority_class() :: %{String.t() => any()}
+  @type priority_class() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2691,13 +2693,13 @@ defmodule AWS.SageMaker do
       list_stage_devices_request() :: %{
         optional("ExcludeDevicesDeployedInOtherStage") => boolean(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("EdgeDeploymentPlanName") => String.t(),
-        required("StageName") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("EdgeDeploymentPlanName") => String.t() | atom(),
+        required("StageName") => String.t() | atom()
       }
       
   """
-  @type list_stage_devices_request() :: %{String.t() => any()}
+  @type list_stage_devices_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2705,37 +2707,37 @@ defmodule AWS.SageMaker do
       
       lineage_group_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "DisplayName" => String.t(),
+        "DisplayName" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
-        "LineageGroupArn" => String.t(),
-        "LineageGroupName" => String.t()
+        "LineageGroupArn" => String.t() | atom(),
+        "LineageGroupName" => String.t() | atom()
       }
       
   """
-  @type lineage_group_summary() :: %{String.t() => any()}
+  @type lineage_group_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_inference_experiment_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type describe_inference_experiment_request() :: %{String.t() => any()}
+  @type describe_inference_experiment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       experiment_source() :: %{
-        "SourceArn" => String.t(),
-        "SourceType" => String.t()
+        "SourceArn" => String.t() | atom(),
+        "SourceType" => String.t() | atom()
       }
       
   """
-  @type experiment_source() :: %{String.t() => any()}
+  @type experiment_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2747,18 +2749,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type f_sx_lustre_config() :: %{String.t() => any()}
+  @type f_sx_lustre_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_image_version_response() :: %{
-        "ImageVersionArn" => String.t()
+        "ImageVersionArn" => String.t() | atom()
       }
       
   """
-  @type update_image_version_response() :: %{String.t() => any()}
+  @type update_image_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2768,30 +2770,30 @@ defmodule AWS.SageMaker do
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("MaxSchemaVersion") => String.t(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("MaxSchemaVersion") => String.t() | atom(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
         required("HubContentType") => list(any()),
-        required("HubName") => String.t()
+        required("HubName") => String.t() | atom()
       }
       
   """
-  @type list_hub_contents_request() :: %{String.t() => any()}
+  @type list_hub_contents_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_data_capture_config() :: %{
-        "DestinationS3Uri" => String.t(),
+        "DestinationS3Uri" => String.t() | atom(),
         "GenerateInferenceId" => boolean(),
-        "KmsKeyId" => String.t()
+        "KmsKeyId" => String.t() | atom()
       }
       
   """
-  @type batch_data_capture_config() :: %{String.t() => any()}
+  @type batch_data_capture_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2799,22 +2801,22 @@ defmodule AWS.SageMaker do
       
       list_monitoring_schedules_response() :: %{
         "MonitoringScheduleSummaries" => list(monitoring_schedule_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_monitoring_schedules_response() :: %{String.t() => any()}
+  @type list_monitoring_schedules_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_algorithm_input() :: %{
-        required("AlgorithmName") => String.t()
+        required("AlgorithmName") => String.t() | atom()
       }
       
   """
-  @type delete_algorithm_input() :: %{String.t() => any()}
+  @type delete_algorithm_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2822,22 +2824,22 @@ defmodule AWS.SageMaker do
       
       hub_content_info() :: %{
         "CreationTime" => non_neg_integer(),
-        "DocumentSchemaVersion" => String.t(),
-        "HubContentArn" => String.t(),
-        "HubContentDescription" => String.t(),
-        "HubContentDisplayName" => String.t(),
-        "HubContentName" => String.t(),
-        "HubContentSearchKeywords" => list(String.t()),
+        "DocumentSchemaVersion" => String.t() | atom(),
+        "HubContentArn" => String.t() | atom(),
+        "HubContentDescription" => String.t() | atom(),
+        "HubContentDisplayName" => String.t() | atom(),
+        "HubContentName" => String.t() | atom(),
+        "HubContentSearchKeywords" => list(String.t() | atom()),
         "HubContentStatus" => list(any()),
         "HubContentType" => list(any()),
-        "HubContentVersion" => String.t(),
+        "HubContentVersion" => String.t() | atom(),
         "OriginalCreationTime" => non_neg_integer(),
-        "SageMakerPublicHubContentArn" => String.t(),
+        "SageMakerPublicHubContentArn" => String.t() | atom(),
         "SupportStatus" => list(any())
       }
       
   """
-  @type hub_content_info() :: %{String.t() => any()}
+  @type hub_content_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2845,12 +2847,12 @@ defmodule AWS.SageMaker do
       
       list_model_metadata_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SearchExpression") => model_metadata_search_expression()
       }
       
   """
-  @type list_model_metadata_request() :: %{String.t() => any()}
+  @type list_model_metadata_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2858,27 +2860,27 @@ defmodule AWS.SageMaker do
       
       auto_ml_security_config() :: %{
         "EnableInterContainerTrafficEncryption" => boolean(),
-        "VolumeKmsKeyId" => String.t(),
+        "VolumeKmsKeyId" => String.t() | atom(),
         "VpcConfig" => vpc_config()
       }
       
   """
-  @type auto_ml_security_config() :: %{String.t() => any()}
+  @type auto_ml_security_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_metadata_summary() :: %{
-        "Domain" => String.t(),
-        "Framework" => String.t(),
-        "FrameworkVersion" => String.t(),
-        "Model" => String.t(),
-        "Task" => String.t()
+        "Domain" => String.t() | atom(),
+        "Framework" => String.t() | atom(),
+        "FrameworkVersion" => String.t() | atom(),
+        "Model" => String.t() | atom(),
+        "Task" => String.t() | atom()
       }
       
   """
-  @type model_metadata_summary() :: %{String.t() => any()}
+  @type model_metadata_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2891,34 +2893,34 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type throughput_config() :: %{String.t() => any()}
+  @type throughput_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       source_ip_config() :: %{
-        "Cidrs" => list(String.t())
+        "Cidrs" => list(String.t() | atom())
       }
       
   """
-  @type source_ip_config() :: %{String.t() => any()}
+  @type source_ip_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       pipeline_execution_summary() :: %{
-        "PipelineExecutionArn" => String.t(),
-        "PipelineExecutionDescription" => String.t(),
-        "PipelineExecutionDisplayName" => String.t(),
-        "PipelineExecutionFailureReason" => String.t(),
+        "PipelineExecutionArn" => String.t() | atom(),
+        "PipelineExecutionDescription" => String.t() | atom(),
+        "PipelineExecutionDisplayName" => String.t() | atom(),
+        "PipelineExecutionFailureReason" => String.t() | atom(),
         "PipelineExecutionStatus" => list(any()),
         "StartTime" => non_neg_integer()
       }
       
   """
-  @type pipeline_execution_summary() :: %{String.t() => any()}
+  @type pipeline_execution_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2930,15 +2932,15 @@ defmodule AWS.SageMaker do
         optional("LastModifiedTimeAfter") => non_neg_integer(),
         optional("LastModifiedTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
         optional("StatusEquals") => list(any())
       }
       
   """
-  @type list_transform_jobs_request() :: %{String.t() => any()}
+  @type list_transform_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2949,18 +2951,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type candidate_generation_config() :: %{String.t() => any()}
+  @type candidate_generation_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       alarm() :: %{
-        "AlarmName" => String.t()
+        "AlarmName" => String.t() | atom()
       }
       
   """
-  @type alarm() :: %{String.t() => any()}
+  @type alarm() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2968,11 +2970,11 @@ defmodule AWS.SageMaker do
       
       algorithm_validation_specification() :: %{
         "ValidationProfiles" => list(algorithm_validation_profile()),
-        "ValidationRole" => String.t()
+        "ValidationRole" => String.t() | atom()
       }
       
   """
-  @type algorithm_validation_specification() :: %{String.t() => any()}
+  @type algorithm_validation_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2980,12 +2982,12 @@ defmodule AWS.SageMaker do
       
       auto_ml_container_definition() :: %{
         "Environment" => map(),
-        "Image" => String.t(),
-        "ModelDataUrl" => String.t()
+        "Image" => String.t() | atom(),
+        "ModelDataUrl" => String.t() | atom()
       }
       
   """
-  @type auto_ml_container_definition() :: %{String.t() => any()}
+  @type auto_ml_container_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2997,55 +2999,55 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type target_tracking_scaling_policy_configuration() :: %{String.t() => any()}
+  @type target_tracking_scaling_policy_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_domain_response() :: %{
-        "DomainArn" => String.t()
+        "DomainArn" => String.t() | atom()
       }
       
   """
-  @type update_domain_response() :: %{String.t() => any()}
+  @type update_domain_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_in_use() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_in_use() :: %{String.t() => any()}
+  @type resource_in_use() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_inference_recommendations_job_request() :: %{
-        required("JobName") => String.t()
+        required("JobName") => String.t() | atom()
       }
       
   """
-  @type stop_inference_recommendations_job_request() :: %{String.t() => any()}
+  @type stop_inference_recommendations_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_action_response() :: %{
-        "ActionArn" => String.t(),
-        "ActionName" => String.t(),
-        "ActionType" => String.t(),
+        "ActionArn" => String.t() | atom(),
+        "ActionName" => String.t() | atom(),
+        "ActionType" => String.t() | atom(),
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
-        "LineageGroupArn" => String.t(),
+        "LineageGroupArn" => String.t() | atom(),
         "MetadataProperties" => metadata_properties(),
         "Properties" => map(),
         "Source" => action_source(),
@@ -3053,7 +3055,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type describe_action_response() :: %{String.t() => any()}
+  @type describe_action_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3061,11 +3063,11 @@ defmodule AWS.SageMaker do
       
       list_models_output() :: %{
         "Models" => list(model_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_models_output() :: %{String.t() => any()}
+  @type list_models_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3077,7 +3079,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type scaling_policy_objective() :: %{String.t() => any()}
+  @type scaling_policy_objective() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3085,23 +3087,23 @@ defmodule AWS.SageMaker do
       
       model_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "ModelArn" => String.t(),
-        "ModelName" => String.t()
+        "ModelArn" => String.t() | atom(),
+        "ModelName" => String.t() | atom()
       }
       
   """
-  @type model_summary() :: %{String.t() => any()}
+  @type model_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       training_repository_auth_config() :: %{
-        "TrainingRepositoryCredentialsProviderArn" => String.t()
+        "TrainingRepositoryCredentialsProviderArn" => String.t() | atom()
       }
       
   """
-  @type training_repository_auth_config() :: %{String.t() => any()}
+  @type training_repository_auth_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3109,11 +3111,11 @@ defmodule AWS.SageMaker do
       
       list_model_card_versions_response() :: %{
         "ModelCardVersionSummaryList" => list(model_card_version_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_model_card_versions_response() :: %{String.t() => any()}
+  @type list_model_card_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3122,29 +3124,29 @@ defmodule AWS.SageMaker do
       trial_component() :: %{
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
-        "DisplayName" => String.t(),
+        "DisplayName" => String.t() | atom(),
         "EndTime" => non_neg_integer(),
         "InputArtifacts" => map(),
         "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
-        "LineageGroupArn" => String.t(),
+        "LineageGroupArn" => String.t() | atom(),
         "MetadataProperties" => metadata_properties(),
         "Metrics" => list(trial_component_metric_summary()),
         "OutputArtifacts" => map(),
         "Parameters" => map(),
         "Parents" => list(parent()),
-        "RunName" => String.t(),
+        "RunName" => String.t() | atom(),
         "Source" => trial_component_source(),
         "SourceDetail" => trial_component_source_detail(),
         "StartTime" => non_neg_integer(),
         "Status" => trial_component_status(),
         "Tags" => list(tag()),
-        "TrialComponentArn" => String.t(),
-        "TrialComponentName" => String.t()
+        "TrialComponentArn" => String.t() | atom(),
+        "TrialComponentName" => String.t() | atom()
       }
       
   """
-  @type trial_component() :: %{String.t() => any()}
+  @type trial_component() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3152,12 +3154,12 @@ defmodule AWS.SageMaker do
       
       batch_delete_cluster_node_logical_ids_error() :: %{
         "Code" => list(any()),
-        "Message" => String.t(),
-        "NodeLogicalId" => String.t()
+        "Message" => String.t() | atom(),
+        "NodeLogicalId" => String.t() | atom()
       }
       
   """
-  @type batch_delete_cluster_node_logical_ids_error() :: %{String.t() => any()}
+  @type batch_delete_cluster_node_logical_ids_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3170,7 +3172,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type deployment_config() :: %{String.t() => any()}
+  @type deployment_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3178,11 +3180,11 @@ defmodule AWS.SageMaker do
       
       environment_config_details() :: %{
         "FSxLustreConfig" => f_sx_lustre_config(),
-        "S3OutputPath" => String.t()
+        "S3OutputPath" => String.t() | atom()
       }
       
   """
-  @type environment_config_details() :: %{String.t() => any()}
+  @type environment_config_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3190,17 +3192,17 @@ defmodule AWS.SageMaker do
       
       processing_job_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "ExitMessage" => String.t(),
-        "FailureReason" => String.t(),
+        "ExitMessage" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
         "ProcessingEndTime" => non_neg_integer(),
-        "ProcessingJobArn" => String.t(),
-        "ProcessingJobName" => String.t(),
+        "ProcessingJobArn" => String.t() | atom(),
+        "ProcessingJobName" => String.t() | atom(),
         "ProcessingJobStatus" => list(any())
       }
       
   """
-  @type processing_job_summary() :: %{String.t() => any()}
+  @type processing_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3211,18 +3213,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type kendra_settings() :: %{String.t() => any()}
+  @type kendra_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_data_quality_job_definition_response() :: %{
-        "JobDefinitionArn" => String.t()
+        "JobDefinitionArn" => String.t() | atom()
       }
       
   """
-  @type create_data_quality_job_definition_response() :: %{String.t() => any()}
+  @type create_data_quality_job_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3233,19 +3235,19 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type labeling_job_data_attributes() :: %{String.t() => any()}
+  @type labeling_job_data_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_trial_request() :: %{
-        optional("DisplayName") => String.t(),
-        required("TrialName") => String.t()
+        optional("DisplayName") => String.t() | atom(),
+        required("TrialName") => String.t() | atom()
       }
       
   """
-  @type update_trial_request() :: %{String.t() => any()}
+  @type update_trial_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3253,11 +3255,11 @@ defmodule AWS.SageMaker do
       
       list_model_metadata_response() :: %{
         "ModelMetadataSummaries" => list(model_metadata_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_model_metadata_response() :: %{String.t() => any()}
+  @type list_model_metadata_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3266,21 +3268,21 @@ defmodule AWS.SageMaker do
       inference_recommendations_job() :: %{
         "CompletionTime" => non_neg_integer(),
         "CreationTime" => non_neg_integer(),
-        "FailureReason" => String.t(),
-        "JobArn" => String.t(),
-        "JobDescription" => String.t(),
-        "JobName" => String.t(),
+        "FailureReason" => String.t() | atom(),
+        "JobArn" => String.t() | atom(),
+        "JobDescription" => String.t() | atom(),
+        "JobName" => String.t() | atom(),
         "JobType" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
-        "ModelName" => String.t(),
-        "ModelPackageVersionArn" => String.t(),
-        "RoleArn" => String.t(),
-        "SamplePayloadUrl" => String.t(),
+        "ModelName" => String.t() | atom(),
+        "ModelPackageVersionArn" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "SamplePayloadUrl" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type inference_recommendations_job() :: %{String.t() => any()}
+  @type inference_recommendations_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3292,30 +3294,30 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type scaling_policy_metric() :: %{String.t() => any()}
+  @type scaling_policy_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_app_image_config_request() :: %{
-        required("AppImageConfigName") => String.t()
+        required("AppImageConfigName") => String.t() | atom()
       }
       
   """
-  @type describe_app_image_config_request() :: %{String.t() => any()}
+  @type describe_app_image_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_edge_deployment_stage_request() :: %{
-        required("EdgeDeploymentPlanName") => String.t(),
-        required("StageName") => String.t()
+        required("EdgeDeploymentPlanName") => String.t() | atom(),
+        required("StageName") => String.t() | atom()
       }
       
   """
-  @type delete_edge_deployment_stage_request() :: %{String.t() => any()}
+  @type delete_edge_deployment_stage_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3324,35 +3326,35 @@ defmodule AWS.SageMaker do
       pipeline_execution() :: %{
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | atom(),
         "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
         "ParallelismConfiguration" => parallelism_configuration(),
-        "PipelineArn" => String.t(),
-        "PipelineExecutionArn" => String.t(),
-        "PipelineExecutionDescription" => String.t(),
-        "PipelineExecutionDisplayName" => String.t(),
+        "PipelineArn" => String.t() | atom(),
+        "PipelineExecutionArn" => String.t() | atom(),
+        "PipelineExecutionDescription" => String.t() | atom(),
+        "PipelineExecutionDisplayName" => String.t() | atom(),
         "PipelineExecutionStatus" => list(any()),
         "PipelineExperimentConfig" => pipeline_experiment_config(),
         "PipelineParameters" => list(parameter()),
-        "PipelineVersionDisplayName" => String.t(),
+        "PipelineVersionDisplayName" => String.t() | atom(),
         "PipelineVersionId" => float(),
         "SelectiveExecutionConfig" => selective_execution_config()
       }
       
   """
-  @type pipeline_execution() :: %{String.t() => any()}
+  @type pipeline_execution() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       f_sx_lustre_file_system() :: %{
-        "FileSystemId" => String.t()
+        "FileSystemId" => String.t() | atom()
       }
       
   """
-  @type f_sx_lustre_file_system() :: %{String.t() => any()}
+  @type f_sx_lustre_file_system() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3365,11 +3367,11 @@ defmodule AWS.SageMaker do
         "DatapointsToAlert" => integer(),
         "EvaluationPeriod" => integer(),
         "LastModifiedTime" => non_neg_integer(),
-        "MonitoringAlertName" => String.t()
+        "MonitoringAlertName" => String.t() | atom()
       }
       
   """
-  @type monitoring_alert_summary() :: %{String.t() => any()}
+  @type monitoring_alert_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3382,17 +3384,17 @@ defmodule AWS.SageMaker do
         "LastModifiedTime" => non_neg_integer(),
         "LastRunTime" => non_neg_integer(),
         "ParallelismConfiguration" => parallelism_configuration(),
-        "PipelineArn" => String.t(),
-        "PipelineDescription" => String.t(),
-        "PipelineDisplayName" => String.t(),
-        "PipelineName" => String.t(),
+        "PipelineArn" => String.t() | atom(),
+        "PipelineDescription" => String.t() | atom(),
+        "PipelineDisplayName" => String.t() | atom(),
+        "PipelineName" => String.t() | atom(),
         "PipelineStatus" => list(any()),
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | atom(),
         "Tags" => list(tag())
       }
       
   """
-  @type pipeline() :: %{String.t() => any()}
+  @type pipeline() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3400,26 +3402,26 @@ defmodule AWS.SageMaker do
       
       list_inference_recommendations_job_steps_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Status") => list(any()),
         optional("StepType") => list(any()),
-        required("JobName") => String.t()
+        required("JobName") => String.t() | atom()
       }
       
   """
-  @type list_inference_recommendations_job_steps_request() :: %{String.t() => any()}
+  @type list_inference_recommendations_job_steps_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_tags_input() :: %{
-        required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type delete_tags_input() :: %{String.t() => any()}
+  @type delete_tags_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3433,7 +3435,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type parameter_ranges() :: %{String.t() => any()}
+  @type parameter_ranges() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3442,16 +3444,16 @@ defmodule AWS.SageMaker do
       list_model_quality_job_definitions_request() :: %{
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
-        optional("EndpointName") => String.t(),
+        optional("EndpointName") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_model_quality_job_definitions_request() :: %{String.t() => any()}
+  @type list_model_quality_job_definitions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3459,11 +3461,11 @@ defmodule AWS.SageMaker do
       
       list_inference_recommendations_jobs_response() :: %{
         "InferenceRecommendationsJobs" => list(inference_recommendations_job()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_inference_recommendations_jobs_response() :: %{String.t() => any()}
+  @type list_inference_recommendations_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3476,18 +3478,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type traffic_pattern() :: %{String.t() => any()}
+  @type traffic_pattern() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_model_package_output() :: %{
-        "ModelPackageArn" => String.t()
+        "ModelPackageArn" => String.t() | atom()
       }
       
   """
-  @type update_model_package_output() :: %{String.t() => any()}
+  @type update_model_package_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3496,12 +3498,12 @@ defmodule AWS.SageMaker do
       batch_add_cluster_nodes_error() :: %{
         "ErrorCode" => list(any()),
         "FailedCount" => integer(),
-        "InstanceGroupName" => String.t(),
-        "Message" => String.t()
+        "InstanceGroupName" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type batch_add_cluster_nodes_error() :: %{String.t() => any()}
+  @type batch_add_cluster_nodes_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3511,47 +3513,47 @@ defmodule AWS.SageMaker do
         "AnnotationConsolidationConfig" => annotation_consolidation_config(),
         "MaxConcurrentTaskCount" => integer(),
         "NumberOfHumanWorkersPerDataObject" => integer(),
-        "PreHumanTaskLambdaArn" => String.t(),
+        "PreHumanTaskLambdaArn" => String.t() | atom(),
         "PublicWorkforceTaskPrice" => public_workforce_task_price(),
         "TaskAvailabilityLifetimeInSeconds" => integer(),
-        "TaskDescription" => String.t(),
-        "TaskKeywords" => list(String.t()),
+        "TaskDescription" => String.t() | atom(),
+        "TaskKeywords" => list(String.t() | atom()),
         "TaskTimeLimitInSeconds" => integer(),
-        "TaskTitle" => String.t(),
+        "TaskTitle" => String.t() | atom(),
         "UiConfig" => ui_config(),
-        "WorkteamArn" => String.t()
+        "WorkteamArn" => String.t() | atom()
       }
       
   """
-  @type human_task_config() :: %{String.t() => any()}
+  @type human_task_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_data_quality_job_definition_request() :: %{
-        required("JobDefinitionName") => String.t()
+        required("JobDefinitionName") => String.t() | atom()
       }
       
   """
-  @type delete_data_quality_job_definition_request() :: %{String.t() => any()}
+  @type delete_data_quality_job_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_candidates_for_auto_ml_job_request() :: %{
-        optional("CandidateNameEquals") => String.t(),
+        optional("CandidateNameEquals") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
         optional("StatusEquals") => list(any()),
-        required("AutoMLJobName") => String.t()
+        required("AutoMLJobName") => String.t() | atom()
       }
       
   """
-  @type list_candidates_for_auto_ml_job_request() :: %{String.t() => any()}
+  @type list_candidates_for_auto_ml_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3567,46 +3569,46 @@ defmodule AWS.SageMaker do
   ## Example:
       
       optimization_job_output_config() :: %{
-        "KmsKeyId" => String.t(),
-        "S3OutputLocation" => String.t()
+        "KmsKeyId" => String.t() | atom(),
+        "S3OutputLocation" => String.t() | atom()
       }
       
   """
-  @type optimization_job_output_config() :: %{String.t() => any()}
+  @type optimization_job_output_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_pipeline_execution_steps_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "PipelineExecutionSteps" => list(pipeline_execution_step())
       }
       
   """
-  @type list_pipeline_execution_steps_response() :: %{String.t() => any()}
+  @type list_pipeline_execution_steps_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_endpoint_input() :: %{
-        required("EndpointName") => String.t()
+        required("EndpointName") => String.t() | atom()
       }
       
   """
-  @type describe_endpoint_input() :: %{String.t() => any()}
+  @type describe_endpoint_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_trial_response() :: %{
-        "TrialArn" => String.t()
+        "TrialArn" => String.t() | atom()
       }
       
   """
-  @type delete_trial_response() :: %{String.t() => any()}
+  @type delete_trial_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3614,13 +3616,13 @@ defmodule AWS.SageMaker do
       
       model_variant_config_summary() :: %{
         "InfrastructureConfig" => model_infrastructure_config(),
-        "ModelName" => String.t(),
+        "ModelName" => String.t() | atom(),
         "Status" => list(any()),
-        "VariantName" => String.t()
+        "VariantName" => String.t() | atom()
       }
       
   """
-  @type model_variant_config_summary() :: %{String.t() => any()}
+  @type model_variant_config_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3631,12 +3633,12 @@ defmodule AWS.SageMaker do
         optional("ExcludeRetainedVariantProperties") => list(variant_property()),
         optional("RetainAllVariantProperties") => boolean(),
         optional("RetainDeploymentConfig") => boolean(),
-        required("EndpointConfigName") => String.t(),
-        required("EndpointName") => String.t()
+        required("EndpointConfigName") => String.t() | atom(),
+        required("EndpointName") => String.t() | atom()
       }
       
   """
-  @type update_endpoint_input() :: %{String.t() => any()}
+  @type update_endpoint_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3647,41 +3649,41 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type search_training_plan_offerings_response() :: %{String.t() => any()}
+  @type search_training_plan_offerings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_space_request() :: %{
-        required("DomainId") => String.t(),
-        required("SpaceName") => String.t()
+        required("DomainId") => String.t() | atom(),
+        required("SpaceName") => String.t() | atom()
       }
       
   """
-  @type describe_space_request() :: %{String.t() => any()}
+  @type describe_space_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_experiment_response() :: %{
-        "ExperimentArn" => String.t()
+        "ExperimentArn" => String.t() | atom()
       }
       
   """
-  @type create_experiment_response() :: %{String.t() => any()}
+  @type create_experiment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_endpoint_config_input() :: %{
-        required("EndpointConfigName") => String.t()
+        required("EndpointConfigName") => String.t() | atom()
       }
       
   """
-  @type describe_endpoint_config_input() :: %{String.t() => any()}
+  @type describe_endpoint_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3689,14 +3691,14 @@ defmodule AWS.SageMaker do
       
       flow_definition_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "FailureReason" => String.t(),
-        "FlowDefinitionArn" => String.t(),
-        "FlowDefinitionName" => String.t(),
+        "FailureReason" => String.t() | atom(),
+        "FlowDefinitionArn" => String.t() | atom(),
+        "FlowDefinitionName" => String.t() | atom(),
         "FlowDefinitionStatus" => list(any())
       }
       
   """
-  @type flow_definition_summary() :: %{String.t() => any()}
+  @type flow_definition_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3704,11 +3706,11 @@ defmodule AWS.SageMaker do
       
       update_code_repository_input() :: %{
         optional("GitConfig") => git_config_for_update(),
-        required("CodeRepositoryName") => String.t()
+        required("CodeRepositoryName") => String.t() | atom()
       }
       
   """
-  @type update_code_repository_input() :: %{String.t() => any()}
+  @type update_code_repository_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3721,20 +3723,20 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type parameter_range() :: %{String.t() => any()}
+  @type parameter_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       custom_image() :: %{
-        "AppImageConfigName" => String.t(),
-        "ImageName" => String.t(),
+        "AppImageConfigName" => String.t() | atom(),
+        "ImageName" => String.t() | atom(),
         "ImageVersionNumber" => integer()
       }
       
   """
-  @type custom_image() :: %{String.t() => any()}
+  @type custom_image() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3751,11 +3753,11 @@ defmodule AWS.SageMaker do
       
       list_data_quality_job_definitions_response() :: %{
         "JobDefinitionSummaries" => list(monitoring_job_definition_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_data_quality_job_definitions_response() :: %{String.t() => any()}
+  @type list_data_quality_job_definitions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3766,7 +3768,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type explainer_config() :: %{String.t() => any()}
+  @type explainer_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3778,7 +3780,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type custom_posix_user_config() :: %{String.t() => any()}
+  @type custom_posix_user_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3792,34 +3794,34 @@ defmodule AWS.SageMaker do
         "SupportedTuningJobObjectiveMetrics" => list(hyper_parameter_tuning_job_objective()),
         "SupportsDistributedTraining" => boolean(),
         "TrainingChannels" => list(channel_specification()),
-        "TrainingImage" => String.t(),
-        "TrainingImageDigest" => String.t()
+        "TrainingImage" => String.t() | atom(),
+        "TrainingImageDigest" => String.t() | atom()
       }
       
   """
-  @type training_specification() :: %{String.t() => any()}
+  @type training_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_user_profile_response() :: %{
-        "UserProfileArn" => String.t()
+        "UserProfileArn" => String.t() | atom()
       }
       
   """
-  @type update_user_profile_response() :: %{String.t() => any()}
+  @type update_user_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_lineage_group_request() :: %{
-        required("LineageGroupName") => String.t()
+        required("LineageGroupName") => String.t() | atom()
       }
       
   """
-  @type describe_lineage_group_request() :: %{String.t() => any()}
+  @type describe_lineage_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3831,45 +3833,45 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type hyper_parameter_tuning_job_warm_start_config() :: %{String.t() => any()}
+  @type hyper_parameter_tuning_job_warm_start_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_studio_lifecycle_config_request() :: %{
-        required("StudioLifecycleConfigName") => String.t()
+        required("StudioLifecycleConfigName") => String.t() | atom()
       }
       
   """
-  @type describe_studio_lifecycle_config_request() :: %{String.t() => any()}
+  @type describe_studio_lifecycle_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       processing_s3_input() :: %{
-        "LocalPath" => String.t(),
+        "LocalPath" => String.t() | atom(),
         "S3CompressionType" => list(any()),
         "S3DataDistributionType" => list(any()),
         "S3DataType" => list(any()),
         "S3InputMode" => list(any()),
-        "S3Uri" => String.t()
+        "S3Uri" => String.t() | atom()
       }
       
   """
-  @type processing_s3_input() :: %{String.t() => any()}
+  @type processing_s3_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_trial_component_response() :: %{
-        "TrialComponentArn" => String.t()
+        "TrialComponentArn" => String.t() | atom()
       }
       
   """
-  @type create_trial_component_response() :: %{String.t() => any()}
+  @type create_trial_component_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3880,7 +3882,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type auto_ml_compute_config() :: %{String.t() => any()}
+  @type auto_ml_compute_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3889,12 +3891,12 @@ defmodule AWS.SageMaker do
       create_endpoint_input() :: %{
         optional("DeploymentConfig") => deployment_config(),
         optional("Tags") => list(tag()),
-        required("EndpointConfigName") => String.t(),
-        required("EndpointName") => String.t()
+        required("EndpointConfigName") => String.t() | atom(),
+        required("EndpointName") => String.t() | atom()
       }
       
   """
-  @type create_endpoint_input() :: %{String.t() => any()}
+  @type create_endpoint_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3904,18 +3906,18 @@ defmodule AWS.SageMaker do
         "AttemptCount" => integer(),
         "CacheHitResult" => cache_hit_result(),
         "EndTime" => non_neg_integer(),
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | atom(),
         "Metadata" => pipeline_execution_step_metadata(),
         "SelectiveExecutionResult" => selective_execution_result(),
         "StartTime" => non_neg_integer(),
-        "StepDescription" => String.t(),
-        "StepDisplayName" => String.t(),
-        "StepName" => String.t(),
+        "StepDescription" => String.t() | atom(),
+        "StepDisplayName" => String.t() | atom(),
+        "StepName" => String.t() | atom(),
         "StepStatus" => list(any())
       }
       
   """
-  @type pipeline_execution_step() :: %{String.t() => any()}
+  @type pipeline_execution_step() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3923,17 +3925,17 @@ defmodule AWS.SageMaker do
       
       feature_metadata() :: %{
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "FeatureGroupArn" => String.t(),
-        "FeatureGroupName" => String.t(),
-        "FeatureName" => String.t(),
+        "Description" => String.t() | atom(),
+        "FeatureGroupArn" => String.t() | atom(),
+        "FeatureGroupName" => String.t() | atom(),
+        "FeatureName" => String.t() | atom(),
         "FeatureType" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
         "Parameters" => list(feature_parameter())
       }
       
   """
-  @type feature_metadata() :: %{String.t() => any()}
+  @type feature_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3944,33 +3946,33 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type describe_cluster_node_response() :: %{String.t() => any()}
+  @type describe_cluster_node_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_workforce_request() :: %{
-        required("WorkforceName") => String.t()
+        required("WorkforceName") => String.t() | atom()
       }
       
   """
-  @type delete_workforce_request() :: %{String.t() => any()}
+  @type delete_workforce_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint_output_configuration() :: %{
-        "EndpointName" => String.t(),
+        "EndpointName" => String.t() | atom(),
         "InitialInstanceCount" => integer(),
         "InstanceType" => list(any()),
         "ServerlessConfig" => production_variant_serverless_config(),
-        "VariantName" => String.t()
+        "VariantName" => String.t() | atom()
       }
       
   """
-  @type endpoint_output_configuration() :: %{String.t() => any()}
+  @type endpoint_output_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3981,7 +3983,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type add_tags_output() :: %{String.t() => any()}
+  @type add_tags_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3992,41 +3994,41 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type auto_ml_job_objective() :: %{String.t() => any()}
+  @type auto_ml_job_objective() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_describe_model_package_input() :: %{
-        required("ModelPackageArnList") => list(String.t())
+        required("ModelPackageArnList") => list(String.t() | atom())
       }
       
   """
-  @type batch_describe_model_package_input() :: %{String.t() => any()}
+  @type batch_describe_model_package_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_trial_component_response() :: %{
-        "TrialComponentArn" => String.t()
+        "TrialComponentArn" => String.t() | atom()
       }
       
   """
-  @type update_trial_component_response() :: %{String.t() => any()}
+  @type update_trial_component_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_project_output() :: %{
-        "ProjectArn" => String.t(),
-        "ProjectId" => String.t()
+        "ProjectArn" => String.t() | atom(),
+        "ProjectId" => String.t() | atom()
       }
       
   """
-  @type create_project_output() :: %{String.t() => any()}
+  @type create_project_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4034,22 +4036,22 @@ defmodule AWS.SageMaker do
       
       list_hub_contents_response() :: %{
         "HubContentSummaries" => list(hub_content_info()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_hub_contents_response() :: %{String.t() => any()}
+  @type list_hub_contents_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint_step_metadata() :: %{
-        "Arn" => String.t()
+        "Arn" => String.t() | atom()
       }
       
   """
-  @type endpoint_step_metadata() :: %{String.t() => any()}
+  @type endpoint_step_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4061,32 +4063,32 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type labeling_job_data_source() :: %{String.t() => any()}
+  @type labeling_job_data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_add_cluster_nodes_request() :: %{
-        optional("ClientToken") => String.t(),
-        required("ClusterName") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
+        required("ClusterName") => String.t() | atom(),
         required("NodesToAdd") => list(add_cluster_node_specification())
       }
       
   """
-  @type batch_add_cluster_nodes_request() :: %{String.t() => any()}
+  @type batch_add_cluster_nodes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_trial_components_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "TrialComponentSummaries" => list(trial_component_summary())
       }
       
   """
-  @type list_trial_components_response() :: %{String.t() => any()}
+  @type list_trial_components_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4097,19 +4099,21 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type get_sagemaker_servicecatalog_portfolio_status_output() :: %{String.t() => any()}
+  @type get_sagemaker_servicecatalog_portfolio_status_output() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       create_compute_quota_response() :: %{
-        "ComputeQuotaArn" => String.t(),
-        "ComputeQuotaId" => String.t()
+        "ComputeQuotaArn" => String.t() | atom(),
+        "ComputeQuotaId" => String.t() | atom()
       }
       
   """
-  @type create_compute_quota_response() :: %{String.t() => any()}
+  @type create_compute_quota_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4118,32 +4122,32 @@ defmodule AWS.SageMaker do
       list_inference_components_input() :: %{
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
-        optional("EndpointNameEquals") => String.t(),
+        optional("EndpointNameEquals") => String.t() | atom(),
         optional("LastModifiedTimeAfter") => non_neg_integer(),
         optional("LastModifiedTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
         optional("StatusEquals") => list(any()),
-        optional("VariantNameEquals") => String.t()
+        optional("VariantNameEquals") => String.t() | atom()
       }
       
   """
-  @type list_inference_components_input() :: %{String.t() => any()}
+  @type list_inference_components_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       capture_content_type_header() :: %{
-        "CsvContentTypes" => list(String.t()),
-        "JsonContentTypes" => list(String.t())
+        "CsvContentTypes" => list(String.t() | atom()),
+        "JsonContentTypes" => list(String.t() | atom())
       }
       
   """
-  @type capture_content_type_header() :: %{String.t() => any()}
+  @type capture_content_type_header() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4153,18 +4157,18 @@ defmodule AWS.SageMaker do
         optional("AsyncInferenceConfig") => async_inference_config(),
         optional("DataCaptureConfig") => data_capture_config(),
         optional("EnableNetworkIsolation") => boolean(),
-        optional("ExecutionRoleArn") => String.t(),
+        optional("ExecutionRoleArn") => String.t() | atom(),
         optional("ExplainerConfig") => explainer_config(),
-        optional("KmsKeyId") => String.t(),
+        optional("KmsKeyId") => String.t() | atom(),
         optional("ShadowProductionVariants") => list(production_variant()),
         optional("Tags") => list(tag()),
         optional("VpcConfig") => vpc_config(),
-        required("EndpointConfigName") => String.t(),
+        required("EndpointConfigName") => String.t() | atom(),
         required("ProductionVariants") => list(production_variant())
       }
       
   """
-  @type create_endpoint_config_input() :: %{String.t() => any()}
+  @type create_endpoint_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4172,7 +4176,7 @@ defmodule AWS.SageMaker do
       
       describe_training_plan_response() :: %{
         "AvailableInstanceCount" => integer(),
-        "CurrencyCode" => String.t(),
+        "CurrencyCode" => String.t() | atom(),
         "DurationHours" => float(),
         "DurationMinutes" => float(),
         "EndTime" => non_neg_integer(),
@@ -4180,16 +4184,16 @@ defmodule AWS.SageMaker do
         "ReservedCapacitySummaries" => list(reserved_capacity_summary()),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
-        "StatusMessage" => String.t(),
+        "StatusMessage" => String.t() | atom(),
         "TargetResources" => list(list(any())()),
         "TotalInstanceCount" => integer(),
-        "TrainingPlanArn" => String.t(),
-        "TrainingPlanName" => String.t(),
-        "UpfrontFee" => String.t()
+        "TrainingPlanArn" => String.t() | atom(),
+        "TrainingPlanName" => String.t() | atom(),
+        "UpfrontFee" => String.t() | atom()
       }
       
   """
-  @type describe_training_plan_response() :: %{String.t() => any()}
+  @type describe_training_plan_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4201,44 +4205,44 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type kernel_gateway_image_config() :: %{String.t() => any()}
+  @type kernel_gateway_image_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       emr_step_metadata() :: %{
-        "ClusterId" => String.t(),
-        "LogFilePath" => String.t(),
-        "StepId" => String.t(),
-        "StepName" => String.t()
+        "ClusterId" => String.t() | atom(),
+        "LogFilePath" => String.t() | atom(),
+        "StepId" => String.t() | atom(),
+        "StepName" => String.t() | atom()
       }
       
   """
-  @type emr_step_metadata() :: %{String.t() => any()}
+  @type emr_step_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_inference_experiment_response() :: %{
-        "InferenceExperimentArn" => String.t()
+        "InferenceExperimentArn" => String.t() | atom()
       }
       
   """
-  @type delete_inference_experiment_response() :: %{String.t() => any()}
+  @type delete_inference_experiment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cognito_config() :: %{
-        "ClientId" => String.t(),
-        "UserPool" => String.t()
+        "ClientId" => String.t() | atom(),
+        "UserPool" => String.t() | atom()
       }
       
   """
-  @type cognito_config() :: %{String.t() => any()}
+  @type cognito_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4247,26 +4251,26 @@ defmodule AWS.SageMaker do
       model_package_group() :: %{
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
-        "ModelPackageGroupArn" => String.t(),
-        "ModelPackageGroupDescription" => String.t(),
-        "ModelPackageGroupName" => String.t(),
+        "ModelPackageGroupArn" => String.t() | atom(),
+        "ModelPackageGroupDescription" => String.t() | atom(),
+        "ModelPackageGroupName" => String.t() | atom(),
         "ModelPackageGroupStatus" => list(any()),
         "Tags" => list(tag())
       }
       
   """
-  @type model_package_group() :: %{String.t() => any()}
+  @type model_package_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_artifact_response() :: %{
-        "ArtifactArn" => String.t()
+        "ArtifactArn" => String.t() | atom()
       }
       
   """
-  @type create_artifact_response() :: %{String.t() => any()}
+  @type create_artifact_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4275,14 +4279,14 @@ defmodule AWS.SageMaker do
       edge_model_stat() :: %{
         "ActiveDeviceCount" => float(),
         "ConnectedDeviceCount" => float(),
-        "ModelName" => String.t(),
-        "ModelVersion" => String.t(),
+        "ModelName" => String.t() | atom(),
+        "ModelVersion" => String.t() | atom(),
         "OfflineDeviceCount" => float(),
         "SamplingDeviceCount" => float()
       }
       
   """
-  @type edge_model_stat() :: %{String.t() => any()}
+  @type edge_model_stat() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4294,51 +4298,51 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type labeling_job_stopping_conditions() :: %{String.t() => any()}
+  @type labeling_job_stopping_conditions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_compute_quotas_request() :: %{
-        optional("ClusterArn") => String.t(),
+        optional("ClusterArn") => String.t() | atom(),
         optional("CreatedAfter") => non_neg_integer(),
         optional("CreatedBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
         optional("Status") => list(any())
       }
       
   """
-  @type list_compute_quotas_request() :: %{String.t() => any()}
+  @type list_compute_quotas_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       monitoring_statistics_resource() :: %{
-        "S3Uri" => String.t()
+        "S3Uri" => String.t() | atom()
       }
       
   """
-  @type monitoring_statistics_resource() :: %{String.t() => any()}
+  @type monitoring_statistics_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       input_config() :: %{
-        "DataInputConfig" => String.t(),
+        "DataInputConfig" => String.t() | atom(),
         "Framework" => list(any()),
-        "FrameworkVersion" => String.t(),
-        "S3Uri" => String.t()
+        "FrameworkVersion" => String.t() | atom(),
+        "S3Uri" => String.t() | atom()
       }
       
   """
-  @type input_config() :: %{String.t() => any()}
+  @type input_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4357,40 +4361,40 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type space_settings() :: %{String.t() => any()}
+  @type space_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_training_job_request() :: %{
-        required("TrainingJobName") => String.t()
+        required("TrainingJobName") => String.t() | atom()
       }
       
   """
-  @type describe_training_job_request() :: %{String.t() => any()}
+  @type describe_training_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_inference_component_runtime_config_output() :: %{
-        "InferenceComponentArn" => String.t()
+        "InferenceComponentArn" => String.t() | atom()
       }
       
   """
-  @type update_inference_component_runtime_config_output() :: %{String.t() => any()}
+  @type update_inference_component_runtime_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_labeling_job_response() :: %{
-        "LabelingJobArn" => String.t()
+        "LabelingJobArn" => String.t() | atom()
       }
       
   """
-  @type create_labeling_job_response() :: %{String.t() => any()}
+  @type create_labeling_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4401,68 +4405,68 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type hyper_parameter_tuning_job_strategy_config() :: %{String.t() => any()}
+  @type hyper_parameter_tuning_job_strategy_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_edge_packaging_job_response() :: %{
-        "CompilationJobName" => String.t(),
+        "CompilationJobName" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
-        "EdgePackagingJobArn" => String.t(),
-        "EdgePackagingJobName" => String.t(),
+        "EdgePackagingJobArn" => String.t() | atom(),
+        "EdgePackagingJobName" => String.t() | atom(),
         "EdgePackagingJobStatus" => list(any()),
-        "EdgePackagingJobStatusMessage" => String.t(),
+        "EdgePackagingJobStatusMessage" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
-        "ModelArtifact" => String.t(),
-        "ModelName" => String.t(),
-        "ModelSignature" => String.t(),
-        "ModelVersion" => String.t(),
+        "ModelArtifact" => String.t() | atom(),
+        "ModelName" => String.t() | atom(),
+        "ModelSignature" => String.t() | atom(),
+        "ModelVersion" => String.t() | atom(),
         "OutputConfig" => edge_output_config(),
         "PresetDeploymentOutput" => edge_preset_deployment_output(),
-        "ResourceKey" => String.t(),
-        "RoleArn" => String.t()
+        "ResourceKey" => String.t() | atom(),
+        "RoleArn" => String.t() | atom()
       }
       
   """
-  @type describe_edge_packaging_job_response() :: %{String.t() => any()}
+  @type describe_edge_packaging_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_resource_catalogs_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "ResourceCatalogs" => list(resource_catalog())
       }
       
   """
-  @type list_resource_catalogs_response() :: %{String.t() => any()}
+  @type list_resource_catalogs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_compute_quota_response() :: %{
-        "ComputeQuotaArn" => String.t(),
+        "ComputeQuotaArn" => String.t() | atom(),
         "ComputeQuotaVersion" => integer()
       }
       
   """
-  @type update_compute_quota_response() :: %{String.t() => any()}
+  @type update_compute_quota_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       metric_definition() :: %{
-        "Name" => String.t(),
-        "Regex" => String.t()
+        "Name" => String.t() | atom(),
+        "Regex" => String.t() | atom()
       }
       
   """
-  @type metric_definition() :: %{String.t() => any()}
+  @type metric_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4474,7 +4478,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type code_editor_app_image_config() :: %{String.t() => any()}
+  @type code_editor_app_image_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4486,28 +4490,28 @@ defmodule AWS.SageMaker do
         optional("LastModifiedTimeAfter") => non_neg_integer(),
         optional("LastModifiedTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("ModelNameContains") => String.t(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("ModelNameContains") => String.t() | atom(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
         optional("StatusEquals") => list(any())
       }
       
   """
-  @type list_edge_packaging_jobs_request() :: %{String.t() => any()}
+  @type list_edge_packaging_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deregister_devices_request() :: %{
-        required("DeviceFleetName") => String.t(),
-        required("DeviceNames") => list(String.t())
+        required("DeviceFleetName") => String.t() | atom(),
+        required("DeviceNames") => list(String.t() | atom())
       }
       
   """
-  @type deregister_devices_request() :: %{String.t() => any()}
+  @type deregister_devices_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4523,7 +4527,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type training_job_definition() :: %{String.t() => any()}
+  @type training_job_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4531,29 +4535,29 @@ defmodule AWS.SageMaker do
       
       trial_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "DisplayName" => String.t(),
+        "DisplayName" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
-        "TrialArn" => String.t(),
-        "TrialName" => String.t(),
+        "TrialArn" => String.t() | atom(),
+        "TrialName" => String.t() | atom(),
         "TrialSource" => trial_source()
       }
       
   """
-  @type trial_summary() :: %{String.t() => any()}
+  @type trial_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       workforce_vpc_config_response() :: %{
-        "SecurityGroupIds" => list(String.t()),
-        "Subnets" => list(String.t()),
-        "VpcEndpointId" => String.t(),
-        "VpcId" => String.t()
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "Subnets" => list(String.t() | atom()),
+        "VpcEndpointId" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
       
   """
-  @type workforce_vpc_config_response() :: %{String.t() => any()}
+  @type workforce_vpc_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4565,7 +4569,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type jupyter_lab_app_image_config() :: %{String.t() => any()}
+  @type jupyter_lab_app_image_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4578,7 +4582,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type monitoring_network_config() :: %{String.t() => any()}
+  @type monitoring_network_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4586,34 +4590,34 @@ defmodule AWS.SageMaker do
       
       describe_feature_metadata_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "FeatureGroupArn" => String.t(),
-        "FeatureGroupName" => String.t(),
-        "FeatureName" => String.t(),
+        "Description" => String.t() | atom(),
+        "FeatureGroupArn" => String.t() | atom(),
+        "FeatureGroupName" => String.t() | atom(),
+        "FeatureName" => String.t() | atom(),
         "FeatureType" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
         "Parameters" => list(feature_parameter())
       }
       
   """
-  @type describe_feature_metadata_response() :: %{String.t() => any()}
+  @type describe_feature_metadata_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_quality_app_specification() :: %{
-        "ContainerArguments" => list(String.t()),
-        "ContainerEntrypoint" => list(String.t()),
+        "ContainerArguments" => list(String.t() | atom()),
+        "ContainerEntrypoint" => list(String.t() | atom()),
         "Environment" => map(),
-        "ImageUri" => String.t(),
-        "PostAnalyticsProcessorSourceUri" => String.t(),
+        "ImageUri" => String.t() | atom(),
+        "PostAnalyticsProcessorSourceUri" => String.t() | atom(),
         "ProblemType" => list(any()),
-        "RecordPreprocessorSourceUri" => String.t()
+        "RecordPreprocessorSourceUri" => String.t() | atom()
       }
       
   """
-  @type model_quality_app_specification() :: %{String.t() => any()}
+  @type model_quality_app_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4625,17 +4629,17 @@ defmodule AWS.SageMaker do
         optional("LastModifiedTimeAfter") => non_neg_integer(),
         optional("LastModifiedTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
         optional("StatusEquals") => list(any()),
-        optional("TrainingPlanArnEquals") => String.t(),
+        optional("TrainingPlanArnEquals") => String.t() | atom(),
         optional("WarmPoolStatusEquals") => list(any())
       }
       
   """
-  @type list_training_jobs_request() :: %{String.t() => any()}
+  @type list_training_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4647,19 +4651,19 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type inference_component_startup_parameters() :: %{String.t() => any()}
+  @type inference_component_startup_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       integer_parameter_range_specification() :: %{
-        "MaxValue" => String.t(),
-        "MinValue" => String.t()
+        "MaxValue" => String.t() | atom(),
+        "MinValue" => String.t() | atom()
       }
       
   """
-  @type integer_parameter_range_specification() :: %{String.t() => any()}
+  @type integer_parameter_range_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4670,78 +4674,78 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type auto_ml_data_source() :: %{String.t() => any()}
+  @type auto_ml_data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       auto_ml_partial_failure_reason() :: %{
-        "PartialFailureMessage" => String.t()
+        "PartialFailureMessage" => String.t() | atom()
       }
       
   """
-  @type auto_ml_partial_failure_reason() :: %{String.t() => any()}
+  @type auto_ml_partial_failure_reason() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_app_response() :: %{
-        "AppArn" => String.t(),
-        "AppName" => String.t(),
+        "AppArn" => String.t() | atom(),
+        "AppName" => String.t() | atom(),
         "AppType" => list(any()),
-        "BuiltInLifecycleConfigArn" => String.t(),
+        "BuiltInLifecycleConfigArn" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
-        "DomainId" => String.t(),
-        "FailureReason" => String.t(),
+        "DomainId" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
         "LastHealthCheckTimestamp" => non_neg_integer(),
         "LastUserActivityTimestamp" => non_neg_integer(),
         "RecoveryMode" => boolean(),
         "ResourceSpec" => resource_spec(),
-        "SpaceName" => String.t(),
+        "SpaceName" => String.t() | atom(),
         "Status" => list(any()),
-        "UserProfileName" => String.t()
+        "UserProfileName" => String.t() | atom()
       }
       
   """
-  @type describe_app_response() :: %{String.t() => any()}
+  @type describe_app_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       algorithm_status_item() :: %{
-        "FailureReason" => String.t(),
-        "Name" => String.t(),
+        "FailureReason" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type algorithm_status_item() :: %{String.t() => any()}
+  @type algorithm_status_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_tags_input() :: %{
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | atom(),
         required("Tags") => list(tag())
       }
       
   """
-  @type add_tags_input() :: %{String.t() => any()}
+  @type add_tags_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_device_fleet_request() :: %{
-        required("DeviceFleetName") => String.t()
+        required("DeviceFleetName") => String.t() | atom()
       }
       
   """
-  @type describe_device_fleet_request() :: %{String.t() => any()}
+  @type describe_device_fleet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4760,11 +4764,11 @@ defmodule AWS.SageMaker do
         "DisableProfiler" => boolean(),
         "ProfilingIntervalInMilliseconds" => float(),
         "ProfilingParameters" => map(),
-        "S3OutputPath" => String.t()
+        "S3OutputPath" => String.t() | atom()
       }
       
   """
-  @type profiler_config() :: %{String.t() => any()}
+  @type profiler_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4772,11 +4776,11 @@ defmodule AWS.SageMaker do
       
       list_hubs_response() :: %{
         "HubSummaries" => list(hub_info()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_hubs_response() :: %{String.t() => any()}
+  @type list_hubs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4784,13 +4788,13 @@ defmodule AWS.SageMaker do
       
       r_studio_server_pro_domain_settings_for_update() :: %{
         "DefaultResourceSpec" => resource_spec(),
-        "DomainExecutionRoleArn" => String.t(),
-        "RStudioConnectUrl" => String.t(),
-        "RStudioPackageManagerUrl" => String.t()
+        "DomainExecutionRoleArn" => String.t() | atom(),
+        "RStudioConnectUrl" => String.t() | atom(),
+        "RStudioPackageManagerUrl" => String.t() | atom()
       }
       
   """
-  @type r_studio_server_pro_domain_settings_for_update() :: %{String.t() => any()}
+  @type r_studio_server_pro_domain_settings_for_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4806,82 +4810,82 @@ defmodule AWS.SageMaker do
   ## Example:
       
       endpoint_metadata() :: %{
-        "EndpointConfigName" => String.t(),
-        "EndpointName" => String.t(),
+        "EndpointConfigName" => String.t() | atom(),
+        "EndpointName" => String.t() | atom(),
         "EndpointStatus" => list(any()),
-        "FailureReason" => String.t()
+        "FailureReason" => String.t() | atom()
       }
       
   """
-  @type endpoint_metadata() :: %{String.t() => any()}
+  @type endpoint_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_inference_experiment_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type delete_inference_experiment_request() :: %{String.t() => any()}
+  @type delete_inference_experiment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       error_info() :: %{
-        "Code" => String.t(),
-        "Reason" => String.t()
+        "Code" => String.t() | atom(),
+        "Reason" => String.t() | atom()
       }
       
   """
-  @type error_info() :: %{String.t() => any()}
+  @type error_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint_input() :: %{
-        "EndTimeOffset" => String.t(),
-        "EndpointName" => String.t(),
-        "ExcludeFeaturesAttribute" => String.t(),
-        "FeaturesAttribute" => String.t(),
-        "InferenceAttribute" => String.t(),
-        "LocalPath" => String.t(),
-        "ProbabilityAttribute" => String.t(),
+        "EndTimeOffset" => String.t() | atom(),
+        "EndpointName" => String.t() | atom(),
+        "ExcludeFeaturesAttribute" => String.t() | atom(),
+        "FeaturesAttribute" => String.t() | atom(),
+        "InferenceAttribute" => String.t() | atom(),
+        "LocalPath" => String.t() | atom(),
+        "ProbabilityAttribute" => String.t() | atom(),
         "ProbabilityThresholdAttribute" => float(),
         "S3DataDistributionType" => list(any()),
         "S3InputMode" => list(any()),
-        "StartTimeOffset" => String.t()
+        "StartTimeOffset" => String.t() | atom()
       }
       
   """
-  @type endpoint_input() :: %{String.t() => any()}
+  @type endpoint_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_model_explainability_job_definition_request() :: %{
-        required("JobDefinitionName") => String.t()
+        required("JobDefinitionName") => String.t() | atom()
       }
       
   """
-  @type delete_model_explainability_job_definition_request() :: %{String.t() => any()}
+  @type delete_model_explainability_job_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       data_catalog_config() :: %{
-        "Catalog" => String.t(),
-        "Database" => String.t(),
-        "TableName" => String.t()
+        "Catalog" => String.t() | atom(),
+        "Database" => String.t() | atom(),
+        "TableName" => String.t() | atom()
       }
       
   """
-  @type data_catalog_config() :: %{String.t() => any()}
+  @type data_catalog_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4893,7 +4897,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type image_config() :: %{String.t() => any()}
+  @type image_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4901,11 +4905,11 @@ defmodule AWS.SageMaker do
       
       list_monitoring_alert_history_response() :: %{
         "MonitoringAlertHistory" => list(monitoring_alert_history_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_monitoring_alert_history_response() :: %{String.t() => any()}
+  @type list_monitoring_alert_history_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4913,18 +4917,18 @@ defmodule AWS.SageMaker do
       
       space_details() :: %{
         "CreationTime" => non_neg_integer(),
-        "DomainId" => String.t(),
+        "DomainId" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
         "OwnershipSettingsSummary" => ownership_settings_summary(),
-        "SpaceDisplayName" => String.t(),
-        "SpaceName" => String.t(),
+        "SpaceDisplayName" => String.t() | atom(),
+        "SpaceName" => String.t() | atom(),
         "SpaceSettingsSummary" => space_settings_summary(),
         "SpaceSharingSettingsSummary" => space_sharing_settings_summary(),
         "Status" => list(any())
       }
       
   """
-  @type space_details() :: %{String.t() => any()}
+  @type space_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4935,30 +4939,30 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type cluster_orchestrator() :: %{String.t() => any()}
+  @type cluster_orchestrator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_feature_metadata_request() :: %{
-        required("FeatureGroupName") => String.t(),
-        required("FeatureName") => String.t()
+        required("FeatureGroupName") => String.t() | atom(),
+        required("FeatureName") => String.t() | atom()
       }
       
   """
-  @type describe_feature_metadata_request() :: %{String.t() => any()}
+  @type describe_feature_metadata_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_artifact_response() :: %{
-        "ArtifactArn" => String.t()
+        "ArtifactArn" => String.t() | atom()
       }
       
   """
-  @type delete_artifact_response() :: %{String.t() => any()}
+  @type delete_artifact_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4966,27 +4970,27 @@ defmodule AWS.SageMaker do
       
       describe_feature_group_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "EventTimeFeatureName" => String.t(),
-        "FailureReason" => String.t(),
+        "Description" => String.t() | atom(),
+        "EventTimeFeatureName" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
         "FeatureDefinitions" => list(feature_definition()),
-        "FeatureGroupArn" => String.t(),
-        "FeatureGroupName" => String.t(),
+        "FeatureGroupArn" => String.t() | atom(),
+        "FeatureGroupName" => String.t() | atom(),
         "FeatureGroupStatus" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
         "LastUpdateStatus" => last_update_status(),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "OfflineStoreConfig" => offline_store_config(),
         "OfflineStoreStatus" => offline_store_status(),
         "OnlineStoreConfig" => online_store_config(),
         "OnlineStoreTotalSizeBytes" => float(),
-        "RecordIdentifierFeatureName" => String.t(),
-        "RoleArn" => String.t(),
+        "RecordIdentifierFeatureName" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
         "ThroughputConfig" => throughput_config_description()
       }
       
   """
-  @type describe_feature_group_response() :: %{String.t() => any()}
+  @type describe_feature_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4998,7 +5002,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type drift_check_explainability() :: %{String.t() => any()}
+  @type drift_check_explainability() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5007,36 +5011,36 @@ defmodule AWS.SageMaker do
       data_capture_config() :: %{
         "CaptureContentTypeHeader" => capture_content_type_header(),
         "CaptureOptions" => list(capture_option()),
-        "DestinationS3Uri" => String.t(),
+        "DestinationS3Uri" => String.t() | atom(),
         "EnableCapture" => boolean(),
         "InitialSamplingPercentage" => integer(),
-        "KmsKeyId" => String.t()
+        "KmsKeyId" => String.t() | atom()
       }
       
   """
-  @type data_capture_config() :: %{String.t() => any()}
+  @type data_capture_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       import_hub_content_request() :: %{
-        optional("HubContentDescription") => String.t(),
-        optional("HubContentDisplayName") => String.t(),
-        optional("HubContentMarkdown") => String.t(),
-        optional("HubContentSearchKeywords") => list(String.t()),
-        optional("HubContentVersion") => String.t(),
+        optional("HubContentDescription") => String.t() | atom(),
+        optional("HubContentDisplayName") => String.t() | atom(),
+        optional("HubContentMarkdown") => String.t() | atom(),
+        optional("HubContentSearchKeywords") => list(String.t() | atom()),
+        optional("HubContentVersion") => String.t() | atom(),
         optional("SupportStatus") => list(any()),
         optional("Tags") => list(tag()),
-        required("DocumentSchemaVersion") => String.t(),
-        required("HubContentDocument") => String.t(),
-        required("HubContentName") => String.t(),
+        required("DocumentSchemaVersion") => String.t() | atom(),
+        required("HubContentDocument") => String.t() | atom(),
+        required("HubContentName") => String.t() | atom(),
         required("HubContentType") => list(any()),
-        required("HubName") => String.t()
+        required("HubName") => String.t() | atom()
       }
       
   """
-  @type import_hub_content_request() :: %{String.t() => any()}
+  @type import_hub_content_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5044,26 +5048,26 @@ defmodule AWS.SageMaker do
       
       attach_cluster_node_volume_response() :: %{
         "AttachTime" => non_neg_integer(),
-        "ClusterArn" => String.t(),
-        "DeviceName" => String.t(),
-        "NodeId" => String.t(),
+        "ClusterArn" => String.t() | atom(),
+        "DeviceName" => String.t() | atom(),
+        "NodeId" => String.t() | atom(),
         "Status" => list(any()),
-        "VolumeId" => String.t()
+        "VolumeId" => String.t() | atom()
       }
       
   """
-  @type attach_cluster_node_volume_response() :: %{String.t() => any()}
+  @type attach_cluster_node_volume_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_model_card_request() :: %{
-        required("ModelCardName") => String.t()
+        required("ModelCardName") => String.t() | atom()
       }
       
   """
-  @type delete_model_card_request() :: %{String.t() => any()}
+  @type delete_model_card_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5074,14 +5078,14 @@ defmodule AWS.SageMaker do
         optional("CreationTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
         optional("ModelCardStatus") => list(any()),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_model_cards_request() :: %{String.t() => any()}
+  @type list_model_cards_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5091,13 +5095,13 @@ defmodule AWS.SageMaker do
         "EdgeDeploymentFailedInStage" => integer(),
         "EdgeDeploymentPendingInStage" => integer(),
         "EdgeDeploymentStageStartTime" => non_neg_integer(),
-        "EdgeDeploymentStatusMessage" => String.t(),
+        "EdgeDeploymentStatusMessage" => String.t() | atom(),
         "EdgeDeploymentSuccessInStage" => integer(),
         "StageStatus" => list(any())
       }
       
   """
-  @type edge_deployment_status() :: %{String.t() => any()}
+  @type edge_deployment_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5110,30 +5114,30 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type tuning_job_completion_criteria() :: %{String.t() => any()}
+  @type tuning_job_completion_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       register_model_step_metadata() :: %{
-        "Arn" => String.t()
+        "Arn" => String.t() | atom()
       }
       
   """
-  @type register_model_step_metadata() :: %{String.t() => any()}
+  @type register_model_step_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       e_f_s_file_system_config() :: %{
-        "FileSystemId" => String.t(),
-        "FileSystemPath" => String.t()
+        "FileSystemId" => String.t() | atom(),
+        "FileSystemPath" => String.t() | atom()
       }
       
   """
-  @type e_f_s_file_system_config() :: %{String.t() => any()}
+  @type e_f_s_file_system_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5141,83 +5145,83 @@ defmodule AWS.SageMaker do
       
       get_scaling_configuration_recommendation_response() :: %{
         "DynamicScalingConfiguration" => dynamic_scaling_configuration(),
-        "EndpointName" => String.t(),
-        "InferenceRecommendationsJobName" => String.t(),
+        "EndpointName" => String.t() | atom(),
+        "InferenceRecommendationsJobName" => String.t() | atom(),
         "Metric" => scaling_policy_metric(),
-        "RecommendationId" => String.t(),
+        "RecommendationId" => String.t() | atom(),
         "ScalingPolicyObjective" => scaling_policy_objective(),
         "TargetCpuUtilizationPerCore" => integer()
       }
       
   """
-  @type get_scaling_configuration_recommendation_response() :: %{String.t() => any()}
+  @type get_scaling_configuration_recommendation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_processing_job_request() :: %{
-        required("ProcessingJobName") => String.t()
+        required("ProcessingJobName") => String.t() | atom()
       }
       
   """
-  @type stop_processing_job_request() :: %{String.t() => any()}
+  @type stop_processing_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_trial_response() :: %{
-        "TrialArn" => String.t()
+        "TrialArn" => String.t() | atom()
       }
       
   """
-  @type create_trial_response() :: %{String.t() => any()}
+  @type create_trial_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       recommendation_job_compiled_output_config() :: %{
-        "S3OutputUri" => String.t()
+        "S3OutputUri" => String.t() | atom()
       }
       
   """
-  @type recommendation_job_compiled_output_config() :: %{String.t() => any()}
+  @type recommendation_job_compiled_output_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_endpoint_output() :: %{
-        "EndpointArn" => String.t()
+        "EndpointArn" => String.t() | atom()
       }
       
   """
-  @type create_endpoint_output() :: %{String.t() => any()}
+  @type create_endpoint_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_catalog_provisioning_update_details() :: %{
-        "ProvisioningArtifactId" => String.t(),
+        "ProvisioningArtifactId" => String.t() | atom(),
         "ProvisioningParameters" => list(provisioning_parameter())
       }
       
   """
-  @type service_catalog_provisioning_update_details() :: %{String.t() => any()}
+  @type service_catalog_provisioning_update_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_auth_config() :: %{
-        "RepositoryCredentialsProviderArn" => String.t()
+        "RepositoryCredentialsProviderArn" => String.t() | atom()
       }
       
   """
-  @type repository_auth_config() :: %{String.t() => any()}
+  @type repository_auth_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5227,12 +5231,12 @@ defmodule AWS.SageMaker do
         "AsyncInferenceConfig" => async_inference_config(),
         "CreationTime" => non_neg_integer(),
         "DataCaptureConfig" => data_capture_config_summary(),
-        "EndpointArn" => String.t(),
-        "EndpointConfigName" => String.t(),
-        "EndpointName" => String.t(),
+        "EndpointArn" => String.t() | atom(),
+        "EndpointConfigName" => String.t() | atom(),
+        "EndpointName" => String.t() | atom(),
         "EndpointStatus" => list(any()),
         "ExplainerConfig" => explainer_config(),
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | atom(),
         "LastDeploymentConfig" => deployment_config(),
         "LastModifiedTime" => non_neg_integer(),
         "PendingDeploymentSummary" => pending_deployment_summary(),
@@ -5241,7 +5245,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type describe_endpoint_output() :: %{String.t() => any()}
+  @type describe_endpoint_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5255,7 +5259,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type final_auto_ml_job_objective_metric() :: %{String.t() => any()}
+  @type final_auto_ml_job_objective_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5266,22 +5270,22 @@ defmodule AWS.SageMaker do
         optional("ProfilerRuleConfigurations") => list(profiler_rule_configuration()),
         optional("RemoteDebugConfig") => remote_debug_config_for_update(),
         optional("ResourceConfig") => resource_config_for_update(),
-        required("TrainingJobName") => String.t()
+        required("TrainingJobName") => String.t() | atom()
       }
       
   """
-  @type update_training_job_request() :: %{String.t() => any()}
+  @type update_training_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_context_request() :: %{
-        required("ContextName") => String.t()
+        required("ContextName") => String.t() | atom()
       }
       
   """
-  @type describe_context_request() :: %{String.t() => any()}
+  @type describe_context_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5291,13 +5295,13 @@ defmodule AWS.SageMaker do
         optional("CreatedAfter") => non_neg_integer(),
         optional("CreatedBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortOrder") => list(any()),
-        required("PipelineName") => String.t()
+        required("PipelineName") => String.t() | atom()
       }
       
   """
-  @type list_pipeline_versions_request() :: %{String.t() => any()}
+  @type list_pipeline_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5305,45 +5309,45 @@ defmodule AWS.SageMaker do
       
       human_task_ui_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "HumanTaskUiArn" => String.t(),
-        "HumanTaskUiName" => String.t()
+        "HumanTaskUiArn" => String.t() | atom(),
+        "HumanTaskUiName" => String.t() | atom()
       }
       
   """
-  @type human_task_ui_summary() :: %{String.t() => any()}
+  @type human_task_ui_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_presigned_notebook_instance_url_output() :: %{
-        "AuthorizedUrl" => String.t()
+        "AuthorizedUrl" => String.t() | atom()
       }
       
   """
-  @type create_presigned_notebook_instance_url_output() :: %{String.t() => any()}
+  @type create_presigned_notebook_instance_url_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       additional_enis() :: %{
-        "EfaEnis" => list([String.t()]())
+        "EfaEnis" => list([String.t() | atom()]())
       }
       
   """
-  @type additional_enis() :: %{String.t() => any()}
+  @type additional_enis() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_cluster_software_response() :: %{
-        "ClusterArn" => String.t()
+        "ClusterArn" => String.t() | atom()
       }
       
   """
-  @type update_cluster_software_response() :: %{String.t() => any()}
+  @type update_cluster_software_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5352,7 +5356,7 @@ defmodule AWS.SageMaker do
       list_training_plans_request() :: %{
         optional("Filters") => list(training_plan_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
         optional("StartTimeAfter") => non_neg_integer(),
@@ -5360,7 +5364,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type list_training_plans_request() :: %{String.t() => any()}
+  @type list_training_plans_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5374,19 +5378,19 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type model_metrics() :: %{String.t() => any()}
+  @type model_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_notebook_instance_lifecycle_configs_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "NotebookInstanceLifecycleConfigs" => list(notebook_instance_lifecycle_config_summary())
       }
       
   """
-  @type list_notebook_instance_lifecycle_configs_output() :: %{String.t() => any()}
+  @type list_notebook_instance_lifecycle_configs_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5394,61 +5398,61 @@ defmodule AWS.SageMaker do
       
       describe_compilation_job_response() :: %{
         "CompilationEndTime" => non_neg_integer(),
-        "CompilationJobArn" => String.t(),
-        "CompilationJobName" => String.t(),
+        "CompilationJobArn" => String.t() | atom(),
+        "CompilationJobName" => String.t() | atom(),
         "CompilationJobStatus" => list(any()),
         "CompilationStartTime" => non_neg_integer(),
         "CreationTime" => non_neg_integer(),
         "DerivedInformation" => derived_information(),
-        "FailureReason" => String.t(),
-        "InferenceImage" => String.t(),
+        "FailureReason" => String.t() | atom(),
+        "InferenceImage" => String.t() | atom(),
         "InputConfig" => input_config(),
         "LastModifiedTime" => non_neg_integer(),
         "ModelArtifacts" => model_artifacts(),
         "ModelDigests" => model_digests(),
-        "ModelPackageVersionArn" => String.t(),
+        "ModelPackageVersionArn" => String.t() | atom(),
         "OutputConfig" => output_config(),
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | atom(),
         "StoppingCondition" => stopping_condition(),
         "VpcConfig" => neo_vpc_config()
       }
       
   """
-  @type describe_compilation_job_response() :: %{String.t() => any()}
+  @type describe_compilation_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_hyper_parameter_tuning_job_request() :: %{
-        required("HyperParameterTuningJobName") => String.t()
+        required("HyperParameterTuningJobName") => String.t() | atom()
       }
       
   """
-  @type stop_hyper_parameter_tuning_job_request() :: %{String.t() => any()}
+  @type stop_hyper_parameter_tuning_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_trial_component_response() :: %{
-        "TrialArn" => String.t(),
-        "TrialComponentArn" => String.t()
+        "TrialArn" => String.t() | atom(),
+        "TrialComponentArn" => String.t() | atom()
       }
       
   """
-  @type associate_trial_component_response() :: %{String.t() => any()}
+  @type associate_trial_component_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_notebook_instance_input() :: %{
-        required("NotebookInstanceName") => String.t()
+        required("NotebookInstanceName") => String.t() | atom()
       }
       
   """
-  @type delete_notebook_instance_input() :: %{String.t() => any()}
+  @type delete_notebook_instance_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5457,51 +5461,51 @@ defmodule AWS.SageMaker do
       list_labeling_jobs_for_workteam_request() :: %{
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
-        optional("JobReferenceCodeContains") => String.t(),
+        optional("JobReferenceCodeContains") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
-        required("WorkteamArn") => String.t()
+        required("WorkteamArn") => String.t() | atom()
       }
       
   """
-  @type list_labeling_jobs_for_workteam_request() :: %{String.t() => any()}
+  @type list_labeling_jobs_for_workteam_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       recommendation_job_vpc_config() :: %{
-        "SecurityGroupIds" => list(String.t()),
-        "Subnets" => list(String.t())
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "Subnets" => list(String.t() | atom())
       }
       
   """
-  @type recommendation_job_vpc_config() :: %{String.t() => any()}
+  @type recommendation_job_vpc_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_workforce_response() :: %{
-        "WorkforceArn" => String.t()
+        "WorkforceArn" => String.t() | atom()
       }
       
   """
-  @type create_workforce_response() :: %{String.t() => any()}
+  @type create_workforce_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       flow_definition_output_config() :: %{
-        "KmsKeyId" => String.t(),
-        "S3OutputPath" => String.t()
+        "KmsKeyId" => String.t() | atom(),
+        "S3OutputPath" => String.t() | atom()
       }
       
   """
-  @type flow_definition_output_config() :: %{String.t() => any()}
+  @type flow_definition_output_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5509,25 +5513,25 @@ defmodule AWS.SageMaker do
       
       update_cluster_request() :: %{
         optional("InstanceGroups") => list(cluster_instance_group_specification()),
-        optional("InstanceGroupsToDelete") => list(String.t()),
+        optional("InstanceGroupsToDelete") => list(String.t() | atom()),
         optional("NodeRecovery") => list(any()),
         optional("RestrictedInstanceGroups") => list(cluster_restricted_instance_group_specification()),
-        required("ClusterName") => String.t()
+        required("ClusterName") => String.t() | atom()
       }
       
   """
-  @type update_cluster_request() :: %{String.t() => any()}
+  @type update_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_edge_deployment_plan_request() :: %{
-        required("EdgeDeploymentPlanName") => String.t()
+        required("EdgeDeploymentPlanName") => String.t() | atom()
       }
       
   """
-  @type delete_edge_deployment_plan_request() :: %{String.t() => any()}
+  @type delete_edge_deployment_plan_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5535,45 +5539,45 @@ defmodule AWS.SageMaker do
       
       list_code_repositories_output() :: %{
         "CodeRepositorySummaryList" => list(code_repository_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_code_repositories_output() :: %{String.t() => any()}
+  @type list_code_repositories_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_edge_deployment_stage_request() :: %{
-        required("EdgeDeploymentPlanName") => String.t(),
-        required("StageName") => String.t()
+        required("EdgeDeploymentPlanName") => String.t() | atom(),
+        required("StageName") => String.t() | atom()
       }
       
   """
-  @type stop_edge_deployment_stage_request() :: %{String.t() => any()}
+  @type stop_edge_deployment_stage_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       hub_s3_storage_config() :: %{
-        "S3OutputPath" => String.t()
+        "S3OutputPath" => String.t() | atom()
       }
       
   """
-  @type hub_s3_storage_config() :: %{String.t() => any()}
+  @type hub_s3_storage_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_action_response() :: %{
-        "ActionArn" => String.t()
+        "ActionArn" => String.t() | atom()
       }
       
   """
-  @type create_action_response() :: %{String.t() => any()}
+  @type create_action_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5581,19 +5585,19 @@ defmodule AWS.SageMaker do
       
       oidc_config() :: %{
         "AuthenticationRequestExtraParams" => map(),
-        "AuthorizationEndpoint" => String.t(),
-        "ClientId" => String.t(),
-        "ClientSecret" => String.t(),
-        "Issuer" => String.t(),
-        "JwksUri" => String.t(),
-        "LogoutEndpoint" => String.t(),
-        "Scope" => String.t(),
-        "TokenEndpoint" => String.t(),
-        "UserInfoEndpoint" => String.t()
+        "AuthorizationEndpoint" => String.t() | atom(),
+        "ClientId" => String.t() | atom(),
+        "ClientSecret" => String.t() | atom(),
+        "Issuer" => String.t() | atom(),
+        "JwksUri" => String.t() | atom(),
+        "LogoutEndpoint" => String.t() | atom(),
+        "Scope" => String.t() | atom(),
+        "TokenEndpoint" => String.t() | atom(),
+        "UserInfoEndpoint" => String.t() | atom()
       }
       
   """
-  @type oidc_config() :: %{String.t() => any()}
+  @type oidc_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5602,52 +5606,52 @@ defmodule AWS.SageMaker do
       create_model_card_request() :: %{
         optional("SecurityConfig") => model_card_security_config(),
         optional("Tags") => list(tag()),
-        required("Content") => String.t(),
-        required("ModelCardName") => String.t(),
+        required("Content") => String.t() | atom(),
+        required("ModelCardName") => String.t() | atom(),
         required("ModelCardStatus") => list(any())
       }
       
   """
-  @type create_model_card_request() :: %{String.t() => any()}
+  @type create_model_card_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       algorithm_specification() :: %{
-        "AlgorithmName" => String.t(),
-        "ContainerArguments" => list(String.t()),
-        "ContainerEntrypoint" => list(String.t()),
+        "AlgorithmName" => String.t() | atom(),
+        "ContainerArguments" => list(String.t() | atom()),
+        "ContainerEntrypoint" => list(String.t() | atom()),
         "EnableSageMakerMetricsTimeSeries" => boolean(),
         "MetricDefinitions" => list(metric_definition()),
-        "TrainingImage" => String.t(),
+        "TrainingImage" => String.t() | atom(),
         "TrainingImageConfig" => training_image_config(),
         "TrainingInputMode" => list(any())
       }
       
   """
-  @type algorithm_specification() :: %{String.t() => any()}
+  @type algorithm_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_image_version_request() :: %{
-        optional("Aliases") => list(String.t()),
+        optional("Aliases") => list(String.t() | atom()),
         optional("Horovod") => boolean(),
         optional("JobType") => list(any()),
-        optional("MLFramework") => String.t(),
+        optional("MLFramework") => String.t() | atom(),
         optional("Processor") => list(any()),
-        optional("ProgrammingLang") => String.t(),
-        optional("ReleaseNotes") => String.t(),
+        optional("ProgrammingLang") => String.t() | atom(),
+        optional("ReleaseNotes") => String.t() | atom(),
         optional("VendorGuidance") => list(any()),
-        required("BaseImage") => String.t(),
-        required("ClientToken") => String.t(),
-        required("ImageName") => String.t()
+        required("BaseImage") => String.t() | atom(),
+        required("ClientToken") => String.t() | atom(),
+        required("ImageName") => String.t() | atom()
       }
       
   """
-  @type create_image_version_request() :: %{String.t() => any()}
+  @type create_image_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5664,23 +5668,23 @@ defmodule AWS.SageMaker do
         "DesiredWeight" => float(),
         "ManagedInstanceScaling" => production_variant_managed_instance_scaling(),
         "RoutingConfig" => production_variant_routing_config(),
-        "VariantName" => String.t(),
+        "VariantName" => String.t() | atom(),
         "VariantStatus" => list(production_variant_status())
       }
       
   """
-  @type production_variant_summary() :: %{String.t() => any()}
+  @type production_variant_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_edge_packaging_job_request() :: %{
-        required("EdgePackagingJobName") => String.t()
+        required("EdgePackagingJobName") => String.t() | atom()
       }
       
   """
-  @type describe_edge_packaging_job_request() :: %{String.t() => any()}
+  @type describe_edge_packaging_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5688,11 +5692,11 @@ defmodule AWS.SageMaker do
       
       scheduled_update_config() :: %{
         "DeploymentConfig" => deployment_configuration(),
-        "ScheduleExpression" => String.t()
+        "ScheduleExpression" => String.t() | atom()
       }
       
   """
-  @type scheduled_update_config() :: %{String.t() => any()}
+  @type scheduled_update_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5701,12 +5705,12 @@ defmodule AWS.SageMaker do
       monitoring_alert_history_summary() :: %{
         "AlertStatus" => list(any()),
         "CreationTime" => non_neg_integer(),
-        "MonitoringAlertName" => String.t(),
-        "MonitoringScheduleName" => String.t()
+        "MonitoringAlertName" => String.t() | atom(),
+        "MonitoringScheduleName" => String.t() | atom()
       }
       
   """
-  @type monitoring_alert_history_summary() :: %{String.t() => any()}
+  @type monitoring_alert_history_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5717,42 +5721,42 @@ defmodule AWS.SageMaker do
         optional("NetworkConfig") => monitoring_network_config(),
         optional("StoppingCondition") => monitoring_stopping_condition(),
         optional("Tags") => list(tag()),
-        required("JobDefinitionName") => String.t(),
+        required("JobDefinitionName") => String.t() | atom(),
         required("JobResources") => monitoring_resources(),
         required("ModelExplainabilityAppSpecification") => model_explainability_app_specification(),
         required("ModelExplainabilityJobInput") => model_explainability_job_input(),
         required("ModelExplainabilityJobOutputConfig") => monitoring_output_config(),
-        required("RoleArn") => String.t()
+        required("RoleArn") => String.t() | atom()
       }
       
   """
-  @type create_model_explainability_job_definition_request() :: %{String.t() => any()}
+  @type create_model_explainability_job_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_action_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("Properties") => map(),
-        optional("PropertiesToRemove") => list(String.t()),
+        optional("PropertiesToRemove") => list(String.t() | atom()),
         optional("Status") => list(any()),
-        required("ActionName") => String.t()
+        required("ActionName") => String.t() | atom()
       }
       
   """
-  @type update_action_request() :: %{String.t() => any()}
+  @type update_action_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_code_repository_output() :: %{
-        "CodeRepositoryArn" => String.t()
+        "CodeRepositoryArn" => String.t() | atom()
       }
       
   """
-  @type update_code_repository_output() :: %{String.t() => any()}
+  @type update_code_repository_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5764,7 +5768,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type inference_component_capacity_size() :: %{String.t() => any()}
+  @type inference_component_capacity_size() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5772,114 +5776,116 @@ defmodule AWS.SageMaker do
       
       image_version() :: %{
         "CreationTime" => non_neg_integer(),
-        "FailureReason" => String.t(),
-        "ImageArn" => String.t(),
-        "ImageVersionArn" => String.t(),
+        "FailureReason" => String.t() | atom(),
+        "ImageArn" => String.t() | atom(),
+        "ImageVersionArn" => String.t() | atom(),
         "ImageVersionStatus" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
         "Version" => integer()
       }
       
   """
-  @type image_version() :: %{String.t() => any()}
+  @type image_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_cluster_software_instance_group_specification() :: %{
-        "InstanceGroupName" => String.t()
+        "InstanceGroupName" => String.t() | atom()
       }
       
   """
-  @type update_cluster_software_instance_group_specification() :: %{String.t() => any()}
+  @type update_cluster_software_instance_group_specification() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       cluster_metadata() :: %{
-        "EksRoleAccessEntries" => list([String.t()]()),
-        "FailureMessage" => [String.t()],
-        "SlrAccessEntry" => [String.t()]
+        "EksRoleAccessEntries" => list([String.t() | atom()]()),
+        "FailureMessage" => [String.t() | atom()],
+        "SlrAccessEntry" => [String.t() | atom()]
       }
       
   """
-  @type cluster_metadata() :: %{String.t() => any()}
+  @type cluster_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_catalog_provisioning_details() :: %{
-        "PathId" => String.t(),
-        "ProductId" => String.t(),
-        "ProvisioningArtifactId" => String.t(),
+        "PathId" => String.t() | atom(),
+        "ProductId" => String.t() | atom(),
+        "ProvisioningArtifactId" => String.t() | atom(),
         "ProvisioningParameters" => list(provisioning_parameter())
       }
       
   """
-  @type service_catalog_provisioning_details() :: %{String.t() => any()}
+  @type service_catalog_provisioning_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       iam_identity() :: %{
-        "Arn" => String.t(),
-        "PrincipalId" => String.t(),
-        "SourceIdentity" => String.t()
+        "Arn" => String.t() | atom(),
+        "PrincipalId" => String.t() | atom(),
+        "SourceIdentity" => String.t() | atom()
       }
       
   """
-  @type iam_identity() :: %{String.t() => any()}
+  @type iam_identity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_action_request() :: %{
-        required("ActionName") => String.t()
+        required("ActionName") => String.t() | atom()
       }
       
   """
-  @type describe_action_request() :: %{String.t() => any()}
+  @type describe_action_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       customized_metric_specification() :: %{
-        "MetricName" => String.t(),
-        "Namespace" => String.t(),
+        "MetricName" => String.t() | atom(),
+        "Namespace" => String.t() | atom(),
         "Statistic" => list(any())
       }
       
   """
-  @type customized_metric_specification() :: %{String.t() => any()}
+  @type customized_metric_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_compute_quota_request() :: %{
-        required("ComputeQuotaId") => String.t()
+        required("ComputeQuotaId") => String.t() | atom()
       }
       
   """
-  @type delete_compute_quota_request() :: %{String.t() => any()}
+  @type delete_compute_quota_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_association_request() :: %{
-        required("DestinationArn") => String.t(),
-        required("SourceArn") => String.t()
+        required("DestinationArn") => String.t() | atom(),
+        required("SourceArn") => String.t() | atom()
       }
       
   """
-  @type delete_association_request() :: %{String.t() => any()}
+  @type delete_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5895,27 +5901,27 @@ defmodule AWS.SageMaker do
   ## Example:
       
       app_specification() :: %{
-        "ContainerArguments" => list(String.t()),
-        "ContainerEntrypoint" => list(String.t()),
-        "ImageUri" => String.t()
+        "ContainerArguments" => list(String.t() | atom()),
+        "ContainerEntrypoint" => list(String.t() | atom()),
+        "ImageUri" => String.t() | atom()
       }
       
   """
-  @type app_specification() :: %{String.t() => any()}
+  @type app_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       edge_preset_deployment_output() :: %{
-        "Artifact" => String.t(),
+        "Artifact" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusMessage" => String.t(),
+        "StatusMessage" => String.t() | atom(),
         "Type" => list(any())
       }
       
   """
-  @type edge_preset_deployment_output() :: %{String.t() => any()}
+  @type edge_preset_deployment_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5926,10 +5932,10 @@ defmodule AWS.SageMaker do
         "CreationTime" => non_neg_integer(),
         "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
-        "ProjectArn" => String.t(),
-        "ProjectDescription" => String.t(),
-        "ProjectId" => String.t(),
-        "ProjectName" => String.t(),
+        "ProjectArn" => String.t() | atom(),
+        "ProjectDescription" => String.t() | atom(),
+        "ProjectId" => String.t() | atom(),
+        "ProjectName" => String.t() | atom(),
         "ProjectStatus" => list(any()),
         "ServiceCatalogProvisionedProductDetails" => service_catalog_provisioned_product_details(),
         "ServiceCatalogProvisioningDetails" => service_catalog_provisioning_details(),
@@ -5937,7 +5943,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type describe_project_output() :: %{String.t() => any()}
+  @type describe_project_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5945,25 +5951,25 @@ defmodule AWS.SageMaker do
       
       user_profile_details() :: %{
         "CreationTime" => non_neg_integer(),
-        "DomainId" => String.t(),
+        "DomainId" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
         "Status" => list(any()),
-        "UserProfileName" => String.t()
+        "UserProfileName" => String.t() | atom()
       }
       
   """
-  @type user_profile_details() :: %{String.t() => any()}
+  @type user_profile_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_data_quality_job_definition_request() :: %{
-        required("JobDefinitionName") => String.t()
+        required("JobDefinitionName") => String.t() | atom()
       }
       
   """
-  @type describe_data_quality_job_definition_request() :: %{String.t() => any()}
+  @type describe_data_quality_job_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5975,12 +5981,12 @@ defmodule AWS.SageMaker do
         optional("IncludeEdges") => boolean(),
         optional("MaxDepth") => integer(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("StartArns") => list(String.t())
+        optional("NextToken") => String.t() | atom(),
+        optional("StartArns") => list(String.t() | atom())
       }
       
   """
-  @type query_lineage_request() :: %{String.t() => any()}
+  @type query_lineage_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5989,28 +5995,28 @@ defmodule AWS.SageMaker do
       describe_lineage_group_response() :: %{
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "DisplayName" => String.t(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
         "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
-        "LineageGroupArn" => String.t(),
-        "LineageGroupName" => String.t()
+        "LineageGroupArn" => String.t() | atom(),
+        "LineageGroupName" => String.t() | atom()
       }
       
   """
-  @type describe_lineage_group_response() :: %{String.t() => any()}
+  @type describe_lineage_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       authorized_url() :: %{
-        "LocalPath" => String.t(),
-        "Url" => String.t()
+        "LocalPath" => String.t() | atom(),
+        "Url" => String.t() | atom()
       }
       
   """
-  @type authorized_url() :: %{String.t() => any()}
+  @type authorized_url() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6018,11 +6024,11 @@ defmodule AWS.SageMaker do
       
       list_endpoint_configs_output() :: %{
         "EndpointConfigs" => list(endpoint_config_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_endpoint_configs_output() :: %{String.t() => any()}
+  @type list_endpoint_configs_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6034,7 +6040,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type algorithm_status_details() :: %{String.t() => any()}
+  @type algorithm_status_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6042,12 +6048,12 @@ defmodule AWS.SageMaker do
       
       query_lineage_response() :: %{
         "Edges" => list(edge()),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Vertices" => list(vertex())
       }
       
   """
-  @type query_lineage_response() :: %{String.t() => any()}
+  @type query_lineage_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6059,7 +6065,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type async_inference_config() :: %{String.t() => any()}
+  @type async_inference_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6081,37 +6087,37 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type throughput_config_description() :: %{String.t() => any()}
+  @type throughput_config_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_metadata_service_configuration() :: %{
-        "MinimumInstanceMetadataServiceVersion" => String.t()
+        "MinimumInstanceMetadataServiceVersion" => String.t() | atom()
       }
       
   """
-  @type instance_metadata_service_configuration() :: %{String.t() => any()}
+  @type instance_metadata_service_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       auto_ml_job_summary() :: %{
-        "AutoMLJobArn" => String.t(),
-        "AutoMLJobName" => String.t(),
+        "AutoMLJobArn" => String.t() | atom(),
+        "AutoMLJobName" => String.t() | atom(),
         "AutoMLJobSecondaryStatus" => list(any()),
         "AutoMLJobStatus" => list(any()),
         "CreationTime" => non_neg_integer(),
         "EndTime" => non_neg_integer(),
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
         "PartialFailureReasons" => list(auto_ml_partial_failure_reason())
       }
       
   """
-  @type auto_ml_job_summary() :: %{String.t() => any()}
+  @type auto_ml_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6123,52 +6129,52 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type member_definition() :: %{String.t() => any()}
+  @type member_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_mlflow_tracking_servers_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "TrackingServerSummaries" => list(tracking_server_summary())
       }
       
   """
-  @type list_mlflow_tracking_servers_response() :: %{String.t() => any()}
+  @type list_mlflow_tracking_servers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_image_version_request() :: %{
-        optional("Alias") => String.t(),
+        optional("Alias") => String.t() | atom(),
         optional("Version") => integer(),
-        required("ImageName") => String.t()
+        required("ImageName") => String.t() | atom()
       }
       
   """
-  @type delete_image_version_request() :: %{String.t() => any()}
+  @type delete_image_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       quality_check_step_metadata() :: %{
-        "BaselineUsedForDriftCheckConstraints" => String.t(),
-        "BaselineUsedForDriftCheckStatistics" => String.t(),
-        "CalculatedBaselineConstraints" => String.t(),
-        "CalculatedBaselineStatistics" => String.t(),
-        "CheckJobArn" => String.t(),
-        "CheckType" => String.t(),
-        "ModelPackageGroupName" => String.t(),
+        "BaselineUsedForDriftCheckConstraints" => String.t() | atom(),
+        "BaselineUsedForDriftCheckStatistics" => String.t() | atom(),
+        "CalculatedBaselineConstraints" => String.t() | atom(),
+        "CalculatedBaselineStatistics" => String.t() | atom(),
+        "CheckJobArn" => String.t() | atom(),
+        "CheckType" => String.t() | atom(),
+        "ModelPackageGroupName" => String.t() | atom(),
         "RegisterNewBaseline" => boolean(),
         "SkipCheck" => boolean(),
-        "ViolationReport" => String.t()
+        "ViolationReport" => String.t() | atom()
       }
       
   """
-  @type quality_check_step_metadata() :: %{String.t() => any()}
+  @type quality_check_step_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6176,22 +6182,22 @@ defmodule AWS.SageMaker do
       
       list_labeling_jobs_response() :: %{
         "LabelingJobSummaryList" => list(labeling_job_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_labeling_jobs_response() :: %{String.t() => any()}
+  @type list_labeling_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_model_package_input() :: %{
-        required("ModelPackageName") => String.t()
+        required("ModelPackageName") => String.t() | atom()
       }
       
   """
-  @type delete_model_package_input() :: %{String.t() => any()}
+  @type delete_model_package_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6199,12 +6205,12 @@ defmodule AWS.SageMaker do
       
       model_package() :: %{
         "AdditionalInferenceSpecifications" => list(additional_inference_specification_definition()),
-        "ApprovalDescription" => String.t(),
+        "ApprovalDescription" => String.t() | atom(),
         "CertifyForMarketplace" => boolean(),
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
         "CustomerMetadataProperties" => map(),
-        "Domain" => String.t(),
+        "Domain" => String.t() | atom(),
         "DriftCheckBaselines" => drift_check_baselines(),
         "InferenceSpecification" => inference_specification(),
         "LastModifiedBy" => user_context(),
@@ -6214,25 +6220,25 @@ defmodule AWS.SageMaker do
         "ModelCard" => model_package_model_card(),
         "ModelLifeCycle" => model_life_cycle(),
         "ModelMetrics" => model_metrics(),
-        "ModelPackageArn" => String.t(),
-        "ModelPackageDescription" => String.t(),
-        "ModelPackageGroupName" => String.t(),
-        "ModelPackageName" => String.t(),
+        "ModelPackageArn" => String.t() | atom(),
+        "ModelPackageDescription" => String.t() | atom(),
+        "ModelPackageGroupName" => String.t() | atom(),
+        "ModelPackageName" => String.t() | atom(),
         "ModelPackageStatus" => list(any()),
         "ModelPackageStatusDetails" => model_package_status_details(),
         "ModelPackageVersion" => integer(),
-        "SamplePayloadUrl" => String.t(),
+        "SamplePayloadUrl" => String.t() | atom(),
         "SecurityConfig" => model_package_security_config(),
         "SkipModelValidation" => list(any()),
         "SourceAlgorithmSpecification" => source_algorithm_specification(),
-        "SourceUri" => String.t(),
+        "SourceUri" => String.t() | atom(),
         "Tags" => list(tag()),
-        "Task" => String.t(),
+        "Task" => String.t() | atom(),
         "ValidationSpecification" => model_package_validation_specification()
       }
       
   """
-  @type model_package() :: %{String.t() => any()}
+  @type model_package() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6243,7 +6249,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type processing_stopping_condition() :: %{String.t() => any()}
+  @type processing_stopping_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6256,41 +6262,41 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type production_variant_serverless_config() :: %{String.t() => any()}
+  @type production_variant_serverless_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       training_job_step_metadata() :: %{
-        "Arn" => String.t()
+        "Arn" => String.t() | atom()
       }
       
   """
-  @type training_job_step_metadata() :: %{String.t() => any()}
+  @type training_job_step_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       neo_vpc_config() :: %{
-        "SecurityGroupIds" => list(String.t()),
-        "Subnets" => list(String.t())
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "Subnets" => list(String.t() | atom())
       }
       
   """
-  @type neo_vpc_config() :: %{String.t() => any()}
+  @type neo_vpc_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_human_task_ui_request() :: %{
-        required("HumanTaskUiName") => String.t()
+        required("HumanTaskUiName") => String.t() | atom()
       }
       
   """
-  @type describe_human_task_ui_request() :: %{String.t() => any()}
+  @type describe_human_task_ui_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6302,25 +6308,25 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type model_quality() :: %{String.t() => any()}
+  @type model_quality() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       edge_packaging_job_summary() :: %{
-        "CompilationJobName" => String.t(),
+        "CompilationJobName" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
-        "EdgePackagingJobArn" => String.t(),
-        "EdgePackagingJobName" => String.t(),
+        "EdgePackagingJobArn" => String.t() | atom(),
+        "EdgePackagingJobName" => String.t() | atom(),
         "EdgePackagingJobStatus" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
-        "ModelName" => String.t(),
-        "ModelVersion" => String.t()
+        "ModelName" => String.t() | atom(),
+        "ModelVersion" => String.t() | atom()
       }
       
   """
-  @type edge_packaging_job_summary() :: %{String.t() => any()}
+  @type edge_packaging_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6336,39 +6342,39 @@ defmodule AWS.SageMaker do
         optional("MaxPayloadInMB") => integer(),
         optional("ModelClientConfig") => model_client_config(),
         optional("Tags") => list(tag()),
-        required("ModelName") => String.t(),
+        required("ModelName") => String.t() | atom(),
         required("TransformInput") => transform_input(),
-        required("TransformJobName") => String.t(),
+        required("TransformJobName") => String.t() | atom(),
         required("TransformOutput") => transform_output(),
         required("TransformResources") => transform_resources()
       }
       
   """
-  @type create_transform_job_request() :: %{String.t() => any()}
+  @type create_transform_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       transform_job() :: %{
-        "AutoMLJobArn" => String.t(),
+        "AutoMLJobArn" => String.t() | atom(),
         "BatchStrategy" => list(any()),
         "CreationTime" => non_neg_integer(),
         "DataCaptureConfig" => batch_data_capture_config(),
         "DataProcessing" => data_processing(),
         "Environment" => map(),
         "ExperimentConfig" => experiment_config(),
-        "FailureReason" => String.t(),
-        "LabelingJobArn" => String.t(),
+        "FailureReason" => String.t() | atom(),
+        "LabelingJobArn" => String.t() | atom(),
         "MaxConcurrentTransforms" => integer(),
         "MaxPayloadInMB" => integer(),
         "ModelClientConfig" => model_client_config(),
-        "ModelName" => String.t(),
+        "ModelName" => String.t() | atom(),
         "Tags" => list(tag()),
         "TransformEndTime" => non_neg_integer(),
         "TransformInput" => transform_input(),
-        "TransformJobArn" => String.t(),
-        "TransformJobName" => String.t(),
+        "TransformJobArn" => String.t() | atom(),
+        "TransformJobName" => String.t() | atom(),
         "TransformJobStatus" => list(any()),
         "TransformOutput" => transform_output(),
         "TransformResources" => transform_resources(),
@@ -6376,18 +6382,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type transform_job() :: %{String.t() => any()}
+  @type transform_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       alarm_details() :: %{
-        "AlarmName" => String.t()
+        "AlarmName" => String.t() | atom()
       }
       
   """
-  @type alarm_details() :: %{String.t() => any()}
+  @type alarm_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6398,7 +6404,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type suggestion_query() :: %{String.t() => any()}
+  @type suggestion_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6406,33 +6412,33 @@ defmodule AWS.SageMaker do
       
       list_human_task_uis_response() :: %{
         "HumanTaskUiSummaries" => list(human_task_ui_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_human_task_uis_response() :: %{String.t() => any()}
+  @type list_human_task_uis_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       selective_execution_result() :: %{
-        "SourcePipelineExecutionArn" => String.t()
+        "SourcePipelineExecutionArn" => String.t() | atom()
       }
       
   """
-  @type selective_execution_result() :: %{String.t() => any()}
+  @type selective_execution_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_workforce_request() :: %{
-        required("WorkforceName") => String.t()
+        required("WorkforceName") => String.t() | atom()
       }
       
   """
-  @type describe_workforce_request() :: %{String.t() => any()}
+  @type describe_workforce_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6440,26 +6446,26 @@ defmodule AWS.SageMaker do
       
       delete_domain_request() :: %{
         optional("RetentionPolicy") => retention_policy(),
-        required("DomainId") => String.t()
+        required("DomainId") => String.t() | atom()
       }
       
   """
-  @type delete_domain_request() :: %{String.t() => any()}
+  @type delete_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_summary() :: %{
-        "ClusterArn" => String.t(),
-        "ClusterName" => String.t(),
+        "ClusterArn" => String.t() | atom(),
+        "ClusterName" => String.t() | atom(),
         "ClusterStatus" => list(any()),
         "CreationTime" => non_neg_integer(),
-        "TrainingPlanArns" => list(String.t())
+        "TrainingPlanArns" => list(String.t() | atom())
       }
       
   """
-  @type cluster_summary() :: %{String.t() => any()}
+  @type cluster_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6468,29 +6474,29 @@ defmodule AWS.SageMaker do
       describe_trial_response() :: %{
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
-        "DisplayName" => String.t(),
-        "ExperimentName" => String.t(),
+        "DisplayName" => String.t() | atom(),
+        "ExperimentName" => String.t() | atom(),
         "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
         "MetadataProperties" => metadata_properties(),
         "Source" => trial_source(),
-        "TrialArn" => String.t(),
-        "TrialName" => String.t()
+        "TrialArn" => String.t() | atom(),
+        "TrialName" => String.t() | atom()
       }
       
   """
-  @type describe_trial_response() :: %{String.t() => any()}
+  @type describe_trial_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       renderable_task() :: %{
-        "Input" => String.t()
+        "Input" => String.t() | atom()
       }
       
   """
-  @type renderable_task() :: %{String.t() => any()}
+  @type renderable_task() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6502,25 +6508,25 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type inference_component_deployment_config() :: %{String.t() => any()}
+  @type inference_component_deployment_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       app_details() :: %{
-        "AppName" => String.t(),
+        "AppName" => String.t() | atom(),
         "AppType" => list(any()),
         "CreationTime" => non_neg_integer(),
-        "DomainId" => String.t(),
+        "DomainId" => String.t() | atom(),
         "ResourceSpec" => resource_spec(),
-        "SpaceName" => String.t(),
+        "SpaceName" => String.t() | atom(),
         "Status" => list(any()),
-        "UserProfileName" => String.t()
+        "UserProfileName" => String.t() | atom()
       }
       
   """
-  @type app_details() :: %{String.t() => any()}
+  @type app_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6529,16 +6535,16 @@ defmodule AWS.SageMaker do
       list_model_bias_job_definitions_request() :: %{
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
-        optional("EndpointName") => String.t(),
+        optional("EndpointName") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_model_bias_job_definitions_request() :: %{String.t() => any()}
+  @type list_model_bias_job_definitions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6548,25 +6554,25 @@ defmodule AWS.SageMaker do
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_algorithms_input() :: %{String.t() => any()}
+  @type list_algorithms_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       generative_ai_settings() :: %{
-        "AmazonBedrockRoleArn" => String.t()
+        "AmazonBedrockRoleArn" => String.t() | atom()
       }
       
   """
-  @type generative_ai_settings() :: %{String.t() => any()}
+  @type generative_ai_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6575,45 +6581,45 @@ defmodule AWS.SageMaker do
       create_model_input() :: %{
         optional("Containers") => list(container_definition()),
         optional("EnableNetworkIsolation") => boolean(),
-        optional("ExecutionRoleArn") => String.t(),
+        optional("ExecutionRoleArn") => String.t() | atom(),
         optional("InferenceExecutionConfig") => inference_execution_config(),
         optional("PrimaryContainer") => container_definition(),
         optional("Tags") => list(tag()),
         optional("VpcConfig") => vpc_config(),
-        required("ModelName") => String.t()
+        required("ModelName") => String.t() | atom()
       }
       
   """
-  @type create_model_input() :: %{String.t() => any()}
+  @type create_model_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_user_profile_request() :: %{
-        required("DomainId") => String.t(),
-        required("UserProfileName") => String.t()
+        required("DomainId") => String.t() | atom(),
+        required("UserProfileName") => String.t() | atom()
       }
       
   """
-  @type describe_user_profile_request() :: %{String.t() => any()}
+  @type describe_user_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       hyper_parameter_specification() :: %{
-        "DefaultValue" => String.t(),
-        "Description" => String.t(),
+        "DefaultValue" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "IsRequired" => boolean(),
         "IsTunable" => boolean(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Range" => parameter_range(),
         "Type" => list(any())
       }
       
   """
-  @type hyper_parameter_specification() :: %{String.t() => any()}
+  @type hyper_parameter_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6624,19 +6630,19 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type inference_execution_config() :: %{String.t() => any()}
+  @type inference_execution_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_edge_deployment_stage_request() :: %{
-        required("EdgeDeploymentPlanName") => String.t(),
-        required("StageName") => String.t()
+        required("EdgeDeploymentPlanName") => String.t() | atom(),
+        required("StageName") => String.t() | atom()
       }
       
   """
-  @type start_edge_deployment_stage_request() :: %{String.t() => any()}
+  @type start_edge_deployment_stage_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6647,18 +6653,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type model_dashboard_indicator_action() :: %{String.t() => any()}
+  @type model_dashboard_indicator_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_model_bias_job_definition_request() :: %{
-        required("JobDefinitionName") => String.t()
+        required("JobDefinitionName") => String.t() | atom()
       }
       
   """
-  @type describe_model_bias_job_definition_request() :: %{String.t() => any()}
+  @type describe_model_bias_job_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6670,19 +6676,19 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type inference_experiment_schedule() :: %{String.t() => any()}
+  @type inference_experiment_schedule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       auto_parameter() :: %{
-        "Name" => String.t(),
-        "ValueHint" => String.t()
+        "Name" => String.t() | atom(),
+        "ValueHint" => String.t() | atom()
       }
       
   """
-  @type auto_parameter() :: %{String.t() => any()}
+  @type auto_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6690,24 +6696,24 @@ defmodule AWS.SageMaker do
       
       transform_s3_data_source() :: %{
         "S3DataType" => list(any()),
-        "S3Uri" => String.t()
+        "S3Uri" => String.t() | atom()
       }
       
   """
-  @type transform_s3_data_source() :: %{String.t() => any()}
+  @type transform_s3_data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_model_card_response() :: %{
-        "Content" => String.t(),
+        "Content" => String.t() | atom(),
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
         "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
-        "ModelCardArn" => String.t(),
-        "ModelCardName" => String.t(),
+        "ModelCardArn" => String.t() | atom(),
+        "ModelCardName" => String.t() | atom(),
         "ModelCardProcessingStatus" => list(any()),
         "ModelCardStatus" => list(any()),
         "ModelCardVersion" => integer(),
@@ -6715,7 +6721,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type describe_model_card_response() :: %{String.t() => any()}
+  @type describe_model_card_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6726,7 +6732,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type describe_cluster_event_response() :: %{String.t() => any()}
+  @type describe_cluster_event_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6739,34 +6745,34 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type deployment_configuration() :: %{String.t() => any()}
+  @type deployment_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_device_fleet_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("EnableIotRoleAlias") => boolean(),
-        optional("RoleArn") => String.t(),
-        required("DeviceFleetName") => String.t(),
+        optional("RoleArn") => String.t() | atom(),
+        required("DeviceFleetName") => String.t() | atom(),
         required("OutputConfig") => edge_output_config()
       }
       
   """
-  @type update_device_fleet_request() :: %{String.t() => any()}
+  @type update_device_fleet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       output_parameter() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type output_parameter() :: %{String.t() => any()}
+  @type output_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6778,14 +6784,14 @@ defmodule AWS.SageMaker do
         optional("LastModifiedTimeAfter") => non_neg_integer(),
         optional("LastModifiedTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_hubs_request() :: %{String.t() => any()}
+  @type list_hubs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6793,43 +6799,43 @@ defmodule AWS.SageMaker do
       
       describe_notebook_instance_output() :: %{
         "AcceleratorTypes" => list(list(any())()),
-        "AdditionalCodeRepositories" => list(String.t()),
+        "AdditionalCodeRepositories" => list(String.t() | atom()),
         "CreationTime" => non_neg_integer(),
-        "DefaultCodeRepository" => String.t(),
+        "DefaultCodeRepository" => String.t() | atom(),
         "DirectInternetAccess" => list(any()),
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | atom(),
         "InstanceMetadataServiceConfiguration" => instance_metadata_service_configuration(),
         "InstanceType" => list(any()),
-        "KmsKeyId" => String.t(),
+        "KmsKeyId" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
-        "NetworkInterfaceId" => String.t(),
-        "NotebookInstanceArn" => String.t(),
-        "NotebookInstanceLifecycleConfigName" => String.t(),
-        "NotebookInstanceName" => String.t(),
+        "NetworkInterfaceId" => String.t() | atom(),
+        "NotebookInstanceArn" => String.t() | atom(),
+        "NotebookInstanceLifecycleConfigName" => String.t() | atom(),
+        "NotebookInstanceName" => String.t() | atom(),
         "NotebookInstanceStatus" => list(any()),
-        "PlatformIdentifier" => String.t(),
-        "RoleArn" => String.t(),
+        "PlatformIdentifier" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
         "RootAccess" => list(any()),
-        "SecurityGroups" => list(String.t()),
-        "SubnetId" => String.t(),
-        "Url" => String.t(),
+        "SecurityGroups" => list(String.t() | atom()),
+        "SubnetId" => String.t() | atom(),
+        "Url" => String.t() | atom(),
         "VolumeSizeInGB" => integer()
       }
       
   """
-  @type describe_notebook_instance_output() :: %{String.t() => any()}
+  @type describe_notebook_instance_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       recommendation_job_payload_config() :: %{
-        "SamplePayloadUrl" => String.t(),
-        "SupportedContentTypes" => list(String.t())
+        "SamplePayloadUrl" => String.t() | atom(),
+        "SupportedContentTypes" => list(String.t() | atom())
       }
       
   """
-  @type recommendation_job_payload_config() :: %{String.t() => any()}
+  @type recommendation_job_payload_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6842,7 +6848,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type model_bias_job_input() :: %{String.t() => any()}
+  @type model_bias_job_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6853,7 +6859,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type environment_config() :: %{String.t() => any()}
+  @type environment_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6861,8 +6867,8 @@ defmodule AWS.SageMaker do
       
       compilation_job_summary() :: %{
         "CompilationEndTime" => non_neg_integer(),
-        "CompilationJobArn" => String.t(),
-        "CompilationJobName" => String.t(),
+        "CompilationJobArn" => String.t() | atom(),
+        "CompilationJobName" => String.t() | atom(),
         "CompilationJobStatus" => list(any()),
         "CompilationStartTime" => non_neg_integer(),
         "CompilationTargetDevice" => list(any()),
@@ -6874,7 +6880,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type compilation_job_summary() :: %{String.t() => any()}
+  @type compilation_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6883,7 +6889,7 @@ defmodule AWS.SageMaker do
       hyper_parameter_training_job_definition() :: %{
         "AlgorithmSpecification" => hyper_parameter_algorithm_specification(),
         "CheckpointConfig" => checkpoint_config(),
-        "DefinitionName" => String.t(),
+        "DefinitionName" => String.t() | atom(),
         "EnableInterContainerTrafficEncryption" => boolean(),
         "EnableManagedSpotTraining" => boolean(),
         "EnableNetworkIsolation" => boolean(),
@@ -6894,7 +6900,7 @@ defmodule AWS.SageMaker do
         "OutputDataConfig" => output_data_config(),
         "ResourceConfig" => resource_config(),
         "RetryStrategy" => retry_strategy(),
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | atom(),
         "StaticHyperParameters" => map(),
         "StoppingCondition" => stopping_condition(),
         "TuningObjective" => hyper_parameter_tuning_job_objective(),
@@ -6902,19 +6908,19 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type hyper_parameter_training_job_definition() :: %{String.t() => any()}
+  @type hyper_parameter_training_job_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_association_response() :: %{
-        "DestinationArn" => String.t(),
-        "SourceArn" => String.t()
+        "DestinationArn" => String.t() | atom(),
+        "SourceArn" => String.t() | atom()
       }
       
   """
-  @type add_association_response() :: %{String.t() => any()}
+  @type add_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6926,30 +6932,30 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type r_studio_server_pro_app_settings() :: %{String.t() => any()}
+  @type r_studio_server_pro_app_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       labeling_job_resource_config() :: %{
-        "VolumeKmsKeyId" => String.t(),
+        "VolumeKmsKeyId" => String.t() | atom(),
         "VpcConfig" => vpc_config()
       }
       
   """
-  @type labeling_job_resource_config() :: %{String.t() => any()}
+  @type labeling_job_resource_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       monitoring_ground_truth_s3_input() :: %{
-        "S3Uri" => String.t()
+        "S3Uri" => String.t() | atom()
       }
       
   """
-  @type monitoring_ground_truth_s3_input() :: %{String.t() => any()}
+  @type monitoring_ground_truth_s3_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6960,74 +6966,74 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type convergence_detected() :: %{String.t() => any()}
+  @type convergence_detected() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_model_card_request() :: %{
-        optional("Content") => String.t(),
+        optional("Content") => String.t() | atom(),
         optional("ModelCardStatus") => list(any()),
-        required("ModelCardName") => String.t()
+        required("ModelCardName") => String.t() | atom()
       }
       
   """
-  @type update_model_card_request() :: %{String.t() => any()}
+  @type update_model_card_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_model_package_group_policy_input() :: %{
-        required("ModelPackageGroupName") => String.t()
+        required("ModelPackageGroupName") => String.t() | atom()
       }
       
   """
-  @type delete_model_package_group_policy_input() :: %{String.t() => any()}
+  @type delete_model_package_group_policy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_inference_recommendations_job_response() :: %{
-        "JobArn" => String.t()
+        "JobArn" => String.t() | atom()
       }
       
   """
-  @type create_inference_recommendations_job_response() :: %{String.t() => any()}
+  @type create_inference_recommendations_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_context_response() :: %{
-        "ContextArn" => String.t(),
-        "ContextName" => String.t(),
-        "ContextType" => String.t(),
+        "ContextArn" => String.t() | atom(),
+        "ContextName" => String.t() | atom(),
+        "ContextType" => String.t() | atom(),
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
-        "LineageGroupArn" => String.t(),
+        "LineageGroupArn" => String.t() | atom(),
         "Properties" => map(),
         "Source" => context_source()
       }
       
   """
-  @type describe_context_response() :: %{String.t() => any()}
+  @type describe_context_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_hyper_parameter_tuning_job_request() :: %{
-        required("HyperParameterTuningJobName") => String.t()
+        required("HyperParameterTuningJobName") => String.t() | atom()
       }
       
   """
-  @type delete_hyper_parameter_tuning_job_request() :: %{String.t() => any()}
+  @type delete_hyper_parameter_tuning_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7035,23 +7041,23 @@ defmodule AWS.SageMaker do
       
       inference_experiment_data_storage_config() :: %{
         "ContentType" => capture_content_type_header(),
-        "Destination" => String.t(),
-        "KmsKey" => String.t()
+        "Destination" => String.t() | atom(),
+        "KmsKey" => String.t() | atom()
       }
       
   """
-  @type inference_experiment_data_storage_config() :: %{String.t() => any()}
+  @type inference_experiment_data_storage_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       inference_hub_access_config() :: %{
-        "HubContentArn" => String.t()
+        "HubContentArn" => String.t() | atom()
       }
       
   """
-  @type inference_hub_access_config() :: %{String.t() => any()}
+  @type inference_hub_access_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7062,7 +7068,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type session_chaining_config() :: %{String.t() => any()}
+  @type session_chaining_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7076,13 +7082,13 @@ defmodule AWS.SageMaker do
         required("DataQualityAppSpecification") => data_quality_app_specification(),
         required("DataQualityJobInput") => data_quality_job_input(),
         required("DataQualityJobOutputConfig") => monitoring_output_config(),
-        required("JobDefinitionName") => String.t(),
+        required("JobDefinitionName") => String.t() | atom(),
         required("JobResources") => monitoring_resources(),
-        required("RoleArn") => String.t()
+        required("RoleArn") => String.t() | atom()
       }
       
   """
-  @type create_data_quality_job_definition_request() :: %{String.t() => any()}
+  @type create_data_quality_job_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7091,14 +7097,14 @@ defmodule AWS.SageMaker do
       list_monitoring_executions_request() :: %{
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
-        optional("EndpointName") => String.t(),
+        optional("EndpointName") => String.t() | atom(),
         optional("LastModifiedTimeAfter") => non_neg_integer(),
         optional("LastModifiedTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("MonitoringJobDefinitionName") => String.t(),
-        optional("MonitoringScheduleName") => String.t(),
+        optional("MonitoringJobDefinitionName") => String.t() | atom(),
+        optional("MonitoringScheduleName") => String.t() | atom(),
         optional("MonitoringTypeEquals") => list(any()),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("ScheduledTimeAfter") => non_neg_integer(),
         optional("ScheduledTimeBefore") => non_neg_integer(),
         optional("SortBy") => list(any()),
@@ -7107,7 +7113,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type list_monitoring_executions_request() :: %{String.t() => any()}
+  @type list_monitoring_executions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7118,16 +7124,16 @@ defmodule AWS.SageMaker do
         optional("NetworkConfig") => monitoring_network_config(),
         optional("StoppingCondition") => monitoring_stopping_condition(),
         optional("Tags") => list(tag()),
-        required("JobDefinitionName") => String.t(),
+        required("JobDefinitionName") => String.t() | atom(),
         required("JobResources") => monitoring_resources(),
         required("ModelQualityAppSpecification") => model_quality_app_specification(),
         required("ModelQualityJobInput") => model_quality_job_input(),
         required("ModelQualityJobOutputConfig") => monitoring_output_config(),
-        required("RoleArn") => String.t()
+        required("RoleArn") => String.t() | atom()
       }
       
   """
-  @type create_model_quality_job_definition_request() :: %{String.t() => any()}
+  @type create_model_quality_job_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7136,32 +7142,32 @@ defmodule AWS.SageMaker do
       list_monitoring_schedules_request() :: %{
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
-        optional("EndpointName") => String.t(),
+        optional("EndpointName") => String.t() | atom(),
         optional("LastModifiedTimeAfter") => non_neg_integer(),
         optional("LastModifiedTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("MonitoringJobDefinitionName") => String.t(),
+        optional("MonitoringJobDefinitionName") => String.t() | atom(),
         optional("MonitoringTypeEquals") => list(any()),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
         optional("StatusEquals") => list(any())
       }
       
   """
-  @type list_monitoring_schedules_request() :: %{String.t() => any()}
+  @type list_monitoring_schedules_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_flow_definition_request() :: %{
-        required("FlowDefinitionName") => String.t()
+        required("FlowDefinitionName") => String.t() | atom()
       }
       
   """
-  @type delete_flow_definition_request() :: %{String.t() => any()}
+  @type delete_flow_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7173,7 +7179,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type capacity_size() :: %{String.t() => any()}
+  @type capacity_size() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7185,14 +7191,14 @@ defmodule AWS.SageMaker do
         optional("LastModifiedTimeAfter") => non_neg_integer(),
         optional("LastModifiedTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
-        required("ImageName") => String.t()
+        required("ImageName") => String.t() | atom()
       }
       
   """
-  @type list_image_versions_request() :: %{String.t() => any()}
+  @type list_image_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7206,11 +7212,11 @@ defmodule AWS.SageMaker do
         optional("RestrictedInstanceGroups") => list(cluster_restricted_instance_group_specification()),
         optional("Tags") => list(tag()),
         optional("VpcConfig") => vpc_config(),
-        required("ClusterName") => String.t()
+        required("ClusterName") => String.t() | atom()
       }
       
   """
-  @type create_cluster_request() :: %{String.t() => any()}
+  @type create_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7218,13 +7224,13 @@ defmodule AWS.SageMaker do
       
       ec2_capacity_reservation() :: %{
         "AvailableInstanceCount" => integer(),
-        "Ec2CapacityReservationId" => String.t(),
+        "Ec2CapacityReservationId" => String.t() | atom(),
         "TotalInstanceCount" => integer(),
         "UsedByCurrentEndpoint" => integer()
       }
       
   """
-  @type ec2_capacity_reservation() :: %{String.t() => any()}
+  @type ec2_capacity_reservation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7234,22 +7240,22 @@ defmodule AWS.SageMaker do
         optional("OnCreate") => list(notebook_instance_lifecycle_hook()),
         optional("OnStart") => list(notebook_instance_lifecycle_hook()),
         optional("Tags") => list(tag()),
-        required("NotebookInstanceLifecycleConfigName") => String.t()
+        required("NotebookInstanceLifecycleConfigName") => String.t() | atom()
       }
       
   """
-  @type create_notebook_instance_lifecycle_config_input() :: %{String.t() => any()}
+  @type create_notebook_instance_lifecycle_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_studio_lifecycle_config_response() :: %{
-        "StudioLifecycleConfigArn" => String.t()
+        "StudioLifecycleConfigArn" => String.t() | atom()
       }
       
   """
-  @type create_studio_lifecycle_config_response() :: %{String.t() => any()}
+  @type create_studio_lifecycle_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7257,11 +7263,11 @@ defmodule AWS.SageMaker do
       
       auto_ml_candidate_generation_config() :: %{
         "AlgorithmsConfig" => list(auto_ml_algorithm_config()),
-        "FeatureSpecificationS3Uri" => String.t()
+        "FeatureSpecificationS3Uri" => String.t() | atom()
       }
       
   """
-  @type auto_ml_candidate_generation_config() :: %{String.t() => any()}
+  @type auto_ml_candidate_generation_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7269,22 +7275,22 @@ defmodule AWS.SageMaker do
       
       artifact_source() :: %{
         "SourceTypes" => list(artifact_source_type()),
-        "SourceUri" => String.t()
+        "SourceUri" => String.t() | atom()
       }
       
   """
-  @type artifact_source() :: %{String.t() => any()}
+  @type artifact_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       emr_serverless_compute_config() :: %{
-        "ExecutionRoleARN" => String.t()
+        "ExecutionRoleARN" => String.t() | atom()
       }
       
   """
-  @type emr_serverless_compute_config() :: %{String.t() => any()}
+  @type emr_serverless_compute_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7298,7 +7304,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type metric_datum() :: %{String.t() => any()}
+  @type metric_datum() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7309,7 +7315,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type direct_deploy_settings() :: %{String.t() => any()}
+  @type direct_deploy_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7318,25 +7324,25 @@ defmodule AWS.SageMaker do
       model_card_version_summary() :: %{
         "CreationTime" => non_neg_integer(),
         "LastModifiedTime" => non_neg_integer(),
-        "ModelCardArn" => String.t(),
-        "ModelCardName" => String.t(),
+        "ModelCardArn" => String.t() | atom(),
+        "ModelCardName" => String.t() | atom(),
         "ModelCardStatus" => list(any()),
         "ModelCardVersion" => integer()
       }
       
   """
-  @type model_card_version_summary() :: %{String.t() => any()}
+  @type model_card_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7349,47 +7355,47 @@ defmodule AWS.SageMaker do
         required("DeploymentInstanceType") => list(any()),
         required("ModelSource") => optimization_job_model_source(),
         required("OptimizationConfigs") => list(list()),
-        required("OptimizationJobName") => String.t(),
+        required("OptimizationJobName") => String.t() | atom(),
         required("OutputConfig") => optimization_job_output_config(),
-        required("RoleArn") => String.t(),
+        required("RoleArn") => String.t() | atom(),
         required("StoppingCondition") => stopping_condition()
       }
       
   """
-  @type create_optimization_job_request() :: %{String.t() => any()}
+  @type create_optimization_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       pending_deployment_summary() :: %{
-        "EndpointConfigName" => String.t(),
+        "EndpointConfigName" => String.t() | atom(),
         "ProductionVariants" => list(pending_production_variant_summary()),
         "ShadowProductionVariants" => list(pending_production_variant_summary()),
         "StartTime" => non_neg_integer()
       }
       
   """
-  @type pending_deployment_summary() :: %{String.t() => any()}
+  @type pending_deployment_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       training_plan_offering() :: %{
-        "CurrencyCode" => String.t(),
+        "CurrencyCode" => String.t() | atom(),
         "DurationHours" => float(),
         "DurationMinutes" => float(),
         "RequestedEndTimeBefore" => non_neg_integer(),
         "RequestedStartTimeAfter" => non_neg_integer(),
         "ReservedCapacityOfferings" => list(reserved_capacity_offering()),
         "TargetResources" => list(list(any())()),
-        "TrainingPlanOfferingId" => String.t(),
-        "UpfrontFee" => String.t()
+        "TrainingPlanOfferingId" => String.t() | atom(),
+        "UpfrontFee" => String.t() | atom()
       }
       
   """
-  @type training_plan_offering() :: %{String.t() => any()}
+  @type training_plan_offering() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7400,7 +7406,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type delete_workteam_response() :: %{String.t() => any()}
+  @type delete_workteam_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7409,113 +7415,113 @@ defmodule AWS.SageMaker do
       processing_output() :: %{
         "AppManaged" => boolean(),
         "FeatureStoreOutput" => processing_feature_store_output(),
-        "OutputName" => String.t(),
+        "OutputName" => String.t() | atom(),
         "S3Output" => processing_s3_output()
       }
       
   """
-  @type processing_output() :: %{String.t() => any()}
+  @type processing_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       clarify_check_step_metadata() :: %{
-        "BaselineUsedForDriftCheckConstraints" => String.t(),
-        "CalculatedBaselineConstraints" => String.t(),
-        "CheckJobArn" => String.t(),
-        "CheckType" => String.t(),
-        "ModelPackageGroupName" => String.t(),
+        "BaselineUsedForDriftCheckConstraints" => String.t() | atom(),
+        "CalculatedBaselineConstraints" => String.t() | atom(),
+        "CheckJobArn" => String.t() | atom(),
+        "CheckType" => String.t() | atom(),
+        "ModelPackageGroupName" => String.t() | atom(),
         "RegisterNewBaseline" => boolean(),
         "SkipCheck" => boolean(),
-        "ViolationReport" => String.t()
+        "ViolationReport" => String.t() | atom()
       }
       
   """
-  @type clarify_check_step_metadata() :: %{String.t() => any()}
+  @type clarify_check_step_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_compilation_job_response() :: %{
-        "CompilationJobArn" => String.t()
+        "CompilationJobArn" => String.t() | atom()
       }
       
   """
-  @type create_compilation_job_response() :: %{String.t() => any()}
+  @type create_compilation_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_pipeline_execution_request() :: %{
-        required("PipelineExecutionArn") => String.t()
+        required("PipelineExecutionArn") => String.t() | atom()
       }
       
   """
-  @type describe_pipeline_execution_request() :: %{String.t() => any()}
+  @type describe_pipeline_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_workteams_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Workteams" => list(workteam())
       }
       
   """
-  @type list_workteams_response() :: %{String.t() => any()}
+  @type list_workteams_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_inference_recommendations_job_steps_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Steps" => list(inference_recommendations_job_step())
       }
       
   """
-  @type list_inference_recommendations_job_steps_response() :: %{String.t() => any()}
+  @type list_inference_recommendations_job_steps_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       send_pipeline_execution_step_failure_response() :: %{
-        "PipelineExecutionArn" => String.t()
+        "PipelineExecutionArn" => String.t() | atom()
       }
       
   """
-  @type send_pipeline_execution_step_failure_response() :: %{String.t() => any()}
+  @type send_pipeline_execution_step_failure_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       container_config() :: %{
-        "ContainerArguments" => list(String.t()),
-        "ContainerEntrypoint" => list(String.t()),
+        "ContainerArguments" => list(String.t() | atom()),
+        "ContainerEntrypoint" => list(String.t() | atom()),
         "ContainerEnvironmentVariables" => map()
       }
       
   """
-  @type container_config() :: %{String.t() => any()}
+  @type container_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       auto_ml_candidate_step() :: %{
-        "CandidateStepArn" => String.t(),
-        "CandidateStepName" => String.t(),
+        "CandidateStepArn" => String.t() | atom(),
+        "CandidateStepName" => String.t() | atom(),
         "CandidateStepType" => list(any())
       }
       
   """
-  @type auto_ml_candidate_step() :: %{String.t() => any()}
+  @type auto_ml_candidate_step() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7523,23 +7529,23 @@ defmodule AWS.SageMaker do
       
       retry_pipeline_execution_request() :: %{
         optional("ParallelismConfiguration") => parallelism_configuration(),
-        required("ClientRequestToken") => String.t(),
-        required("PipelineExecutionArn") => String.t()
+        required("ClientRequestToken") => String.t() | atom(),
+        required("PipelineExecutionArn") => String.t() | atom()
       }
       
   """
-  @type retry_pipeline_execution_request() :: %{String.t() => any()}
+  @type retry_pipeline_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       online_store_security_config() :: %{
-        "KmsKeyId" => String.t()
+        "KmsKeyId" => String.t() | atom()
       }
       
   """
-  @type online_store_security_config() :: %{String.t() => any()}
+  @type online_store_security_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7551,18 +7557,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type time_series_transformations() :: %{String.t() => any()}
+  @type time_series_transformations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_artifact_request() :: %{
-        required("ArtifactArn") => String.t()
+        required("ArtifactArn") => String.t() | atom()
       }
       
   """
-  @type describe_artifact_request() :: %{String.t() => any()}
+  @type describe_artifact_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7570,23 +7576,23 @@ defmodule AWS.SageMaker do
       
       update_notebook_instance_input() :: %{
         optional("AcceleratorTypes") => list(list(any())()),
-        optional("AdditionalCodeRepositories") => list(String.t()),
-        optional("DefaultCodeRepository") => String.t(),
+        optional("AdditionalCodeRepositories") => list(String.t() | atom()),
+        optional("DefaultCodeRepository") => String.t() | atom(),
         optional("DisassociateAcceleratorTypes") => boolean(),
         optional("DisassociateAdditionalCodeRepositories") => boolean(),
         optional("DisassociateDefaultCodeRepository") => boolean(),
         optional("DisassociateLifecycleConfig") => boolean(),
         optional("InstanceMetadataServiceConfiguration") => instance_metadata_service_configuration(),
         optional("InstanceType") => list(any()),
-        optional("LifecycleConfigName") => String.t(),
-        optional("RoleArn") => String.t(),
+        optional("LifecycleConfigName") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom(),
         optional("RootAccess") => list(any()),
         optional("VolumeSizeInGB") => integer(),
-        required("NotebookInstanceName") => String.t()
+        required("NotebookInstanceName") => String.t() | atom()
       }
       
   """
-  @type update_notebook_instance_input() :: %{String.t() => any()}
+  @type update_notebook_instance_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7594,44 +7600,44 @@ defmodule AWS.SageMaker do
       
       container_definition() :: %{
         "AdditionalModelDataSources" => list(additional_model_data_source()),
-        "ContainerHostname" => String.t(),
+        "ContainerHostname" => String.t() | atom(),
         "Environment" => map(),
-        "Image" => String.t(),
+        "Image" => String.t() | atom(),
         "ImageConfig" => image_config(),
-        "InferenceSpecificationName" => String.t(),
+        "InferenceSpecificationName" => String.t() | atom(),
         "Mode" => list(any()),
         "ModelDataSource" => model_data_source(),
-        "ModelDataUrl" => String.t(),
-        "ModelPackageName" => String.t(),
+        "ModelDataUrl" => String.t() | atom(),
+        "ModelPackageName" => String.t() | atom(),
         "MultiModelConfig" => multi_model_config()
       }
       
   """
-  @type container_definition() :: %{String.t() => any()}
+  @type container_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_space_response() :: %{
-        "SpaceArn" => String.t()
+        "SpaceArn" => String.t() | atom()
       }
       
   """
-  @type create_space_response() :: %{String.t() => any()}
+  @type create_space_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       auto_ml_candidate() :: %{
-        "CandidateName" => String.t(),
+        "CandidateName" => String.t() | atom(),
         "CandidateProperties" => candidate_properties(),
         "CandidateStatus" => list(any()),
         "CandidateSteps" => list(auto_ml_candidate_step()),
         "CreationTime" => non_neg_integer(),
         "EndTime" => non_neg_integer(),
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | atom(),
         "FinalAutoMLJobObjectiveMetric" => final_auto_ml_job_objective_metric(),
         "InferenceContainerDefinitions" => map(),
         "InferenceContainers" => list(auto_ml_container_definition()),
@@ -7640,7 +7646,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type auto_ml_candidate() :: %{String.t() => any()}
+  @type auto_ml_candidate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7653,18 +7659,20 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type space_settings_summary() :: %{String.t() => any()}
+  @type space_settings_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_model_explainability_job_definition_request() :: %{
-        required("JobDefinitionName") => String.t()
+        required("JobDefinitionName") => String.t() | atom()
       }
       
   """
-  @type describe_model_explainability_job_definition_request() :: %{String.t() => any()}
+  @type describe_model_explainability_job_definition_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -7672,11 +7680,11 @@ defmodule AWS.SageMaker do
       
       update_monitoring_schedule_request() :: %{
         required("MonitoringScheduleConfig") => monitoring_schedule_config(),
-        required("MonitoringScheduleName") => String.t()
+        required("MonitoringScheduleName") => String.t() | atom()
       }
       
   """
-  @type update_monitoring_schedule_request() :: %{String.t() => any()}
+  @type update_monitoring_schedule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7688,15 +7696,15 @@ defmodule AWS.SageMaker do
         optional("LastModifiedTimeAfter") => non_neg_integer(),
         optional("LastModifiedTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
         optional("StatusEquals") => list(any())
       }
       
   """
-  @type list_hyper_parameter_tuning_jobs_request() :: %{String.t() => any()}
+  @type list_hyper_parameter_tuning_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7707,19 +7715,19 @@ defmodule AWS.SageMaker do
         optional("AppSecurityGroupManagement") => list(any()),
         optional("DefaultSpaceSettings") => default_space_settings(),
         optional("DomainSettings") => domain_settings(),
-        optional("HomeEfsFileSystemKmsKeyId") => String.t(),
-        optional("KmsKeyId") => String.t(),
-        optional("SubnetIds") => list(String.t()),
+        optional("HomeEfsFileSystemKmsKeyId") => String.t() | atom(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("SubnetIds") => list(String.t() | atom()),
         optional("TagPropagation") => list(any()),
         optional("Tags") => list(tag()),
-        optional("VpcId") => String.t(),
+        optional("VpcId") => String.t() | atom(),
         required("AuthMode") => list(any()),
         required("DefaultUserSettings") => user_settings(),
-        required("DomainName") => String.t()
+        required("DomainName") => String.t() | atom()
       }
       
   """
-  @type create_domain_request() :: %{String.t() => any()}
+  @type create_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7730,31 +7738,31 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type auto_ml_algorithm_config() :: %{String.t() => any()}
+  @type auto_ml_algorithm_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_artifact_request() :: %{
-        optional("ArtifactArn") => String.t(),
+        optional("ArtifactArn") => String.t() | atom(),
         optional("Source") => artifact_source()
       }
       
   """
-  @type delete_artifact_request() :: %{String.t() => any()}
+  @type delete_artifact_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       categorical_parameter() :: %{
-        "Name" => String.t(),
-        "Value" => list(String.t())
+        "Name" => String.t() | atom(),
+        "Value" => list(String.t() | atom())
       }
       
   """
-  @type categorical_parameter() :: %{String.t() => any()}
+  @type categorical_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7762,11 +7770,11 @@ defmodule AWS.SageMaker do
       
       list_monitoring_alerts_response() :: %{
         "MonitoringAlertSummaries" => list(monitoring_alert_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_monitoring_alerts_response() :: %{String.t() => any()}
+  @type list_monitoring_alerts_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7774,101 +7782,101 @@ defmodule AWS.SageMaker do
       
       model_deploy_config() :: %{
         "AutoGenerateEndpointName" => boolean(),
-        "EndpointName" => String.t()
+        "EndpointName" => String.t() | atom()
       }
       
   """
-  @type model_deploy_config() :: %{String.t() => any()}
+  @type model_deploy_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_mlflow_tracking_server_request() :: %{
-        required("TrackingServerName") => String.t()
+        required("TrackingServerName") => String.t() | atom()
       }
       
   """
-  @type stop_mlflow_tracking_server_request() :: %{String.t() => any()}
+  @type stop_mlflow_tracking_server_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_model_explainability_job_definition_response() :: %{
-        "JobDefinitionArn" => String.t()
+        "JobDefinitionArn" => String.t() | atom()
       }
       
   """
-  @type create_model_explainability_job_definition_response() :: %{String.t() => any()}
+  @type create_model_explainability_job_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_model_package_group_output() :: %{
-        "ModelPackageGroupArn" => String.t()
+        "ModelPackageGroupArn" => String.t() | atom()
       }
       
   """
-  @type create_model_package_group_output() :: %{String.t() => any()}
+  @type create_model_package_group_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_experiment_request() :: %{
-        required("ExperimentName") => String.t()
+        required("ExperimentName") => String.t() | atom()
       }
       
   """
-  @type delete_experiment_request() :: %{String.t() => any()}
+  @type delete_experiment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_pipeline_execution_response() :: %{
-        "PipelineExecutionArn" => String.t()
+        "PipelineExecutionArn" => String.t() | atom()
       }
       
   """
-  @type update_pipeline_execution_response() :: %{String.t() => any()}
+  @type update_pipeline_execution_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_image_version_request() :: %{
-        optional("Alias") => String.t(),
+        optional("Alias") => String.t() | atom(),
         optional("Version") => integer(),
-        required("ImageName") => String.t()
+        required("ImageName") => String.t() | atom()
       }
       
   """
-  @type describe_image_version_request() :: %{String.t() => any()}
+  @type describe_image_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_trial_component_request() :: %{
-        required("TrialComponentName") => String.t()
+        required("TrialComponentName") => String.t() | atom()
       }
       
   """
-  @type describe_trial_component_request() :: %{String.t() => any()}
+  @type describe_trial_component_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_feature_group_response() :: %{
-        "FeatureGroupArn" => String.t()
+        "FeatureGroupArn" => String.t() | atom()
       }
       
   """
-  @type create_feature_group_response() :: %{String.t() => any()}
+  @type create_feature_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7880,33 +7888,33 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type capacity_size_config() :: %{String.t() => any()}
+  @type capacity_size_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       edge_output_config() :: %{
-        "KmsKeyId" => String.t(),
-        "PresetDeploymentConfig" => String.t(),
+        "KmsKeyId" => String.t() | atom(),
+        "PresetDeploymentConfig" => String.t() | atom(),
         "PresetDeploymentType" => list(any()),
-        "S3OutputLocation" => String.t()
+        "S3OutputLocation" => String.t() | atom()
       }
       
   """
-  @type edge_output_config() :: %{String.t() => any()}
+  @type edge_output_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7914,22 +7922,22 @@ defmodule AWS.SageMaker do
       
       list_cluster_events_response() :: %{
         "Events" => list(cluster_event_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_cluster_events_response() :: %{String.t() => any()}
+  @type list_cluster_events_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_partner_app_response() :: %{
-        "Arn" => String.t()
+        "Arn" => String.t() | atom()
       }
       
   """
-  @type delete_partner_app_response() :: %{String.t() => any()}
+  @type delete_partner_app_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7941,64 +7949,64 @@ defmodule AWS.SageMaker do
         optional("LastModifiedTimeAfter") => non_neg_integer(),
         optional("LastModifiedTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
         optional("StatusEquals") => list(any())
       }
       
   """
-  @type list_auto_ml_jobs_request() :: %{String.t() => any()}
+  @type list_auto_ml_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_image_version_response() :: %{
-        "BaseImage" => String.t(),
-        "ContainerImage" => String.t(),
+        "BaseImage" => String.t() | atom(),
+        "ContainerImage" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | atom(),
         "Horovod" => boolean(),
-        "ImageArn" => String.t(),
-        "ImageVersionArn" => String.t(),
+        "ImageArn" => String.t() | atom(),
+        "ImageVersionArn" => String.t() | atom(),
         "ImageVersionStatus" => list(any()),
         "JobType" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
-        "MLFramework" => String.t(),
+        "MLFramework" => String.t() | atom(),
         "Processor" => list(any()),
-        "ProgrammingLang" => String.t(),
-        "ReleaseNotes" => String.t(),
+        "ProgrammingLang" => String.t() | atom(),
+        "ReleaseNotes" => String.t() | atom(),
         "VendorGuidance" => list(any()),
         "Version" => integer()
       }
       
   """
-  @type describe_image_version_response() :: %{String.t() => any()}
+  @type describe_image_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_hub_request() :: %{
-        required("HubName") => String.t()
+        required("HubName") => String.t() | atom()
       }
       
   """
-  @type delete_hub_request() :: %{String.t() => any()}
+  @type delete_hub_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       last_update_status() :: %{
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type last_update_status() :: %{String.t() => any()}
+  @type last_update_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8009,10 +8017,10 @@ defmodule AWS.SageMaker do
         "CreationTime" => non_neg_integer(),
         "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
-        "ProjectArn" => String.t(),
-        "ProjectDescription" => String.t(),
-        "ProjectId" => String.t(),
-        "ProjectName" => String.t(),
+        "ProjectArn" => String.t() | atom(),
+        "ProjectDescription" => String.t() | atom(),
+        "ProjectId" => String.t() | atom(),
+        "ProjectName" => String.t() | atom(),
         "ProjectStatus" => list(any()),
         "ServiceCatalogProvisionedProductDetails" => service_catalog_provisioned_product_details(),
         "ServiceCatalogProvisioningDetails" => service_catalog_provisioning_details(),
@@ -8021,72 +8029,72 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type project() :: %{String.t() => any()}
+  @type project() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_algorithm_output() :: %{
-        "AlgorithmArn" => String.t(),
-        "AlgorithmDescription" => String.t(),
-        "AlgorithmName" => String.t(),
+        "AlgorithmArn" => String.t() | atom(),
+        "AlgorithmDescription" => String.t() | atom(),
+        "AlgorithmName" => String.t() | atom(),
         "AlgorithmStatus" => list(any()),
         "AlgorithmStatusDetails" => algorithm_status_details(),
         "CertifyForMarketplace" => boolean(),
         "CreationTime" => non_neg_integer(),
         "InferenceSpecification" => inference_specification(),
-        "ProductId" => String.t(),
+        "ProductId" => String.t() | atom(),
         "TrainingSpecification" => training_specification(),
         "ValidationSpecification" => algorithm_validation_specification()
       }
       
   """
-  @type describe_algorithm_output() :: %{String.t() => any()}
+  @type describe_algorithm_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       processing_s3_output() :: %{
-        "LocalPath" => String.t(),
+        "LocalPath" => String.t() | atom(),
         "S3UploadMode" => list(any()),
-        "S3Uri" => String.t()
+        "S3Uri" => String.t() | atom()
       }
       
   """
-  @type processing_s3_output() :: %{String.t() => any()}
+  @type processing_s3_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_feature_group_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("OfflineStoreConfig") => offline_store_config(),
         optional("OnlineStoreConfig") => online_store_config(),
-        optional("RoleArn") => String.t(),
+        optional("RoleArn") => String.t() | atom(),
         optional("Tags") => list(tag()),
         optional("ThroughputConfig") => throughput_config(),
-        required("EventTimeFeatureName") => String.t(),
+        required("EventTimeFeatureName") => String.t() | atom(),
         required("FeatureDefinitions") => list(feature_definition()),
-        required("FeatureGroupName") => String.t(),
-        required("RecordIdentifierFeatureName") => String.t()
+        required("FeatureGroupName") => String.t() | atom(),
+        required("RecordIdentifierFeatureName") => String.t() | atom()
       }
       
   """
-  @type create_feature_group_request() :: %{String.t() => any()}
+  @type create_feature_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_notebook_instance_input() :: %{
-        required("NotebookInstanceName") => String.t()
+        required("NotebookInstanceName") => String.t() | atom()
       }
       
   """
-  @type describe_notebook_instance_input() :: %{String.t() => any()}
+  @type describe_notebook_instance_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8096,12 +8104,12 @@ defmodule AWS.SageMaker do
         "AthenaDatasetDefinition" => athena_dataset_definition(),
         "DataDistributionType" => list(any()),
         "InputMode" => list(any()),
-        "LocalPath" => String.t(),
+        "LocalPath" => String.t() | atom(),
         "RedshiftDatasetDefinition" => redshift_dataset_definition()
       }
       
   """
-  @type dataset_definition() :: %{String.t() => any()}
+  @type dataset_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8109,11 +8117,11 @@ defmodule AWS.SageMaker do
       
       list_model_explainability_job_definitions_response() :: %{
         "JobDefinitionSummaries" => list(monitoring_job_definition_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_model_explainability_job_definitions_response() :: %{String.t() => any()}
+  @type list_model_explainability_job_definitions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8121,16 +8129,16 @@ defmodule AWS.SageMaker do
       
       create_space_request() :: %{
         optional("OwnershipSettings") => ownership_settings(),
-        optional("SpaceDisplayName") => String.t(),
+        optional("SpaceDisplayName") => String.t() | atom(),
         optional("SpaceSettings") => space_settings(),
         optional("SpaceSharingSettings") => space_sharing_settings(),
         optional("Tags") => list(tag()),
-        required("DomainId") => String.t(),
-        required("SpaceName") => String.t()
+        required("DomainId") => String.t() | atom(),
+        required("SpaceName") => String.t() | atom()
       }
       
   """
-  @type create_space_request() :: %{String.t() => any()}
+  @type create_space_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8145,7 +8153,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type clarify_shap_config() :: %{String.t() => any()}
+  @type clarify_shap_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8154,17 +8162,17 @@ defmodule AWS.SageMaker do
       list_trial_components_request() :: %{
         optional("CreatedAfter") => non_neg_integer(),
         optional("CreatedBefore") => non_neg_integer(),
-        optional("ExperimentName") => String.t(),
+        optional("ExperimentName") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
-        optional("SourceArn") => String.t(),
-        optional("TrialName") => String.t()
+        optional("SourceArn") => String.t() | atom(),
+        optional("TrialName") => String.t() | atom()
       }
       
   """
-  @type list_trial_components_request() :: %{String.t() => any()}
+  @type list_trial_components_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8174,11 +8182,11 @@ defmodule AWS.SageMaker do
         "BestTrainingJob" => hyper_parameter_training_job_summary(),
         "ConsumedResources" => hyper_parameter_tuning_job_consumed_resources(),
         "CreationTime" => non_neg_integer(),
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | atom(),
         "HyperParameterTuningEndTime" => non_neg_integer(),
-        "HyperParameterTuningJobArn" => String.t(),
+        "HyperParameterTuningJobArn" => String.t() | atom(),
         "HyperParameterTuningJobConfig" => hyper_parameter_tuning_job_config(),
-        "HyperParameterTuningJobName" => String.t(),
+        "HyperParameterTuningJobName" => String.t() | atom(),
         "HyperParameterTuningJobStatus" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
         "ObjectiveStatusCounters" => objective_status_counters(),
@@ -8192,7 +8200,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type hyper_parameter_tuning_job_search_entity() :: %{String.t() => any()}
+  @type hyper_parameter_tuning_job_search_entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8203,14 +8211,14 @@ defmodule AWS.SageMaker do
         optional("CreationTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
         optional("ModelCardStatus") => list(any()),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
-        required("ModelCardName") => String.t()
+        required("ModelCardName") => String.t() | atom()
       }
       
   """
-  @type list_model_card_versions_request() :: %{String.t() => any()}
+  @type list_model_card_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8221,22 +8229,22 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type monitoring_resources() :: %{String.t() => any()}
+  @type monitoring_resources() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_image_request() :: %{
-        optional("Description") => String.t(),
-        optional("DisplayName") => String.t(),
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("ImageName") => String.t(),
-        required("RoleArn") => String.t()
+        required("ImageName") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
       }
       
   """
-  @type create_image_request() :: %{String.t() => any()}
+  @type create_image_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8244,65 +8252,65 @@ defmodule AWS.SageMaker do
       
       create_pipeline_request() :: %{
         optional("ParallelismConfiguration") => parallelism_configuration(),
-        optional("PipelineDefinition") => String.t(),
+        optional("PipelineDefinition") => String.t() | atom(),
         optional("PipelineDefinitionS3Location") => pipeline_definition_s3_location(),
-        optional("PipelineDescription") => String.t(),
-        optional("PipelineDisplayName") => String.t(),
+        optional("PipelineDescription") => String.t() | atom(),
+        optional("PipelineDisplayName") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("ClientRequestToken") => String.t(),
-        required("PipelineName") => String.t(),
-        required("RoleArn") => String.t()
+        required("ClientRequestToken") => String.t() | atom(),
+        required("PipelineName") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
       }
       
   """
-  @type create_pipeline_request() :: %{String.t() => any()}
+  @type create_pipeline_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_subscribed_workteam_request() :: %{
-        required("WorkteamArn") => String.t()
+        required("WorkteamArn") => String.t() | atom()
       }
       
   """
-  @type describe_subscribed_workteam_request() :: %{String.t() => any()}
+  @type describe_subscribed_workteam_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       property_name_suggestion() :: %{
-        "PropertyName" => String.t()
+        "PropertyName" => String.t() | atom()
       }
       
   """
-  @type property_name_suggestion() :: %{String.t() => any()}
+  @type property_name_suggestion() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       source_algorithm() :: %{
-        "AlgorithmName" => String.t(),
-        "ModelDataETag" => String.t(),
+        "AlgorithmName" => String.t() | atom(),
+        "ModelDataETag" => String.t() | atom(),
         "ModelDataSource" => model_data_source(),
-        "ModelDataUrl" => String.t()
+        "ModelDataUrl" => String.t() | atom()
       }
       
   """
-  @type source_algorithm() :: %{String.t() => any()}
+  @type source_algorithm() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_cluster_scheduler_config_request() :: %{
-        required("ClusterSchedulerConfigId") => String.t()
+        required("ClusterSchedulerConfigId") => String.t() | atom()
       }
       
   """
-  @type delete_cluster_scheduler_config_request() :: %{String.t() => any()}
+  @type delete_cluster_scheduler_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8314,79 +8322,79 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type batch_describe_model_package_output() :: %{String.t() => any()}
+  @type batch_describe_model_package_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_user_profile_request() :: %{
-        required("DomainId") => String.t(),
-        required("UserProfileName") => String.t()
+        required("DomainId") => String.t() | atom(),
+        required("UserProfileName") => String.t() | atom()
       }
       
   """
-  @type delete_user_profile_request() :: %{String.t() => any()}
+  @type delete_user_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_artifact_request() :: %{
-        optional("ArtifactName") => String.t(),
+        optional("ArtifactName") => String.t() | atom(),
         optional("MetadataProperties") => metadata_properties(),
         optional("Properties") => map(),
         optional("Tags") => list(tag()),
-        required("ArtifactType") => String.t(),
+        required("ArtifactType") => String.t() | atom(),
         required("Source") => artifact_source()
       }
       
   """
-  @type create_artifact_request() :: %{String.t() => any()}
+  @type create_artifact_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_model_quality_job_definition_request() :: %{
-        required("JobDefinitionName") => String.t()
+        required("JobDefinitionName") => String.t() | atom()
       }
       
   """
-  @type describe_model_quality_job_definition_request() :: %{String.t() => any()}
+  @type describe_model_quality_job_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_image_request() :: %{
-        optional("DeleteProperties") => list(String.t()),
-        optional("Description") => String.t(),
-        optional("DisplayName") => String.t(),
-        optional("RoleArn") => String.t(),
-        required("ImageName") => String.t()
+        optional("DeleteProperties") => list(String.t() | atom()),
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom(),
+        required("ImageName") => String.t() | atom()
       }
       
   """
-  @type update_image_request() :: %{String.t() => any()}
+  @type update_image_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_contexts_request() :: %{
-        optional("ContextType") => String.t(),
+        optional("ContextType") => String.t() | atom(),
         optional("CreatedAfter") => non_neg_integer(),
         optional("CreatedBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
-        optional("SourceUri") => String.t()
+        optional("SourceUri") => String.t() | atom()
       }
       
   """
-  @type list_contexts_request() :: %{String.t() => any()}
+  @type list_contexts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8394,27 +8402,27 @@ defmodule AWS.SageMaker do
       
       describe_labeling_job_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | atom(),
         "HumanTaskConfig" => human_task_config(),
         "InputConfig" => labeling_job_input_config(),
-        "JobReferenceCode" => String.t(),
-        "LabelAttributeName" => String.t(),
-        "LabelCategoryConfigS3Uri" => String.t(),
+        "JobReferenceCode" => String.t() | atom(),
+        "LabelAttributeName" => String.t() | atom(),
+        "LabelCategoryConfigS3Uri" => String.t() | atom(),
         "LabelCounters" => label_counters(),
         "LabelingJobAlgorithmsConfig" => labeling_job_algorithms_config(),
-        "LabelingJobArn" => String.t(),
-        "LabelingJobName" => String.t(),
+        "LabelingJobArn" => String.t() | atom(),
+        "LabelingJobName" => String.t() | atom(),
         "LabelingJobOutput" => labeling_job_output(),
         "LabelingJobStatus" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
         "OutputConfig" => labeling_job_output_config(),
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | atom(),
         "StoppingConditions" => labeling_job_stopping_conditions(),
         "Tags" => list(tag())
       }
       
   """
-  @type describe_labeling_job_response() :: %{String.t() => any()}
+  @type describe_labeling_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8422,37 +8430,37 @@ defmodule AWS.SageMaker do
       
       sharing_settings() :: %{
         "NotebookOutputOption" => list(any()),
-        "S3KmsKeyId" => String.t(),
-        "S3OutputPath" => String.t()
+        "S3KmsKeyId" => String.t() | atom(),
+        "S3OutputPath" => String.t() | atom()
       }
       
   """
-  @type sharing_settings() :: %{String.t() => any()}
+  @type sharing_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_device_request() :: %{
-        optional("NextToken") => String.t(),
-        required("DeviceFleetName") => String.t(),
-        required("DeviceName") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("DeviceFleetName") => String.t() | atom(),
+        required("DeviceName") => String.t() | atom()
       }
       
   """
-  @type describe_device_request() :: %{String.t() => any()}
+  @type describe_device_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_projects_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "ProjectSummaryList" => list(project_summary())
       }
       
   """
-  @type list_projects_output() :: %{String.t() => any()}
+  @type list_projects_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8460,20 +8468,20 @@ defmodule AWS.SageMaker do
       
       cluster_restricted_instance_group_specification() :: %{
         "EnvironmentConfig" => environment_config(),
-        "ExecutionRole" => String.t(),
+        "ExecutionRole" => String.t() | atom(),
         "InstanceCount" => integer(),
-        "InstanceGroupName" => String.t(),
+        "InstanceGroupName" => String.t() | atom(),
         "InstanceStorageConfigs" => list(list()),
         "InstanceType" => list(any()),
         "OnStartDeepHealthChecks" => list(list(any())()),
         "OverrideVpcConfig" => vpc_config(),
         "ScheduledUpdateConfig" => scheduled_update_config(),
         "ThreadsPerCore" => integer(),
-        "TrainingPlanArn" => String.t()
+        "TrainingPlanArn" => String.t() | atom()
       }
       
   """
-  @type cluster_restricted_instance_group_specification() :: %{String.t() => any()}
+  @type cluster_restricted_instance_group_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8484,7 +8492,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type human_loop_request_source() :: %{String.t() => any()}
+  @type human_loop_request_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8492,11 +8500,11 @@ defmodule AWS.SageMaker do
       
       list_feature_groups_response() :: %{
         "FeatureGroupSummaries" => list(feature_group_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_feature_groups_response() :: %{String.t() => any()}
+  @type list_feature_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8504,16 +8512,16 @@ defmodule AWS.SageMaker do
       
       update_pipeline_request() :: %{
         optional("ParallelismConfiguration") => parallelism_configuration(),
-        optional("PipelineDefinition") => String.t(),
+        optional("PipelineDefinition") => String.t() | atom(),
         optional("PipelineDefinitionS3Location") => pipeline_definition_s3_location(),
-        optional("PipelineDescription") => String.t(),
-        optional("PipelineDisplayName") => String.t(),
-        optional("RoleArn") => String.t(),
-        required("PipelineName") => String.t()
+        optional("PipelineDescription") => String.t() | atom(),
+        optional("PipelineDisplayName") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom(),
+        required("PipelineName") => String.t() | atom()
       }
       
   """
-  @type update_pipeline_request() :: %{String.t() => any()}
+  @type update_pipeline_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8521,11 +8529,11 @@ defmodule AWS.SageMaker do
       
       presigned_url_access_config() :: %{
         "AcceptEula" => boolean(),
-        "ExpectedS3Url" => String.t()
+        "ExpectedS3Url" => String.t() | atom()
       }
       
   """
-  @type presigned_url_access_config() :: %{String.t() => any()}
+  @type presigned_url_access_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8535,25 +8543,25 @@ defmodule AWS.SageMaker do
         "CreationTime" => non_neg_integer(),
         "LastModifiedTime" => non_neg_integer(),
         "StudioLifecycleConfigAppType" => list(any()),
-        "StudioLifecycleConfigArn" => String.t(),
-        "StudioLifecycleConfigContent" => String.t(),
-        "StudioLifecycleConfigName" => String.t()
+        "StudioLifecycleConfigArn" => String.t() | atom(),
+        "StudioLifecycleConfigContent" => String.t() | atom(),
+        "StudioLifecycleConfigName" => String.t() | atom()
       }
       
   """
-  @type describe_studio_lifecycle_config_response() :: %{String.t() => any()}
+  @type describe_studio_lifecycle_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_explainability_baseline_config() :: %{
-        "BaseliningJobName" => String.t(),
+        "BaseliningJobName" => String.t() | atom(),
         "ConstraintsResource" => monitoring_constraints_resource()
       }
       
   """
-  @type model_explainability_baseline_config() :: %{String.t() => any()}
+  @type model_explainability_baseline_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8565,25 +8573,25 @@ defmodule AWS.SageMaker do
         optional("LastModifiedTimeAfter") => non_neg_integer(),
         optional("LastModifiedTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_code_repositories_input() :: %{String.t() => any()}
+  @type list_code_repositories_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_orchestrator_eks_config() :: %{
-        "ClusterArn" => String.t()
+        "ClusterArn" => String.t() | atom()
       }
       
   """
-  @type cluster_orchestrator_eks_config() :: %{String.t() => any()}
+  @type cluster_orchestrator_eks_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8595,14 +8603,14 @@ defmodule AWS.SageMaker do
         optional("LastModifiedTimeAfter") => non_neg_integer(),
         optional("LastModifiedTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_images_request() :: %{String.t() => any()}
+  @type list_images_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8610,11 +8618,11 @@ defmodule AWS.SageMaker do
       
       list_auto_ml_jobs_response() :: %{
         "AutoMLJobSummaries" => list(auto_ml_job_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_auto_ml_jobs_response() :: %{String.t() => any()}
+  @type list_auto_ml_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8622,59 +8630,59 @@ defmodule AWS.SageMaker do
       
       describe_human_task_ui_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "HumanTaskUiArn" => String.t(),
-        "HumanTaskUiName" => String.t(),
+        "HumanTaskUiArn" => String.t() | atom(),
+        "HumanTaskUiName" => String.t() | atom(),
         "HumanTaskUiStatus" => list(any()),
         "UiTemplate" => ui_template_info()
       }
       
   """
-  @type describe_human_task_ui_response() :: %{String.t() => any()}
+  @type describe_human_task_ui_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_package_status_item() :: %{
-        "FailureReason" => String.t(),
-        "Name" => String.t(),
+        "FailureReason" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type model_package_status_item() :: %{String.t() => any()}
+  @type model_package_status_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_project_input() :: %{
-        required("ProjectName") => String.t()
+        required("ProjectName") => String.t() | atom()
       }
       
   """
-  @type describe_project_input() :: %{String.t() => any()}
+  @type describe_project_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_trial_component_request() :: %{
-        optional("DisplayName") => String.t(),
+        optional("DisplayName") => String.t() | atom(),
         optional("EndTime") => non_neg_integer(),
         optional("InputArtifacts") => map(),
-        optional("InputArtifactsToRemove") => list(String.t()),
+        optional("InputArtifactsToRemove") => list(String.t() | atom()),
         optional("OutputArtifacts") => map(),
-        optional("OutputArtifactsToRemove") => list(String.t()),
+        optional("OutputArtifactsToRemove") => list(String.t() | atom()),
         optional("Parameters") => map(),
-        optional("ParametersToRemove") => list(String.t()),
+        optional("ParametersToRemove") => list(String.t() | atom()),
         optional("StartTime") => non_neg_integer(),
         optional("Status") => trial_component_status(),
-        required("TrialComponentName") => String.t()
+        required("TrialComponentName") => String.t() | atom()
       }
       
   """
-  @type update_trial_component_request() :: %{String.t() => any()}
+  @type update_trial_component_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8685,56 +8693,56 @@ defmodule AWS.SageMaker do
         "EndpointConfigurations" => list(endpoint_input_configuration()),
         "Endpoints" => list(endpoint_info()),
         "JobDurationInSeconds" => integer(),
-        "ModelName" => String.t(),
-        "ModelPackageVersionArn" => String.t(),
+        "ModelName" => String.t() | atom(),
+        "ModelPackageVersionArn" => String.t() | atom(),
         "ResourceLimit" => recommendation_job_resource_limit(),
         "TrafficPattern" => traffic_pattern(),
-        "VolumeKmsKeyId" => String.t(),
+        "VolumeKmsKeyId" => String.t() | atom(),
         "VpcConfig" => recommendation_job_vpc_config()
       }
       
   """
-  @type recommendation_job_input_config() :: %{String.t() => any()}
+  @type recommendation_job_input_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_action_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("MetadataProperties") => metadata_properties(),
         optional("Properties") => map(),
         optional("Status") => list(any()),
         optional("Tags") => list(tag()),
-        required("ActionName") => String.t(),
-        required("ActionType") => String.t(),
+        required("ActionName") => String.t() | atom(),
+        required("ActionType") => String.t() | atom(),
         required("Source") => action_source()
       }
       
   """
-  @type create_action_request() :: %{String.t() => any()}
+  @type create_action_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_hyper_parameter_tuning_job_response() :: %{
-        "HyperParameterTuningJobArn" => String.t()
+        "HyperParameterTuningJobArn" => String.t() | atom()
       }
       
   """
-  @type create_hyper_parameter_tuning_job_response() :: %{String.t() => any()}
+  @type create_hyper_parameter_tuning_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_endpoint_weights_and_capacities_output() :: %{
-        "EndpointArn" => String.t()
+        "EndpointArn" => String.t() | atom()
       }
       
   """
-  @type update_endpoint_weights_and_capacities_output() :: %{String.t() => any()}
+  @type update_endpoint_weights_and_capacities_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8742,11 +8750,11 @@ defmodule AWS.SageMaker do
       
       list_domains_response() :: %{
         "Domains" => list(domain_details()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_domains_response() :: %{String.t() => any()}
+  @type list_domains_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8760,31 +8768,31 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type offline_store_config() :: %{String.t() => any()}
+  @type offline_store_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_quality_baseline_config() :: %{
-        "BaseliningJobName" => String.t(),
+        "BaseliningJobName" => String.t() | atom(),
         "ConstraintsResource" => monitoring_constraints_resource()
       }
       
   """
-  @type model_quality_baseline_config() :: %{String.t() => any()}
+  @type model_quality_baseline_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_pipeline_request() :: %{
-        required("ClientRequestToken") => String.t(),
-        required("PipelineName") => String.t()
+        required("ClientRequestToken") => String.t() | atom(),
+        required("PipelineName") => String.t() | atom()
       }
       
   """
-  @type delete_pipeline_request() :: %{String.t() => any()}
+  @type delete_pipeline_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8792,14 +8800,14 @@ defmodule AWS.SageMaker do
       
       endpoint_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "EndpointArn" => String.t(),
-        "EndpointName" => String.t(),
+        "EndpointArn" => String.t() | atom(),
+        "EndpointName" => String.t() | atom(),
         "EndpointStatus" => list(any()),
         "LastModifiedTime" => non_neg_integer()
       }
       
   """
-  @type endpoint_summary() :: %{String.t() => any()}
+  @type endpoint_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8808,19 +8816,19 @@ defmodule AWS.SageMaker do
       pipeline_version() :: %{
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
-        "LastExecutedPipelineExecutionArn" => String.t(),
-        "LastExecutedPipelineExecutionDisplayName" => String.t(),
+        "LastExecutedPipelineExecutionArn" => String.t() | atom(),
+        "LastExecutedPipelineExecutionDisplayName" => String.t() | atom(),
         "LastExecutedPipelineExecutionStatus" => list(any()),
         "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
-        "PipelineArn" => String.t(),
-        "PipelineVersionDescription" => String.t(),
-        "PipelineVersionDisplayName" => String.t(),
+        "PipelineArn" => String.t() | atom(),
+        "PipelineVersionDescription" => String.t() | atom(),
+        "PipelineVersionDisplayName" => String.t() | atom(),
         "PipelineVersionId" => float()
       }
       
   """
-  @type pipeline_version() :: %{String.t() => any()}
+  @type pipeline_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8831,91 +8839,91 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type auto_ml_data_split_config() :: %{String.t() => any()}
+  @type auto_ml_data_split_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_presigned_domain_url_response() :: %{
-        "AuthorizedUrl" => String.t()
+        "AuthorizedUrl" => String.t() | atom()
       }
       
   """
-  @type create_presigned_domain_url_response() :: %{String.t() => any()}
+  @type create_presigned_domain_url_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_auto_ml_job_request() :: %{
-        required("AutoMLJobName") => String.t()
+        required("AutoMLJobName") => String.t() | atom()
       }
       
   """
-  @type describe_auto_ml_job_request() :: %{String.t() => any()}
+  @type describe_auto_ml_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_optimization_job_request() :: %{
-        required("OptimizationJobName") => String.t()
+        required("OptimizationJobName") => String.t() | atom()
       }
       
   """
-  @type describe_optimization_job_request() :: %{String.t() => any()}
+  @type describe_optimization_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       trial_component_artifact() :: %{
-        "MediaType" => String.t(),
-        "Value" => String.t()
+        "MediaType" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type trial_component_artifact() :: %{String.t() => any()}
+  @type trial_component_artifact() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cfn_stack_create_parameter() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type cfn_stack_create_parameter() :: %{String.t() => any()}
+  @type cfn_stack_create_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_workteam_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("MemberDefinitions") => list(member_definition()),
         optional("NotificationConfiguration") => notification_configuration(),
         optional("WorkerAccessConfiguration") => worker_access_configuration(),
-        required("WorkteamName") => String.t()
+        required("WorkteamName") => String.t() | atom()
       }
       
   """
-  @type update_workteam_request() :: %{String.t() => any()}
+  @type update_workteam_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_devices_request() :: %{
-        required("DeviceFleetName") => String.t(),
+        required("DeviceFleetName") => String.t() | atom(),
         required("Devices") => list(device())
       }
       
   """
-  @type update_devices_request() :: %{String.t() => any()}
+  @type update_devices_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8923,16 +8931,16 @@ defmodule AWS.SageMaker do
       
       profiler_rule_configuration() :: %{
         "InstanceType" => list(any()),
-        "LocalPath" => String.t(),
-        "RuleConfigurationName" => String.t(),
-        "RuleEvaluatorImage" => String.t(),
+        "LocalPath" => String.t() | atom(),
+        "RuleConfigurationName" => String.t() | atom(),
+        "RuleEvaluatorImage" => String.t() | atom(),
         "RuleParameters" => map(),
-        "S3OutputPath" => String.t(),
+        "S3OutputPath" => String.t() | atom(),
         "VolumeSizeInGB" => integer()
       }
       
   """
-  @type profiler_rule_configuration() :: %{String.t() => any()}
+  @type profiler_rule_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8941,44 +8949,44 @@ defmodule AWS.SageMaker do
       jupyter_server_app_settings() :: %{
         "CodeRepositories" => list(code_repository()),
         "DefaultResourceSpec" => resource_spec(),
-        "LifecycleConfigArns" => list(String.t())
+        "LifecycleConfigArns" => list(String.t() | atom())
       }
       
   """
-  @type jupyter_server_app_settings() :: %{String.t() => any()}
+  @type jupyter_server_app_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       data_quality_app_specification() :: %{
-        "ContainerArguments" => list(String.t()),
-        "ContainerEntrypoint" => list(String.t()),
+        "ContainerArguments" => list(String.t() | atom()),
+        "ContainerEntrypoint" => list(String.t() | atom()),
         "Environment" => map(),
-        "ImageUri" => String.t(),
-        "PostAnalyticsProcessorSourceUri" => String.t(),
-        "RecordPreprocessorSourceUri" => String.t()
+        "ImageUri" => String.t() | atom(),
+        "PostAnalyticsProcessorSourceUri" => String.t() | atom(),
+        "RecordPreprocessorSourceUri" => String.t() | atom()
       }
       
   """
-  @type data_quality_app_specification() :: %{String.t() => any()}
+  @type data_quality_app_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_auto_ml_job_response() :: %{
-        "AutoMLJobArn" => String.t(),
+        "AutoMLJobArn" => String.t() | atom(),
         "AutoMLJobArtifacts" => auto_ml_job_artifacts(),
         "AutoMLJobConfig" => auto_ml_job_config(),
-        "AutoMLJobName" => String.t(),
+        "AutoMLJobName" => String.t() | atom(),
         "AutoMLJobObjective" => auto_ml_job_objective(),
         "AutoMLJobSecondaryStatus" => list(any()),
         "AutoMLJobStatus" => list(any()),
         "BestCandidate" => auto_ml_candidate(),
         "CreationTime" => non_neg_integer(),
         "EndTime" => non_neg_integer(),
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | atom(),
         "GenerateCandidateDefinitionsOnly" => boolean(),
         "InputDataConfig" => list(auto_ml_channel()),
         "LastModifiedTime" => non_neg_integer(),
@@ -8988,22 +8996,22 @@ defmodule AWS.SageMaker do
         "PartialFailureReasons" => list(auto_ml_partial_failure_reason()),
         "ProblemType" => list(any()),
         "ResolvedAttributes" => resolved_attributes(),
-        "RoleArn" => String.t()
+        "RoleArn" => String.t() | atom()
       }
       
   """
-  @type describe_auto_ml_job_response() :: %{String.t() => any()}
+  @type describe_auto_ml_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_edge_deployment_plan_response() :: %{
-        "EdgeDeploymentPlanArn" => String.t()
+        "EdgeDeploymentPlanArn" => String.t() | atom()
       }
       
   """
-  @type create_edge_deployment_plan_response() :: %{String.t() => any()}
+  @type create_edge_deployment_plan_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9013,16 +9021,16 @@ defmodule AWS.SageMaker do
         "AssociationType" => list(any()),
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
-        "DestinationArn" => String.t(),
-        "DestinationName" => String.t(),
-        "DestinationType" => String.t(),
-        "SourceArn" => String.t(),
-        "SourceName" => String.t(),
-        "SourceType" => String.t()
+        "DestinationArn" => String.t() | atom(),
+        "DestinationName" => String.t() | atom(),
+        "DestinationType" => String.t() | atom(),
+        "SourceArn" => String.t() | atom(),
+        "SourceName" => String.t() | atom(),
+        "SourceType" => String.t() | atom()
       }
       
   """
-  @type association_summary() :: %{String.t() => any()}
+  @type association_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9040,15 +9048,15 @@ defmodule AWS.SageMaker do
         "InstanceType" => list(any()),
         "ManagedInstanceScaling" => production_variant_managed_instance_scaling(),
         "ModelDataDownloadTimeoutInSeconds" => integer(),
-        "ModelName" => String.t(),
+        "ModelName" => String.t() | atom(),
         "RoutingConfig" => production_variant_routing_config(),
         "ServerlessConfig" => production_variant_serverless_config(),
-        "VariantName" => String.t(),
+        "VariantName" => String.t() | atom(),
         "VolumeSizeInGB" => integer()
       }
       
   """
-  @type production_variant() :: %{String.t() => any()}
+  @type production_variant() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9056,24 +9064,24 @@ defmodule AWS.SageMaker do
       
       identity_provider_o_auth_setting() :: %{
         "DataSourceName" => list(any()),
-        "SecretArn" => String.t(),
+        "SecretArn" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type identity_provider_o_auth_setting() :: %{String.t() => any()}
+  @type identity_provider_o_auth_setting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ui_template_info() :: %{
-        "ContentSha256" => String.t(),
-        "Url" => String.t()
+        "ContentSha256" => String.t() | atom(),
+        "Url" => String.t() | atom()
       }
       
   """
-  @type ui_template_info() :: %{String.t() => any()}
+  @type ui_template_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9081,23 +9089,23 @@ defmodule AWS.SageMaker do
       
       list_associations_response() :: %{
         "AssociationSummaries" => list(association_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_associations_response() :: %{String.t() => any()}
+  @type list_associations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       checkpoint_config() :: %{
-        "LocalPath" => String.t(),
-        "S3Uri" => String.t()
+        "LocalPath" => String.t() | atom(),
+        "S3Uri" => String.t() | atom()
       }
       
   """
-  @type checkpoint_config() :: %{String.t() => any()}
+  @type checkpoint_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9110,93 +9118,93 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type stopping_condition() :: %{String.t() => any()}
+  @type stopping_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       device_deployment_summary() :: %{
-        "DeployedStageName" => String.t(),
+        "DeployedStageName" => String.t() | atom(),
         "DeploymentStartTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "DeviceArn" => String.t(),
+        "Description" => String.t() | atom(),
+        "DeviceArn" => String.t() | atom(),
         "DeviceDeploymentStatus" => list(any()),
-        "DeviceDeploymentStatusMessage" => String.t(),
-        "DeviceFleetName" => String.t(),
-        "DeviceName" => String.t(),
-        "EdgeDeploymentPlanArn" => String.t(),
-        "EdgeDeploymentPlanName" => String.t(),
-        "StageName" => String.t()
+        "DeviceDeploymentStatusMessage" => String.t() | atom(),
+        "DeviceFleetName" => String.t() | atom(),
+        "DeviceName" => String.t() | atom(),
+        "EdgeDeploymentPlanArn" => String.t() | atom(),
+        "EdgeDeploymentPlanName" => String.t() | atom(),
+        "StageName" => String.t() | atom()
       }
       
   """
-  @type device_deployment_summary() :: %{String.t() => any()}
+  @type device_deployment_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       detach_cluster_node_volume_request() :: %{
-        required("ClusterArn") => String.t(),
-        required("NodeId") => String.t(),
-        required("VolumeId") => String.t()
+        required("ClusterArn") => String.t() | atom(),
+        required("NodeId") => String.t() | atom(),
+        required("VolumeId") => String.t() | atom()
       }
       
   """
-  @type detach_cluster_node_volume_request() :: %{String.t() => any()}
+  @type detach_cluster_node_volume_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_hub_content_request() :: %{
-        optional("HubContentVersion") => String.t(),
-        required("HubContentName") => String.t(),
+        optional("HubContentVersion") => String.t() | atom(),
+        required("HubContentName") => String.t() | atom(),
         required("HubContentType") => list(any()),
-        required("HubName") => String.t()
+        required("HubName") => String.t() | atom()
       }
       
   """
-  @type describe_hub_content_request() :: %{String.t() => any()}
+  @type describe_hub_content_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_trial_component_request() :: %{
-        required("TrialComponentName") => String.t(),
-        required("TrialName") => String.t()
+        required("TrialComponentName") => String.t() | atom(),
+        required("TrialName") => String.t() | atom()
       }
       
   """
-  @type disassociate_trial_component_request() :: %{String.t() => any()}
+  @type disassociate_trial_component_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       send_pipeline_execution_step_success_response() :: %{
-        "PipelineExecutionArn" => String.t()
+        "PipelineExecutionArn" => String.t() | atom()
       }
       
   """
-  @type send_pipeline_execution_step_success_response() :: %{String.t() => any()}
+  @type send_pipeline_execution_step_success_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_mlflow_tracking_server_request() :: %{
-        optional("ArtifactStoreUri") => String.t(),
+        optional("ArtifactStoreUri") => String.t() | atom(),
         optional("AutomaticModelRegistration") => boolean(),
         optional("TrackingServerSize") => list(any()),
-        optional("WeeklyMaintenanceWindowStart") => String.t(),
-        required("TrackingServerName") => String.t()
+        optional("WeeklyMaintenanceWindowStart") => String.t() | atom(),
+        required("TrackingServerName") => String.t() | atom()
       }
       
   """
-  @type update_mlflow_tracking_server_request() :: %{String.t() => any()}
+  @type update_mlflow_tracking_server_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9208,15 +9216,15 @@ defmodule AWS.SageMaker do
         optional("LastModifiedTimeAfter") => non_neg_integer(),
         optional("LastModifiedTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
         optional("StatusEquals") => list(any())
       }
       
   """
-  @type list_processing_jobs_request() :: %{String.t() => any()}
+  @type list_processing_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9228,18 +9236,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type batch_add_cluster_nodes_response() :: %{String.t() => any()}
+  @type batch_add_cluster_nodes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       code_repository() :: %{
-        "RepositoryUrl" => String.t()
+        "RepositoryUrl" => String.t() | atom()
       }
       
   """
-  @type code_repository() :: %{String.t() => any()}
+  @type code_repository() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9247,11 +9255,11 @@ defmodule AWS.SageMaker do
       
       auto_ml_s3_data_source() :: %{
         "S3DataType" => list(any()),
-        "S3Uri" => String.t()
+        "S3Uri" => String.t() | atom()
       }
       
   """
-  @type auto_ml_s3_data_source() :: %{String.t() => any()}
+  @type auto_ml_s3_data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9261,14 +9269,14 @@ defmodule AWS.SageMaker do
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_endpoint_configs_input() :: %{String.t() => any()}
+  @type list_endpoint_configs_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9276,20 +9284,20 @@ defmodule AWS.SageMaker do
       
       describe_edge_deployment_plan_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "DeviceFleetName" => String.t(),
+        "DeviceFleetName" => String.t() | atom(),
         "EdgeDeploymentFailed" => integer(),
         "EdgeDeploymentPending" => integer(),
-        "EdgeDeploymentPlanArn" => String.t(),
-        "EdgeDeploymentPlanName" => String.t(),
+        "EdgeDeploymentPlanArn" => String.t() | atom(),
+        "EdgeDeploymentPlanName" => String.t() | atom(),
         "EdgeDeploymentSuccess" => integer(),
         "LastModifiedTime" => non_neg_integer(),
         "ModelConfigs" => list(edge_deployment_model_config()),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Stages" => list(deployment_stage_status_summary())
       }
       
   """
-  @type describe_edge_deployment_plan_response() :: %{String.t() => any()}
+  @type describe_edge_deployment_plan_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9297,19 +9305,19 @@ defmodule AWS.SageMaker do
       
       describe_monitoring_schedule_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "EndpointName" => String.t(),
-        "FailureReason" => String.t(),
+        "EndpointName" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
         "LastMonitoringExecutionSummary" => monitoring_execution_summary(),
-        "MonitoringScheduleArn" => String.t(),
+        "MonitoringScheduleArn" => String.t() | atom(),
         "MonitoringScheduleConfig" => monitoring_schedule_config(),
-        "MonitoringScheduleName" => String.t(),
+        "MonitoringScheduleName" => String.t() | atom(),
         "MonitoringScheduleStatus" => list(any()),
         "MonitoringType" => list(any())
       }
       
   """
-  @type describe_monitoring_schedule_response() :: %{String.t() => any()}
+  @type describe_monitoring_schedule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9317,12 +9325,12 @@ defmodule AWS.SageMaker do
       
       endpoint_config_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "EndpointConfigArn" => String.t(),
-        "EndpointConfigName" => String.t()
+        "EndpointConfigArn" => String.t() | atom(),
+        "EndpointConfigName" => String.t() | atom()
       }
       
   """
-  @type endpoint_config_summary() :: %{String.t() => any()}
+  @type endpoint_config_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9337,18 +9345,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type training_job_status_counters() :: %{String.t() => any()}
+  @type training_job_status_counters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_training_job_response() :: %{
-        "TrainingJobArn" => String.t()
+        "TrainingJobArn" => String.t() | atom()
       }
       
   """
-  @type update_training_job_response() :: %{String.t() => any()}
+  @type update_training_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9359,7 +9367,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type variant_property() :: %{String.t() => any()}
+  @type variant_property() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9369,63 +9377,63 @@ defmodule AWS.SageMaker do
         optional("CreatedAfter") => non_neg_integer(),
         optional("CreatedBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("MlflowVersion") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("MlflowVersion") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
         optional("TrackingServerStatus") => list(any())
       }
       
   """
-  @type list_mlflow_tracking_servers_request() :: %{String.t() => any()}
+  @type list_mlflow_tracking_servers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_hub_content_reference_response() :: %{
-        "HubArn" => String.t(),
-        "HubContentArn" => String.t()
+        "HubArn" => String.t() | atom(),
+        "HubContentArn" => String.t() | atom()
       }
       
   """
-  @type create_hub_content_reference_response() :: %{String.t() => any()}
+  @type create_hub_content_reference_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       offline_store_status() :: %{
-        "BlockedReason" => String.t(),
+        "BlockedReason" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type offline_store_status() :: %{String.t() => any()}
+  @type offline_store_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       labeling_job_output_config() :: %{
-        "KmsKeyId" => String.t(),
-        "S3OutputPath" => String.t(),
-        "SnsTopicArn" => String.t()
+        "KmsKeyId" => String.t() | atom(),
+        "S3OutputPath" => String.t() | atom(),
+        "SnsTopicArn" => String.t() | atom()
       }
       
   """
-  @type labeling_job_output_config() :: %{String.t() => any()}
+  @type labeling_job_output_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_notebook_instance_input() :: %{
-        required("NotebookInstanceName") => String.t()
+        required("NotebookInstanceName") => String.t() | atom()
       }
       
   """
-  @type stop_notebook_instance_input() :: %{String.t() => any()}
+  @type stop_notebook_instance_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9434,37 +9442,37 @@ defmodule AWS.SageMaker do
       describe_optimization_job_response() :: %{
         "CreationTime" => non_neg_integer(),
         "DeploymentInstanceType" => list(any()),
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
         "ModelSource" => optimization_job_model_source(),
         "OptimizationConfigs" => list(list()),
         "OptimizationEndTime" => non_neg_integer(),
         "OptimizationEnvironment" => map(),
-        "OptimizationJobArn" => String.t(),
-        "OptimizationJobName" => String.t(),
+        "OptimizationJobArn" => String.t() | atom(),
+        "OptimizationJobName" => String.t() | atom(),
         "OptimizationJobStatus" => list(any()),
         "OptimizationOutput" => optimization_output(),
         "OptimizationStartTime" => non_neg_integer(),
         "OutputConfig" => optimization_job_output_config(),
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | atom(),
         "StoppingCondition" => stopping_condition(),
         "VpcConfig" => optimization_vpc_config()
       }
       
   """
-  @type describe_optimization_job_response() :: %{String.t() => any()}
+  @type describe_optimization_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cfn_stack_parameter() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type cfn_stack_parameter() :: %{String.t() => any()}
+  @type cfn_stack_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9472,34 +9480,34 @@ defmodule AWS.SageMaker do
       
       list_endpoints_output() :: %{
         "Endpoints" => list(endpoint_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_endpoints_output() :: %{String.t() => any()}
+  @type list_endpoints_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       text_generation_resolved_attributes() :: %{
-        "BaseModelName" => String.t()
+        "BaseModelName" => String.t() | atom()
       }
       
   """
-  @type text_generation_resolved_attributes() :: %{String.t() => any()}
+  @type text_generation_resolved_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       parameter() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type parameter() :: %{String.t() => any()}
+  @type parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9507,49 +9515,49 @@ defmodule AWS.SageMaker do
       
       r_studio_server_pro_domain_settings() :: %{
         "DefaultResourceSpec" => resource_spec(),
-        "DomainExecutionRoleArn" => String.t(),
-        "RStudioConnectUrl" => String.t(),
-        "RStudioPackageManagerUrl" => String.t()
+        "DomainExecutionRoleArn" => String.t() | atom(),
+        "RStudioConnectUrl" => String.t() | atom(),
+        "RStudioPackageManagerUrl" => String.t() | atom()
       }
       
   """
-  @type r_studio_server_pro_domain_settings() :: %{String.t() => any()}
+  @type r_studio_server_pro_domain_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_pipeline_execution_request() :: %{
-        required("ClientRequestToken") => String.t(),
-        required("PipelineExecutionArn") => String.t()
+        required("ClientRequestToken") => String.t() | atom(),
+        required("PipelineExecutionArn") => String.t() | atom()
       }
       
   """
-  @type stop_pipeline_execution_request() :: %{String.t() => any()}
+  @type stop_pipeline_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       vpc_config() :: %{
-        "SecurityGroupIds" => list(String.t()),
-        "Subnets" => list(String.t())
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "Subnets" => list(String.t() | atom())
       }
       
   """
-  @type vpc_config() :: %{String.t() => any()}
+  @type vpc_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_package_model_card() :: %{
-        "ModelCardContent" => String.t(),
+        "ModelCardContent" => String.t() | atom(),
         "ModelCardStatus" => list(any())
       }
       
   """
-  @type model_package_model_card() :: %{String.t() => any()}
+  @type model_package_model_card() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9560,23 +9568,23 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type remote_debug_config_for_update() :: %{String.t() => any()}
+  @type remote_debug_config_for_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_user_profiles_request() :: %{
-        optional("DomainIdEquals") => String.t(),
+        optional("DomainIdEquals") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
-        optional("UserProfileNameContains") => String.t()
+        optional("UserProfileNameContains") => String.t() | atom()
       }
       
   """
-  @type list_user_profiles_request() :: %{String.t() => any()}
+  @type list_user_profiles_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9590,27 +9598,27 @@ defmodule AWS.SageMaker do
         optional("SecurityConfig") => auto_ml_security_config(),
         optional("Tags") => list(tag()),
         required("AutoMLJobInputDataConfig") => list(auto_ml_job_channel()),
-        required("AutoMLJobName") => String.t(),
+        required("AutoMLJobName") => String.t() | atom(),
         required("AutoMLProblemTypeConfig") => list(),
         required("OutputDataConfig") => auto_ml_output_data_config(),
-        required("RoleArn") => String.t()
+        required("RoleArn") => String.t() | atom()
       }
       
   """
-  @type create_auto_ml_job_v2_request() :: %{String.t() => any()}
+  @type create_auto_ml_job_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       algorithm_validation_profile() :: %{
-        "ProfileName" => String.t(),
+        "ProfileName" => String.t() | atom(),
         "TrainingJobDefinition" => training_job_definition(),
         "TransformJobDefinition" => transform_job_definition()
       }
       
   """
-  @type algorithm_validation_profile() :: %{String.t() => any()}
+  @type algorithm_validation_profile() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9621,7 +9629,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type resource_config_for_update() :: %{String.t() => any()}
+  @type resource_config_for_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9631,39 +9639,39 @@ defmodule AWS.SageMaker do
         "CreationTime" => non_neg_integer(),
         "LastExecutionTime" => non_neg_integer(),
         "LastModifiedTime" => non_neg_integer(),
-        "PipelineArn" => String.t(),
-        "PipelineDescription" => String.t(),
-        "PipelineDisplayName" => String.t(),
-        "PipelineName" => String.t(),
-        "RoleArn" => String.t()
+        "PipelineArn" => String.t() | atom(),
+        "PipelineDescription" => String.t() | atom(),
+        "PipelineDisplayName" => String.t() | atom(),
+        "PipelineName" => String.t() | atom(),
+        "RoleArn" => String.t() | atom()
       }
       
   """
-  @type pipeline_summary() :: %{String.t() => any()}
+  @type pipeline_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       clarify_explainer_config() :: %{
-        "EnableExplanations" => String.t(),
+        "EnableExplanations" => String.t() | atom(),
         "InferenceConfig" => clarify_inference_config(),
         "ShapConfig" => clarify_shap_config()
       }
       
   """
-  @type clarify_explainer_config() :: %{String.t() => any()}
+  @type clarify_explainer_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_model_package_group_input() :: %{
-        required("ModelPackageGroupName") => String.t()
+        required("ModelPackageGroupName") => String.t() | atom()
       }
       
   """
-  @type describe_model_package_group_input() :: %{String.t() => any()}
+  @type describe_model_package_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9676,7 +9684,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type u_s_d() :: %{String.t() => any()}
+  @type u_s_d() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9685,24 +9693,24 @@ defmodule AWS.SageMaker do
       deployment_stage() :: %{
         "DeploymentConfig" => edge_deployment_config(),
         "DeviceSelectionConfig" => device_selection_config(),
-        "StageName" => String.t()
+        "StageName" => String.t() | atom()
       }
       
   """
-  @type deployment_stage() :: %{String.t() => any()}
+  @type deployment_stage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       inference_component_container_specification_summary() :: %{
-        "ArtifactUrl" => String.t(),
+        "ArtifactUrl" => String.t() | atom(),
         "DeployedImage" => deployed_image(),
         "Environment" => map()
       }
       
   """
-  @type inference_component_container_specification_summary() :: %{String.t() => any()}
+  @type inference_component_container_specification_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9713,12 +9721,12 @@ defmodule AWS.SageMaker do
         "DockerSettings" => docker_settings(),
         "ExecutionRoleIdentityConfig" => list(any()),
         "RStudioServerProDomainSettingsForUpdate" => r_studio_server_pro_domain_settings_for_update(),
-        "SecurityGroupIds" => list(String.t()),
+        "SecurityGroupIds" => list(String.t() | atom()),
         "UnifiedStudioSettings" => unified_studio_settings()
       }
       
   """
-  @type domain_settings_for_update() :: %{String.t() => any()}
+  @type domain_settings_for_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9731,53 +9739,53 @@ defmodule AWS.SageMaker do
         "LastModifiedTime" => non_neg_integer(),
         "LastRunTime" => non_neg_integer(),
         "ParallelismConfiguration" => parallelism_configuration(),
-        "PipelineArn" => String.t(),
-        "PipelineDefinition" => String.t(),
-        "PipelineDescription" => String.t(),
-        "PipelineDisplayName" => String.t(),
-        "PipelineName" => String.t(),
+        "PipelineArn" => String.t() | atom(),
+        "PipelineDefinition" => String.t() | atom(),
+        "PipelineDescription" => String.t() | atom(),
+        "PipelineDisplayName" => String.t() | atom(),
+        "PipelineName" => String.t() | atom(),
         "PipelineStatus" => list(any()),
-        "PipelineVersionDescription" => String.t(),
-        "PipelineVersionDisplayName" => String.t(),
-        "RoleArn" => String.t()
+        "PipelineVersionDescription" => String.t() | atom(),
+        "PipelineVersionDisplayName" => String.t() | atom(),
+        "RoleArn" => String.t() | atom()
       }
       
   """
-  @type describe_pipeline_response() :: %{String.t() => any()}
+  @type describe_pipeline_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_action_response() :: %{
-        "ActionArn" => String.t()
+        "ActionArn" => String.t() | atom()
       }
       
   """
-  @type update_action_response() :: %{String.t() => any()}
+  @type update_action_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_pipeline_definition_for_execution_request() :: %{
-        required("PipelineExecutionArn") => String.t()
+        required("PipelineExecutionArn") => String.t() | atom()
       }
       
   """
-  @type describe_pipeline_definition_for_execution_request() :: %{String.t() => any()}
+  @type describe_pipeline_definition_for_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_training_jobs_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "TrainingJobSummaries" => list(training_job_summary())
       }
       
   """
-  @type list_training_jobs_response() :: %{String.t() => any()}
+  @type list_training_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9789,43 +9797,43 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type rolling_deployment_policy() :: %{String.t() => any()}
+  @type rolling_deployment_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       time_series_forecasting_settings() :: %{
-        "AmazonForecastRoleArn" => String.t(),
+        "AmazonForecastRoleArn" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type time_series_forecasting_settings() :: %{String.t() => any()}
+  @type time_series_forecasting_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_card() :: %{
-        "Content" => String.t(),
+        "Content" => String.t() | atom(),
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
         "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
-        "ModelCardArn" => String.t(),
-        "ModelCardName" => String.t(),
+        "ModelCardArn" => String.t() | atom(),
+        "ModelCardName" => String.t() | atom(),
         "ModelCardStatus" => list(any()),
         "ModelCardVersion" => integer(),
-        "ModelId" => String.t(),
-        "ModelPackageGroupName" => String.t(),
-        "RiskRating" => String.t(),
+        "ModelId" => String.t() | atom(),
+        "ModelPackageGroupName" => String.t() | atom(),
+        "RiskRating" => String.t() | atom(),
         "SecurityConfig" => model_card_security_config(),
         "Tags" => list(tag())
       }
       
   """
-  @type model_card() :: %{String.t() => any()}
+  @type model_card() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9833,31 +9841,31 @@ defmodule AWS.SageMaker do
       
       monitoring_execution_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "EndpointName" => String.t(),
-        "FailureReason" => String.t(),
+        "EndpointName" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
         "MonitoringExecutionStatus" => list(any()),
-        "MonitoringJobDefinitionName" => String.t(),
-        "MonitoringScheduleName" => String.t(),
+        "MonitoringJobDefinitionName" => String.t() | atom(),
+        "MonitoringScheduleName" => String.t() | atom(),
         "MonitoringType" => list(any()),
-        "ProcessingJobArn" => String.t(),
+        "ProcessingJobArn" => String.t() | atom(),
         "ScheduledTime" => non_neg_integer()
       }
       
   """
-  @type monitoring_execution_summary() :: %{String.t() => any()}
+  @type monitoring_execution_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       continuous_parameter_range_specification() :: %{
-        "MaxValue" => String.t(),
-        "MinValue" => String.t()
+        "MaxValue" => String.t() | atom(),
+        "MinValue" => String.t() | atom()
       }
       
   """
-  @type continuous_parameter_range_specification() :: %{String.t() => any()}
+  @type continuous_parameter_range_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9865,39 +9873,39 @@ defmodule AWS.SageMaker do
       
       workteam() :: %{
         "CreateDate" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "LastUpdatedDate" => non_neg_integer(),
         "MemberDefinitions" => list(member_definition()),
         "NotificationConfiguration" => notification_configuration(),
-        "ProductListingIds" => list(String.t()),
-        "SubDomain" => String.t(),
+        "ProductListingIds" => list(String.t() | atom()),
+        "SubDomain" => String.t() | atom(),
         "WorkerAccessConfiguration" => worker_access_configuration(),
-        "WorkforceArn" => String.t(),
-        "WorkteamArn" => String.t(),
-        "WorkteamName" => String.t()
+        "WorkforceArn" => String.t() | atom(),
+        "WorkteamArn" => String.t() | atom(),
+        "WorkteamName" => String.t() | atom()
       }
       
   """
-  @type workteam() :: %{String.t() => any()}
+  @type workteam() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_event_detail() :: %{
-        "ClusterArn" => String.t(),
-        "ClusterName" => String.t(),
-        "Description" => [String.t()],
+        "ClusterArn" => String.t() | atom(),
+        "ClusterName" => String.t() | atom(),
+        "Description" => [String.t() | atom()],
         "EventDetails" => event_details(),
-        "EventId" => String.t(),
+        "EventId" => String.t() | atom(),
         "EventTime" => non_neg_integer(),
-        "InstanceGroupName" => String.t(),
-        "InstanceId" => [String.t()],
+        "InstanceGroupName" => String.t() | atom(),
+        "InstanceId" => [String.t() | atom()],
         "ResourceType" => list(any())
       }
       
   """
-  @type cluster_event_detail() :: %{String.t() => any()}
+  @type cluster_event_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9910,18 +9918,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type drift_check_bias() :: %{String.t() => any()}
+  @type drift_check_bias() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_hyper_parameter_tuning_job_request() :: %{
-        required("HyperParameterTuningJobName") => String.t()
+        required("HyperParameterTuningJobName") => String.t() | atom()
       }
       
   """
-  @type describe_hyper_parameter_tuning_job_request() :: %{String.t() => any()}
+  @type describe_hyper_parameter_tuning_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9934,7 +9942,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type model_quality_job_input() :: %{String.t() => any()}
+  @type model_quality_job_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9947,39 +9955,39 @@ defmodule AWS.SageMaker do
         "CreationTime" => non_neg_integer(),
         "DefaultSpaceSettings" => default_space_settings(),
         "DefaultUserSettings" => user_settings(),
-        "DomainArn" => String.t(),
-        "DomainId" => String.t(),
-        "DomainName" => String.t(),
+        "DomainArn" => String.t() | atom(),
+        "DomainId" => String.t() | atom(),
+        "DomainName" => String.t() | atom(),
         "DomainSettings" => domain_settings(),
-        "FailureReason" => String.t(),
-        "HomeEfsFileSystemId" => String.t(),
-        "HomeEfsFileSystemKmsKeyId" => String.t(),
-        "KmsKeyId" => String.t(),
+        "FailureReason" => String.t() | atom(),
+        "HomeEfsFileSystemId" => String.t() | atom(),
+        "HomeEfsFileSystemKmsKeyId" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
-        "SecurityGroupIdForDomainBoundary" => String.t(),
-        "SingleSignOnApplicationArn" => String.t(),
-        "SingleSignOnManagedApplicationInstanceId" => String.t(),
+        "SecurityGroupIdForDomainBoundary" => String.t() | atom(),
+        "SingleSignOnApplicationArn" => String.t() | atom(),
+        "SingleSignOnManagedApplicationInstanceId" => String.t() | atom(),
         "Status" => list(any()),
-        "SubnetIds" => list(String.t()),
+        "SubnetIds" => list(String.t() | atom()),
         "TagPropagation" => list(any()),
-        "Url" => String.t(),
-        "VpcId" => String.t()
+        "Url" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
       
   """
-  @type describe_domain_response() :: %{String.t() => any()}
+  @type describe_domain_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rendering_error() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type rendering_error() :: %{String.t() => any()}
+  @type rendering_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9987,11 +9995,11 @@ defmodule AWS.SageMaker do
       
       list_devices_response() :: %{
         "DeviceSummaries" => list(device_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_devices_response() :: %{String.t() => any()}
+  @type list_devices_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10000,17 +10008,17 @@ defmodule AWS.SageMaker do
       describe_experiment_response() :: %{
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "DisplayName" => String.t(),
-        "ExperimentArn" => String.t(),
-        "ExperimentName" => String.t(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "ExperimentArn" => String.t() | atom(),
+        "ExperimentName" => String.t() | atom(),
         "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
         "Source" => experiment_source()
       }
       
   """
-  @type describe_experiment_response() :: %{String.t() => any()}
+  @type describe_experiment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10018,23 +10026,23 @@ defmodule AWS.SageMaker do
       
       list_compilation_jobs_response() :: %{
         "CompilationJobSummaries" => list(compilation_job_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_compilation_jobs_response() :: %{String.t() => any()}
+  @type list_compilation_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       pipeline_experiment_config() :: %{
-        "ExperimentName" => String.t(),
-        "TrialName" => String.t()
+        "ExperimentName" => String.t() | atom(),
+        "TrialName" => String.t() | atom()
       }
       
   """
-  @type pipeline_experiment_config() :: %{String.t() => any()}
+  @type pipeline_experiment_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10046,31 +10054,31 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type candidate_properties() :: %{String.t() => any()}
+  @type candidate_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_algorithm_input() :: %{
-        required("AlgorithmName") => String.t()
+        required("AlgorithmName") => String.t() | atom()
       }
       
   """
-  @type describe_algorithm_input() :: %{String.t() => any()}
+  @type describe_algorithm_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       async_inference_notification_config() :: %{
-        "ErrorTopic" => String.t(),
+        "ErrorTopic" => String.t() | atom(),
         "IncludeInferenceResponseIn" => list(list(any())()),
-        "SuccessTopic" => String.t()
+        "SuccessTopic" => String.t() | atom()
       }
       
   """
-  @type async_inference_notification_config() :: %{String.t() => any()}
+  @type async_inference_notification_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10078,34 +10086,34 @@ defmodule AWS.SageMaker do
       
       model_metadata_filter() :: %{
         "Name" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | atom()
       }
       
   """
-  @type model_metadata_filter() :: %{String.t() => any()}
+  @type model_metadata_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       additional_model_data_source() :: %{
-        "ChannelName" => String.t(),
+        "ChannelName" => String.t() | atom(),
         "S3DataSource" => s3_model_data_source()
       }
       
   """
-  @type additional_model_data_source() :: %{String.t() => any()}
+  @type additional_model_data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_inference_experiment_response() :: %{
-        "InferenceExperimentArn" => String.t()
+        "InferenceExperimentArn" => String.t() | atom()
       }
       
   """
-  @type start_inference_experiment_response() :: %{String.t() => any()}
+  @type start_inference_experiment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10117,7 +10125,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type recommendation_job_resource_limit() :: %{String.t() => any()}
+  @type recommendation_job_resource_limit() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10125,33 +10133,33 @@ defmodule AWS.SageMaker do
       
       selective_execution_config() :: %{
         "SelectedSteps" => list(selected_step()),
-        "SourcePipelineExecutionArn" => String.t()
+        "SourcePipelineExecutionArn" => String.t() | atom()
       }
       
   """
-  @type selective_execution_config() :: %{String.t() => any()}
+  @type selective_execution_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       labeling_job_summary() :: %{
-        "AnnotationConsolidationLambdaArn" => String.t(),
+        "AnnotationConsolidationLambdaArn" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | atom(),
         "InputConfig" => labeling_job_input_config(),
         "LabelCounters" => label_counters(),
-        "LabelingJobArn" => String.t(),
-        "LabelingJobName" => String.t(),
+        "LabelingJobArn" => String.t() | atom(),
+        "LabelingJobName" => String.t() | atom(),
         "LabelingJobOutput" => labeling_job_output(),
         "LabelingJobStatus" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
-        "PreHumanTaskLambdaArn" => String.t(),
-        "WorkteamArn" => String.t()
+        "PreHumanTaskLambdaArn" => String.t() | atom(),
+        "WorkteamArn" => String.t() | atom()
       }
       
   """
-  @type labeling_job_summary() :: %{String.t() => any()}
+  @type labeling_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10168,11 +10176,11 @@ defmodule AWS.SageMaker do
       
       list_image_versions_response() :: %{
         "ImageVersions" => list(image_version()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_image_versions_response() :: %{String.t() => any()}
+  @type list_image_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10183,21 +10191,21 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type public_workforce_task_price() :: %{String.t() => any()}
+  @type public_workforce_task_price() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_hub_content_reference_request() :: %{
-        optional("MinVersion") => String.t(),
-        required("HubContentName") => String.t(),
+        optional("MinVersion") => String.t() | atom(),
+        required("HubContentName") => String.t() | atom(),
         required("HubContentType") => list(any()),
-        required("HubName") => String.t()
+        required("HubName") => String.t() | atom()
       }
       
   """
-  @type update_hub_content_reference_request() :: %{String.t() => any()}
+  @type update_hub_content_reference_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10208,7 +10216,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type monitoring_csv_dataset_format() :: %{String.t() => any()}
+  @type monitoring_csv_dataset_format() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10216,14 +10224,14 @@ defmodule AWS.SageMaker do
       
       debug_rule_evaluation_status() :: %{
         "LastModifiedTime" => non_neg_integer(),
-        "RuleConfigurationName" => String.t(),
-        "RuleEvaluationJobArn" => String.t(),
+        "RuleConfigurationName" => String.t() | atom(),
+        "RuleEvaluationJobArn" => String.t() | atom(),
         "RuleEvaluationStatus" => list(any()),
-        "StatusDetails" => String.t()
+        "StatusDetails" => String.t() | atom()
       }
       
   """
-  @type debug_rule_evaluation_status() :: %{String.t() => any()}
+  @type debug_rule_evaluation_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10232,11 +10240,11 @@ defmodule AWS.SageMaker do
       file_system_config() :: %{
         "DefaultGid" => integer(),
         "DefaultUid" => integer(),
-        "MountPath" => String.t()
+        "MountPath" => String.t() | atom()
       }
       
   """
-  @type file_system_config() :: %{String.t() => any()}
+  @type file_system_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10244,34 +10252,34 @@ defmodule AWS.SageMaker do
       
       list_actions_response() :: %{
         "ActionSummaries" => list(action_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_actions_response() :: %{String.t() => any()}
+  @type list_actions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_notebook_instances_input() :: %{
-        optional("AdditionalCodeRepositoryEquals") => String.t(),
+        optional("AdditionalCodeRepositoryEquals") => String.t() | atom(),
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
-        optional("DefaultCodeRepositoryContains") => String.t(),
+        optional("DefaultCodeRepositoryContains") => String.t() | atom(),
         optional("LastModifiedTimeAfter") => non_neg_integer(),
         optional("LastModifiedTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
-        optional("NotebookInstanceLifecycleConfigNameContains") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("NotebookInstanceLifecycleConfigNameContains") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
         optional("StatusEquals") => list(any())
       }
       
   """
-  @type list_notebook_instances_input() :: %{String.t() => any()}
+  @type list_notebook_instances_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10300,24 +10308,24 @@ defmodule AWS.SageMaker do
         required("AlgorithmSpecification") => algorithm_specification(),
         required("OutputDataConfig") => output_data_config(),
         required("ResourceConfig") => resource_config(),
-        required("RoleArn") => String.t(),
+        required("RoleArn") => String.t() | atom(),
         required("StoppingCondition") => stopping_condition(),
-        required("TrainingJobName") => String.t()
+        required("TrainingJobName") => String.t() | atom()
       }
       
   """
-  @type create_training_job_request() :: %{String.t() => any()}
+  @type create_training_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_partner_app_response() :: %{
-        "Arn" => String.t()
+        "Arn" => String.t() | atom()
       }
       
   """
-  @type update_partner_app_response() :: %{String.t() => any()}
+  @type update_partner_app_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10327,18 +10335,18 @@ defmodule AWS.SageMaker do
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("MaxSchemaVersion") => String.t(),
-        optional("MinVersion") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("MaxSchemaVersion") => String.t() | atom(),
+        optional("MinVersion") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
-        required("HubContentName") => String.t(),
+        required("HubContentName") => String.t() | atom(),
         required("HubContentType") => list(any()),
-        required("HubName") => String.t()
+        required("HubName") => String.t() | atom()
       }
       
   """
-  @type list_hub_content_versions_request() :: %{String.t() => any()}
+  @type list_hub_content_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10346,24 +10354,24 @@ defmodule AWS.SageMaker do
       
       monitoring_job_definition_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "EndpointName" => String.t(),
-        "MonitoringJobDefinitionArn" => String.t(),
-        "MonitoringJobDefinitionName" => String.t()
+        "EndpointName" => String.t() | atom(),
+        "MonitoringJobDefinitionArn" => String.t() | atom(),
+        "MonitoringJobDefinitionName" => String.t() | atom()
       }
       
   """
-  @type monitoring_job_definition_summary() :: %{String.t() => any()}
+  @type monitoring_job_definition_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_image_version_response() :: %{
-        "ImageVersionArn" => String.t()
+        "ImageVersionArn" => String.t() | atom()
       }
       
   """
-  @type create_image_version_response() :: %{String.t() => any()}
+  @type create_image_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10374,7 +10382,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type space_storage_settings() :: %{String.t() => any()}
+  @type space_storage_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10386,24 +10394,24 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type monitoring_input() :: %{String.t() => any()}
+  @type monitoring_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_node_summary() :: %{
-        "InstanceGroupName" => String.t(),
-        "InstanceId" => [String.t()],
+        "InstanceGroupName" => String.t() | atom(),
+        "InstanceId" => [String.t() | atom()],
         "InstanceStatus" => cluster_instance_status_details(),
         "InstanceType" => list(any()),
         "LastSoftwareUpdateTime" => non_neg_integer(),
         "LaunchTime" => non_neg_integer(),
-        "NodeLogicalId" => [String.t()]
+        "NodeLogicalId" => [String.t() | atom()]
       }
       
   """
-  @type cluster_node_summary() :: %{String.t() => any()}
+  @type cluster_node_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10414,81 +10422,81 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type ebs_storage_settings() :: %{String.t() => any()}
+  @type ebs_storage_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       file_system_data_source() :: %{
-        "DirectoryPath" => String.t(),
+        "DirectoryPath" => String.t() | atom(),
         "FileSystemAccessMode" => list(any()),
-        "FileSystemId" => String.t(),
+        "FileSystemId" => String.t() | atom(),
         "FileSystemType" => list(any())
       }
       
   """
-  @type file_system_data_source() :: %{String.t() => any()}
+  @type file_system_data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_actions_request() :: %{
-        optional("ActionType") => String.t(),
+        optional("ActionType") => String.t() | atom(),
         optional("CreatedAfter") => non_neg_integer(),
         optional("CreatedBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
-        optional("SourceUri") => String.t()
+        optional("SourceUri") => String.t() | atom()
       }
       
   """
-  @type list_actions_request() :: %{String.t() => any()}
+  @type list_actions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_cluster_scheduler_config_response() :: %{
-        "ClusterSchedulerConfigArn" => String.t(),
-        "ClusterSchedulerConfigId" => String.t()
+        "ClusterSchedulerConfigArn" => String.t() | atom(),
+        "ClusterSchedulerConfigId" => String.t() | atom()
       }
       
   """
-  @type create_cluster_scheduler_config_response() :: %{String.t() => any()}
+  @type create_cluster_scheduler_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       partner_app_config() :: %{
-        "AdminUsers" => list(String.t()),
+        "AdminUsers" => list(String.t() | atom()),
         "Arguments" => map()
       }
       
   """
-  @type partner_app_config() :: %{String.t() => any()}
+  @type partner_app_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       athena_dataset_definition() :: %{
-        "Catalog" => String.t(),
-        "Database" => String.t(),
-        "KmsKeyId" => String.t(),
+        "Catalog" => String.t() | atom(),
+        "Database" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
         "OutputCompression" => list(any()),
         "OutputFormat" => list(any()),
-        "OutputS3Uri" => String.t(),
-        "QueryString" => String.t(),
-        "WorkGroup" => String.t()
+        "OutputS3Uri" => String.t() | atom(),
+        "QueryString" => String.t() | atom(),
+        "WorkGroup" => String.t() | atom()
       }
       
   """
-  @type athena_dataset_definition() :: %{String.t() => any()}
+  @type athena_dataset_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10496,23 +10504,23 @@ defmodule AWS.SageMaker do
       
       instance_group() :: %{
         "InstanceCount" => integer(),
-        "InstanceGroupName" => String.t(),
+        "InstanceGroupName" => String.t() | atom(),
         "InstanceType" => list(any())
       }
       
   """
-  @type instance_group() :: %{String.t() => any()}
+  @type instance_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       optimization_output() :: %{
-        "RecommendedInferenceImage" => String.t()
+        "RecommendedInferenceImage" => String.t() | atom()
       }
       
   """
-  @type optimization_output() :: %{String.t() => any()}
+  @type optimization_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10520,25 +10528,25 @@ defmodule AWS.SageMaker do
       
       profiler_rule_evaluation_status() :: %{
         "LastModifiedTime" => non_neg_integer(),
-        "RuleConfigurationName" => String.t(),
-        "RuleEvaluationJobArn" => String.t(),
+        "RuleConfigurationName" => String.t() | atom(),
+        "RuleEvaluationJobArn" => String.t() | atom(),
         "RuleEvaluationStatus" => list(any()),
-        "StatusDetails" => String.t()
+        "StatusDetails" => String.t() | atom()
       }
       
   """
-  @type profiler_rule_evaluation_status() :: %{String.t() => any()}
+  @type profiler_rule_evaluation_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_space_response() :: %{
-        "SpaceArn" => String.t()
+        "SpaceArn" => String.t() | atom()
       }
       
   """
-  @type update_space_response() :: %{String.t() => any()}
+  @type update_space_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10549,7 +10557,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type inference_component_runtime_config() :: %{String.t() => any()}
+  @type inference_component_runtime_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10561,7 +10569,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type model_package_status_details() :: %{String.t() => any()}
+  @type model_package_status_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10569,70 +10577,70 @@ defmodule AWS.SageMaker do
       
       list_clusters_response() :: %{
         "ClusterSummaries" => list(cluster_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_clusters_response() :: %{String.t() => any()}
+  @type list_clusters_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       human_loop_activation_conditions_config() :: %{
-        "HumanLoopActivationConditions" => String.t()
+        "HumanLoopActivationConditions" => String.t() | atom()
       }
       
   """
-  @type human_loop_activation_conditions_config() :: %{String.t() => any()}
+  @type human_loop_activation_conditions_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_pipeline_execution_response() :: %{
-        "PipelineExecutionArn" => String.t()
+        "PipelineExecutionArn" => String.t() | atom()
       }
       
   """
-  @type stop_pipeline_execution_response() :: %{String.t() => any()}
+  @type stop_pipeline_execution_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       categorical_parameter_range() :: %{
-        "Name" => String.t(),
-        "Values" => list(String.t())
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type categorical_parameter_range() :: %{String.t() => any()}
+  @type categorical_parameter_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       render_ui_template_request() :: %{
-        optional("HumanTaskUiArn") => String.t(),
+        optional("HumanTaskUiArn") => String.t() | atom(),
         optional("UiTemplate") => ui_template(),
-        required("RoleArn") => String.t(),
+        required("RoleArn") => String.t() | atom(),
         required("Task") => renderable_task()
       }
       
   """
-  @type render_ui_template_request() :: %{String.t() => any()}
+  @type render_ui_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_notebook_instance_lifecycle_config_input() :: %{
-        required("NotebookInstanceLifecycleConfigName") => String.t()
+        required("NotebookInstanceLifecycleConfigName") => String.t() | atom()
       }
       
   """
-  @type describe_notebook_instance_lifecycle_config_input() :: %{String.t() => any()}
+  @type describe_notebook_instance_lifecycle_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10640,20 +10648,20 @@ defmodule AWS.SageMaker do
       
       update_model_package_input() :: %{
         optional("AdditionalInferenceSpecificationsToAdd") => list(additional_inference_specification_definition()),
-        optional("ApprovalDescription") => String.t(),
-        optional("ClientToken") => String.t(),
+        optional("ApprovalDescription") => String.t() | atom(),
+        optional("ClientToken") => String.t() | atom(),
         optional("CustomerMetadataProperties") => map(),
-        optional("CustomerMetadataPropertiesToRemove") => list(String.t()),
+        optional("CustomerMetadataPropertiesToRemove") => list(String.t() | atom()),
         optional("InferenceSpecification") => inference_specification(),
         optional("ModelApprovalStatus") => list(any()),
         optional("ModelCard") => model_package_model_card(),
         optional("ModelLifeCycle") => model_life_cycle(),
-        optional("SourceUri") => String.t(),
-        required("ModelPackageArn") => String.t()
+        optional("SourceUri") => String.t() | atom(),
+        required("ModelPackageArn") => String.t() | atom()
       }
       
   """
-  @type update_model_package_input() :: %{String.t() => any()}
+  @type update_model_package_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10661,36 +10669,36 @@ defmodule AWS.SageMaker do
       
       feature_group_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "FeatureGroupArn" => String.t(),
-        "FeatureGroupName" => String.t(),
+        "FeatureGroupArn" => String.t() | atom(),
+        "FeatureGroupName" => String.t() | atom(),
         "FeatureGroupStatus" => list(any()),
         "OfflineStoreStatus" => offline_store_status()
       }
       
   """
-  @type feature_group_summary() :: %{String.t() => any()}
+  @type feature_group_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_workteam_response() :: %{
-        "WorkteamArn" => String.t()
+        "WorkteamArn" => String.t() | atom()
       }
       
   """
-  @type create_workteam_response() :: %{String.t() => any()}
+  @type create_workteam_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_cluster_response() :: %{
-        "ClusterArn" => String.t()
+        "ClusterArn" => String.t() | atom()
       }
       
   """
-  @type delete_cluster_response() :: %{String.t() => any()}
+  @type delete_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10698,28 +10706,28 @@ defmodule AWS.SageMaker do
       
       create_presigned_domain_url_request() :: %{
         optional("ExpiresInSeconds") => integer(),
-        optional("LandingUri") => String.t(),
+        optional("LandingUri") => String.t() | atom(),
         optional("SessionExpirationDurationInSeconds") => integer(),
-        optional("SpaceName") => String.t(),
-        required("DomainId") => String.t(),
-        required("UserProfileName") => String.t()
+        optional("SpaceName") => String.t() | atom(),
+        required("DomainId") => String.t() | atom(),
+        required("UserProfileName") => String.t() | atom()
       }
       
   """
-  @type create_presigned_domain_url_request() :: %{String.t() => any()}
+  @type create_presigned_domain_url_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_configuration() :: %{
-        "CompilationJobName" => String.t(),
+        "CompilationJobName" => String.t() | atom(),
         "EnvironmentParameters" => list(environment_parameter()),
-        "InferenceSpecificationName" => String.t()
+        "InferenceSpecificationName" => String.t() | atom()
       }
       
   """
-  @type model_configuration() :: %{String.t() => any()}
+  @type model_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10733,7 +10741,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type search_expression() :: %{String.t() => any()}
+  @type search_expression() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10741,12 +10749,12 @@ defmodule AWS.SageMaker do
       
       register_devices_request() :: %{
         optional("Tags") => list(tag()),
-        required("DeviceFleetName") => String.t(),
+        required("DeviceFleetName") => String.t() | atom(),
         required("Devices") => list(device())
       }
       
   """
-  @type register_devices_request() :: %{String.t() => any()}
+  @type register_devices_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10757,7 +10765,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type monitoring_json_dataset_format() :: %{String.t() => any()}
+  @type monitoring_json_dataset_format() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10765,40 +10773,40 @@ defmodule AWS.SageMaker do
       
       labeling_job_for_workteam_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "JobReferenceCode" => String.t(),
+        "JobReferenceCode" => String.t() | atom(),
         "LabelCounters" => label_counters_for_workteam(),
-        "LabelingJobName" => String.t(),
+        "LabelingJobName" => String.t() | atom(),
         "NumberOfHumanWorkersPerDataObject" => integer(),
-        "WorkRequesterAccountId" => String.t()
+        "WorkRequesterAccountId" => String.t() | atom()
       }
       
   """
-  @type labeling_job_for_workteam_summary() :: %{String.t() => any()}
+  @type labeling_job_for_workteam_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       vertex() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "LineageType" => list(any()),
-        "Type" => String.t()
+        "Type" => String.t() | atom()
       }
       
   """
-  @type vertex() :: %{String.t() => any()}
+  @type vertex() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       feature_parameter() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type feature_parameter() :: %{String.t() => any()}
+  @type feature_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10810,26 +10818,26 @@ defmodule AWS.SageMaker do
         optional("LastModifiedTimeAfter") => non_neg_integer(),
         optional("LastModifiedTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_device_fleets_request() :: %{String.t() => any()}
+  @type list_device_fleets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       lambda_step_metadata() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "OutputParameters" => list(output_parameter())
       }
       
   """
-  @type lambda_step_metadata() :: %{String.t() => any()}
+  @type lambda_step_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10840,39 +10848,39 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type create_template_provider() :: %{String.t() => any()}
+  @type create_template_provider() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       experiment_config() :: %{
-        "ExperimentName" => String.t(),
-        "RunName" => String.t(),
-        "TrialComponentDisplayName" => String.t(),
-        "TrialName" => String.t()
+        "ExperimentName" => String.t() | atom(),
+        "RunName" => String.t() | atom(),
+        "TrialComponentDisplayName" => String.t() | atom(),
+        "TrialName" => String.t() | atom()
       }
       
   """
-  @type experiment_config() :: %{String.t() => any()}
+  @type experiment_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_event_summary() :: %{
-        "ClusterArn" => String.t(),
-        "ClusterName" => String.t(),
-        "Description" => [String.t()],
-        "EventId" => String.t(),
+        "ClusterArn" => String.t() | atom(),
+        "ClusterName" => String.t() | atom(),
+        "Description" => [String.t() | atom()],
+        "EventId" => String.t() | atom(),
         "EventTime" => non_neg_integer(),
-        "InstanceGroupName" => String.t(),
-        "InstanceId" => [String.t()],
+        "InstanceGroupName" => String.t() | atom(),
+        "InstanceId" => [String.t() | atom()],
         "ResourceType" => list(any())
       }
       
   """
-  @type cluster_event_summary() :: %{String.t() => any()}
+  @type cluster_event_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10884,20 +10892,20 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type ttl_duration() :: %{String.t() => any()}
+  @type ttl_duration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       filter() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Operator" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | atom()
       }
       
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10910,7 +10918,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type compute_quota_config() :: %{String.t() => any()}
+  @type compute_quota_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10918,72 +10926,72 @@ defmodule AWS.SageMaker do
       
       describe_image_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "DisplayName" => String.t(),
-        "FailureReason" => String.t(),
-        "ImageArn" => String.t(),
-        "ImageName" => String.t(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
+        "ImageArn" => String.t() | atom(),
+        "ImageName" => String.t() | atom(),
         "ImageStatus" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
-        "RoleArn" => String.t()
+        "RoleArn" => String.t() | atom()
       }
       
   """
-  @type describe_image_response() :: %{String.t() => any()}
+  @type describe_image_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_experiment_request() :: %{
-        optional("Description") => String.t(),
-        optional("DisplayName") => String.t(),
-        required("ExperimentName") => String.t()
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom(),
+        required("ExperimentName") => String.t() | atom()
       }
       
   """
-  @type update_experiment_request() :: %{String.t() => any()}
+  @type update_experiment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_hub_content_reference_request() :: %{
-        required("HubContentName") => String.t(),
+        required("HubContentName") => String.t() | atom(),
         required("HubContentType") => list(any()),
-        required("HubName") => String.t()
+        required("HubName") => String.t() | atom()
       }
       
   """
-  @type delete_hub_content_reference_request() :: %{String.t() => any()}
+  @type delete_hub_content_reference_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       algorithm_summary() :: %{
-        "AlgorithmArn" => String.t(),
-        "AlgorithmDescription" => String.t(),
-        "AlgorithmName" => String.t(),
+        "AlgorithmArn" => String.t() | atom(),
+        "AlgorithmDescription" => String.t() | atom(),
+        "AlgorithmName" => String.t() | atom(),
         "AlgorithmStatus" => list(any()),
         "CreationTime" => non_neg_integer()
       }
       
   """
-  @type algorithm_summary() :: %{String.t() => any()}
+  @type algorithm_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_model_package_group_input() :: %{
-        optional("ModelPackageGroupDescription") => String.t(),
+        optional("ModelPackageGroupDescription") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("ModelPackageGroupName") => String.t()
+        required("ModelPackageGroupName") => String.t() | atom()
       }
       
   """
-  @type create_model_package_group_input() :: %{String.t() => any()}
+  @type create_model_package_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10991,11 +10999,11 @@ defmodule AWS.SageMaker do
       
       add_cluster_node_specification() :: %{
         "IncrementTargetCountBy" => integer(),
-        "InstanceGroupName" => String.t()
+        "InstanceGroupName" => String.t() | atom()
       }
       
   """
-  @type add_cluster_node_specification() :: %{String.t() => any()}
+  @type add_cluster_node_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11003,32 +11011,32 @@ defmodule AWS.SageMaker do
       
       list_model_quality_job_definitions_response() :: %{
         "JobDefinitionSummaries" => list(monitoring_job_definition_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_model_quality_job_definitions_response() :: %{String.t() => any()}
+  @type list_model_quality_job_definitions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_artifact_response() :: %{
-        "ArtifactArn" => String.t(),
-        "ArtifactName" => String.t(),
-        "ArtifactType" => String.t(),
+        "ArtifactArn" => String.t() | atom(),
+        "ArtifactName" => String.t() | atom(),
+        "ArtifactType" => String.t() | atom(),
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
         "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
-        "LineageGroupArn" => String.t(),
+        "LineageGroupArn" => String.t() | atom(),
         "MetadataProperties" => metadata_properties(),
         "Properties" => map(),
         "Source" => artifact_source()
       }
       
   """
-  @type describe_artifact_response() :: %{String.t() => any()}
+  @type describe_artifact_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11036,13 +11044,13 @@ defmodule AWS.SageMaker do
       
       inference_recommendations_job_step() :: %{
         "InferenceBenchmark" => recommendation_job_inference_benchmark(),
-        "JobName" => String.t(),
+        "JobName" => String.t() | atom(),
         "Status" => list(any()),
         "StepType" => list(any())
       }
       
   """
-  @type inference_recommendations_job_step() :: %{String.t() => any()}
+  @type inference_recommendations_job_step() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11053,7 +11061,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type infra_check_config() :: %{String.t() => any()}
+  @type infra_check_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11064,7 +11072,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type async_inference_client_config() :: %{String.t() => any()}
+  @type async_inference_client_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11082,7 +11090,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type canvas_app_settings() :: %{String.t() => any()}
+  @type canvas_app_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11090,25 +11098,25 @@ defmodule AWS.SageMaker do
       
       list_images_response() :: %{
         "Images" => list(image()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_images_response() :: %{String.t() => any()}
+  @type list_images_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_experiment_request() :: %{
-        optional("Description") => String.t(),
-        optional("DisplayName") => String.t(),
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("ExperimentName") => String.t()
+        required("ExperimentName") => String.t() | atom()
       }
       
   """
-  @type create_experiment_request() :: %{String.t() => any()}
+  @type create_experiment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11117,12 +11125,12 @@ defmodule AWS.SageMaker do
       auto_ml_job_channel() :: %{
         "ChannelType" => list(any()),
         "CompressionType" => list(any()),
-        "ContentType" => String.t(),
+        "ContentType" => String.t() | atom(),
         "DataSource" => auto_ml_data_source()
       }
       
   """
-  @type auto_ml_job_channel() :: %{String.t() => any()}
+  @type auto_ml_job_channel() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11130,11 +11138,11 @@ defmodule AWS.SageMaker do
       
       agent_version() :: %{
         "AgentCount" => float(),
-        "Version" => String.t()
+        "Version" => String.t() | atom()
       }
       
   """
-  @type agent_version() :: %{String.t() => any()}
+  @type agent_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11145,14 +11153,14 @@ defmodule AWS.SageMaker do
         optional("CreationTimeBefore") => non_neg_integer(),
         optional("CrossAccountFilterOption") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_model_package_groups_input() :: %{String.t() => any()}
+  @type list_model_package_groups_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11160,11 +11168,11 @@ defmodule AWS.SageMaker do
       
       list_contexts_response() :: %{
         "ContextSummaries" => list(context_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_contexts_response() :: %{String.t() => any()}
+  @type list_contexts_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11172,11 +11180,11 @@ defmodule AWS.SageMaker do
       
       list_app_image_configs_response() :: %{
         "AppImageConfigs" => list(app_image_config_details()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_app_image_configs_response() :: %{String.t() => any()}
+  @type list_app_image_configs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11184,12 +11192,12 @@ defmodule AWS.SageMaker do
       
       warm_pool_status() :: %{
         "ResourceRetainedBillableTimeInSeconds" => integer(),
-        "ReusedByJob" => String.t(),
+        "ReusedByJob" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type warm_pool_status() :: %{String.t() => any()}
+  @type warm_pool_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11198,9 +11206,9 @@ defmodule AWS.SageMaker do
       create_model_package_input() :: %{
         optional("AdditionalInferenceSpecifications") => list(additional_inference_specification_definition()),
         optional("CertifyForMarketplace") => boolean(),
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("CustomerMetadataProperties") => map(),
-        optional("Domain") => String.t(),
+        optional("Domain") => String.t() | atom(),
         optional("DriftCheckBaselines") => drift_check_baselines(),
         optional("InferenceSpecification") => inference_specification(),
         optional("MetadataProperties") => metadata_properties(),
@@ -11208,90 +11216,92 @@ defmodule AWS.SageMaker do
         optional("ModelCard") => model_package_model_card(),
         optional("ModelLifeCycle") => model_life_cycle(),
         optional("ModelMetrics") => model_metrics(),
-        optional("ModelPackageDescription") => String.t(),
-        optional("ModelPackageGroupName") => String.t(),
-        optional("ModelPackageName") => String.t(),
-        optional("SamplePayloadUrl") => String.t(),
+        optional("ModelPackageDescription") => String.t() | atom(),
+        optional("ModelPackageGroupName") => String.t() | atom(),
+        optional("ModelPackageName") => String.t() | atom(),
+        optional("SamplePayloadUrl") => String.t() | atom(),
         optional("SecurityConfig") => model_package_security_config(),
         optional("SkipModelValidation") => list(any()),
         optional("SourceAlgorithmSpecification") => source_algorithm_specification(),
-        optional("SourceUri") => String.t(),
+        optional("SourceUri") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        optional("Task") => String.t(),
+        optional("Task") => String.t() | atom(),
         optional("ValidationSpecification") => model_package_validation_specification()
       }
       
   """
-  @type create_model_package_input() :: %{String.t() => any()}
+  @type create_model_package_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       recommendation_job_container_config() :: %{
-        "DataInputConfig" => String.t(),
-        "Domain" => String.t(),
-        "Framework" => String.t(),
-        "FrameworkVersion" => String.t(),
-        "NearestModelName" => String.t(),
+        "DataInputConfig" => String.t() | atom(),
+        "Domain" => String.t() | atom(),
+        "Framework" => String.t() | atom(),
+        "FrameworkVersion" => String.t() | atom(),
+        "NearestModelName" => String.t() | atom(),
         "PayloadConfig" => recommendation_job_payload_config(),
         "SupportedEndpointType" => list(any()),
-        "SupportedInstanceTypes" => list(String.t()),
-        "SupportedResponseMIMETypes" => list(String.t()),
-        "Task" => String.t()
+        "SupportedInstanceTypes" => list(String.t() | atom()),
+        "SupportedResponseMIMETypes" => list(String.t() | atom()),
+        "Task" => String.t() | atom()
       }
       
   """
-  @type recommendation_job_container_config() :: %{String.t() => any()}
+  @type recommendation_job_container_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_training_jobs_for_hyper_parameter_tuning_job_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "TrainingJobSummaries" => list(hyper_parameter_training_job_summary())
       }
       
   """
-  @type list_training_jobs_for_hyper_parameter_tuning_job_response() :: %{String.t() => any()}
+  @type list_training_jobs_for_hyper_parameter_tuning_job_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       instance_group_scaling_metadata() :: %{
-        "FailureMessage" => [String.t()],
+        "FailureMessage" => [String.t() | atom()],
         "InstanceCount" => integer(),
         "TargetCount" => integer()
       }
       
   """
-  @type instance_group_scaling_metadata() :: %{String.t() => any()}
+  @type instance_group_scaling_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       provisioning_parameter() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type provisioning_parameter() :: %{String.t() => any()}
+  @type provisioning_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_instance_status_details() :: %{
-        "Message" => [String.t()],
+        "Message" => [String.t() | atom()],
         "Status" => list(any())
       }
       
   """
-  @type cluster_instance_status_details() :: %{String.t() => any()}
+  @type cluster_instance_status_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11306,54 +11316,54 @@ defmodule AWS.SageMaker do
         optional("StoppingCondition") => processing_stopping_condition(),
         optional("Tags") => list(tag()),
         required("AppSpecification") => app_specification(),
-        required("ProcessingJobName") => String.t(),
+        required("ProcessingJobName") => String.t() | atom(),
         required("ProcessingResources") => processing_resources(),
-        required("RoleArn") => String.t()
+        required("RoleArn") => String.t() | atom()
       }
       
   """
-  @type create_processing_job_request() :: %{String.t() => any()}
+  @type create_processing_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       notification_configuration() :: %{
-        "NotificationTopicArn" => String.t()
+        "NotificationTopicArn" => String.t() | atom()
       }
       
   """
-  @type notification_configuration() :: %{String.t() => any()}
+  @type notification_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_project_input() :: %{
-        optional("ProjectDescription") => String.t(),
+        optional("ProjectDescription") => String.t() | atom(),
         optional("ServiceCatalogProvisioningDetails") => service_catalog_provisioning_details(),
         optional("Tags") => list(tag()),
         optional("TemplateProviders") => list(create_template_provider()),
-        required("ProjectName") => String.t()
+        required("ProjectName") => String.t() | atom()
       }
       
   """
-  @type create_project_input() :: %{String.t() => any()}
+  @type create_project_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       inference_component_specification_summary() :: %{
-        "BaseInferenceComponentName" => String.t(),
+        "BaseInferenceComponentName" => String.t() | atom(),
         "ComputeResourceRequirements" => inference_component_compute_resource_requirements(),
         "Container" => inference_component_container_specification_summary(),
-        "ModelName" => String.t(),
+        "ModelName" => String.t() | atom(),
         "StartupParameters" => inference_component_startup_parameters()
       }
       
   """
-  @type inference_component_specification_summary() :: %{String.t() => any()}
+  @type inference_component_specification_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11364,18 +11374,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type describe_workteam_response() :: %{String.t() => any()}
+  @type describe_workteam_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_mlflow_tracking_server_response() :: %{
-        "TrackingServerArn" => String.t()
+        "TrackingServerArn" => String.t() | atom()
       }
       
   """
-  @type start_mlflow_tracking_server_response() :: %{String.t() => any()}
+  @type start_mlflow_tracking_server_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11384,11 +11394,11 @@ defmodule AWS.SageMaker do
       endpoint() :: %{
         "CreationTime" => non_neg_integer(),
         "DataCaptureConfig" => data_capture_config_summary(),
-        "EndpointArn" => String.t(),
-        "EndpointConfigName" => String.t(),
-        "EndpointName" => String.t(),
+        "EndpointArn" => String.t() | atom(),
+        "EndpointConfigName" => String.t() | atom(),
+        "EndpointName" => String.t() | atom(),
         "EndpointStatus" => list(any()),
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
         "MonitoringSchedules" => list(monitoring_schedule()),
         "ProductionVariants" => list(production_variant_summary()),
@@ -11397,7 +11407,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type endpoint() :: %{String.t() => any()}
+  @type endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11405,34 +11415,34 @@ defmodule AWS.SageMaker do
       
       recommendation_job_output_config() :: %{
         "CompiledOutputConfig" => recommendation_job_compiled_output_config(),
-        "KmsKeyId" => String.t()
+        "KmsKeyId" => String.t() | atom()
       }
       
   """
-  @type recommendation_job_output_config() :: %{String.t() => any()}
+  @type recommendation_job_output_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_register_settings() :: %{
-        "CrossAccountModelRegisterRoleArn" => String.t(),
+        "CrossAccountModelRegisterRoleArn" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type model_register_settings() :: %{String.t() => any()}
+  @type model_register_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       fail_step_metadata() :: %{
-        "ErrorMessage" => String.t()
+        "ErrorMessage" => String.t() | atom()
       }
       
   """
-  @type fail_step_metadata() :: %{String.t() => any()}
+  @type fail_step_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11440,12 +11450,12 @@ defmodule AWS.SageMaker do
       
       describe_edge_deployment_plan_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("EdgeDeploymentPlanName") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("EdgeDeploymentPlanName") => String.t() | atom()
       }
       
   """
-  @type describe_edge_deployment_plan_request() :: %{String.t() => any()}
+  @type describe_edge_deployment_plan_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11453,11 +11463,11 @@ defmodule AWS.SageMaker do
       
       list_hub_content_versions_response() :: %{
         "HubContentSummaries" => list(hub_content_info()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_hub_content_versions_response() :: %{String.t() => any()}
+  @type list_hub_content_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11466,7 +11476,7 @@ defmodule AWS.SageMaker do
       recommendation_job_inference_benchmark() :: %{
         "EndpointConfiguration" => endpoint_output_configuration(),
         "EndpointMetrics" => inference_metrics(),
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | atom(),
         "InvocationEndTime" => non_neg_integer(),
         "InvocationStartTime" => non_neg_integer(),
         "Metrics" => recommendation_metrics(),
@@ -11474,7 +11484,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type recommendation_job_inference_benchmark() :: %{String.t() => any()}
+  @type recommendation_job_inference_benchmark() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11486,18 +11496,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type model_infrastructure_config() :: %{String.t() => any()}
+  @type model_infrastructure_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_image_request() :: %{
-        required("ImageName") => String.t()
+        required("ImageName") => String.t() | atom()
       }
       
   """
-  @type delete_image_request() :: %{String.t() => any()}
+  @type delete_image_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11517,7 +11527,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type model_metadata_search_expression() :: %{String.t() => any()}
+  @type model_metadata_search_expression() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11527,15 +11537,15 @@ defmodule AWS.SageMaker do
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
-        optional("TrainingPlanArn") => String.t()
+        optional("TrainingPlanArn") => String.t() | atom()
       }
       
   """
-  @type list_clusters_request() :: %{String.t() => any()}
+  @type list_clusters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11543,24 +11553,24 @@ defmodule AWS.SageMaker do
       
       create_hub_content_presigned_urls_response() :: %{
         "AuthorizedUrlConfigs" => list(authorized_url()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type create_hub_content_presigned_urls_response() :: %{String.t() => any()}
+  @type create_hub_content_presigned_urls_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       schedule_config() :: %{
-        "DataAnalysisEndTime" => String.t(),
-        "DataAnalysisStartTime" => String.t(),
-        "ScheduleExpression" => String.t()
+        "DataAnalysisEndTime" => String.t() | atom(),
+        "DataAnalysisStartTime" => String.t() | atom(),
+        "ScheduleExpression" => String.t() | atom()
       }
       
   """
-  @type schedule_config() :: %{String.t() => any()}
+  @type schedule_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11569,29 +11579,29 @@ defmodule AWS.SageMaker do
       list_edge_deployment_plans_request() :: %{
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
-        optional("DeviceFleetNameContains") => String.t(),
+        optional("DeviceFleetNameContains") => String.t() | atom(),
         optional("LastModifiedTimeAfter") => non_neg_integer(),
         optional("LastModifiedTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_edge_deployment_plans_request() :: %{String.t() => any()}
+  @type list_edge_deployment_plans_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tuning_job_step_meta_data() :: %{
-        "Arn" => String.t()
+        "Arn" => String.t() | atom()
       }
       
   """
-  @type tuning_job_step_meta_data() :: %{String.t() => any()}
+  @type tuning_job_step_meta_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11599,25 +11609,25 @@ defmodule AWS.SageMaker do
       
       list_workforces_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_workforces_request() :: %{String.t() => any()}
+  @type list_workforces_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_inference_experiment_response() :: %{
-        "InferenceExperimentArn" => String.t()
+        "InferenceExperimentArn" => String.t() | atom()
       }
       
   """
-  @type update_inference_experiment_response() :: %{String.t() => any()}
+  @type update_inference_experiment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11626,26 +11636,26 @@ defmodule AWS.SageMaker do
       trial_component_simple_summary() :: %{
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
-        "TrialComponentArn" => String.t(),
-        "TrialComponentName" => String.t(),
+        "TrialComponentArn" => String.t() | atom(),
+        "TrialComponentName" => String.t() | atom(),
         "TrialComponentSource" => trial_component_source()
       }
       
   """
-  @type trial_component_simple_summary() :: %{String.t() => any()}
+  @type trial_component_simple_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       send_pipeline_execution_step_failure_request() :: %{
-        optional("ClientRequestToken") => String.t(),
-        optional("FailureReason") => String.t(),
-        required("CallbackToken") => String.t()
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("FailureReason") => String.t() | atom(),
+        required("CallbackToken") => String.t() | atom()
       }
       
   """
-  @type send_pipeline_execution_step_failure_request() :: %{String.t() => any()}
+  @type send_pipeline_execution_step_failure_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11656,55 +11666,55 @@ defmodule AWS.SageMaker do
         "DockerSettings" => docker_settings(),
         "ExecutionRoleIdentityConfig" => list(any()),
         "RStudioServerProDomainSettings" => r_studio_server_pro_domain_settings(),
-        "SecurityGroupIds" => list(String.t()),
+        "SecurityGroupIds" => list(String.t() | atom()),
         "UnifiedStudioSettings" => unified_studio_settings()
       }
       
   """
-  @type domain_settings() :: %{String.t() => any()}
+  @type domain_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       device_summary() :: %{
-        "AgentVersion" => String.t(),
-        "Description" => String.t(),
-        "DeviceArn" => String.t(),
-        "DeviceFleetName" => String.t(),
-        "DeviceName" => String.t(),
-        "IotThingName" => String.t(),
+        "AgentVersion" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "DeviceArn" => String.t() | atom(),
+        "DeviceFleetName" => String.t() | atom(),
+        "DeviceName" => String.t() | atom(),
+        "IotThingName" => String.t() | atom(),
         "LatestHeartbeat" => non_neg_integer(),
         "Models" => list(edge_model_summary()),
         "RegistrationTime" => non_neg_integer()
       }
       
   """
-  @type device_summary() :: %{String.t() => any()}
+  @type device_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       labeling_job_algorithms_config() :: %{
-        "InitialActiveLearningModelArn" => String.t(),
-        "LabelingJobAlgorithmSpecificationArn" => String.t(),
+        "InitialActiveLearningModelArn" => String.t() | atom(),
+        "LabelingJobAlgorithmSpecificationArn" => String.t() | atom(),
         "LabelingJobResourceConfig" => labeling_job_resource_config()
       }
       
   """
-  @type labeling_job_algorithms_config() :: %{String.t() => any()}
+  @type labeling_job_algorithms_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_image_response() :: %{
-        "ImageArn" => String.t()
+        "ImageArn" => String.t() | atom()
       }
       
   """
-  @type update_image_response() :: %{String.t() => any()}
+  @type update_image_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11713,11 +11723,11 @@ defmodule AWS.SageMaker do
       create_monitoring_schedule_request() :: %{
         optional("Tags") => list(tag()),
         required("MonitoringScheduleConfig") => monitoring_schedule_config(),
-        required("MonitoringScheduleName") => String.t()
+        required("MonitoringScheduleName") => String.t() | atom()
       }
       
   """
-  @type create_monitoring_schedule_request() :: %{String.t() => any()}
+  @type create_monitoring_schedule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11725,22 +11735,22 @@ defmodule AWS.SageMaker do
       
       list_domains_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_domains_request() :: %{String.t() => any()}
+  @type list_domains_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_flow_definition_response() :: %{
-        "FlowDefinitionArn" => String.t()
+        "FlowDefinitionArn" => String.t() | atom()
       }
       
   """
-  @type create_flow_definition_response() :: %{String.t() => any()}
+  @type create_flow_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11757,18 +11767,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type recommendation_metrics() :: %{String.t() => any()}
+  @type recommendation_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_model_package_group_policy_input() :: %{
-        required("ModelPackageGroupName") => String.t()
+        required("ModelPackageGroupName") => String.t() | atom()
       }
       
   """
-  @type get_model_package_group_policy_input() :: %{String.t() => any()}
+  @type get_model_package_group_policy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11776,22 +11786,22 @@ defmodule AWS.SageMaker do
       
       describe_space_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "DomainId" => String.t(),
-        "FailureReason" => String.t(),
-        "HomeEfsFileSystemUid" => String.t(),
+        "DomainId" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
+        "HomeEfsFileSystemUid" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
         "OwnershipSettings" => ownership_settings(),
-        "SpaceArn" => String.t(),
-        "SpaceDisplayName" => String.t(),
-        "SpaceName" => String.t(),
+        "SpaceArn" => String.t() | atom(),
+        "SpaceDisplayName" => String.t() | atom(),
+        "SpaceName" => String.t() | atom(),
         "SpaceSettings" => space_settings(),
         "SpaceSharingSettings" => space_sharing_settings(),
         "Status" => list(any()),
-        "Url" => String.t()
+        "Url" => String.t() | atom()
       }
       
   """
-  @type describe_space_response() :: %{String.t() => any()}
+  @type describe_space_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11804,7 +11814,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type monitoring_dataset_format() :: %{String.t() => any()}
+  @type monitoring_dataset_format() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11815,15 +11825,15 @@ defmodule AWS.SageMaker do
         "LastModifiedTime" => non_neg_integer(),
         "SecondaryStatus" => list(any()),
         "TrainingEndTime" => non_neg_integer(),
-        "TrainingJobArn" => String.t(),
-        "TrainingJobName" => String.t(),
+        "TrainingJobArn" => String.t() | atom(),
+        "TrainingJobName" => String.t() | atom(),
         "TrainingJobStatus" => list(any()),
-        "TrainingPlanArn" => String.t(),
+        "TrainingPlanArn" => String.t() | atom(),
         "WarmPoolStatus" => warm_pool_status()
       }
       
   """
-  @type training_job_summary() :: %{String.t() => any()}
+  @type training_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11831,7 +11841,7 @@ defmodule AWS.SageMaker do
       
       describe_training_job_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "TrainingJobArn" => String.t(),
+        "TrainingJobArn" => String.t() | atom(),
         "OutputDataConfig" => output_data_config(),
         "EnableManagedSpotTraining" => boolean(),
         "TrainingStartTime" => non_neg_integer(),
@@ -11842,7 +11852,7 @@ defmodule AWS.SageMaker do
         "TrainingEndTime" => non_neg_integer(),
         "WarmPoolStatus" => warm_pool_status(),
         "BillableTimeInSeconds" => integer(),
-        "LabelingJobArn" => String.t(),
+        "LabelingJobArn" => String.t() | atom(),
         "TensorBoardOutputConfig" => tensor_board_output_config(),
         "TrainingTimeInSeconds" => integer(),
         "ProfilingStatus" => list(any()),
@@ -11853,21 +11863,21 @@ defmodule AWS.SageMaker do
         "SecondaryStatus" => list(any()),
         "TrainingJobStatus" => list(any()),
         "ProfilerConfig" => profiler_config(),
-        "TrainingJobName" => String.t(),
+        "TrainingJobName" => String.t() | atom(),
         "DebugRuleEvaluationStatuses" => list(debug_rule_evaluation_status()),
-        "AutoMLJobArn" => String.t(),
+        "AutoMLJobArn" => String.t() | atom(),
         "DebugRuleConfigurations" => list(debug_rule_configuration()),
         "RetryStrategy" => retry_strategy(),
         "Environment" => map(),
         "AlgorithmSpecification" => algorithm_specification(),
         "SecondaryStatusTransitions" => list(secondary_status_transition()),
-        "TuningJobArn" => String.t(),
+        "TuningJobArn" => String.t() | atom(),
         "InputDataConfig" => list(channel()),
         "ModelArtifacts" => model_artifacts(),
         "FinalMetricDataList" => list(metric_data()),
         "ProfilerRuleEvaluationStatuses" => list(profiler_rule_evaluation_status()),
-        "RoleArn" => String.t(),
-        "FailureReason" => String.t(),
+        "RoleArn" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
         "StoppingCondition" => stopping_condition(),
         "ExperimentConfig" => experiment_config(),
         "RemoteDebugConfig" => remote_debug_config(),
@@ -11876,7 +11886,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type describe_training_job_response() :: %{String.t() => any()}
+  @type describe_training_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11885,23 +11895,23 @@ defmodule AWS.SageMaker do
       real_time_inference_recommendation() :: %{
         "Environment" => map(),
         "InstanceType" => list(any()),
-        "RecommendationId" => String.t()
+        "RecommendationId" => String.t() | atom()
       }
       
   """
-  @type real_time_inference_recommendation() :: %{String.t() => any()}
+  @type real_time_inference_recommendation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_trial_component_response() :: %{
-        "TrialArn" => String.t(),
-        "TrialComponentArn" => String.t()
+        "TrialArn" => String.t() | atom(),
+        "TrialComponentArn" => String.t() | atom()
       }
       
   """
-  @type disassociate_trial_component_response() :: %{String.t() => any()}
+  @type disassociate_trial_component_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11912,11 +11922,11 @@ defmodule AWS.SageMaker do
         "BestTrainingJob" => hyper_parameter_training_job_summary(),
         "ConsumedResources" => hyper_parameter_tuning_job_consumed_resources(),
         "CreationTime" => non_neg_integer(),
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | atom(),
         "HyperParameterTuningEndTime" => non_neg_integer(),
-        "HyperParameterTuningJobArn" => String.t(),
+        "HyperParameterTuningJobArn" => String.t() | atom(),
         "HyperParameterTuningJobConfig" => hyper_parameter_tuning_job_config(),
-        "HyperParameterTuningJobName" => String.t(),
+        "HyperParameterTuningJobName" => String.t() | atom(),
         "HyperParameterTuningJobStatus" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
         "ObjectiveStatusCounters" => objective_status_counters(),
@@ -11929,7 +11939,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type describe_hyper_parameter_tuning_job_response() :: %{String.t() => any()}
+  @type describe_hyper_parameter_tuning_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11937,16 +11947,16 @@ defmodule AWS.SageMaker do
       
       additional_inference_specification_definition() :: %{
         "Containers" => list(model_package_container_definition()),
-        "Description" => String.t(),
-        "Name" => String.t(),
-        "SupportedContentTypes" => list(String.t()),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "SupportedContentTypes" => list(String.t() | atom()),
         "SupportedRealtimeInferenceInstanceTypes" => list(list(any())()),
-        "SupportedResponseMIMETypes" => list(String.t()),
+        "SupportedResponseMIMETypes" => list(String.t() | atom()),
         "SupportedTransformInstanceTypes" => list(list(any())())
       }
       
   """
-  @type additional_inference_specification_definition() :: %{String.t() => any()}
+  @type additional_inference_specification_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11957,7 +11967,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type parallelism_configuration() :: %{String.t() => any()}
+  @type parallelism_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11968,51 +11978,51 @@ defmodule AWS.SageMaker do
         optional("NetworkConfig") => monitoring_network_config(),
         optional("StoppingCondition") => monitoring_stopping_condition(),
         optional("Tags") => list(tag()),
-        required("JobDefinitionName") => String.t(),
+        required("JobDefinitionName") => String.t() | atom(),
         required("JobResources") => monitoring_resources(),
         required("ModelBiasAppSpecification") => model_bias_app_specification(),
         required("ModelBiasJobInput") => model_bias_job_input(),
         required("ModelBiasJobOutputConfig") => monitoring_output_config(),
-        required("RoleArn") => String.t()
+        required("RoleArn") => String.t() | atom()
       }
       
   """
-  @type create_model_bias_job_definition_request() :: %{String.t() => any()}
+  @type create_model_bias_job_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_hub_response() :: %{
-        "HubArn" => String.t()
+        "HubArn" => String.t() | atom()
       }
       
   """
-  @type update_hub_response() :: %{String.t() => any()}
+  @type update_hub_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       context_source() :: %{
-        "SourceId" => String.t(),
-        "SourceType" => String.t(),
-        "SourceUri" => String.t()
+        "SourceId" => String.t() | atom(),
+        "SourceType" => String.t() | atom(),
+        "SourceUri" => String.t() | atom()
       }
       
   """
-  @type context_source() :: %{String.t() => any()}
+  @type context_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_inference_component_output() :: %{
-        "InferenceComponentArn" => String.t()
+        "InferenceComponentArn" => String.t() | atom()
       }
       
   """
-  @type create_inference_component_output() :: %{String.t() => any()}
+  @type create_inference_component_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12020,59 +12030,59 @@ defmodule AWS.SageMaker do
       
       create_notebook_instance_input() :: %{
         optional("AcceleratorTypes") => list(list(any())()),
-        optional("AdditionalCodeRepositories") => list(String.t()),
-        optional("DefaultCodeRepository") => String.t(),
+        optional("AdditionalCodeRepositories") => list(String.t() | atom()),
+        optional("DefaultCodeRepository") => String.t() | atom(),
         optional("DirectInternetAccess") => list(any()),
         optional("InstanceMetadataServiceConfiguration") => instance_metadata_service_configuration(),
-        optional("KmsKeyId") => String.t(),
-        optional("LifecycleConfigName") => String.t(),
-        optional("PlatformIdentifier") => String.t(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("LifecycleConfigName") => String.t() | atom(),
+        optional("PlatformIdentifier") => String.t() | atom(),
         optional("RootAccess") => list(any()),
-        optional("SecurityGroupIds") => list(String.t()),
-        optional("SubnetId") => String.t(),
+        optional("SecurityGroupIds") => list(String.t() | atom()),
+        optional("SubnetId") => String.t() | atom(),
         optional("Tags") => list(tag()),
         optional("VolumeSizeInGB") => integer(),
         required("InstanceType") => list(any()),
-        required("NotebookInstanceName") => String.t(),
-        required("RoleArn") => String.t()
+        required("NotebookInstanceName") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
       }
       
   """
-  @type create_notebook_instance_input() :: %{String.t() => any()}
+  @type create_notebook_instance_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       monitoring_s3_output() :: %{
-        "LocalPath" => String.t(),
+        "LocalPath" => String.t() | atom(),
         "S3UploadMode" => list(any()),
-        "S3Uri" => String.t()
+        "S3Uri" => String.t() | atom()
       }
       
   """
-  @type monitoring_s3_output() :: %{String.t() => any()}
+  @type monitoring_s3_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       clarify_inference_config() :: %{
-        "ContentTemplate" => String.t(),
-        "FeatureHeaders" => list(String.t()),
+        "ContentTemplate" => String.t() | atom(),
+        "FeatureHeaders" => list(String.t() | atom()),
         "FeatureTypes" => list(list(any())()),
-        "FeaturesAttribute" => String.t(),
-        "LabelAttribute" => String.t(),
-        "LabelHeaders" => list(String.t()),
+        "FeaturesAttribute" => String.t() | atom(),
+        "LabelAttribute" => String.t() | atom(),
+        "LabelHeaders" => list(String.t() | atom()),
         "LabelIndex" => integer(),
         "MaxPayloadInMB" => integer(),
         "MaxRecordCount" => integer(),
-        "ProbabilityAttribute" => String.t(),
+        "ProbabilityAttribute" => String.t() | atom(),
         "ProbabilityIndex" => integer()
       }
       
   """
-  @type clarify_inference_config() :: %{String.t() => any()}
+  @type clarify_inference_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12090,12 +12100,12 @@ defmodule AWS.SageMaker do
         "InstanceType" => list(any()),
         "ManagedInstanceScaling" => production_variant_managed_instance_scaling(),
         "RoutingConfig" => production_variant_routing_config(),
-        "VariantName" => String.t(),
+        "VariantName" => String.t() | atom(),
         "VariantStatus" => list(production_variant_status())
       }
       
   """
-  @type pending_production_variant_summary() :: %{String.t() => any()}
+  @type pending_production_variant_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12106,7 +12116,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type production_variant_routing_config() :: %{String.t() => any()}
+  @type production_variant_routing_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12116,30 +12126,30 @@ defmodule AWS.SageMaker do
         optional("AssociationType") => list(any()),
         optional("CreatedAfter") => non_neg_integer(),
         optional("CreatedBefore") => non_neg_integer(),
-        optional("DestinationArn") => String.t(),
-        optional("DestinationType") => String.t(),
+        optional("DestinationArn") => String.t() | atom(),
+        optional("DestinationType") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
-        optional("SourceArn") => String.t(),
-        optional("SourceType") => String.t()
+        optional("SourceArn") => String.t() | atom(),
+        optional("SourceType") => String.t() | atom()
       }
       
   """
-  @type list_associations_request() :: %{String.t() => any()}
+  @type list_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_pipeline_executions_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "PipelineExecutionSummaries" => list(pipeline_execution_summary())
       }
       
   """
-  @type list_pipeline_executions_response() :: %{String.t() => any()}
+  @type list_pipeline_executions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12151,7 +12161,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type resource_sharing_config() :: %{String.t() => any()}
+  @type resource_sharing_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12159,65 +12169,65 @@ defmodule AWS.SageMaker do
       
       list_compute_quotas_response() :: %{
         "ComputeQuotaSummaries" => list(compute_quota_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_compute_quotas_response() :: %{String.t() => any()}
+  @type list_compute_quotas_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_labeling_job_request() :: %{
-        optional("LabelCategoryConfigS3Uri") => String.t(),
+        optional("LabelCategoryConfigS3Uri") => String.t() | atom(),
         optional("LabelingJobAlgorithmsConfig") => labeling_job_algorithms_config(),
         optional("StoppingConditions") => labeling_job_stopping_conditions(),
         optional("Tags") => list(tag()),
         required("HumanTaskConfig") => human_task_config(),
         required("InputConfig") => labeling_job_input_config(),
-        required("LabelAttributeName") => String.t(),
-        required("LabelingJobName") => String.t(),
+        required("LabelAttributeName") => String.t() | atom(),
+        required("LabelingJobName") => String.t() | atom(),
         required("OutputConfig") => labeling_job_output_config(),
-        required("RoleArn") => String.t()
+        required("RoleArn") => String.t() | atom()
       }
       
   """
-  @type create_labeling_job_request() :: %{String.t() => any()}
+  @type create_labeling_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_model_card_export_job_request() :: %{
-        required("ModelCardExportJobArn") => String.t()
+        required("ModelCardExportJobArn") => String.t() | atom()
       }
       
   """
-  @type describe_model_card_export_job_request() :: %{String.t() => any()}
+  @type describe_model_card_export_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_code_repository_input() :: %{
-        required("CodeRepositoryName") => String.t()
+        required("CodeRepositoryName") => String.t() | atom()
       }
       
   """
-  @type delete_code_repository_input() :: %{String.t() => any()}
+  @type delete_code_repository_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       trial_source() :: %{
-        "SourceArn" => String.t(),
-        "SourceType" => String.t()
+        "SourceArn" => String.t() | atom(),
+        "SourceType" => String.t() | atom()
       }
       
   """
-  @type trial_source() :: %{String.t() => any()}
+  @type trial_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12226,31 +12236,31 @@ defmodule AWS.SageMaker do
       workforce() :: %{
         "CognitoConfig" => cognito_config(),
         "CreateDate" => non_neg_integer(),
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | atom(),
         "IpAddressType" => list(any()),
         "LastUpdatedDate" => non_neg_integer(),
         "OidcConfig" => oidc_config_for_response(),
         "SourceIpConfig" => source_ip_config(),
         "Status" => list(any()),
-        "SubDomain" => String.t(),
-        "WorkforceArn" => String.t(),
-        "WorkforceName" => String.t(),
+        "SubDomain" => String.t() | atom(),
+        "WorkforceArn" => String.t() | atom(),
+        "WorkforceName" => String.t() | atom(),
         "WorkforceVpcConfig" => workforce_vpc_config_response()
       }
       
   """
-  @type workforce() :: %{String.t() => any()}
+  @type workforce() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cache_hit_result() :: %{
-        "SourcePipelineExecutionArn" => String.t()
+        "SourcePipelineExecutionArn" => String.t() | atom()
       }
       
   """
-  @type cache_hit_result() :: %{String.t() => any()}
+  @type cache_hit_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12258,21 +12268,21 @@ defmodule AWS.SageMaker do
       
       hyper_parameter_training_job_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | atom(),
         "FinalHyperParameterTuningJobObjectiveMetric" => final_hyper_parameter_tuning_job_objective_metric(),
         "ObjectiveStatus" => list(any()),
         "TrainingEndTime" => non_neg_integer(),
-        "TrainingJobArn" => String.t(),
-        "TrainingJobDefinitionName" => String.t(),
-        "TrainingJobName" => String.t(),
+        "TrainingJobArn" => String.t() | atom(),
+        "TrainingJobDefinitionName" => String.t() | atom(),
+        "TrainingJobName" => String.t() | atom(),
         "TrainingJobStatus" => list(any()),
         "TrainingStartTime" => non_neg_integer(),
         "TunedHyperParameters" => map(),
-        "TuningJobName" => String.t()
+        "TuningJobName" => String.t() | atom()
       }
       
   """
-  @type hyper_parameter_training_job_summary() :: %{String.t() => any()}
+  @type hyper_parameter_training_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12283,18 +12293,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type image_classification_job_config() :: %{String.t() => any()}
+  @type image_classification_job_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_workteam_request() :: %{
-        required("WorkteamName") => String.t()
+        required("WorkteamName") => String.t() | atom()
       }
       
   """
-  @type delete_workteam_request() :: %{String.t() => any()}
+  @type delete_workteam_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12302,16 +12312,16 @@ defmodule AWS.SageMaker do
       
       debug_rule_configuration() :: %{
         "InstanceType" => list(any()),
-        "LocalPath" => String.t(),
-        "RuleConfigurationName" => String.t(),
-        "RuleEvaluatorImage" => String.t(),
+        "LocalPath" => String.t() | atom(),
+        "RuleConfigurationName" => String.t() | atom(),
+        "RuleEvaluatorImage" => String.t() | atom(),
         "RuleParameters" => map(),
-        "S3OutputPath" => String.t(),
+        "S3OutputPath" => String.t() | atom(),
         "VolumeSizeInGB" => integer()
       }
       
   """
-  @type debug_rule_configuration() :: %{String.t() => any()}
+  @type debug_rule_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12319,22 +12329,22 @@ defmodule AWS.SageMaker do
       
       describe_model_card_request() :: %{
         optional("ModelCardVersion") => integer(),
-        required("ModelCardName") => String.t()
+        required("ModelCardName") => String.t() | atom()
       }
       
   """
-  @type describe_model_card_request() :: %{String.t() => any()}
+  @type describe_model_card_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       hub_access_config() :: %{
-        "HubContentArn" => String.t()
+        "HubContentArn" => String.t() | atom()
       }
       
   """
-  @type hub_access_config() :: %{String.t() => any()}
+  @type hub_access_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12345,27 +12355,27 @@ defmodule AWS.SageMaker do
         optional("CreationTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
         optional("ModelApprovalStatus") => list(any()),
-        optional("ModelPackageGroupName") => String.t(),
+        optional("ModelPackageGroupName") => String.t() | atom(),
         optional("ModelPackageType") => list(any()),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_model_packages_input() :: %{String.t() => any()}
+  @type list_model_packages_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_human_task_ui_response() :: %{
-        "HumanTaskUiArn" => String.t()
+        "HumanTaskUiArn" => String.t() | atom()
       }
       
   """
-  @type create_human_task_ui_response() :: %{String.t() => any()}
+  @type create_human_task_ui_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12376,33 +12386,33 @@ defmodule AWS.SageMaker do
         "CreationTime" => non_neg_integer(),
         "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
-        "ModelCardArn" => String.t(),
-        "ModelCardName" => String.t(),
+        "ModelCardArn" => String.t() | atom(),
+        "ModelCardName" => String.t() | atom(),
         "ModelCardStatus" => list(any()),
         "ModelCardVersion" => integer(),
-        "ModelId" => String.t(),
-        "RiskRating" => String.t(),
+        "ModelId" => String.t() | atom(),
+        "RiskRating" => String.t() | atom(),
         "SecurityConfig" => model_card_security_config(),
         "Tags" => list(tag())
       }
       
   """
-  @type model_dashboard_model_card() :: %{String.t() => any()}
+  @type model_dashboard_model_card() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_trial_request() :: %{
-        optional("DisplayName") => String.t(),
+        optional("DisplayName") => String.t() | atom(),
         optional("MetadataProperties") => metadata_properties(),
         optional("Tags") => list(tag()),
-        required("ExperimentName") => String.t(),
-        required("TrialName") => String.t()
+        required("ExperimentName") => String.t() | atom(),
+        required("TrialName") => String.t() | atom()
       }
       
   """
-  @type create_trial_request() :: %{String.t() => any()}
+  @type create_trial_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12413,11 +12423,11 @@ defmodule AWS.SageMaker do
         optional("JupyterLabAppImageConfig") => jupyter_lab_app_image_config(),
         optional("KernelGatewayImageConfig") => kernel_gateway_image_config(),
         optional("Tags") => list(tag()),
-        required("AppImageConfigName") => String.t()
+        required("AppImageConfigName") => String.t() | atom()
       }
       
   """
-  @type create_app_image_config_request() :: %{String.t() => any()}
+  @type create_app_image_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12426,18 +12436,18 @@ defmodule AWS.SageMaker do
       list_cluster_events_request() :: %{
         optional("EventTimeAfter") => non_neg_integer(),
         optional("EventTimeBefore") => non_neg_integer(),
-        optional("InstanceGroupName") => String.t(),
+        optional("InstanceGroupName") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("NodeId") => String.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("NodeId") => String.t() | atom(),
         optional("ResourceType") => list(any()),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
-        required("ClusterName") => String.t()
+        required("ClusterName") => String.t() | atom()
       }
       
   """
-  @type list_cluster_events_request() :: %{String.t() => any()}
+  @type list_cluster_events_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12445,11 +12455,11 @@ defmodule AWS.SageMaker do
       
       optimization_job_model_source_s3() :: %{
         "ModelAccessConfig" => optimization_model_access_config(),
-        "S3Uri" => String.t()
+        "S3Uri" => String.t() | atom()
       }
       
   """
-  @type optimization_job_model_source_s3() :: %{String.t() => any()}
+  @type optimization_job_model_source_s3() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12457,12 +12467,12 @@ defmodule AWS.SageMaker do
       
       deployed_image() :: %{
         "ResolutionTime" => non_neg_integer(),
-        "ResolvedImage" => String.t(),
-        "SpecifiedImage" => String.t()
+        "ResolvedImage" => String.t() | atom(),
+        "SpecifiedImage" => String.t() | atom()
       }
       
   """
-  @type deployed_image() :: %{String.t() => any()}
+  @type deployed_image() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12470,54 +12480,54 @@ defmodule AWS.SageMaker do
       
       inference_component_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "EndpointArn" => String.t(),
-        "EndpointName" => String.t(),
-        "InferenceComponentArn" => String.t(),
-        "InferenceComponentName" => String.t(),
+        "EndpointArn" => String.t() | atom(),
+        "EndpointName" => String.t() | atom(),
+        "InferenceComponentArn" => String.t() | atom(),
+        "InferenceComponentName" => String.t() | atom(),
         "InferenceComponentStatus" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
-        "VariantName" => String.t()
+        "VariantName" => String.t() | atom()
       }
       
   """
-  @type inference_component_summary() :: %{String.t() => any()}
+  @type inference_component_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_cluster_request() :: %{
-        required("ClusterName") => String.t()
+        required("ClusterName") => String.t() | atom()
       }
       
   """
-  @type delete_cluster_request() :: %{String.t() => any()}
+  @type delete_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_transform_job_request() :: %{
-        required("TransformJobName") => String.t()
+        required("TransformJobName") => String.t() | atom()
       }
       
   """
-  @type describe_transform_job_request() :: %{String.t() => any()}
+  @type describe_transform_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_app_request() :: %{
-        optional("SpaceName") => String.t(),
-        optional("UserProfileName") => String.t(),
-        required("AppName") => String.t(),
+        optional("SpaceName") => String.t() | atom(),
+        optional("UserProfileName") => String.t() | atom(),
+        required("AppName") => String.t() | atom(),
         required("AppType") => list(any()),
-        required("DomainId") => String.t()
+        required("DomainId") => String.t() | atom()
       }
       
   """
-  @type delete_app_request() :: %{String.t() => any()}
+  @type delete_app_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12530,7 +12540,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type objective_status_counters() :: %{String.t() => any()}
+  @type objective_status_counters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12538,23 +12548,23 @@ defmodule AWS.SageMaker do
       
       cfn_update_template_provider() :: %{
         "Parameters" => list(cfn_stack_update_parameter()),
-        "TemplateName" => String.t(),
-        "TemplateURL" => String.t()
+        "TemplateName" => String.t() | atom(),
+        "TemplateURL" => String.t() | atom()
       }
       
   """
-  @type cfn_update_template_provider() :: %{String.t() => any()}
+  @type cfn_update_template_provider() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       parent_hyper_parameter_tuning_job() :: %{
-        "HyperParameterTuningJobName" => String.t()
+        "HyperParameterTuningJobName" => String.t() | atom()
       }
       
   """
-  @type parent_hyper_parameter_tuning_job() :: %{String.t() => any()}
+  @type parent_hyper_parameter_tuning_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12562,22 +12572,22 @@ defmodule AWS.SageMaker do
       
       render_ui_template_response() :: %{
         "Errors" => list(rendering_error()),
-        "RenderedContent" => String.t()
+        "RenderedContent" => String.t() | atom()
       }
       
   """
-  @type render_ui_template_response() :: %{String.t() => any()}
+  @type render_ui_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_partner_app_request() :: %{
-        required("Arn") => String.t()
+        required("Arn") => String.t() | atom()
       }
       
   """
-  @type describe_partner_app_request() :: %{String.t() => any()}
+  @type describe_partner_app_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12585,10 +12595,10 @@ defmodule AWS.SageMaker do
       
       describe_auto_ml_job_v2_response() :: %{
         "AutoMLComputeConfig" => auto_ml_compute_config(),
-        "AutoMLJobArn" => String.t(),
+        "AutoMLJobArn" => String.t() | atom(),
         "AutoMLJobArtifacts" => auto_ml_job_artifacts(),
         "AutoMLJobInputDataConfig" => list(auto_ml_job_channel()),
-        "AutoMLJobName" => String.t(),
+        "AutoMLJobName" => String.t() | atom(),
         "AutoMLJobObjective" => auto_ml_job_objective(),
         "AutoMLJobSecondaryStatus" => list(any()),
         "AutoMLJobStatus" => list(any()),
@@ -12598,30 +12608,30 @@ defmodule AWS.SageMaker do
         "CreationTime" => non_neg_integer(),
         "DataSplitConfig" => auto_ml_data_split_config(),
         "EndTime" => non_neg_integer(),
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
         "ModelDeployConfig" => model_deploy_config(),
         "ModelDeployResult" => model_deploy_result(),
         "OutputDataConfig" => auto_ml_output_data_config(),
         "PartialFailureReasons" => list(auto_ml_partial_failure_reason()),
         "ResolvedAttributes" => auto_ml_resolved_attributes(),
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | atom(),
         "SecurityConfig" => auto_ml_security_config()
       }
       
   """
-  @type describe_auto_ml_job_v2_response() :: %{String.t() => any()}
+  @type describe_auto_ml_job_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_trial_component_request() :: %{
-        required("TrialComponentName") => String.t()
+        required("TrialComponentName") => String.t() | atom()
       }
       
   """
-  @type delete_trial_component_request() :: %{String.t() => any()}
+  @type delete_trial_component_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12629,30 +12639,30 @@ defmodule AWS.SageMaker do
       
       model_package_group_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "ModelPackageGroupArn" => String.t(),
-        "ModelPackageGroupDescription" => String.t(),
-        "ModelPackageGroupName" => String.t(),
+        "ModelPackageGroupArn" => String.t() | atom(),
+        "ModelPackageGroupDescription" => String.t() | atom(),
+        "ModelPackageGroupName" => String.t() | atom(),
         "ModelPackageGroupStatus" => list(any())
       }
       
   """
-  @type model_package_group_summary() :: %{String.t() => any()}
+  @type model_package_group_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       artifact_summary() :: %{
-        "ArtifactArn" => String.t(),
-        "ArtifactName" => String.t(),
-        "ArtifactType" => String.t(),
+        "ArtifactArn" => String.t() | atom(),
+        "ArtifactName" => String.t() | atom(),
+        "ArtifactType" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
         "LastModifiedTime" => non_neg_integer(),
         "Source" => artifact_source()
       }
       
   """
-  @type artifact_summary() :: %{String.t() => any()}
+  @type artifact_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12660,17 +12670,17 @@ defmodule AWS.SageMaker do
       
       image() :: %{
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "DisplayName" => String.t(),
-        "FailureReason" => String.t(),
-        "ImageArn" => String.t(),
-        "ImageName" => String.t(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
+        "ImageArn" => String.t() | atom(),
+        "ImageName" => String.t() | atom(),
         "ImageStatus" => list(any()),
         "LastModifiedTime" => non_neg_integer()
       }
       
   """
-  @type image() :: %{String.t() => any()}
+  @type image() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12678,13 +12688,13 @@ defmodule AWS.SageMaker do
       
       device_fleet_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "DeviceFleetArn" => String.t(),
-        "DeviceFleetName" => String.t(),
+        "DeviceFleetArn" => String.t() | atom(),
+        "DeviceFleetName" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer()
       }
       
   """
-  @type device_fleet_summary() :: %{String.t() => any()}
+  @type device_fleet_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12692,17 +12702,17 @@ defmodule AWS.SageMaker do
       
       create_compilation_job_request() :: %{
         optional("InputConfig") => input_config(),
-        optional("ModelPackageVersionArn") => String.t(),
+        optional("ModelPackageVersionArn") => String.t() | atom(),
         optional("Tags") => list(tag()),
         optional("VpcConfig") => neo_vpc_config(),
-        required("CompilationJobName") => String.t(),
+        required("CompilationJobName") => String.t() | atom(),
         required("OutputConfig") => output_config(),
-        required("RoleArn") => String.t(),
+        required("RoleArn") => String.t() | atom(),
         required("StoppingCondition") => stopping_condition()
       }
       
   """
-  @type create_compilation_job_request() :: %{String.t() => any()}
+  @type create_compilation_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12714,7 +12724,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type compute_quota_resource_config() :: %{String.t() => any()}
+  @type compute_quota_resource_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12729,20 +12739,20 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type label_counters() :: %{String.t() => any()}
+  @type label_counters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_session_response() :: %{
-        "SessionId" => String.t(),
-        "StreamUrl" => String.t(),
-        "TokenValue" => String.t()
+        "SessionId" => String.t() | atom(),
+        "StreamUrl" => String.t() | atom(),
+        "TokenValue" => String.t() | atom()
       }
       
   """
-  @type start_session_response() :: %{String.t() => any()}
+  @type start_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12754,7 +12764,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type drift_check_model_quality() :: %{String.t() => any()}
+  @type drift_check_model_quality() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12765,78 +12775,78 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type explainability() :: %{String.t() => any()}
+  @type explainability() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_monitoring_schedule_response() :: %{
-        "MonitoringScheduleArn" => String.t()
+        "MonitoringScheduleArn" => String.t() | atom()
       }
       
   """
-  @type update_monitoring_schedule_response() :: %{String.t() => any()}
+  @type update_monitoring_schedule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_experiment_request() :: %{
-        required("ExperimentName") => String.t()
+        required("ExperimentName") => String.t() | atom()
       }
       
   """
-  @type describe_experiment_request() :: %{String.t() => any()}
+  @type describe_experiment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_model_bias_job_definition_response() :: %{
-        "JobDefinitionArn" => String.t()
+        "JobDefinitionArn" => String.t() | atom()
       }
       
   """
-  @type create_model_bias_job_definition_response() :: %{String.t() => any()}
+  @type create_model_bias_job_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_action_response() :: %{
-        "ActionArn" => String.t()
+        "ActionArn" => String.t() | atom()
       }
       
   """
-  @type delete_action_response() :: %{String.t() => any()}
+  @type delete_action_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_app_request() :: %{
-        optional("SpaceName") => String.t(),
-        optional("UserProfileName") => String.t(),
-        required("AppName") => String.t(),
+        optional("SpaceName") => String.t() | atom(),
+        optional("UserProfileName") => String.t() | atom(),
+        required("AppName") => String.t() | atom(),
         required("AppType") => list(any()),
-        required("DomainId") => String.t()
+        required("DomainId") => String.t() | atom()
       }
       
   """
-  @type describe_app_request() :: %{String.t() => any()}
+  @type describe_app_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       collection_configuration() :: %{
-        "CollectionName" => String.t(),
+        "CollectionName" => String.t() | atom(),
         "CollectionParameters" => map()
       }
       
   """
-  @type collection_configuration() :: %{String.t() => any()}
+  @type collection_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12847,62 +12857,62 @@ defmodule AWS.SageMaker do
         "InstanceGroups" => list(instance_group()),
         "InstanceType" => list(any()),
         "KeepAlivePeriodInSeconds" => integer(),
-        "TrainingPlanArn" => String.t(),
-        "VolumeKmsKeyId" => String.t(),
+        "TrainingPlanArn" => String.t() | atom(),
+        "VolumeKmsKeyId" => String.t() | atom(),
         "VolumeSizeInGB" => integer()
       }
       
   """
-  @type resource_config() :: %{String.t() => any()}
+  @type resource_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       amazon_q_settings() :: %{
-        "QProfileArn" => String.t(),
+        "QProfileArn" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type amazon_q_settings() :: %{String.t() => any()}
+  @type amazon_q_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_project_output() :: %{
-        "ProjectArn" => String.t()
+        "ProjectArn" => String.t() | atom()
       }
       
   """
-  @type update_project_output() :: %{String.t() => any()}
+  @type update_project_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_mlflow_tracking_server_response() :: %{
-        "ArtifactStoreUri" => String.t(),
+        "ArtifactStoreUri" => String.t() | atom(),
         "AutomaticModelRegistration" => boolean(),
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
         "IsActive" => list(any()),
         "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
-        "MlflowVersion" => String.t(),
-        "RoleArn" => String.t(),
-        "TrackingServerArn" => String.t(),
+        "MlflowVersion" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "TrackingServerArn" => String.t() | atom(),
         "TrackingServerMaintenanceStatus" => list(any()),
-        "TrackingServerName" => String.t(),
+        "TrackingServerName" => String.t() | atom(),
         "TrackingServerSize" => list(any()),
         "TrackingServerStatus" => list(any()),
-        "TrackingServerUrl" => String.t(),
-        "WeeklyMaintenanceWindowStart" => String.t()
+        "TrackingServerUrl" => String.t() | atom(),
+        "WeeklyMaintenanceWindowStart" => String.t() | atom()
       }
       
   """
-  @type describe_mlflow_tracking_server_response() :: %{String.t() => any()}
+  @type describe_mlflow_tracking_server_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12914,30 +12924,30 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type real_time_inference_config() :: %{String.t() => any()}
+  @type real_time_inference_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_transform_job_response() :: %{
-        "AutoMLJobArn" => String.t(),
+        "AutoMLJobArn" => String.t() | atom(),
         "BatchStrategy" => list(any()),
         "CreationTime" => non_neg_integer(),
         "DataCaptureConfig" => batch_data_capture_config(),
         "DataProcessing" => data_processing(),
         "Environment" => map(),
         "ExperimentConfig" => experiment_config(),
-        "FailureReason" => String.t(),
-        "LabelingJobArn" => String.t(),
+        "FailureReason" => String.t() | atom(),
+        "LabelingJobArn" => String.t() | atom(),
         "MaxConcurrentTransforms" => integer(),
         "MaxPayloadInMB" => integer(),
         "ModelClientConfig" => model_client_config(),
-        "ModelName" => String.t(),
+        "ModelName" => String.t() | atom(),
         "TransformEndTime" => non_neg_integer(),
         "TransformInput" => transform_input(),
-        "TransformJobArn" => String.t(),
-        "TransformJobName" => String.t(),
+        "TransformJobArn" => String.t() | atom(),
+        "TransformJobName" => String.t() | atom(),
         "TransformJobStatus" => list(any()),
         "TransformOutput" => transform_output(),
         "TransformResources" => transform_resources(),
@@ -12945,7 +12955,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type describe_transform_job_response() :: %{String.t() => any()}
+  @type describe_transform_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12956,7 +12966,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type optimization_model_access_config() :: %{String.t() => any()}
+  @type optimization_model_access_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12964,14 +12974,14 @@ defmodule AWS.SageMaker do
       
       list_workteams_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_workteams_request() :: %{String.t() => any()}
+  @type list_workteams_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12985,18 +12995,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type online_store_config() :: %{String.t() => any()}
+  @type online_store_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       processing_job_step_metadata() :: %{
-        "Arn" => String.t()
+        "Arn" => String.t() | atom()
       }
       
   """
-  @type processing_job_step_metadata() :: %{String.t() => any()}
+  @type processing_job_step_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13009,7 +13019,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type label_counters_for_workteam() :: %{String.t() => any()}
+  @type label_counters_for_workteam() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13017,11 +13027,11 @@ defmodule AWS.SageMaker do
       
       list_artifacts_response() :: %{
         "ArtifactSummaries" => list(artifact_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_artifacts_response() :: %{String.t() => any()}
+  @type list_artifacts_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13029,65 +13039,65 @@ defmodule AWS.SageMaker do
       
       describe_hub_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "FailureReason" => String.t(),
-        "HubArn" => String.t(),
-        "HubDescription" => String.t(),
-        "HubDisplayName" => String.t(),
-        "HubName" => String.t(),
-        "HubSearchKeywords" => list(String.t()),
+        "FailureReason" => String.t() | atom(),
+        "HubArn" => String.t() | atom(),
+        "HubDescription" => String.t() | atom(),
+        "HubDisplayName" => String.t() | atom(),
+        "HubName" => String.t() | atom(),
+        "HubSearchKeywords" => list(String.t() | atom()),
         "HubStatus" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
         "S3StorageConfig" => hub_s3_storage_config()
       }
       
   """
-  @type describe_hub_response() :: %{String.t() => any()}
+  @type describe_hub_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_app_image_config_request() :: %{
-        required("AppImageConfigName") => String.t()
+        required("AppImageConfigName") => String.t() | atom()
       }
       
   """
-  @type delete_app_image_config_request() :: %{String.t() => any()}
+  @type delete_app_image_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_feature_group_request() :: %{
-        optional("NextToken") => String.t(),
-        required("FeatureGroupName") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("FeatureGroupName") => String.t() | atom()
       }
       
   """
-  @type describe_feature_group_request() :: %{String.t() => any()}
+  @type describe_feature_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_cluster_scheduler_config_response() :: %{
-        "ClusterSchedulerConfigArn" => String.t(),
+        "ClusterSchedulerConfigArn" => String.t() | atom(),
         "ClusterSchedulerConfigVersion" => integer()
       }
       
   """
-  @type update_cluster_scheduler_config_response() :: %{String.t() => any()}
+  @type update_cluster_scheduler_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_compilation_job_request() :: %{
-        required("CompilationJobName") => String.t()
+        required("CompilationJobName") => String.t() | atom()
       }
       
   """
-  @type delete_compilation_job_request() :: %{String.t() => any()}
+  @type delete_compilation_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13096,13 +13106,13 @@ defmodule AWS.SageMaker do
       data_capture_config_summary() :: %{
         "CaptureStatus" => list(any()),
         "CurrentSamplingPercentage" => integer(),
-        "DestinationS3Uri" => String.t(),
+        "DestinationS3Uri" => String.t() | atom(),
         "EnableCapture" => boolean(),
-        "KmsKeyId" => String.t()
+        "KmsKeyId" => String.t() | atom()
       }
       
   """
-  @type data_capture_config_summary() :: %{String.t() => any()}
+  @type data_capture_config_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13110,16 +13120,16 @@ defmodule AWS.SageMaker do
       
       create_compute_quota_request() :: %{
         optional("ActivationState") => list(any()),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("ClusterArn") => String.t(),
+        required("ClusterArn") => String.t() | atom(),
         required("ComputeQuotaConfig") => compute_quota_config(),
         required("ComputeQuotaTarget") => compute_quota_target(),
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type create_compute_quota_request() :: %{String.t() => any()}
+  @type create_compute_quota_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13127,13 +13137,13 @@ defmodule AWS.SageMaker do
       
       monitoring_schedule_config() :: %{
         "MonitoringJobDefinition" => monitoring_job_definition(),
-        "MonitoringJobDefinitionName" => String.t(),
+        "MonitoringJobDefinitionName" => String.t() | atom(),
         "MonitoringType" => list(any()),
         "ScheduleConfig" => schedule_config()
       }
       
   """
-  @type monitoring_schedule_config() :: %{String.t() => any()}
+  @type monitoring_schedule_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13143,11 +13153,11 @@ defmodule AWS.SageMaker do
         "DisableProfiler" => boolean(),
         "ProfilingIntervalInMilliseconds" => float(),
         "ProfilingParameters" => map(),
-        "S3OutputPath" => String.t()
+        "S3OutputPath" => String.t() | atom()
       }
       
   """
-  @type profiler_config_for_update() :: %{String.t() => any()}
+  @type profiler_config_for_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13161,15 +13171,15 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type rolling_update_policy() :: %{String.t() => any()}
+  @type rolling_update_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       app_image_config_details() :: %{
-        "AppImageConfigArn" => String.t(),
-        "AppImageConfigName" => String.t(),
+        "AppImageConfigArn" => String.t() | atom(),
+        "AppImageConfigName" => String.t() | atom(),
         "CodeEditorAppImageConfig" => code_editor_app_image_config(),
         "CreationTime" => non_neg_integer(),
         "JupyterLabAppImageConfig" => jupyter_lab_app_image_config(),
@@ -13178,7 +13188,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type app_image_config_details() :: %{String.t() => any()}
+  @type app_image_config_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13186,93 +13196,93 @@ defmodule AWS.SageMaker do
       
       create_partner_app_request() :: %{
         optional("ApplicationConfig") => partner_app_config(),
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("EnableIamSessionBasedIdentity") => boolean(),
-        optional("KmsKeyId") => String.t(),
+        optional("KmsKeyId") => String.t() | atom(),
         optional("MaintenanceConfig") => partner_app_maintenance_config(),
         optional("Tags") => list(tag()),
         required("AuthType") => list(any()),
-        required("ExecutionRoleArn") => String.t(),
-        required("Name") => String.t(),
-        required("Tier") => String.t(),
+        required("ExecutionRoleArn") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("Tier") => String.t() | atom(),
         required("Type") => list(any())
       }
       
   """
-  @type create_partner_app_request() :: %{String.t() => any()}
+  @type create_partner_app_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cfn_stack_update_parameter() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type cfn_stack_update_parameter() :: %{String.t() => any()}
+  @type cfn_stack_update_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_compilation_config() :: %{
-        "Image" => String.t(),
+        "Image" => String.t() | atom(),
         "OverrideEnvironment" => map()
       }
       
   """
-  @type model_compilation_config() :: %{String.t() => any()}
+  @type model_compilation_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_feature_metadata_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("ParameterAdditions") => list(feature_parameter()),
-        optional("ParameterRemovals") => list(String.t()),
-        required("FeatureGroupName") => String.t(),
-        required("FeatureName") => String.t()
+        optional("ParameterRemovals") => list(String.t() | atom()),
+        required("FeatureGroupName") => String.t() | atom(),
+        required("FeatureName") => String.t() | atom()
       }
       
   """
-  @type update_feature_metadata_request() :: %{String.t() => any()}
+  @type update_feature_metadata_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_training_plans_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "TrainingPlanSummaries" => list(training_plan_summary())
       }
       
   """
-  @type list_training_plans_response() :: %{String.t() => any()}
+  @type list_training_plans_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_labeling_job_request() :: %{
-        required("LabelingJobName") => String.t()
+        required("LabelingJobName") => String.t() | atom()
       }
       
   """
-  @type describe_labeling_job_request() :: %{String.t() => any()}
+  @type describe_labeling_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_domain_request() :: %{
-        required("DomainId") => String.t()
+        required("DomainId") => String.t() | atom()
       }
       
   """
-  @type describe_domain_request() :: %{String.t() => any()}
+  @type describe_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13280,11 +13290,11 @@ defmodule AWS.SageMaker do
       
       list_stage_devices_response() :: %{
         "DeviceDeploymentSummaries" => list(device_deployment_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_stage_devices_response() :: %{String.t() => any()}
+  @type list_stage_devices_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13292,11 +13302,11 @@ defmodule AWS.SageMaker do
       
       create_presigned_notebook_instance_url_input() :: %{
         optional("SessionExpirationDurationInSeconds") => integer(),
-        required("NotebookInstanceName") => String.t()
+        required("NotebookInstanceName") => String.t() | atom()
       }
       
   """
-  @type create_presigned_notebook_instance_url_input() :: %{String.t() => any()}
+  @type create_presigned_notebook_instance_url_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13308,35 +13318,35 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type model_explainability_job_input() :: %{String.t() => any()}
+  @type model_explainability_job_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_space_request() :: %{
-        optional("SpaceDisplayName") => String.t(),
+        optional("SpaceDisplayName") => String.t() | atom(),
         optional("SpaceSettings") => space_settings(),
-        required("DomainId") => String.t(),
-        required("SpaceName") => String.t()
+        required("DomainId") => String.t() | atom(),
+        required("SpaceName") => String.t() | atom()
       }
       
   """
-  @type update_space_request() :: %{String.t() => any()}
+  @type update_space_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_pipeline_version_request() :: %{
-        optional("PipelineVersionDescription") => String.t(),
-        optional("PipelineVersionDisplayName") => String.t(),
-        required("PipelineArn") => String.t(),
+        optional("PipelineVersionDescription") => String.t() | atom(),
+        optional("PipelineVersionDisplayName") => String.t() | atom(),
+        required("PipelineArn") => String.t() | atom(),
         required("PipelineVersionId") => float()
       }
       
   """
-  @type update_pipeline_version_request() :: %{String.t() => any()}
+  @type update_pipeline_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13344,13 +13354,13 @@ defmodule AWS.SageMaker do
       
       trial_component_source_detail() :: %{
         "ProcessingJob" => processing_job(),
-        "SourceArn" => String.t(),
+        "SourceArn" => String.t() | atom(),
         "TrainingJob" => training_job(),
         "TransformJob" => transform_job()
       }
       
   """
-  @type trial_component_source_detail() :: %{String.t() => any()}
+  @type trial_component_source_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13358,12 +13368,12 @@ defmodule AWS.SageMaker do
       
       create_training_plan_request() :: %{
         optional("Tags") => list(tag()),
-        required("TrainingPlanName") => String.t(),
-        required("TrainingPlanOfferingId") => String.t()
+        required("TrainingPlanName") => String.t() | atom(),
+        required("TrainingPlanOfferingId") => String.t() | atom()
       }
       
   """
-  @type create_training_plan_request() :: %{String.t() => any()}
+  @type create_training_plan_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13371,22 +13381,22 @@ defmodule AWS.SageMaker do
       
       list_candidates_for_auto_ml_job_response() :: %{
         "Candidates" => list(auto_ml_candidate()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_candidates_for_auto_ml_job_response() :: %{String.t() => any()}
+  @type list_candidates_for_auto_ml_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       predefined_metric_specification() :: %{
-        "PredefinedMetricType" => String.t()
+        "PredefinedMetricType" => String.t() | atom()
       }
       
   """
-  @type predefined_metric_specification() :: %{String.t() => any()}
+  @type predefined_metric_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13394,13 +13404,13 @@ defmodule AWS.SageMaker do
       
       endpoint_input_configuration() :: %{
         "EnvironmentParameterRanges" => environment_parameter_ranges(),
-        "InferenceSpecificationName" => String.t(),
+        "InferenceSpecificationName" => String.t() | atom(),
         "InstanceType" => list(any()),
         "ServerlessConfig" => production_variant_serverless_config()
       }
       
   """
-  @type endpoint_input_configuration() :: %{String.t() => any()}
+  @type endpoint_input_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13414,42 +13424,42 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type inference_component_rolling_update_policy() :: %{String.t() => any()}
+  @type inference_component_rolling_update_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_model_input() :: %{
-        required("ModelName") => String.t()
+        required("ModelName") => String.t() | atom()
       }
       
   """
-  @type delete_model_input() :: %{String.t() => any()}
+  @type delete_model_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_monitoring_schedule_request() :: %{
-        required("MonitoringScheduleName") => String.t()
+        required("MonitoringScheduleName") => String.t() | atom()
       }
       
   """
-  @type describe_monitoring_schedule_request() :: %{String.t() => any()}
+  @type describe_monitoring_schedule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       action_source() :: %{
-        "SourceId" => String.t(),
-        "SourceType" => String.t(),
-        "SourceUri" => String.t()
+        "SourceId" => String.t() | atom(),
+        "SourceType" => String.t() | atom(),
+        "SourceUri" => String.t() | atom()
       }
       
   """
-  @type action_source() :: %{String.t() => any()}
+  @type action_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13461,19 +13471,19 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type total_hits() :: %{String.t() => any()}
+  @type total_hits() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       f_sx_lustre_file_system_config() :: %{
-        "FileSystemId" => String.t(),
-        "FileSystemPath" => String.t()
+        "FileSystemId" => String.t() | atom(),
+        "FileSystemPath" => String.t() | atom()
       }
       
   """
-  @type f_sx_lustre_file_system_config() :: %{String.t() => any()}
+  @type f_sx_lustre_file_system_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13482,8 +13492,8 @@ defmodule AWS.SageMaker do
       hyper_parameter_tuning_job_summary() :: %{
         "CreationTime" => non_neg_integer(),
         "HyperParameterTuningEndTime" => non_neg_integer(),
-        "HyperParameterTuningJobArn" => String.t(),
-        "HyperParameterTuningJobName" => String.t(),
+        "HyperParameterTuningJobArn" => String.t() | atom(),
+        "HyperParameterTuningJobName" => String.t() | atom(),
         "HyperParameterTuningJobStatus" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
         "ObjectiveStatusCounters" => objective_status_counters(),
@@ -13493,7 +13503,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type hyper_parameter_tuning_job_summary() :: %{String.t() => any()}
+  @type hyper_parameter_tuning_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13501,12 +13511,12 @@ defmodule AWS.SageMaker do
       
       batch_delete_cluster_nodes_error() :: %{
         "Code" => list(any()),
-        "Message" => [String.t()],
-        "NodeId" => String.t()
+        "Message" => [String.t() | atom()],
+        "NodeId" => String.t() | atom()
       }
       
   """
-  @type batch_delete_cluster_nodes_error() :: %{String.t() => any()}
+  @type batch_delete_cluster_nodes_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13517,34 +13527,34 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type multi_model_config() :: %{String.t() => any()}
+  @type multi_model_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_artifacts() :: %{
-        "S3ModelArtifacts" => String.t()
+        "S3ModelArtifacts" => String.t() | atom()
       }
       
   """
-  @type model_artifacts() :: %{String.t() => any()}
+  @type model_artifacts() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_user_profile_request() :: %{
-        optional("SingleSignOnUserIdentifier") => String.t(),
-        optional("SingleSignOnUserValue") => String.t(),
+        optional("SingleSignOnUserIdentifier") => String.t() | atom(),
+        optional("SingleSignOnUserValue") => String.t() | atom(),
         optional("Tags") => list(tag()),
         optional("UserSettings") => user_settings(),
-        required("DomainId") => String.t(),
-        required("UserProfileName") => String.t()
+        required("DomainId") => String.t() | atom(),
+        required("UserProfileName") => String.t() | atom()
       }
       
   """
-  @type create_user_profile_request() :: %{String.t() => any()}
+  @type create_user_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13553,12 +13563,12 @@ defmodule AWS.SageMaker do
       processing_input() :: %{
         "AppManaged" => boolean(),
         "DatasetDefinition" => dataset_definition(),
-        "InputName" => String.t(),
+        "InputName" => String.t() | atom(),
         "S3Input" => processing_s3_input()
       }
       
   """
-  @type processing_input() :: %{String.t() => any()}
+  @type processing_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13568,22 +13578,22 @@ defmodule AWS.SageMaker do
         optional("FeatureAdditions") => list(feature_definition()),
         optional("OnlineStoreConfig") => online_store_config_update(),
         optional("ThroughputConfig") => throughput_config_update(),
-        required("FeatureGroupName") => String.t()
+        required("FeatureGroupName") => String.t() | atom()
       }
       
   """
-  @type update_feature_group_request() :: %{String.t() => any()}
+  @type update_feature_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_training_plan_request() :: %{
-        required("TrainingPlanName") => String.t()
+        required("TrainingPlanName") => String.t() | atom()
       }
       
   """
-  @type describe_training_plan_request() :: %{String.t() => any()}
+  @type describe_training_plan_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13591,72 +13601,72 @@ defmodule AWS.SageMaker do
       
       list_edge_deployment_plans_response() :: %{
         "EdgeDeploymentPlanSummaries" => list(edge_deployment_plan_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_edge_deployment_plans_response() :: %{String.t() => any()}
+  @type list_edge_deployment_plans_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_monitoring_alert_response() :: %{
-        "MonitoringAlertName" => String.t(),
-        "MonitoringScheduleArn" => String.t()
+        "MonitoringAlertName" => String.t() | atom(),
+        "MonitoringScheduleArn" => String.t() | atom()
       }
       
   """
-  @type update_monitoring_alert_response() :: %{String.t() => any()}
+  @type update_monitoring_alert_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tensor_board_output_config() :: %{
-        "LocalPath" => String.t(),
-        "S3OutputPath" => String.t()
+        "LocalPath" => String.t() | atom(),
+        "S3OutputPath" => String.t() | atom()
       }
       
   """
-  @type tensor_board_output_config() :: %{String.t() => any()}
+  @type tensor_board_output_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       monitoring_app_specification() :: %{
-        "ContainerArguments" => list(String.t()),
-        "ContainerEntrypoint" => list(String.t()),
-        "ImageUri" => String.t(),
-        "PostAnalyticsProcessorSourceUri" => String.t(),
-        "RecordPreprocessorSourceUri" => String.t()
+        "ContainerArguments" => list(String.t() | atom()),
+        "ContainerEntrypoint" => list(String.t() | atom()),
+        "ImageUri" => String.t() | atom(),
+        "PostAnalyticsProcessorSourceUri" => String.t() | atom(),
+        "RecordPreprocessorSourceUri" => String.t() | atom()
       }
       
   """
-  @type monitoring_app_specification() :: %{String.t() => any()}
+  @type monitoring_app_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_input() :: %{
-        "DataInputConfig" => String.t()
+        "DataInputConfig" => String.t() | atom()
       }
       
   """
-  @type model_input() :: %{String.t() => any()}
+  @type model_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_package_security_config() :: %{
-        "KmsKeyId" => String.t()
+        "KmsKeyId" => String.t() | atom()
       }
       
   """
-  @type model_package_security_config() :: %{String.t() => any()}
+  @type model_package_security_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13668,7 +13678,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type data_quality_job_input() :: %{String.t() => any()}
+  @type data_quality_job_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13676,37 +13686,37 @@ defmodule AWS.SageMaker do
       
       list_subscribed_workteams_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t()
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_subscribed_workteams_request() :: %{String.t() => any()}
+  @type list_subscribed_workteams_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_studio_lifecycle_configs_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "StudioLifecycleConfigs" => list(studio_lifecycle_config_details())
       }
       
   """
-  @type list_studio_lifecycle_configs_response() :: %{String.t() => any()}
+  @type list_studio_lifecycle_configs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       data_processing() :: %{
-        "InputFilter" => String.t(),
+        "InputFilter" => String.t() | atom(),
         "JoinSource" => list(any()),
-        "OutputFilter" => String.t()
+        "OutputFilter" => String.t() | atom()
       }
       
   """
-  @type data_processing() :: %{String.t() => any()}
+  @type data_processing() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13717,7 +13727,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type monitoring_output() :: %{String.t() => any()}
+  @type monitoring_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13725,11 +13735,11 @@ defmodule AWS.SageMaker do
       
       list_model_bias_job_definitions_response() :: %{
         "JobDefinitionSummaries" => list(monitoring_job_definition_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_model_bias_job_definitions_response() :: %{String.t() => any()}
+  @type list_model_bias_job_definitions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13738,16 +13748,16 @@ defmodule AWS.SageMaker do
       tabular_job_config() :: %{
         "CandidateGenerationConfig" => candidate_generation_config(),
         "CompletionCriteria" => auto_ml_job_completion_criteria(),
-        "FeatureSpecificationS3Uri" => String.t(),
+        "FeatureSpecificationS3Uri" => String.t() | atom(),
         "GenerateCandidateDefinitionsOnly" => boolean(),
         "Mode" => list(any()),
         "ProblemType" => list(any()),
-        "SampleWeightAttributeName" => String.t(),
-        "TargetAttributeName" => String.t()
+        "SampleWeightAttributeName" => String.t() | atom(),
+        "TargetAttributeName" => String.t() | atom()
       }
       
   """
-  @type tabular_job_config() :: %{String.t() => any()}
+  @type tabular_job_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13758,7 +13768,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type describe_subscribed_workteam_response() :: %{String.t() => any()}
+  @type describe_subscribed_workteam_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13768,36 +13778,36 @@ defmodule AWS.SageMaker do
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_projects_input() :: %{String.t() => any()}
+  @type list_projects_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_transform_input() :: %{
-        "DataCapturedDestinationS3Uri" => String.t(),
+        "DataCapturedDestinationS3Uri" => String.t() | atom(),
         "DatasetFormat" => monitoring_dataset_format(),
-        "EndTimeOffset" => String.t(),
-        "ExcludeFeaturesAttribute" => String.t(),
-        "FeaturesAttribute" => String.t(),
-        "InferenceAttribute" => String.t(),
-        "LocalPath" => String.t(),
-        "ProbabilityAttribute" => String.t(),
+        "EndTimeOffset" => String.t() | atom(),
+        "ExcludeFeaturesAttribute" => String.t() | atom(),
+        "FeaturesAttribute" => String.t() | atom(),
+        "InferenceAttribute" => String.t() | atom(),
+        "LocalPath" => String.t() | atom(),
+        "ProbabilityAttribute" => String.t() | atom(),
         "ProbabilityThresholdAttribute" => float(),
         "S3DataDistributionType" => list(any()),
         "S3InputMode" => list(any()),
-        "StartTimeOffset" => String.t()
+        "StartTimeOffset" => String.t() | atom()
       }
       
   """
-  @type batch_transform_input() :: %{String.t() => any()}
+  @type batch_transform_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13809,28 +13819,28 @@ defmodule AWS.SageMaker do
         optional("LastModifiedTimeAfter") => non_neg_integer(),
         optional("LastModifiedTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("ModelNameEquals") => String.t(),
-        optional("ModelPackageVersionArnEquals") => String.t(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("ModelNameEquals") => String.t() | atom(),
+        optional("ModelPackageVersionArnEquals") => String.t() | atom(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
         optional("StatusEquals") => list(any())
       }
       
   """
-  @type list_inference_recommendations_jobs_request() :: %{String.t() => any()}
+  @type list_inference_recommendations_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint_info() :: %{
-        "EndpointName" => String.t()
+        "EndpointName" => String.t() | atom()
       }
       
   """
-  @type endpoint_info() :: %{String.t() => any()}
+  @type endpoint_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13848,18 +13858,18 @@ defmodule AWS.SageMaker do
       inference_experiment_summary() :: %{
         "CompletionTime" => non_neg_integer(),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "RoleArn" => String.t(),
+        "Name" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
         "Schedule" => inference_experiment_schedule(),
         "Status" => list(any()),
-        "StatusReason" => String.t(),
+        "StatusReason" => String.t() | atom(),
         "Type" => list(any())
       }
       
   """
-  @type inference_experiment_summary() :: %{String.t() => any()}
+  @type inference_experiment_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13869,14 +13879,14 @@ defmodule AWS.SageMaker do
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_models_input() :: %{String.t() => any()}
+  @type list_models_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13893,7 +13903,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type transform_job_definition() :: %{String.t() => any()}
+  @type transform_job_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13902,53 +13912,53 @@ defmodule AWS.SageMaker do
       model_card_export_job_summary() :: %{
         "CreatedAt" => non_neg_integer(),
         "LastModifiedAt" => non_neg_integer(),
-        "ModelCardExportJobArn" => String.t(),
-        "ModelCardExportJobName" => String.t(),
-        "ModelCardName" => String.t(),
+        "ModelCardExportJobArn" => String.t() | atom(),
+        "ModelCardExportJobName" => String.t() | atom(),
+        "ModelCardName" => String.t() | atom(),
         "ModelCardVersion" => integer(),
         "Status" => list(any())
       }
       
   """
-  @type model_card_export_job_summary() :: %{String.t() => any()}
+  @type model_card_export_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_package_validation_profile() :: %{
-        "ProfileName" => String.t(),
+        "ProfileName" => String.t() | atom(),
         "TransformJobDefinition" => transform_job_definition()
       }
       
   """
-  @type model_package_validation_profile() :: %{String.t() => any()}
+  @type model_package_validation_profile() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       output_config() :: %{
-        "CompilerOptions" => String.t(),
-        "KmsKeyId" => String.t(),
-        "S3OutputLocation" => String.t(),
+        "CompilerOptions" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
+        "S3OutputLocation" => String.t() | atom(),
         "TargetDevice" => list(any()),
         "TargetPlatform" => target_platform()
       }
       
   """
-  @type output_config() :: %{String.t() => any()}
+  @type output_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_trial_request() :: %{
-        required("TrialName") => String.t()
+        required("TrialName") => String.t() | atom()
       }
       
   """
-  @type delete_trial_request() :: %{String.t() => any()}
+  @type delete_trial_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13957,48 +13967,48 @@ defmodule AWS.SageMaker do
       create_partner_app_presigned_url_request() :: %{
         optional("ExpiresInSeconds") => integer(),
         optional("SessionExpirationDurationInSeconds") => integer(),
-        required("Arn") => String.t()
+        required("Arn") => String.t() | atom()
       }
       
   """
-  @type create_partner_app_presigned_url_request() :: %{String.t() => any()}
+  @type create_partner_app_presigned_url_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       hyper_parameter_tuning_job_objective() :: %{
-        "MetricName" => String.t(),
+        "MetricName" => String.t() | atom(),
         "Type" => list(any())
       }
       
   """
-  @type hyper_parameter_tuning_job_objective() :: %{String.t() => any()}
+  @type hyper_parameter_tuning_job_objective() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_flow_definition_request() :: %{
-        required("FlowDefinitionName") => String.t()
+        required("FlowDefinitionName") => String.t() | atom()
       }
       
   """
-  @type describe_flow_definition_request() :: %{String.t() => any()}
+  @type describe_flow_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       hyper_parameter_algorithm_specification() :: %{
-        "AlgorithmName" => String.t(),
+        "AlgorithmName" => String.t() | atom(),
         "MetricDefinitions" => list(metric_definition()),
-        "TrainingImage" => String.t(),
+        "TrainingImage" => String.t() | atom(),
         "TrainingInputMode" => list(any())
       }
       
   """
-  @type hyper_parameter_algorithm_specification() :: %{String.t() => any()}
+  @type hyper_parameter_algorithm_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14006,17 +14016,17 @@ defmodule AWS.SageMaker do
       
       s3_model_data_source() :: %{
         "CompressionType" => list(any()),
-        "ETag" => String.t(),
+        "ETag" => String.t() | atom(),
         "HubAccessConfig" => inference_hub_access_config(),
-        "ManifestEtag" => String.t(),
-        "ManifestS3Uri" => String.t(),
+        "ManifestEtag" => String.t() | atom(),
+        "ManifestS3Uri" => String.t() | atom(),
         "ModelAccessConfig" => model_access_config(),
         "S3DataType" => list(any()),
-        "S3Uri" => String.t()
+        "S3Uri" => String.t() | atom()
       }
       
   """
-  @type s3_model_data_source() :: %{String.t() => any()}
+  @type s3_model_data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14030,7 +14040,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type traffic_routing_config() :: %{String.t() => any()}
+  @type traffic_routing_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14038,20 +14048,20 @@ defmodule AWS.SageMaker do
       
       create_inference_experiment_request() :: %{
         optional("DataStorageConfig") => inference_experiment_data_storage_config(),
-        optional("Description") => String.t(),
-        optional("KmsKey") => String.t(),
+        optional("Description") => String.t() | atom(),
+        optional("KmsKey") => String.t() | atom(),
         optional("Schedule") => inference_experiment_schedule(),
         optional("Tags") => list(tag()),
-        required("EndpointName") => String.t(),
+        required("EndpointName") => String.t() | atom(),
         required("ModelVariants") => list(model_variant_config()),
-        required("Name") => String.t(),
-        required("RoleArn") => String.t(),
+        required("Name") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom(),
         required("ShadowModeConfig") => shadow_mode_config(),
         required("Type") => list(any())
       }
       
   """
-  @type create_inference_experiment_request() :: %{String.t() => any()}
+  @type create_inference_experiment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14064,7 +14074,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type recommendation_job_stopping_conditions() :: %{String.t() => any()}
+  @type recommendation_job_stopping_conditions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14075,7 +14085,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type vector_config() :: %{String.t() => any()}
+  @type vector_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14091,22 +14101,22 @@ defmodule AWS.SageMaker do
   ## Example:
       
       get_device_fleet_report_request() :: %{
-        required("DeviceFleetName") => String.t()
+        required("DeviceFleetName") => String.t() | atom()
       }
       
   """
-  @type get_device_fleet_report_request() :: %{String.t() => any()}
+  @type get_device_fleet_report_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_endpoint_input() :: %{
-        required("EndpointName") => String.t()
+        required("EndpointName") => String.t() | atom()
       }
       
   """
-  @type delete_endpoint_input() :: %{String.t() => any()}
+  @type delete_endpoint_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14115,12 +14125,12 @@ defmodule AWS.SageMaker do
       transform_resources() :: %{
         "InstanceCount" => integer(),
         "InstanceType" => list(any()),
-        "TransformAmiVersion" => String.t(),
-        "VolumeKmsKeyId" => String.t()
+        "TransformAmiVersion" => String.t() | atom(),
+        "VolumeKmsKeyId" => String.t() | atom()
       }
       
   """
-  @type transform_resources() :: %{String.t() => any()}
+  @type transform_resources() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14128,20 +14138,22 @@ defmodule AWS.SageMaker do
       
       describe_model_explainability_job_definition_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "JobDefinitionArn" => String.t(),
-        "JobDefinitionName" => String.t(),
+        "JobDefinitionArn" => String.t() | atom(),
+        "JobDefinitionName" => String.t() | atom(),
         "JobResources" => monitoring_resources(),
         "ModelExplainabilityAppSpecification" => model_explainability_app_specification(),
         "ModelExplainabilityBaselineConfig" => model_explainability_baseline_config(),
         "ModelExplainabilityJobInput" => model_explainability_job_input(),
         "ModelExplainabilityJobOutputConfig" => monitoring_output_config(),
         "NetworkConfig" => monitoring_network_config(),
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | atom(),
         "StoppingCondition" => monitoring_stopping_condition()
       }
       
   """
-  @type describe_model_explainability_job_definition_response() :: %{String.t() => any()}
+  @type describe_model_explainability_job_definition_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -14153,16 +14165,16 @@ defmodule AWS.SageMaker do
         "DataQualityBaselineConfig" => data_quality_baseline_config(),
         "DataQualityJobInput" => data_quality_job_input(),
         "DataQualityJobOutputConfig" => monitoring_output_config(),
-        "JobDefinitionArn" => String.t(),
-        "JobDefinitionName" => String.t(),
+        "JobDefinitionArn" => String.t() | atom(),
+        "JobDefinitionName" => String.t() | atom(),
         "JobResources" => monitoring_resources(),
         "NetworkConfig" => monitoring_network_config(),
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | atom(),
         "StoppingCondition" => monitoring_stopping_condition()
       }
       
   """
-  @type describe_data_quality_job_definition_response() :: %{String.t() => any()}
+  @type describe_data_quality_job_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14171,23 +14183,23 @@ defmodule AWS.SageMaker do
       edge_model() :: %{
         "LatestInference" => non_neg_integer(),
         "LatestSampleTime" => non_neg_integer(),
-        "ModelName" => String.t(),
-        "ModelVersion" => String.t()
+        "ModelName" => String.t() | atom(),
+        "ModelVersion" => String.t() | atom()
       }
       
   """
-  @type edge_model() :: %{String.t() => any()}
+  @type edge_model() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_training_job_request() :: %{
-        required("TrainingJobName") => String.t()
+        required("TrainingJobName") => String.t() | atom()
       }
       
   """
-  @type stop_training_job_request() :: %{String.t() => any()}
+  @type stop_training_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14198,11 +14210,11 @@ defmodule AWS.SageMaker do
         optional("OidcConfig") => oidc_config(),
         optional("SourceIpConfig") => source_ip_config(),
         optional("WorkforceVpcConfig") => workforce_vpc_config_request(),
-        required("WorkforceName") => String.t()
+        required("WorkforceName") => String.t() | atom()
       }
       
   """
-  @type update_workforce_request() :: %{String.t() => any()}
+  @type update_workforce_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14210,11 +14222,11 @@ defmodule AWS.SageMaker do
       
       list_inference_components_output() :: %{
         "InferenceComponents" => list(inference_component_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_inference_components_output() :: %{String.t() => any()}
+  @type list_inference_components_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14226,18 +14238,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type labeling_job_input_config() :: %{String.t() => any()}
+  @type labeling_job_input_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_artifact_response() :: %{
-        "ArtifactArn" => String.t()
+        "ArtifactArn" => String.t() | atom()
       }
       
   """
-  @type update_artifact_response() :: %{String.t() => any()}
+  @type update_artifact_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14249,41 +14261,41 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type iam_policy_constraints() :: %{String.t() => any()}
+  @type iam_policy_constraints() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_association_response() :: %{
-        "DestinationArn" => String.t(),
-        "SourceArn" => String.t()
+        "DestinationArn" => String.t() | atom(),
+        "SourceArn" => String.t() | atom()
       }
       
   """
-  @type delete_association_response() :: %{String.t() => any()}
+  @type delete_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_trial_component_response() :: %{
-        "TrialComponentArn" => String.t()
+        "TrialComponentArn" => String.t() | atom()
       }
       
   """
-  @type delete_trial_component_response() :: %{String.t() => any()}
+  @type delete_trial_component_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_algorithm_output() :: %{
-        "AlgorithmArn" => String.t()
+        "AlgorithmArn" => String.t() | atom()
       }
       
   """
-  @type create_algorithm_output() :: %{String.t() => any()}
+  @type create_algorithm_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14291,7 +14303,7 @@ defmodule AWS.SageMaker do
       
       training_job() :: %{
         "CreationTime" => non_neg_integer(),
-        "TrainingJobArn" => String.t(),
+        "TrainingJobArn" => String.t() | atom(),
         "OutputDataConfig" => output_data_config(),
         "EnableManagedSpotTraining" => boolean(),
         "TrainingStartTime" => non_neg_integer(),
@@ -14301,7 +14313,7 @@ defmodule AWS.SageMaker do
         "Tags" => list(tag()),
         "TrainingEndTime" => non_neg_integer(),
         "BillableTimeInSeconds" => integer(),
-        "LabelingJobArn" => String.t(),
+        "LabelingJobArn" => String.t() | atom(),
         "TensorBoardOutputConfig" => tensor_board_output_config(),
         "TrainingTimeInSeconds" => integer(),
         "EnableInterContainerTrafficEncryption" => boolean(),
@@ -14310,20 +14322,20 @@ defmodule AWS.SageMaker do
         "SecondaryStatus" => list(any()),
         "TrainingJobStatus" => list(any()),
         "ProfilerConfig" => profiler_config(),
-        "TrainingJobName" => String.t(),
+        "TrainingJobName" => String.t() | atom(),
         "DebugRuleEvaluationStatuses" => list(debug_rule_evaluation_status()),
-        "AutoMLJobArn" => String.t(),
+        "AutoMLJobArn" => String.t() | atom(),
         "DebugRuleConfigurations" => list(debug_rule_configuration()),
         "RetryStrategy" => retry_strategy(),
         "Environment" => map(),
         "AlgorithmSpecification" => algorithm_specification(),
         "SecondaryStatusTransitions" => list(secondary_status_transition()),
-        "TuningJobArn" => String.t(),
+        "TuningJobArn" => String.t() | atom(),
         "InputDataConfig" => list(channel()),
         "ModelArtifacts" => model_artifacts(),
         "FinalMetricDataList" => list(metric_data()),
-        "RoleArn" => String.t(),
-        "FailureReason" => String.t(),
+        "RoleArn" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
         "StoppingCondition" => stopping_condition(),
         "ExperimentConfig" => experiment_config(),
         "EnableNetworkIsolation" => boolean(),
@@ -14331,7 +14343,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type training_job() :: %{String.t() => any()}
+  @type training_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14341,26 +14353,26 @@ defmodule AWS.SageMaker do
         optional("NotificationConfiguration") => notification_configuration(),
         optional("Tags") => list(tag()),
         optional("WorkerAccessConfiguration") => worker_access_configuration(),
-        optional("WorkforceName") => String.t(),
-        required("Description") => String.t(),
+        optional("WorkforceName") => String.t() | atom(),
+        required("Description") => String.t() | atom(),
         required("MemberDefinitions") => list(member_definition()),
-        required("WorkteamName") => String.t()
+        required("WorkteamName") => String.t() | atom()
       }
       
   """
-  @type create_workteam_request() :: %{String.t() => any()}
+  @type create_workteam_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_cluster_event_request() :: %{
-        required("ClusterName") => String.t(),
-        required("EventId") => String.t()
+        required("ClusterName") => String.t() | atom(),
+        required("EventId") => String.t() | atom()
       }
       
   """
-  @type describe_cluster_event_request() :: %{String.t() => any()}
+  @type describe_cluster_event_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14370,13 +14382,13 @@ defmodule AWS.SageMaker do
         optional("CreatedAfter") => non_neg_integer(),
         optional("CreatedBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_lineage_groups_request() :: %{String.t() => any()}
+  @type list_lineage_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14384,20 +14396,20 @@ defmodule AWS.SageMaker do
       
       compute_quota_summary() :: %{
         "ActivationState" => list(any()),
-        "ClusterArn" => String.t(),
-        "ComputeQuotaArn" => String.t(),
+        "ClusterArn" => String.t() | atom(),
+        "ComputeQuotaArn" => String.t() | atom(),
         "ComputeQuotaConfig" => compute_quota_config(),
-        "ComputeQuotaId" => String.t(),
+        "ComputeQuotaId" => String.t() | atom(),
         "ComputeQuotaTarget" => compute_quota_target(),
         "ComputeQuotaVersion" => integer(),
         "CreationTime" => non_neg_integer(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type compute_quota_summary() :: %{String.t() => any()}
+  @type compute_quota_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14405,17 +14417,17 @@ defmodule AWS.SageMaker do
       
       create_mlflow_tracking_server_request() :: %{
         optional("AutomaticModelRegistration") => boolean(),
-        optional("MlflowVersion") => String.t(),
+        optional("MlflowVersion") => String.t() | atom(),
         optional("Tags") => list(tag()),
         optional("TrackingServerSize") => list(any()),
-        optional("WeeklyMaintenanceWindowStart") => String.t(),
-        required("ArtifactStoreUri") => String.t(),
-        required("RoleArn") => String.t(),
-        required("TrackingServerName") => String.t()
+        optional("WeeklyMaintenanceWindowStart") => String.t() | atom(),
+        required("ArtifactStoreUri") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom(),
+        required("TrackingServerName") => String.t() | atom()
       }
       
   """
-  @type create_mlflow_tracking_server_request() :: %{String.t() => any()}
+  @type create_mlflow_tracking_server_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14423,29 +14435,29 @@ defmodule AWS.SageMaker do
       
       start_pipeline_execution_request() :: %{
         optional("ParallelismConfiguration") => parallelism_configuration(),
-        optional("PipelineExecutionDescription") => String.t(),
-        optional("PipelineExecutionDisplayName") => String.t(),
+        optional("PipelineExecutionDescription") => String.t() | atom(),
+        optional("PipelineExecutionDisplayName") => String.t() | atom(),
         optional("PipelineParameters") => list(parameter()),
         optional("PipelineVersionId") => float(),
         optional("SelectiveExecutionConfig") => selective_execution_config(),
-        required("ClientRequestToken") => String.t(),
-        required("PipelineName") => String.t()
+        required("ClientRequestToken") => String.t() | atom(),
+        required("PipelineName") => String.t() | atom()
       }
       
   """
-  @type start_pipeline_execution_request() :: %{String.t() => any()}
+  @type start_pipeline_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_spaces_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Spaces" => list(space_details())
       }
       
   """
-  @type list_spaces_response() :: %{String.t() => any()}
+  @type list_spaces_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14454,14 +14466,14 @@ defmodule AWS.SageMaker do
       describe_pipeline_execution_response() :: %{
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | atom(),
         "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
         "ParallelismConfiguration" => parallelism_configuration(),
-        "PipelineArn" => String.t(),
-        "PipelineExecutionArn" => String.t(),
-        "PipelineExecutionDescription" => String.t(),
-        "PipelineExecutionDisplayName" => String.t(),
+        "PipelineArn" => String.t() | atom(),
+        "PipelineExecutionArn" => String.t() | atom(),
+        "PipelineExecutionDescription" => String.t() | atom(),
+        "PipelineExecutionDisplayName" => String.t() | atom(),
         "PipelineExecutionStatus" => list(any()),
         "PipelineExperimentConfig" => pipeline_experiment_config(),
         "PipelineVersionId" => float(),
@@ -14469,7 +14481,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type describe_pipeline_execution_response() :: %{String.t() => any()}
+  @type describe_pipeline_execution_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14480,7 +14492,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type template_provider_detail() :: %{String.t() => any()}
+  @type template_provider_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14493,46 +14505,46 @@ defmodule AWS.SageMaker do
         optional("TrainingJobDefinitions") => list(hyper_parameter_training_job_definition()),
         optional("WarmStartConfig") => hyper_parameter_tuning_job_warm_start_config(),
         required("HyperParameterTuningJobConfig") => hyper_parameter_tuning_job_config(),
-        required("HyperParameterTuningJobName") => String.t()
+        required("HyperParameterTuningJobName") => String.t() | atom()
       }
       
   """
-  @type create_hyper_parameter_tuning_job_request() :: %{String.t() => any()}
+  @type create_hyper_parameter_tuning_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_user_profile_response() :: %{
-        "UserProfileArn" => String.t()
+        "UserProfileArn" => String.t() | atom()
       }
       
   """
-  @type create_user_profile_response() :: %{String.t() => any()}
+  @type create_user_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       attach_cluster_node_volume_request() :: %{
-        required("ClusterArn") => String.t(),
-        required("NodeId") => String.t(),
-        required("VolumeId") => String.t()
+        required("ClusterArn") => String.t() | atom(),
+        required("NodeId") => String.t() | atom(),
+        required("VolumeId") => String.t() | atom()
       }
       
   """
-  @type attach_cluster_node_volume_request() :: %{String.t() => any()}
+  @type attach_cluster_node_volume_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_auto_ml_job_v2_request() :: %{
-        required("AutoMLJobName") => String.t()
+        required("AutoMLJobName") => String.t() | atom()
       }
       
   """
-  @type describe_auto_ml_job_v2_request() :: %{String.t() => any()}
+  @type describe_auto_ml_job_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14545,7 +14557,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type target_platform() :: %{String.t() => any()}
+  @type target_platform() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14554,14 +14566,14 @@ defmodule AWS.SageMaker do
       auto_ml_channel() :: %{
         "ChannelType" => list(any()),
         "CompressionType" => list(any()),
-        "ContentType" => String.t(),
+        "ContentType" => String.t() | atom(),
         "DataSource" => auto_ml_data_source(),
-        "SampleWeightAttributeName" => String.t(),
-        "TargetAttributeName" => String.t()
+        "SampleWeightAttributeName" => String.t() | atom(),
+        "TargetAttributeName" => String.t() | atom()
       }
       
   """
-  @type auto_ml_channel() :: %{String.t() => any()}
+  @type auto_ml_channel() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14569,40 +14581,40 @@ defmodule AWS.SageMaker do
       
       list_lineage_groups_response() :: %{
         "LineageGroupSummaries" => list(lineage_group_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_lineage_groups_response() :: %{String.t() => any()}
+  @type list_lineage_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_mlflow_tracking_server_response() :: %{
-        "TrackingServerArn" => String.t()
+        "TrackingServerArn" => String.t() | atom()
       }
       
   """
-  @type update_mlflow_tracking_server_response() :: %{String.t() => any()}
+  @type update_mlflow_tracking_server_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_artifacts_request() :: %{
-        optional("ArtifactType") => String.t(),
+        optional("ArtifactType") => String.t() | atom(),
         optional("CreatedAfter") => non_neg_integer(),
         optional("CreatedBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
-        optional("SourceUri") => String.t()
+        optional("SourceUri") => String.t() | atom()
       }
       
   """
-  @type list_artifacts_request() :: %{String.t() => any()}
+  @type list_artifacts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14616,7 +14628,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type inference_component_compute_resource_requirements() :: %{String.t() => any()}
+  @type inference_component_compute_resource_requirements() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14625,13 +14637,13 @@ defmodule AWS.SageMaker do
       create_edge_deployment_plan_request() :: %{
         optional("Stages") => list(deployment_stage()),
         optional("Tags") => list(tag()),
-        required("DeviceFleetName") => String.t(),
-        required("EdgeDeploymentPlanName") => String.t(),
+        required("DeviceFleetName") => String.t() | atom(),
+        required("EdgeDeploymentPlanName") => String.t() | atom(),
         required("ModelConfigs") => list(edge_deployment_model_config())
       }
       
   """
-  @type create_edge_deployment_plan_request() :: %{String.t() => any()}
+  @type create_edge_deployment_plan_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14639,22 +14651,22 @@ defmodule AWS.SageMaker do
       
       artifact_source_type() :: %{
         "SourceIdType" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | atom()
       }
       
   """
-  @type artifact_source_type() :: %{String.t() => any()}
+  @type artifact_source_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_card_export_output_config() :: %{
-        "S3OutputPath" => String.t()
+        "S3OutputPath" => String.t() | atom()
       }
       
   """
-  @type model_card_export_output_config() :: %{String.t() => any()}
+  @type model_card_export_output_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14662,20 +14674,20 @@ defmodule AWS.SageMaker do
       
       describe_model_bias_job_definition_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "JobDefinitionArn" => String.t(),
-        "JobDefinitionName" => String.t(),
+        "JobDefinitionArn" => String.t() | atom(),
+        "JobDefinitionName" => String.t() | atom(),
         "JobResources" => monitoring_resources(),
         "ModelBiasAppSpecification" => model_bias_app_specification(),
         "ModelBiasBaselineConfig" => model_bias_baseline_config(),
         "ModelBiasJobInput" => model_bias_job_input(),
         "ModelBiasJobOutputConfig" => monitoring_output_config(),
         "NetworkConfig" => monitoring_network_config(),
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | atom(),
         "StoppingCondition" => monitoring_stopping_condition()
       }
       
   """
-  @type describe_model_bias_job_definition_response() :: %{String.t() => any()}
+  @type describe_model_bias_job_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14687,7 +14699,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type r_session_app_settings() :: %{String.t() => any()}
+  @type r_session_app_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14698,68 +14710,68 @@ defmodule AWS.SageMaker do
         optional("CreationTimeBefore") => non_neg_integer(),
         optional("FeatureGroupStatusEquals") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("OfflineStoreStatusEquals") => list(any()),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_feature_groups_request() :: %{String.t() => any()}
+  @type list_feature_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       continuous_parameter_range() :: %{
-        "MaxValue" => String.t(),
-        "MinValue" => String.t(),
-        "Name" => String.t(),
+        "MaxValue" => String.t() | atom(),
+        "MinValue" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "ScalingType" => list(any())
       }
       
   """
-  @type continuous_parameter_range() :: %{String.t() => any()}
+  @type continuous_parameter_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_code_repository_output() :: %{
-        "CodeRepositoryArn" => String.t(),
-        "CodeRepositoryName" => String.t(),
+        "CodeRepositoryArn" => String.t() | atom(),
+        "CodeRepositoryName" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
         "GitConfig" => git_config(),
         "LastModifiedTime" => non_neg_integer()
       }
       
   """
-  @type describe_code_repository_output() :: %{String.t() => any()}
+  @type describe_code_repository_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_endpoint_config_output() :: %{
-        "EndpointConfigArn" => String.t()
+        "EndpointConfigArn" => String.t() | atom()
       }
       
   """
-  @type create_endpoint_config_output() :: %{String.t() => any()}
+  @type create_endpoint_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_bias_app_specification() :: %{
-        "ConfigUri" => String.t(),
+        "ConfigUri" => String.t() | atom(),
         "Environment" => map(),
-        "ImageUri" => String.t()
+        "ImageUri" => String.t() | atom()
       }
       
   """
-  @type model_bias_app_specification() :: %{String.t() => any()}
+  @type model_bias_app_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14769,11 +14781,11 @@ defmodule AWS.SageMaker do
         "EndTime" => non_neg_integer(),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
-        "StatusMessage" => String.t()
+        "StatusMessage" => String.t() | atom()
       }
       
   """
-  @type secondary_status_transition() :: %{String.t() => any()}
+  @type secondary_status_transition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14784,19 +14796,19 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type app_lifecycle_management() :: %{String.t() => any()}
+  @type app_lifecycle_management() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       edge_deployment_model_config() :: %{
-        "EdgePackagingJobName" => String.t(),
-        "ModelHandle" => String.t()
+        "EdgePackagingJobName" => String.t() | atom(),
+        "ModelHandle" => String.t() | atom()
       }
       
   """
-  @type edge_deployment_model_config() :: %{String.t() => any()}
+  @type edge_deployment_model_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14806,13 +14818,13 @@ defmodule AWS.SageMaker do
         optional("CreatedAfter") => non_neg_integer(),
         optional("CreatedBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_experiments_request() :: %{String.t() => any()}
+  @type list_experiments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14824,18 +14836,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type clarify_text_config() :: %{String.t() => any()}
+  @type clarify_text_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       retry_pipeline_execution_response() :: %{
-        "PipelineExecutionArn" => String.t()
+        "PipelineExecutionArn" => String.t() | atom()
       }
       
   """
-  @type retry_pipeline_execution_response() :: %{String.t() => any()}
+  @type retry_pipeline_execution_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14843,44 +14855,44 @@ defmodule AWS.SageMaker do
       
       shadow_mode_config() :: %{
         "ShadowModelVariants" => list(shadow_model_variant_config()),
-        "SourceModelVariantName" => String.t()
+        "SourceModelVariantName" => String.t() | atom()
       }
       
   """
-  @type shadow_mode_config() :: %{String.t() => any()}
+  @type shadow_mode_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_lineage_group_policy_request() :: %{
-        required("LineageGroupName") => String.t()
+        required("LineageGroupName") => String.t() | atom()
       }
       
   """
-  @type get_lineage_group_policy_request() :: %{String.t() => any()}
+  @type get_lineage_group_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_auto_ml_job_v2_response() :: %{
-        "AutoMLJobArn" => String.t()
+        "AutoMLJobArn" => String.t() | atom()
       }
       
   """
-  @type create_auto_ml_job_v2_response() :: %{String.t() => any()}
+  @type create_auto_ml_job_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_mlflow_tracking_server_response() :: %{
-        "TrackingServerArn" => String.t()
+        "TrackingServerArn" => String.t() | atom()
       }
       
   """
-  @type create_mlflow_tracking_server_response() :: %{String.t() => any()}
+  @type create_mlflow_tracking_server_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14893,11 +14905,11 @@ defmodule AWS.SageMaker do
         optional("SourceIpConfig") => source_ip_config(),
         optional("Tags") => list(tag()),
         optional("WorkforceVpcConfig") => workforce_vpc_config_request(),
-        required("WorkforceName") => String.t()
+        required("WorkforceName") => String.t() | atom()
       }
       
   """
-  @type create_workforce_request() :: %{String.t() => any()}
+  @type create_workforce_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14905,12 +14917,12 @@ defmodule AWS.SageMaker do
       
       list_tags_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ResourceArn") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type list_tags_input() :: %{String.t() => any()}
+  @type list_tags_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14922,68 +14934,68 @@ defmodule AWS.SageMaker do
         optional("LastModifiedTimeAfter") => non_neg_integer(),
         optional("LastModifiedTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
         optional("StatusEquals") => list(any())
       }
       
   """
-  @type list_labeling_jobs_request() :: %{String.t() => any()}
+  @type list_labeling_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       context_summary() :: %{
-        "ContextArn" => String.t(),
-        "ContextName" => String.t(),
-        "ContextType" => String.t(),
+        "ContextArn" => String.t() | atom(),
+        "ContextName" => String.t() | atom(),
+        "ContextType" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
         "LastModifiedTime" => non_neg_integer(),
         "Source" => context_source()
       }
       
   """
-  @type context_summary() :: %{String.t() => any()}
+  @type context_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       auto_ml_job_artifacts() :: %{
-        "CandidateDefinitionNotebookLocation" => String.t(),
-        "DataExplorationNotebookLocation" => String.t()
+        "CandidateDefinitionNotebookLocation" => String.t() | atom(),
+        "DataExplorationNotebookLocation" => String.t() | atom()
       }
       
   """
-  @type auto_ml_job_artifacts() :: %{String.t() => any()}
+  @type auto_ml_job_artifacts() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_model_package_group_policy_input() :: %{
-        required("ModelPackageGroupName") => String.t(),
-        required("ResourcePolicy") => String.t()
+        required("ModelPackageGroupName") => String.t() | atom(),
+        required("ResourcePolicy") => String.t() | atom()
       }
       
   """
-  @type put_model_package_group_policy_input() :: %{String.t() => any()}
+  @type put_model_package_group_policy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_domain_response() :: %{
-        "DomainArn" => String.t(),
-        "DomainId" => String.t(),
-        "Url" => String.t()
+        "DomainArn" => String.t() | atom(),
+        "DomainId" => String.t() | atom(),
+        "Url" => String.t() | atom()
       }
       
   """
-  @type create_domain_response() :: %{String.t() => any()}
+  @type create_domain_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14991,15 +15003,17 @@ defmodule AWS.SageMaker do
       
       list_training_jobs_for_hyper_parameter_tuning_job_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
         optional("StatusEquals") => list(any()),
-        required("HyperParameterTuningJobName") => String.t()
+        required("HyperParameterTuningJobName") => String.t() | atom()
       }
       
   """
-  @type list_training_jobs_for_hyper_parameter_tuning_job_request() :: %{String.t() => any()}
+  @type list_training_jobs_for_hyper_parameter_tuning_job_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -15007,12 +15021,12 @@ defmodule AWS.SageMaker do
       
       create_code_repository_input() :: %{
         optional("Tags") => list(tag()),
-        required("CodeRepositoryName") => String.t(),
+        required("CodeRepositoryName") => String.t() | atom(),
         required("GitConfig") => git_config()
       }
       
   """
-  @type create_code_repository_input() :: %{String.t() => any()}
+  @type create_code_repository_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15024,7 +15038,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type deployment_recommendation() :: %{String.t() => any()}
+  @type deployment_recommendation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15032,11 +15046,11 @@ defmodule AWS.SageMaker do
       
       update_inference_component_runtime_config_input() :: %{
         required("DesiredRuntimeConfig") => inference_component_runtime_config(),
-        required("InferenceComponentName") => String.t()
+        required("InferenceComponentName") => String.t() | atom()
       }
       
   """
-  @type update_inference_component_runtime_config_input() :: %{String.t() => any()}
+  @type update_inference_component_runtime_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15044,20 +15058,20 @@ defmodule AWS.SageMaker do
       
       update_endpoint_weights_and_capacities_input() :: %{
         required("DesiredWeightsAndCapacities") => list(desired_weight_and_capacity()),
-        required("EndpointName") => String.t()
+        required("EndpointName") => String.t() | atom()
       }
       
   """
-  @type update_endpoint_weights_and_capacities_input() :: %{String.t() => any()}
+  @type update_endpoint_weights_and_capacities_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       channel() :: %{
-        "ChannelName" => String.t(),
+        "ChannelName" => String.t() | atom(),
         "CompressionType" => list(any()),
-        "ContentType" => String.t(),
+        "ContentType" => String.t() | atom(),
         "DataSource" => data_source(),
         "InputMode" => list(any()),
         "RecordWrapperType" => list(any()),
@@ -15065,20 +15079,20 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type channel() :: %{String.t() => any()}
+  @type channel() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       send_pipeline_execution_step_success_request() :: %{
-        optional("ClientRequestToken") => String.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
         optional("OutputParameters") => list(output_parameter()),
-        required("CallbackToken") => String.t()
+        required("CallbackToken") => String.t() | atom()
       }
       
   """
-  @type send_pipeline_execution_step_success_request() :: %{String.t() => any()}
+  @type send_pipeline_execution_step_success_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15096,34 +15110,34 @@ defmodule AWS.SageMaker do
       update_notebook_instance_lifecycle_config_input() :: %{
         optional("OnCreate") => list(notebook_instance_lifecycle_hook()),
         optional("OnStart") => list(notebook_instance_lifecycle_hook()),
-        required("NotebookInstanceLifecycleConfigName") => String.t()
+        required("NotebookInstanceLifecycleConfigName") => String.t() | atom()
       }
       
   """
-  @type update_notebook_instance_lifecycle_config_input() :: %{String.t() => any()}
+  @type update_notebook_instance_lifecycle_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_notebook_instance_input() :: %{
-        required("NotebookInstanceName") => String.t()
+        required("NotebookInstanceName") => String.t() | atom()
       }
       
   """
-  @type start_notebook_instance_input() :: %{String.t() => any()}
+  @type start_notebook_instance_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_pipeline_version_response() :: %{
-        "PipelineArn" => String.t(),
+        "PipelineArn" => String.t() | atom(),
         "PipelineVersionId" => float()
       }
       
   """
-  @type update_pipeline_version_response() :: %{String.t() => any()}
+  @type update_pipeline_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15134,18 +15148,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type update_workforce_response() :: %{String.t() => any()}
+  @type update_workforce_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_code_repository_input() :: %{
-        required("CodeRepositoryName") => String.t()
+        required("CodeRepositoryName") => String.t() | atom()
       }
       
   """
-  @type describe_code_repository_input() :: %{String.t() => any()}
+  @type describe_code_repository_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15154,107 +15168,107 @@ defmodule AWS.SageMaker do
       batch_delete_cluster_nodes_response() :: %{
         "Failed" => list(batch_delete_cluster_nodes_error()),
         "FailedNodeLogicalIds" => list(batch_delete_cluster_node_logical_ids_error()),
-        "Successful" => list(String.t()),
-        "SuccessfulNodeLogicalIds" => list(String.t())
+        "Successful" => list(String.t() | atom()),
+        "SuccessfulNodeLogicalIds" => list(String.t() | atom())
       }
       
   """
-  @type batch_delete_cluster_nodes_response() :: %{String.t() => any()}
+  @type batch_delete_cluster_nodes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_model_package_group_policy_output() :: %{
-        "ModelPackageGroupArn" => String.t()
+        "ModelPackageGroupArn" => String.t() | atom()
       }
       
   """
-  @type put_model_package_group_policy_output() :: %{String.t() => any()}
+  @type put_model_package_group_policy_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cognito_member_definition() :: %{
-        "ClientId" => String.t(),
-        "UserGroup" => String.t(),
-        "UserPool" => String.t()
+        "ClientId" => String.t() | atom(),
+        "UserGroup" => String.t() | atom(),
+        "UserPool" => String.t() | atom()
       }
       
   """
-  @type cognito_member_definition() :: %{String.t() => any()}
+  @type cognito_member_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_delete_cluster_nodes_request() :: %{
-        optional("NodeIds") => list(String.t()),
-        optional("NodeLogicalIds") => list(String.t()),
-        required("ClusterName") => String.t()
+        optional("NodeIds") => list(String.t() | atom()),
+        optional("NodeLogicalIds") => list(String.t() | atom()),
+        required("ClusterName") => String.t() | atom()
       }
       
   """
-  @type batch_delete_cluster_nodes_request() :: %{String.t() => any()}
+  @type batch_delete_cluster_nodes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_life_cycle_config() :: %{
-        "OnCreate" => String.t(),
-        "SourceS3Uri" => String.t()
+        "OnCreate" => String.t() | atom(),
+        "SourceS3Uri" => String.t() | atom()
       }
       
   """
-  @type cluster_life_cycle_config() :: %{String.t() => any()}
+  @type cluster_life_cycle_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       labeling_job_s3_data_source() :: %{
-        "ManifestS3Uri" => String.t()
+        "ManifestS3Uri" => String.t() | atom()
       }
       
   """
-  @type labeling_job_s3_data_source() :: %{String.t() => any()}
+  @type labeling_job_s3_data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       candidate_artifact_locations() :: %{
-        "BacktestResults" => String.t(),
-        "Explainability" => String.t(),
-        "ModelInsights" => String.t()
+        "BacktestResults" => String.t() | atom(),
+        "Explainability" => String.t() | atom(),
+        "ModelInsights" => String.t() | atom()
       }
       
   """
-  @type candidate_artifact_locations() :: %{String.t() => any()}
+  @type candidate_artifact_locations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_model_package_group_policy_output() :: %{
-        "ResourcePolicy" => String.t()
+        "ResourcePolicy" => String.t() | atom()
       }
       
   """
-  @type get_model_package_group_policy_output() :: %{String.t() => any()}
+  @type get_model_package_group_policy_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_mlflow_tracking_server_request() :: %{
-        required("TrackingServerName") => String.t()
+        required("TrackingServerName") => String.t() | atom()
       }
       
   """
-  @type describe_mlflow_tracking_server_request() :: %{String.t() => any()}
+  @type describe_mlflow_tracking_server_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15270,31 +15284,31 @@ defmodule AWS.SageMaker do
   ## Example:
       
       subscribed_workteam() :: %{
-        "ListingId" => String.t(),
-        "MarketplaceDescription" => String.t(),
-        "MarketplaceTitle" => String.t(),
-        "SellerName" => String.t(),
-        "WorkteamArn" => String.t()
+        "ListingId" => String.t() | atom(),
+        "MarketplaceDescription" => String.t() | atom(),
+        "MarketplaceTitle" => String.t() | atom(),
+        "SellerName" => String.t() | atom(),
+        "WorkteamArn" => String.t() | atom()
       }
       
   """
-  @type subscribed_workteam() :: %{String.t() => any()}
+  @type subscribed_workteam() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_hub_request() :: %{
-        optional("HubDisplayName") => String.t(),
-        optional("HubSearchKeywords") => list(String.t()),
+        optional("HubDisplayName") => String.t() | atom(),
+        optional("HubSearchKeywords") => list(String.t() | atom()),
         optional("S3StorageConfig") => hub_s3_storage_config(),
         optional("Tags") => list(tag()),
-        required("HubDescription") => String.t(),
-        required("HubName") => String.t()
+        required("HubDescription") => String.t() | atom(),
+        required("HubName") => String.t() | atom()
       }
       
   """
-  @type create_hub_request() :: %{String.t() => any()}
+  @type create_hub_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15309,18 +15323,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type auto_ml_job_config() :: %{String.t() => any()}
+  @type auto_ml_job_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       e_f_s_file_system() :: %{
-        "FileSystemId" => String.t()
+        "FileSystemId" => String.t() | atom()
       }
       
   """
-  @type e_f_s_file_system() :: %{String.t() => any()}
+  @type e_f_s_file_system() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15329,18 +15343,18 @@ defmodule AWS.SageMaker do
       describe_model_card_export_job_response() :: %{
         "CreatedAt" => non_neg_integer(),
         "ExportArtifacts" => model_card_export_artifacts(),
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | atom(),
         "LastModifiedAt" => non_neg_integer(),
-        "ModelCardExportJobArn" => String.t(),
-        "ModelCardExportJobName" => String.t(),
-        "ModelCardName" => String.t(),
+        "ModelCardExportJobArn" => String.t() | atom(),
+        "ModelCardExportJobName" => String.t() | atom(),
+        "ModelCardName" => String.t() | atom(),
         "ModelCardVersion" => integer(),
         "OutputConfig" => model_card_export_output_config(),
         "Status" => list(any())
       }
       
   """
-  @type describe_model_card_export_job_response() :: %{String.t() => any()}
+  @type describe_model_card_export_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15352,29 +15366,29 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type inference_metrics() :: %{String.t() => any()}
+  @type inference_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_partner_app_response() :: %{
-        "Arn" => String.t()
+        "Arn" => String.t() | atom()
       }
       
   """
-  @type create_partner_app_response() :: %{String.t() => any()}
+  @type create_partner_app_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_mlflow_tracking_server_response() :: %{
-        "TrackingServerArn" => String.t()
+        "TrackingServerArn" => String.t() | atom()
       }
       
   """
-  @type stop_mlflow_tracking_server_response() :: %{String.t() => any()}
+  @type stop_mlflow_tracking_server_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15382,38 +15396,38 @@ defmodule AWS.SageMaker do
       
       list_pipeline_parameters_for_execution_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("PipelineExecutionArn") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("PipelineExecutionArn") => String.t() | atom()
       }
       
   """
-  @type list_pipeline_parameters_for_execution_request() :: %{String.t() => any()}
+  @type list_pipeline_parameters_for_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       callback_step_metadata() :: %{
-        "CallbackToken" => String.t(),
+        "CallbackToken" => String.t() | atom(),
         "OutputParameters" => list(output_parameter()),
-        "SqsQueueUrl" => String.t()
+        "SqsQueueUrl" => String.t() | atom()
       }
       
   """
-  @type callback_step_metadata() :: %{String.t() => any()}
+  @type callback_step_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       inference_component_container_specification() :: %{
-        "ArtifactUrl" => String.t(),
+        "ArtifactUrl" => String.t() | atom(),
         "Environment" => map(),
-        "Image" => String.t()
+        "Image" => String.t() | atom()
       }
       
   """
-  @type inference_component_container_specification() :: %{String.t() => any()}
+  @type inference_component_container_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15421,69 +15435,69 @@ defmodule AWS.SageMaker do
       
       resource_spec() :: %{
         "InstanceType" => list(any()),
-        "LifecycleConfigArn" => String.t(),
-        "SageMakerImageArn" => String.t(),
-        "SageMakerImageVersionAlias" => String.t(),
-        "SageMakerImageVersionArn" => String.t()
+        "LifecycleConfigArn" => String.t() | atom(),
+        "SageMakerImageArn" => String.t() | atom(),
+        "SageMakerImageVersionAlias" => String.t() | atom(),
+        "SageMakerImageVersionArn" => String.t() | atom()
       }
       
   """
-  @type resource_spec() :: %{String.t() => any()}
+  @type resource_spec() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_project_input() :: %{
-        required("ProjectName") => String.t()
+        required("ProjectName") => String.t() | atom()
       }
       
   """
-  @type delete_project_input() :: %{String.t() => any()}
+  @type delete_project_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_transform_job_response() :: %{
-        "TransformJobArn" => String.t()
+        "TransformJobArn" => String.t() | atom()
       }
       
   """
-  @type create_transform_job_response() :: %{String.t() => any()}
+  @type create_transform_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_processing_job_response() :: %{
-        "ProcessingJobArn" => String.t()
+        "ProcessingJobArn" => String.t() | atom()
       }
       
   """
-  @type create_processing_job_response() :: %{String.t() => any()}
+  @type create_processing_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       transform_job_step_metadata() :: %{
-        "Arn" => String.t()
+        "Arn" => String.t() | atom()
       }
       
   """
-  @type transform_job_step_metadata() :: %{String.t() => any()}
+  @type transform_job_step_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_deploy_result() :: %{
-        "EndpointName" => String.t()
+        "EndpointName" => String.t() | atom()
       }
       
   """
-  @type model_deploy_result() :: %{String.t() => any()}
+  @type model_deploy_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15491,11 +15505,11 @@ defmodule AWS.SageMaker do
       
       hidden_sage_maker_image() :: %{
         "SageMakerImageName" => list(any()),
-        "VersionAliases" => list(String.t())
+        "VersionAliases" => list(String.t() | atom())
       }
       
   """
-  @type hidden_sage_maker_image() :: %{String.t() => any()}
+  @type hidden_sage_maker_image() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15505,11 +15519,11 @@ defmodule AWS.SageMaker do
         optional("DeploymentConfig") => inference_component_deployment_config(),
         optional("RuntimeConfig") => inference_component_runtime_config(),
         optional("Specification") => inference_component_specification(),
-        required("InferenceComponentName") => String.t()
+        required("InferenceComponentName") => String.t() | atom()
       }
       
   """
-  @type update_inference_component_input() :: %{String.t() => any()}
+  @type update_inference_component_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15518,12 +15532,12 @@ defmodule AWS.SageMaker do
       debug_hook_config() :: %{
         "CollectionConfigurations" => list(collection_configuration()),
         "HookParameters" => map(),
-        "LocalPath" => String.t(),
-        "S3OutputPath" => String.t()
+        "LocalPath" => String.t() | atom(),
+        "S3OutputPath" => String.t() | atom()
       }
       
   """
-  @type debug_hook_config() :: %{String.t() => any()}
+  @type debug_hook_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15535,7 +15549,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type endpoint_performance() :: %{String.t() => any()}
+  @type endpoint_performance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15543,11 +15557,11 @@ defmodule AWS.SageMaker do
       
       describe_cluster_scheduler_config_request() :: %{
         optional("ClusterSchedulerConfigVersion") => integer(),
-        required("ClusterSchedulerConfigId") => String.t()
+        required("ClusterSchedulerConfigId") => String.t() | atom()
       }
       
   """
-  @type describe_cluster_scheduler_config_request() :: %{String.t() => any()}
+  @type describe_cluster_scheduler_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15560,22 +15574,22 @@ defmodule AWS.SageMaker do
         "ModifiedAfter" => non_neg_integer(),
         "ModifiedBefore" => non_neg_integer(),
         "Properties" => map(),
-        "Types" => list(String.t())
+        "Types" => list(String.t() | atom())
       }
       
   """
-  @type query_filters() :: %{String.t() => any()}
+  @type query_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_context_response() :: %{
-        "ContextArn" => String.t()
+        "ContextArn" => String.t() | atom()
       }
       
   """
-  @type delete_context_response() :: %{String.t() => any()}
+  @type delete_context_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15586,7 +15600,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type retry_strategy() :: %{String.t() => any()}
+  @type retry_strategy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15595,11 +15609,11 @@ defmodule AWS.SageMaker do
       production_variant_status() :: %{
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
-        "StatusMessage" => String.t()
+        "StatusMessage" => String.t() | atom()
       }
       
   """
-  @type production_variant_status() :: %{String.t() => any()}
+  @type production_variant_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15607,30 +15621,30 @@ defmodule AWS.SageMaker do
       
       oidc_config_for_response() :: %{
         "AuthenticationRequestExtraParams" => map(),
-        "AuthorizationEndpoint" => String.t(),
-        "ClientId" => String.t(),
-        "Issuer" => String.t(),
-        "JwksUri" => String.t(),
-        "LogoutEndpoint" => String.t(),
-        "Scope" => String.t(),
-        "TokenEndpoint" => String.t(),
-        "UserInfoEndpoint" => String.t()
+        "AuthorizationEndpoint" => String.t() | atom(),
+        "ClientId" => String.t() | atom(),
+        "Issuer" => String.t() | atom(),
+        "JwksUri" => String.t() | atom(),
+        "LogoutEndpoint" => String.t() | atom(),
+        "Scope" => String.t() | atom(),
+        "TokenEndpoint" => String.t() | atom(),
+        "UserInfoEndpoint" => String.t() | atom()
       }
       
   """
-  @type oidc_config_for_response() :: %{String.t() => any()}
+  @type oidc_config_for_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       monitoring_output_config() :: %{
-        "KmsKeyId" => String.t(),
+        "KmsKeyId" => String.t() | atom(),
         "MonitoringOutputs" => list(monitoring_output())
       }
       
   """
-  @type monitoring_output_config() :: %{String.t() => any()}
+  @type monitoring_output_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15640,16 +15654,16 @@ defmodule AWS.SageMaker do
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("MonitoringAlertName") => String.t(),
-        optional("MonitoringScheduleName") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("MonitoringAlertName") => String.t() | atom(),
+        optional("MonitoringScheduleName") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
         optional("StatusEquals") => list(any())
       }
       
   """
-  @type list_monitoring_alert_history_request() :: %{String.t() => any()}
+  @type list_monitoring_alert_history_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15657,25 +15671,25 @@ defmodule AWS.SageMaker do
       
       feature_group() :: %{
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "EventTimeFeatureName" => String.t(),
-        "FailureReason" => String.t(),
+        "Description" => String.t() | atom(),
+        "EventTimeFeatureName" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
         "FeatureDefinitions" => list(feature_definition()),
-        "FeatureGroupArn" => String.t(),
-        "FeatureGroupName" => String.t(),
+        "FeatureGroupArn" => String.t() | atom(),
+        "FeatureGroupName" => String.t() | atom(),
         "FeatureGroupStatus" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
         "LastUpdateStatus" => last_update_status(),
         "OfflineStoreConfig" => offline_store_config(),
         "OfflineStoreStatus" => offline_store_status(),
         "OnlineStoreConfig" => online_store_config(),
-        "RecordIdentifierFeatureName" => String.t(),
-        "RoleArn" => String.t(),
+        "RecordIdentifierFeatureName" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
         "Tags" => list(tag())
       }
       
   """
-  @type feature_group() :: %{String.t() => any()}
+  @type feature_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15687,7 +15701,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type model_client_config() :: %{String.t() => any()}
+  @type model_client_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15695,12 +15709,12 @@ defmodule AWS.SageMaker do
       
       output_data_config() :: %{
         "CompressionType" => list(any()),
-        "KmsKeyId" => String.t(),
-        "S3OutputPath" => String.t()
+        "KmsKeyId" => String.t() | atom(),
+        "S3OutputPath" => String.t() | atom()
       }
       
   """
-  @type output_data_config() :: %{String.t() => any()}
+  @type output_data_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15711,26 +15725,26 @@ defmodule AWS.SageMaker do
         "CreationTime" => non_neg_integer(),
         "DeploymentRecommendation" => deployment_recommendation(),
         "EnableNetworkIsolation" => boolean(),
-        "ExecutionRoleArn" => String.t(),
+        "ExecutionRoleArn" => String.t() | atom(),
         "InferenceExecutionConfig" => inference_execution_config(),
-        "ModelArn" => String.t(),
-        "ModelName" => String.t(),
+        "ModelArn" => String.t() | atom(),
+        "ModelName" => String.t() | atom(),
         "PrimaryContainer" => container_definition(),
         "VpcConfig" => vpc_config()
       }
       
   """
-  @type describe_model_output() :: %{String.t() => any()}
+  @type describe_model_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_instance_group_specification() :: %{
-        "ExecutionRole" => String.t(),
-        "ImageId" => String.t(),
+        "ExecutionRole" => String.t() | atom(),
+        "ImageId" => String.t() | atom(),
         "InstanceCount" => integer(),
-        "InstanceGroupName" => String.t(),
+        "InstanceGroupName" => String.t() | atom(),
         "InstanceStorageConfigs" => list(list()),
         "InstanceType" => list(any()),
         "LifeCycleConfig" => cluster_life_cycle_config(),
@@ -15738,68 +15752,68 @@ defmodule AWS.SageMaker do
         "OverrideVpcConfig" => vpc_config(),
         "ScheduledUpdateConfig" => scheduled_update_config(),
         "ThreadsPerCore" => integer(),
-        "TrainingPlanArn" => String.t()
+        "TrainingPlanArn" => String.t() | atom()
       }
       
   """
-  @type cluster_instance_group_specification() :: %{String.t() => any()}
+  @type cluster_instance_group_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       node_addition_result() :: %{
-        "InstanceGroupName" => String.t(),
-        "NodeLogicalId" => String.t(),
+        "InstanceGroupName" => String.t() | atom(),
+        "NodeLogicalId" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type node_addition_result() :: %{String.t() => any()}
+  @type node_addition_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       edge_model_summary() :: %{
-        "ModelName" => String.t(),
-        "ModelVersion" => String.t()
+        "ModelName" => String.t() | atom(),
+        "ModelVersion" => String.t() | atom()
       }
       
   """
-  @type edge_model_summary() :: %{String.t() => any()}
+  @type edge_model_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_hub_content_reference_request() :: %{
-        optional("HubContentName") => String.t(),
-        optional("MinVersion") => String.t(),
+        optional("HubContentName") => String.t() | atom(),
+        optional("MinVersion") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("HubName") => String.t(),
-        required("SageMakerPublicHubContentArn") => String.t()
+        required("HubName") => String.t() | atom(),
+        required("SageMakerPublicHubContentArn") => String.t() | atom()
       }
       
   """
-  @type create_hub_content_reference_request() :: %{String.t() => any()}
+  @type create_hub_content_reference_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_apps_request() :: %{
-        optional("DomainIdEquals") => String.t(),
+        optional("DomainIdEquals") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
-        optional("SpaceNameEquals") => String.t(),
-        optional("UserProfileNameEquals") => String.t()
+        optional("SpaceNameEquals") => String.t() | atom(),
+        optional("UserProfileNameEquals") => String.t() | atom()
       }
       
   """
-  @type list_apps_request() :: %{String.t() => any()}
+  @type list_apps_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15808,8 +15822,8 @@ defmodule AWS.SageMaker do
       cluster_restricted_instance_group_details() :: %{
         "CurrentCount" => integer(),
         "EnvironmentConfig" => environment_config_details(),
-        "ExecutionRole" => String.t(),
-        "InstanceGroupName" => String.t(),
+        "ExecutionRole" => String.t() | atom(),
+        "InstanceGroupName" => String.t() | atom(),
         "InstanceStorageConfigs" => list(list()),
         "InstanceType" => list(any()),
         "OnStartDeepHealthChecks" => list(list(any())()),
@@ -15818,23 +15832,23 @@ defmodule AWS.SageMaker do
         "Status" => list(any()),
         "TargetCount" => integer(),
         "ThreadsPerCore" => integer(),
-        "TrainingPlanArn" => String.t(),
-        "TrainingPlanStatus" => String.t()
+        "TrainingPlanArn" => String.t() | atom(),
+        "TrainingPlanStatus" => String.t() | atom()
       }
       
   """
-  @type cluster_restricted_instance_group_details() :: %{String.t() => any()}
+  @type cluster_restricted_instance_group_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_optimization_job_request() :: %{
-        required("OptimizationJobName") => String.t()
+        required("OptimizationJobName") => String.t() | atom()
       }
       
   """
-  @type stop_optimization_job_request() :: %{String.t() => any()}
+  @type stop_optimization_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15844,24 +15858,24 @@ defmodule AWS.SageMaker do
         "DeploymentConfig" => edge_deployment_config(),
         "DeploymentStatus" => edge_deployment_status(),
         "DeviceSelectionConfig" => device_selection_config(),
-        "StageName" => String.t()
+        "StageName" => String.t() | atom()
       }
       
   """
-  @type deployment_stage_status_summary() :: %{String.t() => any()}
+  @type deployment_stage_status_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       git_config() :: %{
-        "Branch" => String.t(),
-        "RepositoryUrl" => String.t(),
-        "SecretArn" => String.t()
+        "Branch" => String.t() | atom(),
+        "RepositoryUrl" => String.t() | atom(),
+        "SecretArn" => String.t() | atom()
       }
       
   """
-  @type git_config() :: %{String.t() => any()}
+  @type git_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15869,24 +15883,24 @@ defmodule AWS.SageMaker do
       
       nested_filters() :: %{
         "Filters" => list(filter()),
-        "NestedPropertyName" => String.t()
+        "NestedPropertyName" => String.t() | atom()
       }
       
   """
-  @type nested_filters() :: %{String.t() => any()}
+  @type nested_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       search_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Results" => list(search_record()),
         "TotalHits" => total_hits()
       }
       
   """
-  @type search_response() :: %{String.t() => any()}
+  @type search_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15897,37 +15911,37 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type edge_deployment_config() :: %{String.t() => any()}
+  @type edge_deployment_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       device_selection_config() :: %{
-        "DeviceNameContains" => String.t(),
-        "DeviceNames" => list(String.t()),
+        "DeviceNameContains" => String.t() | atom(),
+        "DeviceNames" => list(String.t() | atom()),
         "DeviceSubsetType" => list(any()),
         "Percentage" => integer()
       }
       
   """
-  @type device_selection_config() :: %{String.t() => any()}
+  @type device_selection_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_context_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("Properties") => map(),
         optional("Tags") => list(tag()),
-        required("ContextName") => String.t(),
-        required("ContextType") => String.t(),
+        required("ContextName") => String.t() | atom(),
+        required("ContextType") => String.t() | atom(),
         required("Source") => context_source()
       }
       
   """
-  @type create_context_request() :: %{String.t() => any()}
+  @type create_context_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15938,24 +15952,24 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type worker_access_configuration() :: %{String.t() => any()}
+  @type worker_access_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_algorithm_input() :: %{
-        optional("AlgorithmDescription") => String.t(),
+        optional("AlgorithmDescription") => String.t() | atom(),
         optional("CertifyForMarketplace") => boolean(),
         optional("InferenceSpecification") => inference_specification(),
         optional("Tags") => list(tag()),
         optional("ValidationSpecification") => algorithm_validation_specification(),
-        required("AlgorithmName") => String.t(),
+        required("AlgorithmName") => String.t() | atom(),
         required("TrainingSpecification") => training_specification()
       }
       
   """
-  @type create_algorithm_input() :: %{String.t() => any()}
+  @type create_algorithm_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15968,19 +15982,19 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type stairs() :: %{String.t() => any()}
+  @type stairs() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_describe_model_package_error() :: %{
-        "ErrorCode" => String.t(),
-        "ErrorResponse" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "ErrorResponse" => String.t() | atom()
       }
       
   """
-  @type batch_describe_model_package_error() :: %{String.t() => any()}
+  @type batch_describe_model_package_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15989,27 +16003,27 @@ defmodule AWS.SageMaker do
       list_data_quality_job_definitions_request() :: %{
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
-        optional("EndpointName") => String.t(),
+        optional("EndpointName") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_data_quality_job_definitions_request() :: %{String.t() => any()}
+  @type list_data_quality_job_definitions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_model_card_response() :: %{
-        "ModelCardArn" => String.t()
+        "ModelCardArn" => String.t() | atom()
       }
       
   """
-  @type create_model_card_response() :: %{String.t() => any()}
+  @type create_model_card_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16022,14 +16036,14 @@ defmodule AWS.SageMaker do
         optional("ModelDeployConfig") => model_deploy_config(),
         optional("ProblemType") => list(any()),
         optional("Tags") => list(tag()),
-        required("AutoMLJobName") => String.t(),
+        required("AutoMLJobName") => String.t() | atom(),
         required("InputDataConfig") => list(auto_ml_channel()),
         required("OutputDataConfig") => auto_ml_output_data_config(),
-        required("RoleArn") => String.t()
+        required("RoleArn") => String.t() | atom()
       }
       
   """
-  @type create_auto_ml_job_request() :: %{String.t() => any()}
+  @type create_auto_ml_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16038,12 +16052,12 @@ defmodule AWS.SageMaker do
       notebook_instance_lifecycle_config_summary() :: %{
         "CreationTime" => non_neg_integer(),
         "LastModifiedTime" => non_neg_integer(),
-        "NotebookInstanceLifecycleConfigArn" => String.t(),
-        "NotebookInstanceLifecycleConfigName" => String.t()
+        "NotebookInstanceLifecycleConfigArn" => String.t() | atom(),
+        "NotebookInstanceLifecycleConfigName" => String.t() | atom()
       }
       
   """
-  @type notebook_instance_lifecycle_config_summary() :: %{String.t() => any()}
+  @type notebook_instance_lifecycle_config_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16051,11 +16065,11 @@ defmodule AWS.SageMaker do
       
       list_model_card_export_jobs_response() :: %{
         "ModelCardExportJobSummaries" => list(model_card_export_job_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_model_card_export_jobs_response() :: %{String.t() => any()}
+  @type list_model_card_export_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16063,12 +16077,12 @@ defmodule AWS.SageMaker do
       
       list_monitoring_alerts_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("MonitoringScheduleName") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("MonitoringScheduleName") => String.t() | atom()
       }
       
   """
-  @type list_monitoring_alerts_request() :: %{String.t() => any()}
+  @type list_monitoring_alerts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16076,11 +16090,11 @@ defmodule AWS.SageMaker do
       
       describe_compute_quota_request() :: %{
         optional("ComputeQuotaVersion") => integer(),
-        required("ComputeQuotaId") => String.t()
+        required("ComputeQuotaId") => String.t() | atom()
       }
       
   """
-  @type describe_compute_quota_request() :: %{String.t() => any()}
+  @type describe_compute_quota_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16091,7 +16105,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type tabular_resolved_attributes() :: %{String.t() => any()}
+  @type tabular_resolved_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16102,18 +16116,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type space_sharing_settings() :: %{String.t() => any()}
+  @type space_sharing_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ownership_settings_summary() :: %{
-        "OwnerUserProfileName" => String.t()
+        "OwnerUserProfileName" => String.t() | atom()
       }
       
   """
-  @type ownership_settings_summary() :: %{String.t() => any()}
+  @type ownership_settings_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16125,19 +16139,19 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type default_ebs_storage_settings() :: %{String.t() => any()}
+  @type default_ebs_storage_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       emr_settings() :: %{
-        "AssumableRoleArns" => list(String.t()),
-        "ExecutionRoleArns" => list(String.t())
+        "AssumableRoleArns" => list(String.t() | atom()),
+        "ExecutionRoleArns" => list(String.t() | atom())
       }
       
   """
-  @type emr_settings() :: %{String.t() => any()}
+  @type emr_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16145,44 +16159,44 @@ defmodule AWS.SageMaker do
       
       list_cluster_nodes_response() :: %{
         "ClusterNodeSummaries" => list(cluster_node_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_cluster_nodes_response() :: %{String.t() => any()}
+  @type list_cluster_nodes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_inference_experiment_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type start_inference_experiment_request() :: %{String.t() => any()}
+  @type start_inference_experiment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_model_quality_job_definition_request() :: %{
-        required("JobDefinitionName") => String.t()
+        required("JobDefinitionName") => String.t() | atom()
       }
       
   """
-  @type delete_model_quality_job_definition_request() :: %{String.t() => any()}
+  @type delete_model_quality_job_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_labeling_job_request() :: %{
-        required("LabelingJobName") => String.t()
+        required("LabelingJobName") => String.t() | atom()
       }
       
   """
-  @type stop_labeling_job_request() :: %{String.t() => any()}
+  @type stop_labeling_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16190,37 +16204,37 @@ defmodule AWS.SageMaker do
       
       list_model_package_groups_output() :: %{
         "ModelPackageGroupSummaryList" => list(model_package_group_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_model_package_groups_output() :: %{String.t() => any()}
+  @type list_model_package_groups_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_bias_baseline_config() :: %{
-        "BaseliningJobName" => String.t(),
+        "BaseliningJobName" => String.t() | atom(),
         "ConstraintsResource" => monitoring_constraints_resource()
       }
       
   """
-  @type model_bias_baseline_config() :: %{String.t() => any()}
+  @type model_bias_baseline_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       user_context() :: %{
-        "DomainId" => String.t(),
+        "DomainId" => String.t() | atom(),
         "IamIdentity" => iam_identity(),
-        "UserProfileArn" => String.t(),
-        "UserProfileName" => String.t()
+        "UserProfileArn" => String.t() | atom(),
+        "UserProfileName" => String.t() | atom()
       }
       
   """
-  @type user_context() :: %{String.t() => any()}
+  @type user_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16231,18 +16245,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type update_template_provider() :: %{String.t() => any()}
+  @type update_template_provider() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_model_package_group_input() :: %{
-        required("ModelPackageGroupName") => String.t()
+        required("ModelPackageGroupName") => String.t() | atom()
       }
       
   """
-  @type delete_model_package_group_input() :: %{String.t() => any()}
+  @type delete_model_package_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16251,44 +16265,44 @@ defmodule AWS.SageMaker do
       model_dashboard_monitoring_schedule() :: %{
         "BatchTransformInput" => batch_transform_input(),
         "CreationTime" => non_neg_integer(),
-        "EndpointName" => String.t(),
-        "FailureReason" => String.t(),
+        "EndpointName" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
         "LastMonitoringExecutionSummary" => monitoring_execution_summary(),
         "MonitoringAlertSummaries" => list(monitoring_alert_summary()),
-        "MonitoringScheduleArn" => String.t(),
+        "MonitoringScheduleArn" => String.t() | atom(),
         "MonitoringScheduleConfig" => monitoring_schedule_config(),
-        "MonitoringScheduleName" => String.t(),
+        "MonitoringScheduleName" => String.t() | atom(),
         "MonitoringScheduleStatus" => list(any()),
         "MonitoringType" => list(any())
       }
       
   """
-  @type model_dashboard_monitoring_schedule() :: %{String.t() => any()}
+  @type model_dashboard_monitoring_schedule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cfn_stack_detail() :: %{
-        "Id" => String.t(),
-        "Name" => String.t(),
-        "StatusMessage" => String.t()
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom()
       }
       
   """
-  @type cfn_stack_detail() :: %{String.t() => any()}
+  @type cfn_stack_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_compilation_job_request() :: %{
-        required("CompilationJobName") => String.t()
+        required("CompilationJobName") => String.t() | atom()
       }
       
   """
-  @type stop_compilation_job_request() :: %{String.t() => any()}
+  @type stop_compilation_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16298,14 +16312,14 @@ defmodule AWS.SageMaker do
         "CreationTime" => non_neg_integer(),
         "IsActive" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
-        "MlflowVersion" => String.t(),
-        "TrackingServerArn" => String.t(),
-        "TrackingServerName" => String.t(),
+        "MlflowVersion" => String.t() | atom(),
+        "TrackingServerArn" => String.t() | atom(),
+        "TrackingServerName" => String.t() | atom(),
         "TrackingServerStatus" => list(any())
       }
       
   """
-  @type tracking_server_summary() :: %{String.t() => any()}
+  @type tracking_server_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16313,9 +16327,9 @@ defmodule AWS.SageMaker do
       
       get_device_fleet_report_response() :: %{
         "AgentVersions" => list(agent_version()),
-        "Description" => String.t(),
-        "DeviceFleetArn" => String.t(),
-        "DeviceFleetName" => String.t(),
+        "Description" => String.t() | atom(),
+        "DeviceFleetArn" => String.t() | atom(),
+        "DeviceFleetName" => String.t() | atom(),
         "DeviceStats" => device_stats(),
         "ModelStats" => list(edge_model_stat()),
         "OutputConfig" => edge_output_config(),
@@ -16323,7 +16337,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type get_device_fleet_report_response() :: %{String.t() => any()}
+  @type get_device_fleet_report_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16331,27 +16345,27 @@ defmodule AWS.SageMaker do
       
       transform_job_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
         "TransformEndTime" => non_neg_integer(),
-        "TransformJobArn" => String.t(),
-        "TransformJobName" => String.t(),
+        "TransformJobArn" => String.t() | atom(),
+        "TransformJobName" => String.t() | atom(),
         "TransformJobStatus" => list(any())
       }
       
   """
-  @type transform_job_summary() :: %{String.t() => any()}
+  @type transform_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_step_metadata() :: %{
-        "Arn" => String.t()
+        "Arn" => String.t() | atom()
       }
       
   """
-  @type model_step_metadata() :: %{String.t() => any()}
+  @type model_step_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16359,13 +16373,13 @@ defmodule AWS.SageMaker do
       
       list_pipeline_execution_steps_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("PipelineExecutionArn") => String.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PipelineExecutionArn") => String.t() | atom(),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_pipeline_execution_steps_request() :: %{String.t() => any()}
+  @type list_pipeline_execution_steps_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16379,23 +16393,23 @@ defmodule AWS.SageMaker do
         "MonitoringOutputConfig" => monitoring_output_config(),
         "MonitoringResources" => monitoring_resources(),
         "NetworkConfig" => network_config(),
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | atom(),
         "StoppingCondition" => monitoring_stopping_condition()
       }
       
   """
-  @type monitoring_job_definition() :: %{String.t() => any()}
+  @type monitoring_job_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_model_package_output() :: %{
-        "ModelPackageArn" => String.t()
+        "ModelPackageArn" => String.t() | atom()
       }
       
   """
-  @type create_model_package_output() :: %{String.t() => any()}
+  @type create_model_package_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16407,14 +16421,14 @@ defmodule AWS.SageMaker do
         "CodeEditorAppSettings" => code_editor_app_settings(),
         "CustomFileSystemConfigs" => list(list()),
         "CustomPosixUserConfig" => custom_posix_user_config(),
-        "DefaultLandingUri" => String.t(),
-        "ExecutionRole" => String.t(),
+        "DefaultLandingUri" => String.t() | atom(),
+        "ExecutionRole" => String.t() | atom(),
         "JupyterLabAppSettings" => jupyter_lab_app_settings(),
         "JupyterServerAppSettings" => jupyter_server_app_settings(),
         "KernelGatewayAppSettings" => kernel_gateway_app_settings(),
         "RSessionAppSettings" => r_session_app_settings(),
         "RStudioServerProAppSettings" => r_studio_server_pro_app_settings(),
-        "SecurityGroups" => list(String.t()),
+        "SecurityGroups" => list(String.t() | atom()),
         "SharingSettings" => sharing_settings(),
         "SpaceStorageSettings" => default_space_storage_settings(),
         "StudioWebPortal" => list(any()),
@@ -16423,7 +16437,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type user_settings() :: %{String.t() => any()}
+  @type user_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16437,18 +16451,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type studio_web_portal_settings() :: %{String.t() => any()}
+  @type studio_web_portal_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_workteam_request() :: %{
-        required("WorkteamName") => String.t()
+        required("WorkteamName") => String.t() | atom()
       }
       
   """
-  @type describe_workteam_request() :: %{String.t() => any()}
+  @type describe_workteam_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16456,62 +16470,62 @@ defmodule AWS.SageMaker do
       
       model_package_validation_specification() :: %{
         "ValidationProfiles" => list(model_package_validation_profile()),
-        "ValidationRole" => String.t()
+        "ValidationRole" => String.t() | atom()
       }
       
   """
-  @type model_package_validation_specification() :: %{String.t() => any()}
+  @type model_package_validation_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_endpoint_output() :: %{
-        "EndpointArn" => String.t()
+        "EndpointArn" => String.t() | atom()
       }
       
   """
-  @type update_endpoint_output() :: %{String.t() => any()}
+  @type update_endpoint_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       channel_specification() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "IsRequired" => boolean(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "SupportedCompressionTypes" => list(list(any())()),
-        "SupportedContentTypes" => list(String.t()),
+        "SupportedContentTypes" => list(String.t() | atom()),
         "SupportedInputModes" => list(list(any())())
       }
       
   """
-  @type channel_specification() :: %{String.t() => any()}
+  @type channel_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       metrics_source() :: %{
-        "ContentDigest" => String.t(),
-        "ContentType" => String.t(),
-        "S3Uri" => String.t()
+        "ContentDigest" => String.t() | atom(),
+        "ContentType" => String.t() | atom(),
+        "S3Uri" => String.t() | atom()
       }
       
   """
-  @type metrics_source() :: %{String.t() => any()}
+  @type metrics_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint_config_step_metadata() :: %{
-        "Arn" => String.t()
+        "Arn" => String.t() | atom()
       }
       
   """
-  @type endpoint_config_step_metadata() :: %{String.t() => any()}
+  @type endpoint_config_step_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16520,19 +16534,19 @@ defmodule AWS.SageMaker do
       trial_component_summary() :: %{
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
-        "DisplayName" => String.t(),
+        "DisplayName" => String.t() | atom(),
         "EndTime" => non_neg_integer(),
         "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
         "StartTime" => non_neg_integer(),
         "Status" => trial_component_status(),
-        "TrialComponentArn" => String.t(),
-        "TrialComponentName" => String.t(),
+        "TrialComponentArn" => String.t() | atom(),
+        "TrialComponentName" => String.t() | atom(),
         "TrialComponentSource" => trial_component_source()
       }
       
   """
-  @type trial_component_summary() :: %{String.t() => any()}
+  @type trial_component_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16544,7 +16558,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type scheduler_config() :: %{String.t() => any()}
+  @type scheduler_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16552,29 +16566,29 @@ defmodule AWS.SageMaker do
       
       domain_details() :: %{
         "CreationTime" => non_neg_integer(),
-        "DomainArn" => String.t(),
-        "DomainId" => String.t(),
-        "DomainName" => String.t(),
+        "DomainArn" => String.t() | atom(),
+        "DomainId" => String.t() | atom(),
+        "DomainName" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
         "Status" => list(any()),
-        "Url" => String.t()
+        "Url" => String.t() | atom()
       }
       
   """
-  @type domain_details() :: %{String.t() => any()}
+  @type domain_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_explainability_app_specification() :: %{
-        "ConfigUri" => String.t(),
+        "ConfigUri" => String.t() | atom(),
         "Environment" => map(),
-        "ImageUri" => String.t()
+        "ImageUri" => String.t() | atom()
       }
       
   """
-  @type model_explainability_app_specification() :: %{String.t() => any()}
+  @type model_explainability_app_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16582,11 +16596,11 @@ defmodule AWS.SageMaker do
       
       list_edge_packaging_jobs_response() :: %{
         "EdgePackagingJobSummaries" => list(edge_packaging_job_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_edge_packaging_jobs_response() :: %{String.t() => any()}
+  @type list_edge_packaging_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16598,65 +16612,65 @@ defmodule AWS.SageMaker do
         optional("LastModifiedTimeAfter") => non_neg_integer(),
         optional("LastModifiedTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_notebook_instance_lifecycle_configs_input() :: %{String.t() => any()}
+  @type list_notebook_instance_lifecycle_configs_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_optimization_job_response() :: %{
-        "OptimizationJobArn" => String.t()
+        "OptimizationJobArn" => String.t() | atom()
       }
       
   """
-  @type create_optimization_job_response() :: %{String.t() => any()}
+  @type create_optimization_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_inference_recommendations_job_request() :: %{
-        optional("JobDescription") => String.t(),
+        optional("JobDescription") => String.t() | atom(),
         optional("OutputConfig") => recommendation_job_output_config(),
         optional("StoppingConditions") => recommendation_job_stopping_conditions(),
         optional("Tags") => list(tag()),
         required("InputConfig") => recommendation_job_input_config(),
-        required("JobName") => String.t(),
+        required("JobName") => String.t() | atom(),
         required("JobType") => list(any()),
-        required("RoleArn") => String.t()
+        required("RoleArn") => String.t() | atom()
       }
       
   """
-  @type create_inference_recommendations_job_request() :: %{String.t() => any()}
+  @type create_inference_recommendations_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       holiday_config_attributes() :: %{
-        "CountryCode" => String.t()
+        "CountryCode" => String.t() | atom()
       }
       
   """
-  @type holiday_config_attributes() :: %{String.t() => any()}
+  @type holiday_config_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_model_quality_job_definition_response() :: %{
-        "JobDefinitionArn" => String.t()
+        "JobDefinitionArn" => String.t() | atom()
       }
       
   """
-  @type create_model_quality_job_definition_response() :: %{String.t() => any()}
+  @type create_model_quality_job_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16664,42 +16678,42 @@ defmodule AWS.SageMaker do
       
       monitoring_schedule() :: %{
         "CreationTime" => non_neg_integer(),
-        "EndpointName" => String.t(),
-        "FailureReason" => String.t(),
+        "EndpointName" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
         "LastMonitoringExecutionSummary" => monitoring_execution_summary(),
-        "MonitoringScheduleArn" => String.t(),
+        "MonitoringScheduleArn" => String.t() | atom(),
         "MonitoringScheduleConfig" => monitoring_schedule_config(),
-        "MonitoringScheduleName" => String.t(),
+        "MonitoringScheduleName" => String.t() | atom(),
         "MonitoringScheduleStatus" => list(any()),
         "MonitoringType" => list(any()),
         "Tags" => list(tag())
       }
       
   """
-  @type monitoring_schedule() :: %{String.t() => any()}
+  @type monitoring_schedule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_monitoring_schedule_request() :: %{
-        required("MonitoringScheduleName") => String.t()
+        required("MonitoringScheduleName") => String.t() | atom()
       }
       
   """
-  @type delete_monitoring_schedule_request() :: %{String.t() => any()}
+  @type delete_monitoring_schedule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_pipeline_execution_response() :: %{
-        "PipelineExecutionArn" => String.t()
+        "PipelineExecutionArn" => String.t() | atom()
       }
       
   """
-  @type start_pipeline_execution_response() :: %{String.t() => any()}
+  @type start_pipeline_execution_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16710,7 +16724,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type model_access_config() :: %{String.t() => any()}
+  @type model_access_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16718,20 +16732,20 @@ defmodule AWS.SageMaker do
       
       describe_user_profile_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "DomainId" => String.t(),
-        "FailureReason" => String.t(),
-        "HomeEfsFileSystemUid" => String.t(),
+        "DomainId" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
+        "HomeEfsFileSystemUid" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
-        "SingleSignOnUserIdentifier" => String.t(),
-        "SingleSignOnUserValue" => String.t(),
+        "SingleSignOnUserIdentifier" => String.t() | atom(),
+        "SingleSignOnUserValue" => String.t() | atom(),
         "Status" => list(any()),
-        "UserProfileArn" => String.t(),
-        "UserProfileName" => String.t(),
+        "UserProfileArn" => String.t() | atom(),
+        "UserProfileName" => String.t() | atom(),
         "UserSettings" => user_settings()
       }
       
   """
-  @type describe_user_profile_response() :: %{String.t() => any()}
+  @type describe_user_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16739,24 +16753,24 @@ defmodule AWS.SageMaker do
       
       describe_compute_quota_response() :: %{
         "ActivationState" => list(any()),
-        "ClusterArn" => String.t(),
-        "ComputeQuotaArn" => String.t(),
+        "ClusterArn" => String.t() | atom(),
+        "ComputeQuotaArn" => String.t() | atom(),
         "ComputeQuotaConfig" => compute_quota_config(),
-        "ComputeQuotaId" => String.t(),
+        "ComputeQuotaId" => String.t() | atom(),
         "ComputeQuotaTarget" => compute_quota_target(),
         "ComputeQuotaVersion" => integer(),
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "FailureReason" => String.t(),
+        "Description" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
         "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type describe_compute_quota_response() :: %{String.t() => any()}
+  @type describe_compute_quota_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16764,13 +16778,13 @@ defmodule AWS.SageMaker do
       
       transform_input() :: %{
         "CompressionType" => list(any()),
-        "ContentType" => String.t(),
+        "ContentType" => String.t() | atom(),
         "DataSource" => transform_data_source(),
         "SplitType" => list(any())
       }
       
   """
-  @type transform_input() :: %{String.t() => any()}
+  @type transform_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16781,42 +16795,42 @@ defmodule AWS.SageMaker do
         "Count" => integer(),
         "Last" => float(),
         "Max" => float(),
-        "MetricName" => String.t(),
+        "MetricName" => String.t() | atom(),
         "Min" => float(),
-        "SourceArn" => String.t(),
+        "SourceArn" => String.t() | atom(),
         "StdDev" => float(),
         "TimeStamp" => non_neg_integer()
       }
       
   """
-  @type trial_component_metric_summary() :: %{String.t() => any()}
+  @type trial_component_metric_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       device() :: %{
-        "Description" => String.t(),
-        "DeviceName" => String.t(),
-        "IotThingName" => String.t()
+        "Description" => String.t() | atom(),
+        "DeviceName" => String.t() | atom(),
+        "IotThingName" => String.t() | atom()
       }
       
   """
-  @type device() :: %{String.t() => any()}
+  @type device() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_cluster_scheduler_config_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("SchedulerConfig") => scheduler_config(),
-        required("ClusterSchedulerConfigId") => String.t(),
+        required("ClusterSchedulerConfigId") => String.t() | atom(),
         required("TargetVersion") => integer()
       }
       
   """
-  @type update_cluster_scheduler_config_request() :: %{String.t() => any()}
+  @type update_cluster_scheduler_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16827,7 +16841,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type update_workteam_response() :: %{String.t() => any()}
+  @type update_workteam_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16837,42 +16851,42 @@ defmodule AWS.SageMaker do
         "DesiredInstanceCount" => integer(),
         "DesiredWeight" => float(),
         "ServerlessUpdateConfig" => production_variant_serverless_update_config(),
-        "VariantName" => String.t()
+        "VariantName" => String.t() | atom()
       }
       
   """
-  @type desired_weight_and_capacity() :: %{String.t() => any()}
+  @type desired_weight_and_capacity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_capacity_summary() :: %{
-        "AvailabilityZone" => String.t(),
+        "AvailabilityZone" => String.t() | atom(),
         "DurationHours" => float(),
         "DurationMinutes" => float(),
         "EndTime" => non_neg_integer(),
         "InstanceType" => list(any()),
-        "ReservedCapacityArn" => String.t(),
+        "ReservedCapacityArn" => String.t() | atom(),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
         "TotalInstanceCount" => integer()
       }
       
   """
-  @type reserved_capacity_summary() :: %{String.t() => any()}
+  @type reserved_capacity_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       parent() :: %{
-        "ExperimentName" => String.t(),
-        "TrialName" => String.t()
+        "ExperimentName" => String.t() | atom(),
+        "TrialName" => String.t() | atom()
       }
       
   """
-  @type parent() :: %{String.t() => any()}
+  @type parent() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16880,60 +16894,60 @@ defmodule AWS.SageMaker do
       
       text_classification_job_config() :: %{
         "CompletionCriteria" => auto_ml_job_completion_criteria(),
-        "ContentColumn" => String.t(),
-        "TargetLabelColumn" => String.t()
+        "ContentColumn" => String.t() | atom(),
+        "TargetLabelColumn" => String.t() | atom()
       }
       
   """
-  @type text_classification_job_config() :: %{String.t() => any()}
+  @type text_classification_job_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_hub_content_response() :: %{
-        "HubArn" => String.t(),
-        "HubContentArn" => String.t()
+        "HubArn" => String.t() | atom(),
+        "HubContentArn" => String.t() | atom()
       }
       
   """
-  @type update_hub_content_response() :: %{String.t() => any()}
+  @type update_hub_content_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       final_hyper_parameter_tuning_job_objective_metric() :: %{
-        "MetricName" => String.t(),
+        "MetricName" => String.t() | atom(),
         "Type" => list(any()),
         "Value" => float()
       }
       
   """
-  @type final_hyper_parameter_tuning_job_objective_metric() :: %{String.t() => any()}
+  @type final_hyper_parameter_tuning_job_objective_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_cluster_scheduler_config_response() :: %{
-        "ClusterArn" => String.t(),
-        "ClusterSchedulerConfigArn" => String.t(),
-        "ClusterSchedulerConfigId" => String.t(),
+        "ClusterArn" => String.t() | atom(),
+        "ClusterSchedulerConfigArn" => String.t() | atom(),
+        "ClusterSchedulerConfigId" => String.t() | atom(),
         "ClusterSchedulerConfigVersion" => integer(),
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "FailureReason" => String.t(),
+        "Description" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
         "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "SchedulerConfig" => scheduler_config(),
         "Status" => list(any())
       }
       
   """
-  @type describe_cluster_scheduler_config_response() :: %{String.t() => any()}
+  @type describe_cluster_scheduler_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16941,11 +16955,11 @@ defmodule AWS.SageMaker do
       
       describe_pipeline_request() :: %{
         optional("PipelineVersionId") => float(),
-        required("PipelineName") => String.t()
+        required("PipelineName") => String.t() | atom()
       }
       
   """
-  @type describe_pipeline_request() :: %{String.t() => any()}
+  @type describe_pipeline_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16957,29 +16971,29 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type data_source() :: %{String.t() => any()}
+  @type data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_training_job_response() :: %{
-        "TrainingJobArn" => String.t()
+        "TrainingJobArn" => String.t() | atom()
       }
       
   """
-  @type create_training_job_response() :: %{String.t() => any()}
+  @type create_training_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_model_bias_job_definition_request() :: %{
-        required("JobDefinitionName") => String.t()
+        required("JobDefinitionName") => String.t() | atom()
       }
       
   """
-  @type delete_model_bias_job_definition_request() :: %{String.t() => any()}
+  @type delete_model_bias_job_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16987,22 +17001,22 @@ defmodule AWS.SageMaker do
       
       list_model_cards_response() :: %{
         "ModelCardSummaries" => list(model_card_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_model_cards_response() :: %{String.t() => any()}
+  @type list_model_cards_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_context_response() :: %{
-        "ContextArn" => String.t()
+        "ContextArn" => String.t() | atom()
       }
       
   """
-  @type update_context_response() :: %{String.t() => any()}
+  @type update_context_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17010,66 +17024,66 @@ defmodule AWS.SageMaker do
       
       describe_device_fleet_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "DeviceFleetArn" => String.t(),
-        "DeviceFleetName" => String.t(),
-        "IotRoleAlias" => String.t(),
+        "Description" => String.t() | atom(),
+        "DeviceFleetArn" => String.t() | atom(),
+        "DeviceFleetName" => String.t() | atom(),
+        "IotRoleAlias" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
         "OutputConfig" => edge_output_config(),
-        "RoleArn" => String.t()
+        "RoleArn" => String.t() | atom()
       }
       
   """
-  @type describe_device_fleet_response() :: %{String.t() => any()}
+  @type describe_device_fleet_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_trials_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "TrialSummaries" => list(trial_summary())
       }
       
   """
-  @type list_trials_response() :: %{String.t() => any()}
+  @type list_trials_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       labeling_job_sns_data_source() :: %{
-        "SnsTopicArn" => String.t()
+        "SnsTopicArn" => String.t() | atom()
       }
       
   """
-  @type labeling_job_sns_data_source() :: %{String.t() => any()}
+  @type labeling_job_sns_data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_transform_jobs_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "TransformJobSummaries" => list(transform_job_summary())
       }
       
   """
-  @type list_transform_jobs_response() :: %{String.t() => any()}
+  @type list_transform_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_hub_content_request() :: %{
-        required("HubContentName") => String.t(),
+        required("HubContentName") => String.t() | atom(),
         required("HubContentType") => list(any()),
-        required("HubContentVersion") => String.t(),
-        required("HubName") => String.t()
+        required("HubContentVersion") => String.t() | atom(),
+        required("HubName") => String.t() | atom()
       }
       
   """
-  @type delete_hub_content_request() :: %{String.t() => any()}
+  @type delete_hub_content_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17082,7 +17096,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type space_jupyter_lab_app_settings() :: %{String.t() => any()}
+  @type space_jupyter_lab_app_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17090,11 +17104,11 @@ defmodule AWS.SageMaker do
       
       production_variant_capacity_reservation_config() :: %{
         "CapacityReservationPreference" => list(any()),
-        "MlReservationArn" => String.t()
+        "MlReservationArn" => String.t() | atom()
       }
       
   """
-  @type production_variant_capacity_reservation_config() :: %{String.t() => any()}
+  @type production_variant_capacity_reservation_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17102,11 +17116,11 @@ defmodule AWS.SageMaker do
       
       list_flow_definitions_response() :: %{
         "FlowDefinitionSummaries" => list(flow_definition_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_flow_definitions_response() :: %{String.t() => any()}
+  @type list_flow_definitions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17114,12 +17128,12 @@ defmodule AWS.SageMaker do
       
       edge() :: %{
         "AssociationType" => list(any()),
-        "DestinationArn" => String.t(),
-        "SourceArn" => String.t()
+        "DestinationArn" => String.t() | atom(),
+        "SourceArn" => String.t() | atom()
       }
       
   """
-  @type edge() :: %{String.t() => any()}
+  @type edge() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17127,33 +17141,33 @@ defmodule AWS.SageMaker do
       
       model_package_container_definition() :: %{
         "AdditionalS3DataSource" => additional_s3_data_source(),
-        "ContainerHostname" => String.t(),
+        "ContainerHostname" => String.t() | atom(),
         "Environment" => map(),
-        "Framework" => String.t(),
-        "FrameworkVersion" => String.t(),
-        "Image" => String.t(),
-        "ImageDigest" => String.t(),
-        "ModelDataETag" => String.t(),
+        "Framework" => String.t() | atom(),
+        "FrameworkVersion" => String.t() | atom(),
+        "Image" => String.t() | atom(),
+        "ImageDigest" => String.t() | atom(),
+        "ModelDataETag" => String.t() | atom(),
         "ModelDataSource" => model_data_source(),
-        "ModelDataUrl" => String.t(),
+        "ModelDataUrl" => String.t() | atom(),
         "ModelInput" => model_input(),
-        "NearestModelName" => String.t(),
-        "ProductId" => String.t()
+        "NearestModelName" => String.t() | atom(),
+        "ProductId" => String.t() | atom()
       }
       
   """
-  @type model_package_container_definition() :: %{String.t() => any()}
+  @type model_package_container_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       monitoring_constraints_resource() :: %{
-        "S3Uri" => String.t()
+        "S3Uri" => String.t() | atom()
       }
       
   """
-  @type monitoring_constraints_resource() :: %{String.t() => any()}
+  @type monitoring_constraints_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17162,10 +17176,10 @@ defmodule AWS.SageMaker do
       experiment() :: %{
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "DisplayName" => String.t(),
-        "ExperimentArn" => String.t(),
-        "ExperimentName" => String.t(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "ExperimentArn" => String.t() | atom(),
+        "ExperimentName" => String.t() | atom(),
         "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
         "Source" => experiment_source(),
@@ -17173,7 +17187,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type experiment() :: %{String.t() => any()}
+  @type experiment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17184,18 +17198,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type space_idle_settings() :: %{String.t() => any()}
+  @type space_idle_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ownership_settings() :: %{
-        "OwnerUserProfileName" => String.t()
+        "OwnerUserProfileName" => String.t() | atom()
       }
       
   """
-  @type ownership_settings() :: %{String.t() => any()}
+  @type ownership_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17204,38 +17218,38 @@ defmodule AWS.SageMaker do
       default_space_settings() :: %{
         "CustomFileSystemConfigs" => list(list()),
         "CustomPosixUserConfig" => custom_posix_user_config(),
-        "ExecutionRole" => String.t(),
+        "ExecutionRole" => String.t() | atom(),
         "JupyterLabAppSettings" => jupyter_lab_app_settings(),
         "JupyterServerAppSettings" => jupyter_server_app_settings(),
         "KernelGatewayAppSettings" => kernel_gateway_app_settings(),
-        "SecurityGroups" => list(String.t()),
+        "SecurityGroups" => list(String.t() | atom()),
         "SpaceStorageSettings" => default_space_storage_settings()
       }
       
   """
-  @type default_space_settings() :: %{String.t() => any()}
+  @type default_space_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_monitoring_schedule_request() :: %{
-        required("MonitoringScheduleName") => String.t()
+        required("MonitoringScheduleName") => String.t() | atom()
       }
       
   """
-  @type stop_monitoring_schedule_request() :: %{String.t() => any()}
+  @type stop_monitoring_schedule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_app_response() :: %{
-        "AppArn" => String.t()
+        "AppArn" => String.t() | atom()
       }
       
   """
-  @type create_app_response() :: %{String.t() => any()}
+  @type create_app_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17243,35 +17257,35 @@ defmodule AWS.SageMaker do
       
       create_model_card_export_job_request() :: %{
         optional("ModelCardVersion") => integer(),
-        required("ModelCardExportJobName") => String.t(),
-        required("ModelCardName") => String.t(),
+        required("ModelCardExportJobName") => String.t() | atom(),
+        required("ModelCardName") => String.t() | atom(),
         required("OutputConfig") => model_card_export_output_config()
       }
       
   """
-  @type create_model_card_export_job_request() :: %{String.t() => any()}
+  @type create_model_card_export_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       selected_step() :: %{
-        "StepName" => String.t()
+        "StepName" => String.t() | atom()
       }
       
   """
-  @type selected_step() :: %{String.t() => any()}
+  @type selected_step() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_trial_response() :: %{
-        "TrialArn" => String.t()
+        "TrialArn" => String.t() | atom()
       }
       
   """
-  @type update_trial_response() :: %{String.t() => any()}
+  @type update_trial_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17283,14 +17297,14 @@ defmodule AWS.SageMaker do
         optional("MaxResults") => integer(),
         optional("ModifiedTimeAfter") => non_neg_integer(),
         optional("ModifiedTimeBefore") => non_neg_integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_app_image_configs_request() :: %{String.t() => any()}
+  @type list_app_image_configs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17299,12 +17313,12 @@ defmodule AWS.SageMaker do
       update_monitoring_alert_request() :: %{
         required("DatapointsToAlert") => integer(),
         required("EvaluationPeriod") => integer(),
-        required("MonitoringAlertName") => String.t(),
-        required("MonitoringScheduleName") => String.t()
+        required("MonitoringAlertName") => String.t() | atom(),
+        required("MonitoringScheduleName") => String.t() | atom()
       }
       
   """
-  @type update_monitoring_alert_request() :: %{String.t() => any()}
+  @type update_monitoring_alert_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17313,12 +17327,12 @@ defmodule AWS.SageMaker do
       describe_trial_component_response() :: %{
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
-        "DisplayName" => String.t(),
+        "DisplayName" => String.t() | atom(),
         "EndTime" => non_neg_integer(),
         "InputArtifacts" => map(),
         "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
-        "LineageGroupArn" => String.t(),
+        "LineageGroupArn" => String.t() | atom(),
         "MetadataProperties" => metadata_properties(),
         "Metrics" => list(trial_component_metric_summary()),
         "OutputArtifacts" => map(),
@@ -17327,23 +17341,23 @@ defmodule AWS.SageMaker do
         "Sources" => list(trial_component_source()),
         "StartTime" => non_neg_integer(),
         "Status" => trial_component_status(),
-        "TrialComponentArn" => String.t(),
-        "TrialComponentName" => String.t()
+        "TrialComponentArn" => String.t() | atom(),
+        "TrialComponentName" => String.t() | atom()
       }
       
   """
-  @type describe_trial_component_response() :: %{String.t() => any()}
+  @type describe_trial_component_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_limit_exceeded() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_limit_exceeded() :: %{String.t() => any()}
+  @type resource_limit_exceeded() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17351,11 +17365,11 @@ defmodule AWS.SageMaker do
       
       list_monitoring_executions_response() :: %{
         "MonitoringExecutionSummaries" => list(monitoring_execution_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_monitoring_executions_response() :: %{String.t() => any()}
+  @type list_monitoring_executions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17367,26 +17381,26 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type hyper_parameter_tuning_job_completion_details() :: %{String.t() => any()}
+  @type hyper_parameter_tuning_job_completion_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_cluster_scheduler_configs_request() :: %{
-        optional("ClusterArn") => String.t(),
+        optional("ClusterArn") => String.t() | atom(),
         optional("CreatedAfter") => non_neg_integer(),
         optional("CreatedBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
         optional("Status") => list(any())
       }
       
   """
-  @type list_cluster_scheduler_configs_request() :: %{String.t() => any()}
+  @type list_cluster_scheduler_configs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17397,22 +17411,22 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type model_data_source() :: %{String.t() => any()}
+  @type model_data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       inference_component_specification() :: %{
-        "BaseInferenceComponentName" => String.t(),
+        "BaseInferenceComponentName" => String.t() | atom(),
         "ComputeResourceRequirements" => inference_component_compute_resource_requirements(),
         "Container" => inference_component_container_specification(),
-        "ModelName" => String.t(),
+        "ModelName" => String.t() | atom(),
         "StartupParameters" => inference_component_startup_parameters()
       }
       
   """
-  @type inference_component_specification() :: %{String.t() => any()}
+  @type inference_component_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17423,7 +17437,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type auto_rollback_config() :: %{String.t() => any()}
+  @type auto_rollback_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17433,27 +17447,27 @@ defmodule AWS.SageMaker do
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_flow_definitions_request() :: %{String.t() => any()}
+  @type list_flow_definitions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       partner_app_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Status" => list(any()),
         "Type" => list(any())
       }
       
   """
-  @type partner_app_summary() :: %{String.t() => any()}
+  @type partner_app_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17467,18 +17481,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type drift_check_baselines() :: %{String.t() => any()}
+  @type drift_check_baselines() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_notebook_instance_output() :: %{
-        "NotebookInstanceArn" => String.t()
+        "NotebookInstanceArn" => String.t() | atom()
       }
       
   """
-  @type create_notebook_instance_output() :: %{String.t() => any()}
+  @type create_notebook_instance_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17486,11 +17500,11 @@ defmodule AWS.SageMaker do
       
       list_hyper_parameter_tuning_jobs_response() :: %{
         "HyperParameterTuningJobSummaries" => list(hyper_parameter_tuning_job_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_hyper_parameter_tuning_jobs_response() :: %{String.t() => any()}
+  @type list_hyper_parameter_tuning_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17498,47 +17512,47 @@ defmodule AWS.SageMaker do
       
       monitoring_schedule_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "EndpointName" => String.t(),
+        "EndpointName" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
-        "MonitoringJobDefinitionName" => String.t(),
-        "MonitoringScheduleArn" => String.t(),
-        "MonitoringScheduleName" => String.t(),
+        "MonitoringJobDefinitionName" => String.t() | atom(),
+        "MonitoringScheduleArn" => String.t() | atom(),
+        "MonitoringScheduleName" => String.t() | atom(),
         "MonitoringScheduleStatus" => list(any()),
         "MonitoringType" => list(any())
       }
       
   """
-  @type monitoring_schedule_summary() :: %{String.t() => any()}
+  @type monitoring_schedule_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_instance_placement() :: %{
-        "AvailabilityZone" => String.t(),
-        "AvailabilityZoneId" => String.t()
+        "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom()
       }
       
   """
-  @type cluster_instance_placement() :: %{String.t() => any()}
+  @type cluster_instance_placement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_scheduler_config_summary() :: %{
-        "ClusterArn" => String.t(),
-        "ClusterSchedulerConfigArn" => String.t(),
-        "ClusterSchedulerConfigId" => String.t(),
+        "ClusterArn" => String.t() | atom(),
+        "ClusterSchedulerConfigArn" => String.t() | atom(),
+        "ClusterSchedulerConfigId" => String.t() | atom(),
         "ClusterSchedulerConfigVersion" => integer(),
         "CreationTime" => non_neg_integer(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type cluster_scheduler_config_summary() :: %{String.t() => any()}
+  @type cluster_scheduler_config_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17546,11 +17560,11 @@ defmodule AWS.SageMaker do
       
       list_model_packages_output() :: %{
         "ModelPackageSummaryList" => list(model_package_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_model_packages_output() :: %{String.t() => any()}
+  @type list_model_packages_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17558,25 +17572,25 @@ defmodule AWS.SageMaker do
       
       resource_catalog() :: %{
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "ResourceCatalogArn" => String.t(),
-        "ResourceCatalogName" => String.t()
+        "Description" => String.t() | atom(),
+        "ResourceCatalogArn" => String.t() | atom(),
+        "ResourceCatalogName" => String.t() | atom()
       }
       
   """
-  @type resource_catalog() :: %{String.t() => any()}
+  @type resource_catalog() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       processing_output_config() :: %{
-        "KmsKeyId" => String.t(),
+        "KmsKeyId" => String.t() | atom(),
         "Outputs" => list(processing_output())
       }
       
   """
-  @type processing_output_config() :: %{String.t() => any()}
+  @type processing_output_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17589,7 +17603,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type production_variant_managed_instance_scaling() :: %{String.t() => any()}
+  @type production_variant_managed_instance_scaling() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17600,7 +17614,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type describe_workforce_response() :: %{String.t() => any()}
+  @type describe_workforce_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17626,7 +17640,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type search_record() :: %{String.t() => any()}
+  @type search_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17635,20 +17649,20 @@ defmodule AWS.SageMaker do
       trial() :: %{
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
-        "DisplayName" => String.t(),
-        "ExperimentName" => String.t(),
+        "DisplayName" => String.t() | atom(),
+        "ExperimentName" => String.t() | atom(),
         "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
         "MetadataProperties" => metadata_properties(),
         "Source" => trial_source(),
         "Tags" => list(tag()),
-        "TrialArn" => String.t(),
+        "TrialArn" => String.t() | atom(),
         "TrialComponentSummaries" => list(trial_component_simple_summary()),
-        "TrialName" => String.t()
+        "TrialName" => String.t() | atom()
       }
       
   """
-  @type trial() :: %{String.t() => any()}
+  @type trial() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17657,12 +17671,12 @@ defmodule AWS.SageMaker do
       processing_cluster_config() :: %{
         "InstanceCount" => integer(),
         "InstanceType" => list(any()),
-        "VolumeKmsKeyId" => String.t(),
+        "VolumeKmsKeyId" => String.t() | atom(),
         "VolumeSizeInGB" => integer()
       }
       
   """
-  @type processing_cluster_config() :: %{String.t() => any()}
+  @type processing_cluster_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17674,31 +17688,31 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type device_stats() :: %{String.t() => any()}
+  @type device_stats() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_model_input() :: %{
-        required("ModelName") => String.t()
+        required("ModelName") => String.t() | atom()
       }
       
   """
-  @type describe_model_input() :: %{String.t() => any()}
+  @type describe_model_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       environment_parameter() :: %{
-        "Key" => String.t(),
-        "Value" => String.t(),
-        "ValueType" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom(),
+        "ValueType" => String.t() | atom()
       }
       
   """
-  @type environment_parameter() :: %{String.t() => any()}
+  @type environment_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17706,40 +17720,40 @@ defmodule AWS.SageMaker do
       
       model_dashboard_endpoint() :: %{
         "CreationTime" => non_neg_integer(),
-        "EndpointArn" => String.t(),
-        "EndpointName" => String.t(),
+        "EndpointArn" => String.t() | atom(),
+        "EndpointName" => String.t() | atom(),
         "EndpointStatus" => list(any()),
         "LastModifiedTime" => non_neg_integer()
       }
       
   """
-  @type model_dashboard_endpoint() :: %{String.t() => any()}
+  @type model_dashboard_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_cluster_scheduler_config_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("ClusterArn") => String.t(),
-        required("Name") => String.t(),
+        required("ClusterArn") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("SchedulerConfig") => scheduler_config()
       }
       
   """
-  @type create_cluster_scheduler_config_request() :: %{String.t() => any()}
+  @type create_cluster_scheduler_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_device_fleet_request() :: %{
-        required("DeviceFleetName") => String.t()
+        required("DeviceFleetName") => String.t() | atom()
       }
       
   """
-  @type delete_device_fleet_request() :: %{String.t() => any()}
+  @type delete_device_fleet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17747,39 +17761,39 @@ defmodule AWS.SageMaker do
       
       jupyter_lab_app_settings() :: %{
         "AppLifecycleManagement" => app_lifecycle_management(),
-        "BuiltInLifecycleConfigArn" => String.t(),
+        "BuiltInLifecycleConfigArn" => String.t() | atom(),
         "CodeRepositories" => list(code_repository()),
         "CustomImages" => list(custom_image()),
         "DefaultResourceSpec" => resource_spec(),
         "EmrSettings" => emr_settings(),
-        "LifecycleConfigArns" => list(String.t())
+        "LifecycleConfigArns" => list(String.t() | atom())
       }
       
   """
-  @type jupyter_lab_app_settings() :: %{String.t() => any()}
+  @type jupyter_lab_app_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_experiment_response() :: %{
-        "ExperimentArn" => String.t()
+        "ExperimentArn" => String.t() | atom()
       }
       
   """
-  @type update_experiment_response() :: %{String.t() => any()}
+  @type update_experiment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_pipeline_versions_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "PipelineVersionSummaries" => list(pipeline_version_summary())
       }
       
   """
-  @type list_pipeline_versions_response() :: %{String.t() => any()}
+  @type list_pipeline_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17787,54 +17801,54 @@ defmodule AWS.SageMaker do
       
       list_algorithms_output() :: %{
         "AlgorithmSummaryList" => list(algorithm_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_algorithms_output() :: %{String.t() => any()}
+  @type list_algorithms_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_notebook_instance_lifecycle_config_input() :: %{
-        required("NotebookInstanceLifecycleConfigName") => String.t()
+        required("NotebookInstanceLifecycleConfigName") => String.t() | atom()
       }
       
   """
-  @type delete_notebook_instance_lifecycle_config_input() :: %{String.t() => any()}
+  @type delete_notebook_instance_lifecycle_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       human_loop_config() :: %{
-        "HumanTaskUiArn" => String.t(),
+        "HumanTaskUiArn" => String.t() | atom(),
         "PublicWorkforceTaskPrice" => public_workforce_task_price(),
         "TaskAvailabilityLifetimeInSeconds" => integer(),
         "TaskCount" => integer(),
-        "TaskDescription" => String.t(),
-        "TaskKeywords" => list(String.t()),
+        "TaskDescription" => String.t() | atom(),
+        "TaskKeywords" => list(String.t() | atom()),
         "TaskTimeLimitInSeconds" => integer(),
-        "TaskTitle" => String.t(),
-        "WorkteamArn" => String.t()
+        "TaskTitle" => String.t() | atom(),
+        "WorkteamArn" => String.t() | atom()
       }
       
   """
-  @type human_loop_config() :: %{String.t() => any()}
+  @type human_loop_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       monitoring_baseline_config() :: %{
-        "BaseliningJobName" => String.t(),
+        "BaseliningJobName" => String.t() | atom(),
         "ConstraintsResource" => monitoring_constraints_resource(),
         "StatisticsResource" => monitoring_statistics_resource()
       }
       
   """
-  @type monitoring_baseline_config() :: %{String.t() => any()}
+  @type monitoring_baseline_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17845,17 +17859,17 @@ defmodule AWS.SageMaker do
         "CreationTime" => non_neg_integer(),
         "DeploymentRecommendation" => deployment_recommendation(),
         "EnableNetworkIsolation" => boolean(),
-        "ExecutionRoleArn" => String.t(),
+        "ExecutionRoleArn" => String.t() | atom(),
         "InferenceExecutionConfig" => inference_execution_config(),
-        "ModelArn" => String.t(),
-        "ModelName" => String.t(),
+        "ModelArn" => String.t() | atom(),
+        "ModelName" => String.t() | atom(),
         "PrimaryContainer" => container_definition(),
         "Tags" => list(tag()),
         "VpcConfig" => vpc_config()
       }
       
   """
-  @type model() :: %{String.t() => any()}
+  @type model() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17867,29 +17881,29 @@ defmodule AWS.SageMaker do
         optional("LastModifiedTimeAfter") => non_neg_integer(),
         optional("LastModifiedTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
         optional("StatusEquals") => list(any())
       }
       
   """
-  @type list_compilation_jobs_request() :: %{String.t() => any()}
+  @type list_compilation_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       transform_output() :: %{
-        "Accept" => String.t(),
+        "Accept" => String.t() | atom(),
         "AssembleWith" => list(any()),
-        "KmsKeyId" => String.t(),
-        "S3OutputPath" => String.t()
+        "KmsKeyId" => String.t() | atom(),
+        "S3OutputPath" => String.t() | atom()
       }
       
   """
-  @type transform_output() :: %{String.t() => any()}
+  @type transform_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17897,12 +17911,12 @@ defmodule AWS.SageMaker do
       
       describe_model_package_output() :: %{
         "AdditionalInferenceSpecifications" => list(additional_inference_specification_definition()),
-        "ApprovalDescription" => String.t(),
+        "ApprovalDescription" => String.t() | atom(),
         "CertifyForMarketplace" => boolean(),
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
         "CustomerMetadataProperties" => map(),
-        "Domain" => String.t(),
+        "Domain" => String.t() | atom(),
         "DriftCheckBaselines" => drift_check_baselines(),
         "InferenceSpecification" => inference_specification(),
         "LastModifiedBy" => user_context(),
@@ -17912,60 +17926,60 @@ defmodule AWS.SageMaker do
         "ModelCard" => model_package_model_card(),
         "ModelLifeCycle" => model_life_cycle(),
         "ModelMetrics" => model_metrics(),
-        "ModelPackageArn" => String.t(),
-        "ModelPackageDescription" => String.t(),
-        "ModelPackageGroupName" => String.t(),
-        "ModelPackageName" => String.t(),
+        "ModelPackageArn" => String.t() | atom(),
+        "ModelPackageDescription" => String.t() | atom(),
+        "ModelPackageGroupName" => String.t() | atom(),
+        "ModelPackageName" => String.t() | atom(),
         "ModelPackageStatus" => list(any()),
         "ModelPackageStatusDetails" => model_package_status_details(),
         "ModelPackageVersion" => integer(),
-        "SamplePayloadUrl" => String.t(),
+        "SamplePayloadUrl" => String.t() | atom(),
         "SecurityConfig" => model_package_security_config(),
         "SkipModelValidation" => list(any()),
         "SourceAlgorithmSpecification" => source_algorithm_specification(),
-        "SourceUri" => String.t(),
-        "Task" => String.t(),
+        "SourceUri" => String.t() | atom(),
+        "Task" => String.t() | atom(),
         "ValidationSpecification" => model_package_validation_specification()
       }
       
   """
-  @type describe_model_package_output() :: %{String.t() => any()}
+  @type describe_model_package_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Tags" => list(tag())
       }
       
   """
-  @type list_tags_output() :: %{String.t() => any()}
+  @type list_tags_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_pipeline_parameters_for_execution_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "PipelineParameters" => list(parameter())
       }
       
   """
-  @type list_pipeline_parameters_for_execution_response() :: %{String.t() => any()}
+  @type list_pipeline_parameters_for_execution_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       workspace_settings() :: %{
-        "S3ArtifactPath" => String.t(),
-        "S3KmsKeyId" => String.t()
+        "S3ArtifactPath" => String.t() | atom(),
+        "S3KmsKeyId" => String.t() | atom()
       }
       
   """
-  @type workspace_settings() :: %{String.t() => any()}
+  @type workspace_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17977,19 +17991,19 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type space_code_editor_app_settings() :: %{String.t() => any()}
+  @type space_code_editor_app_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_hub_content_reference_response() :: %{
-        "HubArn" => String.t(),
-        "HubContentArn" => String.t()
+        "HubArn" => String.t() | atom(),
+        "HubContentArn" => String.t() | atom()
       }
       
   """
-  @type update_hub_content_reference_response() :: %{String.t() => any()}
+  @type update_hub_content_reference_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18000,7 +18014,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type autotune() :: %{String.t() => any()}
+  @type autotune() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18010,27 +18024,27 @@ defmodule AWS.SageMaker do
         "CreationTime" => non_neg_integer(),
         "InferenceSpecification" => inference_specification(),
         "ModelApprovalStatus" => list(any()),
-        "ModelPackageArn" => String.t(),
-        "ModelPackageDescription" => String.t(),
-        "ModelPackageGroupName" => String.t(),
+        "ModelPackageArn" => String.t() | atom(),
+        "ModelPackageDescription" => String.t() | atom(),
+        "ModelPackageGroupName" => String.t() | atom(),
         "ModelPackageStatus" => list(any()),
         "ModelPackageVersion" => integer()
       }
       
   """
-  @type batch_describe_model_package_summary() :: %{String.t() => any()}
+  @type batch_describe_model_package_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_processing_jobs_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "ProcessingJobSummaries" => list(processing_job_summary())
       }
       
   """
-  @type list_processing_jobs_response() :: %{String.t() => any()}
+  @type list_processing_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18039,14 +18053,14 @@ defmodule AWS.SageMaker do
       describe_notebook_instance_lifecycle_config_output() :: %{
         "CreationTime" => non_neg_integer(),
         "LastModifiedTime" => non_neg_integer(),
-        "NotebookInstanceLifecycleConfigArn" => String.t(),
-        "NotebookInstanceLifecycleConfigName" => String.t(),
+        "NotebookInstanceLifecycleConfigArn" => String.t() | atom(),
+        "NotebookInstanceLifecycleConfigName" => String.t() | atom(),
         "OnCreate" => list(notebook_instance_lifecycle_hook()),
         "OnStart" => list(notebook_instance_lifecycle_hook())
       }
       
   """
-  @type describe_notebook_instance_lifecycle_config_output() :: %{String.t() => any()}
+  @type describe_notebook_instance_lifecycle_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18064,41 +18078,41 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type hyper_parameter_tuning_job_config() :: %{String.t() => any()}
+  @type hyper_parameter_tuning_job_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       emr_serverless_settings() :: %{
-        "ExecutionRoleArn" => String.t(),
+        "ExecutionRoleArn" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type emr_serverless_settings() :: %{String.t() => any()}
+  @type emr_serverless_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_context_response() :: %{
-        "ContextArn" => String.t()
+        "ContextArn" => String.t() | atom()
       }
       
   """
-  @type create_context_response() :: %{String.t() => any()}
+  @type create_context_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_compilation_job_request() :: %{
-        required("CompilationJobName") => String.t()
+        required("CompilationJobName") => String.t() | atom()
       }
       
   """
-  @type describe_compilation_job_request() :: %{String.t() => any()}
+  @type describe_compilation_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18111,69 +18125,69 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type auto_ml_job_completion_criteria() :: %{String.t() => any()}
+  @type auto_ml_job_completion_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       file_source() :: %{
-        "ContentDigest" => String.t(),
-        "ContentType" => String.t(),
-        "S3Uri" => String.t()
+        "ContentDigest" => String.t() | atom(),
+        "ContentType" => String.t() | atom(),
+        "S3Uri" => String.t() | atom()
       }
       
   """
-  @type file_source() :: %{String.t() => any()}
+  @type file_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_device_fleet_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("EnableIotRoleAlias") => boolean(),
-        optional("RoleArn") => String.t(),
+        optional("RoleArn") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("DeviceFleetName") => String.t(),
+        required("DeviceFleetName") => String.t() | atom(),
         required("OutputConfig") => edge_output_config()
       }
       
   """
-  @type create_device_fleet_request() :: %{String.t() => any()}
+  @type create_device_fleet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_inference_component_input() :: %{
-        required("InferenceComponentName") => String.t()
+        required("InferenceComponentName") => String.t() | atom()
       }
       
   """
-  @type delete_inference_component_input() :: %{String.t() => any()}
+  @type delete_inference_component_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_image_version_request() :: %{
-        optional("Alias") => String.t(),
-        optional("AliasesToAdd") => list(String.t()),
-        optional("AliasesToDelete") => list(String.t()),
+        optional("Alias") => String.t() | atom(),
+        optional("AliasesToAdd") => list(String.t() | atom()),
+        optional("AliasesToDelete") => list(String.t() | atom()),
         optional("Horovod") => boolean(),
         optional("JobType") => list(any()),
-        optional("MLFramework") => String.t(),
+        optional("MLFramework") => String.t() | atom(),
         optional("Processor") => list(any()),
-        optional("ProgrammingLang") => String.t(),
-        optional("ReleaseNotes") => String.t(),
+        optional("ProgrammingLang") => String.t() | atom(),
+        optional("ReleaseNotes") => String.t() | atom(),
         optional("VendorGuidance") => list(any()),
         optional("Version") => integer(),
-        required("ImageName") => String.t()
+        required("ImageName") => String.t() | atom()
       }
       
   """
-  @type update_image_version_request() :: %{String.t() => any()}
+  @type update_image_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18181,25 +18195,25 @@ defmodule AWS.SageMaker do
       
       describe_partner_app_response() :: %{
         "ApplicationConfig" => partner_app_config(),
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "AuthType" => list(any()),
-        "BaseUrl" => String.t(),
+        "BaseUrl" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
         "EnableIamSessionBasedIdentity" => boolean(),
         "Error" => error_info(),
-        "ExecutionRoleArn" => String.t(),
-        "KmsKeyId" => String.t(),
+        "ExecutionRoleArn" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
         "MaintenanceConfig" => partner_app_maintenance_config(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Status" => list(any()),
-        "Tier" => String.t(),
+        "Tier" => String.t() | atom(),
         "Type" => list(any()),
-        "Version" => String.t()
+        "Version" => String.t() | atom()
       }
       
   """
-  @type describe_partner_app_response() :: %{String.t() => any()}
+  @type describe_partner_app_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18208,16 +18222,16 @@ defmodule AWS.SageMaker do
       list_trials_request() :: %{
         optional("CreatedAfter") => non_neg_integer(),
         optional("CreatedBefore") => non_neg_integer(),
-        optional("ExperimentName") => String.t(),
+        optional("ExperimentName") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
-        optional("TrialComponentName") => String.t()
+        optional("TrialComponentName") => String.t() | atom()
       }
       
   """
-  @type list_trials_request() :: %{String.t() => any()}
+  @type list_trials_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18225,10 +18239,10 @@ defmodule AWS.SageMaker do
       
       cluster_instance_group_details() :: %{
         "CurrentCount" => integer(),
-        "CurrentImageId" => String.t(),
-        "DesiredImageId" => String.t(),
-        "ExecutionRole" => String.t(),
-        "InstanceGroupName" => String.t(),
+        "CurrentImageId" => String.t() | atom(),
+        "DesiredImageId" => String.t() | atom(),
+        "ExecutionRole" => String.t() | atom(),
+        "InstanceGroupName" => String.t() | atom(),
         "InstanceStorageConfigs" => list(list()),
         "InstanceType" => list(any()),
         "LifeCycleConfig" => cluster_life_cycle_config(),
@@ -18238,35 +18252,35 @@ defmodule AWS.SageMaker do
         "Status" => list(any()),
         "TargetCount" => integer(),
         "ThreadsPerCore" => integer(),
-        "TrainingPlanArn" => String.t(),
-        "TrainingPlanStatus" => String.t()
+        "TrainingPlanArn" => String.t() | atom(),
+        "TrainingPlanStatus" => String.t() | atom()
       }
       
   """
-  @type cluster_instance_group_details() :: %{String.t() => any()}
+  @type cluster_instance_group_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       notebook_instance_lifecycle_hook() :: %{
-        "Content" => String.t()
+        "Content" => String.t() | atom()
       }
       
   """
-  @type notebook_instance_lifecycle_hook() :: %{String.t() => any()}
+  @type notebook_instance_lifecycle_hook() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_quantization_config() :: %{
-        "Image" => String.t(),
+        "Image" => String.t() | atom(),
         "OverrideEnvironment" => map()
       }
       
   """
-  @type model_quantization_config() :: %{String.t() => any()}
+  @type model_quantization_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18277,7 +18291,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type condition_step_metadata() :: %{String.t() => any()}
+  @type condition_step_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18285,14 +18299,14 @@ defmodule AWS.SageMaker do
       
       code_editor_app_settings() :: %{
         "AppLifecycleManagement" => app_lifecycle_management(),
-        "BuiltInLifecycleConfigArn" => String.t(),
+        "BuiltInLifecycleConfigArn" => String.t() | atom(),
         "CustomImages" => list(custom_image()),
         "DefaultResourceSpec" => resource_spec(),
-        "LifecycleConfigArns" => list(String.t())
+        "LifecycleConfigArns" => list(String.t() | atom())
       }
       
   """
-  @type code_editor_app_settings() :: %{String.t() => any()}
+  @type code_editor_app_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18305,7 +18319,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type hyper_parameter_tuning_instance_config() :: %{String.t() => any()}
+  @type hyper_parameter_tuning_instance_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18320,20 +18334,20 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type model_dashboard_model() :: %{String.t() => any()}
+  @type model_dashboard_model() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       workforce_vpc_config_request() :: %{
-        "SecurityGroupIds" => list(String.t()),
-        "Subnets" => list(String.t()),
-        "VpcId" => String.t()
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "Subnets" => list(String.t() | atom()),
+        "VpcId" => String.t() | atom()
       }
       
   """
-  @type workforce_vpc_config_request() :: %{String.t() => any()}
+  @type workforce_vpc_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18341,25 +18355,25 @@ defmodule AWS.SageMaker do
       
       cfn_template_provider_detail() :: %{
         "Parameters" => list(cfn_stack_parameter()),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | atom(),
         "StackDetail" => cfn_stack_detail(),
-        "TemplateName" => String.t(),
-        "TemplateURL" => String.t()
+        "TemplateName" => String.t() | atom(),
+        "TemplateURL" => String.t() | atom()
       }
       
   """
-  @type cfn_template_provider_detail() :: %{String.t() => any()}
+  @type cfn_template_provider_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_auto_ml_job_request() :: %{
-        required("AutoMLJobName") => String.t()
+        required("AutoMLJobName") => String.t() | atom()
       }
       
   """
-  @type stop_auto_ml_job_request() :: %{String.t() => any()}
+  @type stop_auto_ml_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18370,32 +18384,32 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type tensor_board_app_settings() :: %{String.t() => any()}
+  @type tensor_board_app_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_trial_component_request() :: %{
-        required("TrialComponentName") => String.t(),
-        required("TrialName") => String.t()
+        required("TrialComponentName") => String.t() | atom(),
+        required("TrialName") => String.t() | atom()
       }
       
   """
-  @type associate_trial_component_request() :: %{String.t() => any()}
+  @type associate_trial_component_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_life_cycle() :: %{
-        "Stage" => String.t(),
-        "StageDescription" => String.t(),
-        "StageStatus" => String.t()
+        "Stage" => String.t() | atom(),
+        "StageDescription" => String.t() | atom(),
+        "StageStatus" => String.t() | atom()
       }
       
   """
-  @type model_life_cycle() :: %{String.t() => any()}
+  @type model_life_cycle() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18411,11 +18425,11 @@ defmodule AWS.SageMaker do
   ## Example:
       
       stop_edge_packaging_job_request() :: %{
-        required("EdgePackagingJobName") => String.t()
+        required("EdgePackagingJobName") => String.t() | atom()
       }
       
   """
-  @type stop_edge_packaging_job_request() :: %{String.t() => any()}
+  @type stop_edge_packaging_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18423,35 +18437,35 @@ defmodule AWS.SageMaker do
       
       update_partner_app_request() :: %{
         optional("ApplicationConfig") => partner_app_config(),
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("EnableIamSessionBasedIdentity") => boolean(),
         optional("MaintenanceConfig") => partner_app_maintenance_config(),
         optional("Tags") => list(tag()),
-        optional("Tier") => String.t(),
-        required("Arn") => String.t()
+        optional("Tier") => String.t() | atom(),
+        required("Arn") => String.t() | atom()
       }
       
   """
-  @type update_partner_app_request() :: %{String.t() => any()}
+  @type update_partner_app_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_subscribed_workteams_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "SubscribedWorkteams" => list(subscribed_workteam())
       }
       
   """
-  @type list_subscribed_workteams_response() :: %{String.t() => any()}
+  @type list_subscribed_workteams_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_capacity_offering() :: %{
-        "AvailabilityZone" => String.t(),
+        "AvailabilityZone" => String.t() | atom(),
         "DurationHours" => float(),
         "DurationMinutes" => float(),
         "EndTime" => non_neg_integer(),
@@ -18461,18 +18475,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type reserved_capacity_offering() :: %{String.t() => any()}
+  @type reserved_capacity_offering() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_endpoint_config_input() :: %{
-        required("EndpointConfigName") => String.t()
+        required("EndpointConfigName") => String.t() | atom()
       }
       
   """
-  @type delete_endpoint_config_input() :: %{String.t() => any()}
+  @type delete_endpoint_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18483,15 +18497,15 @@ defmodule AWS.SageMaker do
         "DeploymentInstanceType" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
         "OptimizationEndTime" => non_neg_integer(),
-        "OptimizationJobArn" => String.t(),
-        "OptimizationJobName" => String.t(),
+        "OptimizationJobArn" => String.t() | atom(),
+        "OptimizationJobName" => String.t() | atom(),
         "OptimizationJobStatus" => list(any()),
         "OptimizationStartTime" => non_neg_integer(),
-        "OptimizationTypes" => list(String.t())
+        "OptimizationTypes" => list(String.t() | atom())
       }
       
   """
-  @type optimization_job_summary() :: %{String.t() => any()}
+  @type optimization_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18499,7 +18513,7 @@ defmodule AWS.SageMaker do
       
       training_plan_summary() :: %{
         "AvailableInstanceCount" => integer(),
-        "CurrencyCode" => String.t(),
+        "CurrencyCode" => String.t() | atom(),
         "DurationHours" => float(),
         "DurationMinutes" => float(),
         "EndTime" => non_neg_integer(),
@@ -18507,67 +18521,67 @@ defmodule AWS.SageMaker do
         "ReservedCapacitySummaries" => list(reserved_capacity_summary()),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
-        "StatusMessage" => String.t(),
+        "StatusMessage" => String.t() | atom(),
         "TargetResources" => list(list(any())()),
         "TotalInstanceCount" => integer(),
-        "TrainingPlanArn" => String.t(),
-        "TrainingPlanName" => String.t(),
-        "UpfrontFee" => String.t()
+        "TrainingPlanArn" => String.t() | atom(),
+        "TrainingPlanName" => String.t() | atom(),
+        "UpfrontFee" => String.t() | atom()
       }
       
   """
-  @type training_plan_summary() :: %{String.t() => any()}
+  @type training_plan_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_edge_packaging_job_request() :: %{
-        optional("ResourceKey") => String.t(),
+        optional("ResourceKey") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("CompilationJobName") => String.t(),
-        required("EdgePackagingJobName") => String.t(),
-        required("ModelName") => String.t(),
-        required("ModelVersion") => String.t(),
+        required("CompilationJobName") => String.t() | atom(),
+        required("EdgePackagingJobName") => String.t() | atom(),
+        required("ModelName") => String.t() | atom(),
+        required("ModelVersion") => String.t() | atom(),
         required("OutputConfig") => edge_output_config(),
-        required("RoleArn") => String.t()
+        required("RoleArn") => String.t() | atom()
       }
       
   """
-  @type create_edge_packaging_job_request() :: %{String.t() => any()}
+  @type create_edge_packaging_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_monitoring_schedule_response() :: %{
-        "MonitoringScheduleArn" => String.t()
+        "MonitoringScheduleArn" => String.t() | atom()
       }
       
   """
-  @type create_monitoring_schedule_response() :: %{String.t() => any()}
+  @type create_monitoring_schedule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_optimization_job_request() :: %{
-        required("OptimizationJobName") => String.t()
+        required("OptimizationJobName") => String.t() | atom()
       }
       
   """
-  @type delete_optimization_job_request() :: %{String.t() => any()}
+  @type delete_optimization_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       auto_ml_job_step_metadata() :: %{
-        "Arn" => String.t()
+        "Arn" => String.t() | atom()
       }
       
   """
-  @type auto_ml_job_step_metadata() :: %{String.t() => any()}
+  @type auto_ml_job_step_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18578,7 +18592,7 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type human_loop_activation_config() :: %{String.t() => any()}
+  @type human_loop_activation_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18588,35 +18602,35 @@ defmodule AWS.SageMaker do
         optional("ActivationState") => list(any()),
         optional("ComputeQuotaConfig") => compute_quota_config(),
         optional("ComputeQuotaTarget") => compute_quota_target(),
-        optional("Description") => String.t(),
-        required("ComputeQuotaId") => String.t(),
+        optional("Description") => String.t() | atom(),
+        required("ComputeQuotaId") => String.t() | atom(),
         required("TargetVersion") => integer()
       }
       
   """
-  @type update_compute_quota_request() :: %{String.t() => any()}
+  @type update_compute_quota_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_image_request() :: %{
-        required("ImageName") => String.t()
+        required("ImageName") => String.t() | atom()
       }
       
   """
-  @type describe_image_request() :: %{String.t() => any()}
+  @type describe_image_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_pipeline_response() :: %{
-        "PipelineArn" => String.t()
+        "PipelineArn" => String.t() | atom()
       }
       
   """
-  @type delete_pipeline_response() :: %{String.t() => any()}
+  @type delete_pipeline_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18626,53 +18640,53 @@ defmodule AWS.SageMaker do
         optional("CreatedAfter") => non_neg_integer(),
         optional("CreatedBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
-        required("PipelineName") => String.t()
+        required("PipelineName") => String.t() | atom()
       }
       
   """
-  @type list_pipeline_executions_request() :: %{String.t() => any()}
+  @type list_pipeline_executions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_node_details() :: %{
-        "CurrentImageId" => String.t(),
-        "DesiredImageId" => String.t(),
-        "InstanceGroupName" => String.t(),
-        "InstanceId" => [String.t()],
+        "CurrentImageId" => String.t() | atom(),
+        "DesiredImageId" => String.t() | atom(),
+        "InstanceGroupName" => String.t() | atom(),
+        "InstanceId" => [String.t() | atom()],
         "InstanceStatus" => cluster_instance_status_details(),
         "InstanceStorageConfigs" => list(list()),
         "InstanceType" => list(any()),
         "LastSoftwareUpdateTime" => non_neg_integer(),
         "LaunchTime" => non_neg_integer(),
         "LifeCycleConfig" => cluster_life_cycle_config(),
-        "NodeLogicalId" => String.t(),
+        "NodeLogicalId" => String.t() | atom(),
         "OverrideVpcConfig" => vpc_config(),
         "Placement" => cluster_instance_placement(),
-        "PrivateDnsHostname" => String.t(),
-        "PrivatePrimaryIp" => String.t(),
-        "PrivatePrimaryIpv6" => String.t(),
+        "PrivateDnsHostname" => String.t() | atom(),
+        "PrivatePrimaryIp" => String.t() | atom(),
+        "PrivatePrimaryIpv6" => String.t() | atom(),
         "ThreadsPerCore" => integer()
       }
       
   """
-  @type cluster_node_details() :: %{String.t() => any()}
+  @type cluster_node_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_catalog_provisioned_product_details() :: %{
-        "ProvisionedProductId" => String.t(),
-        "ProvisionedProductStatusMessage" => String.t()
+        "ProvisionedProductId" => String.t() | atom(),
+        "ProvisionedProductStatusMessage" => String.t() | atom()
       }
       
   """
-  @type service_catalog_provisioned_product_details() :: %{String.t() => any()}
+  @type service_catalog_provisioned_product_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18680,35 +18694,35 @@ defmodule AWS.SageMaker do
       
       list_inference_experiments_response() :: %{
         "InferenceExperiments" => list(inference_experiment_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_inference_experiments_response() :: %{String.t() => any()}
+  @type list_inference_experiments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       production_variant_core_dump_config() :: %{
-        "DestinationS3Uri" => String.t(),
-        "KmsKeyId" => String.t()
+        "DestinationS3Uri" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom()
       }
       
   """
-  @type production_variant_core_dump_config() :: %{String.t() => any()}
+  @type production_variant_core_dump_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_optimization_jobs_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "OptimizationJobSummaries" => list(optimization_job_summary())
       }
       
   """
-  @type list_optimization_jobs_response() :: %{String.t() => any()}
+  @type list_optimization_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18718,16 +18732,16 @@ defmodule AWS.SageMaker do
         "CreationTime" => non_neg_integer(),
         "ModelApprovalStatus" => list(any()),
         "ModelLifeCycle" => model_life_cycle(),
-        "ModelPackageArn" => String.t(),
-        "ModelPackageDescription" => String.t(),
-        "ModelPackageGroupName" => String.t(),
-        "ModelPackageName" => String.t(),
+        "ModelPackageArn" => String.t() | atom(),
+        "ModelPackageDescription" => String.t() | atom(),
+        "ModelPackageGroupName" => String.t() | atom(),
+        "ModelPackageName" => String.t() | atom(),
         "ModelPackageStatus" => list(any()),
         "ModelPackageVersion" => integer()
       }
       
   """
-  @type model_package_summary() :: %{String.t() => any()}
+  @type model_package_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18743,11 +18757,11 @@ defmodule AWS.SageMaker do
   ## Example:
       
       create_notebook_instance_lifecycle_config_output() :: %{
-        "NotebookInstanceLifecycleConfigArn" => String.t()
+        "NotebookInstanceLifecycleConfigArn" => String.t() | atom()
       }
       
   """
-  @type create_notebook_instance_lifecycle_config_output() :: %{String.t() => any()}
+  @type create_notebook_instance_lifecycle_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18758,44 +18772,44 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type cluster_ebs_volume_config() :: %{String.t() => any()}
+  @type cluster_ebs_volume_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_feature_group_response() :: %{
-        "FeatureGroupArn" => String.t()
+        "FeatureGroupArn" => String.t() | atom()
       }
       
   """
-  @type update_feature_group_response() :: %{String.t() => any()}
+  @type update_feature_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       code_repository_summary() :: %{
-        "CodeRepositoryArn" => String.t(),
-        "CodeRepositoryName" => String.t(),
+        "CodeRepositoryArn" => String.t() | atom(),
+        "CodeRepositoryName" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
         "GitConfig" => git_config(),
         "LastModifiedTime" => non_neg_integer()
       }
       
   """
-  @type code_repository_summary() :: %{String.t() => any()}
+  @type code_repository_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_mlflow_tracking_server_request() :: %{
-        required("TrackingServerName") => String.t()
+        required("TrackingServerName") => String.t() | atom()
       }
       
   """
-  @type delete_mlflow_tracking_server_request() :: %{String.t() => any()}
+  @type delete_mlflow_tracking_server_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18806,19 +18820,19 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type retention_policy() :: %{String.t() => any()}
+  @type retention_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_partner_app_request() :: %{
-        optional("ClientToken") => String.t(),
-        required("Arn") => String.t()
+        optional("ClientToken") => String.t() | atom(),
+        required("Arn") => String.t() | atom()
       }
       
   """
-  @type delete_partner_app_request() :: %{String.t() => any()}
+  @type delete_partner_app_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18833,23 +18847,23 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type dynamic_scaling_configuration() :: %{String.t() => any()}
+  @type dynamic_scaling_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_spaces_request() :: %{
-        optional("DomainIdEquals") => String.t(),
+        optional("DomainIdEquals") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
-        optional("SpaceNameContains") => String.t()
+        optional("SpaceNameContains") => String.t() | atom()
       }
       
   """
-  @type list_spaces_request() :: %{String.t() => any()}
+  @type list_spaces_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18857,31 +18871,31 @@ defmodule AWS.SageMaker do
       
       processing_job() :: %{
         "AppSpecification" => app_specification(),
-        "AutoMLJobArn" => String.t(),
+        "AutoMLJobArn" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
         "Environment" => map(),
-        "ExitMessage" => String.t(),
+        "ExitMessage" => String.t() | atom(),
         "ExperimentConfig" => experiment_config(),
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
-        "MonitoringScheduleArn" => String.t(),
+        "MonitoringScheduleArn" => String.t() | atom(),
         "NetworkConfig" => network_config(),
         "ProcessingEndTime" => non_neg_integer(),
         "ProcessingInputs" => list(processing_input()),
-        "ProcessingJobArn" => String.t(),
-        "ProcessingJobName" => String.t(),
+        "ProcessingJobArn" => String.t() | atom(),
+        "ProcessingJobName" => String.t() | atom(),
         "ProcessingJobStatus" => list(any()),
         "ProcessingOutputConfig" => processing_output_config(),
         "ProcessingResources" => processing_resources(),
         "ProcessingStartTime" => non_neg_integer(),
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | atom(),
         "StoppingCondition" => processing_stopping_condition(),
         "Tags" => list(tag()),
-        "TrainingJobArn" => String.t()
+        "TrainingJobArn" => String.t() | atom()
       }
       
   """
-  @type processing_job() :: %{String.t() => any()}
+  @type processing_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18891,12 +18905,12 @@ defmodule AWS.SageMaker do
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_human_task_uis_request() :: %{String.t() => any()}
+  @type list_human_task_uis_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18907,18 +18921,18 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type space_sharing_settings_summary() :: %{String.t() => any()}
+  @type space_sharing_settings_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_cluster_response() :: %{
-        "ClusterArn" => String.t()
+        "ClusterArn" => String.t() | atom()
       }
       
   """
-  @type update_cluster_response() :: %{String.t() => any()}
+  @type update_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18929,24 +18943,24 @@ defmodule AWS.SageMaker do
         optional("HumanLoopConfig") => human_loop_config(),
         optional("HumanLoopRequestSource") => human_loop_request_source(),
         optional("Tags") => list(tag()),
-        required("FlowDefinitionName") => String.t(),
+        required("FlowDefinitionName") => String.t() | atom(),
         required("OutputConfig") => flow_definition_output_config(),
-        required("RoleArn") => String.t()
+        required("RoleArn") => String.t() | atom()
       }
       
   """
-  @type create_flow_definition_request() :: %{String.t() => any()}
+  @type create_flow_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_code_repository_output() :: %{
-        "CodeRepositoryArn" => String.t()
+        "CodeRepositoryArn" => String.t() | atom()
       }
       
   """
-  @type create_code_repository_output() :: %{String.t() => any()}
+  @type create_code_repository_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18954,32 +18968,32 @@ defmodule AWS.SageMaker do
       
       list_device_fleets_response() :: %{
         "DeviceFleetSummaries" => list(device_fleet_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_device_fleets_response() :: %{String.t() => any()}
+  @type list_device_fleets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_device_response() :: %{
-        "AgentVersion" => String.t(),
-        "Description" => String.t(),
-        "DeviceArn" => String.t(),
-        "DeviceFleetName" => String.t(),
-        "DeviceName" => String.t(),
-        "IotThingName" => String.t(),
+        "AgentVersion" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "DeviceArn" => String.t() | atom(),
+        "DeviceFleetName" => String.t() | atom(),
+        "DeviceName" => String.t() | atom(),
+        "IotThingName" => String.t() | atom(),
         "LatestHeartbeat" => non_neg_integer(),
         "MaxModels" => integer(),
         "Models" => list(edge_model()),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "RegistrationTime" => non_neg_integer()
       }
       
   """
-  @type describe_device_response() :: %{String.t() => any()}
+  @type describe_device_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18990,24 +19004,24 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type default_space_storage_settings() :: %{String.t() => any()}
+  @type default_space_storage_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_data_source() :: %{
-        "AttributeNames" => list(String.t()),
+        "AttributeNames" => list(String.t() | atom()),
         "HubAccessConfig" => hub_access_config(),
-        "InstanceGroupNames" => list(String.t()),
+        "InstanceGroupNames" => list(String.t() | atom()),
         "ModelAccessConfig" => model_access_config(),
         "S3DataDistributionType" => list(any()),
         "S3DataType" => list(any()),
-        "S3Uri" => String.t()
+        "S3Uri" => String.t() | atom()
       }
       
   """
-  @type s3_data_source() :: %{String.t() => any()}
+  @type s3_data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -19015,11 +19029,11 @@ defmodule AWS.SageMaker do
       
       list_labeling_jobs_for_workteam_response() :: %{
         "LabelingJobSummaryList" => list(labeling_job_for_workteam_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_labeling_jobs_for_workteam_response() :: %{String.t() => any()}
+  @type list_labeling_jobs_for_workteam_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -19030,32 +19044,32 @@ defmodule AWS.SageMaker do
       }
       
   """
-  @type remote_debug_config() :: %{String.t() => any()}
+  @type remote_debug_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_hub_response() :: %{
-        "HubArn" => String.t()
+        "HubArn" => String.t() | atom()
       }
       
   """
-  @type create_hub_response() :: %{String.t() => any()}
+  @type create_hub_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       async_inference_output_config() :: %{
-        "KmsKeyId" => String.t(),
+        "KmsKeyId" => String.t() | atom(),
         "NotificationConfig" => async_inference_notification_config(),
-        "S3FailurePath" => String.t(),
-        "S3OutputPath" => String.t()
+        "S3FailurePath" => String.t() | atom(),
+        "S3OutputPath" => String.t() | atom()
       }
       
   """
-  @type async_inference_output_config() :: %{String.t() => any()}
+  @type async_inference_output_config() :: %{(String.t() | atom()) => any()}
 
   @type add_association_errors() :: resource_limit_exceeded() | resource_not_found()
 
@@ -19639,7 +19653,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, add_association_errors()}
   def add_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddAssociation", input, options)
   end
@@ -19679,7 +19694,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def add_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTags", input, options)
   end
@@ -19698,7 +19714,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, associate_trial_component_errors()}
   def associate_trial_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateTrialComponent", input, options)
   end
@@ -19717,7 +19734,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, attach_cluster_node_volume_errors()}
   def attach_cluster_node_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AttachClusterNodeVolume", input, options)
   end
@@ -19740,7 +19758,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, batch_add_cluster_nodes_errors()}
   def batch_add_cluster_nodes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchAddClusterNodes", input, options)
   end
@@ -19766,7 +19785,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, batch_delete_cluster_nodes_errors()}
   def batch_delete_cluster_nodes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteClusterNodes", input, options)
   end
@@ -19779,7 +19799,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def batch_describe_model_package(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDescribeModelPackage", input, options)
   end
@@ -19798,7 +19819,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_action_errors()}
   def create_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAction", input, options)
   end
@@ -19812,7 +19834,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_algorithm(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAlgorithm", input, options)
   end
@@ -19830,7 +19853,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_app_errors()}
   def create_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApp", input, options)
   end
@@ -19847,7 +19871,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_app_image_config_errors()}
   def create_app_image_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAppImageConfig", input, options)
   end
@@ -19865,7 +19890,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_artifact_errors()}
   def create_artifact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateArtifact", input, options)
   end
@@ -19913,7 +19939,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_auto_ml_job_errors()}
   def create_auto_ml_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAutoMLJob", input, options)
   end
@@ -19969,7 +19996,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_auto_ml_job_v2_errors()}
   def create_auto_ml_job_v2(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAutoMLJobV2", input, options)
   end
@@ -19989,7 +20017,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCluster", input, options)
   end
@@ -20007,7 +20036,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_cluster_scheduler_config_errors()}
   def create_cluster_scheduler_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateClusterSchedulerConfig", input, options)
   end
@@ -20029,7 +20059,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_code_repository(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCodeRepository", input, options)
   end
@@ -20074,7 +20105,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_compilation_job_errors()}
   def create_compilation_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCompilationJob", input, options)
   end
@@ -20092,7 +20124,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_compute_quota_errors()}
   def create_compute_quota(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateComputeQuota", input, options)
   end
@@ -20110,7 +20143,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_context_errors()}
   def create_context(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateContext", input, options)
   end
@@ -20130,7 +20164,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_data_quality_job_definition_errors()}
   def create_data_quality_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataQualityJobDefinition", input, options)
   end
@@ -20144,7 +20179,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_device_fleet_errors()}
   def create_device_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDeviceFleet", input, options)
   end
@@ -20200,7 +20236,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_domain_errors()}
   def create_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDomain", input, options)
   end
@@ -20216,7 +20253,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_edge_deployment_plan_errors()}
   def create_edge_deployment_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEdgeDeploymentPlan", input, options)
   end
@@ -20230,7 +20268,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_edge_deployment_stage_errors()}
   def create_edge_deployment_stage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEdgeDeploymentStage", input, options)
   end
@@ -20248,7 +20287,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_edge_packaging_job_errors()}
   def create_edge_packaging_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEdgePackagingJob", input, options)
   end
@@ -20333,7 +20373,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_endpoint_errors()}
   def create_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEndpoint", input, options)
   end
@@ -20382,7 +20423,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_endpoint_config_errors()}
   def create_endpoint_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEndpointConfig", input, options)
   end
@@ -20429,7 +20471,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_experiment_errors()}
   def create_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateExperiment", input, options)
   end
@@ -20458,7 +20501,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_feature_group_errors()}
   def create_feature_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFeatureGroup", input, options)
   end
@@ -20472,7 +20516,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_flow_definition_errors()}
   def create_flow_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFlowDefinition", input, options)
   end
@@ -20486,7 +20531,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_hub_errors()}
   def create_hub(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHub", input, options)
   end
@@ -20507,7 +20553,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_hub_content_presigned_urls(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHubContentPresignedUrls", input, options)
   end
@@ -20522,7 +20569,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_hub_content_reference_errors()}
   def create_hub_content_reference(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHubContentReference", input, options)
   end
@@ -20539,7 +20587,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_human_task_ui_errors()}
   def create_human_task_ui(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHumanTaskUi", input, options)
   end
@@ -20575,7 +20624,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_hyper_parameter_tuning_job_errors()}
   def create_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHyperParameterTuningJob", input, options)
   end
@@ -20593,7 +20643,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_image_errors()}
   def create_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateImage", input, options)
   end
@@ -20609,7 +20660,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_image_version_errors()}
   def create_image_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateImageVersion", input, options)
   end
@@ -20633,7 +20685,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_inference_component_errors()}
   def create_inference_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateInferenceComponent", input, options)
   end
@@ -20659,7 +20712,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_inference_experiment_errors()}
   def create_inference_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateInferenceExperiment", input, options)
   end
@@ -20679,7 +20733,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_inference_recommendations_job_errors()}
   def create_inference_recommendations_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateInferenceRecommendationsJob", input, options)
   end
@@ -20731,7 +20786,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_labeling_job_errors()}
   def create_labeling_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLabelingJob", input, options)
   end
@@ -20748,7 +20804,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_mlflow_tracking_server_errors()}
   def create_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMlflowTrackingServer", input, options)
   end
@@ -20786,7 +20843,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_model_errors()}
   def create_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModel", input, options)
   end
@@ -20804,7 +20862,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_model_bias_job_definition_errors()}
   def create_model_bias_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModelBiasJobDefinition", input, options)
   end
@@ -20820,7 +20879,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_model_card_errors()}
   def create_model_card(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModelCard", input, options)
   end
@@ -20834,7 +20894,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_model_card_export_job_errors()}
   def create_model_card_export_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModelCardExportJob", input, options)
   end
@@ -20852,7 +20913,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_model_explainability_job_definition_errors()}
   def create_model_explainability_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModelExplainabilityJobDefinition", input, options)
   end
@@ -20884,7 +20946,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_model_package_errors()}
   def create_model_package(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModelPackage", input, options)
   end
@@ -20900,7 +20963,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_model_package_group_errors()}
   def create_model_package_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModelPackageGroup", input, options)
   end
@@ -20920,7 +20984,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_model_quality_job_definition_errors()}
   def create_model_quality_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModelQualityJobDefinition", input, options)
   end
@@ -20935,7 +21000,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_monitoring_schedule_errors()}
   def create_monitoring_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMonitoringSchedule", input, options)
   end
@@ -20988,7 +21054,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_notebook_instance_errors()}
   def create_notebook_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateNotebookInstance", input, options)
   end
@@ -21025,7 +21092,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_notebook_instance_lifecycle_config_errors()}
   def create_notebook_instance_lifecycle_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateNotebookInstanceLifecycleConfig", input, options)
   end
@@ -21047,7 +21115,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_optimization_job_errors()}
   def create_optimization_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateOptimizationJob", input, options)
   end
@@ -21061,7 +21130,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_partner_app_errors()}
   def create_partner_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePartnerApp", input, options)
   end
@@ -21079,7 +21149,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_partner_app_presigned_url_errors()}
   def create_partner_app_presigned_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePartnerAppPresignedUrl", input, options)
   end
@@ -21093,7 +21164,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_pipeline_errors()}
   def create_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePipeline", input, options)
   end
@@ -21130,7 +21202,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_presigned_domain_url_errors()}
   def create_presigned_domain_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePresignedDomainUrl", input, options)
   end
@@ -21151,7 +21224,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_presigned_mlflow_tracking_server_url_errors()}
   def create_presigned_mlflow_tracking_server_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePresignedMlflowTrackingServerUrl", input, options)
   end
@@ -21190,7 +21264,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_presigned_notebook_instance_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePresignedNotebookInstanceUrl", input, options)
   end
@@ -21204,7 +21279,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_processing_job_errors()}
   def create_processing_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProcessingJob", input, options)
   end
@@ -21219,7 +21295,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_project_errors()}
   def create_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProject", input, options)
   end
@@ -21233,7 +21310,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_space_errors()}
   def create_space(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSpace", input, options)
   end
@@ -21247,7 +21325,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_studio_lifecycle_config_errors()}
   def create_studio_lifecycle_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStudioLifecycleConfig", input, options)
   end
@@ -21325,7 +21404,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_training_job_errors()}
   def create_training_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTrainingJob", input, options)
   end
@@ -21385,7 +21465,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_training_plan_errors()}
   def create_training_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTrainingPlan", input, options)
   end
@@ -21426,7 +21507,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_transform_job_errors()}
   def create_transform_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTransformJob", input, options)
   end
@@ -21458,7 +21540,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_trial_errors()}
   def create_trial(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTrial", input, options)
   end
@@ -21487,7 +21570,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_trial_component_errors()}
   def create_trial_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTrialComponent", input, options)
   end
@@ -21509,7 +21593,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_user_profile_errors()}
   def create_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUserProfile", input, options)
   end
@@ -21542,7 +21627,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_workforce(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWorkforce", input, options)
   end
@@ -21561,7 +21647,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_workteam_errors()}
   def create_workteam(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWorkteam", input, options)
   end
@@ -21575,7 +21662,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_action_errors()}
   def delete_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAction", input, options)
   end
@@ -21589,7 +21677,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_algorithm_errors()}
   def delete_algorithm(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAlgorithm", input, options)
   end
@@ -21603,7 +21692,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_app_errors()}
   def delete_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApp", input, options)
   end
@@ -21617,7 +21707,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_app_image_config_errors()}
   def delete_app_image_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAppImageConfig", input, options)
   end
@@ -21633,7 +21724,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_artifact_errors()}
   def delete_artifact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteArtifact", input, options)
   end
@@ -21647,7 +21739,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_association_errors()}
   def delete_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAssociation", input, options)
   end
@@ -21661,7 +21754,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCluster", input, options)
   end
@@ -21675,7 +21769,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_cluster_scheduler_config_errors()}
   def delete_cluster_scheduler_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteClusterSchedulerConfig", input, options)
   end
@@ -21688,7 +21783,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_code_repository(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCodeRepository", input, options)
   end
@@ -21711,7 +21807,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_compilation_job_errors()}
   def delete_compilation_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCompilationJob", input, options)
   end
@@ -21725,7 +21822,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_compute_quota_errors()}
   def delete_compute_quota(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteComputeQuota", input, options)
   end
@@ -21739,7 +21837,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_context_errors()}
   def delete_context(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteContext", input, options)
   end
@@ -21757,7 +21856,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_data_quality_job_definition_errors()}
   def delete_data_quality_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDataQualityJobDefinition", input, options)
   end
@@ -21771,7 +21871,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_device_fleet_errors()}
   def delete_device_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDeviceFleet", input, options)
   end
@@ -21790,7 +21891,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDomain", input, options)
   end
@@ -21805,7 +21907,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_edge_deployment_plan_errors()}
   def delete_edge_deployment_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEdgeDeploymentPlan", input, options)
   end
@@ -21820,7 +21923,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_edge_deployment_stage_errors()}
   def delete_edge_deployment_stage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEdgeDeploymentStage", input, options)
   end
@@ -21847,7 +21951,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEndpoint", input, options)
   end
@@ -21870,7 +21975,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_endpoint_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEndpointConfig", input, options)
   end
@@ -21888,7 +21994,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_experiment_errors()}
   def delete_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteExperiment", input, options)
   end
@@ -21913,7 +22020,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_feature_group_errors()}
   def delete_feature_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFeatureGroup", input, options)
   end
@@ -21927,7 +22035,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_flow_definition_errors()}
   def delete_flow_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFlowDefinition", input, options)
   end
@@ -21941,7 +22050,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_hub_errors()}
   def delete_hub(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteHub", input, options)
   end
@@ -21955,7 +22065,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_hub_content_errors()}
   def delete_hub_content(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteHubContent", input, options)
   end
@@ -21969,7 +22080,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_hub_content_reference_errors()}
   def delete_hub_content_reference(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteHubContentReference", input, options)
   end
@@ -21989,7 +22101,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_human_task_ui_errors()}
   def delete_human_task_ui(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteHumanTaskUi", input, options)
   end
@@ -22011,7 +22124,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteHyperParameterTuningJob", input, options)
   end
@@ -22027,7 +22141,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_image_errors()}
   def delete_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteImage", input, options)
   end
@@ -22043,7 +22158,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_image_version_errors()}
   def delete_image_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteImageVersion", input, options)
   end
@@ -22056,7 +22172,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_inference_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteInferenceComponent", input, options)
   end
@@ -22073,7 +22190,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_inference_experiment_errors()}
   def delete_inference_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteInferenceExperiment", input, options)
   end
@@ -22089,7 +22207,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_mlflow_tracking_server_errors()}
   def delete_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMlflowTrackingServer", input, options)
   end
@@ -22106,7 +22225,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModel", input, options)
   end
@@ -22124,7 +22244,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_model_bias_job_definition_errors()}
   def delete_model_bias_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModelBiasJobDefinition", input, options)
   end
@@ -22138,7 +22259,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_model_card_errors()}
   def delete_model_card(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModelCard", input, options)
   end
@@ -22156,7 +22278,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_model_explainability_job_definition_errors()}
   def delete_model_explainability_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModelExplainabilityJobDefinition", input, options)
   end
@@ -22174,7 +22297,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_model_package_errors()}
   def delete_model_package(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModelPackage", input, options)
   end
@@ -22188,7 +22312,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_model_package_group_errors()}
   def delete_model_package_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModelPackageGroup", input, options)
   end
@@ -22205,7 +22330,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_model_package_group_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModelPackageGroupPolicy", input, options)
   end
@@ -22223,7 +22349,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_model_quality_job_definition_errors()}
   def delete_model_quality_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModelQualityJobDefinition", input, options)
   end
@@ -22240,7 +22367,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_monitoring_schedule_errors()}
   def delete_monitoring_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMonitoringSchedule", input, options)
   end
@@ -22260,7 +22388,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_notebook_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteNotebookInstance", input, options)
   end
@@ -22277,7 +22406,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_notebook_instance_lifecycle_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteNotebookInstanceLifecycleConfig", input, options)
   end
@@ -22291,7 +22421,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_optimization_job_errors()}
   def delete_optimization_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteOptimizationJob", input, options)
   end
@@ -22305,7 +22436,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_partner_app_errors()}
   def delete_partner_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePartnerApp", input, options)
   end
@@ -22323,7 +22455,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_pipeline_errors()}
   def delete_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePipeline", input, options)
   end
@@ -22337,7 +22470,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_project_errors()}
   def delete_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProject", input, options)
   end
@@ -22351,7 +22485,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_space_errors()}
   def delete_space(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSpace", input, options)
   end
@@ -22369,7 +22504,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_studio_lifecycle_config_errors()}
   def delete_studio_lifecycle_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteStudioLifecycleConfig", input, options)
   end
@@ -22392,7 +22528,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTags", input, options)
   end
@@ -22410,7 +22547,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_trial_errors()}
   def delete_trial(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTrial", input, options)
   end
@@ -22430,7 +22568,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_trial_component_errors()}
   def delete_trial_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTrialComponent", input, options)
   end
@@ -22447,7 +22586,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_user_profile_errors()}
   def delete_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUserProfile", input, options)
   end
@@ -22471,7 +22611,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_workforce(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWorkforce", input, options)
   end
@@ -22487,7 +22628,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_workteam_errors()}
   def delete_workteam(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWorkteam", input, options)
   end
@@ -22502,7 +22644,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def deregister_devices(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterDevices", input, options)
   end
@@ -22516,7 +22659,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_action_errors()}
   def describe_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAction", input, options)
   end
@@ -22529,7 +22673,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_algorithm(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAlgorithm", input, options)
   end
@@ -22543,7 +22688,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_app_errors()}
   def describe_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApp", input, options)
   end
@@ -22557,7 +22703,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_app_image_config_errors()}
   def describe_app_image_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAppImageConfig", input, options)
   end
@@ -22571,7 +22718,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_artifact_errors()}
   def describe_artifact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeArtifact", input, options)
   end
@@ -22588,7 +22736,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_auto_ml_job_errors()}
   def describe_auto_ml_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAutoMLJob", input, options)
   end
@@ -22604,7 +22753,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_auto_ml_job_v2_errors()}
   def describe_auto_ml_job_v2(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAutoMLJobV2", input, options)
   end
@@ -22618,7 +22768,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_cluster_errors()}
   def describe_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCluster", input, options)
   end
@@ -22636,7 +22787,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_cluster_event_errors()}
   def describe_cluster_event(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClusterEvent", input, options)
   end
@@ -22651,7 +22803,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_cluster_node_errors()}
   def describe_cluster_node(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClusterNode", input, options)
   end
@@ -22673,7 +22826,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_cluster_scheduler_config_errors()}
   def describe_cluster_scheduler_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClusterSchedulerConfig", input, options)
   end
@@ -22686,7 +22840,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_code_repository(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCodeRepository", input, options)
   end
@@ -22704,7 +22859,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_compilation_job_errors()}
   def describe_compilation_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCompilationJob", input, options)
   end
@@ -22718,7 +22874,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_compute_quota_errors()}
   def describe_compute_quota(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeComputeQuota", input, options)
   end
@@ -22732,7 +22889,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_context_errors()}
   def describe_context(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeContext", input, options)
   end
@@ -22750,7 +22908,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_data_quality_job_definition_errors()}
   def describe_data_quality_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDataQualityJobDefinition", input, options)
   end
@@ -22764,7 +22923,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_device_errors()}
   def describe_device(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDevice", input, options)
   end
@@ -22778,7 +22938,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_device_fleet_errors()}
   def describe_device_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDeviceFleet", input, options)
   end
@@ -22792,7 +22953,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_domain_errors()}
   def describe_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDomain", input, options)
   end
@@ -22806,7 +22968,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_edge_deployment_plan_errors()}
   def describe_edge_deployment_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEdgeDeploymentPlan", input, options)
   end
@@ -22820,7 +22983,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_edge_packaging_job_errors()}
   def describe_edge_packaging_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEdgePackagingJob", input, options)
   end
@@ -22833,7 +22997,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEndpoint", input, options)
   end
@@ -22847,7 +23012,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_endpoint_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEndpointConfig", input, options)
   end
@@ -22861,7 +23027,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_experiment_errors()}
   def describe_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeExperiment", input, options)
   end
@@ -22878,7 +23045,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_feature_group_errors()}
   def describe_feature_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFeatureGroup", input, options)
   end
@@ -22892,7 +23060,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_feature_metadata_errors()}
   def describe_feature_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFeatureMetadata", input, options)
   end
@@ -22906,7 +23075,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_flow_definition_errors()}
   def describe_flow_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFlowDefinition", input, options)
   end
@@ -22920,7 +23090,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_hub_errors()}
   def describe_hub(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeHub", input, options)
   end
@@ -22934,7 +23105,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_hub_content_errors()}
   def describe_hub_content(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeHubContent", input, options)
   end
@@ -22949,7 +23121,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_human_task_ui_errors()}
   def describe_human_task_ui(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeHumanTaskUi", input, options)
   end
@@ -22971,7 +23144,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_hyper_parameter_tuning_job_errors()}
   def describe_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeHyperParameterTuningJob", input, options)
   end
@@ -22985,7 +23159,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_image_errors()}
   def describe_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeImage", input, options)
   end
@@ -22999,7 +23174,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_image_version_errors()}
   def describe_image_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeImageVersion", input, options)
   end
@@ -23012,7 +23188,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_inference_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInferenceComponent", input, options)
   end
@@ -23026,7 +23203,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_inference_experiment_errors()}
   def describe_inference_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInferenceExperiment", input, options)
   end
@@ -23046,7 +23224,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_inference_recommendations_job_errors()}
   def describe_inference_recommendations_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInferenceRecommendationsJob", input, options)
   end
@@ -23060,7 +23239,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_labeling_job_errors()}
   def describe_labeling_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLabelingJob", input, options)
   end
@@ -23078,7 +23258,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_lineage_group_errors()}
   def describe_lineage_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLineageGroup", input, options)
   end
@@ -23092,7 +23273,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_mlflow_tracking_server_errors()}
   def describe_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMlflowTrackingServer", input, options)
   end
@@ -23105,7 +23287,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeModel", input, options)
   end
@@ -23123,7 +23306,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_model_bias_job_definition_errors()}
   def describe_model_bias_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeModelBiasJobDefinition", input, options)
   end
@@ -23138,7 +23322,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_model_card_errors()}
   def describe_model_card(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeModelCard", input, options)
   end
@@ -23152,7 +23337,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_model_card_export_job_errors()}
   def describe_model_card_export_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeModelCardExportJob", input, options)
   end
@@ -23170,7 +23356,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_model_explainability_job_definition_errors()}
   def describe_model_explainability_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeModelExplainabilityJobDefinition", input, options)
   end
@@ -23191,7 +23378,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_model_package(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeModelPackage", input, options)
   end
@@ -23204,7 +23392,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_model_package_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeModelPackageGroup", input, options)
   end
@@ -23222,7 +23411,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_model_quality_job_definition_errors()}
   def describe_model_quality_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeModelQualityJobDefinition", input, options)
   end
@@ -23236,7 +23426,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_monitoring_schedule_errors()}
   def describe_monitoring_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMonitoringSchedule", input, options)
   end
@@ -23249,7 +23440,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_notebook_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeNotebookInstance", input, options)
   end
@@ -23269,7 +23461,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_notebook_instance_lifecycle_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeNotebookInstanceLifecycleConfig", input, options)
   end
@@ -23283,7 +23476,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_optimization_job_errors()}
   def describe_optimization_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOptimizationJob", input, options)
   end
@@ -23297,7 +23491,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_partner_app_errors()}
   def describe_partner_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePartnerApp", input, options)
   end
@@ -23311,7 +23506,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_pipeline_errors()}
   def describe_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePipeline", input, options)
   end
@@ -23329,7 +23525,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_pipeline_definition_for_execution_errors()}
   def describe_pipeline_definition_for_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePipelineDefinitionForExecution", input, options)
   end
@@ -23343,7 +23540,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_pipeline_execution_errors()}
   def describe_pipeline_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePipelineExecution", input, options)
   end
@@ -23357,7 +23555,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_processing_job_errors()}
   def describe_processing_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProcessingJob", input, options)
   end
@@ -23370,7 +23569,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProject", input, options)
   end
@@ -23384,7 +23584,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_space_errors()}
   def describe_space(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSpace", input, options)
   end
@@ -23402,7 +23603,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_studio_lifecycle_config_errors()}
   def describe_studio_lifecycle_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStudioLifecycleConfig", input, options)
   end
@@ -23418,7 +23620,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_subscribed_workteam(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSubscribedWorkteam", input, options)
   end
@@ -23438,7 +23641,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_training_job_errors()}
   def describe_training_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrainingJob", input, options)
   end
@@ -23452,7 +23656,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_training_plan_errors()}
   def describe_training_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrainingPlan", input, options)
   end
@@ -23466,7 +23671,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_transform_job_errors()}
   def describe_transform_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTransformJob", input, options)
   end
@@ -23480,7 +23686,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_trial_errors()}
   def describe_trial(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrial", input, options)
   end
@@ -23494,7 +23701,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_trial_component_errors()}
   def describe_trial_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrialComponent", input, options)
   end
@@ -23510,7 +23718,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_user_profile_errors()}
   def describe_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUserProfile", input, options)
   end
@@ -23530,7 +23739,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_workforce(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkforce", input, options)
   end
@@ -23546,7 +23756,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_workteam(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkteam", input, options)
   end
@@ -23565,7 +23776,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, detach_cluster_node_volume_errors()}
   def detach_cluster_node_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetachClusterNodeVolume", input, options)
   end
@@ -23584,7 +23796,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_sagemaker_servicecatalog_portfolio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableSagemakerServicecatalogPortfolio", input, options)
   end
@@ -23608,7 +23821,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, disassociate_trial_component_errors()}
   def disassociate_trial_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateTrialComponent", input, options)
   end
@@ -23627,7 +23841,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_sagemaker_servicecatalog_portfolio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableSagemakerServicecatalogPortfolio", input, options)
   end
@@ -23640,7 +23855,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_device_fleet_report(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDeviceFleetReport", input, options)
   end
@@ -23654,7 +23870,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, get_lineage_group_policy_errors()}
   def get_lineage_group_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLineageGroupPolicy", input, options)
   end
@@ -23671,7 +23888,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_model_package_group_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetModelPackageGroupPolicy", input, options)
   end
@@ -23690,7 +23908,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_sagemaker_servicecatalog_portfolio_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -23717,7 +23936,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, get_scaling_configuration_recommendation_errors()}
   def get_scaling_configuration_recommendation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetScalingConfigurationRecommendation", input, options)
   end
@@ -23734,7 +23954,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_search_suggestions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSearchSuggestions", input, options)
   end
@@ -23748,7 +23969,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, import_hub_content_errors()}
   def import_hub_content(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportHubContent", input, options)
   end
@@ -23762,7 +23984,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_actions_errors()}
   def list_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListActions", input, options)
   end
@@ -23775,7 +23998,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_algorithms(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAlgorithms", input, options)
   end
@@ -23789,7 +24013,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_aliases_errors()}
   def list_aliases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAliases", input, options)
   end
@@ -23805,7 +24030,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_app_image_configs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAppImageConfigs", input, options)
   end
@@ -23818,7 +24044,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_apps(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListApps", input, options)
   end
@@ -23832,7 +24059,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_artifacts_errors()}
   def list_artifacts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListArtifacts", input, options)
   end
@@ -23846,7 +24074,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_associations_errors()}
   def list_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAssociations", input, options)
   end
@@ -23859,7 +24088,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_auto_ml_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAutoMLJobs", input, options)
   end
@@ -23873,7 +24103,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_candidates_for_auto_ml_job_errors()}
   def list_candidates_for_auto_ml_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCandidatesForAutoMLJob", input, options)
   end
@@ -23891,7 +24122,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_cluster_events_errors()}
   def list_cluster_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListClusterEvents", input, options)
   end
@@ -23906,7 +24138,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_cluster_nodes_errors()}
   def list_cluster_nodes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListClusterNodes", input, options)
   end
@@ -23919,7 +24152,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_cluster_scheduler_configs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListClusterSchedulerConfigs", input, options)
   end
@@ -23932,7 +24166,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListClusters", input, options)
   end
@@ -23945,7 +24180,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_code_repositories(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCodeRepositories", input, options)
   end
@@ -23963,7 +24199,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_compilation_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCompilationJobs", input, options)
   end
@@ -23976,7 +24213,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_compute_quotas(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListComputeQuotas", input, options)
   end
@@ -23990,7 +24228,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_contexts_errors()}
   def list_contexts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListContexts", input, options)
   end
@@ -24007,7 +24246,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_data_quality_job_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataQualityJobDefinitions", input, options)
   end
@@ -24020,7 +24260,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_device_fleets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDeviceFleets", input, options)
   end
@@ -24033,7 +24274,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_devices(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDevices", input, options)
   end
@@ -24046,7 +24288,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_domains(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDomains", input, options)
   end
@@ -24059,7 +24302,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_edge_deployment_plans(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEdgeDeploymentPlans", input, options)
   end
@@ -24072,7 +24316,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_edge_packaging_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEdgePackagingJobs", input, options)
   end
@@ -24085,7 +24330,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_endpoint_configs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEndpointConfigs", input, options)
   end
@@ -24098,7 +24344,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEndpoints", input, options)
   end
@@ -24114,7 +24361,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_experiments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListExperiments", input, options)
   end
@@ -24127,7 +24375,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_feature_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFeatureGroups", input, options)
   end
@@ -24140,7 +24389,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_flow_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFlowDefinitions", input, options)
   end
@@ -24154,7 +24404,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_hub_content_versions_errors()}
   def list_hub_content_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListHubContentVersions", input, options)
   end
@@ -24168,7 +24419,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_hub_contents_errors()}
   def list_hub_contents(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListHubContents", input, options)
   end
@@ -24181,7 +24433,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_hubs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListHubs", input, options)
   end
@@ -24194,7 +24447,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_human_task_uis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListHumanTaskUis", input, options)
   end
@@ -24213,7 +24467,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_hyper_parameter_tuning_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListHyperParameterTuningJobs", input, options)
   end
@@ -24229,7 +24484,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_image_versions_errors()}
   def list_image_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListImageVersions", input, options)
   end
@@ -24245,7 +24501,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_images(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListImages", input, options)
   end
@@ -24258,7 +24515,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_inference_components(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInferenceComponents", input, options)
   end
@@ -24271,7 +24529,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_inference_experiments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInferenceExperiments", input, options)
   end
@@ -24292,7 +24551,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_inference_recommendations_job_steps_errors()}
   def list_inference_recommendations_job_steps(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInferenceRecommendationsJobSteps", input, options)
   end
@@ -24309,7 +24569,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_inference_recommendations_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInferenceRecommendationsJobs", input, options)
   end
@@ -24322,7 +24583,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_labeling_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLabelingJobs", input, options)
   end
@@ -24336,7 +24598,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_labeling_jobs_for_workteam_errors()}
   def list_labeling_jobs_for_workteam(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLabelingJobsForWorkteam", input, options)
   end
@@ -24353,7 +24616,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_lineage_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLineageGroups", input, options)
   end
@@ -24366,7 +24630,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_mlflow_tracking_servers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMlflowTrackingServers", input, options)
   end
@@ -24379,7 +24644,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_model_bias_job_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelBiasJobDefinitions", input, options)
   end
@@ -24392,7 +24658,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_model_card_export_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelCardExportJobs", input, options)
   end
@@ -24406,7 +24673,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_model_card_versions_errors()}
   def list_model_card_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelCardVersions", input, options)
   end
@@ -24419,7 +24687,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_model_cards(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelCards", input, options)
   end
@@ -24436,7 +24705,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_model_explainability_job_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelExplainabilityJobDefinitions", input, options)
   end
@@ -24450,7 +24720,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_model_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelMetadata", input, options)
   end
@@ -24463,7 +24734,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_model_package_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelPackageGroups", input, options)
   end
@@ -24476,7 +24748,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_model_packages(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelPackages", input, options)
   end
@@ -24493,7 +24766,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_model_quality_job_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelQualityJobDefinitions", input, options)
   end
@@ -24506,7 +24780,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_models(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModels", input, options)
   end
@@ -24520,7 +24795,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_monitoring_alert_history_errors()}
   def list_monitoring_alert_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMonitoringAlertHistory", input, options)
   end
@@ -24534,7 +24810,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_monitoring_alerts_errors()}
   def list_monitoring_alerts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMonitoringAlerts", input, options)
   end
@@ -24547,7 +24824,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_monitoring_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMonitoringExecutions", input, options)
   end
@@ -24560,7 +24838,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_monitoring_schedules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMonitoringSchedules", input, options)
   end
@@ -24579,7 +24858,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_notebook_instance_lifecycle_configs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListNotebookInstanceLifecycleConfigs", input, options)
   end
@@ -24593,7 +24873,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_notebook_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListNotebookInstances", input, options)
   end
@@ -24606,7 +24887,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_optimization_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListOptimizationJobs", input, options)
   end
@@ -24619,7 +24901,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_partner_apps(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPartnerApps", input, options)
   end
@@ -24633,7 +24916,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_pipeline_execution_steps_errors()}
   def list_pipeline_execution_steps(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPipelineExecutionSteps", input, options)
   end
@@ -24647,7 +24931,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_pipeline_executions_errors()}
   def list_pipeline_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPipelineExecutions", input, options)
   end
@@ -24665,7 +24950,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_pipeline_parameters_for_execution_errors()}
   def list_pipeline_parameters_for_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPipelineParametersForExecution", input, options)
   end
@@ -24679,7 +24965,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_pipeline_versions_errors()}
   def list_pipeline_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPipelineVersions", input, options)
   end
@@ -24692,7 +24979,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_pipelines(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPipelines", input, options)
   end
@@ -24705,7 +24993,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_processing_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProcessingJobs", input, options)
   end
@@ -24718,7 +25007,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_projects(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProjects", input, options)
   end
@@ -24733,7 +25023,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_resource_catalogs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourceCatalogs", input, options)
   end
@@ -24746,7 +25037,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_spaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSpaces", input, options)
   end
@@ -24760,7 +25052,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_stage_devices(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStageDevices", input, options)
   end
@@ -24775,7 +25068,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_studio_lifecycle_configs_errors()}
   def list_studio_lifecycle_configs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStudioLifecycleConfigs", input, options)
   end
@@ -24792,7 +25086,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_subscribed_workteams(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSubscribedWorkteams", input, options)
   end
@@ -24805,7 +25100,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTags", input, options)
   end
@@ -24835,7 +25131,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_training_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTrainingJobs", input, options)
   end
@@ -24856,7 +25153,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_training_jobs_for_hyper_parameter_tuning_job_errors()}
   def list_training_jobs_for_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -24875,7 +25173,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_training_plans(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTrainingPlans", input, options)
   end
@@ -24888,7 +25187,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_transform_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTransformJobs", input, options)
   end
@@ -24912,7 +25212,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_trial_components_errors()}
   def list_trial_components(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTrialComponents", input, options)
   end
@@ -24932,7 +25233,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_trials_errors()}
   def list_trials(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTrials", input, options)
   end
@@ -24945,7 +25247,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_user_profiles(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUserProfiles", input, options)
   end
@@ -24962,7 +25265,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_workforces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWorkforces", input, options)
   end
@@ -24978,7 +25282,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_workteams(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWorkteams", input, options)
   end
@@ -24996,7 +25301,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, put_model_package_group_policy_errors()}
   def put_model_package_group_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutModelPackageGroupPolicy", input, options)
   end
@@ -25014,7 +25320,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, query_lineage_errors()}
   def query_lineage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "QueryLineage", input, options)
   end
@@ -25028,7 +25335,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, register_devices_errors()}
   def register_devices(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterDevices", input, options)
   end
@@ -25042,7 +25350,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, render_ui_template_errors()}
   def render_ui_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RenderUiTemplate", input, options)
   end
@@ -25056,7 +25365,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, retry_pipeline_execution_errors()}
   def retry_pipeline_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RetryPipelineExecution", input, options)
   end
@@ -25080,7 +25390,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def search(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "Search", input, options)
   end
@@ -25106,7 +25417,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, search_training_plan_offerings_errors()}
   def search_training_plan_offerings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchTrainingPlanOfferings", input, options)
   end
@@ -25129,7 +25441,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, send_pipeline_execution_step_failure_errors()}
   def send_pipeline_execution_step_failure(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendPipelineExecutionStepFailure", input, options)
   end
@@ -25152,7 +25465,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, send_pipeline_execution_step_success_errors()}
   def send_pipeline_execution_step_success(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendPipelineExecutionStepSuccess", input, options)
   end
@@ -25165,7 +25479,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def start_edge_deployment_stage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartEdgeDeploymentStage", input, options)
   end
@@ -25179,7 +25494,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, start_inference_experiment_errors()}
   def start_inference_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartInferenceExperiment", input, options)
   end
@@ -25193,7 +25509,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, start_mlflow_tracking_server_errors()}
   def start_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMlflowTrackingServer", input, options)
   end
@@ -25210,7 +25527,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, start_monitoring_schedule_errors()}
   def start_monitoring_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMonitoringSchedule", input, options)
   end
@@ -25229,7 +25547,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, start_notebook_instance_errors()}
   def start_notebook_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartNotebookInstance", input, options)
   end
@@ -25243,7 +25562,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, start_pipeline_execution_errors()}
   def start_pipeline_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartPipelineExecution", input, options)
   end
@@ -25258,7 +25578,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, start_session_errors()}
   def start_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartSession", input, options)
   end
@@ -25272,7 +25593,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, stop_auto_ml_job_errors()}
   def stop_auto_ml_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopAutoMLJob", input, options)
   end
@@ -25294,7 +25616,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, stop_compilation_job_errors()}
   def stop_compilation_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopCompilationJob", input, options)
   end
@@ -25307,7 +25630,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def stop_edge_deployment_stage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopEdgeDeploymentStage", input, options)
   end
@@ -25320,7 +25644,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def stop_edge_packaging_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopEdgePackagingJob", input, options)
   end
@@ -25340,7 +25665,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, stop_hyper_parameter_tuning_job_errors()}
   def stop_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopHyperParameterTuningJob", input, options)
   end
@@ -25354,7 +25680,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, stop_inference_experiment_errors()}
   def stop_inference_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopInferenceExperiment", input, options)
   end
@@ -25372,7 +25699,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, stop_inference_recommendations_job_errors()}
   def stop_inference_recommendations_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopInferenceRecommendationsJob", input, options)
   end
@@ -25389,7 +25717,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, stop_labeling_job_errors()}
   def stop_labeling_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopLabelingJob", input, options)
   end
@@ -25403,7 +25732,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, stop_mlflow_tracking_server_errors()}
   def stop_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopMlflowTrackingServer", input, options)
   end
@@ -25417,7 +25747,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, stop_monitoring_schedule_errors()}
   def stop_monitoring_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopMonitoringSchedule", input, options)
   end
@@ -25439,7 +25770,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def stop_notebook_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopNotebookInstance", input, options)
   end
@@ -25453,7 +25785,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, stop_optimization_job_errors()}
   def stop_optimization_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopOptimizationJob", input, options)
   end
@@ -25493,7 +25826,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, stop_pipeline_execution_errors()}
   def stop_pipeline_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopPipelineExecution", input, options)
   end
@@ -25507,7 +25841,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, stop_processing_job_errors()}
   def stop_processing_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopProcessingJob", input, options)
   end
@@ -25529,7 +25864,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, stop_training_job_errors()}
   def stop_training_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopTrainingJob", input, options)
   end
@@ -25548,7 +25884,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, stop_transform_job_errors()}
   def stop_transform_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopTransformJob", input, options)
   end
@@ -25562,7 +25899,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_action_errors()}
   def update_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAction", input, options)
   end
@@ -25576,7 +25914,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_app_image_config_errors()}
   def update_app_image_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAppImageConfig", input, options)
   end
@@ -25590,7 +25929,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_artifact_errors()}
   def update_artifact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateArtifact", input, options)
   end
@@ -25604,7 +25944,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_cluster_errors()}
   def update_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCluster", input, options)
   end
@@ -25618,7 +25959,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_cluster_scheduler_config_errors()}
   def update_cluster_scheduler_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateClusterSchedulerConfig", input, options)
   end
@@ -25640,7 +25982,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_cluster_software_errors()}
   def update_cluster_software(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateClusterSoftware", input, options)
   end
@@ -25654,7 +25997,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_code_repository_errors()}
   def update_code_repository(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCodeRepository", input, options)
   end
@@ -25668,7 +26012,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_compute_quota_errors()}
   def update_compute_quota(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateComputeQuota", input, options)
   end
@@ -25682,7 +26027,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_context_errors()}
   def update_context(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateContext", input, options)
   end
@@ -25696,7 +26042,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_device_fleet_errors()}
   def update_device_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDeviceFleet", input, options)
   end
@@ -25709,7 +26056,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def update_devices(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDevices", input, options)
   end
@@ -25723,7 +26071,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_domain_errors()}
   def update_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDomain", input, options)
   end
@@ -25757,7 +26106,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_endpoint_errors()}
   def update_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEndpoint", input, options)
   end
@@ -25782,7 +26132,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_endpoint_weights_and_capacities_errors()}
   def update_endpoint_weights_and_capacities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEndpointWeightsAndCapacities", input, options)
   end
@@ -25798,7 +26149,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_experiment_errors()}
   def update_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateExperiment", input, options)
   end
@@ -25828,7 +26180,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_feature_group_errors()}
   def update_feature_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFeatureGroup", input, options)
   end
@@ -25842,7 +26195,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_feature_metadata_errors()}
   def update_feature_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFeatureMetadata", input, options)
   end
@@ -25856,7 +26210,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_hub_errors()}
   def update_hub(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateHub", input, options)
   end
@@ -25889,7 +26244,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_hub_content_errors()}
   def update_hub_content(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateHubContent", input, options)
   end
@@ -25917,7 +26273,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_hub_content_reference_errors()}
   def update_hub_content_reference(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateHubContentReference", input, options)
   end
@@ -25936,7 +26293,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_image_errors()}
   def update_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateImage", input, options)
   end
@@ -25950,7 +26308,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_image_version_errors()}
   def update_image_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateImageVersion", input, options)
   end
@@ -25964,7 +26323,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_inference_component_errors()}
   def update_inference_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateInferenceComponent", input, options)
   end
@@ -25982,7 +26342,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_inference_component_runtime_config_errors()}
   def update_inference_component_runtime_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateInferenceComponentRuntimeConfig", input, options)
   end
@@ -26000,7 +26361,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_inference_experiment_errors()}
   def update_inference_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateInferenceExperiment", input, options)
   end
@@ -26014,7 +26376,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_mlflow_tracking_server_errors()}
   def update_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMlflowTrackingServer", input, options)
   end
@@ -26031,7 +26394,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_model_card_errors()}
   def update_model_card(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateModelCard", input, options)
   end
@@ -26045,7 +26409,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_model_package_errors()}
   def update_model_package(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateModelPackage", input, options)
   end
@@ -26059,7 +26424,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_monitoring_alert_errors()}
   def update_monitoring_alert(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMonitoringAlert", input, options)
   end
@@ -26073,7 +26439,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_monitoring_schedule_errors()}
   def update_monitoring_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMonitoringSchedule", input, options)
   end
@@ -26091,7 +26458,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_notebook_instance_errors()}
   def update_notebook_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateNotebookInstance", input, options)
   end
@@ -26111,7 +26479,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_notebook_instance_lifecycle_config_errors()}
   def update_notebook_instance_lifecycle_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateNotebookInstanceLifecycleConfig", input, options)
   end
@@ -26125,7 +26494,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_partner_app_errors()}
   def update_partner_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePartnerApp", input, options)
   end
@@ -26139,7 +26509,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_pipeline_errors()}
   def update_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePipeline", input, options)
   end
@@ -26153,7 +26524,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_pipeline_execution_errors()}
   def update_pipeline_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePipelineExecution", input, options)
   end
@@ -26167,7 +26539,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_pipeline_version_errors()}
   def update_pipeline_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePipelineVersion", input, options)
   end
@@ -26186,7 +26559,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_project_errors()}
   def update_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProject", input, options)
   end
@@ -26202,7 +26576,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_space_errors()}
   def update_space(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSpace", input, options)
   end
@@ -26217,7 +26592,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_training_job_errors()}
   def update_training_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTrainingJob", input, options)
   end
@@ -26231,7 +26607,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_trial_errors()}
   def update_trial(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTrial", input, options)
   end
@@ -26245,7 +26622,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_trial_component_errors()}
   def update_trial_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTrialComponent", input, options)
   end
@@ -26259,7 +26637,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_user_profile_errors()}
   def update_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUserProfile", input, options)
   end
@@ -26313,7 +26692,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_workforce_errors()}
   def update_workforce(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWorkforce", input, options)
   end
@@ -26327,7 +26707,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_workteam_errors()}
   def update_workteam(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWorkteam", input, options)
   end

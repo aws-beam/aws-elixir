@@ -22,12 +22,12 @@ defmodule AWS.TimestreamInfluxDB do
   ## Example:
       
       tag_resource_request() :: %{
-        required("resourceArn") => String.t(),
+        required("resourceArn") => String.t() | atom(),
         required("tags") => map()
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -35,12 +35,12 @@ defmodule AWS.TimestreamInfluxDB do
       
       list_db_instances_for_cluster_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("dbClusterId") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("dbClusterId") => String.t() | atom()
       }
       
   """
-  @type list_db_instances_for_cluster_input() :: %{String.t() => any()}
+  @type list_db_instances_for_cluster_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -48,11 +48,11 @@ defmodule AWS.TimestreamInfluxDB do
       
       list_db_parameter_groups_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_db_parameter_groups_input() :: %{String.t() => any()}
+  @type list_db_parameter_groups_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -60,15 +60,15 @@ defmodule AWS.TimestreamInfluxDB do
       
       update_db_cluster_input() :: %{
         optional("dbInstanceType") => list(any()),
-        optional("dbParameterGroupIdentifier") => String.t(),
+        optional("dbParameterGroupIdentifier") => String.t() | atom(),
         optional("failoverMode") => list(any()),
         optional("logDeliveryConfiguration") => log_delivery_configuration(),
         optional("port") => integer(),
-        required("dbClusterId") => String.t()
+        required("dbClusterId") => String.t() | atom()
       }
       
   """
-  @type update_db_cluster_input() :: %{String.t() => any()}
+  @type update_db_cluster_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -76,30 +76,30 @@ defmodule AWS.TimestreamInfluxDB do
       
       delete_db_instance_output() :: %{
         "allocatedStorage" => integer(),
-        "arn" => String.t(),
-        "availabilityZone" => [String.t()],
-        "dbClusterId" => String.t(),
+        "arn" => String.t() | atom(),
+        "availabilityZone" => [String.t() | atom()],
+        "dbClusterId" => String.t() | atom(),
         "dbInstanceType" => list(any()),
-        "dbParameterGroupIdentifier" => String.t(),
+        "dbParameterGroupIdentifier" => String.t() | atom(),
         "dbStorageType" => list(any()),
         "deploymentType" => list(any()),
-        "endpoint" => [String.t()],
-        "id" => String.t(),
-        "influxAuthParametersSecretArn" => [String.t()],
+        "endpoint" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "influxAuthParametersSecretArn" => [String.t() | atom()],
         "instanceMode" => list(any()),
         "logDeliveryConfiguration" => log_delivery_configuration(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "networkType" => list(any()),
         "port" => integer(),
         "publiclyAccessible" => [boolean()],
-        "secondaryAvailabilityZone" => [String.t()],
+        "secondaryAvailabilityZone" => [String.t() | atom()],
         "status" => list(any()),
-        "vpcSecurityGroupIds" => list(String.t()),
-        "vpcSubnetIds" => list(String.t())
+        "vpcSecurityGroupIds" => list(String.t() | atom()),
+        "vpcSubnetIds" => list(String.t() | atom())
       }
       
   """
-  @type delete_db_instance_output() :: %{String.t() => any()}
+  @type delete_db_instance_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -107,47 +107,47 @@ defmodule AWS.TimestreamInfluxDB do
       
       list_db_clusters_output() :: %{
         "items" => list(db_cluster_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_db_clusters_output() :: %{String.t() => any()}
+  @type list_db_clusters_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_parameter_group_summary() :: %{
-        "arn" => String.t(),
-        "description" => [String.t()],
-        "id" => String.t(),
-        "name" => String.t()
+        "arn" => String.t() | atom(),
+        "description" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
       
   """
-  @type db_parameter_group_summary() :: %{String.t() => any()}
+  @type db_parameter_group_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_db_instance_input() :: %{
-        required("identifier") => String.t()
+        required("identifier") => String.t() | atom()
       }
       
   """
-  @type delete_db_instance_input() :: %{String.t() => any()}
+  @type delete_db_instance_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -155,11 +155,11 @@ defmodule AWS.TimestreamInfluxDB do
       
       list_db_instances_for_cluster_output() :: %{
         "items" => list(db_instance_for_cluster_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_db_instances_for_cluster_output() :: %{String.t() => any()}
+  @type list_db_instances_for_cluster_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -203,7 +203,7 @@ defmodule AWS.TimestreamInfluxDB do
       }
       
   """
-  @type influx_dbv2_parameters() :: %{String.t() => any()}
+  @type influx_dbv2_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -211,56 +211,56 @@ defmodule AWS.TimestreamInfluxDB do
       
       get_db_instance_output() :: %{
         "allocatedStorage" => integer(),
-        "arn" => String.t(),
-        "availabilityZone" => [String.t()],
-        "dbClusterId" => String.t(),
+        "arn" => String.t() | atom(),
+        "availabilityZone" => [String.t() | atom()],
+        "dbClusterId" => String.t() | atom(),
         "dbInstanceType" => list(any()),
-        "dbParameterGroupIdentifier" => String.t(),
+        "dbParameterGroupIdentifier" => String.t() | atom(),
         "dbStorageType" => list(any()),
         "deploymentType" => list(any()),
-        "endpoint" => [String.t()],
-        "id" => String.t(),
-        "influxAuthParametersSecretArn" => [String.t()],
+        "endpoint" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "influxAuthParametersSecretArn" => [String.t() | atom()],
         "instanceMode" => list(any()),
         "logDeliveryConfiguration" => log_delivery_configuration(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "networkType" => list(any()),
         "port" => integer(),
         "publiclyAccessible" => [boolean()],
-        "secondaryAvailabilityZone" => [String.t()],
+        "secondaryAvailabilityZone" => [String.t() | atom()],
         "status" => list(any()),
-        "vpcSecurityGroupIds" => list(String.t()),
-        "vpcSubnetIds" => list(String.t())
+        "vpcSecurityGroupIds" => list(String.t() | atom()),
+        "vpcSubnetIds" => list(String.t() | atom())
       }
       
   """
-  @type get_db_instance_output() :: %{String.t() => any()}
+  @type get_db_instance_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -268,63 +268,63 @@ defmodule AWS.TimestreamInfluxDB do
       
       db_instance_summary() :: %{
         "allocatedStorage" => integer(),
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "dbInstanceType" => list(any()),
         "dbStorageType" => list(any()),
         "deploymentType" => list(any()),
-        "endpoint" => [String.t()],
-        "id" => String.t(),
-        "name" => String.t(),
+        "endpoint" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "networkType" => list(any()),
         "port" => integer(),
         "status" => list(any())
       }
       
   """
-  @type db_instance_summary() :: %{String.t() => any()}
+  @type db_instance_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_db_cluster_input() :: %{
-        optional("bucket") => String.t(),
-        optional("dbParameterGroupIdentifier") => String.t(),
+        optional("bucket") => String.t() | atom(),
+        optional("dbParameterGroupIdentifier") => String.t() | atom(),
         optional("dbStorageType") => list(any()),
         optional("failoverMode") => list(any()),
         optional("logDeliveryConfiguration") => log_delivery_configuration(),
         optional("networkType") => list(any()),
-        optional("organization") => String.t(),
+        optional("organization") => String.t() | atom(),
         optional("port") => integer(),
         optional("publiclyAccessible") => [boolean()],
         optional("tags") => map(),
-        optional("username") => String.t(),
+        optional("username") => String.t() | atom(),
         required("allocatedStorage") => integer(),
         required("dbInstanceType") => list(any()),
         required("deploymentType") => list(any()),
-        required("name") => String.t(),
-        required("password") => String.t(),
-        required("vpcSecurityGroupIds") => list(String.t()),
-        required("vpcSubnetIds") => list(String.t())
+        required("name") => String.t() | atom(),
+        required("password") => String.t() | atom(),
+        required("vpcSecurityGroupIds") => list(String.t() | atom()),
+        required("vpcSubnetIds") => list(String.t() | atom())
       }
       
   """
-  @type create_db_cluster_input() :: %{String.t() => any()}
+  @type create_db_cluster_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_db_parameter_group_output() :: %{
-        "arn" => String.t(),
-        "description" => [String.t()],
-        "id" => String.t(),
-        "name" => String.t(),
+        "arn" => String.t() | atom(),
+        "description" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "parameters" => list()
       }
       
   """
-  @type get_db_parameter_group_output() :: %{String.t() => any()}
+  @type get_db_parameter_group_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -332,22 +332,22 @@ defmodule AWS.TimestreamInfluxDB do
       
       list_db_clusters_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_db_clusters_input() :: %{String.t() => any()}
+  @type list_db_clusters_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -356,28 +356,28 @@ defmodule AWS.TimestreamInfluxDB do
       update_db_instance_input() :: %{
         optional("allocatedStorage") => integer(),
         optional("dbInstanceType") => list(any()),
-        optional("dbParameterGroupIdentifier") => String.t(),
+        optional("dbParameterGroupIdentifier") => String.t() | atom(),
         optional("dbStorageType") => list(any()),
         optional("deploymentType") => list(any()),
         optional("logDeliveryConfiguration") => log_delivery_configuration(),
         optional("port") => integer(),
-        required("identifier") => String.t()
+        required("identifier") => String.t() | atom()
       }
       
   """
-  @type update_db_instance_input() :: %{String.t() => any()}
+  @type update_db_instance_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_db_cluster_output() :: %{
-        "dbClusterId" => String.t(),
+        "dbClusterId" => String.t() | atom(),
         "dbClusterStatus" => list(any())
       }
       
   """
-  @type create_db_cluster_output() :: %{String.t() => any()}
+  @type create_db_cluster_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -388,7 +388,7 @@ defmodule AWS.TimestreamInfluxDB do
       }
       
   """
-  @type log_delivery_configuration() :: %{String.t() => any()}
+  @type log_delivery_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -396,28 +396,28 @@ defmodule AWS.TimestreamInfluxDB do
       
       get_db_cluster_output() :: %{
         "allocatedStorage" => integer(),
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "dbInstanceType" => list(any()),
-        "dbParameterGroupIdentifier" => String.t(),
+        "dbParameterGroupIdentifier" => String.t() | atom(),
         "dbStorageType" => list(any()),
         "deploymentType" => list(any()),
-        "endpoint" => [String.t()],
+        "endpoint" => [String.t() | atom()],
         "failoverMode" => list(any()),
-        "id" => String.t(),
-        "influxAuthParametersSecretArn" => [String.t()],
+        "id" => String.t() | atom(),
+        "influxAuthParametersSecretArn" => [String.t() | atom()],
         "logDeliveryConfiguration" => log_delivery_configuration(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "networkType" => list(any()),
         "port" => integer(),
         "publiclyAccessible" => [boolean()],
-        "readerEndpoint" => [String.t()],
+        "readerEndpoint" => [String.t() | atom()],
         "status" => list(any()),
-        "vpcSecurityGroupIds" => list(String.t()),
-        "vpcSubnetIds" => list(String.t())
+        "vpcSecurityGroupIds" => list(String.t() | atom()),
+        "vpcSubnetIds" => list(String.t() | atom())
       }
       
   """
-  @type get_db_cluster_output() :: %{String.t() => any()}
+  @type get_db_cluster_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -428,18 +428,18 @@ defmodule AWS.TimestreamInfluxDB do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_db_parameter_group_input() :: %{
-        required("identifier") => String.t()
+        required("identifier") => String.t() | atom()
       }
       
   """
-  @type get_db_parameter_group_input() :: %{String.t() => any()}
+  @type get_db_parameter_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -447,11 +447,11 @@ defmodule AWS.TimestreamInfluxDB do
       
       list_db_parameter_groups_output() :: %{
         "items" => list(db_parameter_group_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_db_parameter_groups_output() :: %{String.t() => any()}
+  @type list_db_parameter_groups_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -459,30 +459,30 @@ defmodule AWS.TimestreamInfluxDB do
       
       create_db_instance_output() :: %{
         "allocatedStorage" => integer(),
-        "arn" => String.t(),
-        "availabilityZone" => [String.t()],
-        "dbClusterId" => String.t(),
+        "arn" => String.t() | atom(),
+        "availabilityZone" => [String.t() | atom()],
+        "dbClusterId" => String.t() | atom(),
         "dbInstanceType" => list(any()),
-        "dbParameterGroupIdentifier" => String.t(),
+        "dbParameterGroupIdentifier" => String.t() | atom(),
         "dbStorageType" => list(any()),
         "deploymentType" => list(any()),
-        "endpoint" => [String.t()],
-        "id" => String.t(),
-        "influxAuthParametersSecretArn" => [String.t()],
+        "endpoint" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "influxAuthParametersSecretArn" => [String.t() | atom()],
         "instanceMode" => list(any()),
         "logDeliveryConfiguration" => log_delivery_configuration(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "networkType" => list(any()),
         "port" => integer(),
         "publiclyAccessible" => [boolean()],
-        "secondaryAvailabilityZone" => [String.t()],
+        "secondaryAvailabilityZone" => [String.t() | atom()],
         "status" => list(any()),
-        "vpcSecurityGroupIds" => list(String.t()),
-        "vpcSubnetIds" => list(String.t())
+        "vpcSecurityGroupIds" => list(String.t() | atom()),
+        "vpcSubnetIds" => list(String.t() | atom())
       }
       
   """
-  @type create_db_instance_output() :: %{String.t() => any()}
+  @type create_db_instance_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -490,32 +490,32 @@ defmodule AWS.TimestreamInfluxDB do
       
       db_instance_for_cluster_summary() :: %{
         "allocatedStorage" => integer(),
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "dbInstanceType" => list(any()),
         "dbStorageType" => list(any()),
         "deploymentType" => list(any()),
-        "endpoint" => [String.t()],
-        "id" => String.t(),
+        "endpoint" => [String.t() | atom()],
+        "id" => String.t() | atom(),
         "instanceMode" => list(any()),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "networkType" => list(any()),
         "port" => integer(),
         "status" => list(any())
       }
       
   """
-  @type db_instance_for_cluster_summary() :: %{String.t() => any()}
+  @type db_instance_for_cluster_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_db_cluster_input() :: %{
-        required("dbClusterId") => String.t()
+        required("dbClusterId") => String.t() | atom()
       }
       
   """
-  @type get_db_cluster_input() :: %{String.t() => any()}
+  @type get_db_cluster_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -523,36 +523,36 @@ defmodule AWS.TimestreamInfluxDB do
       
       list_db_instances_output() :: %{
         "items" => list(db_instance_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_db_instances_output() :: %{String.t() => any()}
+  @type list_db_instances_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_db_parameter_group_input() :: %{
-        optional("description") => [String.t()],
+        optional("description") => [String.t() | atom()],
         optional("parameters") => list(),
         optional("tags") => map(),
-        required("name") => String.t()
+        required("name") => String.t() | atom()
       }
       
   """
-  @type create_db_parameter_group_input() :: %{String.t() => any()}
+  @type create_db_parameter_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -560,22 +560,22 @@ defmodule AWS.TimestreamInfluxDB do
       
       list_db_instances_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_db_instances_input() :: %{String.t() => any()}
+  @type list_db_instances_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -583,30 +583,30 @@ defmodule AWS.TimestreamInfluxDB do
       
       update_db_instance_output() :: %{
         "allocatedStorage" => integer(),
-        "arn" => String.t(),
-        "availabilityZone" => [String.t()],
-        "dbClusterId" => String.t(),
+        "arn" => String.t() | atom(),
+        "availabilityZone" => [String.t() | atom()],
+        "dbClusterId" => String.t() | atom(),
         "dbInstanceType" => list(any()),
-        "dbParameterGroupIdentifier" => String.t(),
+        "dbParameterGroupIdentifier" => String.t() | atom(),
         "dbStorageType" => list(any()),
         "deploymentType" => list(any()),
-        "endpoint" => [String.t()],
-        "id" => String.t(),
-        "influxAuthParametersSecretArn" => [String.t()],
+        "endpoint" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "influxAuthParametersSecretArn" => [String.t() | atom()],
         "instanceMode" => list(any()),
         "logDeliveryConfiguration" => log_delivery_configuration(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "networkType" => list(any()),
         "port" => integer(),
         "publiclyAccessible" => [boolean()],
-        "secondaryAvailabilityZone" => [String.t()],
+        "secondaryAvailabilityZone" => [String.t() | atom()],
         "status" => list(any()),
-        "vpcSecurityGroupIds" => list(String.t()),
-        "vpcSubnetIds" => list(String.t())
+        "vpcSecurityGroupIds" => list(String.t() | atom()),
+        "vpcSubnetIds" => list(String.t() | atom())
       }
       
   """
-  @type update_db_instance_output() :: %{String.t() => any()}
+  @type update_db_instance_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -618,7 +618,7 @@ defmodule AWS.TimestreamInfluxDB do
       }
       
   """
-  @type duration() :: %{String.t() => any()}
+  @type duration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -629,76 +629,76 @@ defmodule AWS.TimestreamInfluxDB do
       }
       
   """
-  @type update_db_cluster_output() :: %{String.t() => any()}
+  @type update_db_cluster_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "message" => [String.t()],
+        "message" => [String.t() | atom()],
         "reason" => list(any())
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t()
+        required("resourceArn") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_db_cluster_input() :: %{
-        required("dbClusterId") => String.t()
+        required("dbClusterId") => String.t() | atom()
       }
       
   """
-  @type delete_db_cluster_input() :: %{String.t() => any()}
+  @type delete_db_cluster_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "message" => [String.t()],
+        "message" => [String.t() | atom()],
         "retryAfterSeconds" => [integer()]
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_configuration() :: %{
-        "bucketName" => [String.t()],
+        "bucketName" => [String.t() | atom()],
         "enabled" => [boolean()]
       }
       
   """
-  @type s3_configuration() :: %{String.t() => any()}
+  @type s3_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_db_instance_input() :: %{
-        required("identifier") => String.t()
+        required("identifier") => String.t() | atom()
       }
       
   """
-  @type get_db_instance_input() :: %{String.t() => any()}
+  @type get_db_instance_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -709,7 +709,7 @@ defmodule AWS.TimestreamInfluxDB do
       }
       
   """
-  @type delete_db_cluster_output() :: %{String.t() => any()}
+  @type delete_db_cluster_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -717,63 +717,63 @@ defmodule AWS.TimestreamInfluxDB do
       
       db_cluster_summary() :: %{
         "allocatedStorage" => integer(),
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "dbInstanceType" => list(any()),
         "dbStorageType" => list(any()),
         "deploymentType" => list(any()),
-        "endpoint" => [String.t()],
-        "id" => String.t(),
-        "name" => String.t(),
+        "endpoint" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "networkType" => list(any()),
         "port" => integer(),
-        "readerEndpoint" => [String.t()],
+        "readerEndpoint" => [String.t() | atom()],
         "status" => list(any())
       }
       
   """
-  @type db_cluster_summary() :: %{String.t() => any()}
+  @type db_cluster_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_db_parameter_group_output() :: %{
-        "arn" => String.t(),
-        "description" => [String.t()],
-        "id" => String.t(),
-        "name" => String.t(),
+        "arn" => String.t() | atom(),
+        "description" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "parameters" => list()
       }
       
   """
-  @type create_db_parameter_group_output() :: %{String.t() => any()}
+  @type create_db_parameter_group_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_db_instance_input() :: %{
-        optional("bucket") => String.t(),
-        optional("dbParameterGroupIdentifier") => String.t(),
+        optional("bucket") => String.t() | atom(),
+        optional("dbParameterGroupIdentifier") => String.t() | atom(),
         optional("dbStorageType") => list(any()),
         optional("deploymentType") => list(any()),
         optional("logDeliveryConfiguration") => log_delivery_configuration(),
         optional("networkType") => list(any()),
-        optional("organization") => String.t(),
+        optional("organization") => String.t() | atom(),
         optional("port") => integer(),
         optional("publiclyAccessible") => [boolean()],
         optional("tags") => map(),
-        optional("username") => String.t(),
+        optional("username") => String.t() | atom(),
         required("allocatedStorage") => integer(),
         required("dbInstanceType") => list(any()),
-        required("name") => String.t(),
-        required("password") => String.t(),
-        required("vpcSecurityGroupIds") => list(String.t()),
-        required("vpcSubnetIds") => list(String.t())
+        required("name") => String.t() | atom(),
+        required("password") => String.t() | atom(),
+        required("vpcSecurityGroupIds") => list(String.t() | atom()),
+        required("vpcSubnetIds") => list(String.t() | atom())
       }
       
   """
-  @type create_db_instance_input() :: %{String.t() => any()}
+  @type create_db_instance_input() :: %{(String.t() | atom()) => any()}
 
   @type create_db_cluster_errors() ::
           throttling_exception()
@@ -915,7 +915,8 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, create_db_cluster_errors()}
   def create_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDbCluster", input, options)
   end
@@ -929,7 +930,8 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, create_db_instance_errors()}
   def create_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDbInstance", input, options)
   end
@@ -944,7 +946,8 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, create_db_parameter_group_errors()}
   def create_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDbParameterGroup", input, options)
   end
@@ -958,7 +961,8 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, delete_db_cluster_errors()}
   def delete_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDbCluster", input, options)
   end
@@ -972,7 +976,8 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, delete_db_instance_errors()}
   def delete_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDbInstance", input, options)
   end
@@ -986,7 +991,8 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, get_db_cluster_errors()}
   def get_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDbCluster", input, options)
   end
@@ -1000,7 +1006,8 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, get_db_instance_errors()}
   def get_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDbInstance", input, options)
   end
@@ -1014,7 +1021,8 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, get_db_parameter_group_errors()}
   def get_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDbParameterGroup", input, options)
   end
@@ -1028,7 +1036,8 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, list_db_clusters_errors()}
   def list_db_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDbClusters", input, options)
   end
@@ -1042,7 +1051,8 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, list_db_instances_errors()}
   def list_db_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDbInstances", input, options)
   end
@@ -1056,7 +1066,8 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, list_db_instances_for_cluster_errors()}
   def list_db_instances_for_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDbInstancesForCluster", input, options)
   end
@@ -1070,7 +1081,8 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, list_db_parameter_groups_errors()}
   def list_db_parameter_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDbParameterGroups", input, options)
   end
@@ -1084,7 +1096,8 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1100,7 +1113,8 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1114,7 +1128,8 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1128,7 +1143,8 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, update_db_cluster_errors()}
   def update_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDbCluster", input, options)
   end
@@ -1142,7 +1158,8 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, update_db_instance_errors()}
   def update_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDbInstance", input, options)
   end

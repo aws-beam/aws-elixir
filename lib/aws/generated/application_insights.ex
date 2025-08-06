@@ -37,26 +37,26 @@ defmodule AWS.ApplicationInsights do
       update_problem_request() :: %{
         optional("UpdateStatus") => list(any()),
         optional("Visibility") => list(any()),
-        required("ProblemId") => String.t()
+        required("ProblemId") => String.t() | atom()
       }
       
   """
-  @type update_problem_request() :: %{String.t() => any()}
+  @type update_problem_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_log_patterns_request() :: %{
-        optional("AccountId") => String.t(),
+        optional("AccountId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("PatternSetName") => String.t(),
-        required("ResourceGroupName") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("PatternSetName") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom()
       }
       
   """
-  @type list_log_patterns_request() :: %{String.t() => any()}
+  @type list_log_patterns_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -64,76 +64,76 @@ defmodule AWS.ApplicationInsights do
       
       add_workload_response() :: %{
         "WorkloadConfiguration" => workload_configuration(),
-        "WorkloadId" => String.t()
+        "WorkloadId" => String.t() | atom()
       }
       
   """
-  @type add_workload_response() :: %{String.t() => any()}
+  @type add_workload_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
+        required("ResourceARN") => String.t() | atom(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_workloads_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "WorkloadList" => list(workload())
       }
       
   """
-  @type list_workloads_response() :: %{String.t() => any()}
+  @type list_workloads_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_log_pattern_request() :: %{
-        optional("AccountId") => String.t(),
-        required("PatternName") => String.t(),
-        required("PatternSetName") => String.t(),
-        required("ResourceGroupName") => String.t()
+        optional("AccountId") => String.t() | atom(),
+        required("PatternName") => String.t() | atom(),
+        required("PatternSetName") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom()
       }
       
   """
-  @type describe_log_pattern_request() :: %{String.t() => any()}
+  @type describe_log_pattern_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_workloads_request() :: %{
-        optional("AccountId") => String.t(),
+        optional("AccountId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ComponentName") => String.t(),
-        required("ResourceGroupName") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ComponentName") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom()
       }
       
   """
-  @type list_workloads_request() :: %{String.t() => any()}
+  @type list_workloads_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_problem_observations_request() :: %{
-        optional("AccountId") => String.t(),
-        required("ProblemId") => String.t()
+        optional("AccountId") => String.t() | atom(),
+        required("ProblemId") => String.t() | atom()
       }
       
   """
-  @type describe_problem_observations_request() :: %{String.t() => any()}
+  @type describe_problem_observations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -149,25 +149,25 @@ defmodule AWS.ApplicationInsights do
   ## Example:
       
       resource_in_use_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_in_use_exception() :: %{String.t() => any()}
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_problems_response() :: %{
-        "AccountId" => String.t(),
-        "NextToken" => String.t(),
+        "AccountId" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
         "ProblemList" => list(problem()),
-        "ResourceGroupName" => String.t()
+        "ResourceGroupName" => String.t() | atom()
       }
       
   """
-  @type list_problems_response() :: %{String.t() => any()}
+  @type list_problems_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -178,7 +178,7 @@ defmodule AWS.ApplicationInsights do
       }
       
   """
-  @type describe_observation_response() :: %{String.t() => any()}
+  @type describe_observation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -186,40 +186,42 @@ defmodule AWS.ApplicationInsights do
       
       describe_component_configuration_recommendation_request() :: %{
         optional("RecommendationType") => list(any()),
-        optional("WorkloadName") => String.t(),
-        required("ComponentName") => String.t(),
-        required("ResourceGroupName") => String.t(),
+        optional("WorkloadName") => String.t() | atom(),
+        required("ComponentName") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom(),
         required("Tier") => list(any())
       }
       
   """
-  @type describe_component_configuration_recommendation_request() :: %{String.t() => any()}
+  @type describe_component_configuration_recommendation_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       log_pattern() :: %{
-        "Pattern" => String.t(),
-        "PatternName" => String.t(),
-        "PatternSetName" => String.t(),
+        "Pattern" => String.t() | atom(),
+        "PatternName" => String.t() | atom(),
+        "PatternSetName" => String.t() | atom(),
         "Rank" => integer()
       }
       
   """
-  @type log_pattern() :: %{String.t() => any()}
+  @type log_pattern() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_component_request() :: %{
-        required("ComponentName") => String.t(),
-        required("ResourceGroupName") => String.t()
+        required("ComponentName") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom()
       }
       
   """
-  @type delete_component_request() :: %{String.t() => any()}
+  @type delete_component_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -227,36 +229,36 @@ defmodule AWS.ApplicationInsights do
       
       list_configuration_history_response() :: %{
         "EventList" => list(configuration_event()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_configuration_history_response() :: %{String.t() => any()}
+  @type list_configuration_history_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_component_configuration_response() :: %{
-        "ComponentConfiguration" => String.t(),
+        "ComponentConfiguration" => String.t() | atom(),
         "Monitor" => boolean(),
         "Tier" => list(any())
       }
       
   """
-  @type describe_component_configuration_response() :: %{String.t() => any()}
+  @type describe_component_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -273,11 +275,11 @@ defmodule AWS.ApplicationInsights do
       
       update_log_pattern_response() :: %{
         "LogPattern" => log_pattern(),
-        "ResourceGroupName" => String.t()
+        "ResourceGroupName" => String.t() | atom()
       }
       
   """
-  @type update_log_pattern_response() :: %{String.t() => any()}
+  @type update_log_pattern_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -288,7 +290,7 @@ defmodule AWS.ApplicationInsights do
       }
       
   """
-  @type describe_problem_observations_response() :: %{String.t() => any()}
+  @type describe_problem_observations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -297,53 +299,53 @@ defmodule AWS.ApplicationInsights do
       observation() :: %{
         "XRayRequestCount" => integer(),
         "Value" => float(),
-        "SourceType" => String.t(),
-        "Unit" => String.t(),
-        "StatesInput" => String.t(),
-        "EbsCause" => String.t(),
-        "EbsResult" => String.t(),
-        "XRayNodeType" => String.t(),
-        "HealthEventArn" => String.t(),
+        "SourceType" => String.t() | atom(),
+        "Unit" => String.t() | atom(),
+        "StatesInput" => String.t() | atom(),
+        "EbsCause" => String.t() | atom(),
+        "EbsResult" => String.t() | atom(),
+        "XRayNodeType" => String.t() | atom(),
+        "HealthEventArn" => String.t() | atom(),
         "LineTime" => non_neg_integer(),
-        "HealthEventDescription" => String.t(),
+        "HealthEventDescription" => String.t() | atom(),
         "CloudWatchEventSource" => list(any()),
-        "RdsEventCategories" => String.t(),
+        "RdsEventCategories" => String.t() | atom(),
         "StartTime" => non_neg_integer(),
         "XRayErrorPercent" => integer(),
         "XRayFaultPercent" => integer(),
-        "StatesStatus" => String.t(),
-        "MetricNamespace" => String.t(),
-        "Id" => String.t(),
-        "MetricName" => String.t(),
+        "StatesStatus" => String.t() | atom(),
+        "MetricNamespace" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "MetricName" => String.t() | atom(),
         "XRayRequestAverageLatency" => float(),
-        "HealthEventTypeCode" => String.t(),
-        "CodeDeployApplication" => String.t(),
-        "LogGroup" => String.t(),
+        "HealthEventTypeCode" => String.t() | atom(),
+        "CodeDeployApplication" => String.t() | atom(),
+        "LogGroup" => String.t() | atom(),
         "LogFilter" => list(any()),
-        "Ec2State" => String.t(),
-        "CodeDeployInstanceGroupId" => String.t(),
-        "CodeDeployDeploymentGroup" => String.t(),
-        "CloudWatchEventId" => String.t(),
-        "LogText" => String.t(),
-        "HealthEventTypeCategory" => String.t(),
-        "CodeDeployDeploymentId" => String.t(),
-        "SourceARN" => String.t(),
-        "HealthService" => String.t(),
-        "StatesArn" => String.t(),
-        "EbsEvent" => String.t(),
+        "Ec2State" => String.t() | atom(),
+        "CodeDeployInstanceGroupId" => String.t() | atom(),
+        "CodeDeployDeploymentGroup" => String.t() | atom(),
+        "CloudWatchEventId" => String.t() | atom(),
+        "LogText" => String.t() | atom(),
+        "HealthEventTypeCategory" => String.t() | atom(),
+        "CodeDeployDeploymentId" => String.t() | atom(),
+        "SourceARN" => String.t() | atom(),
+        "HealthService" => String.t() | atom(),
+        "StatesArn" => String.t() | atom(),
+        "EbsEvent" => String.t() | atom(),
         "XRayThrottlePercent" => integer(),
-        "XRayNodeName" => String.t(),
-        "RdsEventMessage" => String.t(),
-        "StatesExecutionArn" => String.t(),
+        "XRayNodeName" => String.t() | atom(),
+        "RdsEventMessage" => String.t() | atom(),
+        "StatesExecutionArn" => String.t() | atom(),
         "EndTime" => non_neg_integer(),
-        "EbsRequestId" => String.t(),
-        "CodeDeployState" => String.t(),
-        "S3EventName" => String.t(),
-        "CloudWatchEventDetailType" => String.t()
+        "EbsRequestId" => String.t() | atom(),
+        "CodeDeployState" => String.t() | atom(),
+        "S3EventName" => String.t() | atom(),
+        "CloudWatchEventDetailType" => String.t() | atom()
       }
       
   """
-  @type observation() :: %{String.t() => any()}
+  @type observation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -369,113 +371,113 @@ defmodule AWS.ApplicationInsights do
       
       describe_problem_response() :: %{
         "Problem" => problem(),
-        "SNSNotificationArn" => String.t()
+        "SNSNotificationArn" => String.t() | atom()
       }
       
   """
-  @type describe_problem_response() :: %{String.t() => any()}
+  @type describe_problem_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       application_info() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | atom(),
         "AttachMissingPermission" => boolean(),
         "AutoConfigEnabled" => boolean(),
         "CWEMonitorEnabled" => boolean(),
         "DiscoveryType" => list(any()),
-        "LifeCycle" => String.t(),
+        "LifeCycle" => String.t() | atom(),
         "OpsCenterEnabled" => boolean(),
-        "OpsItemSNSTopicArn" => String.t(),
-        "Remarks" => String.t(),
-        "ResourceGroupName" => String.t(),
-        "SNSNotificationArn" => String.t()
+        "OpsItemSNSTopicArn" => String.t() | atom(),
+        "Remarks" => String.t() | atom(),
+        "ResourceGroupName" => String.t() | atom(),
+        "SNSNotificationArn" => String.t() | atom()
       }
       
   """
-  @type application_info() :: %{String.t() => any()}
+  @type application_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_component_request() :: %{
-        optional("NewComponentName") => String.t(),
-        optional("ResourceList") => list(String.t()),
-        required("ComponentName") => String.t(),
-        required("ResourceGroupName") => String.t()
+        optional("NewComponentName") => String.t() | atom(),
+        optional("ResourceList") => list(String.t() | atom()),
+        required("ComponentName") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom()
       }
       
   """
-  @type update_component_request() :: %{String.t() => any()}
+  @type update_component_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       workload() :: %{
-        "ComponentName" => String.t(),
+        "ComponentName" => String.t() | atom(),
         "MissingWorkloadConfig" => boolean(),
         "Tier" => list(any()),
-        "WorkloadId" => String.t(),
-        "WorkloadName" => String.t(),
-        "WorkloadRemarks" => String.t()
+        "WorkloadId" => String.t() | atom(),
+        "WorkloadName" => String.t() | atom(),
+        "WorkloadRemarks" => String.t() | atom()
       }
       
   """
-  @type workload() :: %{String.t() => any()}
+  @type workload() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_components_request() :: %{
-        optional("AccountId") => String.t(),
+        optional("AccountId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ResourceGroupName") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom()
       }
       
   """
-  @type list_components_request() :: %{String.t() => any()}
+  @type list_components_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_log_pattern_sets_response() :: %{
-        "AccountId" => String.t(),
-        "LogPatternSets" => list(String.t()),
-        "NextToken" => String.t(),
-        "ResourceGroupName" => String.t()
+        "AccountId" => String.t() | atom(),
+        "LogPatternSets" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom(),
+        "ResourceGroupName" => String.t() | atom()
       }
       
   """
-  @type list_log_pattern_sets_response() :: %{String.t() => any()}
+  @type list_log_pattern_sets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -491,13 +493,13 @@ defmodule AWS.ApplicationInsights do
   ## Example:
       
       workload_configuration() :: %{
-        "Configuration" => String.t(),
+        "Configuration" => String.t() | atom(),
         "Tier" => list(any()),
-        "WorkloadName" => String.t()
+        "WorkloadName" => String.t() | atom()
       }
       
   """
-  @type workload_configuration() :: %{String.t() => any()}
+  @type workload_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -505,40 +507,40 @@ defmodule AWS.ApplicationInsights do
       
       describe_workload_response() :: %{
         "WorkloadConfiguration" => workload_configuration(),
-        "WorkloadId" => String.t(),
-        "WorkloadRemarks" => String.t()
+        "WorkloadId" => String.t() | atom(),
+        "WorkloadRemarks" => String.t() | atom()
       }
       
   """
-  @type describe_workload_response() :: %{String.t() => any()}
+  @type describe_workload_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_component_request() :: %{
-        required("ComponentName") => String.t(),
-        required("ResourceGroupName") => String.t(),
-        required("ResourceList") => list(String.t())
+        required("ComponentName") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom(),
+        required("ResourceList") => list(String.t() | atom())
       }
       
   """
-  @type create_component_request() :: %{String.t() => any()}
+  @type create_component_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_log_pattern_request() :: %{
-        required("Pattern") => String.t(),
-        required("PatternName") => String.t(),
-        required("PatternSetName") => String.t(),
+        required("Pattern") => String.t() | atom(),
+        required("PatternName") => String.t() | atom(),
+        required("PatternSetName") => String.t() | atom(),
         required("Rank") => integer(),
-        required("ResourceGroupName") => String.t()
+        required("ResourceGroupName") => String.t() | atom()
       }
       
   """
-  @type create_log_pattern_request() :: %{String.t() => any()}
+  @type create_log_pattern_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -558,7 +560,7 @@ defmodule AWS.ApplicationInsights do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -571,28 +573,28 @@ defmodule AWS.ApplicationInsights do
         optional("CWEMonitorEnabled") => boolean(),
         optional("GroupingType") => list(any()),
         optional("OpsCenterEnabled") => boolean(),
-        optional("OpsItemSNSTopicArn") => String.t(),
-        optional("ResourceGroupName") => String.t(),
-        optional("SNSNotificationArn") => String.t(),
+        optional("OpsItemSNSTopicArn") => String.t() | atom(),
+        optional("ResourceGroupName") => String.t() | atom(),
+        optional("SNSNotificationArn") => String.t() | atom(),
         optional("Tags") => list(tag())
       }
       
   """
-  @type create_application_request() :: %{String.t() => any()}
+  @type create_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_log_patterns_response() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | atom(),
         "LogPatterns" => list(log_pattern()),
-        "NextToken" => String.t(),
-        "ResourceGroupName" => String.t()
+        "NextToken" => String.t() | atom(),
+        "ResourceGroupName" => String.t() | atom()
       }
       
   """
-  @type list_log_patterns_response() :: %{String.t() => any()}
+  @type list_log_patterns_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -603,22 +605,22 @@ defmodule AWS.ApplicationInsights do
       }
       
   """
-  @type create_application_response() :: %{String.t() => any()}
+  @type create_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_log_pattern_request() :: %{
-        optional("Pattern") => String.t(),
+        optional("Pattern") => String.t() | atom(),
         optional("Rank") => integer(),
-        required("PatternName") => String.t(),
-        required("PatternSetName") => String.t(),
-        required("ResourceGroupName") => String.t()
+        required("PatternName") => String.t() | atom(),
+        required("PatternSetName") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom()
       }
       
   """
-  @type update_log_pattern_request() :: %{String.t() => any()}
+  @type update_log_pattern_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -626,11 +628,11 @@ defmodule AWS.ApplicationInsights do
       
       update_workload_response() :: %{
         "WorkloadConfiguration" => workload_configuration(),
-        "WorkloadId" => String.t()
+        "WorkloadId" => String.t() | atom()
       }
       
   """
-  @type update_workload_response() :: %{String.t() => any()}
+  @type update_workload_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -647,11 +649,11 @@ defmodule AWS.ApplicationInsights do
       
       create_log_pattern_response() :: %{
         "LogPattern" => log_pattern(),
-        "ResourceGroupName" => String.t()
+        "ResourceGroupName" => String.t() | atom()
       }
       
   """
-  @type create_log_pattern_response() :: %{String.t() => any()}
+  @type create_log_pattern_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -671,14 +673,14 @@ defmodule AWS.ApplicationInsights do
         optional("AutoConfigEnabled") => boolean(),
         optional("CWEMonitorEnabled") => boolean(),
         optional("OpsCenterEnabled") => boolean(),
-        optional("OpsItemSNSTopicArn") => String.t(),
+        optional("OpsItemSNSTopicArn") => String.t() | atom(),
         optional("RemoveSNSTopic") => boolean(),
-        optional("SNSNotificationArn") => String.t(),
-        required("ResourceGroupName") => String.t()
+        optional("SNSNotificationArn") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom()
       }
       
   """
-  @type update_application_request() :: %{String.t() => any()}
+  @type update_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -689,60 +691,60 @@ defmodule AWS.ApplicationInsights do
       }
       
   """
-  @type update_application_response() :: %{String.t() => any()}
+  @type update_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_workload_request() :: %{
-        required("ComponentName") => String.t(),
-        required("ResourceGroupName") => String.t(),
-        required("WorkloadId") => String.t()
+        required("ComponentName") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom(),
+        required("WorkloadId") => String.t() | atom()
       }
       
   """
-  @type remove_workload_request() :: %{String.t() => any()}
+  @type remove_workload_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_configuration_history_request() :: %{
-        optional("AccountId") => String.t(),
+        optional("AccountId") => String.t() | atom(),
         optional("EndTime") => non_neg_integer(),
         optional("EventStatus") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ResourceGroupName") => String.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceGroupName") => String.t() | atom(),
         optional("StartTime") => non_neg_integer()
       }
       
   """
-  @type list_configuration_history_request() :: %{String.t() => any()}
+  @type list_configuration_history_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_application_request() :: %{
-        optional("AccountId") => String.t(),
-        required("ResourceGroupName") => String.t()
+        optional("AccountId") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom()
       }
       
   """
-  @type describe_application_request() :: %{String.t() => any()}
+  @type describe_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -758,80 +760,80 @@ defmodule AWS.ApplicationInsights do
   ## Example:
       
       list_applications_request() :: %{
-        optional("AccountId") => String.t(),
+        optional("AccountId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_applications_request() :: %{String.t() => any()}
+  @type list_applications_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       problem() :: %{
-        "AccountId" => String.t(),
-        "AffectedResource" => String.t(),
+        "AccountId" => String.t() | atom(),
+        "AffectedResource" => String.t() | atom(),
         "EndTime" => non_neg_integer(),
         "Feedback" => map(),
-        "Id" => String.t(),
-        "Insights" => String.t(),
+        "Id" => String.t() | atom(),
+        "Insights" => String.t() | atom(),
         "LastRecurrenceTime" => non_neg_integer(),
         "RecurringCount" => float(),
         "ResolutionMethod" => list(any()),
-        "ResourceGroupName" => String.t(),
+        "ResourceGroupName" => String.t() | atom(),
         "SeverityLevel" => list(any()),
-        "ShortName" => String.t(),
+        "ShortName" => String.t() | atom(),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
-        "Title" => String.t(),
+        "Title" => String.t() | atom(),
         "Visibility" => list(any())
       }
       
   """
-  @type problem() :: %{String.t() => any()}
+  @type problem() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_observation_request() :: %{
-        optional("AccountId") => String.t(),
-        required("ObservationId") => String.t()
+        optional("AccountId") => String.t() | atom(),
+        required("ObservationId") => String.t() | atom()
       }
       
   """
-  @type describe_observation_request() :: %{String.t() => any()}
+  @type describe_observation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       configuration_event() :: %{
-        "AccountId" => String.t(),
-        "EventDetail" => String.t(),
-        "EventResourceName" => String.t(),
+        "AccountId" => String.t() | atom(),
+        "EventDetail" => String.t() | atom(),
+        "EventResourceName" => String.t() | atom(),
         "EventResourceType" => list(any()),
         "EventStatus" => list(any()),
         "EventTime" => non_neg_integer(),
-        "MonitoredResourceARN" => String.t(),
-        "ResourceGroupName" => String.t()
+        "MonitoredResourceARN" => String.t() | atom(),
+        "ResourceGroupName" => String.t() | atom()
       }
       
   """
-  @type configuration_event() :: %{String.t() => any()}
+  @type configuration_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -847,70 +849,72 @@ defmodule AWS.ApplicationInsights do
   ## Example:
       
       delete_log_pattern_request() :: %{
-        required("PatternName") => String.t(),
-        required("PatternSetName") => String.t(),
-        required("ResourceGroupName") => String.t()
+        required("PatternName") => String.t() | atom(),
+        required("PatternSetName") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom()
       }
       
   """
-  @type delete_log_pattern_request() :: %{String.t() => any()}
+  @type delete_log_pattern_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tags_already_exist_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type tags_already_exist_exception() :: %{String.t() => any()}
+  @type tags_already_exist_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t()
+        required("ResourceARN") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_component_configuration_recommendation_response() :: %{
-        "ComponentConfiguration" => String.t()
+        "ComponentConfiguration" => String.t() | atom()
       }
       
   """
-  @type describe_component_configuration_recommendation_response() :: %{String.t() => any()}
+  @type describe_component_configuration_recommendation_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       describe_log_pattern_response() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | atom(),
         "LogPattern" => log_pattern(),
-        "ResourceGroupName" => String.t()
+        "ResourceGroupName" => String.t() | atom()
       }
       
   """
-  @type describe_log_pattern_response() :: %{String.t() => any()}
+  @type describe_log_pattern_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -918,29 +922,29 @@ defmodule AWS.ApplicationInsights do
       
       describe_component_response() :: %{
         "ApplicationComponent" => application_component(),
-        "ResourceList" => list(String.t())
+        "ResourceList" => list(String.t() | atom())
       }
       
   """
-  @type describe_component_response() :: %{String.t() => any()}
+  @type describe_component_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_problems_request() :: %{
-        optional("AccountId") => String.t(),
-        optional("ComponentName") => String.t(),
+        optional("AccountId") => String.t() | atom(),
+        optional("ComponentName") => String.t() | atom(),
         optional("EndTime") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ResourceGroupName") => String.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceGroupName") => String.t() | atom(),
         optional("StartTime") => non_neg_integer(),
         optional("Visibility") => list(any())
       }
       
   """
-  @type list_problems_request() :: %{String.t() => any()}
+  @type list_problems_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -951,7 +955,7 @@ defmodule AWS.ApplicationInsights do
       }
       
   """
-  @type related_observations() :: %{String.t() => any()}
+  @type related_observations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -959,11 +963,11 @@ defmodule AWS.ApplicationInsights do
       
       list_components_response() :: %{
         "ApplicationComponentList" => list(application_component()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_components_response() :: %{String.t() => any()}
+  @type list_components_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -971,132 +975,132 @@ defmodule AWS.ApplicationInsights do
       
       list_applications_response() :: %{
         "ApplicationInfoList" => list(application_info()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_applications_response() :: %{String.t() => any()}
+  @type list_applications_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       bad_request_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_workload_request() :: %{
-        required("ComponentName") => String.t(),
-        required("ResourceGroupName") => String.t(),
+        required("ComponentName") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom(),
         required("WorkloadConfiguration") => workload_configuration()
       }
       
   """
-  @type add_workload_request() :: %{String.t() => any()}
+  @type add_workload_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_component_configuration_request() :: %{
-        optional("AccountId") => String.t(),
-        required("ComponentName") => String.t(),
-        required("ResourceGroupName") => String.t()
+        optional("AccountId") => String.t() | atom(),
+        required("ComponentName") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom()
       }
       
   """
-  @type describe_component_configuration_request() :: %{String.t() => any()}
+  @type describe_component_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_component_request() :: %{
-        optional("AccountId") => String.t(),
-        required("ComponentName") => String.t(),
-        required("ResourceGroupName") => String.t()
+        optional("AccountId") => String.t() | atom(),
+        required("ComponentName") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom()
       }
       
   """
-  @type describe_component_request() :: %{String.t() => any()}
+  @type describe_component_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       application_component() :: %{
-        "ComponentName" => String.t(),
-        "ComponentRemarks" => String.t(),
+        "ComponentName" => String.t() | atom(),
+        "ComponentRemarks" => String.t() | atom(),
         "DetectedWorkload" => map(),
         "Monitor" => boolean(),
         "OsType" => list(any()),
-        "ResourceType" => String.t(),
+        "ResourceType" => String.t() | atom(),
         "Tier" => list(any())
       }
       
   """
-  @type application_component() :: %{String.t() => any()}
+  @type application_component() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_workload_request() :: %{
-        optional("AccountId") => String.t(),
-        required("ComponentName") => String.t(),
-        required("ResourceGroupName") => String.t(),
-        required("WorkloadId") => String.t()
+        optional("AccountId") => String.t() | atom(),
+        required("ComponentName") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom(),
+        required("WorkloadId") => String.t() | atom()
       }
       
   """
-  @type describe_workload_request() :: %{String.t() => any()}
+  @type describe_workload_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_log_pattern_sets_request() :: %{
-        optional("AccountId") => String.t(),
+        optional("AccountId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ResourceGroupName") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom()
       }
       
   """
-  @type list_log_pattern_sets_request() :: %{String.t() => any()}
+  @type list_log_pattern_sets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_problem_request() :: %{
-        optional("AccountId") => String.t(),
-        required("ProblemId") => String.t()
+        optional("AccountId") => String.t() | atom(),
+        required("ProblemId") => String.t() | atom()
       }
       
   """
-  @type describe_problem_request() :: %{String.t() => any()}
+  @type describe_problem_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_workload_request() :: %{
-        optional("WorkloadId") => String.t(),
-        required("ComponentName") => String.t(),
-        required("ResourceGroupName") => String.t(),
+        optional("WorkloadId") => String.t() | atom(),
+        required("ComponentName") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom(),
         required("WorkloadConfiguration") => workload_configuration()
       }
       
   """
-  @type update_workload_request() :: %{String.t() => any()}
+  @type update_workload_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1107,19 +1111,19 @@ defmodule AWS.ApplicationInsights do
       }
       
   """
-  @type describe_application_response() :: %{String.t() => any()}
+  @type describe_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_tags_exception() :: %{
-        "Message" => String.t(),
-        "ResourceName" => String.t()
+        "Message" => String.t() | atom(),
+        "ResourceName" => String.t() | atom()
       }
       
   """
-  @type too_many_tags_exception() :: %{String.t() => any()}
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1127,26 +1131,26 @@ defmodule AWS.ApplicationInsights do
       
       update_component_configuration_request() :: %{
         optional("AutoConfigEnabled") => boolean(),
-        optional("ComponentConfiguration") => String.t(),
+        optional("ComponentConfiguration") => String.t() | atom(),
         optional("Monitor") => boolean(),
         optional("Tier") => list(any()),
-        required("ComponentName") => String.t(),
-        required("ResourceGroupName") => String.t()
+        required("ComponentName") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom()
       }
       
   """
-  @type update_component_configuration_request() :: %{String.t() => any()}
+  @type update_component_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_application_request() :: %{
-        required("ResourceGroupName") => String.t()
+        required("ResourceGroupName") => String.t() | atom()
       }
       
   """
-  @type delete_application_request() :: %{String.t() => any()}
+  @type delete_application_request() :: %{(String.t() | atom()) => any()}
 
   @type add_workload_errors() ::
           validation_exception()
@@ -1300,7 +1304,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, add_workload_errors()}
   def add_workload(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddWorkload", input, options)
   end
@@ -1314,7 +1319,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApplication", input, options)
   end
@@ -1328,7 +1334,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, create_component_errors()}
   def create_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateComponent", input, options)
   end
@@ -1342,7 +1349,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, create_log_pattern_errors()}
   def create_log_pattern(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLogPattern", input, options)
   end
@@ -1359,7 +1367,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplication", input, options)
   end
@@ -1378,7 +1387,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, delete_component_errors()}
   def delete_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteComponent", input, options)
   end
@@ -1392,7 +1402,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, delete_log_pattern_errors()}
   def delete_log_pattern(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLogPattern", input, options)
   end
@@ -1406,7 +1417,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, describe_application_errors()}
   def describe_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApplication", input, options)
   end
@@ -1421,7 +1433,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, describe_component_errors()}
   def describe_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeComponent", input, options)
   end
@@ -1439,7 +1452,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, describe_component_configuration_errors()}
   def describe_component_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeComponentConfiguration", input, options)
   end
@@ -1457,7 +1471,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, describe_component_configuration_recommendation_errors()}
   def describe_component_configuration_recommendation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -1477,7 +1492,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, describe_log_pattern_errors()}
   def describe_log_pattern(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLogPattern", input, options)
   end
@@ -1491,7 +1507,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, describe_observation_errors()}
   def describe_observation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeObservation", input, options)
   end
@@ -1505,7 +1522,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, describe_problem_errors()}
   def describe_problem(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProblem", input, options)
   end
@@ -1519,7 +1537,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, describe_problem_observations_errors()}
   def describe_problem_observations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProblemObservations", input, options)
   end
@@ -1533,7 +1552,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, describe_workload_errors()}
   def describe_workload(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkload", input, options)
   end
@@ -1547,7 +1567,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, list_applications_errors()}
   def list_applications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListApplications", input, options)
   end
@@ -1561,7 +1582,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, list_components_errors()}
   def list_components(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListComponents", input, options)
   end
@@ -1589,7 +1611,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, list_configuration_history_errors()}
   def list_configuration_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListConfigurationHistory", input, options)
   end
@@ -1603,7 +1626,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, list_log_pattern_sets_errors()}
   def list_log_pattern_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLogPatternSets", input, options)
   end
@@ -1617,7 +1641,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, list_log_patterns_errors()}
   def list_log_patterns(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLogPatterns", input, options)
   end
@@ -1631,7 +1656,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, list_problems_errors()}
   def list_problems(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProblems", input, options)
   end
@@ -1654,7 +1680,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1668,7 +1695,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, list_workloads_errors()}
   def list_workloads(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWorkloads", input, options)
   end
@@ -1682,7 +1710,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, remove_workload_errors()}
   def remove_workload(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveWorkload", input, options)
   end
@@ -1708,7 +1737,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1722,7 +1752,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1736,7 +1767,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateApplication", input, options)
   end
@@ -1751,7 +1783,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, update_component_errors()}
   def update_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateComponent", input, options)
   end
@@ -1770,7 +1803,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, update_component_configuration_errors()}
   def update_component_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateComponentConfiguration", input, options)
   end
@@ -1784,7 +1818,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, update_log_pattern_errors()}
   def update_log_pattern(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLogPattern", input, options)
   end
@@ -1799,7 +1834,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, update_problem_errors()}
   def update_problem(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProblem", input, options)
   end
@@ -1815,7 +1851,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, update_workload_errors()}
   def update_workload(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWorkload", input, options)
   end

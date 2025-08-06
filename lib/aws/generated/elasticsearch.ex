@@ -41,7 +41,7 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type list_domain_names_request() :: %{String.t() => any()}
+  @type list_domain_names_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -49,39 +49,39 @@ defmodule AWS.Elasticsearch do
 
       upgrade_elasticsearch_domain_response() :: %{
         "ChangeProgressDetails" => change_progress_details(),
-        "DomainName" => String.t(),
+        "DomainName" => String.t() | atom(),
         "PerformCheckOnly" => boolean(),
-        "TargetVersion" => String.t()
+        "TargetVersion" => String.t() | atom()
       }
 
   """
-  @type upgrade_elasticsearch_domain_response() :: %{String.t() => any()}
+  @type upgrade_elasticsearch_domain_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       modifying_properties() :: %{
-        "ActiveValue" => String.t(),
-        "Name" => String.t(),
-        "PendingValue" => String.t(),
+        "ActiveValue" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "PendingValue" => String.t() | atom(),
         "ValueType" => list(any())
       }
 
   """
-  @type modifying_properties() :: %{String.t() => any()}
+  @type modifying_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       auto_tune_options_output() :: %{
-        "ErrorMessage" => String.t(),
+        "ErrorMessage" => String.t() | atom(),
         "State" => list(any())
       }
 
   """
-  @type auto_tune_options_output() :: %{String.t() => any()}
+  @type auto_tune_options_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -89,11 +89,11 @@ defmodule AWS.Elasticsearch do
 
       describe_domain_auto_tunes_response() :: %{
         "AutoTunes" => list(auto_tune()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type describe_domain_auto_tunes_response() :: %{String.t() => any()}
+  @type describe_domain_auto_tunes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -104,30 +104,30 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type get_compatible_elasticsearch_versions_response() :: %{String.t() => any()}
+  @type get_compatible_elasticsearch_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_vpc_endpoints_for_domain_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "VpcEndpointSummaryList" => list(vpc_endpoint_summary())
       }
 
   """
-  @type list_vpc_endpoints_for_domain_response() :: %{String.t() => any()}
+  @type list_vpc_endpoints_for_domain_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_elasticsearch_domains_request() :: %{
-        required("DomainNames") => list(String.t())
+        required("DomainNames") => list(String.t() | atom())
       }
 
   """
-  @type describe_elasticsearch_domains_request() :: %{String.t() => any()}
+  @type describe_elasticsearch_domains_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -135,35 +135,35 @@ defmodule AWS.Elasticsearch do
 
       describe_domain_auto_tunes_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type describe_domain_auto_tunes_request() :: %{String.t() => any()}
+  @type describe_domain_auto_tunes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       package_source() :: %{
-        "S3BucketName" => String.t(),
-        "S3Key" => String.t()
+        "S3BucketName" => String.t() | atom(),
+        "S3Key" => String.t() | atom()
       }
 
   """
-  @type package_source() :: %{String.t() => any()}
+  @type package_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       compatible_versions_map() :: %{
-        "SourceVersion" => String.t(),
-        "TargetVersions" => list(String.t())
+        "SourceVersion" => String.t() | atom(),
+        "TargetVersions" => list(String.t() | atom())
       }
 
   """
-  @type compatible_versions_map() :: %{String.t() => any()}
+  @type compatible_versions_map() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -174,7 +174,7 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type snapshot_options() :: %{String.t() => any()}
+  @type snapshot_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -185,7 +185,7 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type auto_tune_details() :: %{String.t() => any()}
+  @type auto_tune_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -194,11 +194,13 @@ defmodule AWS.Elasticsearch do
       describe_outbound_cross_cluster_search_connections_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type describe_outbound_cross_cluster_search_connections_request() :: %{String.t() => any()}
+  @type describe_outbound_cross_cluster_search_connections_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -209,7 +211,7 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type authorize_vpc_endpoint_access_response() :: %{String.t() => any()}
+  @type authorize_vpc_endpoint_access_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -221,51 +223,51 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type elasticsearch_cluster_config_status() :: %{String.t() => any()}
+  @type elasticsearch_cluster_config_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       package_details() :: %{
-        "AvailablePackageVersion" => String.t(),
+        "AvailablePackageVersion" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
         "ErrorDetails" => error_details(),
         "LastUpdatedAt" => non_neg_integer(),
-        "PackageDescription" => String.t(),
-        "PackageID" => String.t(),
-        "PackageName" => String.t(),
+        "PackageDescription" => String.t() | atom(),
+        "PackageID" => String.t() | atom(),
+        "PackageName" => String.t() | atom(),
         "PackageStatus" => list(any()),
         "PackageType" => list(any())
       }
 
   """
-  @type package_details() :: %{String.t() => any()}
+  @type package_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_domain_change_progress_request() :: %{
-        optional("ChangeId") => String.t()
+        optional("ChangeId") => String.t() | atom()
       }
 
   """
-  @type describe_domain_change_progress_request() :: %{String.t() => any()}
+  @type describe_domain_change_progress_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_package_request() :: %{
-        optional("PackageDescription") => String.t(),
-        required("PackageName") => String.t(),
+        optional("PackageDescription") => String.t() | atom(),
+        required("PackageName") => String.t() | atom(),
         required("PackageSource") => package_source(),
         required("PackageType") => list(any())
       }
 
   """
-  @type create_package_request() :: %{String.t() => any()}
+  @type create_package_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -273,7 +275,7 @@ defmodule AWS.Elasticsearch do
 
       auto_tune_status() :: %{
         "CreationDate" => non_neg_integer(),
-        "ErrorMessage" => String.t(),
+        "ErrorMessage" => String.t() | atom(),
         "PendingDeletion" => boolean(),
         "State" => list(any()),
         "UpdateDate" => non_neg_integer(),
@@ -281,7 +283,7 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type auto_tune_status() :: %{String.t() => any()}
+  @type auto_tune_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -302,18 +304,18 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type elasticsearch_cluster_config() :: %{String.t() => any()}
+  @type elasticsearch_cluster_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_vpc_endpoints_request() :: %{
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_vpc_endpoints_request() :: %{String.t() => any()}
+  @type list_vpc_endpoints_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -324,18 +326,18 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type cold_storage_options() :: %{String.t() => any()}
+  @type cold_storage_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_vpc_endpoints_request() :: %{
-        required("VpcEndpointIds") => list(String.t())
+        required("VpcEndpointIds") => list(String.t() | atom())
       }
 
   """
-  @type describe_vpc_endpoints_request() :: %{String.t() => any()}
+  @type describe_vpc_endpoints_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -347,7 +349,7 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type auto_tune_options_status() :: %{String.t() => any()}
+  @type auto_tune_options_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -355,12 +357,14 @@ defmodule AWS.Elasticsearch do
 
       purchase_reserved_elasticsearch_instance_offering_request() :: %{
         optional("InstanceCount") => integer(),
-        required("ReservationName") => String.t(),
-        required("ReservedElasticsearchInstanceOfferingId") => String.t()
+        required("ReservationName") => String.t() | atom(),
+        required("ReservedElasticsearchInstanceOfferingId") => String.t() | atom()
       }
 
   """
-  @type purchase_reserved_elasticsearch_instance_offering_request() :: %{String.t() => any()}
+  @type purchase_reserved_elasticsearch_instance_offering_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -381,21 +385,21 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type snapshot_options_status() :: %{String.t() => any()}
+  @type snapshot_options_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc_endpoint_summary() :: %{
-        "DomainArn" => String.t(),
+        "DomainArn" => String.t() | atom(),
         "Status" => list(any()),
-        "VpcEndpointId" => String.t(),
-        "VpcEndpointOwner" => String.t()
+        "VpcEndpointId" => String.t() | atom(),
+        "VpcEndpointOwner" => String.t() | atom()
       }
 
   """
-  @type vpc_endpoint_summary() :: %{String.t() => any()}
+  @type vpc_endpoint_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -403,37 +407,37 @@ defmodule AWS.Elasticsearch do
 
       recurring_charge() :: %{
         "RecurringChargeAmount" => float(),
-        "RecurringChargeFrequency" => String.t()
+        "RecurringChargeFrequency" => String.t() | atom()
       }
 
   """
-  @type recurring_charge() :: %{String.t() => any()}
+  @type recurring_charge() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_vpc_endpoints_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "VpcEndpointSummaryList" => list(vpc_endpoint_summary())
       }
 
   """
-  @type list_vpc_endpoints_response() :: %{String.t() => any()}
+  @type list_vpc_endpoints_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc_derived_info() :: %{
-        "AvailabilityZones" => list(String.t()),
-        "SecurityGroupIds" => list(String.t()),
-        "SubnetIds" => list(String.t()),
-        "VPCId" => String.t()
+        "AvailabilityZones" => list(String.t() | atom()),
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom()),
+        "VPCId" => String.t() | atom()
       }
 
   """
-  @type vpc_derived_info() :: %{String.t() => any()}
+  @type vpc_derived_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -441,24 +445,24 @@ defmodule AWS.Elasticsearch do
 
       describe_reserved_elasticsearch_instances_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ReservedElasticsearchInstanceId") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("ReservedElasticsearchInstanceId") => String.t() | atom()
       }
 
   """
-  @type describe_reserved_elasticsearch_instances_request() :: %{String.t() => any()}
+  @type describe_reserved_elasticsearch_instances_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       saml_idp() :: %{
-        "EntityId" => String.t(),
-        "MetadataContent" => String.t()
+        "EntityId" => String.t() | atom(),
+        "MetadataContent" => String.t() | atom()
       }
 
   """
-  @type saml_idp() :: %{String.t() => any()}
+  @type saml_idp() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -469,7 +473,9 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type describe_elasticsearch_instance_type_limits_response() :: %{String.t() => any()}
+  @type describe_elasticsearch_instance_type_limits_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -480,34 +486,36 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type list_tags_response() :: %{String.t() => any()}
+  @type list_tags_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       storage_type_limit() :: %{
-        "LimitName" => String.t(),
-        "LimitValues" => list(String.t())
+        "LimitName" => String.t() | atom(),
+        "LimitValues" => list(String.t() | atom())
       }
 
   """
-  @type storage_type_limit() :: %{String.t() => any()}
+  @type storage_type_limit() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_outbound_cross_cluster_search_connection_response() :: %{
-        "ConnectionAlias" => String.t(),
+        "ConnectionAlias" => String.t() | atom(),
         "ConnectionStatus" => outbound_cross_cluster_search_connection_status(),
-        "CrossClusterSearchConnectionId" => String.t(),
+        "CrossClusterSearchConnectionId" => String.t() | atom(),
         "DestinationDomainInfo" => domain_information(),
         "SourceDomainInfo" => domain_information()
       }
 
   """
-  @type create_outbound_cross_cluster_search_connection_response() :: %{String.t() => any()}
+  @type create_outbound_cross_cluster_search_connection_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -519,30 +527,30 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type ebs_options_status() :: %{String.t() => any()}
+  @type ebs_options_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       authorized_principal() :: %{
-        "Principal" => String.t(),
+        "Principal" => String.t() | atom(),
         "PrincipalType" => list(any())
       }
 
   """
-  @type authorized_principal() :: %{String.t() => any()}
+  @type authorized_principal() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disabled_operation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type disabled_operation_exception() :: %{String.t() => any()}
+  @type disabled_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -553,7 +561,7 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type delete_vpc_endpoint_response() :: %{String.t() => any()}
+  @type delete_vpc_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -569,13 +577,13 @@ defmodule AWS.Elasticsearch do
   ## Example:
 
       storage_type() :: %{
-        "StorageSubTypeName" => String.t(),
+        "StorageSubTypeName" => String.t() | atom(),
         "StorageTypeLimits" => list(storage_type_limit()),
-        "StorageTypeName" => String.t()
+        "StorageTypeName" => String.t() | atom()
       }
 
   """
-  @type storage_type() :: %{String.t() => any()}
+  @type storage_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -586,14 +594,14 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type update_package_response() :: %{String.t() => any()}
+  @type update_package_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_elasticsearch_domain_request() :: %{
-        optional("AccessPolicies") => String.t(),
+        optional("AccessPolicies") => String.t() | atom(),
         optional("AdvancedOptions") => map(),
         optional("AdvancedSecurityOptions") => advanced_security_options_input(),
         optional("AutoTuneOptions") => auto_tune_options_input(),
@@ -601,30 +609,30 @@ defmodule AWS.Elasticsearch do
         optional("DomainEndpointOptions") => domain_endpoint_options(),
         optional("EBSOptions") => ebs_options(),
         optional("ElasticsearchClusterConfig") => elasticsearch_cluster_config(),
-        optional("ElasticsearchVersion") => String.t(),
+        optional("ElasticsearchVersion") => String.t() | atom(),
         optional("EncryptionAtRestOptions") => encryption_at_rest_options(),
         optional("LogPublishingOptions") => map(),
         optional("NodeToNodeEncryptionOptions") => node_to_node_encryption_options(),
         optional("SnapshotOptions") => snapshot_options(),
         optional("TagList") => list(tag()),
         optional("VPCOptions") => vpc_options(),
-        required("DomainName") => String.t()
+        required("DomainName") => String.t() | atom()
       }
 
   """
-  @type create_elasticsearch_domain_request() :: %{String.t() => any()}
+  @type create_elasticsearch_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       additional_limit() :: %{
-        "LimitName" => String.t(),
-        "LimitValues" => list(String.t())
+        "LimitName" => String.t() | atom(),
+        "LimitValues" => list(String.t() | atom())
       }
 
   """
-  @type additional_limit() :: %{String.t() => any()}
+  @type additional_limit() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -636,19 +644,19 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type vpc_derived_info_status() :: %{String.t() => any()}
+  @type vpc_derived_info_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       inbound_cross_cluster_search_connection_status() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | atom(),
         "StatusCode" => list(any())
       }
 
   """
-  @type inbound_cross_cluster_search_connection_status() :: %{String.t() => any()}
+  @type inbound_cross_cluster_search_connection_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -659,7 +667,7 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type cancel_domain_config_change_request() :: %{String.t() => any()}
+  @type cancel_domain_config_change_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -668,13 +676,13 @@ defmodule AWS.Elasticsearch do
       saml_options_output() :: %{
         "Enabled" => boolean(),
         "Idp" => saml_idp(),
-        "RolesKey" => String.t(),
+        "RolesKey" => String.t() | atom(),
         "SessionTimeoutMinutes" => integer(),
-        "SubjectKey" => String.t()
+        "SubjectKey" => String.t() | atom()
       }
 
   """
-  @type saml_options_output() :: %{String.t() => any()}
+  @type saml_options_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -686,7 +694,7 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type cognito_options_status() :: %{String.t() => any()}
+  @type cognito_options_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -694,24 +702,26 @@ defmodule AWS.Elasticsearch do
 
       describe_inbound_cross_cluster_search_connections_response() :: %{
         "CrossClusterSearchConnections" => list(inbound_cross_cluster_search_connection()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type describe_inbound_cross_cluster_search_connections_response() :: %{String.t() => any()}
+  @type describe_inbound_cross_cluster_search_connections_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       auto_tune_maintenance_schedule() :: %{
-        "CronExpressionForRecurrence" => String.t(),
+        "CronExpressionForRecurrence" => String.t() | atom(),
         "Duration" => duration(),
         "StartAt" => non_neg_integer()
       }
 
   """
-  @type auto_tune_maintenance_schedule() :: %{String.t() => any()}
+  @type auto_tune_maintenance_schedule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -719,31 +729,31 @@ defmodule AWS.Elasticsearch do
 
       list_packages_for_domain_response() :: %{
         "DomainPackageDetailsList" => list(domain_package_details()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_packages_for_domain_response() :: %{String.t() => any()}
+  @type list_packages_for_domain_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       change_progress_status_details() :: %{
-        "ChangeId" => String.t(),
+        "ChangeId" => String.t() | atom(),
         "ChangeProgressStages" => list(change_progress_stage()),
-        "CompletedProperties" => list(String.t()),
+        "CompletedProperties" => list(String.t() | atom()),
         "ConfigChangeStatus" => list(any()),
         "InitiatedBy" => list(any()),
         "LastUpdatedTime" => non_neg_integer(),
-        "PendingProperties" => list(String.t()),
+        "PendingProperties" => list(String.t() | atom()),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
         "TotalNumberOfStages" => integer()
       }
 
   """
-  @type change_progress_status_details() :: %{String.t() => any()}
+  @type change_progress_status_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -754,31 +764,33 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type describe_elasticsearch_domain_config_response() :: %{String.t() => any()}
+  @type describe_elasticsearch_domain_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       add_tags_request() :: %{
-        required("ARN") => String.t(),
+        required("ARN") => String.t() | atom(),
         required("TagList") => list(tag())
       }
 
   """
-  @type add_tags_request() :: %{String.t() => any()}
+  @type add_tags_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_reserved_elasticsearch_instance_offerings_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "ReservedElasticsearchInstanceOfferings" => list(reserved_elasticsearch_instance_offering())
       }
 
   """
-  @type describe_reserved_elasticsearch_instance_offerings_response() :: %{String.t() => any()}
+  @type describe_reserved_elasticsearch_instance_offerings_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -787,36 +799,36 @@ defmodule AWS.Elasticsearch do
       upgrade_history() :: %{
         "StartTimestamp" => non_neg_integer(),
         "StepsList" => list(upgrade_step_item()),
-        "UpgradeName" => String.t(),
+        "UpgradeName" => String.t() | atom(),
         "UpgradeStatus" => list(any())
       }
 
   """
-  @type upgrade_history() :: %{String.t() => any()}
+  @type upgrade_history() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_elasticsearch_instance_types_request() :: %{
-        optional("DomainName") => String.t(),
+        optional("DomainName") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_elasticsearch_instance_types_request() :: %{String.t() => any()}
+  @type list_elasticsearch_instance_types_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -827,54 +839,54 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type delete_package_response() :: %{String.t() => any()}
+  @type delete_package_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_packages_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "PackageDetailsList" => list(package_details())
       }
 
   """
-  @type describe_packages_response() :: %{String.t() => any()}
+  @type describe_packages_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dry_run_results() :: %{
-        optional("DeploymentType") => String.t(),
-        optional("Message") => String.t()
+        optional("DeploymentType") => String.t() | atom(),
+        optional("Message") => String.t() | atom()
       }
 
   """
-  @type dry_run_results() :: %{String.t() => any()}
+  @type dry_run_results() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -889,7 +901,7 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type advanced_security_options() :: %{String.t() => any()}
+  @type advanced_security_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -904,7 +916,7 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type option_status() :: %{String.t() => any()}
+  @type option_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -920,13 +932,13 @@ defmodule AWS.Elasticsearch do
   ## Example:
 
       cancel_domain_config_change_response() :: %{
-        "CancelledChangeIds" => list(String.t()),
+        "CancelledChangeIds" => list(String.t() | atom()),
         "CancelledChangeProperties" => list(cancelled_change_property()),
         "DryRun" => boolean()
       }
 
   """
-  @type cancel_domain_config_change_response() :: %{String.t() => any()}
+  @type cancel_domain_config_change_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -937,7 +949,9 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type delete_inbound_cross_cluster_search_connection_response() :: %{String.t() => any()}
+  @type delete_inbound_cross_cluster_search_connection_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -949,30 +963,30 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type node_to_node_encryption_options_status() :: %{String.t() => any()}
+  @type node_to_node_encryption_options_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_upgrade_history_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "UpgradeHistories" => list(upgrade_history())
       }
 
   """
-  @type get_upgrade_history_response() :: %{String.t() => any()}
+  @type get_upgrade_history_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_elasticsearch_instance_type_limits_request() :: %{
-        optional("DomainName") => String.t()
+        optional("DomainName") => String.t() | atom()
       }
 
   """
-  @type describe_elasticsearch_instance_type_limits_request() :: %{String.t() => any()}
+  @type describe_elasticsearch_instance_type_limits_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -983,7 +997,7 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type create_elasticsearch_domain_response() :: %{String.t() => any()}
+  @type create_elasticsearch_domain_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -994,7 +1008,7 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type describe_elasticsearch_domain_response() :: %{String.t() => any()}
+  @type describe_elasticsearch_domain_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1005,18 +1019,20 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type delete_elasticsearch_domain_response() :: %{String.t() => any()}
+  @type delete_elasticsearch_domain_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_elasticsearch_service_software_update_request() :: %{
-        required("DomainName") => String.t()
+        required("DomainName") => String.t() | atom()
       }
 
   """
-  @type cancel_elasticsearch_service_software_update_request() :: %{String.t() => any()}
+  @type cancel_elasticsearch_service_software_update_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -1028,18 +1044,18 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type describe_vpc_endpoints_response() :: %{String.t() => any()}
+  @type describe_vpc_endpoints_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_elasticsearch_service_software_update_request() :: %{
-        required("DomainName") => String.t()
+        required("DomainName") => String.t() | atom()
       }
 
   """
-  @type start_elasticsearch_service_software_update_request() :: %{String.t() => any()}
+  @type start_elasticsearch_service_software_update_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1047,18 +1063,18 @@ defmodule AWS.Elasticsearch do
 
       describe_packages_filter() :: %{
         "Name" => list(any()),
-        "Value" => list(String.t())
+        "Value" => list(String.t() | atom())
       }
 
   """
-  @type describe_packages_filter() :: %{String.t() => any()}
+  @type describe_packages_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_elasticsearch_domain_config_request() :: %{
-        optional("AccessPolicies") => String.t(),
+        optional("AccessPolicies") => String.t() | atom(),
         optional("AdvancedOptions") => map(),
         optional("AdvancedSecurityOptions") => advanced_security_options_input(),
         optional("AutoTuneOptions") => auto_tune_options(),
@@ -1075,7 +1091,7 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type update_elasticsearch_domain_config_request() :: %{String.t() => any()}
+  @type update_elasticsearch_domain_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1086,19 +1102,19 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type update_vpc_endpoint_response() :: %{String.t() => any()}
+  @type update_vpc_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       error_details() :: %{
-        optional("ErrorMessage") => String.t(),
-        optional("ErrorType") => String.t()
+        optional("ErrorMessage") => String.t() | atom(),
+        optional("ErrorType") => String.t() | atom()
       }
 
   """
-  @type error_details() :: %{String.t() => any()}
+  @type error_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1106,35 +1122,35 @@ defmodule AWS.Elasticsearch do
 
       encryption_at_rest_options() :: %{
         "Enabled" => boolean(),
-        "KmsKeyId" => String.t()
+        "KmsKeyId" => String.t() | atom()
       }
 
   """
-  @type encryption_at_rest_options() :: %{String.t() => any()}
+  @type encryption_at_rest_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_package_version_history_response() :: %{
-        "NextToken" => String.t(),
-        "PackageID" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "PackageID" => String.t() | atom(),
         "PackageVersionHistoryList" => list(package_version_history())
       }
 
   """
-  @type get_package_version_history_response() :: %{String.t() => any()}
+  @type get_package_version_history_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_vpc_endpoints_for_domain_request() :: %{
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_vpc_endpoints_for_domain_request() :: %{String.t() => any()}
+  @type list_vpc_endpoints_for_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1143,31 +1159,31 @@ defmodule AWS.Elasticsearch do
       saml_options_input() :: %{
         "Enabled" => boolean(),
         "Idp" => saml_idp(),
-        "MasterBackendRole" => String.t(),
-        "MasterUserName" => String.t(),
-        "RolesKey" => String.t(),
+        "MasterBackendRole" => String.t() | atom(),
+        "MasterUserName" => String.t() | atom(),
+        "RolesKey" => String.t() | atom(),
         "SessionTimeoutMinutes" => integer(),
-        "SubjectKey" => String.t()
+        "SubjectKey" => String.t() | atom()
       }
 
   """
-  @type saml_options_input() :: %{String.t() => any()}
+  @type saml_options_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc_endpoint() :: %{
-        "DomainArn" => String.t(),
-        "Endpoint" => String.t(),
+        "DomainArn" => String.t() | atom(),
+        "Endpoint" => String.t() | atom(),
         "Status" => list(any()),
-        "VpcEndpointId" => String.t(),
-        "VpcEndpointOwner" => String.t(),
+        "VpcEndpointId" => String.t() | atom(),
+        "VpcEndpointOwner" => String.t() | atom(),
         "VpcOptions" => vpc_derived_info()
       }
 
   """
-  @type vpc_endpoint() :: %{String.t() => any()}
+  @type vpc_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1175,25 +1191,25 @@ defmodule AWS.Elasticsearch do
 
       get_package_version_history_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type get_package_version_history_request() :: %{String.t() => any()}
+  @type get_package_version_history_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       scheduled_auto_tune_details() :: %{
-        "Action" => String.t(),
+        "Action" => String.t() | atom(),
         "ActionType" => list(any()),
         "Date" => non_neg_integer(),
         "Severity" => list(any())
       }
 
   """
-  @type scheduled_auto_tune_details() :: %{String.t() => any()}
+  @type scheduled_auto_tune_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1208,21 +1224,21 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type ebs_options() :: %{String.t() => any()}
+  @type ebs_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_package_request() :: %{
-        optional("CommitMessage") => String.t(),
-        optional("PackageDescription") => String.t(),
-        required("PackageID") => String.t(),
+        optional("CommitMessage") => String.t() | atom(),
+        optional("PackageDescription") => String.t() | atom(),
+        required("PackageID") => String.t() | atom(),
         required("PackageSource") => package_source()
       }
 
   """
-  @type update_package_request() :: %{String.t() => any()}
+  @type update_package_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1233,30 +1249,30 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type list_domain_names_response() :: %{String.t() => any()}
+  @type list_domain_names_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       reserved_elasticsearch_instance() :: %{
-        "CurrencyCode" => String.t(),
+        "CurrencyCode" => String.t() | atom(),
         "Duration" => integer(),
         "ElasticsearchInstanceCount" => integer(),
         "ElasticsearchInstanceType" => list(any()),
         "FixedPrice" => float(),
         "PaymentOption" => list(any()),
         "RecurringCharges" => list(recurring_charge()),
-        "ReservationName" => String.t(),
-        "ReservedElasticsearchInstanceId" => String.t(),
-        "ReservedElasticsearchInstanceOfferingId" => String.t(),
+        "ReservationName" => String.t() | atom(),
+        "ReservedElasticsearchInstanceId" => String.t() | atom(),
+        "ReservedElasticsearchInstanceOfferingId" => String.t() | atom(),
         "StartTime" => non_neg_integer(),
-        "State" => String.t(),
+        "State" => String.t() | atom(),
         "UsagePrice" => float()
       }
 
   """
-  @type reserved_elasticsearch_instance() :: %{String.t() => any()}
+  @type reserved_elasticsearch_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1291,19 +1307,19 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type elasticsearch_domain_config() :: %{String.t() => any()}
+  @type elasticsearch_domain_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       filter() :: %{
-        "Name" => String.t(),
-        "Values" => list(String.t())
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
 
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1320,11 +1336,13 @@ defmodule AWS.Elasticsearch do
 
       describe_outbound_cross_cluster_search_connections_response() :: %{
         "CrossClusterSearchConnections" => list(outbound_cross_cluster_search_connection()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type describe_outbound_cross_cluster_search_connections_response() :: %{String.t() => any()}
+  @type describe_outbound_cross_cluster_search_connections_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -1344,7 +1362,9 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type start_elasticsearch_service_software_update_response() :: %{String.t() => any()}
+  @type start_elasticsearch_service_software_update_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -1355,20 +1375,22 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type cancel_elasticsearch_service_software_update_response() :: %{String.t() => any()}
+  @type cancel_elasticsearch_service_software_update_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       domain_information() :: %{
-        optional("OwnerId") => String.t(),
-        optional("Region") => String.t(),
-        required("DomainName") => String.t()
+        optional("OwnerId") => String.t() | atom(),
+        optional("Region") => String.t() | atom(),
+        required("DomainName") => String.t() | atom()
       }
 
   """
-  @type domain_information() :: %{String.t() => any()}
+  @type domain_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1383,19 +1405,19 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type advanced_security_options_input() :: %{String.t() => any()}
+  @type advanced_security_options_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       domain_info() :: %{
-        optional("DomainName") => String.t(),
+        optional("DomainName") => String.t() | atom(),
         optional("EngineType") => list(any())
       }
 
   """
-  @type domain_info() :: %{String.t() => any()}
+  @type domain_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1403,37 +1425,37 @@ defmodule AWS.Elasticsearch do
 
       cognito_options() :: %{
         "Enabled" => boolean(),
-        "IdentityPoolId" => String.t(),
-        "RoleArn" => String.t(),
-        "UserPoolId" => String.t()
+        "IdentityPoolId" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "UserPoolId" => String.t() | atom()
       }
 
   """
-  @type cognito_options() :: %{String.t() => any()}
+  @type cognito_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_vpc_endpoint_access_request() :: %{
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_vpc_endpoint_access_request() :: %{String.t() => any()}
+  @type list_vpc_endpoint_access_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_vpc_endpoint_request() :: %{
-        optional("ClientToken") => String.t(),
-        required("DomainArn") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
+        required("DomainArn") => String.t() | atom(),
         required("VpcOptions") => vpc_options()
       }
 
   """
-  @type create_vpc_endpoint_request() :: %{String.t() => any()}
+  @type create_vpc_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1445,20 +1467,20 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type auto_tune_options_input() :: %{String.t() => any()}
+  @type auto_tune_options_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cancelled_change_property() :: %{
-        "ActiveValue" => String.t(),
-        "CancelledValue" => String.t(),
-        "PropertyName" => String.t()
+        "ActiveValue" => String.t() | atom(),
+        "CancelledValue" => String.t() | atom(),
+        "PropertyName" => String.t() | atom()
       }
 
   """
-  @type cancelled_change_property() :: %{String.t() => any()}
+  @type cancelled_change_property() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1469,7 +1491,7 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type describe_domain_change_progress_response() :: %{String.t() => any()}
+  @type describe_domain_change_progress_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1480,34 +1502,34 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type instance_limits() :: %{String.t() => any()}
+  @type instance_limits() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_type_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_type_exception() :: %{String.t() => any()}
+  @type invalid_type_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       change_progress_details() :: %{
-        "ChangeId" => String.t(),
+        "ChangeId" => String.t() | atom(),
         "ConfigChangeStatus" => list(any()),
         "InitiatedBy" => list(any()),
         "LastUpdatedTime" => non_neg_integer(),
-        "Message" => String.t(),
+        "Message" => String.t() | atom(),
         "StartTime" => non_neg_integer()
       }
 
   """
-  @type change_progress_details() :: %{String.t() => any()}
+  @type change_progress_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1518,7 +1540,7 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type zone_awareness_config() :: %{String.t() => any()}
+  @type zone_awareness_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1526,25 +1548,25 @@ defmodule AWS.Elasticsearch do
 
       get_upgrade_history_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type get_upgrade_history_request() :: %{String.t() => any()}
+  @type get_upgrade_history_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       change_progress_stage() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "LastUpdated" => non_neg_integer(),
-        "Name" => String.t(),
-        "Status" => String.t()
+        "Name" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
 
   """
-  @type change_progress_stage() :: %{String.t() => any()}
+  @type change_progress_stage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1555,7 +1577,7 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type dissociate_package_response() :: %{String.t() => any()}
+  @type dissociate_package_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1572,45 +1594,47 @@ defmodule AWS.Elasticsearch do
 
       describe_reserved_elasticsearch_instance_offerings_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ReservedElasticsearchInstanceOfferingId") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("ReservedElasticsearchInstanceOfferingId") => String.t() | atom()
       }
 
   """
-  @type describe_reserved_elasticsearch_instance_offerings_request() :: %{String.t() => any()}
+  @type describe_reserved_elasticsearch_instance_offerings_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       internal_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_exception() :: %{String.t() => any()}
+  @type internal_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_compatible_elasticsearch_versions_request() :: %{
-        optional("DomainName") => String.t()
+        optional("DomainName") => String.t() | atom()
       }
 
   """
-  @type get_compatible_elasticsearch_versions_request() :: %{String.t() => any()}
+  @type get_compatible_elasticsearch_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1618,12 +1642,12 @@ defmodule AWS.Elasticsearch do
 
       upgrade_elasticsearch_domain_request() :: %{
         optional("PerformCheckOnly") => boolean(),
-        required("DomainName") => String.t(),
-        required("TargetVersion") => String.t()
+        required("DomainName") => String.t() | atom(),
+        required("TargetVersion") => String.t() | atom()
       }
 
   """
-  @type upgrade_elasticsearch_domain_request() :: %{String.t() => any()}
+  @type upgrade_elasticsearch_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1640,11 +1664,11 @@ defmodule AWS.Elasticsearch do
 
       list_packages_for_domain_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_packages_for_domain_request() :: %{String.t() => any()}
+  @type list_packages_for_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1656,7 +1680,7 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type advanced_security_options_status() :: %{String.t() => any()}
+  @type advanced_security_options_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1668,19 +1692,21 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type duration() :: %{String.t() => any()}
+  @type duration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       purchase_reserved_elasticsearch_instance_offering_response() :: %{
-        "ReservationName" => String.t(),
-        "ReservedElasticsearchInstanceId" => String.t()
+        "ReservationName" => String.t() | atom(),
+        "ReservedElasticsearchInstanceId" => String.t() | atom()
       }
 
   """
-  @type purchase_reserved_elasticsearch_instance_offering_response() :: %{String.t() => any()}
+  @type purchase_reserved_elasticsearch_instance_offering_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -1688,22 +1714,22 @@ defmodule AWS.Elasticsearch do
 
       list_domains_for_package_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_domains_for_package_request() :: %{String.t() => any()}
+  @type list_domains_for_package_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       authorize_vpc_endpoint_access_request() :: %{
-        required("Account") => String.t()
+        required("Account") => String.t() | atom()
       }
 
   """
-  @type authorize_vpc_endpoint_access_request() :: %{String.t() => any()}
+  @type authorize_vpc_endpoint_access_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1712,16 +1738,16 @@ defmodule AWS.Elasticsearch do
       service_software_options() :: %{
         "AutomatedUpdateDate" => non_neg_integer(),
         "Cancellable" => boolean(),
-        "CurrentVersion" => String.t(),
-        "Description" => String.t(),
-        "NewVersion" => String.t(),
+        "CurrentVersion" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "NewVersion" => String.t() | atom(),
         "OptionalDeployment" => boolean(),
         "UpdateAvailable" => boolean(),
         "UpdateStatus" => list(any())
       }
 
   """
-  @type service_software_options() :: %{String.t() => any()}
+  @type service_software_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1733,18 +1759,18 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type log_publishing_options_status() :: %{String.t() => any()}
+  @type log_publishing_options_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1755,7 +1781,9 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type delete_outbound_cross_cluster_search_connection_response() :: %{String.t() => any()}
+  @type delete_outbound_cross_cluster_search_connection_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -1768,15 +1796,15 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type auto_tune_options() :: %{String.t() => any()}
+  @type auto_tune_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       elasticsearch_domain_status() :: %{
-        "ARN" => String.t(),
-        "AccessPolicies" => String.t(),
+        "ARN" => String.t() | atom(),
+        "AccessPolicies" => String.t() | atom(),
         "AdvancedOptions" => map(),
         "AdvancedSecurityOptions" => advanced_security_options(),
         "AutoTuneOptions" => auto_tune_options_output(),
@@ -1785,14 +1813,14 @@ defmodule AWS.Elasticsearch do
         "Created" => boolean(),
         "Deleted" => boolean(),
         "DomainEndpointOptions" => domain_endpoint_options(),
-        "DomainId" => String.t(),
-        "DomainName" => String.t(),
+        "DomainId" => String.t() | atom(),
+        "DomainName" => String.t() | atom(),
         "DomainProcessingStatus" => list(any()),
         "EBSOptions" => ebs_options(),
         "ElasticsearchClusterConfig" => elasticsearch_cluster_config(),
-        "ElasticsearchVersion" => String.t(),
+        "ElasticsearchVersion" => String.t() | atom(),
         "EncryptionAtRestOptions" => encryption_at_rest_options(),
-        "Endpoint" => String.t(),
+        "Endpoint" => String.t() | atom(),
         "Endpoints" => map(),
         "LogPublishingOptions" => map(),
         "ModifyingProperties" => list(modifying_properties()),
@@ -1805,7 +1833,7 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type elasticsearch_domain_status() :: %{String.t() => any()}
+  @type elasticsearch_domain_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1831,24 +1859,24 @@ defmodule AWS.Elasticsearch do
 
       inbound_cross_cluster_search_connection() :: %{
         "ConnectionStatus" => inbound_cross_cluster_search_connection_status(),
-        "CrossClusterSearchConnectionId" => String.t(),
+        "CrossClusterSearchConnectionId" => String.t() | atom(),
         "DestinationDomainInfo" => domain_information(),
         "SourceDomainInfo" => domain_information()
       }
 
   """
-  @type inbound_cross_cluster_search_connection() :: %{String.t() => any()}
+  @type inbound_cross_cluster_search_connection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       base_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type base_exception() :: %{String.t() => any()}
+  @type base_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1859,7 +1887,7 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type node_to_node_encryption_options() :: %{String.t() => any()}
+  @type node_to_node_encryption_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1870,7 +1898,7 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type create_package_response() :: %{String.t() => any()}
+  @type create_package_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1883,65 +1911,65 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type limits() :: %{String.t() => any()}
+  @type limits() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       revoke_vpc_endpoint_access_request() :: %{
-        required("Account") => String.t()
+        required("Account") => String.t() | atom()
       }
 
   """
-  @type revoke_vpc_endpoint_access_request() :: %{String.t() => any()}
+  @type revoke_vpc_endpoint_access_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       elasticsearch_version_status() :: %{
-        "Options" => String.t(),
+        "Options" => String.t() | atom(),
         "Status" => option_status()
       }
 
   """
-  @type elasticsearch_version_status() :: %{String.t() => any()}
+  @type elasticsearch_version_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc_options() :: %{
-        "SecurityGroupIds" => list(String.t()),
-        "SubnetIds" => list(String.t())
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom())
       }
 
   """
-  @type vpc_options() :: %{String.t() => any()}
+  @type vpc_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       outbound_cross_cluster_search_connection_status() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | atom(),
         "StatusCode" => list(any())
       }
 
   """
-  @type outbound_cross_cluster_search_connection_status() :: %{String.t() => any()}
+  @type outbound_cross_cluster_search_connection_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1950,11 +1978,13 @@ defmodule AWS.Elasticsearch do
       describe_inbound_cross_cluster_search_connections_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type describe_inbound_cross_cluster_search_connections_request() :: %{String.t() => any()}
+  @type describe_inbound_cross_cluster_search_connections_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -1965,7 +1995,7 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type create_vpc_endpoint_response() :: %{String.t() => any()}
+  @type create_vpc_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1977,26 +2007,26 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type domain_endpoint_options_status() :: %{String.t() => any()}
+  @type domain_endpoint_options_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       domain_package_details() :: %{
-        "DomainName" => String.t(),
+        "DomainName" => String.t() | atom(),
         "DomainPackageStatus" => list(any()),
         "ErrorDetails" => error_details(),
         "LastUpdated" => non_neg_integer(),
-        "PackageID" => String.t(),
-        "PackageName" => String.t(),
+        "PackageID" => String.t() | atom(),
+        "PackageName" => String.t() | atom(),
         "PackageType" => list(any()),
-        "PackageVersion" => String.t(),
-        "ReferencePath" => String.t()
+        "PackageVersion" => String.t() | atom(),
+        "ReferencePath" => String.t() | atom()
       }
 
   """
-  @type domain_package_details() :: %{String.t() => any()}
+  @type domain_package_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2008,90 +2038,90 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type advanced_options_status() :: %{String.t() => any()}
+  @type advanced_options_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_policies_status() :: %{
-        "Options" => String.t(),
+        "Options" => String.t() | atom(),
         "Status" => option_status()
       }
 
   """
-  @type access_policies_status() :: %{String.t() => any()}
+  @type access_policies_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       package_version_history() :: %{
-        "CommitMessage" => String.t(),
+        "CommitMessage" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "PackageVersion" => String.t()
+        "PackageVersion" => String.t() | atom()
       }
 
   """
-  @type package_version_history() :: %{String.t() => any()}
+  @type package_version_history() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_elasticsearch_versions_response() :: %{
-        "ElasticsearchVersions" => list(String.t()),
-        "NextToken" => String.t()
+        "ElasticsearchVersions" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_elasticsearch_versions_response() :: %{String.t() => any()}
+  @type list_elasticsearch_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_already_exists_exception() :: %{String.t() => any()}
+  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_vpc_endpoint_request() :: %{
-        required("VpcEndpointId") => String.t(),
+        required("VpcEndpointId") => String.t() | atom(),
         required("VpcOptions") => vpc_options()
       }
 
   """
-  @type update_vpc_endpoint_request() :: %{String.t() => any()}
+  @type update_vpc_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       remove_tags_request() :: %{
-        required("ARN") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type remove_tags_request() :: %{String.t() => any()}
+  @type remove_tags_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_request() :: %{
-        required("ARN") => String.t()
+        required("ARN") => String.t() | atom()
       }
 
   """
-  @type list_tags_request() :: %{String.t() => any()}
+  @type list_tags_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2103,7 +2133,7 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type auto_tune() :: %{String.t() => any()}
+  @type auto_tune() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2112,65 +2142,67 @@ defmodule AWS.Elasticsearch do
       describe_packages_request() :: %{
         optional("Filters") => list(describe_packages_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type describe_packages_request() :: %{String.t() => any()}
+  @type describe_packages_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_outbound_cross_cluster_search_connection_request() :: %{
-        required("ConnectionAlias") => String.t(),
+        required("ConnectionAlias") => String.t() | atom(),
         required("DestinationDomainInfo") => domain_information(),
         required("SourceDomainInfo") => domain_information()
       }
 
   """
-  @type create_outbound_cross_cluster_search_connection_request() :: %{String.t() => any()}
+  @type create_outbound_cross_cluster_search_connection_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       upgrade_step_item() :: %{
-        "Issues" => list(String.t()),
+        "Issues" => list(String.t() | atom()),
         "ProgressPercent" => float(),
         "UpgradeStep" => list(any()),
         "UpgradeStepStatus" => list(any())
       }
 
   """
-  @type upgrade_step_item() :: %{String.t() => any()}
+  @type upgrade_step_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       outbound_cross_cluster_search_connection() :: %{
-        "ConnectionAlias" => String.t(),
+        "ConnectionAlias" => String.t() | atom(),
         "ConnectionStatus" => outbound_cross_cluster_search_connection_status(),
-        "CrossClusterSearchConnectionId" => String.t(),
+        "CrossClusterSearchConnectionId" => String.t() | atom(),
         "DestinationDomainInfo" => domain_information(),
         "SourceDomainInfo" => domain_information()
       }
 
   """
-  @type outbound_cross_cluster_search_connection() :: %{String.t() => any()}
+  @type outbound_cross_cluster_search_connection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       log_publishing_option() :: %{
-        "CloudWatchLogsLogGroupArn" => String.t(),
+        "CloudWatchLogsLogGroupArn" => String.t() | atom(),
         "Enabled" => boolean()
       }
 
   """
-  @type log_publishing_option() :: %{String.t() => any()}
+  @type log_publishing_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2181,7 +2213,9 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type accept_inbound_cross_cluster_search_connection_response() :: %{String.t() => any()}
+  @type accept_inbound_cross_cluster_search_connection_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -2189,11 +2223,11 @@ defmodule AWS.Elasticsearch do
 
       list_elasticsearch_versions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_elasticsearch_versions_request() :: %{String.t() => any()}
+  @type list_elasticsearch_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2201,23 +2235,23 @@ defmodule AWS.Elasticsearch do
 
       list_vpc_endpoint_access_response() :: %{
         "AuthorizedPrincipalList" => list(authorized_principal()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_vpc_endpoint_access_response() :: %{String.t() => any()}
+  @type list_vpc_endpoint_access_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_reserved_elasticsearch_instances_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "ReservedElasticsearchInstances" => list(reserved_elasticsearch_instance())
       }
 
   """
-  @type describe_reserved_elasticsearch_instances_response() :: %{String.t() => any()}
+  @type describe_reserved_elasticsearch_instances_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2225,12 +2259,12 @@ defmodule AWS.Elasticsearch do
 
       vpc_endpoint_error() :: %{
         "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t(),
-        "VpcEndpointId" => String.t()
+        "ErrorMessage" => String.t() | atom(),
+        "VpcEndpointId" => String.t() | atom()
       }
 
   """
-  @type vpc_endpoint_error() :: %{String.t() => any()}
+  @type vpc_endpoint_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2238,12 +2272,12 @@ defmodule AWS.Elasticsearch do
 
       get_upgrade_status_response() :: %{
         "StepStatus" => list(any()),
-        "UpgradeName" => String.t(),
+        "UpgradeName" => String.t() | atom(),
         "UpgradeStep" => list(any())
       }
 
   """
-  @type get_upgrade_status_response() :: %{String.t() => any()}
+  @type get_upgrade_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2255,22 +2289,22 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type update_elasticsearch_domain_config_response() :: %{String.t() => any()}
+  @type update_elasticsearch_domain_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       domain_endpoint_options() :: %{
-        "CustomEndpoint" => String.t(),
-        "CustomEndpointCertificateArn" => String.t(),
+        "CustomEndpoint" => String.t() | atom(),
+        "CustomEndpointCertificateArn" => String.t() | atom(),
         "CustomEndpointEnabled" => boolean(),
         "EnforceHTTPS" => boolean(),
         "TLSSecurityPolicy" => list(any())
       }
 
   """
-  @type domain_endpoint_options() :: %{String.t() => any()}
+  @type domain_endpoint_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2281,7 +2315,7 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type associate_package_response() :: %{String.t() => any()}
+  @type associate_package_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2292,7 +2326,7 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type describe_elasticsearch_domains_response() :: %{String.t() => any()}
+  @type describe_elasticsearch_domains_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2304,7 +2338,7 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type encryption_at_rest_options_status() :: %{String.t() => any()}
+  @type encryption_at_rest_options_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2312,11 +2346,11 @@ defmodule AWS.Elasticsearch do
 
       list_elasticsearch_instance_types_response() :: %{
         "ElasticsearchInstanceTypes" => list(list(any())()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_elasticsearch_instance_types_response() :: %{String.t() => any()}
+  @type list_elasticsearch_instance_types_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2328,7 +2362,7 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type instance_count_limits() :: %{String.t() => any()}
+  @type instance_count_limits() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2354,53 +2388,53 @@ defmodule AWS.Elasticsearch do
 
       list_domains_for_package_response() :: %{
         "DomainPackageDetailsList" => list(domain_package_details()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_domains_for_package_response() :: %{String.t() => any()}
+  @type list_domains_for_package_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_pagination_token_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_pagination_token_exception() :: %{String.t() => any()}
+  @type invalid_pagination_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       reserved_elasticsearch_instance_offering() :: %{
-        "CurrencyCode" => String.t(),
+        "CurrencyCode" => String.t() | atom(),
         "Duration" => integer(),
         "ElasticsearchInstanceType" => list(any()),
         "FixedPrice" => float(),
         "PaymentOption" => list(any()),
         "RecurringCharges" => list(recurring_charge()),
-        "ReservedElasticsearchInstanceOfferingId" => String.t(),
+        "ReservedElasticsearchInstanceOfferingId" => String.t() | atom(),
         "UsagePrice" => float()
       }
 
   """
-  @type reserved_elasticsearch_instance_offering() :: %{String.t() => any()}
+  @type reserved_elasticsearch_instance_offering() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       master_user_options() :: %{
-        "MasterUserARN" => String.t(),
-        "MasterUserName" => String.t(),
-        "MasterUserPassword" => String.t()
+        "MasterUserARN" => String.t() | atom(),
+        "MasterUserName" => String.t() | atom(),
+        "MasterUserPassword" => String.t() | atom()
       }
 
   """
-  @type master_user_options() :: %{String.t() => any()}
+  @type master_user_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2411,7 +2445,9 @@ defmodule AWS.Elasticsearch do
       }
 
   """
-  @type reject_inbound_cross_cluster_search_connection_response() :: %{String.t() => any()}
+  @type reject_inbound_cross_cluster_search_connection_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @type accept_inbound_cross_cluster_search_connection_errors() ::
           limit_exceeded_exception()
@@ -2745,7 +2781,7 @@ defmodule AWS.Elasticsearch do
   """
   @spec accept_inbound_cross_cluster_search_connection(
           map(),
-          String.t(),
+          String.t() | atom(),
           accept_inbound_cross_cluster_search_connection_request(),
           list()
         ) ::
@@ -2818,7 +2854,13 @@ defmodule AWS.Elasticsearch do
   @doc """
   Associates a package with an Amazon ES domain.
   """
-  @spec associate_package(map(), String.t(), String.t(), associate_package_request(), list()) ::
+  @spec associate_package(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          associate_package_request(),
+          list()
+        ) ::
           {:ok, associate_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2852,7 +2894,7 @@ defmodule AWS.Elasticsearch do
   """
   @spec authorize_vpc_endpoint_access(
           map(),
-          String.t(),
+          String.t() | atom(),
           authorize_vpc_endpoint_access_request(),
           list()
         ) ::
@@ -2888,7 +2930,7 @@ defmodule AWS.Elasticsearch do
   """
   @spec cancel_domain_config_change(
           map(),
-          String.t(),
+          String.t() | atom(),
           cancel_domain_config_change_request(),
           list()
         ) ::
@@ -3085,7 +3127,7 @@ defmodule AWS.Elasticsearch do
   """
   @spec delete_elasticsearch_domain(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_elasticsearch_domain_request(),
           list()
         ) ::
@@ -3155,7 +3197,7 @@ defmodule AWS.Elasticsearch do
   """
   @spec delete_inbound_cross_cluster_search_connection(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_inbound_cross_cluster_search_connection_request(),
           list()
         ) ::
@@ -3197,7 +3239,7 @@ defmodule AWS.Elasticsearch do
   """
   @spec delete_outbound_cross_cluster_search_connection(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_outbound_cross_cluster_search_connection_request(),
           list()
         ) ::
@@ -3236,7 +3278,7 @@ defmodule AWS.Elasticsearch do
   @doc """
   Delete the package.
   """
-  @spec delete_package(map(), String.t(), delete_package_request(), list()) ::
+  @spec delete_package(map(), String.t() | atom(), delete_package_request(), list()) ::
           {:ok, delete_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3265,7 +3307,7 @@ defmodule AWS.Elasticsearch do
   @doc """
   Deletes an Amazon OpenSearch Service-managed interface VPC endpoint.
   """
-  @spec delete_vpc_endpoint(map(), String.t(), delete_vpc_endpoint_request(), list()) ::
+  @spec delete_vpc_endpoint(map(), String.t() | atom(), delete_vpc_endpoint_request(), list()) ::
           {:ok, delete_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3295,7 +3337,7 @@ defmodule AWS.Elasticsearch do
   Provides scheduled Auto-Tune action details for the Elasticsearch domain, such
   as Auto-Tune action type, description, severity, and scheduled date.
   """
-  @spec describe_domain_auto_tunes(map(), String.t(), list()) ::
+  @spec describe_domain_auto_tunes(map(), String.t() | atom(), list()) ::
           {:ok, describe_domain_auto_tunes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3315,7 +3357,12 @@ defmodule AWS.Elasticsearch do
   domain, including
   a change ID, status, and progress stages.
   """
-  @spec describe_domain_change_progress(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_domain_change_progress(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, describe_domain_change_progress_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3346,7 +3393,7 @@ defmodule AWS.Elasticsearch do
   Returns domain configuration information about the specified Elasticsearch
   domain, including the domain ID, domain endpoint, and domain ARN.
   """
-  @spec describe_elasticsearch_domain(map(), String.t(), list()) ::
+  @spec describe_elasticsearch_domain(map(), String.t() | atom(), list()) ::
           {:ok, describe_elasticsearch_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3366,7 +3413,7 @@ defmodule AWS.Elasticsearch do
   domain, such as the state, creation date, update version, and update date for
   cluster options.
   """
-  @spec describe_elasticsearch_domain_config(map(), String.t(), list()) ::
+  @spec describe_elasticsearch_domain_config(map(), String.t() | atom(), list()) ::
           {:ok, describe_elasticsearch_domain_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3427,9 +3474,9 @@ defmodule AWS.Elasticsearch do
   """
   @spec describe_elasticsearch_instance_type_limits(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_elasticsearch_instance_type_limits_response(), any()}
@@ -3563,9 +3610,9 @@ defmodule AWS.Elasticsearch do
   """
   @spec describe_reserved_elasticsearch_instance_offerings(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_reserved_elasticsearch_instance_offerings_response(), any()}
@@ -3614,9 +3661,9 @@ defmodule AWS.Elasticsearch do
   """
   @spec describe_reserved_elasticsearch_instances(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_reserved_elasticsearch_instances_response(), any()}
@@ -3692,7 +3739,13 @@ defmodule AWS.Elasticsearch do
   @doc """
   Dissociates a package from the Amazon ES domain.
   """
-  @spec dissociate_package(map(), String.t(), String.t(), dissociate_package_request(), list()) ::
+  @spec dissociate_package(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          dissociate_package_request(),
+          list()
+        ) ::
           {:ok, dissociate_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3734,7 +3787,7 @@ defmodule AWS.Elasticsearch do
 
   to get all upgrade compatible Elasticsearch versions for that specific domain.
   """
-  @spec get_compatible_elasticsearch_versions(map(), String.t() | nil, list()) ::
+  @spec get_compatible_elasticsearch_versions(map(), String.t() | atom() | nil, list()) ::
           {:ok, get_compatible_elasticsearch_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3760,7 +3813,13 @@ defmodule AWS.Elasticsearch do
   Returns a list of versions of the package, along with their creation time and
   commit message.
   """
-  @spec get_package_version_history(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_package_version_history(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_package_version_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3799,7 +3858,13 @@ defmodule AWS.Elasticsearch do
   Retrieves the complete history of the last 10 upgrades that were performed on
   the domain.
   """
-  @spec get_upgrade_history(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_upgrade_history(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_upgrade_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3838,7 +3903,7 @@ defmodule AWS.Elasticsearch do
   Retrieves the latest status of the last upgrade or upgrade eligibility check
   that was performed on the domain.
   """
-  @spec get_upgrade_status(map(), String.t(), list()) ::
+  @spec get_upgrade_status(map(), String.t() | atom(), list()) ::
           {:ok, get_upgrade_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3857,7 +3922,7 @@ defmodule AWS.Elasticsearch do
   Returns the name of all Elasticsearch domains owned by the current user's
   account.
   """
-  @spec list_domain_names(map(), String.t() | nil, list()) ::
+  @spec list_domain_names(map(), String.t() | atom() | nil, list()) ::
           {:ok, list_domain_names_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3882,7 +3947,13 @@ defmodule AWS.Elasticsearch do
   @doc """
   Lists all Amazon ES domains associated with the package.
   """
-  @spec list_domains_for_package(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_domains_for_package(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_domains_for_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3923,10 +3994,10 @@ defmodule AWS.Elasticsearch do
   """
   @spec list_elasticsearch_instance_types(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_elasticsearch_instance_types_response(), any()}
@@ -3974,7 +4045,12 @@ defmodule AWS.Elasticsearch do
   @doc """
   List all supported Elasticsearch versions
   """
-  @spec list_elasticsearch_versions(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_elasticsearch_versions(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_elasticsearch_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4011,7 +4087,13 @@ defmodule AWS.Elasticsearch do
   @doc """
   Lists all packages associated with the Amazon ES domain.
   """
-  @spec list_packages_for_domain(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_packages_for_domain(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_packages_for_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4049,7 +4131,7 @@ defmodule AWS.Elasticsearch do
   @doc """
   Returns all tags for the given Elasticsearch domain.
   """
-  @spec list_tags(map(), String.t(), list()) ::
+  @spec list_tags(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4076,7 +4158,7 @@ defmodule AWS.Elasticsearch do
   given Amazon OpenSearch Service domain through the use of an interface VPC
   endpoint.
   """
-  @spec list_vpc_endpoint_access(map(), String.t(), String.t() | nil, list()) ::
+  @spec list_vpc_endpoint_access(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, list_vpc_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4102,7 +4184,7 @@ defmodule AWS.Elasticsearch do
   Retrieves all Amazon OpenSearch Service-managed VPC endpoints in the current
   account and Region.
   """
-  @spec list_vpc_endpoints(map(), String.t() | nil, list()) ::
+  @spec list_vpc_endpoints(map(), String.t() | atom() | nil, list()) ::
           {:ok, list_vpc_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4128,7 +4210,12 @@ defmodule AWS.Elasticsearch do
   Retrieves all Amazon OpenSearch Service-managed VPC endpoints associated with a
   particular domain.
   """
-  @spec list_vpc_endpoints_for_domain(map(), String.t(), String.t() | nil, list()) ::
+  @spec list_vpc_endpoints_for_domain(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_vpc_endpoints_for_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4194,7 +4281,7 @@ defmodule AWS.Elasticsearch do
   """
   @spec reject_inbound_cross_cluster_search_connection(
           map(),
-          String.t(),
+          String.t() | atom(),
           reject_inbound_cross_cluster_search_connection_request(),
           list()
         ) ::
@@ -4266,7 +4353,7 @@ defmodule AWS.Elasticsearch do
   """
   @spec revoke_vpc_endpoint_access(
           map(),
-          String.t(),
+          String.t() | atom(),
           revoke_vpc_endpoint_access_request(),
           list()
         ) ::
@@ -4334,7 +4421,7 @@ defmodule AWS.Elasticsearch do
   """
   @spec update_elasticsearch_domain_config(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_elasticsearch_domain_config_request(),
           list()
         ) ::

@@ -31,12 +31,12 @@ defmodule AWS.Braket do
   ## Example:
 
       search_quantum_tasks_response() :: %{
-        optional("nextToken") => [String.t()],
+        optional("nextToken") => [String.t() | atom()],
         required("quantumTasks") => list(quantum_task_summary())
       }
 
   """
-  @type search_quantum_tasks_response() :: %{String.t() => any()}
+  @type search_quantum_tasks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -47,7 +47,7 @@ defmodule AWS.Braket do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -55,53 +55,53 @@ defmodule AWS.Braket do
 
       quantum_task_summary() :: %{
         "createdAt" => [non_neg_integer()],
-        "deviceArn" => String.t(),
+        "deviceArn" => String.t() | atom(),
         "endedAt" => [non_neg_integer()],
-        "outputS3Bucket" => [String.t()],
-        "outputS3Directory" => [String.t()],
-        "quantumTaskArn" => String.t(),
+        "outputS3Bucket" => [String.t() | atom()],
+        "outputS3Directory" => [String.t() | atom()],
+        "quantumTaskArn" => String.t() | atom(),
         "shots" => [float()],
-        "status" => String.t(),
+        "status" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type quantum_task_summary() :: %{String.t() => any()}
+  @type quantum_task_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_quantum_task_request() :: %{
-        optional("additionalAttributeNames") => list(String.t())
+        optional("additionalAttributeNames") => list(String.t() | atom())
       }
 
   """
-  @type get_quantum_task_request() :: %{String.t() => any()}
+  @type get_quantum_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_job_response() :: %{
-        required("jobArn") => String.t()
+        required("jobArn") => String.t() | atom()
       }
 
   """
-  @type create_job_response() :: %{String.t() => any()}
+  @type create_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       device_queue_info() :: %{
-        "queue" => String.t(),
-        "queuePriority" => String.t(),
-        "queueSize" => [String.t()]
+        "queue" => String.t() | atom(),
+        "queuePriority" => String.t() | atom(),
+        "queueSize" => [String.t() | atom()]
       }
 
   """
-  @type device_queue_info() :: %{String.t() => any()}
+  @type device_queue_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -117,35 +117,35 @@ defmodule AWS.Braket do
   ## Example:
 
       job_checkpoint_config() :: %{
-        "localPath" => String.t(),
-        "s3Uri" => String.t()
+        "localPath" => String.t() | atom(),
+        "s3Uri" => String.t() | atom()
       }
 
   """
-  @type job_checkpoint_config() :: %{String.t() => any()}
+  @type job_checkpoint_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_quantum_task_response() :: %{
-        required("cancellationStatus") => String.t(),
-        required("quantumTaskArn") => String.t()
+        required("cancellationStatus") => String.t() | atom(),
+        required("quantumTaskArn") => String.t() | atom()
       }
 
   """
-  @type cancel_quantum_task_response() :: %{String.t() => any()}
+  @type cancel_quantum_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       device_offline_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type device_offline_exception() :: %{String.t() => any()}
+  @type device_offline_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -156,30 +156,30 @@ defmodule AWS.Braket do
       }
 
   """
-  @type job_stopping_condition() :: %{String.t() => any()}
+  @type job_stopping_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       search_devices_filter() :: %{
-        "name" => [String.t()],
-        "values" => list(String.t())
+        "name" => [String.t() | atom()],
+        "values" => list(String.t() | atom())
       }
 
   """
-  @type search_devices_filter() :: %{String.t() => any()}
+  @type search_devices_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       device_retired_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type device_retired_exception() :: %{String.t() => any()}
+  @type device_retired_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -193,16 +193,16 @@ defmodule AWS.Braket do
         optional("stoppingCondition") => job_stopping_condition(),
         optional("tags") => map(),
         required("algorithmSpecification") => algorithm_specification(),
-        required("clientToken") => String.t(),
+        required("clientToken") => String.t() | atom(),
         required("deviceConfig") => device_config(),
         required("instanceConfig") => instance_config(),
-        required("jobName") => [String.t()],
+        required("jobName") => [String.t() | atom()],
         required("outputDataConfig") => job_output_data_config(),
-        required("roleArn") => String.t()
+        required("roleArn") => String.t() | atom()
       }
 
   """
-  @type create_job_request() :: %{String.t() => any()}
+  @type create_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -211,33 +211,33 @@ defmodule AWS.Braket do
       get_quantum_task_response() :: %{
         optional("associations") => list(association()),
         optional("endedAt") => [non_neg_integer()],
-        optional("failureReason") => [String.t()],
-        optional("jobArn") => String.t(),
+        optional("failureReason") => [String.t() | atom()],
+        optional("jobArn") => String.t() | atom(),
         optional("queueInfo") => quantum_task_queue_info(),
         optional("tags") => map(),
         required("createdAt") => [non_neg_integer()],
-        required("deviceArn") => String.t(),
-        required("deviceParameters") => String.t(),
-        required("outputS3Bucket") => [String.t()],
-        required("outputS3Directory") => [String.t()],
-        required("quantumTaskArn") => String.t(),
+        required("deviceArn") => String.t() | atom(),
+        required("deviceParameters") => String.t() | atom(),
+        required("outputS3Bucket") => [String.t() | atom()],
+        required("outputS3Directory") => [String.t() | atom()],
+        required("quantumTaskArn") => String.t() | atom(),
         required("shots") => [float()],
-        required("status") => String.t()
+        required("status") => String.t() | atom()
       }
 
   """
-  @type get_quantum_task_response() :: %{String.t() => any()}
+  @type get_quantum_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_service_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type internal_service_exception() :: %{String.t() => any()}
+  @type internal_service_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -245,34 +245,34 @@ defmodule AWS.Braket do
 
       search_quantum_tasks_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()],
+        optional("nextToken") => [String.t() | atom()],
         required("filters") => list(search_quantum_tasks_filter())
       }
 
   """
-  @type search_quantum_tasks_request() :: %{String.t() => any()}
+  @type search_quantum_tasks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list([String.t()]())
+        required("tagKeys") => list([String.t() | atom()]())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_quantum_task_request() :: %{
-        required("clientToken") => String.t()
+        required("clientToken") => String.t() | atom()
       }
 
   """
-  @type cancel_quantum_task_request() :: %{String.t() => any()}
+  @type cancel_quantum_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -284,30 +284,30 @@ defmodule AWS.Braket do
       }
 
   """
-  @type algorithm_specification() :: %{String.t() => any()}
+  @type algorithm_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       job_output_data_config() :: %{
-        "kmsKeyId" => String.t(),
-        "s3Path" => String.t()
+        "kmsKeyId" => String.t() | atom(),
+        "s3Path" => String.t() | atom()
       }
 
   """
-  @type job_output_data_config() :: %{String.t() => any()}
+  @type job_output_data_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       device_config() :: %{
-        "device" => String.t()
+        "device" => String.t() | atom()
       }
 
   """
-  @type device_config() :: %{String.t() => any()}
+  @type device_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -315,30 +315,30 @@ defmodule AWS.Braket do
 
       job_summary() :: %{
         "createdAt" => [non_neg_integer()],
-        "device" => String.t(),
+        "device" => String.t() | atom(),
         "endedAt" => [non_neg_integer()],
-        "jobArn" => String.t(),
-        "jobName" => [String.t()],
+        "jobArn" => String.t() | atom(),
+        "jobName" => [String.t() | atom()],
         "startedAt" => [non_neg_integer()],
-        "status" => String.t(),
+        "status" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type job_summary() :: %{String.t() => any()}
+  @type job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       script_mode_config() :: %{
-        "compressionType" => String.t(),
-        "entryPoint" => [String.t()],
-        "s3Uri" => String.t()
+        "compressionType" => String.t() | atom(),
+        "entryPoint" => [String.t() | atom()],
+        "s3Uri" => String.t() | atom()
       }
 
   """
-  @type script_mode_config() :: %{String.t() => any()}
+  @type script_mode_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -346,68 +346,68 @@ defmodule AWS.Braket do
 
       search_jobs_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()],
+        optional("nextToken") => [String.t() | atom()],
         required("filters") => list(search_jobs_filter())
       }
 
   """
-  @type search_jobs_request() :: %{String.t() => any()}
+  @type search_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       container_image() :: %{
-        "uri" => String.t()
+        "uri" => String.t() | atom()
       }
 
   """
-  @type container_image() :: %{String.t() => any()}
+  @type container_image() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       association() :: %{
-        "arn" => String.t(),
-        "type" => String.t()
+        "arn" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type association() :: %{String.t() => any()}
+  @type association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -418,83 +418,83 @@ defmodule AWS.Braket do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       search_jobs_response() :: %{
-        optional("nextToken") => [String.t()],
+        optional("nextToken") => [String.t() | atom()],
         required("jobs") => list(job_summary())
       }
 
   """
-  @type search_jobs_response() :: %{String.t() => any()}
+  @type search_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       search_quantum_tasks_filter() :: %{
-        "name" => String.t(),
-        "operator" => String.t(),
-        "values" => list(String.t())
+        "name" => String.t() | atom(),
+        "operator" => String.t() | atom(),
+        "values" => list(String.t() | atom())
       }
 
   """
-  @type search_quantum_tasks_filter() :: %{String.t() => any()}
+  @type search_quantum_tasks_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       search_jobs_filter() :: %{
-        "name" => String.t(),
-        "operator" => String.t(),
-        "values" => list(String.t())
+        "name" => String.t() | atom(),
+        "operator" => String.t() | atom(),
+        "values" => list(String.t() | atom())
       }
 
   """
-  @type search_jobs_filter() :: %{String.t() => any()}
+  @type search_jobs_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       hybrid_job_queue_info() :: %{
-        "message" => [String.t()],
-        "position" => [String.t()],
-        "queue" => String.t()
+        "message" => [String.t() | atom()],
+        "position" => [String.t() | atom()],
+        "queue" => String.t() | atom()
       }
 
   """
-  @type hybrid_job_queue_info() :: %{String.t() => any()}
+  @type hybrid_job_queue_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       search_devices_response() :: %{
-        optional("nextToken") => [String.t()],
+        optional("nextToken") => [String.t() | atom()],
         required("devices") => list(device_summary())
       }
 
   """
-  @type search_devices_response() :: %{String.t() => any()}
+  @type search_devices_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       job_event_details() :: %{
-        "eventType" => String.t(),
-        "message" => [String.t()],
+        "eventType" => String.t() | atom(),
+        "message" => [String.t() | atom()],
         "timeOfEvent" => [non_neg_integer()]
       }
 
   """
-  @type job_event_details() :: %{String.t() => any()}
+  @type job_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -510,26 +510,26 @@ defmodule AWS.Braket do
   ## Example:
 
       create_quantum_task_response() :: %{
-        required("quantumTaskArn") => String.t()
+        required("quantumTaskArn") => String.t() | atom()
       }
 
   """
-  @type create_quantum_task_response() :: %{String.t() => any()}
+  @type create_quantum_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       device_summary() :: %{
-        "deviceArn" => String.t(),
-        "deviceName" => [String.t()],
-        "deviceStatus" => String.t(),
-        "deviceType" => String.t(),
-        "providerName" => [String.t()]
+        "deviceArn" => String.t() | atom(),
+        "deviceName" => [String.t() | atom()],
+        "deviceStatus" => String.t() | atom(),
+        "deviceType" => String.t() | atom(),
+        "providerName" => [String.t() | atom()]
       }
 
   """
-  @type device_summary() :: %{String.t() => any()}
+  @type device_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -537,44 +537,44 @@ defmodule AWS.Braket do
 
       create_quantum_task_request() :: %{
         optional("associations") => list(association()),
-        optional("deviceParameters") => String.t(),
-        optional("jobToken") => String.t(),
+        optional("deviceParameters") => String.t() | atom(),
+        optional("jobToken") => String.t() | atom(),
         optional("tags") => map(),
-        required("action") => String.t(),
-        required("clientToken") => String.t(),
-        required("deviceArn") => String.t(),
-        required("outputS3Bucket") => [String.t()],
-        required("outputS3KeyPrefix") => [String.t()],
+        required("action") => String.t() | atom(),
+        required("clientToken") => String.t() | atom(),
+        required("deviceArn") => String.t() | atom(),
+        required("outputS3Bucket") => [String.t() | atom()],
+        required("outputS3KeyPrefix") => [String.t() | atom()],
         required("shots") => [float()]
       }
 
   """
-  @type create_quantum_task_request() :: %{String.t() => any()}
+  @type create_quantum_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       quantum_task_queue_info() :: %{
-        "message" => [String.t()],
-        "position" => [String.t()],
-        "queue" => String.t(),
-        "queuePriority" => String.t()
+        "message" => [String.t() | atom()],
+        "position" => [String.t() | atom()],
+        "queue" => String.t() | atom(),
+        "queuePriority" => String.t() | atom()
       }
 
   """
-  @type quantum_task_queue_info() :: %{String.t() => any()}
+  @type quantum_task_queue_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -596,7 +596,7 @@ defmodule AWS.Braket do
         optional("deviceConfig") => device_config(),
         optional("endedAt") => [non_neg_integer()],
         optional("events") => list(job_event_details()),
-        optional("failureReason") => String.t(),
+        optional("failureReason") => String.t() | atom(),
         optional("hyperParameters") => map(),
         optional("inputDataConfig") => list(input_file_config()),
         optional("queueInfo") => hybrid_job_queue_info(),
@@ -606,26 +606,26 @@ defmodule AWS.Braket do
         required("algorithmSpecification") => algorithm_specification(),
         required("createdAt") => [non_neg_integer()],
         required("instanceConfig") => instance_config(),
-        required("jobArn") => String.t(),
-        required("jobName") => [String.t()],
+        required("jobArn") => String.t() | atom(),
+        required("jobName") => [String.t() | atom()],
         required("outputDataConfig") => job_output_data_config(),
-        required("roleArn") => String.t(),
-        required("status") => String.t()
+        required("roleArn") => String.t() | atom(),
+        required("status") => String.t() | atom()
       }
 
   """
-  @type get_job_response() :: %{String.t() => any()}
+  @type get_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -642,34 +642,34 @@ defmodule AWS.Braket do
 
       instance_config() :: %{
         "instanceCount" => [integer()],
-        "instanceType" => String.t(),
+        "instanceType" => String.t() | atom(),
         "volumeSizeInGb" => [integer()]
       }
 
   """
-  @type instance_config() :: %{String.t() => any()}
+  @type instance_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_job_request() :: %{
-        optional("additionalAttributeNames") => list(String.t())
+        optional("additionalAttributeNames") => list(String.t() | atom())
       }
 
   """
-  @type get_job_request() :: %{String.t() => any()}
+  @type get_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -680,32 +680,32 @@ defmodule AWS.Braket do
       }
 
   """
-  @type data_source() :: %{String.t() => any()}
+  @type data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       input_file_config() :: %{
-        "channelName" => String.t(),
-        "contentType" => String.t(),
+        "channelName" => String.t() | atom(),
+        "contentType" => String.t() | atom(),
         "dataSource" => data_source()
       }
 
   """
-  @type input_file_config() :: %{String.t() => any()}
+  @type input_file_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_job_response() :: %{
-        required("cancellationStatus") => String.t(),
-        required("jobArn") => String.t()
+        required("cancellationStatus") => String.t() | atom(),
+        required("jobArn") => String.t() | atom()
       }
 
   """
-  @type cancel_job_response() :: %{String.t() => any()}
+  @type cancel_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -713,12 +713,12 @@ defmodule AWS.Braket do
 
       search_devices_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()],
+        optional("nextToken") => [String.t() | atom()],
         required("filters") => list(search_devices_filter())
       }
 
   """
-  @type search_devices_request() :: %{String.t() => any()}
+  @type search_devices_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -726,27 +726,27 @@ defmodule AWS.Braket do
 
       get_device_response() :: %{
         optional("deviceQueueInfo") => list(device_queue_info()),
-        required("deviceArn") => String.t(),
-        required("deviceCapabilities") => String.t(),
-        required("deviceName") => [String.t()],
-        required("deviceStatus") => String.t(),
-        required("deviceType") => String.t(),
-        required("providerName") => [String.t()]
+        required("deviceArn") => String.t() | atom(),
+        required("deviceCapabilities") => String.t() | atom(),
+        required("deviceName") => [String.t() | atom()],
+        required("deviceStatus") => String.t() | atom(),
+        required("deviceType") => String.t() | atom(),
+        required("providerName") => [String.t() | atom()]
       }
 
   """
-  @type get_device_response() :: %{String.t() => any()}
+  @type get_device_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_data_source() :: %{
-        "s3Uri" => String.t()
+        "s3Uri" => String.t() | atom()
       }
 
   """
-  @type s3_data_source() :: %{String.t() => any()}
+  @type s3_data_source() :: %{(String.t() | atom()) => any()}
 
   @type cancel_job_errors() ::
           throttling_exception()
@@ -850,7 +850,7 @@ defmodule AWS.Braket do
   @doc """
   Cancels an Amazon Braket job.
   """
-  @spec cancel_job(map(), String.t(), cancel_job_request(), list()) ::
+  @spec cancel_job(map(), String.t() | atom(), cancel_job_request(), list()) ::
           {:ok, cancel_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -879,7 +879,7 @@ defmodule AWS.Braket do
   @doc """
   Cancels the specified task.
   """
-  @spec cancel_quantum_task(map(), String.t(), cancel_quantum_task_request(), list()) ::
+  @spec cancel_quantum_task(map(), String.t() | atom(), cancel_quantum_task_request(), list()) ::
           {:ok, cancel_quantum_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -979,7 +979,7 @@ defmodule AWS.Braket do
   to do
   this for the AWS CLI, Boto3, and the Go, Java, and JavaScript/TypeScript SDKs.
   """
-  @spec get_device(map(), String.t(), list()) ::
+  @spec get_device(map(), String.t() | atom(), list()) ::
           {:ok, get_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -997,7 +997,7 @@ defmodule AWS.Braket do
   @doc """
   Retrieves the specified Amazon Braket job.
   """
-  @spec get_job(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_job(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1022,7 +1022,7 @@ defmodule AWS.Braket do
   @doc """
   Retrieves the specified quantum task.
   """
-  @spec get_quantum_task(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_quantum_task(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_quantum_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1052,7 +1052,7 @@ defmodule AWS.Braket do
   @doc """
   Shows the tags associated with this resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1157,7 +1157,7 @@ defmodule AWS.Braket do
   @doc """
   Add a tag to the specified resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1186,7 +1186,7 @@ defmodule AWS.Braket do
   @doc """
   Remove tags from a resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

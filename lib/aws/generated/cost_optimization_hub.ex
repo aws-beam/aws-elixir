@@ -21,35 +21,35 @@ defmodule AWS.CostOptimizationHub do
   ## Example:
       
       ebs_volume_configuration() :: %{
-        "attachmentState" => [String.t()],
+        "attachmentState" => [String.t() | atom()],
         "performance" => block_storage_performance_configuration(),
         "storage" => storage_configuration()
       }
       
   """
-  @type ebs_volume_configuration() :: %{String.t() => any()}
+  @type ebs_volume_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       aurora_db_cluster_storage_configuration() :: %{
-        "storageType" => [String.t()]
+        "storageType" => [String.t() | atom()]
       }
       
   """
-  @type aurora_db_cluster_storage_configuration() :: %{String.t() => any()}
+  @type aurora_db_cluster_storage_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       summary_metrics_result() :: %{
-        "savingsPercentage" => [String.t()]
+        "savingsPercentage" => [String.t() | atom()]
       }
       
   """
-  @type summary_metrics_result() :: %{String.t() => any()}
+  @type summary_metrics_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -61,7 +61,7 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type ec2_instance_savings_plans() :: %{String.t() => any()}
+  @type ec2_instance_savings_plans() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -72,21 +72,21 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type ecs_service_configuration() :: %{String.t() => any()}
+  @type ecs_service_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       account_enrollment_status() :: %{
-        "accountId" => String.t(),
+        "accountId" => String.t() | atom(),
         "createdTimestamp" => [non_neg_integer()],
         "lastUpdatedTimestamp" => [non_neg_integer()],
         "status" => list(any())
       }
       
   """
-  @type account_enrollment_status() :: %{String.t() => any()}
+  @type account_enrollment_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -98,7 +98,7 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type resource_cost_calculation() :: %{String.t() => any()}
+  @type resource_cost_calculation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -108,38 +108,38 @@ defmodule AWS.CostOptimizationHub do
         "allocatedStorageInGb" => [float()],
         "iops" => [float()],
         "storageThroughput" => [float()],
-        "storageType" => [String.t()]
+        "storageType" => [String.t() | atom()]
       }
       
   """
-  @type rds_db_instance_storage_configuration() :: %{String.t() => any()}
+  @type rds_db_instance_storage_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rds_reserved_instances_configuration() :: %{
-        "accountScope" => [String.t()],
-        "currentGeneration" => [String.t()],
-        "databaseEdition" => [String.t()],
-        "databaseEngine" => [String.t()],
-        "deploymentOption" => [String.t()],
-        "instanceFamily" => [String.t()],
-        "instanceType" => [String.t()],
-        "licenseModel" => [String.t()],
-        "monthlyRecurringCost" => [String.t()],
-        "normalizedUnitsToPurchase" => [String.t()],
-        "numberOfInstancesToPurchase" => [String.t()],
-        "paymentOption" => [String.t()],
-        "reservedInstancesRegion" => [String.t()],
-        "service" => [String.t()],
+        "accountScope" => [String.t() | atom()],
+        "currentGeneration" => [String.t() | atom()],
+        "databaseEdition" => [String.t() | atom()],
+        "databaseEngine" => [String.t() | atom()],
+        "deploymentOption" => [String.t() | atom()],
+        "instanceFamily" => [String.t() | atom()],
+        "instanceType" => [String.t() | atom()],
+        "licenseModel" => [String.t() | atom()],
+        "monthlyRecurringCost" => [String.t() | atom()],
+        "normalizedUnitsToPurchase" => [String.t() | atom()],
+        "numberOfInstancesToPurchase" => [String.t() | atom()],
+        "paymentOption" => [String.t() | atom()],
+        "reservedInstancesRegion" => [String.t() | atom()],
+        "service" => [String.t() | atom()],
         "sizeFlexEligible" => [boolean()],
-        "term" => [String.t()],
-        "upfrontCost" => [String.t()]
+        "term" => [String.t() | atom()],
+        "upfrontCost" => [String.t() | atom()]
       }
       
   """
-  @type rds_reserved_instances_configuration() :: %{String.t() => any()}
+  @type rds_reserved_instances_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -151,7 +151,7 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type ec2_auto_scaling_group() :: %{String.t() => any()}
+  @type ec2_auto_scaling_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -163,7 +163,7 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type memory_db_reserved_instances() :: %{String.t() => any()}
+  @type memory_db_reserved_instances() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -172,11 +172,11 @@ defmodule AWS.CostOptimizationHub do
       list_enrollment_statuses_response() :: %{
         "includeMemberAccounts" => [boolean()],
         "items" => list(account_enrollment_status()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | atom()]
       }
       
   """
-  @type list_enrollment_statuses_response() :: %{String.t() => any()}
+  @type list_enrollment_statuses_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -199,7 +199,7 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type savings_plans_pricing() :: %{String.t() => any()}
+  @type savings_plans_pricing() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -211,7 +211,7 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type ecs_service() :: %{String.t() => any()}
+  @type ecs_service() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -225,7 +225,7 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type reserved_instances_pricing() :: %{String.t() => any()}
+  @type reserved_instances_pricing() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -237,21 +237,21 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type lambda_function() :: %{String.t() => any()}
+  @type lambda_function() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_enrollment_statuses_request() :: %{
-        optional("accountId") => String.t(),
+        optional("accountId") => String.t() | atom(),
         optional("includeOrganizationInfo") => [boolean()],
         optional("maxResults") => integer(),
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
       
   """
-  @type list_enrollment_statuses_request() :: %{String.t() => any()}
+  @type list_enrollment_statuses_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -262,18 +262,18 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type lambda_function_configuration() :: %{String.t() => any()}
+  @type lambda_function_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_recommendation_request() :: %{
-        required("recommendationId") => [String.t()]
+        required("recommendationId") => [String.t() | atom()]
       }
       
   """
-  @type get_recommendation_request() :: %{String.t() => any()}
+  @type get_recommendation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -285,7 +285,7 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type preferred_commitment() :: %{String.t() => any()}
+  @type preferred_commitment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -297,19 +297,19 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type redshift_reserved_instances() :: %{String.t() => any()}
+  @type redshift_reserved_instances() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       order_by() :: %{
-        "dimension" => [String.t()],
+        "dimension" => [String.t() | atom()],
         "order" => list(any())
       }
       
   """
-  @type order_by() :: %{String.t() => any()}
+  @type order_by() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -321,7 +321,7 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type update_enrollment_status_request() :: %{String.t() => any()}
+  @type update_enrollment_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -333,22 +333,22 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type rds_reserved_instances() :: %{String.t() => any()}
+  @type rds_reserved_instances() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       usage() :: %{
-        "operation" => [String.t()],
-        "productCode" => [String.t()],
-        "unit" => [String.t()],
+        "operation" => [String.t() | atom()],
+        "productCode" => [String.t() | atom()],
+        "unit" => [String.t() | atom()],
         "usageAmount" => [float()],
-        "usageType" => [String.t()]
+        "usageType" => [String.t() | atom()]
       }
       
   """
-  @type usage() :: %{String.t() => any()}
+  @type usage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -362,7 +362,7 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type resource_pricing() :: %{String.t() => any()}
+  @type resource_pricing() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -374,37 +374,37 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type open_search_reserved_instances() :: %{String.t() => any()}
+  @type open_search_reserved_instances() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_enrollment_status_response() :: %{
-        "status" => [String.t()]
+        "status" => [String.t() | atom()]
       }
       
   """
-  @type update_enrollment_status_response() :: %{String.t() => any()}
+  @type update_enrollment_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       dynamo_db_reserved_capacity_configuration() :: %{
-        "accountScope" => [String.t()],
-        "capacityUnits" => [String.t()],
-        "monthlyRecurringCost" => [String.t()],
-        "numberOfCapacityUnitsToPurchase" => [String.t()],
-        "paymentOption" => [String.t()],
-        "reservedInstancesRegion" => [String.t()],
-        "service" => [String.t()],
-        "term" => [String.t()],
-        "upfrontCost" => [String.t()]
+        "accountScope" => [String.t() | atom()],
+        "capacityUnits" => [String.t() | atom()],
+        "monthlyRecurringCost" => [String.t() | atom()],
+        "numberOfCapacityUnitsToPurchase" => [String.t() | atom()],
+        "paymentOption" => [String.t() | atom()],
+        "reservedInstancesRegion" => [String.t() | atom()],
+        "service" => [String.t() | atom()],
+        "term" => [String.t() | atom()],
+        "upfrontCost" => [String.t() | atom()]
       }
       
   """
-  @type dynamo_db_reserved_capacity_configuration() :: %{String.t() => any()}
+  @type dynamo_db_reserved_capacity_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -417,7 +417,7 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type get_preferences_response() :: %{String.t() => any()}
+  @type get_preferences_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -429,70 +429,70 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type elasti_cache_reserved_instances() :: %{String.t() => any()}
+  @type elasti_cache_reserved_instances() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       redshift_reserved_instances_configuration() :: %{
-        "accountScope" => [String.t()],
-        "currentGeneration" => [String.t()],
-        "instanceFamily" => [String.t()],
-        "instanceType" => [String.t()],
-        "monthlyRecurringCost" => [String.t()],
-        "normalizedUnitsToPurchase" => [String.t()],
-        "numberOfInstancesToPurchase" => [String.t()],
-        "paymentOption" => [String.t()],
-        "reservedInstancesRegion" => [String.t()],
-        "service" => [String.t()],
+        "accountScope" => [String.t() | atom()],
+        "currentGeneration" => [String.t() | atom()],
+        "instanceFamily" => [String.t() | atom()],
+        "instanceType" => [String.t() | atom()],
+        "monthlyRecurringCost" => [String.t() | atom()],
+        "normalizedUnitsToPurchase" => [String.t() | atom()],
+        "numberOfInstancesToPurchase" => [String.t() | atom()],
+        "paymentOption" => [String.t() | atom()],
+        "reservedInstancesRegion" => [String.t() | atom()],
+        "service" => [String.t() | atom()],
         "sizeFlexEligible" => [boolean()],
-        "term" => [String.t()],
-        "upfrontCost" => [String.t()]
+        "term" => [String.t() | atom()],
+        "upfrontCost" => [String.t() | atom()]
       }
       
   """
-  @type redshift_reserved_instances_configuration() :: %{String.t() => any()}
+  @type redshift_reserved_instances_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_recommendation_summaries_response() :: %{
-        "currencyCode" => [String.t()],
+        "currencyCode" => [String.t() | atom()],
         "estimatedTotalDedupedSavings" => [float()],
-        "groupBy" => [String.t()],
+        "groupBy" => [String.t() | atom()],
         "items" => list(recommendation_summary()),
         "metrics" => summary_metrics_result(),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | atom()]
       }
       
   """
-  @type list_recommendation_summaries_response() :: %{String.t() => any()}
+  @type list_recommendation_summaries_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()]
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()]
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "key" => [String.t()],
-        "value" => [String.t()]
+        "key" => [String.t() | atom()],
+        "value" => [String.t() | atom()]
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -504,7 +504,7 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type ebs_volume() :: %{String.t() => any()}
+  @type ebs_volume() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -516,56 +516,56 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type ec2_reserved_instances() :: %{String.t() => any()}
+  @type ec2_reserved_instances() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ec2_reserved_instances_configuration() :: %{
-        "accountScope" => [String.t()],
-        "currentGeneration" => [String.t()],
-        "instanceFamily" => [String.t()],
-        "instanceType" => [String.t()],
-        "monthlyRecurringCost" => [String.t()],
-        "normalizedUnitsToPurchase" => [String.t()],
-        "numberOfInstancesToPurchase" => [String.t()],
-        "offeringClass" => [String.t()],
-        "paymentOption" => [String.t()],
-        "platform" => [String.t()],
-        "reservedInstancesRegion" => [String.t()],
-        "service" => [String.t()],
+        "accountScope" => [String.t() | atom()],
+        "currentGeneration" => [String.t() | atom()],
+        "instanceFamily" => [String.t() | atom()],
+        "instanceType" => [String.t() | atom()],
+        "monthlyRecurringCost" => [String.t() | atom()],
+        "normalizedUnitsToPurchase" => [String.t() | atom()],
+        "numberOfInstancesToPurchase" => [String.t() | atom()],
+        "offeringClass" => [String.t() | atom()],
+        "paymentOption" => [String.t() | atom()],
+        "platform" => [String.t() | atom()],
+        "reservedInstancesRegion" => [String.t() | atom()],
+        "service" => [String.t() | atom()],
         "sizeFlexEligible" => [boolean()],
-        "tenancy" => [String.t()],
-        "term" => [String.t()],
-        "upfrontCost" => [String.t()]
+        "tenancy" => [String.t() | atom()],
+        "term" => [String.t() | atom()],
+        "upfrontCost" => [String.t() | atom()]
       }
       
   """
-  @type ec2_reserved_instances_configuration() :: %{String.t() => any()}
+  @type ec2_reserved_instances_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       recommendation() :: %{
-        "accountId" => [String.t()],
-        "actionType" => [String.t()],
-        "currencyCode" => [String.t()],
-        "currentResourceSummary" => [String.t()],
-        "currentResourceType" => [String.t()],
+        "accountId" => [String.t() | atom()],
+        "actionType" => [String.t() | atom()],
+        "currencyCode" => [String.t() | atom()],
+        "currentResourceSummary" => [String.t() | atom()],
+        "currentResourceType" => [String.t() | atom()],
         "estimatedMonthlyCost" => [float()],
         "estimatedMonthlySavings" => [float()],
         "estimatedSavingsPercentage" => [float()],
-        "implementationEffort" => [String.t()],
+        "implementationEffort" => [String.t() | atom()],
         "lastRefreshTimestamp" => non_neg_integer(),
-        "recommendationId" => [String.t()],
+        "recommendationId" => [String.t() | atom()],
         "recommendationLookbackPeriodInDays" => [integer()],
-        "recommendedResourceSummary" => [String.t()],
-        "recommendedResourceType" => [String.t()],
-        "region" => [String.t()],
-        "resourceArn" => [String.t()],
-        "resourceId" => [String.t()],
+        "recommendedResourceSummary" => [String.t() | atom()],
+        "recommendedResourceType" => [String.t() | atom()],
+        "region" => [String.t() | atom()],
+        "resourceArn" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
         "restartNeeded" => [boolean()],
         "rollbackPossible" => [boolean()],
         "source" => list(any()),
@@ -573,21 +573,21 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type recommendation() :: %{String.t() => any()}
+  @type recommendation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       compute_savings_plans_configuration() :: %{
-        "accountScope" => [String.t()],
-        "hourlyCommitment" => [String.t()],
-        "paymentOption" => [String.t()],
-        "term" => [String.t()]
+        "accountScope" => [String.t() | atom()],
+        "hourlyCommitment" => [String.t() | atom()],
+        "paymentOption" => [String.t() | atom()],
+        "term" => [String.t() | atom()]
       }
       
   """
-  @type compute_savings_plans_configuration() :: %{String.t() => any()}
+  @type compute_savings_plans_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -600,7 +600,7 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type update_preferences_request() :: %{String.t() => any()}
+  @type update_preferences_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -613,7 +613,7 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type update_preferences_response() :: %{String.t() => any()}
+  @type update_preferences_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -621,34 +621,34 @@ defmodule AWS.CostOptimizationHub do
       
       storage_configuration() :: %{
         "sizeInGb" => [float()],
-        "type" => [String.t()]
+        "type" => [String.t() | atom()]
       }
       
   """
-  @type storage_configuration() :: %{String.t() => any()}
+  @type storage_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       memory_db_reserved_instances_configuration() :: %{
-        "accountScope" => [String.t()],
-        "currentGeneration" => [String.t()],
-        "instanceFamily" => [String.t()],
-        "instanceType" => [String.t()],
-        "monthlyRecurringCost" => [String.t()],
-        "normalizedUnitsToPurchase" => [String.t()],
-        "numberOfInstancesToPurchase" => [String.t()],
-        "paymentOption" => [String.t()],
-        "reservedInstancesRegion" => [String.t()],
-        "service" => [String.t()],
+        "accountScope" => [String.t() | atom()],
+        "currentGeneration" => [String.t() | atom()],
+        "instanceFamily" => [String.t() | atom()],
+        "instanceType" => [String.t() | atom()],
+        "monthlyRecurringCost" => [String.t() | atom()],
+        "normalizedUnitsToPurchase" => [String.t() | atom()],
+        "numberOfInstancesToPurchase" => [String.t() | atom()],
+        "paymentOption" => [String.t() | atom()],
+        "reservedInstancesRegion" => [String.t() | atom()],
+        "service" => [String.t() | atom()],
         "sizeFlexEligible" => [boolean()],
-        "term" => [String.t()],
-        "upfrontCost" => [String.t()]
+        "term" => [String.t() | atom()],
+        "upfrontCost" => [String.t() | atom()]
       }
       
   """
-  @type memory_db_reserved_instances_configuration() :: %{String.t() => any()}
+  @type memory_db_reserved_instances_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -660,7 +660,7 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type block_storage_performance_configuration() :: %{String.t() => any()}
+  @type block_storage_performance_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -671,41 +671,41 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type reserved_instances_cost_calculation() :: %{String.t() => any()}
+  @type reserved_instances_cost_calculation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       mixed_instance_configuration() :: %{
-        "type" => [String.t()]
+        "type" => [String.t() | atom()]
       }
       
   """
-  @type mixed_instance_configuration() :: %{String.t() => any()}
+  @type mixed_instance_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       elasti_cache_reserved_instances_configuration() :: %{
-        "accountScope" => [String.t()],
-        "currentGeneration" => [String.t()],
-        "instanceFamily" => [String.t()],
-        "instanceType" => [String.t()],
-        "monthlyRecurringCost" => [String.t()],
-        "normalizedUnitsToPurchase" => [String.t()],
-        "numberOfInstancesToPurchase" => [String.t()],
-        "paymentOption" => [String.t()],
-        "reservedInstancesRegion" => [String.t()],
-        "service" => [String.t()],
+        "accountScope" => [String.t() | atom()],
+        "currentGeneration" => [String.t() | atom()],
+        "instanceFamily" => [String.t() | atom()],
+        "instanceType" => [String.t() | atom()],
+        "monthlyRecurringCost" => [String.t() | atom()],
+        "normalizedUnitsToPurchase" => [String.t() | atom()],
+        "numberOfInstancesToPurchase" => [String.t() | atom()],
+        "paymentOption" => [String.t() | atom()],
+        "reservedInstancesRegion" => [String.t() | atom()],
+        "service" => [String.t() | atom()],
         "sizeFlexEligible" => [boolean()],
-        "term" => [String.t()],
-        "upfrontCost" => [String.t()]
+        "term" => [String.t() | atom()],
+        "upfrontCost" => [String.t() | atom()]
       }
       
   """
-  @type elasti_cache_reserved_instances_configuration() :: %{String.t() => any()}
+  @type elasti_cache_reserved_instances_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -717,7 +717,7 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type ec2_instance() :: %{String.t() => any()}
+  @type ec2_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -728,7 +728,7 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type savings_plans_cost_calculation() :: %{String.t() => any()}
+  @type savings_plans_cost_calculation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -740,20 +740,20 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type aurora_db_cluster_storage() :: %{String.t() => any()}
+  @type aurora_db_cluster_storage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       filter() :: %{
-        "accountIds" => list(String.t()),
+        "accountIds" => list(String.t() | atom()),
         "actionTypes" => list(list(any())()),
         "implementationEfforts" => list(list(any())()),
-        "recommendationIds" => list([String.t()]()),
-        "regions" => list([String.t()]()),
-        "resourceArns" => list([String.t()]()),
-        "resourceIds" => list([String.t()]()),
+        "recommendationIds" => list([String.t() | atom()]()),
+        "regions" => list([String.t() | atom()]()),
+        "resourceArns" => list([String.t() | atom()]()),
+        "resourceIds" => list([String.t() | atom()]()),
         "resourceTypes" => list(list(any())()),
         "restartNeeded" => [boolean()],
         "rollbackPossible" => [boolean()],
@@ -761,19 +761,19 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception_detail() :: %{
-        "fieldName" => [String.t()],
-        "message" => [String.t()]
+        "fieldName" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type validation_exception_detail() :: %{String.t() => any()}
+  @type validation_exception_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -787,7 +787,7 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type ec2_auto_scaling_group_configuration() :: %{String.t() => any()}
+  @type ec2_auto_scaling_group_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -798,18 +798,18 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type rds_db_instance_configuration() :: %{String.t() => any()}
+  @type rds_db_instance_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -821,7 +821,7 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type sage_maker_savings_plans() :: %{String.t() => any()}
+  @type sage_maker_savings_plans() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -832,29 +832,29 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type ec2_instance_configuration() :: %{String.t() => any()}
+  @type ec2_instance_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       db_instance_configuration() :: %{
-        "dbInstanceClass" => [String.t()]
+        "dbInstanceClass" => [String.t() | atom()]
       }
       
   """
-  @type db_instance_configuration() :: %{String.t() => any()}
+  @type db_instance_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -866,7 +866,7 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type compute_savings_plans() :: %{String.t() => any()}
+  @type compute_savings_plans() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -879,32 +879,32 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type estimated_discounts() :: %{String.t() => any()}
+  @type estimated_discounts() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       sage_maker_savings_plans_configuration() :: %{
-        "accountScope" => [String.t()],
-        "hourlyCommitment" => [String.t()],
-        "paymentOption" => [String.t()],
-        "term" => [String.t()]
+        "accountScope" => [String.t() | atom()],
+        "hourlyCommitment" => [String.t() | atom()],
+        "paymentOption" => [String.t() | atom()],
+        "term" => [String.t() | atom()]
       }
       
   """
-  @type sage_maker_savings_plans_configuration() :: %{String.t() => any()}
+  @type sage_maker_savings_plans_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_configuration() :: %{
-        "type" => [String.t()]
+        "type" => [String.t() | atom()]
       }
       
   """
-  @type instance_configuration() :: %{String.t() => any()}
+  @type instance_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -912,39 +912,39 @@ defmodule AWS.CostOptimizationHub do
       
       validation_exception() :: %{
         "fields" => list(validation_exception_detail()),
-        "message" => [String.t()],
+        "message" => [String.t() | atom()],
         "reason" => list(any())
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ec2_instance_savings_plans_configuration() :: %{
-        "accountScope" => [String.t()],
-        "hourlyCommitment" => [String.t()],
-        "instanceFamily" => [String.t()],
-        "paymentOption" => [String.t()],
-        "savingsPlansRegion" => [String.t()],
-        "term" => [String.t()]
+        "accountScope" => [String.t() | atom()],
+        "hourlyCommitment" => [String.t() | atom()],
+        "instanceFamily" => [String.t() | atom()],
+        "paymentOption" => [String.t() | atom()],
+        "savingsPlansRegion" => [String.t() | atom()],
+        "term" => [String.t() | atom()]
       }
       
   """
-  @type ec2_instance_savings_plans_configuration() :: %{String.t() => any()}
+  @type ec2_instance_savings_plans_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -956,7 +956,7 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type rds_db_instance() :: %{String.t() => any()}
+  @type rds_db_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -966,34 +966,34 @@ defmodule AWS.CostOptimizationHub do
         optional("filter") => filter(),
         optional("maxResults") => integer(),
         optional("metrics") => list(list(any())()),
-        optional("nextToken") => [String.t()],
-        required("groupBy") => [String.t()]
+        optional("nextToken") => [String.t() | atom()],
+        required("groupBy") => [String.t() | atom()]
       }
       
   """
-  @type list_recommendation_summaries_request() :: %{String.t() => any()}
+  @type list_recommendation_summaries_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       open_search_reserved_instances_configuration() :: %{
-        "accountScope" => [String.t()],
-        "currentGeneration" => [String.t()],
-        "instanceType" => [String.t()],
-        "monthlyRecurringCost" => [String.t()],
-        "normalizedUnitsToPurchase" => [String.t()],
-        "numberOfInstancesToPurchase" => [String.t()],
-        "paymentOption" => [String.t()],
-        "reservedInstancesRegion" => [String.t()],
-        "service" => [String.t()],
+        "accountScope" => [String.t() | atom()],
+        "currentGeneration" => [String.t() | atom()],
+        "instanceType" => [String.t() | atom()],
+        "monthlyRecurringCost" => [String.t() | atom()],
+        "normalizedUnitsToPurchase" => [String.t() | atom()],
+        "numberOfInstancesToPurchase" => [String.t() | atom()],
+        "paymentOption" => [String.t() | atom()],
+        "reservedInstancesRegion" => [String.t() | atom()],
+        "service" => [String.t() | atom()],
         "sizeFlexEligible" => [boolean()],
-        "term" => [String.t()],
-        "upfrontCost" => [String.t()]
+        "term" => [String.t() | atom()],
+        "upfrontCost" => [String.t() | atom()]
       }
       
   """
-  @type open_search_reserved_instances_configuration() :: %{String.t() => any()}
+  @type open_search_reserved_instances_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1001,12 +1001,12 @@ defmodule AWS.CostOptimizationHub do
       
       recommendation_summary() :: %{
         "estimatedMonthlySavings" => [float()],
-        "group" => [String.t()],
+        "group" => [String.t() | atom()],
         "recommendationCount" => [integer()]
       }
       
   """
-  @type recommendation_summary() :: %{String.t() => any()}
+  @type recommendation_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1014,21 +1014,21 @@ defmodule AWS.CostOptimizationHub do
       
       list_recommendations_response() :: %{
         "items" => list(recommendation()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | atom()]
       }
       
   """
-  @type list_recommendations_response() :: %{String.t() => any()}
+  @type list_recommendations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_recommendation_response() :: %{
-        "accountId" => [String.t()],
+        "accountId" => [String.t() | atom()],
         "actionType" => list(any()),
         "costCalculationLookbackPeriodInDays" => [integer()],
-        "currencyCode" => [String.t()],
+        "currencyCode" => [String.t() | atom()],
         "currentResourceDetails" => list(),
         "currentResourceType" => list(any()),
         "estimatedMonthlyCost" => [float()],
@@ -1037,13 +1037,13 @@ defmodule AWS.CostOptimizationHub do
         "estimatedSavingsPercentage" => [float()],
         "implementationEffort" => list(any()),
         "lastRefreshTimestamp" => non_neg_integer(),
-        "recommendationId" => [String.t()],
+        "recommendationId" => [String.t() | atom()],
         "recommendationLookbackPeriodInDays" => [integer()],
         "recommendedResourceDetails" => list(),
         "recommendedResourceType" => list(any()),
-        "region" => [String.t()],
-        "resourceArn" => [String.t()],
-        "resourceId" => [String.t()],
+        "region" => [String.t() | atom()],
+        "resourceArn" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
         "restartNeeded" => [boolean()],
         "rollbackPossible" => [boolean()],
         "source" => list(any()),
@@ -1051,7 +1051,7 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type get_recommendation_response() :: %{String.t() => any()}
+  @type get_recommendation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1063,7 +1063,7 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type dynamo_db_reserved_capacity() :: %{String.t() => any()}
+  @type dynamo_db_reserved_capacity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1075,7 +1075,7 @@ defmodule AWS.CostOptimizationHub do
       }
       
   """
-  @type rds_db_instance_storage() :: %{String.t() => any()}
+  @type rds_db_instance_storage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1085,26 +1085,26 @@ defmodule AWS.CostOptimizationHub do
         optional("filter") => filter(),
         optional("includeAllRecommendations") => [boolean()],
         optional("maxResults") => integer(),
-        optional("nextToken") => [String.t()],
+        optional("nextToken") => [String.t() | atom()],
         optional("orderBy") => order_by()
       }
       
   """
-  @type list_recommendations_request() :: %{String.t() => any()}
+  @type list_recommendations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       compute_configuration() :: %{
-        "architecture" => [String.t()],
+        "architecture" => [String.t() | atom()],
         "memorySizeInMB" => [integer()],
-        "platform" => [String.t()],
+        "platform" => [String.t() | atom()],
         "vCpu" => [float()]
       }
       
   """
-  @type compute_configuration() :: %{String.t() => any()}
+  @type compute_configuration() :: %{(String.t() | atom()) => any()}
 
   @type get_preferences_errors() ::
           throttling_exception()
@@ -1179,7 +1179,8 @@ defmodule AWS.CostOptimizationHub do
           | {:error, term()}
           | {:error, get_preferences_errors()}
   def get_preferences(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPreferences", input, options)
   end
@@ -1198,7 +1199,8 @@ defmodule AWS.CostOptimizationHub do
           | {:error, term()}
           | {:error, get_recommendation_errors()}
   def get_recommendation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRecommendation", input, options)
   end
@@ -1215,7 +1217,8 @@ defmodule AWS.CostOptimizationHub do
           | {:error, term()}
           | {:error, list_enrollment_statuses_errors()}
   def list_enrollment_statuses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEnrollmentStatuses", input, options)
   end
@@ -1234,7 +1237,8 @@ defmodule AWS.CostOptimizationHub do
           | {:error, term()}
           | {:error, list_recommendation_summaries_errors()}
   def list_recommendation_summaries(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRecommendationSummaries", input, options)
   end
@@ -1248,7 +1252,8 @@ defmodule AWS.CostOptimizationHub do
           | {:error, term()}
           | {:error, list_recommendations_errors()}
   def list_recommendations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRecommendations", input, options)
   end
@@ -1271,7 +1276,8 @@ defmodule AWS.CostOptimizationHub do
           | {:error, term()}
           | {:error, update_enrollment_status_errors()}
   def update_enrollment_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEnrollmentStatus", input, options)
   end
@@ -1289,7 +1295,8 @@ defmodule AWS.CostOptimizationHub do
           | {:error, term()}
           | {:error, update_preferences_errors()}
   def update_preferences(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePreferences", input, options)
   end

@@ -31,40 +31,40 @@ defmodule AWS.WorkMailMessageFlow do
       }
 
   """
-  @type get_raw_message_content_response() :: %{String.t() => any()}
+  @type get_raw_message_content_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_content_location() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_content_location() :: %{String.t() => any()}
+  @type invalid_content_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       message_frozen() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type message_frozen() :: %{String.t() => any()}
+  @type message_frozen() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       message_rejected() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type message_rejected() :: %{String.t() => any()}
+  @type message_rejected() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -75,7 +75,7 @@ defmodule AWS.WorkMailMessageFlow do
       }
 
   """
-  @type put_raw_message_content_request() :: %{String.t() => any()}
+  @type put_raw_message_content_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -95,31 +95,31 @@ defmodule AWS.WorkMailMessageFlow do
       }
 
   """
-  @type raw_message_content() :: %{String.t() => any()}
+  @type raw_message_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_reference() :: %{
-        "bucket" => String.t(),
-        "key" => String.t(),
-        "objectVersion" => String.t()
+        "bucket" => String.t() | atom(),
+        "key" => String.t() | atom(),
+        "objectVersion" => String.t() | atom()
       }
 
   """
-  @type s3_reference() :: %{String.t() => any()}
+  @type s3_reference() :: %{(String.t() | atom()) => any()}
 
   @type get_raw_message_content_errors() :: resource_not_found_exception()
 
@@ -148,7 +148,7 @@ defmodule AWS.WorkMailMessageFlow do
   @doc """
   Retrieves the raw content of an in-transit email message, in MIME format.
   """
-  @spec get_raw_message_content(map(), String.t(), list()) ::
+  @spec get_raw_message_content(map(), String.t() | atom(), list()) ::
           {:ok, get_raw_message_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -184,7 +184,12 @@ defmodule AWS.WorkMailMessageFlow do
   returns an updated
   message.
   """
-  @spec put_raw_message_content(map(), String.t(), put_raw_message_content_request(), list()) ::
+  @spec put_raw_message_content(
+          map(),
+          String.t() | atom(),
+          put_raw_message_content_request(),
+          list()
+        ) ::
           {:ok, put_raw_message_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

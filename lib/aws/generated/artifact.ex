@@ -14,11 +14,11 @@ defmodule AWS.Artifact do
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -29,43 +29,43 @@ defmodule AWS.Artifact do
       }
 
   """
-  @type account_settings() :: %{String.t() => any()}
+  @type account_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       customer_agreement_summary() :: %{
-        "acceptanceTerms" => list(String.t()),
-        "agreementArn" => String.t(),
-        "arn" => String.t(),
-        "awsAccountId" => String.t(),
-        "description" => String.t(),
+        "acceptanceTerms" => list(String.t() | atom()),
+        "agreementArn" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "awsAccountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "effectiveEnd" => non_neg_integer(),
         "effectiveStart" => non_neg_integer(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "organizationArn" => String.t(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "organizationArn" => String.t() | atom(),
         "state" => list(any()),
-        "terminateTerms" => list(String.t()),
+        "terminateTerms" => list(String.t() | atom()),
         "type" => list(any())
       }
 
   """
-  @type customer_agreement_summary() :: %{String.t() => any()}
+  @type customer_agreement_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -85,7 +85,7 @@ defmodule AWS.Artifact do
       }
 
   """
-  @type get_account_settings_response() :: %{String.t() => any()}
+  @type get_account_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -93,11 +93,11 @@ defmodule AWS.Artifact do
 
       get_report_metadata_request() :: %{
         optional("reportVersion") => float(),
-        required("reportId") => String.t()
+        required("reportId") => String.t() | atom()
       }
 
   """
-  @type get_report_metadata_request() :: %{String.t() => any()}
+  @type get_report_metadata_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -108,7 +108,7 @@ defmodule AWS.Artifact do
       }
 
   """
-  @type get_report_metadata_response() :: %{String.t() => any()}
+  @type get_report_metadata_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -116,23 +116,23 @@ defmodule AWS.Artifact do
 
       get_report_request() :: %{
         optional("reportVersion") => float(),
-        required("reportId") => String.t(),
-        required("termToken") => String.t()
+        required("reportId") => String.t() | atom(),
+        required("termToken") => String.t() | atom()
       }
 
   """
-  @type get_report_request() :: %{String.t() => any()}
+  @type get_report_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_report_response() :: %{
-        "documentPresignedUrl" => [String.t()]
+        "documentPresignedUrl" => [String.t() | atom()]
       }
 
   """
-  @type get_report_response() :: %{String.t() => any()}
+  @type get_report_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -140,35 +140,35 @@ defmodule AWS.Artifact do
 
       get_term_for_report_request() :: %{
         optional("reportVersion") => float(),
-        required("reportId") => String.t()
+        required("reportId") => String.t() | atom()
       }
 
   """
-  @type get_term_for_report_request() :: %{String.t() => any()}
+  @type get_term_for_report_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_term_for_report_response() :: %{
-        "documentPresignedUrl" => [String.t()],
-        "termToken" => [String.t()]
+        "documentPresignedUrl" => [String.t() | atom()],
+        "termToken" => [String.t() | atom()]
       }
 
   """
-  @type get_term_for_report_response() :: %{String.t() => any()}
+  @type get_term_for_report_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()],
+        "message" => [String.t() | atom()],
         "retryAfterSeconds" => [integer()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -176,11 +176,11 @@ defmodule AWS.Artifact do
 
       list_customer_agreements_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_customer_agreements_request() :: %{String.t() => any()}
+  @type list_customer_agreements_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -188,11 +188,11 @@ defmodule AWS.Artifact do
 
       list_customer_agreements_response() :: %{
         "customerAgreements" => list(customer_agreement_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_customer_agreements_response() :: %{String.t() => any()}
+  @type list_customer_agreements_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -200,23 +200,23 @@ defmodule AWS.Artifact do
 
       list_reports_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_reports_request() :: %{String.t() => any()}
+  @type list_reports_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_reports_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "reports" => list(report_summary())
       }
 
   """
-  @type list_reports_response() :: %{String.t() => any()}
+  @type list_reports_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -227,7 +227,7 @@ defmodule AWS.Artifact do
       }
 
   """
-  @type put_account_settings_request() :: %{String.t() => any()}
+  @type put_account_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -238,7 +238,7 @@ defmodule AWS.Artifact do
       }
 
   """
-  @type put_account_settings_response() :: %{String.t() => any()}
+  @type put_account_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -246,29 +246,29 @@ defmodule AWS.Artifact do
 
       report_detail() :: %{
         "acceptanceType" => list(any()),
-        "arn" => String.t(),
-        "category" => String.t(),
-        "companyName" => String.t(),
+        "arn" => String.t() | atom(),
+        "category" => String.t() | atom(),
+        "companyName" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "deletedAt" => non_neg_integer(),
-        "description" => String.t(),
-        "id" => String.t(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "lastModifiedAt" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "periodEnd" => non_neg_integer(),
         "periodStart" => non_neg_integer(),
-        "productName" => String.t(),
+        "productName" => String.t() | atom(),
         "sequenceNumber" => float(),
-        "series" => String.t(),
+        "series" => String.t() | atom(),
         "state" => list(any()),
-        "statusMessage" => String.t(),
-        "termArn" => String.t(),
+        "statusMessage" => String.t() | atom(),
+        "termArn" => String.t() | atom(),
         "uploadState" => list(any()),
         "version" => float()
       }
 
   """
-  @type report_detail() :: %{String.t() => any()}
+  @type report_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -276,66 +276,66 @@ defmodule AWS.Artifact do
 
       report_summary() :: %{
         "acceptanceType" => list(any()),
-        "arn" => String.t(),
-        "category" => String.t(),
-        "companyName" => String.t(),
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "arn" => String.t() | atom(),
+        "category" => String.t() | atom(),
+        "companyName" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "periodEnd" => non_neg_integer(),
         "periodStart" => non_neg_integer(),
-        "productName" => String.t(),
-        "series" => String.t(),
+        "productName" => String.t() | atom(),
+        "series" => String.t() | atom(),
         "state" => list(any()),
-        "statusMessage" => String.t(),
+        "statusMessage" => String.t() | atom(),
         "uploadState" => list(any()),
         "version" => float()
       }
 
   """
-  @type report_summary() :: %{String.t() => any()}
+  @type report_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()],
-        "quotaCode" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()],
-        "serviceCode" => [String.t()]
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()],
+        "serviceCode" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()],
-        "quotaCode" => [String.t()],
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
         "retryAfterSeconds" => [integer()],
-        "serviceCode" => [String.t()]
+        "serviceCode" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -343,24 +343,24 @@ defmodule AWS.Artifact do
 
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
-        "message" => [String.t()],
-        "reason" => String.t()
+        "message" => [String.t() | atom()],
+        "reason" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => [String.t()],
-        "name" => [String.t()]
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @type get_account_settings_errors() ::
           validation_exception()
@@ -457,7 +457,13 @@ defmodule AWS.Artifact do
   @doc """
   Get the content for a single report.
   """
-  @spec get_report(map(), String.t(), String.t() | nil, String.t(), list()) ::
+  @spec get_report(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, get_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -496,7 +502,7 @@ defmodule AWS.Artifact do
   @doc """
   Get the metadata for a single report.
   """
-  @spec get_report_metadata(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_report_metadata(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_report_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -528,7 +534,7 @@ defmodule AWS.Artifact do
   @doc """
   Get the Term content associated with a single report.
   """
-  @spec get_term_for_report(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_term_for_report(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_term_for_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -560,7 +566,12 @@ defmodule AWS.Artifact do
   @doc """
   List active customer-agreements applicable to calling identity.
   """
-  @spec list_customer_agreements(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_customer_agreements(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_customer_agreements_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -597,7 +608,7 @@ defmodule AWS.Artifact do
   @doc """
   List available reports.
   """
-  @spec list_reports(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_reports(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

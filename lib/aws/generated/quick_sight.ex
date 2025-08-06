@@ -28,29 +28,29 @@ defmodule AWS.QuickSight do
         "ColumnHierarchies" => list(column_hierarchy()),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
-        "VisualContentAltText" => String.t(),
-        "VisualId" => String.t()
+        "VisualContentAltText" => String.t() | atom(),
+        "VisualId" => String.t() | atom()
       }
 
   """
-  @type box_plot_visual() :: %{String.t() => any()}
+  @type box_plot_visual() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       theme() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
         "LastUpdatedTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "ThemeId" => String.t(),
+        "Name" => String.t() | atom(),
+        "ThemeId" => String.t() | atom(),
         "Type" => list(any()),
         "Version" => theme_version()
       }
 
   """
-  @type theme() :: %{String.t() => any()}
+  @type theme() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -61,39 +61,39 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type data_point_drill_up_down_option() :: %{String.t() => any()}
+  @type data_point_drill_up_down_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       folder_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "FolderId" => String.t(),
+        "FolderId" => String.t() | atom(),
         "FolderType" => list(any()),
         "LastUpdatedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "SharingModel" => list(any())
       }
 
   """
-  @type folder_summary() :: %{String.t() => any()}
+  @type folder_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_topic_refresh_schedule_response() :: %{
-        "DatasetArn" => String.t(),
-        "RequestId" => String.t(),
+        "DatasetArn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
-        "TopicArn" => String.t(),
-        "TopicId" => String.t()
+        "TopicArn" => String.t() | atom(),
+        "TopicId" => String.t() | atom()
       }
 
   """
-  @type update_topic_refresh_schedule_response() :: %{String.t() => any()}
+  @type update_topic_refresh_schedule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -106,7 +106,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type line_chart_default_series_settings() :: %{String.t() => any()}
+  @type line_chart_default_series_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -121,7 +121,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type data_label_type() :: %{String.t() => any()}
+  @type data_label_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -132,7 +132,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type number_format_configuration() :: %{String.t() => any()}
+  @type number_format_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -140,26 +140,26 @@ defmodule AWS.QuickSight do
 
       list_dashboards_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_dashboards_request() :: %{String.t() => any()}
+  @type list_dashboards_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       growth_rate_computation() :: %{
-        "ComputationId" => String.t(),
-        "Name" => String.t(),
+        "ComputationId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "PeriodSize" => integer(),
         "Time" => dimension_field(),
         "Value" => measure_field()
       }
 
   """
-  @type growth_rate_computation() :: %{String.t() => any()}
+  @type growth_rate_computation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -175,27 +175,27 @@ defmodule AWS.QuickSight do
   ## Example:
 
       delete_brand_assignment_response() :: %{
-        "RequestId" => String.t()
+        "RequestId" => String.t() | atom()
       }
 
   """
-  @type delete_brand_assignment_response() :: %{String.t() => any()}
+  @type delete_brand_assignment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_dashboard_permissions_response() :: %{
-        "DashboardArn" => String.t(),
-        "DashboardId" => String.t(),
+        "DashboardArn" => String.t() | atom(),
+        "DashboardId" => String.t() | atom(),
         "LinkSharingConfiguration" => link_sharing_configuration(),
         "Permissions" => list(resource_permission()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type update_dashboard_permissions_response() :: %{String.t() => any()}
+  @type update_dashboard_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -208,7 +208,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type field_based_tooltip() :: %{String.t() => any()}
+  @type field_based_tooltip() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -219,31 +219,31 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type gutter_style() :: %{String.t() => any()}
+  @type gutter_style() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_namespace_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type delete_namespace_response() :: %{String.t() => any()}
+  @type delete_namespace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       date_time_parameter() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Values" => list(non_neg_integer())
       }
 
   """
-  @type date_time_parameter() :: %{String.t() => any()}
+  @type date_time_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -251,12 +251,12 @@ defmodule AWS.QuickSight do
 
       axis_label_options() :: %{
         "ApplyTo" => axis_label_reference_options(),
-        "CustomLabel" => String.t(),
+        "CustomLabel" => String.t() | atom(),
         "FontConfiguration" => font_configuration()
       }
 
   """
-  @type axis_label_options() :: %{String.t() => any()}
+  @type axis_label_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -269,7 +269,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_layer_definition() :: %{String.t() => any()}
+  @type geospatial_layer_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -280,7 +280,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type free_form_layout_canvas_size_options() :: %{String.t() => any()}
+  @type free_form_layout_canvas_size_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -291,7 +291,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type image_menu_option() :: %{String.t() => any()}
+  @type image_menu_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -299,24 +299,24 @@ defmodule AWS.QuickSight do
 
       list_iam_policy_assignments_for_user_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_iam_policy_assignments_for_user_request() :: %{String.t() => any()}
+  @type list_iam_policy_assignments_for_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dashboard_error() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | atom(),
         "Type" => list(any()),
         "ViolatedEntities" => list(entity())
       }
 
   """
-  @type dashboard_error() :: %{String.t() => any()}
+  @type dashboard_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -328,49 +328,49 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type pivot_table_field_collapse_state_option() :: %{String.t() => any()}
+  @type pivot_table_field_collapse_state_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_dashboard_embed_url_response() :: %{
-        "EmbedUrl" => String.t(),
-        "RequestId" => String.t(),
+        "EmbedUrl" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type get_dashboard_embed_url_response() :: %{String.t() => any()}
+  @type get_dashboard_embed_url_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       reference_line_custom_label_configuration() :: %{
-        "CustomLabel" => String.t()
+        "CustomLabel" => String.t() | atom()
       }
 
   """
-  @type reference_line_custom_label_configuration() :: %{String.t() => any()}
+  @type reference_line_custom_label_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_analysis_definition_response() :: %{
-        "AnalysisId" => String.t(),
+        "AnalysisId" => String.t() | atom(),
         "Definition" => analysis_definition(),
         "Errors" => list(analysis_error()),
-        "Name" => String.t(),
-        "RequestId" => String.t(),
+        "Name" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "ResourceStatus" => list(any()),
         "Status" => integer(),
-        "ThemeArn" => String.t()
+        "ThemeArn" => String.t() | atom()
       }
 
   """
-  @type describe_analysis_definition_response() :: %{String.t() => any()}
+  @type describe_analysis_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -387,24 +387,24 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type filled_map_configuration() :: %{String.t() => any()}
+  @type filled_map_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       brand_summary() :: %{
-        "Arn" => String.t(),
-        "BrandId" => String.t(),
-        "BrandName" => String.t(),
+        "Arn" => String.t() | atom(),
+        "BrandId" => String.t() | atom(),
+        "BrandName" => String.t() | atom(),
         "BrandStatus" => list(any()),
         "CreatedTime" => [non_neg_integer()],
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "LastUpdatedTime" => [non_neg_integer()]
       }
 
   """
-  @type brand_summary() :: %{String.t() => any()}
+  @type brand_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -413,30 +413,30 @@ defmodule AWS.QuickSight do
       filter_date_time_picker_control() :: %{
         "CommitMode" => list(any()),
         "DisplayOptions" => date_time_picker_control_display_options(),
-        "FilterControlId" => String.t(),
-        "SourceFilterId" => String.t(),
-        "Title" => String.t(),
+        "FilterControlId" => String.t() | atom(),
+        "SourceFilterId" => String.t() | atom(),
+        "Title" => String.t() | atom(),
         "Type" => list(any())
       }
 
   """
-  @type filter_date_time_picker_control() :: %{String.t() => any()}
+  @type filter_date_time_picker_control() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_dashboard_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreationStatus" => list(any()),
-        "DashboardId" => String.t(),
-        "RequestId" => String.t(),
+        "DashboardId" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
-        "VersionArn" => String.t()
+        "VersionArn" => String.t() | atom()
       }
 
   """
-  @type update_dashboard_response() :: %{String.t() => any()}
+  @type update_dashboard_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -450,7 +450,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type reference_line_data_configuration() :: %{String.t() => any()}
+  @type reference_line_data_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -459,17 +459,17 @@ defmodule AWS.QuickSight do
       template_version() :: %{
         "CreatedTime" => non_neg_integer(),
         "DataSetConfigurations" => list(data_set_configuration()),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "Errors" => list(template_error()),
         "Sheets" => list(sheet()),
-        "SourceEntityArn" => String.t(),
+        "SourceEntityArn" => String.t() | atom(),
         "Status" => list(any()),
-        "ThemeArn" => String.t(),
+        "ThemeArn" => String.t() | atom(),
         "VersionNumber" => float()
       }
 
   """
-  @type template_version() :: %{String.t() => any()}
+  @type template_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -480,7 +480,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type trend_arrow_options() :: %{String.t() => any()}
+  @type trend_arrow_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -492,12 +492,12 @@ defmodule AWS.QuickSight do
         "ColumnHierarchies" => list(column_hierarchy()),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
-        "VisualContentAltText" => String.t(),
-        "VisualId" => String.t()
+        "VisualContentAltText" => String.t() | atom(),
+        "VisualId" => String.t() | atom()
       }
 
   """
-  @type radar_chart_visual() :: %{String.t() => any()}
+  @type radar_chart_visual() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -508,7 +508,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type refresh_failure_email_alert() :: %{String.t() => any()}
+  @type refresh_failure_email_alert() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -517,15 +517,15 @@ defmodule AWS.QuickSight do
       filter_list_control() :: %{
         "CascadingControlConfiguration" => cascading_control_configuration(),
         "DisplayOptions" => list_control_display_options(),
-        "FilterControlId" => String.t(),
+        "FilterControlId" => String.t() | atom(),
         "SelectableValues" => filter_selectable_values(),
-        "SourceFilterId" => String.t(),
-        "Title" => String.t(),
+        "SourceFilterId" => String.t() | atom(),
+        "Title" => String.t() | atom(),
         "Type" => list(any())
       }
 
   """
-  @type filter_list_control() :: %{String.t() => any()}
+  @type filter_list_control() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -533,11 +533,11 @@ defmodule AWS.QuickSight do
 
       data_aggregation() :: %{
         "DatasetRowDateGranularity" => list(any()),
-        "DefaultDateColumnName" => String.t()
+        "DefaultDateColumnName" => String.t() | atom()
       }
 
   """
-  @type data_aggregation() :: %{String.t() => any()}
+  @type data_aggregation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -545,11 +545,11 @@ defmodule AWS.QuickSight do
 
       field_sort() :: %{
         "Direction" => list(any()),
-        "FieldId" => String.t()
+        "FieldId" => String.t() | atom()
       }
 
   """
-  @type field_sort() :: %{String.t() => any()}
+  @type field_sort() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -560,22 +560,22 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type update_s_p_i_c_e_capacity_configuration_request() :: %{String.t() => any()}
+  @type update_s_p_i_c_e_capacity_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_bundle_import_job_summary() :: %{
-        "Arn" => String.t(),
-        "AssetBundleImportJobId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "AssetBundleImportJobId" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
         "FailureAction" => list(any()),
         "JobStatus" => list(any())
       }
 
   """
-  @type asset_bundle_import_job_summary() :: %{String.t() => any()}
+  @type asset_bundle_import_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -586,7 +586,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type data_point_menu_label_option() :: %{String.t() => any()}
+  @type data_point_menu_label_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -594,11 +594,11 @@ defmodule AWS.QuickSight do
 
       string_default_values() :: %{
         "DynamicValue" => dynamic_default_value(),
-        "StaticValues" => list(String.t())
+        "StaticValues" => list(String.t() | atom())
       }
 
   """
-  @type string_default_values() :: %{String.t() => any()}
+  @type string_default_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -607,11 +607,11 @@ defmodule AWS.QuickSight do
       topic_search_filter() :: %{
         "Name" => list(any()),
         "Operator" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | atom()
       }
 
   """
-  @type topic_search_filter() :: %{String.t() => any()}
+  @type topic_search_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -622,33 +622,33 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type data_stories_configurations() :: %{String.t() => any()}
+  @type data_stories_configurations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       template_alias() :: %{
-        "AliasName" => String.t(),
-        "Arn" => String.t(),
+        "AliasName" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
         "TemplateVersionNumber" => float()
       }
 
   """
-  @type template_alias() :: %{String.t() => any()}
+  @type template_alias() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_vpc_connection_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "VPCConnection" => vpc_connection()
       }
 
   """
-  @type describe_vpc_connection_response() :: %{String.t() => any()}
+  @type describe_vpc_connection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -656,12 +656,12 @@ defmodule AWS.QuickSight do
 
       start_dashboard_snapshot_job_request() :: %{
         required("SnapshotConfiguration") => snapshot_configuration(),
-        required("SnapshotJobId") => String.t(),
+        required("SnapshotJobId") => String.t() | atom(),
         required("UserConfiguration") => snapshot_user_configuration()
       }
 
   """
-  @type start_dashboard_snapshot_job_request() :: %{String.t() => any()}
+  @type start_dashboard_snapshot_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -672,14 +672,14 @@ defmodule AWS.QuickSight do
         optional("Definition") => dashboard_version_definition(),
         optional("Parameters") => parameters(),
         optional("SourceEntity") => dashboard_source_entity(),
-        optional("ThemeArn") => String.t(),
+        optional("ThemeArn") => String.t() | atom(),
         optional("ValidationStrategy") => validation_strategy(),
-        optional("VersionDescription") => String.t(),
-        required("Name") => String.t()
+        optional("VersionDescription") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type update_dashboard_request() :: %{String.t() => any()}
+  @type update_dashboard_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -691,7 +691,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type data_set_refresh_properties() :: %{String.t() => any()}
+  @type data_set_refresh_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -700,11 +700,11 @@ defmodule AWS.QuickSight do
       create_custom_permissions_request() :: %{
         optional("Capabilities") => capabilities(),
         optional("Tags") => list(tag()),
-        required("CustomPermissionsName") => String.t()
+        required("CustomPermissionsName") => String.t() | atom()
       }
 
   """
-  @type create_custom_permissions_request() :: %{String.t() => any()}
+  @type create_custom_permissions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -712,12 +712,12 @@ defmodule AWS.QuickSight do
 
       describe_namespace_response() :: %{
         "Namespace" => namespace_info_v2(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_namespace_response() :: %{String.t() => any()}
+  @type describe_namespace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -731,7 +731,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type line_chart_aggregated_field_wells() :: %{String.t() => any()}
+  @type line_chart_aggregated_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -742,7 +742,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type update_q_personalization_configuration_request() :: %{String.t() => any()}
+  @type update_q_personalization_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -755,7 +755,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type drill_down_filter() :: %{String.t() => any()}
+  @type drill_down_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -764,11 +764,11 @@ defmodule AWS.QuickSight do
       topic_category_filter_constant() :: %{
         "CollectiveConstant" => collective_constant(),
         "ConstantType" => list(any()),
-        "SingularConstant" => String.t()
+        "SingularConstant" => String.t() | atom()
       }
 
   """
-  @type topic_category_filter_constant() :: %{String.t() => any()}
+  @type topic_category_filter_constant() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -776,12 +776,12 @@ defmodule AWS.QuickSight do
 
       override_dataset_parameter_operation() :: %{
         "NewDefaultValues" => new_default_values(),
-        "NewParameterName" => String.t(),
-        "ParameterName" => String.t()
+        "NewParameterName" => String.t() | atom(),
+        "ParameterName" => String.t() | atom()
       }
 
   """
-  @type override_dataset_parameter_operation() :: %{String.t() => any()}
+  @type override_dataset_parameter_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -793,12 +793,12 @@ defmodule AWS.QuickSight do
         "ColumnHierarchies" => list(column_hierarchy()),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
-        "VisualContentAltText" => String.t(),
-        "VisualId" => String.t()
+        "VisualContentAltText" => String.t() | atom(),
+        "VisualId" => String.t() | atom()
       }
 
   """
-  @type bar_chart_visual() :: %{String.t() => any()}
+  @type bar_chart_visual() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -810,7 +810,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type table_paginated_report_options() :: %{String.t() => any()}
+  @type table_paginated_report_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -818,36 +818,36 @@ defmodule AWS.QuickSight do
 
       describe_data_set_refresh_properties_response() :: %{
         "DataSetRefreshProperties" => data_set_refresh_properties(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_data_set_refresh_properties_response() :: %{String.t() => any()}
+  @type describe_data_set_refresh_properties_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       column_level_permission_rule() :: %{
-        "ColumnNames" => list(String.t()),
-        "Principals" => list(String.t())
+        "ColumnNames" => list(String.t() | atom()),
+        "Principals" => list(String.t() | atom())
       }
 
   """
-  @type column_level_permission_rule() :: %{String.t() => any()}
+  @type column_level_permission_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_column_operation() :: %{
-        "ColumnName" => String.t(),
+        "ColumnName" => String.t() | atom(),
         "TagNames" => list(list(any())())
       }
 
   """
-  @type untag_column_operation() :: %{String.t() => any()}
+  @type untag_column_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -858,7 +858,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -866,12 +866,12 @@ defmodule AWS.QuickSight do
 
       snapshot_file_sheet_selection() :: %{
         "SelectionScope" => list(any()),
-        "SheetId" => String.t(),
-        "VisualIds" => list(String.t())
+        "SheetId" => String.t() | atom(),
+        "VisualIds" => list(String.t() | atom())
       }
 
   """
-  @type snapshot_file_sheet_selection() :: %{String.t() => any()}
+  @type snapshot_file_sheet_selection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -887,12 +887,12 @@ defmodule AWS.QuickSight do
   ## Example:
 
       internal_failure_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
       }
 
   """
-  @type internal_failure_exception() :: %{String.t() => any()}
+  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -906,7 +906,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type plugin_visual_field_well() :: %{String.t() => any()}
+  @type plugin_visual_field_well() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -917,50 +917,50 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type create_columns_operation() :: %{String.t() => any()}
+  @type create_columns_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_dashboard_definition_response() :: %{
-        "DashboardId" => String.t(),
+        "DashboardId" => String.t() | atom(),
         "DashboardPublishOptions" => dashboard_publish_options(),
         "Definition" => dashboard_version_definition(),
         "Errors" => list(dashboard_error()),
-        "Name" => String.t(),
-        "RequestId" => String.t(),
+        "Name" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "ResourceStatus" => list(any()),
         "Status" => integer(),
-        "ThemeArn" => String.t()
+        "ThemeArn" => String.t() | atom()
       }
 
   """
-  @type describe_dashboard_definition_response() :: %{String.t() => any()}
+  @type describe_dashboard_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       table_border_options() :: %{
-        "Color" => String.t(),
+        "Color" => String.t() | atom(),
         "Style" => list(any()),
         "Thickness" => integer()
       }
 
   """
-  @type table_border_options() :: %{String.t() => any()}
+  @type table_border_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       waterfall_chart_options() :: %{
-        "TotalBarLabel" => String.t()
+        "TotalBarLabel" => String.t() | atom()
       }
 
   """
-  @type waterfall_chart_options() :: %{String.t() => any()}
+  @type waterfall_chart_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -974,7 +974,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_gradient_color() :: %{String.t() => any()}
+  @type geospatial_gradient_color() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -985,84 +985,86 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type radar_chart_field_wells() :: %{String.t() => any()}
+  @type radar_chart_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_dashboard_snapshot_job_schedule_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type start_dashboard_snapshot_job_schedule_response() :: %{String.t() => any()}
+  @type start_dashboard_snapshot_job_schedule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_template_alias_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "TemplateAlias" => template_alias()
       }
 
   """
-  @type create_template_alias_response() :: %{String.t() => any()}
+  @type create_template_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_identity_propagation_config_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type update_identity_propagation_config_response() :: %{String.t() => any()}
+  @type update_identity_propagation_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       label_options() :: %{
-        "CustomLabel" => String.t(),
+        "CustomLabel" => String.t() | atom(),
         "FontConfiguration" => font_configuration(),
         "Visibility" => list(any())
       }
 
   """
-  @type label_options() :: %{String.t() => any()}
+  @type label_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       legend_options() :: %{
-        "Height" => String.t(),
+        "Height" => String.t() | atom(),
         "Position" => list(any()),
         "Title" => label_options(),
         "ValueFontConfiguration" => font_configuration(),
         "Visibility" => list(any()),
-        "Width" => String.t()
+        "Width" => String.t() | atom()
       }
 
   """
-  @type legend_options() :: %{String.t() => any()}
+  @type legend_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       registered_user_q_search_bar_embedding_configuration() :: %{
-        "InitialTopicId" => String.t()
+        "InitialTopicId" => String.t() | atom()
       }
 
   """
-  @type registered_user_q_search_bar_embedding_configuration() :: %{String.t() => any()}
+  @type registered_user_q_search_bar_embedding_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -1078,12 +1080,12 @@ defmodule AWS.QuickSight do
   ## Example:
 
       string_parameter() :: %{
-        "Name" => String.t(),
-        "Values" => list(String.t())
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
 
   """
-  @type string_parameter() :: %{String.t() => any()}
+  @type string_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1091,32 +1093,32 @@ defmodule AWS.QuickSight do
 
       upload_settings() :: %{
         "ContainsHeader" => boolean(),
-        "Delimiter" => String.t(),
+        "Delimiter" => String.t() | atom(),
         "Format" => list(any()),
         "StartFromRow" => integer(),
         "TextQualifier" => list(any())
       }
 
   """
-  @type upload_settings() :: %{String.t() => any()}
+  @type upload_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_dashboard_embed_url_request() :: %{
-        optional("AdditionalDashboardIds") => list(String.t()),
-        optional("Namespace") => String.t(),
+        optional("AdditionalDashboardIds") => list(String.t() | atom()),
+        optional("Namespace") => String.t() | atom(),
         optional("ResetDisabled") => boolean(),
         optional("SessionLifetimeInMinutes") => float(),
         optional("StatePersistenceEnabled") => boolean(),
         optional("UndoRedoDisabled") => boolean(),
-        optional("UserArn") => String.t(),
+        optional("UserArn") => String.t() | atom(),
         required("IdentityType") => list(any())
       }
 
   """
-  @type get_dashboard_embed_url_request() :: %{String.t() => any()}
+  @type get_dashboard_embed_url_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1132,19 +1134,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type parameter_control() :: %{String.t() => any()}
+  @type parameter_control() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cell_value_synonym() :: %{
-        "CellValue" => String.t(),
-        "Synonyms" => list(String.t())
+        "CellValue" => String.t() | atom(),
+        "Synonyms" => list(String.t() | atom())
       }
 
   """
-  @type cell_value_synonym() :: %{String.t() => any()}
+  @type cell_value_synonym() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1154,11 +1156,11 @@ defmodule AWS.QuickSight do
         "Ir" => topic_i_r(),
         "Role" => list(any()),
         "SupportingVisuals" => list(topic_visual()),
-        "VisualId" => String.t()
+        "VisualId" => String.t() | atom()
       }
 
   """
-  @type topic_visual() :: %{String.t() => any()}
+  @type topic_visual() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1180,7 +1182,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type snapshot_configuration() :: %{String.t() => any()}
+  @type snapshot_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1192,7 +1194,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type numerical_aggregation_function() :: %{String.t() => any()}
+  @type numerical_aggregation_function() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1203,36 +1205,36 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type default_grid_layout_configuration() :: %{String.t() => any()}
+  @type default_grid_layout_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       period_to_date_computation() :: %{
-        "ComputationId" => String.t(),
-        "Name" => String.t(),
+        "ComputationId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "PeriodTimeGranularity" => list(any()),
         "Time" => dimension_field(),
         "Value" => measure_field()
       }
 
   """
-  @type period_to_date_computation() :: %{String.t() => any()}
+  @type period_to_date_computation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_folder_response() :: %{
-        "Arn" => String.t(),
-        "FolderId" => String.t(),
-        "RequestId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "FolderId" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type create_folder_response() :: %{String.t() => any()}
+  @type create_folder_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1248,60 +1250,60 @@ defmodule AWS.QuickSight do
   ## Example:
 
       create_vpc_connection_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "AvailabilityStatus" => list(any()),
         "CreationStatus" => list(any()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
-        "VPCConnectionId" => String.t()
+        "VPCConnectionId" => String.t() | atom()
       }
 
   """
-  @type create_vpc_connection_response() :: %{String.t() => any()}
+  @type create_vpc_connection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       logical_table() :: %{
-        "Alias" => String.t(),
+        "Alias" => String.t() | atom(),
         "DataTransforms" => list(list()),
         "Source" => logical_table_source()
       }
 
   """
-  @type logical_table() :: %{String.t() => any()}
+  @type logical_table() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       geospatial_map_style() :: %{
-        "BackgroundColor" => String.t(),
+        "BackgroundColor" => String.t() | atom(),
         "BaseMapStyle" => list(any()),
         "BaseMapVisibility" => list(any())
       }
 
   """
-  @type geospatial_map_style() :: %{String.t() => any()}
+  @type geospatial_map_style() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_dashboard_snapshot_job_result_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
         "ErrorInfo" => snapshot_job_error_info(),
         "JobStatus" => list(any()),
         "LastUpdatedTime" => non_neg_integer(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Result" => snapshot_job_result(),
         "Status" => integer()
       }
 
   """
-  @type describe_dashboard_snapshot_job_result_response() :: %{String.t() => any()}
+  @type describe_dashboard_snapshot_job_result_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1314,45 +1316,45 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type q_a_result() :: %{String.t() => any()}
+  @type q_a_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       negative_format() :: %{
-        "Prefix" => String.t(),
-        "Suffix" => String.t()
+        "Prefix" => String.t() | atom(),
+        "Suffix" => String.t() | atom()
       }
 
   """
-  @type negative_format() :: %{String.t() => any()}
+  @type negative_format() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       anonymous_user_q_search_bar_embedding_configuration() :: %{
-        "InitialTopicId" => String.t()
+        "InitialTopicId" => String.t() | atom()
       }
 
   """
-  @type anonymous_user_q_search_bar_embedding_configuration() :: %{String.t() => any()}
+  @type anonymous_user_q_search_bar_embedding_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       parameter_text_area_control() :: %{
-        "Delimiter" => String.t(),
+        "Delimiter" => String.t() | atom(),
         "DisplayOptions" => text_area_control_display_options(),
-        "ParameterControlId" => String.t(),
-        "SourceParameterName" => String.t(),
-        "Title" => String.t()
+        "ParameterControlId" => String.t() | atom(),
+        "SourceParameterName" => String.t() | atom(),
+        "Title" => String.t() | atom()
       }
 
   """
-  @type parameter_text_area_control() :: %{String.t() => any()}
+  @type parameter_text_area_control() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1364,20 +1366,20 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type visual_subtitle_label_options() :: %{String.t() => any()}
+  @type visual_subtitle_label_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_source() :: %{
-        "DataSourceArn" => String.t(),
+        "DataSourceArn" => String.t() | atom(),
         "InputColumns" => list(input_column()),
         "UploadSettings" => upload_settings()
       }
 
   """
-  @type s3_source() :: %{String.t() => any()}
+  @type s3_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1385,13 +1387,13 @@ defmodule AWS.QuickSight do
 
       list_data_sets_response() :: %{
         "DataSetSummaries" => list(data_set_summary()),
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type list_data_sets_response() :: %{String.t() => any()}
+  @type list_data_sets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1399,26 +1401,26 @@ defmodule AWS.QuickSight do
 
       date_time_picker_control_display_options() :: %{
         "DateIconVisibility" => list(any()),
-        "DateTimeFormat" => String.t(),
+        "DateTimeFormat" => String.t() | atom(),
         "HelperTextVisibility" => list(any()),
         "InfoIconLabelOptions" => sheet_control_info_icon_label_options(),
         "TitleOptions" => label_options()
       }
 
   """
-  @type date_time_picker_control_display_options() :: %{String.t() => any()}
+  @type date_time_picker_control_display_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       pivot_table_rows_label_options() :: %{
-        "CustomLabel" => String.t(),
+        "CustomLabel" => String.t() | atom(),
         "Visibility" => list(any())
       }
 
   """
-  @type pivot_table_rows_label_options() :: %{String.t() => any()}
+  @type pivot_table_rows_label_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1432,7 +1434,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type combo_chart_sort_configuration() :: %{String.t() => any()}
+  @type combo_chart_sort_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1445,7 +1447,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type anchor() :: %{String.t() => any()}
+  @type anchor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1457,7 +1459,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type topic_numeric_equality_filter() :: %{String.t() => any()}
+  @type topic_numeric_equality_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1473,12 +1475,12 @@ defmodule AWS.QuickSight do
   ## Example:
 
       integer_parameter() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Values" => list(float())
       }
 
   """
-  @type integer_parameter() :: %{String.t() => any()}
+  @type integer_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1490,7 +1492,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type default_interactive_layout_configuration() :: %{String.t() => any()}
+  @type default_interactive_layout_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1503,7 +1505,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type insight_configuration() :: %{String.t() => any()}
+  @type insight_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1514,7 +1516,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type pivot_table_field_wells() :: %{String.t() => any()}
+  @type pivot_table_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1531,13 +1533,13 @@ defmodule AWS.QuickSight do
 
       list_custom_permissions_response() :: %{
         "CustomPermissionsList" => list(custom_permissions()),
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type list_custom_permissions_response() :: %{String.t() => any()}
+  @type list_custom_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1548,7 +1550,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type default_free_form_layout_configuration() :: %{String.t() => any()}
+  @type default_free_form_layout_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1557,12 +1559,12 @@ defmodule AWS.QuickSight do
       numerical_measure_field() :: %{
         "AggregationFunction" => numerical_aggregation_function(),
         "Column" => column_identifier(),
-        "FieldId" => String.t(),
+        "FieldId" => String.t() | atom(),
         "FormatConfiguration" => number_format_configuration()
       }
 
   """
-  @type numerical_measure_field() :: %{String.t() => any()}
+  @type numerical_measure_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1573,32 +1575,32 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type plugin_visual_sort_configuration() :: %{String.t() => any()}
+  @type plugin_visual_sort_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       schedule_refresh_on_entity() :: %{
-        "DayOfMonth" => String.t(),
+        "DayOfMonth" => String.t() | atom(),
         "DayOfWeek" => list(any())
       }
 
   """
-  @type schedule_refresh_on_entity() :: %{String.t() => any()}
+  @type schedule_refresh_on_entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_bundle_import_job_error() :: %{
-        "Arn" => String.t(),
-        "Message" => String.t(),
-        "Type" => String.t()
+        "Arn" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type asset_bundle_import_job_error() :: %{String.t() => any()}
+  @type asset_bundle_import_job_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1606,40 +1608,40 @@ defmodule AWS.QuickSight do
 
       describe_q_personalization_configuration_response() :: %{
         "PersonalizationMode" => list(any()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_q_personalization_configuration_response() :: %{String.t() => any()}
+  @type describe_q_personalization_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_vpc_connections_response() :: %{
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "VPCConnectionSummaries" => list(vpc_connection_summary())
       }
 
   """
-  @type list_vpc_connections_response() :: %{String.t() => any()}
+  @type list_vpc_connections_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_refresh_schedule_response() :: %{
-        "Arn" => String.t(),
-        "RequestId" => String.t(),
-        "ScheduleId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "ScheduleId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type delete_refresh_schedule_response() :: %{String.t() => any()}
+  @type delete_refresh_schedule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1648,11 +1650,11 @@ defmodule AWS.QuickSight do
       predefined_hierarchy() :: %{
         "Columns" => list(column_identifier()),
         "DrillDownFilters" => list(drill_down_filter()),
-        "HierarchyId" => String.t()
+        "HierarchyId" => String.t() | atom()
       }
 
   """
-  @type predefined_hierarchy() :: %{String.t() => any()}
+  @type predefined_hierarchy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1660,66 +1662,66 @@ defmodule AWS.QuickSight do
 
       list_ingestions_response() :: %{
         "Ingestions" => list(ingestion()),
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type list_ingestions_response() :: %{String.t() => any()}
+  @type list_ingestions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       quicksight_identifier() :: %{
-        "Identity" => String.t()
+        "Identity" => String.t() | atom()
       }
 
   """
-  @type quicksight_identifier() :: %{String.t() => any()}
+  @type quicksight_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_ip_restriction_response() :: %{
-        "AwsAccountId" => String.t(),
+        "AwsAccountId" => String.t() | atom(),
         "Enabled" => boolean(),
         "IpRestrictionRuleMap" => map(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "VpcEndpointIdRestrictionRuleMap" => map(),
         "VpcIdRestrictionRuleMap" => map()
       }
 
   """
-  @type describe_ip_restriction_response() :: %{String.t() => any()}
+  @type describe_ip_restriction_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aurora_parameters() :: %{
-        "Database" => String.t(),
-        "Host" => String.t(),
+        "Database" => String.t() | atom(),
+        "Host" => String.t() | atom(),
         "Port" => integer()
       }
 
   """
-  @type aurora_parameters() :: %{String.t() => any()}
+  @type aurora_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       analysis_source_template() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "DataSetReferences" => list(data_set_reference())
       }
 
   """
-  @type analysis_source_template() :: %{String.t() => any()}
+  @type analysis_source_template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1735,14 +1737,14 @@ defmodule AWS.QuickSight do
   ## Example:
 
       update_refresh_schedule_response() :: %{
-        "Arn" => String.t(),
-        "RequestId" => String.t(),
-        "ScheduleId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "ScheduleId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type update_refresh_schedule_response() :: %{String.t() => any()}
+  @type update_refresh_schedule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1750,11 +1752,11 @@ defmodule AWS.QuickSight do
 
       spatial_static_file() :: %{
         "Source" => static_file_source(),
-        "StaticFileId" => String.t()
+        "StaticFileId" => String.t() | atom()
       }
 
   """
-  @type spatial_static_file() :: %{String.t() => any()}
+  @type spatial_static_file() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1791,20 +1793,20 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type dashboard_version_definition() :: %{String.t() => any()}
+  @type dashboard_version_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_user_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "User" => user()
       }
 
   """
-  @type update_user_response() :: %{String.t() => any()}
+  @type update_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1813,18 +1815,18 @@ defmodule AWS.QuickSight do
       create_data_source_request() :: %{
         optional("Credentials") => data_source_credentials(),
         optional("DataSourceParameters") => list(),
-        optional("FolderArns") => list(String.t()),
+        optional("FolderArns") => list(String.t() | atom()),
         optional("Permissions") => list(resource_permission()),
         optional("SslProperties") => ssl_properties(),
         optional("Tags") => list(tag()),
         optional("VpcConnectionProperties") => vpc_connection_properties(),
-        required("DataSourceId") => String.t(),
-        required("Name") => String.t(),
+        required("DataSourceId") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("Type") => list(any())
       }
 
   """
-  @type create_data_source_request() :: %{String.t() => any()}
+  @type create_data_source_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1832,26 +1834,26 @@ defmodule AWS.QuickSight do
 
       list_topic_refresh_schedules_response() :: %{
         "RefreshSchedules" => list(topic_refresh_schedule_summary()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
-        "TopicArn" => String.t(),
-        "TopicId" => String.t()
+        "TopicArn" => String.t() | atom(),
+        "TopicId" => String.t() | atom()
       }
 
   """
-  @type list_topic_refresh_schedules_response() :: %{String.t() => any()}
+  @type list_topic_refresh_schedules_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_bundle_resource_permissions() :: %{
-        "Actions" => list(String.t()),
-        "Principals" => list(String.t())
+        "Actions" => list(String.t() | atom()),
+        "Principals" => list(String.t() | atom())
       }
 
   """
-  @type asset_bundle_resource_permissions() :: %{String.t() => any()}
+  @type asset_bundle_resource_permissions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1873,7 +1875,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type waterfall_chart_configuration() :: %{String.t() => any()}
+  @type waterfall_chart_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1881,24 +1883,24 @@ defmodule AWS.QuickSight do
 
       search_folders_response() :: %{
         "FolderSummaryList" => list(folder_summary()),
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type search_folders_response() :: %{String.t() => any()}
+  @type search_folders_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unique_key() :: %{
-        "ColumnNames" => list(String.t())
+        "ColumnNames" => list(String.t() | atom())
       }
 
   """
-  @type unique_key() :: %{String.t() => any()}
+  @type unique_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1915,46 +1917,46 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type gauge_chart_configuration() :: %{String.t() => any()}
+  @type gauge_chart_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_data_set_refresh_properties_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type put_data_set_refresh_properties_response() :: %{String.t() => any()}
+  @type put_data_set_refresh_properties_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_data_source_permissions_response() :: %{
-        "DataSourceArn" => String.t(),
-        "DataSourceId" => String.t(),
+        "DataSourceArn" => String.t() | atom(),
+        "DataSourceId" => String.t() | atom(),
         "Permissions" => list(resource_permission()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_data_source_permissions_response() :: %{String.t() => any()}
+  @type describe_data_source_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       folder_member() :: %{
-        "MemberId" => String.t(),
+        "MemberId" => String.t() | atom(),
         "MemberType" => list(any())
       }
 
   """
-  @type folder_member() :: %{String.t() => any()}
+  @type folder_member() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1962,38 +1964,38 @@ defmodule AWS.QuickSight do
 
       decimal_dataset_parameter() :: %{
         "DefaultValues" => decimal_dataset_parameter_default_values(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "ValueType" => list(any())
       }
 
   """
-  @type decimal_dataset_parameter() :: %{String.t() => any()}
+  @type decimal_dataset_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_template_request() :: %{
-        optional("AliasName") => String.t(),
+        optional("AliasName") => String.t() | atom(),
         optional("VersionNumber") => float()
       }
 
   """
-  @type describe_template_request() :: %{String.t() => any()}
+  @type describe_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sheet_text_box() :: %{
-        "Content" => String.t(),
+        "Content" => String.t() | atom(),
         "Interactions" => text_box_interaction_options(),
-        "SheetTextBoxId" => String.t()
+        "SheetTextBoxId" => String.t() | atom()
       }
 
   """
-  @type sheet_text_box() :: %{String.t() => any()}
+  @type sheet_text_box() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2004,36 +2006,36 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type sheet_layout_element_maximization_option() :: %{String.t() => any()}
+  @type sheet_layout_element_maximization_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       relational_table() :: %{
-        "Catalog" => String.t(),
-        "DataSourceArn" => String.t(),
+        "Catalog" => String.t() | atom(),
+        "DataSourceArn" => String.t() | atom(),
         "InputColumns" => list(input_column()),
-        "Name" => String.t(),
-        "Schema" => String.t()
+        "Name" => String.t() | atom(),
+        "Schema" => String.t() | atom()
       }
 
   """
-  @type relational_table() :: %{String.t() => any()}
+  @type relational_table() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       table_field_options() :: %{
-        "Order" => list(String.t()),
+        "Order" => list(String.t() | atom()),
         "PinnedFieldOptions" => table_pinned_field_options(),
         "SelectedFieldOptions" => list(table_field_option()),
         "TransposedTableOptions" => list(transposed_table_option())
       }
 
   """
-  @type table_field_options() :: %{String.t() => any()}
+  @type table_field_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2043,11 +2045,11 @@ defmodule AWS.QuickSight do
         optional("IncludeGeneratedAnswer") => list(any()),
         optional("IncludeQuickSightQIndex") => list(any()),
         optional("MaxTopicsToConsider") => integer(),
-        required("QueryText") => String.t()
+        required("QueryText") => String.t() | atom()
       }
 
   """
-  @type predict_q_a_results_request() :: %{String.t() => any()}
+  @type predict_q_a_results_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2066,7 +2068,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type k_p_i_options() :: %{String.t() => any()}
+  @type k_p_i_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2074,11 +2076,11 @@ defmodule AWS.QuickSight do
 
       list_templates_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_templates_request() :: %{String.t() => any()}
+  @type list_templates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2089,7 +2091,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type sheet_controls_option() :: %{String.t() => any()}
+  @type sheet_controls_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2101,7 +2103,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type tile_layout_style() :: %{String.t() => any()}
+  @type tile_layout_style() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2112,45 +2114,45 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type percentile_aggregation() :: %{String.t() => any()}
+  @type percentile_aggregation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       entity() :: %{
-        "Path" => String.t()
+        "Path" => String.t() | atom()
       }
 
   """
-  @type entity() :: %{String.t() => any()}
+  @type entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_analysis_response() :: %{
-        "AnalysisId" => String.t(),
-        "Arn" => String.t(),
-        "RequestId" => String.t(),
+        "AnalysisId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "UpdateStatus" => list(any())
       }
 
   """
-  @type update_analysis_response() :: %{String.t() => any()}
+  @type update_analysis_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2161,7 +2163,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type waterfall_chart_color_configuration() :: %{String.t() => any()}
+  @type waterfall_chart_color_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2169,11 +2171,11 @@ defmodule AWS.QuickSight do
 
       axis_label_reference_options() :: %{
         "Column" => column_identifier(),
-        "FieldId" => String.t()
+        "FieldId" => String.t() | atom()
       }
 
   """
-  @type axis_label_reference_options() :: %{String.t() => any()}
+  @type axis_label_reference_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2184,18 +2186,18 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type table_field_custom_icon_content() :: %{String.t() => any()}
+  @type table_field_custom_icon_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       column_description() :: %{
-        "Text" => String.t()
+        "Text" => String.t() | atom()
       }
 
   """
-  @type column_description() :: %{String.t() => any()}
+  @type column_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2208,7 +2210,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type k_p_i_field_wells() :: %{String.t() => any()}
+  @type k_p_i_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2221,19 +2223,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type text_field_control_display_options() :: %{String.t() => any()}
+  @type text_field_control_display_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_bundle_import_job_theme_override_parameters() :: %{
-        "Name" => String.t(),
-        "ThemeId" => String.t()
+        "Name" => String.t() | atom(),
+        "ThemeId" => String.t() | atom()
       }
 
   """
-  @type asset_bundle_import_job_theme_override_parameters() :: %{String.t() => any()}
+  @type asset_bundle_import_job_theme_override_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2246,7 +2248,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type tooltip_options() :: %{String.t() => any()}
+  @type tooltip_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2257,7 +2259,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type gauge_chart_arc_conditional_formatting() :: %{String.t() => any()}
+  @type gauge_chart_arc_conditional_formatting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2269,7 +2271,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type axis_tick_label_options() :: %{String.t() => any()}
+  @type axis_tick_label_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2277,11 +2279,11 @@ defmodule AWS.QuickSight do
 
       list_ingestions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_ingestions_request() :: %{String.t() => any()}
+  @type list_ingestions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2289,11 +2291,11 @@ defmodule AWS.QuickSight do
 
       list_namespaces_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_namespaces_request() :: %{String.t() => any()}
+  @type list_namespaces_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2301,11 +2303,11 @@ defmodule AWS.QuickSight do
 
       list_identity_propagation_configs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_identity_propagation_configs_request() :: %{String.t() => any()}
+  @type list_identity_propagation_configs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2319,19 +2321,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type pie_chart_sort_configuration() :: %{String.t() => any()}
+  @type pie_chart_sort_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_data_set_refresh_properties_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type delete_data_set_refresh_properties_response() :: %{String.t() => any()}
+  @type delete_data_set_refresh_properties_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2345,19 +2347,21 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type k_p_i_conditional_formatting_option() :: %{String.t() => any()}
+  @type k_p_i_conditional_formatting_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_bundle_export_job_vpc_connection_override_properties() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "Properties" => list(list(any())())
       }
 
   """
-  @type asset_bundle_export_job_vpc_connection_override_properties() :: %{String.t() => any()}
+  @type asset_bundle_export_job_vpc_connection_override_properties() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -2372,7 +2376,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type line_chart_sort_configuration() :: %{String.t() => any()}
+  @type line_chart_sort_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2380,46 +2384,46 @@ defmodule AWS.QuickSight do
 
       update_template_permissions_response() :: %{
         "Permissions" => list(resource_permission()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
-        "TemplateArn" => String.t(),
-        "TemplateId" => String.t()
+        "TemplateArn" => String.t() | atom(),
+        "TemplateId" => String.t() | atom()
       }
 
   """
-  @type update_template_permissions_response() :: %{String.t() => any()}
+  @type update_template_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_theme_alias_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "ThemeAlias" => theme_alias()
       }
 
   """
-  @type create_theme_alias_response() :: %{String.t() => any()}
+  @type create_theme_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_set() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "ColumnGroups" => list(column_group()),
         "ColumnLevelPermissionRules" => list(column_level_permission_rule()),
         "ConsumedSpiceCapacityInBytes" => float(),
         "CreatedTime" => non_neg_integer(),
-        "DataSetId" => String.t(),
+        "DataSetId" => String.t() | atom(),
         "DataSetUsageConfiguration" => data_set_usage_configuration(),
         "DatasetParameters" => list(dataset_parameter()),
         "FieldFolders" => map(),
         "ImportMode" => list(any()),
         "LastUpdatedTime" => non_neg_integer(),
         "LogicalTableMap" => map(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "OutputColumns" => list(output_column()),
         "PerformanceConfiguration" => performance_configuration(),
         "PhysicalTableMap" => map(),
@@ -2429,7 +2433,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type data_set() :: %{String.t() => any()}
+  @type data_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2443,7 +2447,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type radar_chart_sort_configuration() :: %{String.t() => any()}
+  @type radar_chart_sort_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2454,18 +2458,18 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type create_ingestion_request() :: %{String.t() => any()}
+  @type create_ingestion_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       geospatial_heatmap_data_color() :: %{
-        "Color" => String.t()
+        "Color" => String.t() | atom()
       }
 
   """
-  @type geospatial_heatmap_data_color() :: %{String.t() => any()}
+  @type geospatial_heatmap_data_color() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2473,13 +2477,13 @@ defmodule AWS.QuickSight do
 
       create_iam_policy_assignment_request() :: %{
         optional("Identities") => map(),
-        optional("PolicyArn") => String.t(),
-        required("AssignmentName") => String.t(),
+        optional("PolicyArn") => String.t() | atom(),
+        required("AssignmentName") => String.t() | atom(),
         required("AssignmentStatus") => list(any())
       }
 
   """
-  @type create_iam_policy_assignment_request() :: %{String.t() => any()}
+  @type create_iam_policy_assignment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2490,19 +2494,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type update_template_alias_request() :: %{String.t() => any()}
+  @type update_template_alias_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_user_custom_permission_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type update_user_custom_permission_response() :: %{String.t() => any()}
+  @type update_user_custom_permission_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2510,11 +2514,11 @@ defmodule AWS.QuickSight do
 
       list_asset_bundle_import_jobs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_asset_bundle_import_jobs_request() :: %{String.t() => any()}
+  @type list_asset_bundle_import_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2522,29 +2526,29 @@ defmodule AWS.QuickSight do
 
       sheet_image() :: %{
         "Actions" => list(image_custom_action()),
-        "ImageContentAltText" => String.t(),
+        "ImageContentAltText" => String.t() | atom(),
         "Interactions" => image_interaction_options(),
         "Scaling" => sheet_image_scaling_configuration(),
-        "SheetImageId" => String.t(),
+        "SheetImageId" => String.t() | atom(),
         "Source" => sheet_image_source(),
         "Tooltip" => sheet_image_tooltip_configuration()
       }
 
   """
-  @type sheet_image() :: %{String.t() => any()}
+  @type sheet_image() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       lookback_window() :: %{
-        "ColumnName" => String.t(),
+        "ColumnName" => String.t() | atom(),
         "Size" => float(),
         "SizeUnit" => list(any())
       }
 
   """
-  @type lookback_window() :: %{String.t() => any()}
+  @type lookback_window() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2555,7 +2559,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type cluster_marker() :: %{String.t() => any()}
+  @type cluster_marker() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2566,7 +2570,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type pivot_table_sort_configuration() :: %{String.t() => any()}
+  @type pivot_table_sort_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2574,25 +2578,25 @@ defmodule AWS.QuickSight do
 
       list_user_groups_response() :: %{
         "GroupList" => list(group()),
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type list_user_groups_response() :: %{String.t() => any()}
+  @type list_user_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       authorized_targets_by_service() :: %{
-        "AuthorizedTargets" => list(String.t()),
+        "AuthorizedTargets" => list(String.t() | atom()),
         "Service" => list(any())
       }
 
   """
-  @type authorized_targets_by_service() :: %{String.t() => any()}
+  @type authorized_targets_by_service() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2601,21 +2605,21 @@ defmodule AWS.QuickSight do
       data_set_search_filter() :: %{
         "Name" => list(any()),
         "Operator" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | atom()
       }
 
   """
-  @type data_set_search_filter() :: %{String.t() => any()}
+  @type data_set_search_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       forecast_computation() :: %{
-        "ComputationId" => String.t(),
+        "ComputationId" => String.t() | atom(),
         "CustomSeasonalityValue" => integer(),
         "LowerBoundary" => float(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "PeriodsBackward" => integer(),
         "PeriodsForward" => integer(),
         "PredictionInterval" => integer(),
@@ -2626,7 +2630,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type forecast_computation() :: %{String.t() => any()}
+  @type forecast_computation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2637,7 +2641,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type filled_map_field_wells() :: %{String.t() => any()}
+  @type filled_map_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2648,7 +2652,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type snapshot_file_group() :: %{String.t() => any()}
+  @type snapshot_file_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2656,12 +2660,12 @@ defmodule AWS.QuickSight do
 
       search_folders_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("Filters") => list(folder_search_filter())
       }
 
   """
-  @type search_folders_request() :: %{String.t() => any()}
+  @type search_folders_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2672,19 +2676,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type image_set_configuration() :: %{String.t() => any()}
+  @type image_set_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       customer_managed_key_unavailable_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
       }
 
   """
-  @type customer_managed_key_unavailable_exception() :: %{String.t() => any()}
+  @type customer_managed_key_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2695,21 +2699,21 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type update_topic_refresh_schedule_request() :: %{String.t() => any()}
+  @type update_topic_refresh_schedule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_template_aliases_response() :: %{
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "TemplateAliasList" => list(template_alias())
       }
 
   """
-  @type list_template_aliases_response() :: %{String.t() => any()}
+  @type list_template_aliases_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2725,19 +2729,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type time_based_forecast_properties() :: %{String.t() => any()}
+  @type time_based_forecast_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_bundle_import_job_data_source_credential_pair() :: %{
-        "Password" => String.t(),
-        "Username" => String.t()
+        "Password" => String.t() | atom(),
+        "Username" => String.t() | atom()
       }
 
   """
-  @type asset_bundle_import_job_data_source_credential_pair() :: %{String.t() => any()}
+  @type asset_bundle_import_job_data_source_credential_pair() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2745,24 +2749,24 @@ defmodule AWS.QuickSight do
 
       header_footer_section_configuration() :: %{
         "Layout" => section_layout_configuration(),
-        "SectionId" => String.t(),
+        "SectionId" => String.t() | atom(),
         "Style" => section_style()
       }
 
   """
-  @type header_footer_section_configuration() :: %{String.t() => any()}
+  @type header_footer_section_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       field_folder() :: %{
-        "columns" => list(String.t()),
-        "description" => String.t()
+        "columns" => list(String.t() | atom()),
+        "description" => String.t() | atom()
       }
 
   """
-  @type field_folder() :: %{String.t() => any()}
+  @type field_folder() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2770,11 +2774,13 @@ defmodule AWS.QuickSight do
 
       asset_bundle_import_job_vpc_connection_override_tags() :: %{
         "Tags" => list(tag()),
-        "VPCConnectionIds" => list(String.t())
+        "VPCConnectionIds" => list(String.t() | atom())
       }
 
   """
-  @type asset_bundle_import_job_vpc_connection_override_tags() :: %{String.t() => any()}
+  @type asset_bundle_import_job_vpc_connection_override_tags() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -2782,43 +2788,43 @@ defmodule AWS.QuickSight do
 
       list_iam_policy_assignments_response() :: %{
         "IAMPolicyAssignments" => list(iam_policy_assignment_summary()),
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type list_iam_policy_assignments_response() :: %{String.t() => any()}
+  @type list_iam_policy_assignments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       namespace_info_v2() :: %{
-        "Arn" => String.t(),
-        "CapacityRegion" => String.t(),
+        "Arn" => String.t() | atom(),
+        "CapacityRegion" => String.t() | atom(),
         "CreationStatus" => list(any()),
-        "IamIdentityCenterApplicationArn" => String.t(),
-        "IamIdentityCenterInstanceArn" => String.t(),
+        "IamIdentityCenterApplicationArn" => String.t() | atom(),
+        "IamIdentityCenterInstanceArn" => String.t() | atom(),
         "IdentityStore" => list(any()),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "NamespaceError" => namespace_error()
       }
 
   """
-  @type namespace_info_v2() :: %{String.t() => any()}
+  @type namespace_info_v2() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       quick_sight_user_not_found_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
       }
 
   """
-  @type quick_sight_user_not_found_exception() :: %{String.t() => any()}
+  @type quick_sight_user_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2830,7 +2836,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type funnel_chart_sort_configuration() :: %{String.t() => any()}
+  @type funnel_chart_sort_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2838,27 +2844,27 @@ defmodule AWS.QuickSight do
 
       list_custom_permissions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_custom_permissions_request() :: %{String.t() => any()}
+  @type list_custom_permissions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       font_configuration() :: %{
-        "FontColor" => String.t(),
+        "FontColor" => String.t() | atom(),
         "FontDecoration" => list(any()),
-        "FontFamily" => String.t(),
+        "FontFamily" => String.t() | atom(),
         "FontSize" => font_size(),
         "FontStyle" => list(any()),
         "FontWeight" => font_weight()
       }
 
   """
-  @type font_configuration() :: %{String.t() => any()}
+  @type font_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2869,7 +2875,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type gauge_chart_conditional_formatting() :: %{String.t() => any()}
+  @type gauge_chart_conditional_formatting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2883,7 +2889,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type time_range_drill_down_filter() :: %{String.t() => any()}
+  @type time_range_drill_down_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2894,19 +2900,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type amazon_q_in_quick_sight_dashboard_configurations() :: %{String.t() => any()}
+  @type amazon_q_in_quick_sight_dashboard_configurations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_bundle_import_source_description() :: %{
-        "Body" => String.t(),
-        "S3Uri" => String.t()
+        "Body" => String.t() | atom(),
+        "S3Uri" => String.t() | atom()
       }
 
   """
-  @type asset_bundle_import_source_description() :: %{String.t() => any()}
+  @type asset_bundle_import_source_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2914,12 +2920,12 @@ defmodule AWS.QuickSight do
 
       athena_parameters() :: %{
         "IdentityCenterConfiguration" => identity_center_configuration(),
-        "RoleArn" => String.t(),
-        "WorkGroup" => String.t()
+        "RoleArn" => String.t() | atom(),
+        "WorkGroup" => String.t() | atom()
       }
 
   """
-  @type athena_parameters() :: %{String.t() => any()}
+  @type athena_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2939,19 +2945,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type bin_count_options() :: %{String.t() => any()}
+  @type bin_count_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_asset_bundle_export_job_response() :: %{
-        "Arn" => String.t(),
-        "AssetBundleExportJobId" => String.t(),
-        "AwsAccountId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "AssetBundleExportJobId" => String.t() | atom(),
+        "AwsAccountId" => String.t() | atom(),
         "CloudFormationOverridePropertyConfiguration" => asset_bundle_cloud_formation_override_property_configuration(),
         "CreatedTime" => non_neg_integer(),
-        "DownloadUrl" => String.t(),
+        "DownloadUrl" => String.t() | atom(),
         "Errors" => list(asset_bundle_export_job_error()),
         "ExportFormat" => list(any()),
         "IncludeAllDependencies" => boolean(),
@@ -2960,15 +2966,15 @@ defmodule AWS.QuickSight do
         "IncludePermissions" => boolean(),
         "IncludeTags" => boolean(),
         "JobStatus" => list(any()),
-        "RequestId" => String.t(),
-        "ResourceArns" => list(String.t()),
+        "RequestId" => String.t() | atom(),
+        "ResourceArns" => list(String.t() | atom()),
         "Status" => integer(),
         "ValidationStrategy" => asset_bundle_export_job_validation_strategy(),
         "Warnings" => list(asset_bundle_export_job_warning())
       }
 
   """
-  @type describe_asset_bundle_export_job_response() :: %{String.t() => any()}
+  @type describe_asset_bundle_export_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2979,7 +2985,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type restore_analysis_request() :: %{String.t() => any()}
+  @type restore_analysis_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2991,7 +2997,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type body_section_repeat_dimension_configuration() :: %{String.t() => any()}
+  @type body_section_repeat_dimension_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3002,7 +3008,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type free_form_section_layout_configuration() :: %{String.t() => any()}
+  @type free_form_section_layout_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3010,15 +3016,17 @@ defmodule AWS.QuickSight do
 
       asset_bundle_import_job_data_source_override_parameters() :: %{
         "Credentials" => asset_bundle_import_job_data_source_credentials(),
-        "DataSourceId" => String.t(),
+        "DataSourceId" => String.t() | atom(),
         "DataSourceParameters" => list(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "SslProperties" => ssl_properties(),
         "VpcConnectionProperties" => vpc_connection_properties()
       }
 
   """
-  @type asset_bundle_import_job_data_source_override_parameters() :: %{String.t() => any()}
+  @type asset_bundle_import_job_data_source_override_parameters() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -3032,7 +3040,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_coordinate_bounds() :: %{String.t() => any()}
+  @type geospatial_coordinate_bounds() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3044,7 +3052,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type conditional_formatting_color() :: %{String.t() => any()}
+  @type conditional_formatting_color() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3055,7 +3063,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type update_brand_request() :: %{String.t() => any()}
+  @type update_brand_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3063,13 +3071,13 @@ defmodule AWS.QuickSight do
 
       parameter_text_field_control() :: %{
         "DisplayOptions" => text_field_control_display_options(),
-        "ParameterControlId" => String.t(),
-        "SourceParameterName" => String.t(),
-        "Title" => String.t()
+        "ParameterControlId" => String.t() | atom(),
+        "SourceParameterName" => String.t() | atom(),
+        "Title" => String.t() | atom()
       }
 
   """
-  @type parameter_text_field_control() :: %{String.t() => any()}
+  @type parameter_text_field_control() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3084,20 +3092,20 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_layer_map_configuration() :: %{String.t() => any()}
+  @type geospatial_layer_map_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_unavailable_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t(),
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "ResourceType" => list(any())
       }
 
   """
-  @type resource_unavailable_exception() :: %{String.t() => any()}
+  @type resource_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3108,19 +3116,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_heatmap_configuration() :: %{String.t() => any()}
+  @type geospatial_heatmap_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       logo() :: %{
-        "AltText" => String.t(),
+        "AltText" => String.t() | atom(),
         "LogoSet" => logo_set()
       }
 
   """
-  @type logo() :: %{String.t() => any()}
+  @type logo() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3128,11 +3136,11 @@ defmodule AWS.QuickSight do
 
       asset_bundle_import_job_theme_override_permissions() :: %{
         "Permissions" => asset_bundle_resource_permissions(),
-        "ThemeIds" => list(String.t())
+        "ThemeIds" => list(String.t() | atom())
       }
 
   """
-  @type asset_bundle_import_job_theme_override_permissions() :: %{String.t() => any()}
+  @type asset_bundle_import_job_theme_override_permissions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3144,7 +3152,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type gauge_chart_primary_value_conditional_formatting() :: %{String.t() => any()}
+  @type gauge_chart_primary_value_conditional_formatting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3153,22 +3161,22 @@ defmodule AWS.QuickSight do
       describe_brand_published_version_response() :: %{
         "BrandDefinition" => brand_definition(),
         "BrandDetail" => brand_detail(),
-        "RequestId" => String.t()
+        "RequestId" => String.t() | atom()
       }
 
   """
-  @type describe_brand_published_version_response() :: %{String.t() => any()}
+  @type describe_brand_published_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       geospatial_static_file_source() :: %{
-        "StaticFileId" => String.t()
+        "StaticFileId" => String.t() | atom()
       }
 
   """
-  @type geospatial_static_file_source() :: %{String.t() => any()}
+  @type geospatial_static_file_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3181,7 +3189,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_color() :: %{String.t() => any()}
+  @type geospatial_color() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3189,39 +3197,39 @@ defmodule AWS.QuickSight do
 
       sheet_element_rendering_rule() :: %{
         "ConfigurationOverrides" => sheet_element_configuration_overrides(),
-        "Expression" => String.t()
+        "Expression" => String.t() | atom()
       }
 
   """
-  @type sheet_element_rendering_rule() :: %{String.t() => any()}
+  @type sheet_element_rendering_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_asset_bundle_import_job_response() :: %{
-        "Arn" => String.t(),
-        "AssetBundleImportJobId" => String.t(),
-        "RequestId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "AssetBundleImportJobId" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type start_asset_bundle_import_job_response() :: %{String.t() => any()}
+  @type start_asset_bundle_import_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       search_topics_response() :: %{
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "TopicSummaryList" => list(topic_summary())
       }
 
   """
-  @type search_topics_response() :: %{String.t() => any()}
+  @type search_topics_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3233,33 +3241,33 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type table_field_link_content_configuration() :: %{String.t() => any()}
+  @type table_field_link_content_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       slot() :: %{
-        "SlotId" => String.t(),
-        "VisualId" => String.t()
+        "SlotId" => String.t() | atom(),
+        "VisualId" => String.t() | atom()
       }
 
   """
-  @type slot() :: %{String.t() => any()}
+  @type slot() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_refresh_schedule_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "RefreshSchedule" => refresh_schedule(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_refresh_schedule_response() :: %{String.t() => any()}
+  @type describe_refresh_schedule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3270,7 +3278,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type recent_snapshots_configurations() :: %{String.t() => any()}
+  @type recent_snapshots_configurations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3283,7 +3291,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type category_filter_configuration() :: %{String.t() => any()}
+  @type category_filter_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3292,16 +3300,16 @@ defmodule AWS.QuickSight do
       describe_template_definition_response() :: %{
         "Definition" => template_version_definition(),
         "Errors" => list(template_error()),
-        "Name" => String.t(),
-        "RequestId" => String.t(),
+        "Name" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "ResourceStatus" => list(any()),
         "Status" => integer(),
-        "TemplateId" => String.t(),
-        "ThemeArn" => String.t()
+        "TemplateId" => String.t() | atom(),
+        "ThemeArn" => String.t() | atom()
       }
 
   """
-  @type describe_template_definition_response() :: %{String.t() => any()}
+  @type describe_template_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3310,14 +3318,14 @@ defmodule AWS.QuickSight do
       topic_refresh_schedule() :: %{
         "BasedOnSpiceSchedule" => boolean(),
         "IsEnabled" => boolean(),
-        "RepeatAt" => String.t(),
+        "RepeatAt" => String.t() | atom(),
         "StartingAt" => non_neg_integer(),
-        "Timezone" => String.t(),
+        "Timezone" => String.t() | atom(),
         "TopicScheduleType" => list(any())
       }
 
   """
-  @type topic_refresh_schedule() :: %{String.t() => any()}
+  @type topic_refresh_schedule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3330,20 +3338,20 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type column_sort() :: %{String.t() => any()}
+  @type column_sort() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       input_column() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "SubType" => list(any()),
         "Type" => list(any())
       }
 
   """
-  @type input_column() :: %{String.t() => any()}
+  @type input_column() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3354,19 +3362,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_point_style() :: %{String.t() => any()}
+  @type geospatial_point_style() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_account_settings_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type update_account_settings_response() :: %{String.t() => any()}
+  @type update_account_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3377,7 +3385,9 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type asset_bundle_export_job_resource_id_override_configuration() :: %{String.t() => any()}
+  @type asset_bundle_export_job_resource_id_override_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -3389,51 +3399,51 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type axis_display_range() :: %{String.t() => any()}
+  @type axis_display_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       filled_map_shape_conditional_formatting() :: %{
-        "FieldId" => String.t(),
+        "FieldId" => String.t() | atom(),
         "Format" => shape_conditional_format()
       }
 
   """
-  @type filled_map_shape_conditional_formatting() :: %{String.t() => any()}
+  @type filled_map_shape_conditional_formatting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       network_interface() :: %{
-        "AvailabilityZone" => String.t(),
-        "ErrorMessage" => String.t(),
-        "NetworkInterfaceId" => String.t(),
+        "AvailabilityZone" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "NetworkInterfaceId" => String.t() | atom(),
         "Status" => list(any()),
-        "SubnetId" => String.t()
+        "SubnetId" => String.t() | atom()
       }
 
   """
-  @type network_interface() :: %{String.t() => any()}
+  @type network_interface() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_iam_policy_assignment_response() :: %{
-        "AssignmentId" => String.t(),
-        "AssignmentName" => String.t(),
+        "AssignmentId" => String.t() | atom(),
+        "AssignmentName" => String.t() | atom(),
         "AssignmentStatus" => list(any()),
         "Identities" => map(),
-        "PolicyArn" => String.t(),
-        "RequestId" => String.t(),
+        "PolicyArn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type create_iam_policy_assignment_response() :: %{String.t() => any()}
+  @type create_iam_policy_assignment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3444,39 +3454,39 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type line_chart_field_wells() :: %{String.t() => any()}
+  @type line_chart_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       gauge_chart_color_configuration() :: %{
-        "BackgroundColor" => String.t(),
-        "ForegroundColor" => String.t()
+        "BackgroundColor" => String.t() | atom(),
+        "ForegroundColor" => String.t() | atom()
       }
 
   """
-  @type gauge_chart_color_configuration() :: %{String.t() => any()}
+  @type gauge_chart_color_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dashboard_version() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "DataSetArns" => list(String.t()),
-        "Description" => String.t(),
+        "DataSetArns" => list(String.t() | atom()),
+        "Description" => String.t() | atom(),
         "Errors" => list(dashboard_error()),
         "Sheets" => list(sheet()),
-        "SourceEntityArn" => String.t(),
+        "SourceEntityArn" => String.t() | atom(),
         "Status" => list(any()),
-        "ThemeArn" => String.t(),
+        "ThemeArn" => String.t() | atom(),
         "VersionNumber" => float()
       }
 
   """
-  @type dashboard_version() :: %{String.t() => any()}
+  @type dashboard_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3487,23 +3497,23 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type table_unaggregated_field_wells() :: %{String.t() => any()}
+  @type table_unaggregated_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       analysis_summary() :: %{
-        "AnalysisId" => String.t(),
-        "Arn" => String.t(),
+        "AnalysisId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
         "LastUpdatedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Status" => list(any())
       }
 
   """
-  @type analysis_summary() :: %{String.t() => any()}
+  @type analysis_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3515,7 +3525,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type integer_default_values() :: %{String.t() => any()}
+  @type integer_default_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3527,7 +3537,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type update_analysis_permissions_request() :: %{String.t() => any()}
+  @type update_analysis_permissions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3538,7 +3548,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_point_layer() :: %{String.t() => any()}
+  @type geospatial_point_layer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3549,19 +3559,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type pie_chart_field_wells() :: %{String.t() => any()}
+  @type pie_chart_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_bundle_import_job_folder_override_permissions() :: %{
-        "FolderIds" => list(String.t()),
+        "FolderIds" => list(String.t() | atom()),
         "Permissions" => asset_bundle_resource_permissions()
       }
 
   """
-  @type asset_bundle_import_job_folder_override_permissions() :: %{String.t() => any()}
+  @type asset_bundle_import_job_folder_override_permissions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3569,27 +3579,27 @@ defmodule AWS.QuickSight do
 
       create_template_request() :: %{
         optional("Definition") => template_version_definition(),
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | atom(),
         optional("Permissions") => list(resource_permission()),
         optional("SourceEntity") => template_source_entity(),
         optional("Tags") => list(tag()),
         optional("ValidationStrategy") => validation_strategy(),
-        optional("VersionDescription") => String.t()
+        optional("VersionDescription") => String.t() | atom()
       }
 
   """
-  @type create_template_request() :: %{String.t() => any()}
+  @type create_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       named_entity_ref() :: %{
-        "NamedEntityName" => String.t()
+        "NamedEntityName" => String.t() | atom()
       }
 
   """
-  @type named_entity_ref() :: %{String.t() => any()}
+  @type named_entity_ref() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3599,25 +3609,25 @@ defmodule AWS.QuickSight do
         "DisabledFeatures" => list(list(any())()),
         "EnabledFeatures" => list(list(any())()),
         "FeatureConfigurations" => anonymous_user_dashboard_feature_configurations(),
-        "InitialDashboardId" => String.t()
+        "InitialDashboardId" => String.t() | atom()
       }
 
   """
-  @type anonymous_user_dashboard_embedding_configuration() :: %{String.t() => any()}
+  @type anonymous_user_dashboard_embedding_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_dashboard_published_version_response() :: %{
-        "DashboardArn" => String.t(),
-        "DashboardId" => String.t(),
-        "RequestId" => String.t(),
+        "DashboardArn" => String.t() | atom(),
+        "DashboardId" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type update_dashboard_published_version_response() :: %{String.t() => any()}
+  @type update_dashboard_published_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3629,21 +3639,21 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type table_field_link_configuration() :: %{String.t() => any()}
+  @type table_field_link_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       generate_embed_url_for_registered_user_request() :: %{
-        optional("AllowedDomains") => list(String.t()),
+        optional("AllowedDomains") => list(String.t() | atom()),
         optional("SessionLifetimeInMinutes") => float(),
         required("ExperienceConfiguration") => registered_user_embedding_experience_configuration(),
-        required("UserArn") => String.t()
+        required("UserArn") => String.t() | atom()
       }
 
   """
-  @type generate_embed_url_for_registered_user_request() :: %{String.t() => any()}
+  @type generate_embed_url_for_registered_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3651,28 +3661,28 @@ defmodule AWS.QuickSight do
 
       search_data_sources_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("Filters") => list(data_source_search_filter())
       }
 
   """
-  @type search_data_sources_request() :: %{String.t() => any()}
+  @type search_data_sources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       account_info() :: %{
-        "AccountName" => String.t(),
-        "AccountSubscriptionStatus" => String.t(),
-        "AuthenticationType" => String.t(),
+        "AccountName" => String.t() | atom(),
+        "AccountSubscriptionStatus" => String.t() | atom(),
+        "AuthenticationType" => String.t() | atom(),
         "Edition" => list(any()),
-        "IAMIdentityCenterInstanceArn" => String.t(),
-        "NotificationEmail" => String.t()
+        "IAMIdentityCenterInstanceArn" => String.t() | atom(),
+        "NotificationEmail" => String.t() | atom()
       }
 
   """
-  @type account_info() :: %{String.t() => any()}
+  @type account_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3684,7 +3694,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type global_table_border_options() :: %{String.t() => any()}
+  @type global_table_border_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3692,17 +3702,17 @@ defmodule AWS.QuickSight do
 
       filter_slider_control() :: %{
         "DisplayOptions" => slider_control_display_options(),
-        "FilterControlId" => String.t(),
+        "FilterControlId" => String.t() | atom(),
         "MaximumValue" => float(),
         "MinimumValue" => float(),
-        "SourceFilterId" => String.t(),
+        "SourceFilterId" => String.t() | atom(),
         "StepSize" => float(),
-        "Title" => String.t(),
+        "Title" => String.t() | atom(),
         "Type" => list(any())
       }
 
   """
-  @type filter_slider_control() :: %{String.t() => any()}
+  @type filter_slider_control() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3713,7 +3723,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type histogram_field_wells() :: %{String.t() => any()}
+  @type histogram_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3724,7 +3734,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type loading_animation() :: %{String.t() => any()}
+  @type loading_animation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3738,7 +3748,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type list_control_display_options() :: %{String.t() => any()}
+  @type list_control_display_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3746,15 +3756,15 @@ defmodule AWS.QuickSight do
 
       update_account_customization_response() :: %{
         "AccountCustomization" => account_customization(),
-        "Arn" => String.t(),
-        "AwsAccountId" => String.t(),
-        "Namespace" => String.t(),
-        "RequestId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "AwsAccountId" => String.t() | atom(),
+        "Namespace" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type update_account_customization_response() :: %{String.t() => any()}
+  @type update_account_customization_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3762,13 +3772,13 @@ defmodule AWS.QuickSight do
 
       integer_dataset_parameter() :: %{
         "DefaultValues" => integer_dataset_parameter_default_values(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "ValueType" => list(any())
       }
 
   """
-  @type integer_dataset_parameter() :: %{String.t() => any()}
+  @type integer_dataset_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3779,31 +3789,31 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type snapshot_s3_destination_configuration() :: %{String.t() => any()}
+  @type snapshot_s3_destination_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_dashboard_links_request() :: %{
-        required("LinkEntities") => list(String.t())
+        required("LinkEntities") => list(String.t() | atom())
       }
 
   """
-  @type update_dashboard_links_request() :: %{String.t() => any()}
+  @type update_dashboard_links_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       geo_spatial_column_group() :: %{
-        "Columns" => list(String.t()),
+        "Columns" => list(String.t() | atom()),
         "CountryCode" => list(any()),
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type geo_spatial_column_group() :: %{String.t() => any()}
+  @type geo_spatial_column_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3811,26 +3821,26 @@ defmodule AWS.QuickSight do
 
       create_topic_request() :: %{
         optional("CustomInstructions") => custom_instructions(),
-        optional("FolderArns") => list(String.t()),
+        optional("FolderArns") => list(String.t() | atom()),
         optional("Tags") => list(tag()),
         required("Topic") => topic_details(),
-        required("TopicId") => String.t()
+        required("TopicId") => String.t() | atom()
       }
 
   """
-  @type create_topic_request() :: %{String.t() => any()}
+  @type create_topic_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_bundle_export_job_folder_override_properties() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "Properties" => list(list(any())())
       }
 
   """
-  @type asset_bundle_export_job_folder_override_properties() :: %{String.t() => any()}
+  @type asset_bundle_export_job_folder_override_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3838,11 +3848,11 @@ defmodule AWS.QuickSight do
 
       list_data_sets_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_data_sets_request() :: %{String.t() => any()}
+  @type list_data_sets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3854,30 +3864,30 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type decimal_value_when_unset_configuration() :: %{String.t() => any()}
+  @type decimal_value_when_unset_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       font() :: %{
-        "FontFamily" => String.t()
+        "FontFamily" => String.t() | atom()
       }
 
   """
-  @type font() :: %{String.t() => any()}
+  @type font() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unsupported_pricing_plan_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
       }
 
   """
-  @type unsupported_pricing_plan_exception() :: %{String.t() => any()}
+  @type unsupported_pricing_plan_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3890,7 +3900,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_point_style_options() :: %{String.t() => any()}
+  @type geospatial_point_style_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3901,7 +3911,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type radar_chart_series_settings() :: %{String.t() => any()}
+  @type radar_chart_series_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3912,7 +3922,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type put_data_set_refresh_properties_request() :: %{String.t() => any()}
+  @type put_data_set_refresh_properties_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3924,7 +3934,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type scroll_bar_options() :: %{String.t() => any()}
+  @type scroll_bar_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3941,13 +3951,13 @@ defmodule AWS.QuickSight do
 
       search_data_sources_response() :: %{
         "DataSourceSummaries" => list(data_source_summary()),
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type search_data_sources_response() :: %{String.t() => any()}
+  @type search_data_sources_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3955,25 +3965,25 @@ defmodule AWS.QuickSight do
 
       search_topics_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("Filters") => list(topic_search_filter())
       }
 
   """
-  @type search_topics_request() :: %{String.t() => any()}
+  @type search_topics_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_custom_permissions_response() :: %{
-        "Arn" => String.t(),
-        "RequestId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type create_custom_permissions_response() :: %{String.t() => any()}
+  @type create_custom_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3985,20 +3995,20 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type update_topic_request() :: %{String.t() => any()}
+  @type update_topic_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       theme_alias() :: %{
-        "AliasName" => String.t(),
-        "Arn" => String.t(),
+        "AliasName" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
         "ThemeVersionNumber" => float()
       }
 
   """
-  @type theme_alias() :: %{String.t() => any()}
+  @type theme_alias() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4018,7 +4028,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type visual_highlight_operation() :: %{String.t() => any()}
+  @type visual_highlight_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4038,7 +4048,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type layout() :: %{String.t() => any()}
+  @type layout() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4049,7 +4059,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type update_key_registration_request() :: %{String.t() => any()}
+  @type update_key_registration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4060,19 +4070,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type reference_line_static_data_configuration() :: %{String.t() => any()}
+  @type reference_line_static_data_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       free_form_layout_element_border_style() :: %{
-        "Color" => String.t(),
+        "Color" => String.t() | atom(),
         "Visibility" => list(any())
       }
 
   """
-  @type free_form_layout_element_border_style() :: %{String.t() => any()}
+  @type free_form_layout_element_border_style() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4080,14 +4090,14 @@ defmodule AWS.QuickSight do
 
       filter_group() :: %{
         "CrossDataset" => list(any()),
-        "FilterGroupId" => String.t(),
+        "FilterGroupId" => String.t() | atom(),
         "Filters" => list(filter()),
         "ScopeConfiguration" => filter_scope_configuration(),
         "Status" => list(any())
       }
 
   """
-  @type filter_group() :: %{String.t() => any()}
+  @type filter_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4096,11 +4106,11 @@ defmodule AWS.QuickSight do
       update_iam_policy_assignment_request() :: %{
         optional("AssignmentStatus") => list(any()),
         optional("Identities") => map(),
-        optional("PolicyArn") => String.t()
+        optional("PolicyArn") => String.t() | atom()
       }
 
   """
-  @type update_iam_policy_assignment_request() :: %{String.t() => any()}
+  @type update_iam_policy_assignment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4116,49 +4126,51 @@ defmodule AWS.QuickSight do
   ## Example:
 
       update_application_with_token_exchange_grant_request() :: %{
-        required("Namespace") => String.t()
+        required("Namespace") => String.t() | atom()
       }
 
   """
-  @type update_application_with_token_exchange_grant_request() :: %{String.t() => any()}
+  @type update_application_with_token_exchange_grant_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       create_ingestion_response() :: %{
-        "Arn" => String.t(),
-        "IngestionId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "IngestionId" => String.t() | atom(),
         "IngestionStatus" => list(any()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type create_ingestion_response() :: %{String.t() => any()}
+  @type create_ingestion_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_account_customization_request() :: %{
-        optional("Namespace") => String.t(),
+        optional("Namespace") => String.t() | atom(),
         optional("Resolved") => boolean()
       }
 
   """
-  @type describe_account_customization_request() :: %{String.t() => any()}
+  @type describe_account_customization_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_iot_analytics_parameters() :: %{
-        "DataSetName" => String.t()
+        "DataSetName" => String.t() | atom()
       }
 
   """
-  @type aws_iot_analytics_parameters() :: %{String.t() => any()}
+  @type aws_iot_analytics_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4166,14 +4178,14 @@ defmodule AWS.QuickSight do
 
       update_template_request() :: %{
         optional("Definition") => template_version_definition(),
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | atom(),
         optional("SourceEntity") => template_source_entity(),
         optional("ValidationStrategy") => validation_strategy(),
-        optional("VersionDescription") => String.t()
+        optional("VersionDescription") => String.t() | atom()
       }
 
   """
-  @type update_template_request() :: %{String.t() => any()}
+  @type update_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4184,32 +4196,32 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type context_menu_option() :: %{String.t() => any()}
+  @type context_menu_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_filter_list_configuration() :: %{
-        "CategoryValues" => list(String.t()),
+        "CategoryValues" => list(String.t() | atom()),
         "MatchOperator" => list(any()),
         "NullOption" => list(any()),
         "SelectAllOptions" => list(any())
       }
 
   """
-  @type custom_filter_list_configuration() :: %{String.t() => any()}
+  @type custom_filter_list_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_brand_request() :: %{
-        optional("VersionId") => String.t()
+        optional("VersionId") => String.t() | atom()
       }
 
   """
-  @type describe_brand_request() :: %{String.t() => any()}
+  @type describe_brand_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4217,11 +4229,11 @@ defmodule AWS.QuickSight do
 
       list_brands_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_brands_request() :: %{String.t() => any()}
+  @type list_brands_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4236,7 +4248,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type scatter_plot_categorically_aggregated_field_wells() :: %{String.t() => any()}
+  @type scatter_plot_categorically_aggregated_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4247,7 +4259,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type create_theme_alias_request() :: %{String.t() => any()}
+  @type create_theme_alias_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4258,22 +4270,22 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type bookmarks_configurations() :: %{String.t() => any()}
+  @type bookmarks_configurations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_data_source_response() :: %{
-        "Arn" => String.t(),
-        "DataSourceId" => String.t(),
-        "RequestId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "DataSourceId" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "UpdateStatus" => list(any())
       }
 
   """
-  @type update_data_source_response() :: %{String.t() => any()}
+  @type update_data_source_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4288,7 +4300,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type gauge_chart_options() :: %{String.t() => any()}
+  @type gauge_chart_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4307,26 +4319,26 @@ defmodule AWS.QuickSight do
         "AggregationSortConfigurations" => list(aggregation_sort_configuration()),
         "Column" => column_identifier(),
         "DefaultFilterControlConfiguration" => default_filter_control_configuration(),
-        "FilterId" => String.t(),
+        "FilterId" => String.t() | atom(),
         "Limit" => integer(),
-        "ParameterName" => String.t(),
+        "ParameterName" => String.t() | atom(),
         "TimeGranularity" => list(any())
       }
 
   """
-  @type top_bottom_filter() :: %{String.t() => any()}
+  @type top_bottom_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       error_info() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | atom(),
         "Type" => list(any())
       }
 
   """
-  @type error_info() :: %{String.t() => any()}
+  @type error_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4342,27 +4354,27 @@ defmodule AWS.QuickSight do
   ## Example:
 
       maximum_minimum_computation() :: %{
-        "ComputationId" => String.t(),
-        "Name" => String.t(),
+        "ComputationId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Time" => dimension_field(),
         "Type" => list(any()),
         "Value" => measure_field()
       }
 
   """
-  @type maximum_minimum_computation() :: %{String.t() => any()}
+  @type maximum_minimum_computation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_account_customization_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type delete_account_customization_response() :: %{String.t() => any()}
+  @type delete_account_customization_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4374,70 +4386,70 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type field_sort_options() :: %{String.t() => any()}
+  @type field_sort_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_bundle_import_job_folder_override_parameters() :: %{
-        "FolderId" => String.t(),
-        "Name" => String.t(),
-        "ParentFolderArn" => String.t()
+        "FolderId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ParentFolderArn" => String.t() | atom()
       }
 
   """
-  @type asset_bundle_import_job_folder_override_parameters() :: %{String.t() => any()}
+  @type asset_bundle_import_job_folder_override_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t())
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc_connection() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "AvailabilityStatus" => list(any()),
         "CreatedTime" => non_neg_integer(),
-        "DnsResolvers" => list(String.t()),
+        "DnsResolvers" => list(String.t() | atom()),
         "LastUpdatedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "NetworkInterfaces" => list(network_interface()),
-        "RoleArn" => String.t(),
-        "SecurityGroupIds" => list(String.t()),
+        "RoleArn" => String.t() | atom(),
+        "SecurityGroupIds" => list(String.t() | atom()),
         "Status" => list(any()),
-        "VPCConnectionId" => String.t(),
-        "VPCId" => String.t()
+        "VPCConnectionId" => String.t() | atom(),
+        "VPCId" => String.t() | atom()
       }
 
   """
-  @type vpc_connection() :: %{String.t() => any()}
+  @type vpc_connection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_vpc_connection_request() :: %{
-        optional("DnsResolvers") => list(String.t()),
+        optional("DnsResolvers") => list(String.t() | atom()),
         optional("Tags") => list(tag()),
-        required("Name") => String.t(),
-        required("RoleArn") => String.t(),
-        required("SecurityGroupIds") => list(String.t()),
-        required("SubnetIds") => list(String.t()),
-        required("VPCConnectionId") => String.t()
+        required("Name") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom(),
+        required("SecurityGroupIds") => list(String.t() | atom()),
+        required("SubnetIds") => list(String.t() | atom()),
+        required("VPCConnectionId") => String.t() | atom()
       }
 
   """
-  @type create_vpc_connection_request() :: %{String.t() => any()}
+  @type create_vpc_connection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4446,11 +4458,11 @@ defmodule AWS.QuickSight do
       geospatial_layer_join_definition() :: %{
         "ColorField" => geospatial_layer_color_field(),
         "DatasetKeyField" => unaggregated_field(),
-        "ShapeKeyField" => String.t()
+        "ShapeKeyField" => String.t() | atom()
       }
 
   """
-  @type geospatial_layer_join_definition() :: %{String.t() => any()}
+  @type geospatial_layer_join_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4458,12 +4470,12 @@ defmodule AWS.QuickSight do
 
       unaggregated_field() :: %{
         "Column" => column_identifier(),
-        "FieldId" => String.t(),
+        "FieldId" => String.t() | atom(),
         "FormatConfiguration" => format_configuration()
       }
 
   """
-  @type unaggregated_field() :: %{String.t() => any()}
+  @type unaggregated_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4475,7 +4487,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type line_series_axis_display_options() :: %{String.t() => any()}
+  @type line_series_axis_display_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4483,12 +4495,12 @@ defmodule AWS.QuickSight do
 
       sheet_visual_scoping_configuration() :: %{
         "Scope" => list(any()),
-        "SheetId" => String.t(),
-        "VisualIds" => list(String.t())
+        "SheetId" => String.t() | atom(),
+        "VisualIds" => list(String.t() | atom())
       }
 
   """
-  @type sheet_visual_scoping_configuration() :: %{String.t() => any()}
+  @type sheet_visual_scoping_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4501,7 +4513,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type dynamic_default_value() :: %{String.t() => any()}
+  @type dynamic_default_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4513,21 +4525,21 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type axis_display_min_max_range() :: %{String.t() => any()}
+  @type axis_display_min_max_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       pivot_table_cell_conditional_formatting() :: %{
-        "FieldId" => String.t(),
+        "FieldId" => String.t() | atom(),
         "Scope" => pivot_table_conditional_formatting_scope(),
         "Scopes" => list(pivot_table_conditional_formatting_scope()),
         "TextFormat" => text_conditional_format()
       }
 
   """
-  @type pivot_table_cell_conditional_formatting() :: %{String.t() => any()}
+  @type pivot_table_cell_conditional_formatting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4535,13 +4547,13 @@ defmodule AWS.QuickSight do
 
       search_analyses_response() :: %{
         "AnalysisSummaryList" => list(analysis_summary()),
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type search_analyses_response() :: %{String.t() => any()}
+  @type search_analyses_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4555,7 +4567,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type parameters() :: %{String.t() => any()}
+  @type parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4567,7 +4579,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type grid_layout_configuration() :: %{String.t() => any()}
+  @type grid_layout_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4578,7 +4590,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type delete_theme_request() :: %{String.t() => any()}
+  @type delete_theme_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4598,19 +4610,21 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type template_version_definition() :: %{String.t() => any()}
+  @type template_version_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_application_with_token_exchange_grant_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type update_application_with_token_exchange_grant_response() :: %{String.t() => any()}
+  @type update_application_with_token_exchange_grant_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -4622,30 +4636,30 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type named_entity_definition_metric() :: %{String.t() => any()}
+  @type named_entity_definition_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       free_form_layout_screen_canvas_size_options() :: %{
-        "OptimizedViewPortWidth" => String.t()
+        "OptimizedViewPortWidth" => String.t() | atom()
       }
 
   """
-  @type free_form_layout_screen_canvas_size_options() :: %{String.t() => any()}
+  @type free_form_layout_screen_canvas_size_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       field_label_type() :: %{
-        "FieldId" => String.t(),
+        "FieldId" => String.t() | atom(),
         "Visibility" => list(any())
       }
 
   """
-  @type field_label_type() :: %{String.t() => any()}
+  @type field_label_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4663,21 +4677,21 @@ defmodule AWS.QuickSight do
       sheet_definition() :: %{
         "ContentType" => list(any()),
         "CustomActionDefaults" => visual_custom_action_defaults(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "FilterControls" => list(filter_control()),
         "Images" => list(sheet_image()),
         "Layouts" => list(layout()),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "ParameterControls" => list(parameter_control()),
         "SheetControlLayouts" => list(sheet_control_layout()),
-        "SheetId" => String.t(),
+        "SheetId" => String.t() | atom(),
         "TextBoxes" => list(sheet_text_box()),
-        "Title" => String.t(),
+        "Title" => String.t() | atom(),
         "Visuals" => list(visual())
       }
 
   """
-  @type sheet_definition() :: %{String.t() => any()}
+  @type sheet_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4688,17 +4702,17 @@ defmodule AWS.QuickSight do
         "Column" => column_identifier(),
         "DefaultFilterControlConfiguration" => default_filter_control_configuration(),
         "ExcludePeriodConfiguration" => exclude_period_configuration(),
-        "FilterId" => String.t(),
+        "FilterId" => String.t() | atom(),
         "MinimumGranularity" => list(any()),
         "NullOption" => list(any()),
-        "ParameterName" => String.t(),
+        "ParameterName" => String.t() | atom(),
         "RelativeDateType" => list(any()),
         "RelativeDateValue" => integer(),
         "TimeGranularity" => list(any())
       }
 
   """
-  @type relative_dates_filter() :: %{String.t() => any()}
+  @type relative_dates_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4710,55 +4724,55 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type line_chart_series_settings() :: %{String.t() => any()}
+  @type line_chart_series_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       pivot_field_sort_options() :: %{
-        "FieldId" => String.t(),
+        "FieldId" => String.t() | atom(),
         "SortBy" => pivot_table_sort_by()
       }
 
   """
-  @type pivot_field_sort_options() :: %{String.t() => any()}
+  @type pivot_field_sort_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       queue_info() :: %{
-        "QueuedIngestion" => String.t(),
-        "WaitingOnIngestion" => String.t()
+        "QueuedIngestion" => String.t() | atom(),
+        "WaitingOnIngestion" => String.t() | atom()
       }
 
   """
-  @type queue_info() :: %{String.t() => any()}
+  @type queue_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       rename_column_operation() :: %{
-        "ColumnName" => String.t(),
-        "NewColumnName" => String.t()
+        "ColumnName" => String.t() | atom(),
+        "NewColumnName" => String.t() | atom()
       }
 
   """
-  @type rename_column_operation() :: %{String.t() => any()}
+  @type rename_column_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       long_format_text() :: %{
-        "PlainText" => String.t(),
-        "RichText" => String.t()
+        "PlainText" => String.t() | atom(),
+        "RichText" => String.t() | atom()
       }
 
   """
-  @type long_format_text() :: %{String.t() => any()}
+  @type long_format_text() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4766,14 +4780,14 @@ defmodule AWS.QuickSight do
 
       topic_constant_value() :: %{
         "ConstantType" => list(any()),
-        "Maximum" => String.t(),
-        "Minimum" => String.t(),
-        "Value" => String.t(),
+        "Maximum" => String.t() | atom(),
+        "Minimum" => String.t() | atom(),
+        "Value" => String.t() | atom(),
         "ValueList" => list(collective_constant_entry())
       }
 
   """
-  @type topic_constant_value() :: %{String.t() => any()}
+  @type topic_constant_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4784,7 +4798,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type tree_map_field_wells() :: %{String.t() => any()}
+  @type tree_map_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4793,26 +4807,26 @@ defmodule AWS.QuickSight do
       grid_layout_element() :: %{
         "ColumnIndex" => integer(),
         "ColumnSpan" => integer(),
-        "ElementId" => String.t(),
+        "ElementId" => String.t() | atom(),
         "ElementType" => list(any()),
         "RowIndex" => integer(),
         "RowSpan" => integer()
       }
 
   """
-  @type grid_layout_element() :: %{String.t() => any()}
+  @type grid_layout_element() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       column_identifier() :: %{
-        "ColumnName" => String.t(),
-        "DataSetIdentifier" => String.t()
+        "ColumnName" => String.t() | atom(),
+        "DataSetIdentifier" => String.t() | atom()
       }
 
   """
-  @type column_identifier() :: %{String.t() => any()}
+  @type column_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4823,7 +4837,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type heat_map_field_wells() :: %{String.t() => any()}
+  @type heat_map_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4843,7 +4857,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_line_layer() :: %{String.t() => any()}
+  @type geospatial_line_layer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4854,7 +4868,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type ssl_properties() :: %{String.t() => any()}
+  @type ssl_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4870,15 +4884,15 @@ defmodule AWS.QuickSight do
   ## Example:
 
       table_field_option() :: %{
-        "CustomLabel" => String.t(),
-        "FieldId" => String.t(),
+        "CustomLabel" => String.t() | atom(),
+        "FieldId" => String.t() | atom(),
         "URLStyling" => table_field_url_configuration(),
         "Visibility" => list(any()),
-        "Width" => String.t()
+        "Width" => String.t() | atom()
       }
 
   """
-  @type table_field_option() :: %{String.t() => any()}
+  @type table_field_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4890,33 +4904,33 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type arc_axis_display_range() :: %{String.t() => any()}
+  @type arc_axis_display_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_account_customization_request() :: %{
-        optional("Namespace") => String.t(),
+        optional("Namespace") => String.t() | atom(),
         required("AccountCustomization") => account_customization()
       }
 
   """
-  @type update_account_customization_request() :: %{String.t() => any()}
+  @type update_account_customization_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_key_registration_response() :: %{
-        "AwsAccountId" => String.t(),
+        "AwsAccountId" => String.t() | atom(),
         "KeyRegistration" => list(registered_customer_managed_key()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_key_registration_response() :: %{String.t() => any()}
+  @type describe_key_registration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4931,7 +4945,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type word_cloud_chart_configuration() :: %{String.t() => any()}
+  @type word_cloud_chart_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4950,7 +4964,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type histogram_configuration() :: %{String.t() => any()}
+  @type histogram_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4958,13 +4972,13 @@ defmodule AWS.QuickSight do
 
       string_dataset_parameter() :: %{
         "DefaultValues" => string_dataset_parameter_default_values(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "ValueType" => list(any())
       }
 
   """
-  @type string_dataset_parameter() :: %{String.t() => any()}
+  @type string_dataset_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4976,18 +4990,18 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type delete_analysis_request() :: %{String.t() => any()}
+  @type delete_analysis_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_group_request() :: %{
-        optional("Description") => String.t()
+        optional("Description") => String.t() | atom()
       }
 
   """
-  @type update_group_request() :: %{String.t() => any()}
+  @type update_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4995,24 +5009,24 @@ defmodule AWS.QuickSight do
 
       custom_sql() :: %{
         "Columns" => list(input_column()),
-        "DataSourceArn" => String.t(),
-        "Name" => String.t(),
-        "SqlQuery" => String.t()
+        "DataSourceArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "SqlQuery" => String.t() | atom()
       }
 
   """
-  @type custom_sql() :: %{String.t() => any()}
+  @type custom_sql() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       filter_selectable_values() :: %{
-        "Values" => list(String.t())
+        "Values" => list(String.t() | atom())
       }
 
   """
-  @type filter_selectable_values() :: %{String.t() => any()}
+  @type filter_selectable_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5033,22 +5047,22 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type donut_options() :: %{String.t() => any()}
+  @type donut_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_analysis_response() :: %{
-        "AnalysisId" => String.t(),
-        "Arn" => String.t(),
+        "AnalysisId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
         "CreationStatus" => list(any()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type create_analysis_response() :: %{String.t() => any()}
+  @type create_analysis_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5056,12 +5070,12 @@ defmodule AWS.QuickSight do
 
       search_analyses_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("Filters") => list(analysis_search_filter())
       }
 
   """
-  @type search_analyses_request() :: %{String.t() => any()}
+  @type search_analyses_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5075,7 +5089,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_categorical_color() :: %{String.t() => any()}
+  @type geospatial_categorical_color() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5083,14 +5097,14 @@ defmodule AWS.QuickSight do
 
       describe_theme_permissions_response() :: %{
         "Permissions" => list(resource_permission()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
-        "ThemeArn" => String.t(),
-        "ThemeId" => String.t()
+        "ThemeArn" => String.t() | atom(),
+        "ThemeId" => String.t() | atom()
       }
 
   """
-  @type describe_theme_permissions_response() :: %{String.t() => any()}
+  @type describe_theme_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5099,13 +5113,13 @@ defmodule AWS.QuickSight do
       integer_parameter_declaration() :: %{
         "DefaultValues" => integer_default_values(),
         "MappedDataSetParameters" => list(mapped_data_set_parameter()),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "ParameterValueType" => list(any()),
         "ValueWhenUnset" => integer_value_when_unset_configuration()
       }
 
   """
-  @type integer_parameter_declaration() :: %{String.t() => any()}
+  @type integer_parameter_declaration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5117,7 +5131,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type default_relative_date_time_control_options() :: %{String.t() => any()}
+  @type default_relative_date_time_control_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5128,7 +5142,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type image_interaction_options() :: %{String.t() => any()}
+  @type image_interaction_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5137,26 +5151,26 @@ defmodule AWS.QuickSight do
       update_brand_response() :: %{
         "BrandDefinition" => brand_definition(),
         "BrandDetail" => brand_detail(),
-        "RequestId" => String.t()
+        "RequestId" => String.t() | atom()
       }
 
   """
-  @type update_brand_response() :: %{String.t() => any()}
+  @type update_brand_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_folder_permissions_response() :: %{
-        "Arn" => String.t(),
-        "FolderId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "FolderId" => String.t() | atom(),
         "Permissions" => list(resource_permission()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type update_folder_permissions_response() :: %{String.t() => any()}
+  @type update_folder_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5172,13 +5186,13 @@ defmodule AWS.QuickSight do
   ## Example:
 
       describe_theme_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "Theme" => theme()
       }
 
   """
-  @type describe_theme_response() :: %{String.t() => any()}
+  @type describe_theme_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5189,7 +5203,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type state_persistence_configurations() :: %{String.t() => any()}
+  @type state_persistence_configurations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5201,7 +5215,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type data_path_sort() :: %{String.t() => any()}
+  @type data_path_sort() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5210,11 +5224,11 @@ defmodule AWS.QuickSight do
       folder_search_filter() :: %{
         "Name" => list(any()),
         "Operator" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | atom()
       }
 
   """
-  @type folder_search_filter() :: %{String.t() => any()}
+  @type folder_search_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5225,7 +5239,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type arc_options() :: %{String.t() => any()}
+  @type arc_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5236,18 +5250,18 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type combo_chart_field_wells() :: %{String.t() => any()}
+  @type combo_chart_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_identity_propagation_config_request() :: %{
-        optional("AuthorizedTargets") => list(String.t())
+        optional("AuthorizedTargets") => list(String.t() | atom())
       }
 
   """
-  @type update_identity_propagation_config_request() :: %{String.t() => any()}
+  @type update_identity_propagation_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5255,14 +5269,14 @@ defmodule AWS.QuickSight do
 
       describe_topic_permissions_response() :: %{
         "Permissions" => list(resource_permission()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
-        "TopicArn" => String.t(),
-        "TopicId" => String.t()
+        "TopicArn" => String.t() | atom(),
+        "TopicId" => String.t() | atom()
       }
 
   """
-  @type describe_topic_permissions_response() :: %{String.t() => any()}
+  @type describe_topic_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5270,13 +5284,13 @@ defmodule AWS.QuickSight do
 
       custom_content_configuration() :: %{
         "ContentType" => list(any()),
-        "ContentUrl" => String.t(),
+        "ContentUrl" => String.t() | atom(),
         "ImageScaling" => list(any()),
         "Interactions" => visual_interaction_options()
       }
 
   """
-  @type custom_content_configuration() :: %{String.t() => any()}
+  @type custom_content_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5287,20 +5301,20 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_line_style() :: %{String.t() => any()}
+  @type geospatial_line_style() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       template_error() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | atom(),
         "Type" => list(any()),
         "ViolatedEntities" => list(entity())
       }
 
   """
-  @type template_error() :: %{String.t() => any()}
+  @type template_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5308,51 +5322,51 @@ defmodule AWS.QuickSight do
 
       describe_data_source_response() :: %{
         "DataSource" => data_source(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_data_source_response() :: %{String.t() => any()}
+  @type describe_data_source_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_user_custom_permission_request() :: %{
-        required("CustomPermissionsName") => String.t()
+        required("CustomPermissionsName") => String.t() | atom()
       }
 
   """
-  @type update_user_custom_permission_request() :: %{String.t() => any()}
+  @type update_user_custom_permission_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       geospatial_categorical_data_color() :: %{
-        "Color" => String.t(),
-        "DataValue" => String.t()
+        "Color" => String.t() | atom(),
+        "DataValue" => String.t() | atom()
       }
 
   """
-  @type geospatial_categorical_data_color() :: %{String.t() => any()}
+  @type geospatial_categorical_data_color() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dashboard_version_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "SourceEntityArn" => String.t(),
+        "Description" => String.t() | atom(),
+        "SourceEntityArn" => String.t() | atom(),
         "Status" => list(any()),
         "VersionNumber" => float()
       }
 
   """
-  @type dashboard_version_summary() :: %{String.t() => any()}
+  @type dashboard_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5365,36 +5379,36 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type topic_i_r_comparison_method() :: %{String.t() => any()}
+  @type topic_i_r_comparison_method() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_topic_response() :: %{
-        "Arn" => String.t(),
-        "RefreshArn" => String.t(),
-        "RequestId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "RefreshArn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
-        "TopicId" => String.t()
+        "TopicId" => String.t() | atom()
       }
 
   """
-  @type create_topic_response() :: %{String.t() => any()}
+  @type create_topic_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_folders_for_resource_response() :: %{
-        "Folders" => list(String.t()),
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "Folders" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type list_folders_for_resource_response() :: %{String.t() => any()}
+  @type list_folders_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5405,7 +5419,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type brand_element_style() :: %{String.t() => any()}
+  @type brand_element_style() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5416,7 +5430,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type date_axis_options() :: %{String.t() => any()}
+  @type date_axis_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5424,15 +5438,15 @@ defmodule AWS.QuickSight do
 
       join_instruction() :: %{
         "LeftJoinKeyProperties" => join_key_properties(),
-        "LeftOperand" => String.t(),
-        "OnClause" => String.t(),
+        "LeftOperand" => String.t() | atom(),
+        "OnClause" => String.t() | atom(),
         "RightJoinKeyProperties" => join_key_properties(),
-        "RightOperand" => String.t(),
+        "RightOperand" => String.t() | atom(),
         "Type" => list(any())
       }
 
   """
-  @type join_instruction() :: %{String.t() => any()}
+  @type join_instruction() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5444,31 +5458,33 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type comparison_format_configuration() :: %{String.t() => any()}
+  @type comparison_format_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_bundle_import_job_resource_id_override_configuration() :: %{
-        "PrefixForAllResources" => String.t()
+        "PrefixForAllResources" => String.t() | atom()
       }
 
   """
-  @type asset_bundle_import_job_resource_id_override_configuration() :: %{String.t() => any()}
+  @type asset_bundle_import_job_resource_id_override_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       describe_theme_alias_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "ThemeAlias" => theme_alias()
       }
 
   """
-  @type describe_theme_alias_response() :: %{String.t() => any()}
+  @type describe_theme_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5488,7 +5504,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type analysis_definition() :: %{String.t() => any()}
+  @type analysis_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5500,58 +5516,58 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type integer_value_when_unset_configuration() :: %{String.t() => any()}
+  @type integer_value_when_unset_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_data_set_response() :: %{
-        "Arn" => String.t(),
-        "DataSetId" => String.t(),
-        "IngestionArn" => String.t(),
-        "IngestionId" => String.t(),
-        "RequestId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "DataSetId" => String.t() | atom(),
+        "IngestionArn" => String.t() | atom(),
+        "IngestionId" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type update_data_set_response() :: %{String.t() => any()}
+  @type update_data_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_theme_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreationStatus" => list(any()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
-        "ThemeId" => String.t(),
-        "VersionArn" => String.t()
+        "ThemeId" => String.t() | atom(),
+        "VersionArn" => String.t() | atom()
       }
 
   """
-  @type create_theme_response() :: %{String.t() => any()}
+  @type create_theme_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_template_definition_request() :: %{
-        optional("AliasName") => String.t(),
+        optional("AliasName") => String.t() | atom(),
         optional("VersionNumber") => float()
       }
 
   """
-  @type describe_template_definition_request() :: %{String.t() => any()}
+  @type describe_template_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       pivot_total_options() :: %{
-        "CustomLabel" => String.t(),
+        "CustomLabel" => String.t() | atom(),
         "MetricHeaderCellStyle" => table_cell_style(),
         "Placement" => list(any()),
         "ScrollStatus" => list(any()),
@@ -5562,7 +5578,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type pivot_total_options() :: %{String.t() => any()}
+  @type pivot_total_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5573,22 +5589,22 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type table_inline_visualization() :: %{String.t() => any()}
+  @type table_inline_visualization() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       named_entity_definition() :: %{
-        "FieldName" => String.t(),
+        "FieldName" => String.t() | atom(),
         "Metric" => named_entity_definition_metric(),
-        "PropertyName" => String.t(),
+        "PropertyName" => String.t() | atom(),
         "PropertyRole" => list(any()),
         "PropertyUsage" => list(any())
       }
 
   """
-  @type named_entity_definition() :: %{String.t() => any()}
+  @type named_entity_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5608,7 +5624,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type snapshot_job_result() :: %{String.t() => any()}
+  @type snapshot_job_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5617,11 +5633,11 @@ defmodule AWS.QuickSight do
       dashboard_search_filter() :: %{
         "Name" => list(any()),
         "Operator" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | atom()
       }
 
   """
-  @type dashboard_search_filter() :: %{String.t() => any()}
+  @type dashboard_search_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5633,20 +5649,20 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type small_multiples_axis_properties() :: %{String.t() => any()}
+  @type small_multiples_axis_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       maria_db_parameters() :: %{
-        "Database" => String.t(),
-        "Host" => String.t(),
+        "Database" => String.t() | atom(),
+        "Host" => String.t() | atom(),
         "Port" => integer()
       }
 
   """
-  @type maria_db_parameters() :: %{String.t() => any()}
+  @type maria_db_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5654,26 +5670,26 @@ defmodule AWS.QuickSight do
 
       registered_customer_managed_key() :: %{
         "DefaultKey" => boolean(),
-        "KeyArn" => String.t()
+        "KeyArn" => String.t() | atom()
       }
 
   """
-  @type registered_customer_managed_key() :: %{String.t() => any()}
+  @type registered_customer_managed_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_analysis_permissions_response() :: %{
-        "AnalysisArn" => String.t(),
-        "AnalysisId" => String.t(),
+        "AnalysisArn" => String.t() | atom(),
+        "AnalysisId" => String.t() | atom(),
         "Permissions" => list(resource_permission()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_analysis_permissions_response() :: %{String.t() => any()}
+  @type describe_analysis_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5685,7 +5701,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type axis_linear_scale() :: %{String.t() => any()}
+  @type axis_linear_scale() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5696,7 +5712,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type update_quick_sight_q_search_configuration_request() :: %{String.t() => any()}
+  @type update_quick_sight_q_search_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5705,39 +5721,39 @@ defmodule AWS.QuickSight do
       parameter_list_control() :: %{
         "CascadingControlConfiguration" => cascading_control_configuration(),
         "DisplayOptions" => list_control_display_options(),
-        "ParameterControlId" => String.t(),
+        "ParameterControlId" => String.t() | atom(),
         "SelectableValues" => parameter_selectable_values(),
-        "SourceParameterName" => String.t(),
-        "Title" => String.t(),
+        "SourceParameterName" => String.t() | atom(),
+        "Title" => String.t() | atom(),
         "Type" => list(any())
       }
 
   """
-  @type parameter_list_control() :: %{String.t() => any()}
+  @type parameter_list_control() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       static_file_url_source_options() :: %{
-        "Url" => String.t()
+        "Url" => String.t() | atom()
       }
 
   """
-  @type static_file_url_source_options() :: %{String.t() => any()}
+  @type static_file_url_source_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_role_custom_permission_response() :: %{
-        "CustomPermissionsName" => String.t(),
-        "RequestId" => String.t(),
+        "CustomPermissionsName" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_role_custom_permission_response() :: %{String.t() => any()}
+  @type describe_role_custom_permission_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5748,7 +5764,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type sheet_control_layout_configuration() :: %{String.t() => any()}
+  @type sheet_control_layout_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5779,7 +5795,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type line_chart_configuration() :: %{String.t() => any()}
+  @type line_chart_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5790,7 +5806,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type visual_axis_sort_option() :: %{String.t() => any()}
+  @type visual_axis_sort_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5798,14 +5814,14 @@ defmodule AWS.QuickSight do
 
       topic_named_entity() :: %{
         "Definition" => list(named_entity_definition()),
-        "EntityDescription" => String.t(),
-        "EntityName" => String.t(),
-        "EntitySynonyms" => list(String.t()),
+        "EntityDescription" => String.t() | atom(),
+        "EntityName" => String.t() | atom(),
+        "EntitySynonyms" => list(String.t() | atom()),
         "SemanticEntityType" => semantic_entity_type()
       }
 
   """
-  @type topic_named_entity() :: %{String.t() => any()}
+  @type topic_named_entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5822,7 +5838,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type default_filter_control_options() :: %{String.t() => any()}
+  @type default_filter_control_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5836,7 +5852,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type pivot_table_total_options() :: %{String.t() => any()}
+  @type pivot_table_total_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5850,7 +5866,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type bar_chart_aggregated_field_wells() :: %{String.t() => any()}
+  @type bar_chart_aggregated_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5862,19 +5878,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type logo_set() :: %{String.t() => any()}
+  @type logo_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unsupported_user_edition_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
       }
 
   """
-  @type unsupported_user_edition_exception() :: %{String.t() => any()}
+  @type unsupported_user_edition_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5885,7 +5901,7 @@ defmodule AWS.QuickSight do
         "ComparisonMethod" => topic_i_r_comparison_method(),
         "DisplayFormat" => list(any()),
         "DisplayFormatOptions" => display_format_options(),
-        "Expression" => String.t(),
+        "Expression" => String.t() | atom(),
         "Function" => agg_function(),
         "MetricId" => identifier(),
         "NamedEntity" => named_entity_ref(),
@@ -5893,29 +5909,29 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type topic_i_r_metric() :: %{String.t() => any()}
+  @type topic_i_r_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       display_format_options() :: %{
-        "BlankCellFormat" => String.t(),
-        "CurrencySymbol" => String.t(),
-        "DateFormat" => String.t(),
+        "BlankCellFormat" => String.t() | atom(),
+        "CurrencySymbol" => String.t() | atom(),
+        "DateFormat" => String.t() | atom(),
         "DecimalSeparator" => list(any()),
         "FractionDigits" => integer(),
-        "GroupingSeparator" => String.t(),
+        "GroupingSeparator" => String.t() | atom(),
         "NegativeFormat" => negative_format(),
-        "Prefix" => String.t(),
-        "Suffix" => String.t(),
+        "Prefix" => String.t() | atom(),
+        "Suffix" => String.t() | atom(),
         "UnitScaler" => list(any()),
         "UseBlankCellFormat" => boolean(),
         "UseGrouping" => boolean()
       }
 
   """
-  @type display_format_options() :: %{String.t() => any()}
+  @type display_format_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5926,7 +5942,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type total_aggregation_function() :: %{String.t() => any()}
+  @type total_aggregation_function() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5939,7 +5955,9 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type body_section_dynamic_numeric_dimension_configuration() :: %{String.t() => any()}
+  @type body_section_dynamic_numeric_dimension_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -5950,7 +5968,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type link_sharing_configuration() :: %{String.t() => any()}
+  @type link_sharing_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5958,11 +5976,11 @@ defmodule AWS.QuickSight do
 
       list_vpc_connections_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_vpc_connections_request() :: %{String.t() => any()}
+  @type list_vpc_connections_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5973,19 +5991,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type refresh_failure_configuration() :: %{String.t() => any()}
+  @type refresh_failure_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       mapped_data_set_parameter() :: %{
-        "DataSetIdentifier" => String.t(),
-        "DataSetParameterName" => String.t()
+        "DataSetIdentifier" => String.t() | atom(),
+        "DataSetParameterName" => String.t() | atom()
       }
 
   """
-  @type mapped_data_set_parameter() :: %{String.t() => any()}
+  @type mapped_data_set_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5993,16 +6011,16 @@ defmodule AWS.QuickSight do
 
       starburst_parameters() :: %{
         "AuthenticationType" => list(any()),
-        "Catalog" => String.t(),
-        "DatabaseAccessControlRole" => String.t(),
-        "Host" => String.t(),
+        "Catalog" => String.t() | atom(),
+        "DatabaseAccessControlRole" => String.t() | atom(),
+        "Host" => String.t() | atom(),
         "OAuthParameters" => o_auth_parameters(),
         "Port" => integer(),
         "ProductType" => list(any())
       }
 
   """
-  @type starburst_parameters() :: %{String.t() => any()}
+  @type starburst_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6022,7 +6040,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type shape_conditional_format() :: %{String.t() => any()}
+  @type shape_conditional_format() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6030,35 +6048,35 @@ defmodule AWS.QuickSight do
 
       list_data_sources_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_data_sources_request() :: %{String.t() => any()}
+  @type list_data_sources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sheet_image_tooltip_text() :: %{
-        "PlainText" => String.t()
+        "PlainText" => String.t() | atom()
       }
 
   """
-  @type sheet_image_tooltip_text() :: %{String.t() => any()}
+  @type sheet_image_tooltip_text() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_custom_permissions_response() :: %{
-        "Arn" => String.t(),
-        "RequestId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type delete_custom_permissions_response() :: %{String.t() => any()}
+  @type delete_custom_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6078,43 +6096,43 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type tree_map_configuration() :: %{String.t() => any()}
+  @type tree_map_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_role_custom_permission_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type delete_role_custom_permission_response() :: %{String.t() => any()}
+  @type delete_role_custom_permission_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       active_iam_policy_assignment() :: %{
-        "AssignmentName" => String.t(),
-        "PolicyArn" => String.t()
+        "AssignmentName" => String.t() | atom(),
+        "PolicyArn" => String.t() | atom()
       }
 
   """
-  @type active_iam_policy_assignment() :: %{String.t() => any()}
+  @type active_iam_policy_assignment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_bundle_import_job_analysis_override_tags() :: %{
-        "AnalysisIds" => list(String.t()),
+        "AnalysisIds" => list(String.t() | atom()),
         "Tags" => list(tag())
       }
 
   """
-  @type asset_bundle_import_job_analysis_override_tags() :: %{String.t() => any()}
+  @type asset_bundle_import_job_analysis_override_tags() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6123,24 +6141,24 @@ defmodule AWS.QuickSight do
       create_namespace_request() :: %{
         optional("Tags") => list(tag()),
         required("IdentityStore") => list(any()),
-        required("Namespace") => String.t()
+        required("Namespace") => String.t() | atom()
       }
 
   """
-  @type create_namespace_request() :: %{String.t() => any()}
+  @type create_namespace_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_bars_options() :: %{
-        "FieldId" => String.t(),
-        "NegativeColor" => String.t(),
-        "PositiveColor" => String.t()
+        "FieldId" => String.t() | atom(),
+        "NegativeColor" => String.t() | atom(),
+        "PositiveColor" => String.t() | atom()
       }
 
   """
-  @type data_bars_options() :: %{String.t() => any()}
+  @type data_bars_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6149,11 +6167,11 @@ defmodule AWS.QuickSight do
       data_set_configuration() :: %{
         "ColumnGroupSchemaList" => list(column_group_schema()),
         "DataSetSchema" => data_set_schema(),
-        "Placeholder" => String.t()
+        "Placeholder" => String.t() | atom()
       }
 
   """
-  @type data_set_configuration() :: %{String.t() => any()}
+  @type data_set_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6162,11 +6180,11 @@ defmodule AWS.QuickSight do
       data_source_search_filter() :: %{
         "Name" => list(any()),
         "Operator" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | atom()
       }
 
   """
-  @type data_source_search_filter() :: %{String.t() => any()}
+  @type data_source_search_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6179,19 +6197,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type heat_map_aggregated_field_wells() :: %{String.t() => any()}
+  @type heat_map_aggregated_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_brand_published_version_response() :: %{
-        "RequestId" => String.t(),
-        "VersionId" => String.t()
+        "RequestId" => String.t() | atom(),
+        "VersionId" => String.t() | atom()
       }
 
   """
-  @type update_brand_published_version_response() :: %{String.t() => any()}
+  @type update_brand_published_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6202,7 +6220,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type default_paginated_layout_configuration() :: %{String.t() => any()}
+  @type default_paginated_layout_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6210,27 +6228,27 @@ defmodule AWS.QuickSight do
 
       list_iam_policy_assignments_for_user_response() :: %{
         "ActiveAssignments" => list(active_iam_policy_assignment()),
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type list_iam_policy_assignments_for_user_response() :: %{String.t() => any()}
+  @type list_iam_policy_assignments_for_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_data_source_response() :: %{
-        "Arn" => String.t(),
-        "DataSourceId" => String.t(),
-        "RequestId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "DataSourceId" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type delete_data_source_response() :: %{String.t() => any()}
+  @type delete_data_source_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6242,7 +6260,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type axis_scale() :: %{String.t() => any()}
+  @type axis_scale() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6250,14 +6268,14 @@ defmodule AWS.QuickSight do
 
       list_topic_reviewed_answers_response() :: %{
         "Answers" => list(topic_reviewed_answer()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
-        "TopicArn" => String.t(),
-        "TopicId" => String.t()
+        "TopicArn" => String.t() | atom(),
+        "TopicId" => String.t() | atom()
       }
 
   """
-  @type list_topic_reviewed_answers_response() :: %{String.t() => any()}
+  @type list_topic_reviewed_answers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6268,28 +6286,28 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type missing_data_configuration() :: %{String.t() => any()}
+  @type missing_data_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_dashboard_snapshot_job_response() :: %{
-        "Arn" => String.t(),
-        "AwsAccountId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "AwsAccountId" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "DashboardId" => String.t(),
+        "DashboardId" => String.t() | atom(),
         "JobStatus" => list(any()),
         "LastUpdatedTime" => non_neg_integer(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "SnapshotConfiguration" => snapshot_configuration(),
-        "SnapshotJobId" => String.t(),
+        "SnapshotJobId" => String.t() | atom(),
         "Status" => integer(),
         "UserConfiguration" => snapshot_user_configuration_redacted()
       }
 
   """
-  @type describe_dashboard_snapshot_job_response() :: %{String.t() => any()}
+  @type describe_dashboard_snapshot_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6302,7 +6320,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type text_area_control_display_options() :: %{String.t() => any()}
+  @type text_area_control_display_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6313,7 +6331,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type delete_template_request() :: %{String.t() => any()}
+  @type delete_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6321,25 +6339,25 @@ defmodule AWS.QuickSight do
 
       nested_filter() :: %{
         "Column" => column_identifier(),
-        "FilterId" => String.t(),
+        "FilterId" => String.t() | atom(),
         "IncludeInnerSet" => boolean(),
         "InnerFilter" => inner_filter()
       }
 
   """
-  @type nested_filter() :: %{String.t() => any()}
+  @type nested_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_folder_membership_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type delete_folder_membership_response() :: %{String.t() => any()}
+  @type delete_folder_membership_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6350,7 +6368,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type filled_map_conditional_formatting_option() :: %{String.t() => any()}
+  @type filled_map_conditional_formatting_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6379,7 +6397,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type conditional_formatting_icon_display_configuration() :: %{String.t() => any()}
+  @type conditional_formatting_icon_display_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6407,7 +6425,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type topic_i_r_filter_option() :: %{String.t() => any()}
+  @type topic_i_r_filter_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6419,7 +6437,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type arc_configuration() :: %{String.t() => any()}
+  @type arc_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6430,7 +6448,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type box_plot_style_options() :: %{String.t() => any()}
+  @type box_plot_style_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6441,7 +6459,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type minimum_label_type() :: %{String.t() => any()}
+  @type minimum_label_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6452,23 +6470,25 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type anonymous_user_dashboard_visual_embedding_configuration() :: %{String.t() => any()}
+  @type anonymous_user_dashboard_visual_embedding_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       describe_topic_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CustomInstructions" => custom_instructions(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "Topic" => topic_details(),
-        "TopicId" => String.t()
+        "TopicId" => String.t() | atom()
       }
 
   """
-  @type describe_topic_response() :: %{String.t() => any()}
+  @type describe_topic_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6479,7 +6499,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type body_section_repeat_page_break_configuration() :: %{String.t() => any()}
+  @type body_section_repeat_page_break_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6487,11 +6507,11 @@ defmodule AWS.QuickSight do
 
       registered_user_dashboard_embedding_configuration() :: %{
         "FeatureConfigurations" => registered_user_dashboard_feature_configurations(),
-        "InitialDashboardId" => String.t()
+        "InitialDashboardId" => String.t() | atom()
       }
 
   """
-  @type registered_user_dashboard_embedding_configuration() :: %{String.t() => any()}
+  @type registered_user_dashboard_embedding_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6501,7 +6521,7 @@ defmodule AWS.QuickSight do
         "AggregationFunction" => aggregation_function(),
         "Column" => column_identifier(),
         "DefaultFilterControlConfiguration" => default_filter_control_configuration(),
-        "FilterId" => String.t(),
+        "FilterId" => String.t() | atom(),
         "IncludeMaximum" => boolean(),
         "IncludeMinimum" => boolean(),
         "NullOption" => list(any()),
@@ -6511,7 +6531,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type numeric_range_filter() :: %{String.t() => any()}
+  @type numeric_range_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6519,27 +6539,27 @@ defmodule AWS.QuickSight do
 
       search_data_sets_response() :: %{
         "DataSetSummaries" => list(data_set_summary()),
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type search_data_sets_response() :: %{String.t() => any()}
+  @type search_data_sets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_identity_propagation_configs_response() :: %{
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Services" => list(authorized_targets_by_service()),
         "Status" => integer()
       }
 
   """
-  @type list_identity_propagation_configs_response() :: %{String.t() => any()}
+  @type list_identity_propagation_configs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6550,7 +6570,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type box_plot_field_wells() :: %{String.t() => any()}
+  @type box_plot_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6561,7 +6581,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type asset_bundle_resource_link_sharing_configuration() :: %{String.t() => any()}
+  @type asset_bundle_resource_link_sharing_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6574,19 +6594,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type category_inner_filter() :: %{String.t() => any()}
+  @type category_inner_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6594,40 +6614,40 @@ defmodule AWS.QuickSight do
 
       list_themes_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Type") => list(any())
       }
 
   """
-  @type list_themes_request() :: %{String.t() => any()}
+  @type list_themes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       column_group_column_schema() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type column_group_column_schema() :: %{String.t() => any()}
+  @type column_group_column_schema() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       topic_reviewed_answer() :: %{
-        "AnswerId" => String.t(),
-        "Arn" => String.t(),
-        "DatasetArn" => String.t(),
+        "AnswerId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "DatasetArn" => String.t() | atom(),
         "Mir" => topic_i_r(),
         "PrimaryVisual" => topic_visual(),
-        "Question" => String.t(),
+        "Question" => String.t() | atom(),
         "Template" => topic_template()
       }
 
   """
-  @type topic_reviewed_answer() :: %{String.t() => any()}
+  @type topic_reviewed_answer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6636,26 +6656,26 @@ defmodule AWS.QuickSight do
       filter_relative_date_time_control() :: %{
         "CommitMode" => list(any()),
         "DisplayOptions" => relative_date_time_control_display_options(),
-        "FilterControlId" => String.t(),
-        "SourceFilterId" => String.t(),
-        "Title" => String.t()
+        "FilterControlId" => String.t() | atom(),
+        "SourceFilterId" => String.t() | atom(),
+        "Title" => String.t() | atom()
       }
 
   """
-  @type filter_relative_date_time_control() :: %{String.t() => any()}
+  @type filter_relative_date_time_control() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t(),
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "ResourceType" => list(any())
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6666,30 +6686,30 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type cluster_marker_configuration() :: %{String.t() => any()}
+  @type cluster_marker_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       string_dataset_parameter_default_values() :: %{
-        "StaticValues" => list(String.t())
+        "StaticValues" => list(String.t() | atom())
       }
 
   """
-  @type string_dataset_parameter_default_values() :: %{String.t() => any()}
+  @type string_dataset_parameter_default_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_dashboard_definition_request() :: %{
-        optional("AliasName") => String.t(),
+        optional("AliasName") => String.t() | atom(),
         optional("VersionNumber") => float()
       }
 
   """
-  @type describe_dashboard_definition_request() :: %{String.t() => any()}
+  @type describe_dashboard_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6700,7 +6720,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_line_width() :: %{String.t() => any()}
+  @type geospatial_line_width() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6713,7 +6733,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type plugin_visual_configuration() :: %{String.t() => any()}
+  @type plugin_visual_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6724,7 +6744,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type data_q_a_enabled_option() :: %{String.t() => any()}
+  @type data_q_a_enabled_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6732,23 +6752,23 @@ defmodule AWS.QuickSight do
 
       list_analyses_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_analyses_request() :: %{String.t() => any()}
+  @type list_analyses_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       numeric_range_filter_value() :: %{
-        "Parameter" => String.t(),
+        "Parameter" => String.t() | atom(),
         "StaticValue" => float()
       }
 
   """
-  @type numeric_range_filter_value() :: %{String.t() => any()}
+  @type numeric_range_filter_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6764,12 +6784,12 @@ defmodule AWS.QuickSight do
   ## Example:
 
       section_style() :: %{
-        "Height" => String.t(),
+        "Height" => String.t() | atom(),
         "Padding" => spacing()
       }
 
   """
-  @type section_style() :: %{String.t() => any()}
+  @type section_style() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6780,7 +6800,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type colors_configuration() :: %{String.t() => any()}
+  @type colors_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6791,7 +6811,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type section_after_page_break() :: %{String.t() => any()}
+  @type section_after_page_break() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6800,11 +6820,11 @@ defmodule AWS.QuickSight do
       analysis_search_filter() :: %{
         "Name" => list(any()),
         "Operator" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | atom()
       }
 
   """
-  @type analysis_search_filter() :: %{String.t() => any()}
+  @type analysis_search_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6816,23 +6836,23 @@ defmodule AWS.QuickSight do
         "ConditionalFormatting" => pivot_table_conditional_formatting(),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
-        "VisualContentAltText" => String.t(),
-        "VisualId" => String.t()
+        "VisualContentAltText" => String.t() | atom(),
+        "VisualId" => String.t() | atom()
       }
 
   """
-  @type pivot_table_visual() :: %{String.t() => any()}
+  @type pivot_table_visual() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sheet_image_static_file_source() :: %{
-        "StaticFileId" => String.t()
+        "StaticFileId" => String.t() | atom()
       }
 
   """
-  @type sheet_image_static_file_source() :: %{String.t() => any()}
+  @type sheet_image_static_file_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6843,7 +6863,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type text_control_placeholder_options() :: %{String.t() => any()}
+  @type text_control_placeholder_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6856,7 +6876,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type text_conditional_format() :: %{String.t() => any()}
+  @type text_conditional_format() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6864,12 +6884,12 @@ defmodule AWS.QuickSight do
 
       unique_values_computation() :: %{
         "Category" => dimension_field(),
-        "ComputationId" => String.t(),
-        "Name" => String.t()
+        "ComputationId" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type unique_values_computation() :: %{String.t() => any()}
+  @type unique_values_computation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6877,7 +6897,7 @@ defmodule AWS.QuickSight do
 
       funnel_chart_data_label_options() :: %{
         "CategoryLabelVisibility" => list(any()),
-        "LabelColor" => String.t(),
+        "LabelColor" => String.t() | atom(),
         "LabelFontConfiguration" => font_configuration(),
         "MeasureDataLabelStyle" => list(any()),
         "MeasureLabelVisibility" => list(any()),
@@ -6886,7 +6906,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type funnel_chart_data_label_options() :: %{String.t() => any()}
+  @type funnel_chart_data_label_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6897,7 +6917,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type axis_logarithmic_scale() :: %{String.t() => any()}
+  @type axis_logarithmic_scale() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6905,24 +6925,24 @@ defmodule AWS.QuickSight do
 
       describe_template_permissions_response() :: %{
         "Permissions" => list(resource_permission()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
-        "TemplateArn" => String.t(),
-        "TemplateId" => String.t()
+        "TemplateArn" => String.t() | atom(),
+        "TemplateId" => String.t() | atom()
       }
 
   """
-  @type describe_template_permissions_response() :: %{String.t() => any()}
+  @type describe_template_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ingestion() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
         "ErrorInfo" => error_info(),
-        "IngestionId" => String.t(),
+        "IngestionId" => String.t() | atom(),
         "IngestionSizeInBytes" => float(),
         "IngestionStatus" => list(any()),
         "IngestionTimeInSeconds" => float(),
@@ -6933,7 +6953,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type ingestion() :: %{String.t() => any()}
+  @type ingestion() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6944,14 +6964,14 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type query_execution_options() :: %{String.t() => any()}
+  @type query_execution_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       subtotal_options() :: %{
-        "CustomLabel" => String.t(),
+        "CustomLabel" => String.t() | atom(),
         "FieldLevel" => list(any()),
         "FieldLevelOptions" => list(pivot_table_field_subtotal_options()),
         "MetricHeaderCellStyle" => table_cell_style(),
@@ -6962,7 +6982,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type subtotal_options() :: %{String.t() => any()}
+  @type subtotal_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6979,7 +6999,7 @@ defmodule AWS.QuickSight do
 
       axis_display_options() :: %{
         "AxisLineVisibility" => list(any()),
-        "AxisOffset" => String.t(),
+        "AxisOffset" => String.t() | atom(),
         "DataOptions" => axis_data_options(),
         "GridLineVisibility" => list(any()),
         "ScrollbarOptions" => scroll_bar_options(),
@@ -6987,19 +7007,21 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type axis_display_options() :: %{String.t() => any()}
+  @type axis_display_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_bundle_import_job_analysis_override_parameters() :: %{
-        "AnalysisId" => String.t(),
-        "Name" => String.t()
+        "AnalysisId" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type asset_bundle_import_job_analysis_override_parameters() :: %{String.t() => any()}
+  @type asset_bundle_import_job_analysis_override_parameters() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -7007,23 +7029,23 @@ defmodule AWS.QuickSight do
 
       pivot_table_field_collapse_state_target() :: %{
         "FieldDataPathValues" => list(data_path_value()),
-        "FieldId" => String.t()
+        "FieldId" => String.t() | atom()
       }
 
   """
-  @type pivot_table_field_collapse_state_target() :: %{String.t() => any()}
+  @type pivot_table_field_collapse_state_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7035,7 +7057,7 @@ defmodule AWS.QuickSight do
         optional("DataSetUsageConfiguration") => data_set_usage_configuration(),
         optional("DatasetParameters") => list(dataset_parameter()),
         optional("FieldFolders") => map(),
-        optional("FolderArns") => list(String.t()),
+        optional("FolderArns") => list(String.t() | atom()),
         optional("LogicalTableMap") => map(),
         optional("PerformanceConfiguration") => performance_configuration(),
         optional("Permissions") => list(resource_permission()),
@@ -7043,14 +7065,14 @@ defmodule AWS.QuickSight do
         optional("RowLevelPermissionTagConfiguration") => row_level_permission_tag_configuration(),
         optional("Tags") => list(tag()),
         optional("UseAs") => list(any()),
-        required("DataSetId") => String.t(),
+        required("DataSetId") => String.t() | atom(),
         required("ImportMode") => list(any()),
-        required("Name") => String.t(),
+        required("Name") => String.t() | atom(),
         required("PhysicalTableMap") => map()
       }
 
   """
-  @type create_data_set_request() :: %{String.t() => any()}
+  @type create_data_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7067,30 +7089,32 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type registered_user_dashboard_feature_configurations() :: %{String.t() => any()}
+  @type registered_user_dashboard_feature_configurations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       filter_operation() :: %{
-        "ConditionExpression" => String.t()
+        "ConditionExpression" => String.t() | atom()
       }
 
   """
-  @type filter_operation() :: %{String.t() => any()}
+  @type filter_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_bundle_export_job_data_set_override_properties() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "Properties" => list(list(any())())
       }
 
   """
-  @type asset_bundle_export_job_data_set_override_properties() :: %{String.t() => any()}
+  @type asset_bundle_export_job_data_set_override_properties() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -7098,15 +7122,15 @@ defmodule AWS.QuickSight do
 
       layer_map_visual() :: %{
         "ChartConfiguration" => geospatial_layer_map_configuration(),
-        "DataSetIdentifier" => String.t(),
+        "DataSetIdentifier" => String.t() | atom(),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
-        "VisualContentAltText" => String.t(),
-        "VisualId" => String.t()
+        "VisualContentAltText" => String.t() | atom(),
+        "VisualId" => String.t() | atom()
       }
 
   """
-  @type layer_map_visual() :: %{String.t() => any()}
+  @type layer_map_visual() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7114,24 +7138,24 @@ defmodule AWS.QuickSight do
 
       search_data_sets_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("Filters") => list(data_set_search_filter())
       }
 
   """
-  @type search_data_sets_request() :: %{String.t() => any()}
+  @type search_data_sets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       visual_palette() :: %{
-        "ChartColor" => String.t(),
+        "ChartColor" => String.t() | atom(),
         "ColorMap" => list(data_path_color())
       }
 
   """
-  @type visual_palette() :: %{String.t() => any()}
+  @type visual_palette() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7142,32 +7166,32 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type visible_range_options() :: %{String.t() => any()}
+  @type visible_range_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_bundle_export_job_error() :: %{
-        "Arn" => String.t(),
-        "Message" => String.t(),
-        "Type" => String.t()
+        "Arn" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type asset_bundle_export_job_error() :: %{String.t() => any()}
+  @type asset_bundle_export_job_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_request_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
       }
 
   """
-  @type invalid_request_exception() :: %{String.t() => any()}
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7182,21 +7206,21 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type scatter_plot_unaggregated_field_wells() :: %{String.t() => any()}
+  @type scatter_plot_unaggregated_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       register_user_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "User" => user(),
-        "UserInvitationUrl" => String.t()
+        "UserInvitationUrl" => String.t() | atom()
       }
 
   """
-  @type register_user_response() :: %{String.t() => any()}
+  @type register_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7210,36 +7234,36 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type topic_category_filter() :: %{String.t() => any()}
+  @type topic_category_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_folder_permissions_response() :: %{
-        "Arn" => String.t(),
-        "FolderId" => String.t(),
-        "NextToken" => String.t(),
+        "Arn" => String.t() | atom(),
+        "FolderId" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
         "Permissions" => list(resource_permission()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_folder_permissions_response() :: %{String.t() => any()}
+  @type describe_folder_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       semantic_entity_type() :: %{
-        "SubTypeName" => String.t(),
-        "TypeName" => String.t(),
+        "SubTypeName" => String.t() | atom(),
+        "TypeName" => String.t() | atom(),
         "TypeParameters" => map()
       }
 
   """
-  @type semantic_entity_type() :: %{String.t() => any()}
+  @type semantic_entity_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7251,7 +7275,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type static_file() :: %{String.t() => any()}
+  @type static_file() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7262,7 +7286,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type filled_map_sort_configuration() :: %{String.t() => any()}
+  @type filled_map_sort_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7270,41 +7294,41 @@ defmodule AWS.QuickSight do
 
       snowflake_parameters() :: %{
         "AuthenticationType" => list(any()),
-        "Database" => String.t(),
-        "DatabaseAccessControlRole" => String.t(),
-        "Host" => String.t(),
+        "Database" => String.t() | atom(),
+        "DatabaseAccessControlRole" => String.t() | atom(),
+        "Host" => String.t() | atom(),
         "OAuthParameters" => o_auth_parameters(),
-        "Warehouse" => String.t()
+        "Warehouse" => String.t() | atom()
       }
 
   """
-  @type snowflake_parameters() :: %{String.t() => any()}
+  @type snowflake_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       template_source_analysis() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "DataSetReferences" => list(data_set_reference())
       }
 
   """
-  @type template_source_analysis() :: %{String.t() => any()}
+  @type template_source_analysis() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       field_tooltip_item() :: %{
-        "FieldId" => String.t(),
-        "Label" => String.t(),
+        "FieldId" => String.t() | atom(),
+        "Label" => String.t() | atom(),
         "TooltipTarget" => list(any()),
         "Visibility" => list(any())
       }
 
   """
-  @type field_tooltip_item() :: %{String.t() => any()}
+  @type field_tooltip_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7315,7 +7339,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type scatter_plot_sort_configuration() :: %{String.t() => any()}
+  @type scatter_plot_sort_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7327,7 +7351,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_window_options() :: %{String.t() => any()}
+  @type geospatial_window_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7339,7 +7363,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_layer_color_field() :: %{String.t() => any()}
+  @type geospatial_layer_color_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7356,14 +7380,14 @@ defmodule AWS.QuickSight do
 
       layer_custom_action() :: %{
         "ActionOperations" => list(layer_custom_action_operation()),
-        "CustomActionId" => String.t(),
-        "Name" => String.t(),
+        "CustomActionId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Status" => list(any()),
         "Trigger" => list(any())
       }
 
   """
-  @type layer_custom_action() :: %{String.t() => any()}
+  @type layer_custom_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7371,12 +7395,12 @@ defmodule AWS.QuickSight do
 
       describe_account_subscription_response() :: %{
         "AccountInfo" => account_info(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_account_subscription_response() :: %{String.t() => any()}
+  @type describe_account_subscription_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7384,13 +7408,13 @@ defmodule AWS.QuickSight do
 
       list_asset_bundle_export_jobs_response() :: %{
         "AssetBundleExportJobSummaryList" => list(asset_bundle_export_job_summary()),
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type list_asset_bundle_export_jobs_response() :: %{String.t() => any()}
+  @type list_asset_bundle_export_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7403,30 +7427,30 @@ defmodule AWS.QuickSight do
         "ConditionalFormatting" => k_p_i_conditional_formatting(),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
-        "VisualContentAltText" => String.t(),
-        "VisualId" => String.t()
+        "VisualContentAltText" => String.t() | atom(),
+        "VisualId" => String.t() | atom()
       }
 
   """
-  @type k_p_i_visual() :: %{String.t() => any()}
+  @type k_p_i_visual() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dashboard() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "DashboardId" => String.t(),
+        "DashboardId" => String.t() | atom(),
         "LastPublishedTime" => non_neg_integer(),
         "LastUpdatedTime" => non_neg_integer(),
-        "LinkEntities" => list(String.t()),
-        "Name" => String.t(),
+        "LinkEntities" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
         "Version" => dashboard_version()
       }
 
   """
-  @type dashboard() :: %{String.t() => any()}
+  @type dashboard() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7434,12 +7458,12 @@ defmodule AWS.QuickSight do
 
       describe_topic_refresh_response() :: %{
         "RefreshDetails" => topic_refresh_details(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_topic_refresh_response() :: %{String.t() => any()}
+  @type describe_topic_refresh_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7447,53 +7471,53 @@ defmodule AWS.QuickSight do
 
       conditional_formatting_custom_icon_options() :: %{
         "Icon" => list(any()),
-        "UnicodeIcon" => String.t()
+        "UnicodeIcon" => String.t() | atom()
       }
 
   """
-  @type conditional_formatting_custom_icon_options() :: %{String.t() => any()}
+  @type conditional_formatting_custom_icon_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       panel_configuration() :: %{
-        "BackgroundColor" => String.t(),
+        "BackgroundColor" => String.t() | atom(),
         "BackgroundVisibility" => list(any()),
-        "BorderColor" => String.t(),
+        "BorderColor" => String.t() | atom(),
         "BorderStyle" => list(any()),
-        "BorderThickness" => String.t(),
+        "BorderThickness" => String.t() | atom(),
         "BorderVisibility" => list(any()),
-        "GutterSpacing" => String.t(),
+        "GutterSpacing" => String.t() | atom(),
         "GutterVisibility" => list(any()),
         "Title" => panel_title_options()
       }
 
   """
-  @type panel_configuration() :: %{String.t() => any()}
+  @type panel_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       contribution_analysis_factor() :: %{
-        "FieldName" => String.t()
+        "FieldName" => String.t() | atom()
       }
 
   """
-  @type contribution_analysis_factor() :: %{String.t() => any()}
+  @type contribution_analysis_factor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_topic_reviewed_answer() :: %{
-        "AnswerId" => String.t(),
+        "AnswerId" => String.t() | atom(),
         "Error" => list(any())
       }
 
   """
-  @type invalid_topic_reviewed_answer() :: %{String.t() => any()}
+  @type invalid_topic_reviewed_answer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7509,41 +7533,41 @@ defmodule AWS.QuickSight do
   ## Example:
 
       asset_bundle_import_job_data_source_override_tags() :: %{
-        "DataSourceIds" => list(String.t()),
+        "DataSourceIds" => list(String.t() | atom()),
         "Tags" => list(tag())
       }
 
   """
-  @type asset_bundle_import_job_data_source_override_tags() :: %{String.t() => any()}
+  @type asset_bundle_import_job_data_source_override_tags() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       domain_not_whitelisted_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
       }
 
   """
-  @type domain_not_whitelisted_exception() :: %{String.t() => any()}
+  @type domain_not_whitelisted_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       semantic_type() :: %{
-        "FalseyCellValue" => String.t(),
-        "FalseyCellValueSynonyms" => list(String.t()),
-        "SubTypeName" => String.t(),
-        "TruthyCellValue" => String.t(),
-        "TruthyCellValueSynonyms" => list(String.t()),
-        "TypeName" => String.t(),
+        "FalseyCellValue" => String.t() | atom(),
+        "FalseyCellValueSynonyms" => list(String.t() | atom()),
+        "SubTypeName" => String.t() | atom(),
+        "TruthyCellValue" => String.t() | atom(),
+        "TruthyCellValueSynonyms" => list(String.t() | atom()),
+        "TypeName" => String.t() | atom(),
         "TypeParameters" => map()
       }
 
   """
-  @type semantic_type() :: %{String.t() => any()}
+  @type semantic_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7555,12 +7579,12 @@ defmodule AWS.QuickSight do
         "ConditionalFormatting" => table_conditional_formatting(),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
-        "VisualContentAltText" => String.t(),
-        "VisualId" => String.t()
+        "VisualContentAltText" => String.t() | atom(),
+        "VisualId" => String.t() | atom()
       }
 
   """
-  @type table_visual() :: %{String.t() => any()}
+  @type table_visual() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7571,7 +7595,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type visual_menu_option() :: %{String.t() => any()}
+  @type visual_menu_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7582,7 +7606,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type dashboard_visual_publish_options() :: %{String.t() => any()}
+  @type dashboard_visual_publish_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7590,11 +7614,11 @@ defmodule AWS.QuickSight do
 
       topic_template() :: %{
         "Slots" => list(slot()),
-        "TemplateType" => String.t()
+        "TemplateType" => String.t() | atom()
       }
 
   """
-  @type topic_template() :: %{String.t() => any()}
+  @type topic_template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7614,7 +7638,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type computation() :: %{String.t() => any()}
+  @type computation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7625,7 +7649,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type export_to_csv_option() :: %{String.t() => any()}
+  @type export_to_csv_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7637,7 +7661,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type default_formatting() :: %{String.t() => any()}
+  @type default_formatting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7648,59 +7672,59 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type analysis_source_entity() :: %{String.t() => any()}
+  @type analysis_source_entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conditional_formatting_custom_icon_condition() :: %{
-        "Color" => String.t(),
+        "Color" => String.t() | atom(),
         "DisplayConfiguration" => conditional_formatting_icon_display_configuration(),
-        "Expression" => String.t(),
+        "Expression" => String.t() | atom(),
         "IconOptions" => conditional_formatting_custom_icon_options()
       }
 
   """
-  @type conditional_formatting_custom_icon_condition() :: %{String.t() => any()}
+  @type conditional_formatting_custom_icon_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       snapshot_anonymous_user_redacted() :: %{
-        "RowLevelPermissionTagKeys" => list(String.t())
+        "RowLevelPermissionTagKeys" => list(String.t() | atom())
       }
 
   """
-  @type snapshot_anonymous_user_redacted() :: %{String.t() => any()}
+  @type snapshot_anonymous_user_redacted() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_next_token_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
       }
 
   """
-  @type invalid_next_token_exception() :: %{String.t() => any()}
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       metric_comparison_computation() :: %{
-        "ComputationId" => String.t(),
+        "ComputationId" => String.t() | atom(),
         "FromValue" => measure_field(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "TargetValue" => measure_field(),
         "Time" => dimension_field()
       }
 
   """
-  @type metric_comparison_computation() :: %{String.t() => any()}
+  @type metric_comparison_computation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7708,65 +7732,65 @@ defmodule AWS.QuickSight do
 
       describe_analysis_response() :: %{
         "Analysis" => analysis(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_analysis_response() :: %{String.t() => any()}
+  @type describe_analysis_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_parameter_value_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
       }
 
   """
-  @type invalid_parameter_value_exception() :: %{String.t() => any()}
+  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       namespace_error() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | atom(),
         "Type" => list(any())
       }
 
   """
-  @type namespace_error() :: %{String.t() => any()}
+  @type namespace_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       template_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
         "LastUpdatedTime" => non_neg_integer(),
         "LatestVersionNumber" => float(),
-        "Name" => String.t(),
-        "TemplateId" => String.t()
+        "Name" => String.t() | atom(),
+        "TemplateId" => String.t() | atom()
       }
 
   """
-  @type template_summary() :: %{String.t() => any()}
+  @type template_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_path_label_type() :: %{
-        "FieldId" => String.t(),
-        "FieldValue" => String.t(),
+        "FieldId" => String.t() | atom(),
+        "FieldValue" => String.t() | atom(),
         "Visibility" => list(any())
       }
 
   """
-  @type data_path_label_type() :: %{String.t() => any()}
+  @type data_path_label_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7774,23 +7798,23 @@ defmodule AWS.QuickSight do
 
       list_template_versions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_template_versions_request() :: %{String.t() => any()}
+  @type list_template_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_bundle_export_job_theme_override_properties() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "Properties" => list(list(any())())
       }
 
   """
-  @type asset_bundle_export_job_theme_override_properties() :: %{String.t() => any()}
+  @type asset_bundle_export_job_theme_override_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7803,7 +7827,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type filter_agg_metrics() :: %{String.t() => any()}
+  @type filter_agg_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7815,7 +7839,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type slider_control_display_options() :: %{String.t() => any()}
+  @type slider_control_display_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7825,26 +7849,26 @@ defmodule AWS.QuickSight do
         optional("Definition") => analysis_definition(),
         optional("Parameters") => parameters(),
         optional("SourceEntity") => analysis_source_entity(),
-        optional("ThemeArn") => String.t(),
+        optional("ThemeArn") => String.t() | atom(),
         optional("ValidationStrategy") => validation_strategy(),
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type update_analysis_request() :: %{String.t() => any()}
+  @type update_analysis_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       total_aggregation_computation() :: %{
-        "ComputationId" => String.t(),
-        "Name" => String.t(),
+        "ComputationId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Value" => measure_field()
       }
 
   """
-  @type total_aggregation_computation() :: %{String.t() => any()}
+  @type total_aggregation_computation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7855,21 +7879,21 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type update_refresh_schedule_request() :: %{String.t() => any()}
+  @type update_refresh_schedule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_users_response() :: %{
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "UserList" => list(user())
       }
 
   """
-  @type list_users_response() :: %{String.t() => any()}
+  @type list_users_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7877,11 +7901,11 @@ defmodule AWS.QuickSight do
 
       list_role_memberships_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_role_memberships_request() :: %{String.t() => any()}
+  @type list_role_memberships_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7895,18 +7919,18 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_circle_symbol_style() :: %{String.t() => any()}
+  @type geospatial_circle_symbol_style() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       project_operation() :: %{
-        "ProjectedColumns" => list(String.t())
+        "ProjectedColumns" => list(String.t() | atom())
       }
 
   """
-  @type project_operation() :: %{String.t() => any()}
+  @type project_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7914,13 +7938,13 @@ defmodule AWS.QuickSight do
 
       update_theme_request() :: %{
         optional("Configuration") => theme_configuration(),
-        optional("Name") => String.t(),
-        optional("VersionDescription") => String.t(),
-        required("BaseThemeId") => String.t()
+        optional("Name") => String.t() | atom(),
+        optional("VersionDescription") => String.t() | atom(),
+        required("BaseThemeId") => String.t() | atom()
       }
 
   """
-  @type update_theme_request() :: %{String.t() => any()}
+  @type update_theme_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7931,7 +7955,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type update_theme_alias_request() :: %{String.t() => any()}
+  @type update_theme_alias_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7940,14 +7964,14 @@ defmodule AWS.QuickSight do
       create_theme_request() :: %{
         optional("Permissions") => list(resource_permission()),
         optional("Tags") => list(tag()),
-        optional("VersionDescription") => String.t(),
-        required("BaseThemeId") => String.t(),
+        optional("VersionDescription") => String.t() | atom(),
+        required("BaseThemeId") => String.t() | atom(),
         required("Configuration") => theme_configuration(),
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_theme_request() :: %{String.t() => any()}
+  @type create_theme_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7958,7 +7982,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type executive_summary_configurations() :: %{String.t() => any()}
+  @type executive_summary_configurations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7969,7 +7993,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type plugin_visual_options() :: %{String.t() => any()}
+  @type plugin_visual_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7981,7 +8005,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type axis_data_options() :: %{String.t() => any()}
+  @type axis_data_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7989,12 +8013,12 @@ defmodule AWS.QuickSight do
 
       body_section_repeat_configuration() :: %{
         "DimensionConfigurations" => list(body_section_repeat_dimension_configuration()),
-        "NonRepeatingVisuals" => list(String.t()),
+        "NonRepeatingVisuals" => list(String.t() | atom()),
         "PageBreakConfiguration" => body_section_repeat_page_break_configuration()
       }
 
   """
-  @type body_section_repeat_configuration() :: %{String.t() => any()}
+  @type body_section_repeat_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8002,12 +8026,12 @@ defmodule AWS.QuickSight do
 
       search_groups_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("Filters") => list(group_search_filter())
       }
 
   """
-  @type search_groups_request() :: %{String.t() => any()}
+  @type search_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8015,8 +8039,8 @@ defmodule AWS.QuickSight do
 
       radar_chart_configuration() :: %{
         "AlternateBandColorsVisibility" => list(any()),
-        "AlternateBandEvenColor" => String.t(),
-        "AlternateBandOddColor" => String.t(),
+        "AlternateBandEvenColor" => String.t() | atom(),
+        "AlternateBandOddColor" => String.t() | atom(),
         "AxesRangeScale" => list(any()),
         "BaseSeriesSettings" => radar_chart_series_settings(),
         "CategoryAxis" => axis_display_options(),
@@ -8033,7 +8057,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type radar_chart_configuration() :: %{String.t() => any()}
+  @type radar_chart_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8041,23 +8065,23 @@ defmodule AWS.QuickSight do
 
       describe_dashboard_response() :: %{
         "Dashboard" => dashboard(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_dashboard_response() :: %{String.t() => any()}
+  @type describe_dashboard_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       amazon_elasticsearch_parameters() :: %{
-        "Domain" => String.t()
+        "Domain" => String.t() | atom()
       }
 
   """
-  @type amazon_elasticsearch_parameters() :: %{String.t() => any()}
+  @type amazon_elasticsearch_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8068,7 +8092,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type pivot_table_conditional_formatting_option() :: %{String.t() => any()}
+  @type pivot_table_conditional_formatting_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8079,44 +8103,44 @@ defmodule AWS.QuickSight do
         "ChartConfiguration" => sankey_diagram_chart_configuration(),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
-        "VisualContentAltText" => String.t(),
-        "VisualId" => String.t()
+        "VisualContentAltText" => String.t() | atom(),
+        "VisualId" => String.t() | atom()
       }
 
   """
-  @type sankey_diagram_visual() :: %{String.t() => any()}
+  @type sankey_diagram_visual() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_dashboard_permissions_response() :: %{
-        "DashboardArn" => String.t(),
-        "DashboardId" => String.t(),
+        "DashboardArn" => String.t() | atom(),
+        "DashboardId" => String.t() | atom(),
         "LinkSharingConfiguration" => link_sharing_configuration(),
         "Permissions" => list(resource_permission()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_dashboard_permissions_response() :: %{String.t() => any()}
+  @type describe_dashboard_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_data_set_response() :: %{
-        "Arn" => String.t(),
-        "DataSetId" => String.t(),
-        "IngestionArn" => String.t(),
-        "IngestionId" => String.t(),
-        "RequestId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "DataSetId" => String.t() | atom(),
+        "IngestionArn" => String.t() | atom(),
+        "IngestionId" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type create_data_set_response() :: %{String.t() => any()}
+  @type create_data_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8124,11 +8148,11 @@ defmodule AWS.QuickSight do
 
       list_topics_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_topics_request() :: %{String.t() => any()}
+  @type list_topics_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8139,19 +8163,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type k_p_i_visual_layout_options() :: %{String.t() => any()}
+  @type k_p_i_visual_layout_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       logo_configuration() :: %{
-        "AltText" => String.t(),
+        "AltText" => String.t() | atom(),
         "LogoSet" => logo_set_configuration()
       }
 
   """
-  @type logo_configuration() :: %{String.t() => any()}
+  @type logo_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8167,31 +8191,31 @@ defmodule AWS.QuickSight do
   ## Example:
 
       theme_version() :: %{
-        "Arn" => String.t(),
-        "BaseThemeId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "BaseThemeId" => String.t() | atom(),
         "Configuration" => theme_configuration(),
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "Errors" => list(theme_error()),
         "Status" => list(any()),
         "VersionNumber" => float()
       }
 
   """
-  @type theme_version() :: %{String.t() => any()}
+  @type theme_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       postgre_sql_parameters() :: %{
-        "Database" => String.t(),
-        "Host" => String.t(),
+        "Database" => String.t() | atom(),
+        "Host" => String.t() | atom(),
         "Port" => integer()
       }
 
   """
-  @type postgre_sql_parameters() :: %{String.t() => any()}
+  @type postgre_sql_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8199,13 +8223,13 @@ defmodule AWS.QuickSight do
 
       parameter_date_time_picker_control() :: %{
         "DisplayOptions" => date_time_picker_control_display_options(),
-        "ParameterControlId" => String.t(),
-        "SourceParameterName" => String.t(),
-        "Title" => String.t()
+        "ParameterControlId" => String.t() | atom(),
+        "SourceParameterName" => String.t() | atom(),
+        "Title" => String.t() | atom()
       }
 
   """
-  @type parameter_date_time_picker_control() :: %{String.t() => any()}
+  @type parameter_date_time_picker_control() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8216,7 +8240,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type refresh_configuration() :: %{String.t() => any()}
+  @type refresh_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8228,7 +8252,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type k_p_i_actual_value_conditional_formatting() :: %{String.t() => any()}
+  @type k_p_i_actual_value_conditional_formatting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8242,21 +8266,21 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type combo_chart_aggregated_field_wells() :: %{String.t() => any()}
+  @type combo_chart_aggregated_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_template_versions_response() :: %{
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "TemplateVersionSummaryList" => list(template_version_summary())
       }
 
   """
-  @type list_template_versions_response() :: %{String.t() => any()}
+  @type list_template_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8267,7 +8291,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type secondary_value_options() :: %{String.t() => any()}
+  @type secondary_value_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8275,26 +8299,26 @@ defmodule AWS.QuickSight do
 
       image_custom_action() :: %{
         "ActionOperations" => list(image_custom_action_operation()),
-        "CustomActionId" => String.t(),
-        "Name" => String.t(),
+        "CustomActionId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Status" => list(any()),
         "Trigger" => list(any())
       }
 
   """
-  @type image_custom_action() :: %{String.t() => any()}
+  @type image_custom_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_user_custom_permission_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type delete_user_custom_permission_response() :: %{String.t() => any()}
+  @type delete_user_custom_permission_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8302,12 +8326,12 @@ defmodule AWS.QuickSight do
 
       update_dashboards_q_a_configuration_response() :: %{
         "DashboardsQAStatus" => list(any()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type update_dashboards_q_a_configuration_response() :: %{String.t() => any()}
+  @type update_dashboards_q_a_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8323,12 +8347,12 @@ defmodule AWS.QuickSight do
   ## Example:
 
       update_default_q_business_application_request() :: %{
-        optional("Namespace") => String.t(),
-        required("ApplicationId") => String.t()
+        optional("Namespace") => String.t() | atom(),
+        required("ApplicationId") => String.t() | atom()
       }
 
   """
-  @type update_default_q_business_application_request() :: %{String.t() => any()}
+  @type update_default_q_business_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8345,13 +8369,13 @@ defmodule AWS.QuickSight do
 
       list_data_sources_response() :: %{
         "DataSources" => list(data_source()),
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type list_data_sources_response() :: %{String.t() => any()}
+  @type list_data_sources_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8367,52 +8391,52 @@ defmodule AWS.QuickSight do
   ## Example:
 
       member_id_arn_pair() :: %{
-        "MemberArn" => String.t(),
-        "MemberId" => String.t()
+        "MemberArn" => String.t() | atom(),
+        "MemberId" => String.t() | atom()
       }
 
   """
-  @type member_id_arn_pair() :: %{String.t() => any()}
+  @type member_id_arn_pair() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_theme_aliases_response() :: %{
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "ThemeAliasList" => list(theme_alias())
       }
 
   """
-  @type list_theme_aliases_response() :: %{String.t() => any()}
+  @type list_theme_aliases_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_refresh_schedule_response() :: %{
-        "Arn" => String.t(),
-        "RequestId" => String.t(),
-        "ScheduleId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "ScheduleId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type create_refresh_schedule_response() :: %{String.t() => any()}
+  @type create_refresh_schedule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_brand_assignment_response() :: %{
-        "BrandArn" => String.t(),
-        "RequestId" => String.t()
+        "BrandArn" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
       }
 
   """
-  @type describe_brand_assignment_response() :: %{String.t() => any()}
+  @type describe_brand_assignment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8422,41 +8446,41 @@ defmodule AWS.QuickSight do
         "DisplayOptions" => slider_control_display_options(),
         "MaximumValue" => float(),
         "MinimumValue" => float(),
-        "ParameterControlId" => String.t(),
-        "SourceParameterName" => String.t(),
+        "ParameterControlId" => String.t() | atom(),
+        "SourceParameterName" => String.t() | atom(),
         "StepSize" => float(),
-        "Title" => String.t()
+        "Title" => String.t() | atom()
       }
 
   """
-  @type parameter_slider_control() :: %{String.t() => any()}
+  @type parameter_slider_control() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       string_value_when_unset_configuration() :: %{
-        "CustomValue" => String.t(),
+        "CustomValue" => String.t() | atom(),
         "ValueWhenUnsetOption" => list(any())
       }
 
   """
-  @type string_value_when_unset_configuration() :: %{String.t() => any()}
+  @type string_value_when_unset_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_filter_configuration() :: %{
-        "CategoryValue" => String.t(),
+        "CategoryValue" => String.t() | atom(),
         "MatchOperator" => list(any()),
         "NullOption" => list(any()),
-        "ParameterName" => String.t(),
+        "ParameterName" => String.t() | atom(),
         "SelectAllOptions" => list(any())
       }
 
   """
-  @type custom_filter_configuration() :: %{String.t() => any()}
+  @type custom_filter_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8464,12 +8488,12 @@ defmodule AWS.QuickSight do
 
       describe_dashboards_q_a_configuration_response() :: %{
         "DashboardsQAStatus" => list(any()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_dashboards_q_a_configuration_response() :: %{String.t() => any()}
+  @type describe_dashboards_q_a_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8481,7 +8505,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type create_brand_request() :: %{String.t() => any()}
+  @type create_brand_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8501,27 +8525,27 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type describe_key_registration_request() :: %{String.t() => any()}
+  @type describe_key_registration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_set_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "ColumnLevelPermissionRulesApplied" => boolean(),
         "CreatedTime" => non_neg_integer(),
-        "DataSetId" => String.t(),
+        "DataSetId" => String.t() | atom(),
         "ImportMode" => list(any()),
         "LastUpdatedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "RowLevelPermissionDataSet" => row_level_permission_data_set(),
         "RowLevelPermissionTagConfigurationApplied" => boolean(),
         "UseAs" => list(any())
       }
 
   """
-  @type data_set_summary() :: %{String.t() => any()}
+  @type data_set_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8532,7 +8556,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_data_source_item() :: %{String.t() => any()}
+  @type geospatial_data_source_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8544,12 +8568,12 @@ defmodule AWS.QuickSight do
         "ColumnHierarchies" => list(column_hierarchy()),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
-        "VisualContentAltText" => String.t(),
-        "VisualId" => String.t()
+        "VisualContentAltText" => String.t() | atom(),
+        "VisualId" => String.t() | atom()
       }
 
   """
-  @type tree_map_visual() :: %{String.t() => any()}
+  @type tree_map_visual() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8557,24 +8581,24 @@ defmodule AWS.QuickSight do
 
       empty_visual() :: %{
         "Actions" => list(visual_custom_action()),
-        "DataSetIdentifier" => String.t(),
-        "VisualId" => String.t()
+        "DataSetIdentifier" => String.t() | atom(),
+        "VisualId" => String.t() | atom()
       }
 
   """
-  @type empty_visual() :: %{String.t() => any()}
+  @type empty_visual() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_bundle_import_job_data_set_override_tags() :: %{
-        "DataSetIds" => list(String.t()),
+        "DataSetIds" => list(String.t() | atom()),
         "Tags" => list(tag())
       }
 
   """
-  @type asset_bundle_import_job_data_set_override_tags() :: %{String.t() => any()}
+  @type asset_bundle_import_job_data_set_override_tags() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8585,20 +8609,20 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_polygon_layer() :: %{String.t() => any()}
+  @type geospatial_polygon_layer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       pivot_table_field_option() :: %{
-        "CustomLabel" => String.t(),
-        "FieldId" => String.t(),
+        "CustomLabel" => String.t() | atom(),
+        "FieldId" => String.t() | atom(),
         "Visibility" => list(any())
       }
 
   """
-  @type pivot_table_field_option() :: %{String.t() => any()}
+  @type pivot_table_field_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8612,25 +8636,25 @@ defmodule AWS.QuickSight do
         optional("IncludePermissions") => boolean(),
         optional("IncludeTags") => boolean(),
         optional("ValidationStrategy") => asset_bundle_export_job_validation_strategy(),
-        required("AssetBundleExportJobId") => String.t(),
+        required("AssetBundleExportJobId") => String.t() | atom(),
         required("ExportFormat") => list(any()),
-        required("ResourceArns") => list(String.t())
+        required("ResourceArns") => list(String.t() | atom())
       }
 
   """
-  @type start_asset_bundle_export_job_request() :: %{String.t() => any()}
+  @type start_asset_bundle_export_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conditional_formatting_icon_set() :: %{
-        "Expression" => String.t(),
+        "Expression" => String.t() | atom(),
         "IconSetType" => list(any())
       }
 
   """
-  @type conditional_formatting_icon_set() :: %{String.t() => any()}
+  @type conditional_formatting_icon_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8643,7 +8667,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type pivot_table_field_options() :: %{String.t() => any()}
+  @type pivot_table_field_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8653,15 +8677,15 @@ defmodule AWS.QuickSight do
         "CascadingControlConfiguration" => cascading_control_configuration(),
         "CommitMode" => list(any()),
         "DisplayOptions" => drop_down_control_display_options(),
-        "ParameterControlId" => String.t(),
+        "ParameterControlId" => String.t() | atom(),
         "SelectableValues" => parameter_selectable_values(),
-        "SourceParameterName" => String.t(),
-        "Title" => String.t(),
+        "SourceParameterName" => String.t() | atom(),
+        "Title" => String.t() | atom(),
         "Type" => list(any())
       }
 
   """
-  @type parameter_drop_down_control() :: %{String.t() => any()}
+  @type parameter_drop_down_control() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8670,12 +8694,12 @@ defmodule AWS.QuickSight do
       refresh_frequency() :: %{
         "Interval" => list(any()),
         "RefreshOnDay" => schedule_refresh_on_entity(),
-        "TimeOfTheDay" => String.t(),
-        "Timezone" => String.t()
+        "TimeOfTheDay" => String.t() | atom(),
+        "Timezone" => String.t() | atom()
       }
 
   """
-  @type refresh_frequency() :: %{String.t() => any()}
+  @type refresh_frequency() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8687,7 +8711,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type tree_map_sort_configuration() :: %{String.t() => any()}
+  @type tree_map_sort_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8698,7 +8722,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type grid_layout_canvas_size_options() :: %{String.t() => any()}
+  @type grid_layout_canvas_size_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8714,13 +8738,13 @@ defmodule AWS.QuickSight do
   ## Example:
 
       static_file_s3_source_options() :: %{
-        "BucketName" => String.t(),
-        "ObjectKey" => String.t(),
-        "Region" => String.t()
+        "BucketName" => String.t() | atom(),
+        "ObjectKey" => String.t() | atom(),
+        "Region" => String.t() | atom()
       }
 
   """
-  @type static_file_s3_source_options() :: %{String.t() => any()}
+  @type static_file_s3_source_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8733,7 +8757,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type image_custom_action_operation() :: %{String.t() => any()}
+  @type image_custom_action_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8744,18 +8768,18 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type sheet_image_scaling_configuration() :: %{String.t() => any()}
+  @type sheet_image_scaling_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       template_source_template() :: %{
-        "Arn" => String.t()
+        "Arn" => String.t() | atom()
       }
 
   """
-  @type template_source_template() :: %{String.t() => any()}
+  @type template_source_template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8766,22 +8790,22 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type threshold_alerts_configurations() :: %{String.t() => any()}
+  @type threshold_alerts_configurations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       row_level_permission_data_set() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "FormatVersion" => list(any()),
-        "Namespace" => String.t(),
+        "Namespace" => String.t() | atom(),
         "PermissionPolicy" => list(any()),
         "Status" => list(any())
       }
 
   """
-  @type row_level_permission_data_set() :: %{String.t() => any()}
+  @type row_level_permission_data_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8795,7 +8819,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type update_dashboard_permissions_request() :: %{String.t() => any()}
+  @type update_dashboard_permissions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8808,7 +8832,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type row_info() :: %{String.t() => any()}
+  @type row_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8816,38 +8840,38 @@ defmodule AWS.QuickSight do
 
       list_group_memberships_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_group_memberships_request() :: %{String.t() => any()}
+  @type list_group_memberships_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       row_level_permission_tag_rule() :: %{
-        "ColumnName" => String.t(),
-        "MatchAllValue" => String.t(),
-        "TagKey" => String.t(),
-        "TagMultiValueDelimiter" => String.t()
+        "ColumnName" => String.t() | atom(),
+        "MatchAllValue" => String.t() | atom(),
+        "TagKey" => String.t() | atom(),
+        "TagMultiValueDelimiter" => String.t() | atom()
       }
 
   """
-  @type row_level_permission_tag_rule() :: %{String.t() => any()}
+  @type row_level_permission_tag_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "Tags" => list(tag())
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8865,20 +8889,20 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type filter_control() :: %{String.t() => any()}
+  @type filter_control() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       my_sql_parameters() :: %{
-        "Database" => String.t(),
-        "Host" => String.t(),
+        "Database" => String.t() | atom(),
+        "Host" => String.t() | atom(),
         "Port" => integer()
       }
 
   """
-  @type my_sql_parameters() :: %{String.t() => any()}
+  @type my_sql_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8889,7 +8913,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type k_p_iprogress_bar_conditional_formatting() :: %{String.t() => any()}
+  @type k_p_iprogress_bar_conditional_formatting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8901,7 +8925,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type column_tag() :: %{String.t() => any()}
+  @type column_tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8913,7 +8937,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type free_form_layout_configuration() :: %{String.t() => any()}
+  @type free_form_layout_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8925,7 +8949,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type funnel_chart_aggregated_field_wells() :: %{String.t() => any()}
+  @type funnel_chart_aggregated_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8934,13 +8958,13 @@ defmodule AWS.QuickSight do
       date_time_parameter_declaration() :: %{
         "DefaultValues" => date_time_default_values(),
         "MappedDataSetParameters" => list(mapped_data_set_parameter()),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "TimeGranularity" => list(any()),
         "ValueWhenUnset" => date_time_value_when_unset_configuration()
       }
 
   """
-  @type date_time_parameter_declaration() :: %{String.t() => any()}
+  @type date_time_parameter_declaration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8953,7 +8977,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type panel_title_options() :: %{String.t() => any()}
+  @type panel_title_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8964,7 +8988,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type export_hidden_fields_option() :: %{String.t() => any()}
+  @type export_hidden_fields_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8972,9 +8996,9 @@ defmodule AWS.QuickSight do
 
       top_bottom_movers_computation() :: %{
         "Category" => dimension_field(),
-        "ComputationId" => String.t(),
+        "ComputationId" => String.t() | atom(),
         "MoverSize" => integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "SortOrder" => list(any()),
         "Time" => dimension_field(),
         "Type" => list(any()),
@@ -8982,21 +9006,21 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type top_bottom_movers_computation() :: %{String.t() => any()}
+  @type top_bottom_movers_computation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_topics_response() :: %{
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "TopicsSummaries" => list(topic_summary())
       }
 
   """
-  @type list_topics_response() :: %{String.t() => any()}
+  @type list_topics_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9008,7 +9032,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type contribution_analysis_time_ranges() :: %{String.t() => any()}
+  @type contribution_analysis_time_ranges() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9024,18 +9048,18 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type word_cloud_options() :: %{String.t() => any()}
+  @type word_cloud_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_delete_topic_reviewed_answer_request() :: %{
-        optional("AnswerIds") => list(String.t())
+        optional("AnswerIds") => list(String.t() | atom())
       }
 
   """
-  @type batch_delete_topic_reviewed_answer_request() :: %{String.t() => any()}
+  @type batch_delete_topic_reviewed_answer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9043,35 +9067,37 @@ defmodule AWS.QuickSight do
 
       default_filter_control_configuration() :: %{
         "ControlOptions" => default_filter_control_options(),
-        "Title" => String.t()
+        "Title" => String.t() | atom()
       }
 
   """
-  @type default_filter_control_configuration() :: %{String.t() => any()}
+  @type default_filter_control_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       total_aggregation_option() :: %{
-        "FieldId" => String.t(),
+        "FieldId" => String.t() | atom(),
         "TotalAggregationFunction" => total_aggregation_function()
       }
 
   """
-  @type total_aggregation_option() :: %{String.t() => any()}
+  @type total_aggregation_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_bundle_import_job_analysis_override_permissions() :: %{
-        "AnalysisIds" => list(String.t()),
+        "AnalysisIds" => list(String.t() | atom()),
         "Permissions" => asset_bundle_resource_permissions()
       }
 
   """
-  @type asset_bundle_import_job_analysis_override_permissions() :: %{String.t() => any()}
+  @type asset_bundle_import_job_analysis_override_permissions() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -9084,60 +9110,62 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type radar_chart_aggregated_field_wells() :: %{String.t() => any()}
+  @type radar_chart_aggregated_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       generated_answer_result() :: %{
-        "AnswerId" => String.t(),
+        "AnswerId" => String.t() | atom(),
         "AnswerStatus" => list(any()),
-        "QuestionId" => String.t(),
-        "QuestionText" => String.t(),
-        "QuestionUrl" => String.t(),
-        "Restatement" => String.t(),
-        "TopicId" => String.t(),
-        "TopicName" => String.t()
+        "QuestionId" => String.t() | atom(),
+        "QuestionText" => String.t() | atom(),
+        "QuestionUrl" => String.t() | atom(),
+        "Restatement" => String.t() | atom(),
+        "TopicId" => String.t() | atom(),
+        "TopicName" => String.t() | atom()
       }
 
   """
-  @type generated_answer_result() :: %{String.t() => any()}
+  @type generated_answer_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_bundle_import_job_refresh_schedule_override_parameters() :: %{
-        "DataSetId" => String.t(),
-        "ScheduleId" => String.t(),
+        "DataSetId" => String.t() | atom(),
+        "ScheduleId" => String.t() | atom(),
         "StartAfterDateTime" => non_neg_integer()
       }
 
   """
-  @type asset_bundle_import_job_refresh_schedule_override_parameters() :: %{String.t() => any()}
+  @type asset_bundle_import_job_refresh_schedule_override_parameters() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       update_brand_assignment_request() :: %{
-        required("BrandArn") => String.t()
+        required("BrandArn") => String.t() | atom()
       }
 
   """
-  @type update_brand_assignment_request() :: %{String.t() => any()}
+  @type update_brand_assignment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_default_q_business_application_request() :: %{
-        optional("Namespace") => String.t()
+        optional("Namespace") => String.t() | atom()
       }
 
   """
-  @type delete_default_q_business_application_request() :: %{String.t() => any()}
+  @type delete_default_q_business_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9147,16 +9175,16 @@ defmodule AWS.QuickSight do
         "Actions" => list(layer_custom_action()),
         "DataSource" => geospatial_data_source_item(),
         "JoinDefinition" => geospatial_layer_join_definition(),
-        "Label" => String.t(),
+        "Label" => String.t() | atom(),
         "LayerDefinition" => geospatial_layer_definition(),
-        "LayerId" => String.t(),
+        "LayerId" => String.t() | atom(),
         "LayerType" => list(any()),
         "Tooltip" => tooltip_options(),
         "Visibility" => list(any())
       }
 
   """
-  @type geospatial_layer_item() :: %{String.t() => any()}
+  @type geospatial_layer_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9169,19 +9197,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type pie_chart_aggregated_field_wells() :: %{String.t() => any()}
+  @type pie_chart_aggregated_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       grid_layout_screen_canvas_size_options() :: %{
-        "OptimizedViewPortWidth" => String.t(),
+        "OptimizedViewPortWidth" => String.t() | atom(),
         "ResizeOption" => list(any())
       }
 
   """
-  @type grid_layout_screen_canvas_size_options() :: %{String.t() => any()}
+  @type grid_layout_screen_canvas_size_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9194,7 +9222,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type what_if_range_scenario() :: %{String.t() => any()}
+  @type what_if_range_scenario() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9210,12 +9238,12 @@ defmodule AWS.QuickSight do
   ## Example:
 
       create_group_request() :: %{
-        optional("Description") => String.t(),
-        required("GroupName") => String.t()
+        optional("Description") => String.t() | atom(),
+        required("GroupName") => String.t() | atom()
       }
 
   """
-  @type create_group_request() :: %{String.t() => any()}
+  @type create_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9227,20 +9255,20 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type update_template_permissions_request() :: %{String.t() => any()}
+  @type update_template_permissions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_account_settings_request() :: %{
-        optional("NotificationEmail") => String.t(),
+        optional("NotificationEmail") => String.t() | atom(),
         optional("TerminationProtectionEnabled") => boolean(),
-        required("DefaultNamespace") => String.t()
+        required("DefaultNamespace") => String.t() | atom()
       }
 
   """
-  @type update_account_settings_request() :: %{String.t() => any()}
+  @type update_account_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9256,25 +9284,29 @@ defmodule AWS.QuickSight do
   ## Example:
 
       asset_bundle_export_job_refresh_schedule_override_properties() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "Properties" => list(list(any())())
       }
 
   """
-  @type asset_bundle_export_job_refresh_schedule_override_properties() :: %{String.t() => any()}
+  @type asset_bundle_export_job_refresh_schedule_override_properties() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       generate_embed_url_for_registered_user_with_identity_request() :: %{
-        optional("AllowedDomains") => list(String.t()),
+        optional("AllowedDomains") => list(String.t() | atom()),
         optional("SessionLifetimeInMinutes") => float(),
         required("ExperienceConfiguration") => registered_user_embedding_experience_configuration()
       }
 
   """
-  @type generate_embed_url_for_registered_user_with_identity_request() :: %{String.t() => any()}
+  @type generate_embed_url_for_registered_user_with_identity_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -9285,7 +9317,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type column_group() :: %{String.t() => any()}
+  @type column_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9296,20 +9328,20 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type create_template_alias_request() :: %{String.t() => any()}
+  @type create_template_alias_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       analysis_error() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | atom(),
         "Type" => list(any()),
         "ViolatedEntities" => list(entity())
       }
 
   """
-  @type analysis_error() :: %{String.t() => any()}
+  @type analysis_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9320,7 +9352,9 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type registered_user_dashboard_visual_embedding_configuration() :: %{String.t() => any()}
+  @type registered_user_dashboard_visual_embedding_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -9331,7 +9365,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type custom_action_navigation_operation() :: %{String.t() => any()}
+  @type custom_action_navigation_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9358,7 +9392,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type bar_chart_configuration() :: %{String.t() => any()}
+  @type bar_chart_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9367,29 +9401,29 @@ defmodule AWS.QuickSight do
       date_measure_field() :: %{
         "AggregationFunction" => list(any()),
         "Column" => column_identifier(),
-        "FieldId" => String.t(),
+        "FieldId" => String.t() | atom(),
         "FormatConfiguration" => date_time_format_configuration()
       }
 
   """
-  @type date_measure_field() :: %{String.t() => any()}
+  @type date_measure_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_iam_policy_assignment_response() :: %{
-        "AssignmentId" => String.t(),
-        "AssignmentName" => String.t(),
+        "AssignmentId" => String.t() | atom(),
+        "AssignmentName" => String.t() | atom(),
         "AssignmentStatus" => list(any()),
         "Identities" => map(),
-        "PolicyArn" => String.t(),
-        "RequestId" => String.t(),
+        "PolicyArn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type update_iam_policy_assignment_response() :: %{String.t() => any()}
+  @type update_iam_policy_assignment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9414,16 +9448,16 @@ defmodule AWS.QuickSight do
   ## Example:
 
       generate_embed_url_for_anonymous_user_request() :: %{
-        optional("AllowedDomains") => list(String.t()),
+        optional("AllowedDomains") => list(String.t() | atom()),
         optional("SessionLifetimeInMinutes") => float(),
         optional("SessionTags") => list(session_tag()),
-        required("AuthorizedResourceArns") => list(String.t()),
+        required("AuthorizedResourceArns") => list(String.t() | atom()),
         required("ExperienceConfiguration") => anonymous_user_embedding_experience_configuration(),
-        required("Namespace") => String.t()
+        required("Namespace") => String.t() | atom()
       }
 
   """
-  @type generate_embed_url_for_anonymous_user_request() :: %{String.t() => any()}
+  @type generate_embed_url_for_anonymous_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9434,7 +9468,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type date_time_dataset_parameter_default_values() :: %{String.t() => any()}
+  @type date_time_dataset_parameter_default_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9446,7 +9480,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type visual_interaction_options() :: %{String.t() => any()}
+  @type visual_interaction_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9462,12 +9496,12 @@ defmodule AWS.QuickSight do
   ## Example:
 
       asset_bundle_import_job_dashboard_override_tags() :: %{
-        "DashboardIds" => list(String.t()),
+        "DashboardIds" => list(String.t() | atom()),
         "Tags" => list(tag())
       }
 
   """
-  @type asset_bundle_import_job_dashboard_override_tags() :: %{String.t() => any()}
+  @type asset_bundle_import_job_dashboard_override_tags() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9475,13 +9509,13 @@ defmodule AWS.QuickSight do
 
       filter_text_field_control() :: %{
         "DisplayOptions" => text_field_control_display_options(),
-        "FilterControlId" => String.t(),
-        "SourceFilterId" => String.t(),
-        "Title" => String.t()
+        "FilterControlId" => String.t() | atom(),
+        "SourceFilterId" => String.t() | atom(),
+        "Title" => String.t() | atom()
       }
 
   """
-  @type filter_text_field_control() :: %{String.t() => any()}
+  @type filter_text_field_control() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9492,7 +9526,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type tile_style() :: %{String.t() => any()}
+  @type tile_style() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9500,15 +9534,15 @@ defmodule AWS.QuickSight do
 
       batch_create_topic_reviewed_answer_response() :: %{
         "InvalidAnswers" => list(invalid_topic_reviewed_answer()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "SucceededAnswers" => list(succeeded_topic_reviewed_answer()),
-        "TopicArn" => String.t(),
-        "TopicId" => String.t()
+        "TopicArn" => String.t() | atom(),
+        "TopicId" => String.t() | atom()
       }
 
   """
-  @type batch_create_topic_reviewed_answer_response() :: %{String.t() => any()}
+  @type batch_create_topic_reviewed_answer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9519,7 +9553,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type data_path_type() :: %{String.t() => any()}
+  @type data_path_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9530,7 +9564,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type anonymous_user_dashboard_feature_configurations() :: %{String.t() => any()}
+  @type anonymous_user_dashboard_feature_configurations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9538,14 +9572,14 @@ defmodule AWS.QuickSight do
 
       date_time_dataset_parameter() :: %{
         "DefaultValues" => date_time_dataset_parameter_default_values(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "TimeGranularity" => list(any()),
         "ValueType" => list(any())
       }
 
   """
-  @type date_time_dataset_parameter() :: %{String.t() => any()}
+  @type date_time_dataset_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9553,12 +9587,12 @@ defmodule AWS.QuickSight do
 
       update_key_registration_response() :: %{
         "FailedKeyRegistration" => list(failed_key_registration_entry()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "SuccessfulKeyRegistration" => list(successful_key_registration_entry())
       }
 
   """
-  @type update_key_registration_response() :: %{String.t() => any()}
+  @type update_key_registration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9569,14 +9603,14 @@ defmodule AWS.QuickSight do
         "NegativeValueConfiguration" => negative_value_configuration(),
         "NullValueFormatConfiguration" => null_value_format_configuration(),
         "NumberScale" => list(any()),
-        "Prefix" => String.t(),
+        "Prefix" => String.t() | atom(),
         "SeparatorConfiguration" => numeric_separator_configuration(),
-        "Suffix" => String.t(),
-        "Symbol" => String.t()
+        "Suffix" => String.t() | atom(),
+        "Symbol" => String.t() | atom()
       }
 
   """
-  @type currency_display_format_configuration() :: %{String.t() => any()}
+  @type currency_display_format_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9588,25 +9622,25 @@ defmodule AWS.QuickSight do
         optional("OverridePermissions") => asset_bundle_import_job_override_permissions(),
         optional("OverrideTags") => asset_bundle_import_job_override_tags(),
         optional("OverrideValidationStrategy") => asset_bundle_import_job_override_validation_strategy(),
-        required("AssetBundleImportJobId") => String.t(),
+        required("AssetBundleImportJobId") => String.t() | atom(),
         required("AssetBundleImportSource") => asset_bundle_import_source()
       }
 
   """
-  @type start_asset_bundle_import_job_request() :: %{String.t() => any()}
+  @type start_asset_bundle_import_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_session_embed_url_response() :: %{
-        "EmbedUrl" => String.t(),
-        "RequestId" => String.t(),
+        "EmbedUrl" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type get_session_embed_url_response() :: %{String.t() => any()}
+  @type get_session_embed_url_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9614,37 +9648,37 @@ defmodule AWS.QuickSight do
 
       list_asset_bundle_import_jobs_response() :: %{
         "AssetBundleImportJobSummaryList" => list(asset_bundle_import_job_summary()),
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type list_asset_bundle_import_jobs_response() :: %{String.t() => any()}
+  @type list_asset_bundle_import_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       group_member() :: %{
-        "Arn" => String.t(),
-        "MemberName" => String.t()
+        "Arn" => String.t() | atom(),
+        "MemberName" => String.t() | atom()
       }
 
   """
-  @type group_member() :: %{String.t() => any()}
+  @type group_member() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       category_drill_down_filter() :: %{
-        "CategoryValues" => list(String.t()),
+        "CategoryValues" => list(String.t() | atom()),
         "Column" => column_identifier()
       }
 
   """
-  @type category_drill_down_filter() :: %{String.t() => any()}
+  @type category_drill_down_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9652,13 +9686,13 @@ defmodule AWS.QuickSight do
 
       signup_response() :: %{
         "IAMUser" => boolean(),
-        "accountName" => String.t(),
-        "directoryType" => String.t(),
-        "userLoginName" => String.t()
+        "accountName" => String.t() | atom(),
+        "directoryType" => String.t() | atom(),
+        "userLoginName" => String.t() | atom()
       }
 
   """
-  @type signup_response() :: %{String.t() => any()}
+  @type signup_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9671,44 +9705,44 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type section_based_layout_paper_canvas_size_options() :: %{String.t() => any()}
+  @type section_based_layout_paper_canvas_size_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_source_credentials() :: %{
-        "CopySourceArn" => String.t(),
+        "CopySourceArn" => String.t() | atom(),
         "CredentialPair" => credential_pair(),
-        "SecretArn" => String.t()
+        "SecretArn" => String.t() | atom()
       }
 
   """
-  @type data_source_credentials() :: %{String.t() => any()}
+  @type data_source_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       account_customization() :: %{
-        "DefaultEmailCustomizationTemplate" => String.t(),
-        "DefaultTheme" => String.t()
+        "DefaultEmailCustomizationTemplate" => String.t() | atom(),
+        "DefaultTheme" => String.t() | atom()
       }
 
   """
-  @type account_customization() :: %{String.t() => any()}
+  @type account_customization() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_theme_request() :: %{
-        optional("AliasName") => String.t(),
+        optional("AliasName") => String.t() | atom(),
         optional("VersionNumber") => float()
       }
 
   """
-  @type describe_theme_request() :: %{String.t() => any()}
+  @type describe_theme_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9720,31 +9754,31 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type series_item() :: %{String.t() => any()}
+  @type series_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_role_custom_permission_request() :: %{
-        required("CustomPermissionsName") => String.t()
+        required("CustomPermissionsName") => String.t() | atom()
       }
 
   """
-  @type update_role_custom_permission_request() :: %{String.t() => any()}
+  @type update_role_custom_permission_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       generate_embed_url_for_registered_user_response() :: %{
-        "EmbedUrl" => String.t(),
-        "RequestId" => String.t(),
+        "EmbedUrl" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type generate_embed_url_for_registered_user_response() :: %{String.t() => any()}
+  @type generate_embed_url_for_registered_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9755,7 +9789,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type validation_strategy() :: %{String.t() => any()}
+  @type validation_strategy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9771,11 +9805,11 @@ defmodule AWS.QuickSight do
   ## Example:
 
       jira_parameters() :: %{
-        "SiteBaseUrl" => String.t()
+        "SiteBaseUrl" => String.t() | atom()
       }
 
   """
-  @type jira_parameters() :: %{String.t() => any()}
+  @type jira_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9783,12 +9817,12 @@ defmodule AWS.QuickSight do
 
       describe_folder_permissions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("Namespace") => String.t(),
-        optional("NextToken") => String.t()
+        optional("Namespace") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type describe_folder_permissions_request() :: %{String.t() => any()}
+  @type describe_folder_permissions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9806,7 +9840,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9817,20 +9851,20 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type progress_bar_options() :: %{String.t() => any()}
+  @type progress_bar_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       time_range_filter_value() :: %{
-        "Parameter" => String.t(),
+        "Parameter" => String.t() | atom(),
         "RollingDate" => rolling_date_configuration(),
         "StaticValue" => non_neg_integer()
       }
 
   """
-  @type time_range_filter_value() :: %{String.t() => any()}
+  @type time_range_filter_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9843,7 +9877,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type numeric_format_configuration() :: %{String.t() => any()}
+  @type numeric_format_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9852,11 +9886,11 @@ defmodule AWS.QuickSight do
       filter_operation_selected_fields_configuration() :: %{
         "SelectedColumns" => list(column_identifier()),
         "SelectedFieldOptions" => list(any()),
-        "SelectedFields" => list(String.t())
+        "SelectedFields" => list(String.t() | atom())
       }
 
   """
-  @type filter_operation_selected_fields_configuration() :: %{String.t() => any()}
+  @type filter_operation_selected_fields_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9864,11 +9898,11 @@ defmodule AWS.QuickSight do
 
       anchor_date_configuration() :: %{
         "AnchorOption" => list(any()),
-        "ParameterName" => String.t()
+        "ParameterName" => String.t() | atom()
       }
 
   """
-  @type anchor_date_configuration() :: %{String.t() => any()}
+  @type anchor_date_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9879,7 +9913,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_map_style_options() :: %{String.t() => any()}
+  @type geospatial_map_style_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9887,53 +9921,53 @@ defmodule AWS.QuickSight do
 
       attribute_aggregation_function() :: %{
         "SimpleAttributeAggregation" => list(any()),
-        "ValueForMultipleValues" => String.t()
+        "ValueForMultipleValues" => String.t() | atom()
       }
 
   """
-  @type attribute_aggregation_function() :: %{String.t() => any()}
+  @type attribute_aggregation_function() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_role_membership_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type delete_role_membership_response() :: %{String.t() => any()}
+  @type delete_role_membership_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dashboard_visual_result() :: %{
-        "DashboardId" => String.t(),
-        "DashboardName" => String.t(),
-        "DashboardUrl" => String.t(),
-        "SheetId" => String.t(),
-        "SheetName" => String.t(),
-        "VisualId" => String.t(),
-        "VisualSubtitle" => String.t(),
-        "VisualTitle" => String.t()
+        "DashboardId" => String.t() | atom(),
+        "DashboardName" => String.t() | atom(),
+        "DashboardUrl" => String.t() | atom(),
+        "SheetId" => String.t() | atom(),
+        "SheetName" => String.t() | atom(),
+        "VisualId" => String.t() | atom(),
+        "VisualSubtitle" => String.t() | atom(),
+        "VisualTitle" => String.t() | atom()
       }
 
   """
-  @type dashboard_visual_result() :: %{String.t() => any()}
+  @type dashboard_visual_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_set_identifier_declaration() :: %{
-        "DataSetArn" => String.t(),
-        "Identifier" => String.t()
+        "DataSetArn" => String.t() | atom(),
+        "Identifier" => String.t() | atom()
       }
 
   """
-  @type data_set_identifier_declaration() :: %{String.t() => any()}
+  @type data_set_identifier_declaration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9941,14 +9975,14 @@ defmodule AWS.QuickSight do
 
       update_topic_permissions_response() :: %{
         "Permissions" => list(resource_permission()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
-        "TopicArn" => String.t(),
-        "TopicId" => String.t()
+        "TopicArn" => String.t() | atom(),
+        "TopicId" => String.t() | atom()
       }
 
   """
-  @type update_topic_permissions_response() :: %{String.t() => any()}
+  @type update_topic_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9964,12 +9998,12 @@ defmodule AWS.QuickSight do
   ## Example:
 
       set_parameter_value_configuration() :: %{
-        "DestinationParameterName" => String.t(),
+        "DestinationParameterName" => String.t() | atom(),
         "Value" => destination_parameter_value_configuration()
       }
 
   """
-  @type set_parameter_value_configuration() :: %{String.t() => any()}
+  @type set_parameter_value_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9983,7 +10017,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type topic_i_r_contribution_analysis() :: %{String.t() => any()}
+  @type topic_i_r_contribution_analysis() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9995,31 +10029,31 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type static_file_source() :: %{String.t() => any()}
+  @type static_file_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       null_value_format_configuration() :: %{
-        "NullString" => String.t()
+        "NullString" => String.t() | atom()
       }
 
   """
-  @type null_value_format_configuration() :: %{String.t() => any()}
+  @type null_value_format_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       teradata_parameters() :: %{
-        "Database" => String.t(),
-        "Host" => String.t(),
+        "Database" => String.t() | atom(),
+        "Host" => String.t() | atom(),
         "Port" => integer()
       }
 
   """
-  @type teradata_parameters() :: %{String.t() => any()}
+  @type teradata_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10035,13 +10069,13 @@ defmodule AWS.QuickSight do
   ## Example:
 
       dashboard_visual_id() :: %{
-        "DashboardId" => String.t(),
-        "SheetId" => String.t(),
-        "VisualId" => String.t()
+        "DashboardId" => String.t() | atom(),
+        "SheetId" => String.t() | atom(),
+        "VisualId" => String.t() | atom()
       }
 
   """
-  @type dashboard_visual_id() :: %{String.t() => any()}
+  @type dashboard_visual_id() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10049,11 +10083,11 @@ defmodule AWS.QuickSight do
 
       list_brands_response() :: %{
         "Brands" => list(brand_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_brands_response() :: %{String.t() => any()}
+  @type list_brands_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10064,7 +10098,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type range_ends_label_type() :: %{String.t() => any()}
+  @type range_ends_label_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10075,19 +10109,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type update_custom_permissions_request() :: %{String.t() => any()}
+  @type update_custom_permissions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       concurrent_updating_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
       }
 
   """
-  @type concurrent_updating_exception() :: %{String.t() => any()}
+  @type concurrent_updating_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10098,7 +10132,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type inner_filter() :: %{String.t() => any()}
+  @type inner_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10110,7 +10144,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type items_limit_configuration() :: %{String.t() => any()}
+  @type items_limit_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10121,7 +10155,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type delete_dashboard_request() :: %{String.t() => any()}
+  @type delete_dashboard_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10135,7 +10169,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type k_p_i_configuration() :: %{String.t() => any()}
+  @type k_p_i_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10146,7 +10180,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type data_point_tooltip_option() :: %{String.t() => any()}
+  @type data_point_tooltip_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10166,19 +10200,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type negative_value_configuration() :: %{String.t() => any()}
+  @type negative_value_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_user_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type delete_user_response() :: %{String.t() => any()}
+  @type delete_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10189,38 +10223,38 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type sheet_control_layout() :: %{String.t() => any()}
+  @type sheet_control_layout() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_theme_alias_response() :: %{
-        "AliasName" => String.t(),
-        "Arn" => String.t(),
-        "RequestId" => String.t(),
+        "AliasName" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
-        "ThemeId" => String.t()
+        "ThemeId" => String.t() | atom()
       }
 
   """
-  @type delete_theme_alias_response() :: %{String.t() => any()}
+  @type delete_theme_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       iam_policy_assignment() :: %{
-        "AssignmentId" => String.t(),
-        "AssignmentName" => String.t(),
+        "AssignmentId" => String.t() | atom(),
+        "AssignmentName" => String.t() | atom(),
         "AssignmentStatus" => list(any()),
-        "AwsAccountId" => String.t(),
+        "AwsAccountId" => String.t() | atom(),
         "Identities" => map(),
-        "PolicyArn" => String.t()
+        "PolicyArn" => String.t() | atom()
       }
 
   """
-  @type iam_policy_assignment() :: %{String.t() => any()}
+  @type iam_policy_assignment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10234,19 +10268,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type default_filter_drop_down_control_options() :: %{String.t() => any()}
+  @type default_filter_drop_down_control_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_account_subscription_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type delete_account_subscription_response() :: %{String.t() => any()}
+  @type delete_account_subscription_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10262,21 +10296,21 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type table_side_border_options() :: %{String.t() => any()}
+  @type table_side_border_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       impala_parameters() :: %{
-        "Database" => String.t(),
-        "Host" => String.t(),
+        "Database" => String.t() | atom(),
+        "Host" => String.t() | atom(),
         "Port" => integer(),
-        "SqlEndpointPath" => String.t()
+        "SqlEndpointPath" => String.t() | atom()
       }
 
   """
-  @type impala_parameters() :: %{String.t() => any()}
+  @type impala_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10288,7 +10322,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type gauge_chart_field_wells() :: %{String.t() => any()}
+  @type gauge_chart_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10297,13 +10331,13 @@ defmodule AWS.QuickSight do
       topic_details() :: %{
         "ConfigOptions" => topic_config_options(),
         "DataSets" => list(dataset_metadata()),
-        "Description" => String.t(),
-        "Name" => String.t(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "UserExperienceVersion" => list(any())
       }
 
   """
-  @type topic_details() :: %{String.t() => any()}
+  @type topic_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10317,23 +10351,23 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type dataset_parameter() :: %{String.t() => any()}
+  @type dataset_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_vpc_connection_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "AvailabilityStatus" => list(any()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "UpdateStatus" => list(any()),
-        "VPCConnectionId" => String.t()
+        "VPCConnectionId" => String.t() | atom()
       }
 
   """
-  @type update_vpc_connection_response() :: %{String.t() => any()}
+  @type update_vpc_connection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10342,23 +10376,23 @@ defmodule AWS.QuickSight do
       transposed_table_option() :: %{
         "ColumnIndex" => integer(),
         "ColumnType" => list(any()),
-        "ColumnWidth" => String.t()
+        "ColumnWidth" => String.t() | atom()
       }
 
   """
-  @type transposed_table_option() :: %{String.t() => any()}
+  @type transposed_table_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_default_q_business_application_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type update_default_q_business_application_response() :: %{String.t() => any()}
+  @type update_default_q_business_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10369,60 +10403,60 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type ad_hoc_filtering_option() :: %{String.t() => any()}
+  @type ad_hoc_filtering_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_account_subscription_request() :: %{
-        optional("ActiveDirectoryName") => String.t(),
-        optional("AdminGroup") => list(String.t()),
-        optional("AdminProGroup") => list(String.t()),
-        optional("AuthorGroup") => list(String.t()),
-        optional("AuthorProGroup") => list(String.t()),
-        optional("ContactNumber") => String.t(),
-        optional("DirectoryId") => String.t(),
+        optional("ActiveDirectoryName") => String.t() | atom(),
+        optional("AdminGroup") => list(String.t() | atom()),
+        optional("AdminProGroup") => list(String.t() | atom()),
+        optional("AuthorGroup") => list(String.t() | atom()),
+        optional("AuthorProGroup") => list(String.t() | atom()),
+        optional("ContactNumber") => String.t() | atom(),
+        optional("DirectoryId") => String.t() | atom(),
         optional("Edition") => list(any()),
-        optional("EmailAddress") => String.t(),
-        optional("FirstName") => String.t(),
-        optional("IAMIdentityCenterInstanceArn") => String.t(),
-        optional("LastName") => String.t(),
-        optional("ReaderGroup") => list(String.t()),
-        optional("ReaderProGroup") => list(String.t()),
-        optional("Realm") => String.t(),
-        required("AccountName") => String.t(),
+        optional("EmailAddress") => String.t() | atom(),
+        optional("FirstName") => String.t() | atom(),
+        optional("IAMIdentityCenterInstanceArn") => String.t() | atom(),
+        optional("LastName") => String.t() | atom(),
+        optional("ReaderGroup") => list(String.t() | atom()),
+        optional("ReaderProGroup") => list(String.t() | atom()),
+        optional("Realm") => String.t() | atom(),
+        required("AccountName") => String.t() | atom(),
         required("AuthenticationMethod") => list(any()),
-        required("NotificationEmail") => String.t()
+        required("NotificationEmail") => String.t() | atom()
       }
 
   """
-  @type create_account_subscription_request() :: %{String.t() => any()}
+  @type create_account_subscription_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_column_operation() :: %{
-        "ColumnName" => String.t(),
+        "ColumnName" => String.t() | atom(),
         "Tags" => list(column_tag())
       }
 
   """
-  @type tag_column_operation() :: %{String.t() => any()}
+  @type tag_column_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_permissions() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "Capabilities" => capabilities(),
-        "CustomPermissionsName" => String.t()
+        "CustomPermissionsName" => String.t() | atom()
       }
 
   """
-  @type custom_permissions() :: %{String.t() => any()}
+  @type custom_permissions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10438,7 +10472,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type bar_chart_sort_configuration() :: %{String.t() => any()}
+  @type bar_chart_sort_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10448,15 +10482,15 @@ defmodule AWS.QuickSight do
         "CascadingControlConfiguration" => cascading_control_configuration(),
         "CommitMode" => list(any()),
         "DisplayOptions" => drop_down_control_display_options(),
-        "FilterControlId" => String.t(),
+        "FilterControlId" => String.t() | atom(),
         "SelectableValues" => filter_selectable_values(),
-        "SourceFilterId" => String.t(),
-        "Title" => String.t(),
+        "SourceFilterId" => String.t() | atom(),
+        "Title" => String.t() | atom(),
         "Type" => list(any())
       }
 
   """
-  @type filter_drop_down_control() :: %{String.t() => any()}
+  @type filter_drop_down_control() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10468,27 +10502,27 @@ defmodule AWS.QuickSight do
         "ColumnHierarchies" => list(column_hierarchy()),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
-        "VisualContentAltText" => String.t(),
-        "VisualId" => String.t()
+        "VisualContentAltText" => String.t() | atom(),
+        "VisualId" => String.t() | atom()
       }
 
   """
-  @type pie_chart_visual() :: %{String.t() => any()}
+  @type pie_chart_visual() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       refresh_schedule() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "RefreshType" => list(any()),
         "ScheduleFrequency" => refresh_frequency(),
-        "ScheduleId" => String.t(),
+        "ScheduleId" => String.t() | atom(),
         "StartAfterDateTime" => non_neg_integer()
       }
 
   """
-  @type refresh_schedule() :: %{String.t() => any()}
+  @type refresh_schedule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10496,13 +10530,13 @@ defmodule AWS.QuickSight do
 
       list_folders_response() :: %{
         "FolderSummaryList" => list(folder_summary()),
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type list_folders_response() :: %{String.t() => any()}
+  @type list_folders_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10514,45 +10548,45 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type table_aggregated_field_wells() :: %{String.t() => any()}
+  @type table_aggregated_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_dashboard_response() :: %{
-        "Arn" => String.t(),
-        "DashboardId" => String.t(),
-        "RequestId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "DashboardId" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type delete_dashboard_response() :: %{String.t() => any()}
+  @type delete_dashboard_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_now_parameters() :: %{
-        "SiteBaseUrl" => String.t()
+        "SiteBaseUrl" => String.t() | atom()
       }
 
   """
-  @type service_now_parameters() :: %{String.t() => any()}
+  @type service_now_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_template_alias_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "TemplateAlias" => template_alias()
       }
 
   """
-  @type update_template_alias_response() :: %{String.t() => any()}
+  @type update_template_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10564,7 +10598,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type logo_set_configuration() :: %{String.t() => any()}
+  @type logo_set_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10574,24 +10608,24 @@ defmodule AWS.QuickSight do
         "CustomValuesConfiguration" => custom_values_configuration(),
         "SelectAllValueOptions" => list(any()),
         "SourceColumn" => column_identifier(),
-        "SourceField" => String.t(),
-        "SourceParameterName" => String.t()
+        "SourceField" => String.t() | atom(),
+        "SourceParameterName" => String.t() | atom()
       }
 
   """
-  @type destination_parameter_value_configuration() :: %{String.t() => any()}
+  @type destination_parameter_value_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       rds_parameters() :: %{
-        "Database" => String.t(),
-        "InstanceId" => String.t()
+        "Database" => String.t() | atom(),
+        "InstanceId" => String.t() | atom()
       }
 
   """
-  @type rds_parameters() :: %{String.t() => any()}
+  @type rds_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10599,11 +10633,11 @@ defmodule AWS.QuickSight do
 
       list_folders_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_folders_request() :: %{String.t() => any()}
+  @type list_folders_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10616,48 +10650,48 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type thousand_separator_options() :: %{String.t() => any()}
+  @type thousand_separator_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aurora_postgre_sql_parameters() :: %{
-        "Database" => String.t(),
-        "Host" => String.t(),
+        "Database" => String.t() | atom(),
+        "Host" => String.t() | atom(),
         "Port" => integer()
       }
 
   """
-  @type aurora_postgre_sql_parameters() :: %{String.t() => any()}
+  @type aurora_postgre_sql_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       palette() :: %{
-        "Background" => String.t(),
-        "Foreground" => String.t()
+        "Background" => String.t() | atom(),
+        "Foreground" => String.t() | atom()
       }
 
   """
-  @type palette() :: %{String.t() => any()}
+  @type palette() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_template_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreationStatus" => list(any()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
-        "TemplateId" => String.t(),
-        "VersionArn" => String.t()
+        "TemplateId" => String.t() | atom(),
+        "VersionArn" => String.t() | atom()
       }
 
   """
-  @type update_template_response() :: %{String.t() => any()}
+  @type update_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10669,7 +10703,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type numeric_separator_configuration() :: %{String.t() => any()}
+  @type numeric_separator_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10681,32 +10715,32 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type conditional_formatting_icon() :: %{String.t() => any()}
+  @type conditional_formatting_icon() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       filter_list_configuration() :: %{
-        "CategoryValues" => list(String.t()),
+        "CategoryValues" => list(String.t() | atom()),
         "MatchOperator" => list(any()),
         "NullOption" => list(any()),
         "SelectAllOptions" => list(any())
       }
 
   """
-  @type filter_list_configuration() :: %{String.t() => any()}
+  @type filter_list_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10720,7 +10754,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type parameter_declaration() :: %{String.t() => any()}
+  @type parameter_declaration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10732,7 +10766,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_map_state() :: %{String.t() => any()}
+  @type geospatial_map_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10741,15 +10775,15 @@ defmodule AWS.QuickSight do
       custom_content_visual() :: %{
         "Actions" => list(visual_custom_action()),
         "ChartConfiguration" => custom_content_configuration(),
-        "DataSetIdentifier" => String.t(),
+        "DataSetIdentifier" => String.t() | atom(),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
-        "VisualContentAltText" => String.t(),
-        "VisualId" => String.t()
+        "VisualContentAltText" => String.t() | atom(),
+        "VisualId" => String.t() | atom()
       }
 
   """
-  @type custom_content_visual() :: %{String.t() => any()}
+  @type custom_content_visual() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10762,7 +10796,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type waterfall_chart_aggregated_field_wells() :: %{String.t() => any()}
+  @type waterfall_chart_aggregated_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10791,31 +10825,31 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type sankey_diagram_field_wells() :: %{String.t() => any()}
+  @type sankey_diagram_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_bundle_import_job_warning() :: %{
-        "Arn" => String.t(),
-        "Message" => String.t()
+        "Arn" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type asset_bundle_import_job_warning() :: %{String.t() => any()}
+  @type asset_bundle_import_job_warning() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       range_constant() :: %{
-        "Maximum" => String.t(),
-        "Minimum" => String.t()
+        "Maximum" => String.t() | atom(),
+        "Minimum" => String.t() | atom()
       }
 
   """
-  @type range_constant() :: %{String.t() => any()}
+  @type range_constant() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10827,7 +10861,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type table_row_conditional_formatting() :: %{String.t() => any()}
+  @type table_row_conditional_formatting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10839,7 +10873,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type numeric_equality_drill_down_filter() :: %{String.t() => any()}
+  @type numeric_equality_drill_down_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10851,7 +10885,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type sheet_image_tooltip_configuration() :: %{String.t() => any()}
+  @type sheet_image_tooltip_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10862,7 +10896,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type snapshot_destination_configuration() :: %{String.t() => any()}
+  @type snapshot_destination_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10870,31 +10904,31 @@ defmodule AWS.QuickSight do
 
       topic_singular_filter_constant() :: %{
         "ConstantType" => list(any()),
-        "SingularConstant" => String.t()
+        "SingularConstant" => String.t() | atom()
       }
 
   """
-  @type topic_singular_filter_constant() :: %{String.t() => any()}
+  @type topic_singular_filter_constant() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       analysis() :: %{
-        "AnalysisId" => String.t(),
-        "Arn" => String.t(),
+        "AnalysisId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "DataSetArns" => list(String.t()),
+        "DataSetArns" => list(String.t() | atom()),
         "Errors" => list(analysis_error()),
         "LastUpdatedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Sheets" => list(sheet()),
         "Status" => list(any()),
-        "ThemeArn" => String.t()
+        "ThemeArn" => String.t() | atom()
       }
 
   """
-  @type analysis() :: %{String.t() => any()}
+  @type analysis() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10905,7 +10939,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type default_section_based_layout_configuration() :: %{String.t() => any()}
+  @type default_section_based_layout_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10915,11 +10949,11 @@ defmodule AWS.QuickSight do
         "DateTimeStaticValues" => list(non_neg_integer()),
         "DecimalStaticValues" => list(float()),
         "IntegerStaticValues" => list(float()),
-        "StringStaticValues" => list(String.t())
+        "StringStaticValues" => list(String.t() | atom())
       }
 
   """
-  @type new_default_values() :: %{String.t() => any()}
+  @type new_default_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10930,19 +10964,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type k_p_i_sort_configuration() :: %{String.t() => any()}
+  @type k_p_i_sort_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       session_lifetime_in_minutes_invalid_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
       }
 
   """
-  @type session_lifetime_in_minutes_invalid_exception() :: %{String.t() => any()}
+  @type session_lifetime_in_minutes_invalid_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10953,37 +10987,37 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_heatmap_color_scale() :: %{String.t() => any()}
+  @type geospatial_heatmap_color_scale() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       theme_version_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "Status" => list(any()),
         "VersionNumber" => float()
       }
 
   """
-  @type theme_version_summary() :: %{String.t() => any()}
+  @type theme_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_data_source_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreationStatus" => list(any()),
-        "DataSourceId" => String.t(),
-        "RequestId" => String.t(),
+        "DataSourceId" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type create_data_source_response() :: %{String.t() => any()}
+  @type create_data_source_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10995,7 +11029,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type table_field_wells() :: %{String.t() => any()}
+  @type table_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11007,7 +11041,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type topic_sort_clause() :: %{String.t() => any()}
+  @type topic_sort_clause() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11021,7 +11055,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type theme_configuration() :: %{String.t() => any()}
+  @type theme_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11049,7 +11083,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type combo_chart_configuration() :: %{String.t() => any()}
+  @type combo_chart_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11074,27 +11108,27 @@ defmodule AWS.QuickSight do
   ## Example:
 
       describe_user_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "User" => user()
       }
 
   """
-  @type describe_user_response() :: %{String.t() => any()}
+  @type describe_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_role_memberships_response() :: %{
-        "MembersList" => list(String.t()),
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "MembersList" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type list_role_memberships_response() :: %{String.t() => any()}
+  @type list_role_memberships_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11106,7 +11140,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type topic_date_range_filter() :: %{String.t() => any()}
+  @type topic_date_range_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11118,28 +11152,28 @@ defmodule AWS.QuickSight do
         "ColumnHierarchies" => list(column_hierarchy()),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
-        "VisualContentAltText" => String.t(),
-        "VisualId" => String.t()
+        "VisualContentAltText" => String.t() | atom(),
+        "VisualId" => String.t() | atom()
       }
 
   """
-  @type funnel_chart_visual() :: %{String.t() => any()}
+  @type funnel_chart_visual() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_dashboard_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreationStatus" => list(any()),
-        "DashboardId" => String.t(),
-        "RequestId" => String.t(),
+        "DashboardId" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
-        "VersionArn" => String.t()
+        "VersionArn" => String.t() | atom()
       }
 
   """
-  @type create_dashboard_response() :: %{String.t() => any()}
+  @type create_dashboard_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11147,13 +11181,13 @@ defmodule AWS.QuickSight do
 
       list_analyses_response() :: %{
         "AnalysisSummaryList" => list(analysis_summary()),
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type list_analyses_response() :: %{String.t() => any()}
+  @type list_analyses_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11164,7 +11198,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type update_dashboards_q_a_configuration_request() :: %{String.t() => any()}
+  @type update_dashboards_q_a_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11176,7 +11210,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type tooltip_item() :: %{String.t() => any()}
+  @type tooltip_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11192,12 +11226,14 @@ defmodule AWS.QuickSight do
   ## Example:
 
       asset_bundle_export_job_data_source_override_properties() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "Properties" => list(list(any())())
       }
 
   """
-  @type asset_bundle_export_job_data_source_override_properties() :: %{String.t() => any()}
+  @type asset_bundle_export_job_data_source_override_properties() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -11205,11 +11241,11 @@ defmodule AWS.QuickSight do
 
       table_field_custom_text_content() :: %{
         "FontConfiguration" => font_configuration(),
-        "Value" => String.t()
+        "Value" => String.t() | atom()
       }
 
   """
-  @type table_field_custom_text_content() :: %{String.t() => any()}
+  @type table_field_custom_text_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11221,7 +11257,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type string_format_configuration() :: %{String.t() => any()}
+  @type string_format_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11234,7 +11270,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type aggregation_sort_configuration() :: %{String.t() => any()}
+  @type aggregation_sort_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11246,12 +11282,12 @@ defmodule AWS.QuickSight do
         "ColumnHierarchies" => list(column_hierarchy()),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
-        "VisualContentAltText" => String.t(),
-        "VisualId" => String.t()
+        "VisualContentAltText" => String.t() | atom(),
+        "VisualId" => String.t() | atom()
       }
 
   """
-  @type line_chart_visual() :: %{String.t() => any()}
+  @type line_chart_visual() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11259,37 +11295,37 @@ defmodule AWS.QuickSight do
 
       filter_cross_sheet_control() :: %{
         "CascadingControlConfiguration" => cascading_control_configuration(),
-        "FilterControlId" => String.t(),
-        "SourceFilterId" => String.t()
+        "FilterControlId" => String.t() | atom(),
+        "SourceFilterId" => String.t() | atom()
       }
 
   """
-  @type filter_cross_sheet_control() :: %{String.t() => any()}
+  @type filter_cross_sheet_control() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_default_q_business_application_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type delete_default_q_business_application_response() :: %{String.t() => any()}
+  @type delete_default_q_business_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       row_alternate_color_options() :: %{
-        "RowAlternateColors" => list(String.t()),
+        "RowAlternateColors" => list(String.t() | atom()),
         "Status" => list(any()),
         "UsePrimaryBackgroundColor" => list(any())
       }
 
   """
-  @type row_alternate_color_options() :: %{String.t() => any()}
+  @type row_alternate_color_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11297,12 +11333,12 @@ defmodule AWS.QuickSight do
 
       update_q_personalization_configuration_response() :: %{
         "PersonalizationMode" => list(any()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type update_q_personalization_configuration_response() :: %{String.t() => any()}
+  @type update_q_personalization_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11313,23 +11349,23 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type integer_dataset_parameter_default_values() :: %{String.t() => any()}
+  @type integer_dataset_parameter_default_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_theme_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreationStatus" => list(any()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
-        "ThemeId" => String.t(),
-        "VersionArn" => String.t()
+        "ThemeId" => String.t() | atom(),
+        "VersionArn" => String.t() | atom()
       }
 
   """
-  @type update_theme_response() :: %{String.t() => any()}
+  @type update_theme_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11340,38 +11376,38 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type generative_authoring_configurations() :: %{String.t() => any()}
+  @type generative_authoring_configurations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_topic_reviewed_answer() :: %{
-        "AnswerId" => String.t(),
-        "DatasetArn" => String.t(),
+        "AnswerId" => String.t() | atom(),
+        "DatasetArn" => String.t() | atom(),
         "Mir" => topic_i_r(),
         "PrimaryVisual" => topic_visual(),
-        "Question" => String.t(),
+        "Question" => String.t() | atom(),
         "Template" => topic_template()
       }
 
   """
-  @type create_topic_reviewed_answer() :: %{String.t() => any()}
+  @type create_topic_reviewed_answer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_topic_response() :: %{
-        "Arn" => String.t(),
-        "RefreshArn" => String.t(),
-        "RequestId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "RefreshArn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
-        "TopicId" => String.t()
+        "TopicId" => String.t() | atom()
       }
 
   """
-  @type update_topic_response() :: %{String.t() => any()}
+  @type update_topic_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11383,18 +11419,20 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type gauge_chart_conditional_formatting_option() :: %{String.t() => any()}
+  @type gauge_chart_conditional_formatting_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       registered_user_generative_qn_a_embedding_configuration() :: %{
-        "InitialTopicId" => String.t()
+        "InitialTopicId" => String.t() | atom()
       }
 
   """
-  @type registered_user_generative_qn_a_embedding_configuration() :: %{String.t() => any()}
+  @type registered_user_generative_qn_a_embedding_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -11403,29 +11441,29 @@ defmodule AWS.QuickSight do
       column_tooltip_item() :: %{
         "Aggregation" => aggregation_function(),
         "Column" => column_identifier(),
-        "Label" => String.t(),
+        "Label" => String.t() | atom(),
         "TooltipTarget" => list(any()),
         "Visibility" => list(any())
       }
 
   """
-  @type column_tooltip_item() :: %{String.t() => any()}
+  @type column_tooltip_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_source_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "DataSourceId" => String.t(),
+        "DataSourceId" => String.t() | atom(),
         "LastUpdatedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Type" => list(any())
       }
 
   """
-  @type data_source_summary() :: %{String.t() => any()}
+  @type data_source_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11436,7 +11474,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type anonymous_user_snapshot_job_result() :: %{String.t() => any()}
+  @type anonymous_user_snapshot_job_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11444,11 +11482,11 @@ defmodule AWS.QuickSight do
 
       list_dashboard_versions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_dashboard_versions_request() :: %{String.t() => any()}
+  @type list_dashboard_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11464,14 +11502,14 @@ defmodule AWS.QuickSight do
   ## Example:
 
       cast_column_type_operation() :: %{
-        "ColumnName" => String.t(),
-        "Format" => String.t(),
+        "ColumnName" => String.t() | atom(),
+        "Format" => String.t() | atom(),
         "NewColumnType" => list(any()),
         "SubType" => list(any())
       }
 
   """
-  @type cast_column_type_operation() :: %{String.t() => any()}
+  @type cast_column_type_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11479,11 +11517,11 @@ defmodule AWS.QuickSight do
 
       custom_action_url_operation() :: %{
         "URLTarget" => list(any()),
-        "URLTemplate" => String.t()
+        "URLTemplate" => String.t() | atom()
       }
 
   """
-  @type custom_action_url_operation() :: %{String.t() => any()}
+  @type custom_action_url_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11494,7 +11532,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type selected_sheets_filter_scope_configuration() :: %{String.t() => any()}
+  @type selected_sheets_filter_scope_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11505,7 +11543,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_null_data_settings() :: %{String.t() => any()}
+  @type geospatial_null_data_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11516,7 +11554,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type batch_create_topic_reviewed_answer_request() :: %{String.t() => any()}
+  @type batch_create_topic_reviewed_answer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11529,22 +11567,22 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type default_filter_list_control_options() :: %{String.t() => any()}
+  @type default_filter_list_control_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_data_set_permissions_response() :: %{
-        "DataSetArn" => String.t(),
-        "DataSetId" => String.t(),
+        "DataSetArn" => String.t() | atom(),
+        "DataSetId" => String.t() | atom(),
         "Permissions" => list(resource_permission()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_data_set_permissions_response() :: %{String.t() => any()}
+  @type describe_data_set_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11555,7 +11593,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type table_cell_image_sizing_configuration() :: %{String.t() => any()}
+  @type table_cell_image_sizing_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11568,7 +11606,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type topic_numeric_range_filter() :: %{String.t() => any()}
+  @type topic_numeric_range_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11581,7 +11619,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_polygon_symbol_style() :: %{String.t() => any()}
+  @type geospatial_polygon_symbol_style() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11589,11 +11627,11 @@ defmodule AWS.QuickSight do
 
       asset_bundle_import_source() :: %{
         "Body" => binary(),
-        "S3Uri" => String.t()
+        "S3Uri" => String.t() | atom()
       }
 
   """
-  @type asset_bundle_import_source() :: %{String.t() => any()}
+  @type asset_bundle_import_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11604,7 +11642,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type topic_config_options() :: %{String.t() => any()}
+  @type topic_config_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11616,12 +11654,12 @@ defmodule AWS.QuickSight do
         "ColumnHierarchies" => list(column_hierarchy()),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
-        "VisualContentAltText" => String.t(),
-        "VisualId" => String.t()
+        "VisualContentAltText" => String.t() | atom(),
+        "VisualId" => String.t() | atom()
       }
 
   """
-  @type geospatial_map_visual() :: %{String.t() => any()}
+  @type geospatial_map_visual() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11637,7 +11675,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type registered_user_console_feature_configurations() :: %{String.t() => any()}
+  @type registered_user_console_feature_configurations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11653,7 +11691,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type topic_i_r() :: %{String.t() => any()}
+  @type topic_i_r() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11665,35 +11703,35 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type snapshot_job_result_file_group() :: %{String.t() => any()}
+  @type snapshot_job_result_file_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       o_auth_parameters() :: %{
-        "IdentityProviderResourceUri" => String.t(),
+        "IdentityProviderResourceUri" => String.t() | atom(),
         "IdentityProviderVpcConnectionProperties" => vpc_connection_properties(),
-        "OAuthScope" => String.t(),
-        "TokenProviderUrl" => String.t()
+        "OAuthScope" => String.t() | atom(),
+        "TokenProviderUrl" => String.t() | atom()
       }
 
   """
-  @type o_auth_parameters() :: %{String.t() => any()}
+  @type o_auth_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_dashboard_links_response() :: %{
-        "DashboardArn" => String.t(),
-        "LinkEntities" => list(String.t()),
-        "RequestId" => String.t(),
+        "DashboardArn" => String.t() | atom(),
+        "LinkEntities" => list(String.t() | atom()),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type update_dashboard_links_response() :: %{String.t() => any()}
+  @type update_dashboard_links_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11705,7 +11743,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type template_source_entity() :: %{String.t() => any()}
+  @type template_source_entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11716,32 +11754,32 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type update_public_sharing_settings_request() :: %{String.t() => any()}
+  @type update_public_sharing_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       image() :: %{
-        "GeneratedImageUrl" => String.t(),
+        "GeneratedImageUrl" => String.t() | atom(),
         "Source" => list()
       }
 
   """
-  @type image() :: %{String.t() => any()}
+  @type image() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_account_subscription_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "SignupResponse" => signup_response(),
         "Status" => integer()
       }
 
   """
-  @type create_account_subscription_response() :: %{String.t() => any()}
+  @type create_account_subscription_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11749,38 +11787,38 @@ defmodule AWS.QuickSight do
 
       collective_constant_entry() :: %{
         "ConstantType" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | atom()
       }
 
   """
-  @type collective_constant_entry() :: %{String.t() => any()}
+  @type collective_constant_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       spacing() :: %{
-        "Bottom" => String.t(),
-        "Left" => String.t(),
-        "Right" => String.t(),
-        "Top" => String.t()
+        "Bottom" => String.t() | atom(),
+        "Left" => String.t() | atom(),
+        "Right" => String.t() | atom(),
+        "Top" => String.t() | atom()
       }
 
   """
-  @type spacing() :: %{String.t() => any()}
+  @type spacing() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_exists_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t(),
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "ResourceType" => list(any())
       }
 
   """
-  @type resource_exists_exception() :: %{String.t() => any()}
+  @type resource_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11791,7 +11829,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type snapshot_user_configuration() :: %{String.t() => any()}
+  @type snapshot_user_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11803,7 +11841,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type update_theme_permissions_request() :: %{String.t() => any()}
+  @type update_theme_permissions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11814,7 +11852,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type donut_center_options() :: %{String.t() => any()}
+  @type donut_center_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11831,12 +11869,12 @@ defmodule AWS.QuickSight do
 
       describe_group_membership_response() :: %{
         "GroupMember" => group_member(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_group_membership_response() :: %{String.t() => any()}
+  @type describe_group_membership_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11845,7 +11883,7 @@ defmodule AWS.QuickSight do
       data_label_options() :: %{
         "CategoryLabelVisibility" => list(any()),
         "DataLabelTypes" => list(data_label_type()),
-        "LabelColor" => String.t(),
+        "LabelColor" => String.t() | atom(),
         "LabelContent" => list(any()),
         "LabelFontConfiguration" => font_configuration(),
         "MeasureLabelVisibility" => list(any()),
@@ -11856,7 +11894,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type data_label_options() :: %{String.t() => any()}
+  @type data_label_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11867,7 +11905,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_polygon_style() :: %{String.t() => any()}
+  @type geospatial_polygon_style() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11881,7 +11919,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type column_configuration() :: %{String.t() => any()}
+  @type column_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11889,12 +11927,12 @@ defmodule AWS.QuickSight do
 
       row_level_permission_tag_configuration() :: %{
         "Status" => list(any()),
-        "TagRuleConfigurations" => list(list(String.t())()),
+        "TagRuleConfigurations" => list(list(String.t() | atom())()),
         "TagRules" => list(row_level_permission_tag_rule())
       }
 
   """
-  @type row_level_permission_tag_configuration() :: %{String.t() => any()}
+  @type row_level_permission_tag_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11906,7 +11944,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type what_if_point_scenario() :: %{String.t() => any()}
+  @type what_if_point_scenario() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11915,36 +11953,36 @@ defmodule AWS.QuickSight do
       describe_brand_response() :: %{
         "BrandDefinition" => brand_definition(),
         "BrandDetail" => brand_detail(),
-        "RequestId" => String.t()
+        "RequestId" => String.t() | atom()
       }
 
   """
-  @type describe_brand_response() :: %{String.t() => any()}
+  @type describe_brand_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       exasol_parameters() :: %{
-        "Host" => String.t(),
+        "Host" => String.t() | atom(),
         "Port" => integer()
       }
 
   """
-  @type exasol_parameters() :: %{String.t() => any()}
+  @type exasol_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_theme_alias_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "ThemeAlias" => theme_alias()
       }
 
   """
-  @type update_theme_alias_response() :: %{String.t() => any()}
+  @type update_theme_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11966,7 +12004,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type dashboard_publish_options() :: %{String.t() => any()}
+  @type dashboard_publish_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11974,11 +12012,11 @@ defmodule AWS.QuickSight do
 
       list_template_aliases_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_template_aliases_request() :: %{String.t() => any()}
+  @type list_template_aliases_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11989,7 +12027,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type bar_chart_field_wells() :: %{String.t() => any()}
+  @type bar_chart_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12014,12 +12052,14 @@ defmodule AWS.QuickSight do
   ## Example:
 
       asset_bundle_import_job_dashboard_override_parameters() :: %{
-        "DashboardId" => String.t(),
-        "Name" => String.t()
+        "DashboardId" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type asset_bundle_import_job_dashboard_override_parameters() :: %{String.t() => any()}
+  @type asset_bundle_import_job_dashboard_override_parameters() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -12037,35 +12077,35 @@ defmodule AWS.QuickSight do
       explicit_hierarchy() :: %{
         "Columns" => list(column_identifier()),
         "DrillDownFilters" => list(drill_down_filter()),
-        "HierarchyId" => String.t()
+        "HierarchyId" => String.t() | atom()
       }
 
   """
-  @type explicit_hierarchy() :: %{String.t() => any()}
+  @type explicit_hierarchy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_group_membership_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type delete_group_membership_response() :: %{String.t() => any()}
+  @type delete_group_membership_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       geospatial_gradient_step_color() :: %{
-        "Color" => String.t(),
+        "Color" => String.t() | atom(),
         "DataValue" => float()
       }
 
   """
-  @type geospatial_gradient_step_color() :: %{String.t() => any()}
+  @type geospatial_gradient_step_color() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12078,19 +12118,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type exclude_period_configuration() :: %{String.t() => any()}
+  @type exclude_period_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_group_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type delete_group_response() :: %{String.t() => any()}
+  @type delete_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12101,19 +12141,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type maximum_label_type() :: %{String.t() => any()}
+  @type maximum_label_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12128,7 +12168,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type registered_user_embedding_experience_configuration() :: %{String.t() => any()}
+  @type registered_user_embedding_experience_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12136,55 +12176,57 @@ defmodule AWS.QuickSight do
 
       categorical_dimension_field() :: %{
         "Column" => column_identifier(),
-        "FieldId" => String.t(),
+        "FieldId" => String.t() | atom(),
         "FormatConfiguration" => string_format_configuration(),
-        "HierarchyId" => String.t()
+        "HierarchyId" => String.t() | atom()
       }
 
   """
-  @type categorical_dimension_field() :: %{String.t() => any()}
+  @type categorical_dimension_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_bundle_export_job_analysis_override_properties() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "Properties" => list(list(any())())
       }
 
   """
-  @type asset_bundle_export_job_analysis_override_properties() :: %{String.t() => any()}
+  @type asset_bundle_export_job_analysis_override_properties() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       brand_detail() :: %{
-        "Arn" => String.t(),
-        "BrandId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "BrandId" => String.t() | atom(),
         "BrandStatus" => list(any()),
         "CreatedTime" => [non_neg_integer()],
-        "Errors" => list(String.t()),
+        "Errors" => list(String.t() | atom()),
         "LastUpdatedTime" => [non_neg_integer()],
         "Logo" => logo(),
-        "VersionId" => String.t(),
+        "VersionId" => String.t() | atom(),
         "VersionStatus" => list(any())
       }
 
   """
-  @type brand_detail() :: %{String.t() => any()}
+  @type brand_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       table_pinned_field_options() :: %{
-        "PinnedLeftFields" => list(String.t())
+        "PinnedLeftFields" => list(String.t() | atom())
       }
 
   """
-  @type table_pinned_field_options() :: %{String.t() => any()}
+  @type table_pinned_field_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12192,11 +12234,11 @@ defmodule AWS.QuickSight do
 
       parameter_selectable_values() :: %{
         "LinkToDataSetColumn" => column_identifier(),
-        "Values" => list(String.t())
+        "Values" => list(String.t() | atom())
       }
 
   """
-  @type parameter_selectable_values() :: %{String.t() => any()}
+  @type parameter_selectable_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12209,7 +12251,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type reference_line_dynamic_data_configuration() :: %{String.t() => any()}
+  @type reference_line_dynamic_data_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12217,12 +12259,12 @@ defmodule AWS.QuickSight do
 
       describe_ingestion_response() :: %{
         "Ingestion" => ingestion(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_ingestion_response() :: %{String.t() => any()}
+  @type describe_ingestion_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12235,7 +12277,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type default_date_time_picker_control_options() :: %{String.t() => any()}
+  @type default_date_time_picker_control_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12244,15 +12286,15 @@ defmodule AWS.QuickSight do
       time_equality_filter() :: %{
         "Column" => column_identifier(),
         "DefaultFilterControlConfiguration" => default_filter_control_configuration(),
-        "FilterId" => String.t(),
-        "ParameterName" => String.t(),
+        "FilterId" => String.t() | atom(),
+        "ParameterName" => String.t() | atom(),
         "RollingDate" => rolling_date_configuration(),
         "TimeGranularity" => list(any()),
         "Value" => non_neg_integer()
       }
 
   """
-  @type time_equality_filter() :: %{String.t() => any()}
+  @type time_equality_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12264,7 +12306,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type forecast_scenario() :: %{String.t() => any()}
+  @type forecast_scenario() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12276,7 +12318,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type table_conditional_formatting_option() :: %{String.t() => any()}
+  @type table_conditional_formatting_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12289,17 +12331,17 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type topic_relative_date_filter() :: %{String.t() => any()}
+  @type topic_relative_date_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_asset_bundle_import_job_response() :: %{
-        "Arn" => String.t(),
-        "AssetBundleImportJobId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "AssetBundleImportJobId" => String.t() | atom(),
         "AssetBundleImportSource" => asset_bundle_import_source_description(),
-        "AwsAccountId" => String.t(),
+        "AwsAccountId" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
         "Errors" => list(asset_bundle_import_job_error()),
         "FailureAction" => list(any()),
@@ -12308,25 +12350,25 @@ defmodule AWS.QuickSight do
         "OverridePermissions" => asset_bundle_import_job_override_permissions(),
         "OverrideTags" => asset_bundle_import_job_override_tags(),
         "OverrideValidationStrategy" => asset_bundle_import_job_override_validation_strategy(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "RollbackErrors" => list(asset_bundle_import_job_error()),
         "Status" => integer(),
         "Warnings" => list(asset_bundle_import_job_warning())
       }
 
   """
-  @type describe_asset_bundle_import_job_response() :: %{String.t() => any()}
+  @type describe_asset_bundle_import_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_folder_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type update_folder_request() :: %{String.t() => any()}
+  @type update_folder_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12339,12 +12381,12 @@ defmodule AWS.QuickSight do
         "ConditionalFormatting" => filled_map_conditional_formatting(),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
-        "VisualContentAltText" => String.t(),
-        "VisualId" => String.t()
+        "VisualContentAltText" => String.t() | atom(),
+        "VisualId" => String.t() | atom()
       }
 
   """
-  @type filled_map_visual() :: %{String.t() => any()}
+  @type filled_map_visual() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12362,7 +12404,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type table_configuration() :: %{String.t() => any()}
+  @type table_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12370,11 +12412,11 @@ defmodule AWS.QuickSight do
 
       contribution_analysis_default() :: %{
         "ContributorDimensions" => list(column_identifier()),
-        "MeasureFieldId" => String.t()
+        "MeasureFieldId" => String.t() | atom()
       }
 
   """
-  @type contribution_analysis_default() :: %{String.t() => any()}
+  @type contribution_analysis_default() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12385,7 +12427,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type word_cloud_field_wells() :: %{String.t() => any()}
+  @type word_cloud_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12397,12 +12439,12 @@ defmodule AWS.QuickSight do
         "ConditionalFormatting" => gauge_chart_conditional_formatting(),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
-        "VisualContentAltText" => String.t(),
-        "VisualId" => String.t()
+        "VisualContentAltText" => String.t() | atom(),
+        "VisualId" => String.t() | atom()
       }
 
   """
-  @type gauge_chart_visual() :: %{String.t() => any()}
+  @type gauge_chart_visual() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12414,7 +12456,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type plugin_visual_table_query_sort() :: %{String.t() => any()}
+  @type plugin_visual_table_query_sort() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12426,7 +12468,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type date_time_value_when_unset_configuration() :: %{String.t() => any()}
+  @type date_time_value_when_unset_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12438,23 +12480,25 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type percent_visible_range() :: %{String.t() => any()}
+  @type percent_visible_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_bundle_import_job_vpc_connection_override_parameters() :: %{
-        "DnsResolvers" => list(String.t()),
-        "Name" => String.t(),
-        "RoleArn" => String.t(),
-        "SecurityGroupIds" => list(String.t()),
-        "SubnetIds" => list(String.t()),
-        "VPCConnectionId" => String.t()
+        "DnsResolvers" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom()),
+        "VPCConnectionId" => String.t() | atom()
       }
 
   """
-  @type asset_bundle_import_job_vpc_connection_override_parameters() :: %{String.t() => any()}
+  @type asset_bundle_import_job_vpc_connection_override_parameters() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -12465,49 +12509,49 @@ defmodule AWS.QuickSight do
         "ChartConfiguration" => histogram_configuration(),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
-        "VisualContentAltText" => String.t(),
-        "VisualId" => String.t()
+        "VisualContentAltText" => String.t() | atom(),
+        "VisualId" => String.t() | atom()
       }
 
   """
-  @type histogram_visual() :: %{String.t() => any()}
+  @type histogram_visual() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       gradient_stop() :: %{
-        "Color" => String.t(),
+        "Color" => String.t() | atom(),
         "DataValue" => float(),
         "GradientOffset" => float()
       }
 
   """
-  @type gradient_stop() :: %{String.t() => any()}
+  @type gradient_stop() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_resource_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_brand_assignment_response() :: %{
-        "BrandArn" => String.t(),
-        "RequestId" => String.t()
+        "BrandArn" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
       }
 
   """
-  @type update_brand_assignment_response() :: %{String.t() => any()}
+  @type update_brand_assignment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12529,64 +12573,64 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type box_plot_chart_configuration() :: %{String.t() => any()}
+  @type box_plot_chart_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dashboard_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "DashboardId" => String.t(),
+        "DashboardId" => String.t() | atom(),
         "LastPublishedTime" => non_neg_integer(),
         "LastUpdatedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "PublishedVersionNumber" => float()
       }
 
   """
-  @type dashboard_summary() :: %{String.t() => any()}
+  @type dashboard_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       date_time_format_configuration() :: %{
-        "DateTimeFormat" => String.t(),
+        "DateTimeFormat" => String.t() | atom(),
         "NullValueFormatConfiguration" => null_value_format_configuration(),
         "NumericFormatConfiguration" => numeric_format_configuration()
       }
 
   """
-  @type date_time_format_configuration() :: %{String.t() => any()}
+  @type date_time_format_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_template_alias_response() :: %{
-        "AliasName" => String.t(),
-        "Arn" => String.t(),
-        "RequestId" => String.t(),
+        "AliasName" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
-        "TemplateId" => String.t()
+        "TemplateId" => String.t() | atom()
       }
 
   """
-  @type delete_template_alias_response() :: %{String.t() => any()}
+  @type delete_template_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       short_format_text() :: %{
-        "PlainText" => String.t(),
-        "RichText" => String.t()
+        "PlainText" => String.t() | atom(),
+        "RichText" => String.t() | atom()
       }
 
   """
-  @type short_format_text() :: %{String.t() => any()}
+  @type short_format_text() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12599,33 +12643,33 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type tree_map_aggregated_field_wells() :: %{String.t() => any()}
+  @type tree_map_aggregated_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       big_query_parameters() :: %{
-        "DataSetRegion" => String.t(),
-        "ProjectId" => String.t()
+        "DataSetRegion" => String.t() | atom(),
+        "ProjectId" => String.t() | atom()
       }
 
   """
-  @type big_query_parameters() :: %{String.t() => any()}
+  @type big_query_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_dashboard_snapshot_job_response() :: %{
-        "Arn" => String.t(),
-        "RequestId" => String.t(),
-        "SnapshotJobId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "SnapshotJobId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type start_dashboard_snapshot_job_response() :: %{String.t() => any()}
+  @type start_dashboard_snapshot_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12633,12 +12677,12 @@ defmodule AWS.QuickSight do
 
       field_series_item() :: %{
         "AxisBinding" => list(any()),
-        "FieldId" => String.t(),
+        "FieldId" => String.t() | atom(),
         "Settings" => line_chart_series_settings()
       }
 
   """
-  @type field_series_item() :: %{String.t() => any()}
+  @type field_series_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12650,7 +12694,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type visual_title_label_options() :: %{String.t() => any()}
+  @type visual_title_label_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12665,7 +12709,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type default_slider_control_options() :: %{String.t() => any()}
+  @type default_slider_control_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12676,7 +12720,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type join_key_properties() :: %{String.t() => any()}
+  @type join_key_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12692,30 +12736,30 @@ defmodule AWS.QuickSight do
   ## Example:
 
       delete_theme_response() :: %{
-        "Arn" => String.t(),
-        "RequestId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
-        "ThemeId" => String.t()
+        "ThemeId" => String.t() | atom()
       }
 
   """
-  @type delete_theme_response() :: %{String.t() => any()}
+  @type delete_theme_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       theme_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
         "LastUpdatedTime" => non_neg_integer(),
         "LatestVersionNumber" => float(),
-        "Name" => String.t(),
-        "ThemeId" => String.t()
+        "Name" => String.t() | atom(),
+        "ThemeId" => String.t() | atom()
       }
 
   """
-  @type theme_summary() :: %{String.t() => any()}
+  @type theme_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12726,10 +12770,10 @@ defmodule AWS.QuickSight do
         "AllowedAggregations" => list(list(any())()),
         "CellValueSynonyms" => list(cell_value_synonym()),
         "ColumnDataRole" => list(any()),
-        "ColumnDescription" => String.t(),
-        "ColumnFriendlyName" => String.t(),
-        "ColumnName" => String.t(),
-        "ColumnSynonyms" => list(String.t()),
+        "ColumnDescription" => String.t() | atom(),
+        "ColumnFriendlyName" => String.t() | atom(),
+        "ColumnName" => String.t() | atom(),
+        "ColumnSynonyms" => list(String.t() | atom()),
         "ComparativeOrder" => comparative_order(),
         "DefaultFormatting" => default_formatting(),
         "DisableIndexing" => boolean(),
@@ -12742,7 +12786,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type topic_column() :: %{String.t() => any()}
+  @type topic_column() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12750,27 +12794,27 @@ defmodule AWS.QuickSight do
 
       asset_options() :: %{
         "CustomActionDefaults" => visual_custom_action_defaults(),
-        "ExcludedDataSetArns" => list(String.t()),
+        "ExcludedDataSetArns" => list(String.t() | atom()),
         "QBusinessInsightsStatus" => list(any()),
-        "Timezone" => String.t(),
+        "Timezone" => String.t() | atom(),
         "WeekStart" => list(any())
       }
 
   """
-  @type asset_options() :: %{String.t() => any()}
+  @type asset_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       presto_parameters() :: %{
-        "Catalog" => String.t(),
-        "Host" => String.t(),
+        "Catalog" => String.t() | atom(),
+        "Host" => String.t() | atom(),
         "Port" => integer()
       }
 
   """
-  @type presto_parameters() :: %{String.t() => any()}
+  @type presto_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12783,7 +12827,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type pivot_table_sort_by() :: %{String.t() => any()}
+  @type pivot_table_sort_by() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12799,14 +12843,14 @@ defmodule AWS.QuickSight do
   ## Example:
 
       period_over_period_computation() :: %{
-        "ComputationId" => String.t(),
-        "Name" => String.t(),
+        "ComputationId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Time" => dimension_field(),
         "Value" => measure_field()
       }
 
   """
-  @type period_over_period_computation() :: %{String.t() => any()}
+  @type period_over_period_computation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12819,32 +12863,32 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type chart_axis_label_options() :: %{String.t() => any()}
+  @type chart_axis_label_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       visual_options() :: %{
-        "type" => String.t()
+        "type" => String.t() | atom()
       }
 
   """
-  @type visual_options() :: %{String.t() => any()}
+  @type visual_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_data_set_permissions_response() :: %{
-        "DataSetArn" => String.t(),
-        "DataSetId" => String.t(),
-        "RequestId" => String.t(),
+        "DataSetArn" => String.t() | atom(),
+        "DataSetId" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type update_data_set_permissions_response() :: %{String.t() => any()}
+  @type update_data_set_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12856,7 +12900,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type update_topic_permissions_request() :: %{String.t() => any()}
+  @type update_topic_permissions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12868,12 +12912,12 @@ defmodule AWS.QuickSight do
         "ColumnHierarchies" => list(column_hierarchy()),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
-        "VisualContentAltText" => String.t(),
-        "VisualId" => String.t()
+        "VisualContentAltText" => String.t() | atom(),
+        "VisualId" => String.t() | atom()
       }
 
   """
-  @type waterfall_visual() :: %{String.t() => any()}
+  @type waterfall_visual() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12884,19 +12928,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type text_box_menu_option() :: %{String.t() => any()}
+  @type text_box_menu_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       plugin_visual_property() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type plugin_visual_property() :: %{String.t() => any()}
+  @type plugin_visual_property() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12907,23 +12951,23 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type sheet_element_configuration_overrides() :: %{String.t() => any()}
+  @type sheet_element_configuration_overrides() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       account_settings() :: %{
-        "AccountName" => String.t(),
-        "DefaultNamespace" => String.t(),
+        "AccountName" => String.t() | atom(),
+        "DefaultNamespace" => String.t() | atom(),
         "Edition" => list(any()),
-        "NotificationEmail" => String.t(),
+        "NotificationEmail" => String.t() | atom(),
         "PublicSharingEnabled" => boolean(),
         "TerminationProtectionEnabled" => boolean()
       }
 
   """
-  @type account_settings() :: %{String.t() => any()}
+  @type account_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12934,39 +12978,39 @@ defmodule AWS.QuickSight do
         "NegativeValueConfiguration" => negative_value_configuration(),
         "NullValueFormatConfiguration" => null_value_format_configuration(),
         "NumberScale" => list(any()),
-        "Prefix" => String.t(),
+        "Prefix" => String.t() | atom(),
         "SeparatorConfiguration" => numeric_separator_configuration(),
-        "Suffix" => String.t()
+        "Suffix" => String.t() | atom()
       }
 
   """
-  @type number_display_format_configuration() :: %{String.t() => any()}
+  @type number_display_format_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       failed_key_registration_entry() :: %{
-        "KeyArn" => String.t(),
-        "Message" => String.t(),
+        "KeyArn" => String.t() | atom(),
+        "Message" => String.t() | atom(),
         "SenderFault" => boolean(),
         "StatusCode" => integer()
       }
 
   """
-  @type failed_key_registration_entry() :: %{String.t() => any()}
+  @type failed_key_registration_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       calculated_measure_field() :: %{
-        "Expression" => String.t(),
-        "FieldId" => String.t()
+        "Expression" => String.t() | atom(),
+        "FieldId" => String.t() | atom()
       }
 
   """
-  @type calculated_measure_field() :: %{String.t() => any()}
+  @type calculated_measure_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12976,22 +13020,22 @@ defmodule AWS.QuickSight do
         "Column" => column_identifier(),
         "Configuration" => category_filter_configuration(),
         "DefaultFilterControlConfiguration" => default_filter_control_configuration(),
-        "FilterId" => String.t()
+        "FilterId" => String.t() | atom()
       }
 
   """
-  @type category_filter() :: %{String.t() => any()}
+  @type category_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc_connection_properties() :: %{
-        "VpcConnectionArn" => String.t()
+        "VpcConnectionArn" => String.t() | atom()
       }
 
   """
-  @type vpc_connection_properties() :: %{String.t() => any()}
+  @type vpc_connection_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13001,47 +13045,47 @@ defmodule AWS.QuickSight do
         "DecimalPlacesConfiguration" => decimal_places_configuration(),
         "NegativeValueConfiguration" => negative_value_configuration(),
         "NullValueFormatConfiguration" => null_value_format_configuration(),
-        "Prefix" => String.t(),
+        "Prefix" => String.t() | atom(),
         "SeparatorConfiguration" => numeric_separator_configuration(),
-        "Suffix" => String.t()
+        "Suffix" => String.t() | atom()
       }
 
   """
-  @type percentage_display_format_configuration() :: %{String.t() => any()}
+  @type percentage_display_format_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_namespace_response() :: %{
-        "Arn" => String.t(),
-        "CapacityRegion" => String.t(),
+        "Arn" => String.t() | atom(),
+        "CapacityRegion" => String.t() | atom(),
         "CreationStatus" => list(any()),
         "IdentityStore" => list(any()),
-        "Name" => String.t(),
-        "RequestId" => String.t(),
+        "Name" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type create_namespace_response() :: %{String.t() => any()}
+  @type create_namespace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_user_request() :: %{
-        optional("CustomFederationProviderUrl") => String.t(),
-        optional("CustomPermissionsName") => String.t(),
-        optional("ExternalLoginFederationProviderType") => String.t(),
-        optional("ExternalLoginId") => String.t(),
+        optional("CustomFederationProviderUrl") => String.t() | atom(),
+        optional("CustomPermissionsName") => String.t() | atom(),
+        optional("ExternalLoginFederationProviderType") => String.t() | atom(),
+        optional("ExternalLoginId") => String.t() | atom(),
         optional("UnapplyCustomPermissions") => boolean(),
-        required("Email") => String.t(),
+        required("Email") => String.t() | atom(),
         required("Role") => list(any())
       }
 
   """
-  @type update_user_request() :: %{String.t() => any()}
+  @type update_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13057,87 +13101,87 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type topic_i_r_group_by() :: %{String.t() => any()}
+  @type topic_i_r_group_by() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_role_membership_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type create_role_membership_response() :: %{String.t() => any()}
+  @type create_role_membership_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sheet_control_info_icon_label_options() :: %{
-        "InfoIconText" => String.t(),
+        "InfoIconText" => String.t() | atom(),
         "Visibility" => list(any())
       }
 
   """
-  @type sheet_control_info_icon_label_options() :: %{String.t() => any()}
+  @type sheet_control_info_icon_label_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_templates_response() :: %{
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "TemplateSummaryList" => list(template_summary())
       }
 
   """
-  @type list_templates_response() :: %{String.t() => any()}
+  @type list_templates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_data_source_permissions_response() :: %{
-        "DataSourceArn" => String.t(),
-        "DataSourceId" => String.t(),
-        "RequestId" => String.t(),
+        "DataSourceArn" => String.t() | atom(),
+        "DataSourceId" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type update_data_source_permissions_response() :: %{String.t() => any()}
+  @type update_data_source_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_analysis_response() :: %{
-        "AnalysisId" => String.t(),
-        "Arn" => String.t(),
+        "AnalysisId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
         "DeletionTime" => non_neg_integer(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type delete_analysis_response() :: %{String.t() => any()}
+  @type delete_analysis_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_bucket_configuration() :: %{
-        "BucketName" => String.t(),
-        "BucketPrefix" => String.t(),
-        "BucketRegion" => String.t()
+        "BucketName" => String.t() | atom(),
+        "BucketPrefix" => String.t() | atom(),
+        "BucketRegion" => String.t() | atom()
       }
 
   """
-  @type s3_bucket_configuration() :: %{String.t() => any()}
+  @type s3_bucket_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13145,12 +13189,12 @@ defmodule AWS.QuickSight do
 
       credential_pair() :: %{
         "AlternateDataSourceParameters" => list(list()),
-        "Password" => String.t(),
-        "Username" => String.t()
+        "Password" => String.t() | atom(),
+        "Username" => String.t() | atom()
       }
 
   """
-  @type credential_pair() :: %{String.t() => any()}
+  @type credential_pair() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13158,22 +13202,22 @@ defmodule AWS.QuickSight do
 
       column_group_schema() :: %{
         "ColumnGroupColumnSchemaList" => list(column_group_column_schema()),
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type column_group_schema() :: %{String.t() => any()}
+  @type column_group_schema() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       amazon_open_search_parameters() :: %{
-        "Domain" => String.t()
+        "Domain" => String.t() | atom()
       }
 
   """
-  @type amazon_open_search_parameters() :: %{String.t() => any()}
+  @type amazon_open_search_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13181,12 +13225,12 @@ defmodule AWS.QuickSight do
 
       sheet() :: %{
         "Images" => list(sheet_image()),
-        "Name" => String.t(),
-        "SheetId" => String.t()
+        "Name" => String.t() | atom(),
+        "SheetId" => String.t() | atom()
       }
 
   """
-  @type sheet() :: %{String.t() => any()}
+  @type sheet() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13205,20 +13249,20 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type heat_map_configuration() :: %{String.t() => any()}
+  @type heat_map_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_custom_permissions_response() :: %{
-        "Arn" => String.t(),
-        "RequestId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type update_custom_permissions_response() :: %{String.t() => any()}
+  @type update_custom_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13226,11 +13270,11 @@ defmodule AWS.QuickSight do
 
       image_static_file() :: %{
         "Source" => static_file_source(),
-        "StaticFileId" => String.t()
+        "StaticFileId" => String.t() | atom()
       }
 
   """
-  @type image_static_file() :: %{String.t() => any()}
+  @type image_static_file() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13247,11 +13291,11 @@ defmodule AWS.QuickSight do
 
       list_folders_for_resource_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_folders_for_resource_request() :: %{String.t() => any()}
+  @type list_folders_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13260,23 +13304,23 @@ defmodule AWS.QuickSight do
       group_search_filter() :: %{
         "Name" => list(any()),
         "Operator" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | atom()
       }
 
   """
-  @type group_search_filter() :: %{String.t() => any()}
+  @type group_search_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       decimal_parameter() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Values" => list(float())
       }
 
   """
-  @type decimal_parameter() :: %{String.t() => any()}
+  @type decimal_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13285,12 +13329,12 @@ defmodule AWS.QuickSight do
       categorical_measure_field() :: %{
         "AggregationFunction" => list(any()),
         "Column" => column_identifier(),
-        "FieldId" => String.t(),
+        "FieldId" => String.t() | atom(),
         "FormatConfiguration" => string_format_configuration()
       }
 
   """
-  @type categorical_measure_field() :: %{String.t() => any()}
+  @type categorical_measure_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13301,48 +13345,48 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type gradient_color() :: %{String.t() => any()}
+  @type gradient_color() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       topic_summary() :: %{
-        "Arn" => String.t(),
-        "Name" => String.t(),
-        "TopicId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "TopicId" => String.t() | atom(),
         "UserExperienceVersion" => list(any())
       }
 
   """
-  @type topic_summary() :: %{String.t() => any()}
+  @type topic_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_folder_response() :: %{
-        "Arn" => String.t(),
-        "FolderId" => String.t(),
-        "RequestId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "FolderId" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type delete_folder_response() :: %{String.t() => any()}
+  @type delete_folder_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_session_embed_url_request() :: %{
-        optional("EntryPoint") => String.t(),
+        optional("EntryPoint") => String.t() | atom(),
         optional("SessionLifetimeInMinutes") => float(),
-        optional("UserArn") => String.t()
+        optional("UserArn") => String.t() | atom()
       }
 
   """
-  @type get_session_embed_url_request() :: %{String.t() => any()}
+  @type get_session_embed_url_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13353,7 +13397,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type snapshot_user_configuration_redacted() :: %{String.t() => any()}
+  @type snapshot_user_configuration_redacted() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13364,7 +13408,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type border_style() :: %{String.t() => any()}
+  @type border_style() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13375,20 +13419,20 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type plugin_visual_items_limit_configuration() :: %{String.t() => any()}
+  @type plugin_visual_items_limit_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       logical_table_source() :: %{
-        "DataSetArn" => String.t(),
+        "DataSetArn" => String.t() | atom(),
         "JoinInstruction" => join_instruction(),
-        "PhysicalTableId" => String.t()
+        "PhysicalTableId" => String.t() | atom()
       }
 
   """
-  @type logical_table_source() :: %{String.t() => any()}
+  @type logical_table_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13410,7 +13454,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type sankey_diagram_aggregated_field_wells() :: %{String.t() => any()}
+  @type sankey_diagram_aggregated_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13427,11 +13471,11 @@ defmodule AWS.QuickSight do
 
       pivot_table_data_path_option() :: %{
         "DataPathList" => list(data_path_value()),
-        "Width" => String.t()
+        "Width" => String.t() | atom()
       }
 
   """
-  @type pivot_table_data_path_option() :: %{String.t() => any()}
+  @type pivot_table_data_path_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13442,7 +13486,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type identity_center_configuration() :: %{String.t() => any()}
+  @type identity_center_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13450,12 +13494,12 @@ defmodule AWS.QuickSight do
 
       describe_iam_policy_assignment_response() :: %{
         "IAMPolicyAssignment" => iam_policy_assignment(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_iam_policy_assignment_response() :: %{String.t() => any()}
+  @type describe_iam_policy_assignment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13466,7 +13510,7 @@ defmodule AWS.QuickSight do
         "CollapsedRowDimensionsVisibility" => list(any()),
         "ColumnHeaderStyle" => table_cell_style(),
         "ColumnNamesVisibility" => list(any()),
-        "DefaultCellWidth" => String.t(),
+        "DefaultCellWidth" => String.t() | atom(),
         "MetricPlacement" => list(any()),
         "RowAlternateColorOptions" => row_alternate_color_options(),
         "RowFieldNamesStyle" => table_cell_style(),
@@ -13478,34 +13522,34 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type pivot_table_options() :: %{String.t() => any()}
+  @type pivot_table_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       successful_key_registration_entry() :: %{
-        "KeyArn" => String.t(),
+        "KeyArn" => String.t() | atom(),
         "StatusCode" => integer()
       }
 
   """
-  @type successful_key_registration_entry() :: %{String.t() => any()}
+  @type successful_key_registration_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_topic_refresh_schedule_response() :: %{
-        "DatasetArn" => String.t(),
-        "RequestId" => String.t(),
+        "DatasetArn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
-        "TopicArn" => String.t(),
-        "TopicId" => String.t()
+        "TopicArn" => String.t() | atom(),
+        "TopicId" => String.t() | atom()
       }
 
   """
-  @type delete_topic_refresh_schedule_response() :: %{String.t() => any()}
+  @type delete_topic_refresh_schedule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13517,18 +13561,18 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type table_field_url_configuration() :: %{String.t() => any()}
+  @type table_field_url_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       collective_constant() :: %{
-        "ValueList" => list(String.t())
+        "ValueList" => list(String.t() | atom())
       }
 
   """
-  @type collective_constant() :: %{String.t() => any()}
+  @type collective_constant() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13539,7 +13583,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type section_layout_configuration() :: %{String.t() => any()}
+  @type section_layout_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13550,20 +13594,20 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type k_p_i_conditional_formatting() :: %{String.t() => any()}
+  @type k_p_i_conditional_formatting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_template_alias_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "TemplateAlias" => template_alias()
       }
 
   """
-  @type describe_template_alias_response() :: %{String.t() => any()}
+  @type describe_template_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13575,7 +13619,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type sheet_style() :: %{String.t() => any()}
+  @type sheet_style() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13586,34 +13630,34 @@ defmodule AWS.QuickSight do
         optional("DataSourceParameters") => list(),
         optional("SslProperties") => ssl_properties(),
         optional("VpcConnectionProperties") => vpc_connection_properties(),
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type update_data_source_request() :: %{String.t() => any()}
+  @type update_data_source_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_instructions() :: %{
-        "CustomInstructionsString" => String.t()
+        "CustomInstructionsString" => String.t() | atom()
       }
 
   """
-  @type custom_instructions() :: %{String.t() => any()}
+  @type custom_instructions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_s_p_i_c_e_capacity_configuration_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type update_s_p_i_c_e_capacity_configuration_response() :: %{String.t() => any()}
+  @type update_s_p_i_c_e_capacity_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13623,7 +13667,7 @@ defmodule AWS.QuickSight do
         "Column" => column_identifier(),
         "DefaultFilterControlConfiguration" => default_filter_control_configuration(),
         "ExcludePeriodConfiguration" => exclude_period_configuration(),
-        "FilterId" => String.t(),
+        "FilterId" => String.t() | atom(),
         "IncludeMaximum" => boolean(),
         "IncludeMinimum" => boolean(),
         "NullOption" => list(any()),
@@ -13633,48 +13677,48 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type time_range_filter() :: %{String.t() => any()}
+  @type time_range_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_topic_refresh_schedule_response() :: %{
-        "DatasetArn" => String.t(),
+        "DatasetArn" => String.t() | atom(),
         "RefreshSchedule" => topic_refresh_schedule(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
-        "TopicArn" => String.t(),
-        "TopicId" => String.t()
+        "TopicArn" => String.t() | atom(),
+        "TopicId" => String.t() | atom()
       }
 
   """
-  @type describe_topic_refresh_schedule_response() :: %{String.t() => any()}
+  @type describe_topic_refresh_schedule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_default_q_business_application_request() :: %{
-        optional("Namespace") => String.t()
+        optional("Namespace") => String.t() | atom()
       }
 
   """
-  @type describe_default_q_business_application_request() :: %{String.t() => any()}
+  @type describe_default_q_business_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_ingestion_response() :: %{
-        "Arn" => String.t(),
-        "IngestionId" => String.t(),
-        "RequestId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "IngestionId" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type cancel_ingestion_response() :: %{String.t() => any()}
+  @type cancel_ingestion_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13685,7 +13729,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type list_control_search_options() :: %{String.t() => any()}
+  @type list_control_search_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13693,30 +13737,30 @@ defmodule AWS.QuickSight do
 
       list_theme_aliases_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_theme_aliases_request() :: %{String.t() => any()}
+  @type list_theme_aliases_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_bundle_import_job_folder_override_tags() :: %{
-        "FolderIds" => list(String.t()),
+        "FolderIds" => list(String.t() | atom()),
         "Tags" => list(tag())
       }
 
   """
-  @type asset_bundle_import_job_folder_override_tags() :: %{String.t() => any()}
+  @type asset_bundle_import_job_folder_override_tags() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       table_cell_style() :: %{
-        "BackgroundColor" => String.t(),
+        "BackgroundColor" => String.t() | atom(),
         "Border" => global_table_border_options(),
         "FontConfiguration" => font_configuration(),
         "Height" => integer(),
@@ -13727,7 +13771,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type table_cell_style() :: %{String.t() => any()}
+  @type table_cell_style() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13739,7 +13783,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_line_symbol_style() :: %{String.t() => any()}
+  @type geospatial_line_symbol_style() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13747,37 +13791,37 @@ defmodule AWS.QuickSight do
 
       list_namespaces_response() :: %{
         "Namespaces" => list(namespace_info_v2()),
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type list_namespaces_response() :: %{String.t() => any()}
+  @type list_namespaces_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_color() :: %{
-        "Color" => String.t(),
+        "Color" => String.t() | atom(),
         "DataValue" => float()
       }
 
   """
-  @type data_color() :: %{String.t() => any()}
+  @type data_color() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13788,47 +13832,47 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type font_weight() :: %{String.t() => any()}
+  @type font_weight() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       group() :: %{
-        "Arn" => String.t(),
-        "Description" => String.t(),
-        "GroupName" => String.t(),
-        "PrincipalId" => String.t()
+        "Arn" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "GroupName" => String.t() | atom(),
+        "PrincipalId" => String.t() | atom()
       }
 
   """
-  @type group() :: %{String.t() => any()}
+  @type group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_topic_response() :: %{
-        "Arn" => String.t(),
-        "RequestId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
-        "TopicId" => String.t()
+        "TopicId" => String.t() | atom()
       }
 
   """
-  @type delete_topic_response() :: %{String.t() => any()}
+  @type delete_topic_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dashboard_source_template() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "DataSetReferences" => list(data_set_reference())
       }
 
   """
-  @type dashboard_source_template() :: %{String.t() => any()}
+  @type dashboard_source_template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13836,13 +13880,13 @@ defmodule AWS.QuickSight do
 
       list_folder_members_response() :: %{
         "FolderMemberList" => list(member_id_arn_pair()),
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type list_folder_members_response() :: %{String.t() => any()}
+  @type list_folder_members_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13854,7 +13898,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type word_cloud_sort_configuration() :: %{String.t() => any()}
+  @type word_cloud_sort_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13862,20 +13906,20 @@ defmodule AWS.QuickSight do
 
       user() :: %{
         "Active" => boolean(),
-        "Arn" => String.t(),
-        "CustomPermissionsName" => String.t(),
-        "Email" => String.t(),
-        "ExternalLoginFederationProviderType" => String.t(),
-        "ExternalLoginFederationProviderUrl" => String.t(),
-        "ExternalLoginId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "CustomPermissionsName" => String.t() | atom(),
+        "Email" => String.t() | atom(),
+        "ExternalLoginFederationProviderType" => String.t() | atom(),
+        "ExternalLoginFederationProviderUrl" => String.t() | atom(),
+        "ExternalLoginId" => String.t() | atom(),
         "IdentityType" => list(any()),
-        "PrincipalId" => String.t(),
+        "PrincipalId" => String.t() | atom(),
         "Role" => list(any()),
-        "UserName" => String.t()
+        "UserName" => String.t() | atom()
       }
 
   """
-  @type user() :: %{String.t() => any()}
+  @type user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13887,7 +13931,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type arc_axis_configuration() :: %{String.t() => any()}
+  @type arc_axis_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13898,19 +13942,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type visual_custom_action_defaults() :: %{String.t() => any()}
+  @type visual_custom_action_defaults() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       snapshot_job_result_error_info() :: %{
-        "ErrorMessage" => String.t(),
-        "ErrorType" => String.t()
+        "ErrorMessage" => String.t() | atom(),
+        "ErrorType" => String.t() | atom()
       }
 
   """
-  @type snapshot_job_result_error_info() :: %{String.t() => any()}
+  @type snapshot_job_result_error_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13927,11 +13971,11 @@ defmodule AWS.QuickSight do
 
       list_user_groups_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_user_groups_request() :: %{String.t() => any()}
+  @type list_user_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13942,34 +13986,34 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type radar_chart_area_style_settings() :: %{String.t() => any()}
+  @type radar_chart_area_style_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_folder_response() :: %{
-        "Arn" => String.t(),
-        "FolderId" => String.t(),
-        "RequestId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "FolderId" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type update_folder_response() :: %{String.t() => any()}
+  @type update_folder_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       databricks_parameters() :: %{
-        "Host" => String.t(),
+        "Host" => String.t() | atom(),
         "Port" => integer(),
-        "SqlEndpointPath" => String.t()
+        "SqlEndpointPath" => String.t() | atom()
       }
 
   """
-  @type databricks_parameters() :: %{String.t() => any()}
+  @type databricks_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13982,7 +14026,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type sankey_diagram_sort_configuration() :: %{String.t() => any()}
+  @type sankey_diagram_sort_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13996,7 +14040,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type layer_custom_action_operation() :: %{String.t() => any()}
+  @type layer_custom_action_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14004,12 +14048,12 @@ defmodule AWS.QuickSight do
 
       describe_account_settings_response() :: %{
         "AccountSettings" => account_settings(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_account_settings_response() :: %{String.t() => any()}
+  @type describe_account_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14023,25 +14067,25 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type update_ip_restriction_request() :: %{String.t() => any()}
+  @type update_ip_restriction_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       folder() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "FolderId" => String.t(),
-        "FolderPath" => list(String.t()),
+        "FolderId" => String.t() | atom(),
+        "FolderPath" => list(String.t() | atom()),
         "FolderType" => list(any()),
         "LastUpdatedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "SharingModel" => list(any())
       }
 
   """
-  @type folder() :: %{String.t() => any()}
+  @type folder() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14053,7 +14097,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type filter_scope_configuration() :: %{String.t() => any()}
+  @type filter_scope_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14075,7 +14119,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_map_aggregated_field_wells() :: %{String.t() => any()}
+  @type geospatial_map_aggregated_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14084,21 +14128,21 @@ defmodule AWS.QuickSight do
       create_dashboard_request() :: %{
         optional("DashboardPublishOptions") => dashboard_publish_options(),
         optional("Definition") => dashboard_version_definition(),
-        optional("FolderArns") => list(String.t()),
-        optional("LinkEntities") => list(String.t()),
+        optional("FolderArns") => list(String.t() | atom()),
+        optional("LinkEntities") => list(String.t() | atom()),
         optional("LinkSharingConfiguration") => link_sharing_configuration(),
         optional("Parameters") => parameters(),
         optional("Permissions") => list(resource_permission()),
         optional("SourceEntity") => dashboard_source_entity(),
         optional("Tags") => list(tag()),
-        optional("ThemeArn") => String.t(),
+        optional("ThemeArn") => String.t() | atom(),
         optional("ValidationStrategy") => validation_strategy(),
-        optional("VersionDescription") => String.t(),
-        required("Name") => String.t()
+        optional("VersionDescription") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_dashboard_request() :: %{String.t() => any()}
+  @type create_dashboard_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14114,12 +14158,12 @@ defmodule AWS.QuickSight do
   ## Example:
 
       iam_policy_assignment_summary() :: %{
-        "AssignmentName" => String.t(),
+        "AssignmentName" => String.t() | atom(),
         "AssignmentStatus" => list(any())
       }
 
   """
-  @type iam_policy_assignment_summary() :: %{String.t() => any()}
+  @type iam_policy_assignment_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14127,14 +14171,14 @@ defmodule AWS.QuickSight do
 
       visual_custom_action() :: %{
         "ActionOperations" => list(visual_custom_action_operation()),
-        "CustomActionId" => String.t(),
-        "Name" => String.t(),
+        "CustomActionId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Status" => list(any()),
         "Trigger" => list(any())
       }
 
   """
-  @type visual_custom_action() :: %{String.t() => any()}
+  @type visual_custom_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14148,7 +14192,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type visual_custom_action_operation() :: %{String.t() => any()}
+  @type visual_custom_action_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14162,7 +14206,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type measure_field() :: %{String.t() => any()}
+  @type measure_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14174,7 +14218,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type decimal_default_values() :: %{String.t() => any()}
+  @type decimal_default_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14182,12 +14226,12 @@ defmodule AWS.QuickSight do
 
       list_refresh_schedules_response() :: %{
         "RefreshSchedules" => list(refresh_schedule()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type list_refresh_schedules_response() :: %{String.t() => any()}
+  @type list_refresh_schedules_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14207,7 +14251,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type list_control_select_all_options() :: %{String.t() => any()}
+  @type list_control_select_all_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14215,28 +14259,28 @@ defmodule AWS.QuickSight do
 
       numerical_dimension_field() :: %{
         "Column" => column_identifier(),
-        "FieldId" => String.t(),
+        "FieldId" => String.t() | atom(),
         "FormatConfiguration" => number_format_configuration(),
-        "HierarchyId" => String.t()
+        "HierarchyId" => String.t() | atom()
       }
 
   """
-  @type numerical_dimension_field() :: %{String.t() => any()}
+  @type numerical_dimension_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       restore_analysis_response() :: %{
-        "AnalysisId" => String.t(),
-        "Arn" => String.t(),
-        "RequestId" => String.t(),
-        "RestorationFailedFolderArns" => list(String.t()),
+        "AnalysisId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "RestorationFailedFolderArns" => list(String.t() | atom()),
         "Status" => integer()
       }
 
   """
-  @type restore_analysis_response() :: %{String.t() => any()}
+  @type restore_analysis_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14244,11 +14288,11 @@ defmodule AWS.QuickSight do
 
       twitter_parameters() :: %{
         "MaxRows" => integer(),
-        "Query" => String.t()
+        "Query" => String.t() | atom()
       }
 
   """
-  @type twitter_parameters() :: %{String.t() => any()}
+  @type twitter_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14260,20 +14304,22 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type data_set_usage_configuration() :: %{String.t() => any()}
+  @type data_set_usage_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_bundle_import_job_dashboard_override_permissions() :: %{
-        "DashboardIds" => list(String.t()),
+        "DashboardIds" => list(String.t() | atom()),
         "LinkSharingConfiguration" => asset_bundle_resource_link_sharing_configuration(),
         "Permissions" => asset_bundle_resource_permissions()
       }
 
   """
-  @type asset_bundle_import_job_dashboard_override_permissions() :: %{String.t() => any()}
+  @type asset_bundle_import_job_dashboard_override_permissions() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -14287,7 +14333,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type heat_map_sort_configuration() :: %{String.t() => any()}
+  @type heat_map_sort_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14298,7 +14344,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type table_style_target() :: %{String.t() => any()}
+  @type table_style_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14308,16 +14354,16 @@ defmodule AWS.QuickSight do
         "AggregationFunction" => aggregation_function(),
         "Column" => column_identifier(),
         "DefaultFilterControlConfiguration" => default_filter_control_configuration(),
-        "FilterId" => String.t(),
+        "FilterId" => String.t() | atom(),
         "MatchOperator" => list(any()),
         "NullOption" => list(any()),
-        "ParameterName" => String.t(),
+        "ParameterName" => String.t() | atom(),
         "SelectAllOptions" => list(any()),
         "Value" => float()
       }
 
   """
-  @type numeric_equality_filter() :: %{String.t() => any()}
+  @type numeric_equality_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14328,46 +14374,46 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type funnel_chart_field_wells() :: %{String.t() => any()}
+  @type funnel_chart_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       spark_parameters() :: %{
-        "Host" => String.t(),
+        "Host" => String.t() | atom(),
         "Port" => integer()
       }
 
   """
-  @type spark_parameters() :: %{String.t() => any()}
+  @type spark_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_analysis_permissions_response() :: %{
-        "AnalysisArn" => String.t(),
-        "AnalysisId" => String.t(),
+        "AnalysisArn" => String.t() | atom(),
+        "AnalysisId" => String.t() | atom(),
         "Permissions" => list(resource_permission()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type update_analysis_permissions_response() :: %{String.t() => any()}
+  @type update_analysis_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       theme_error() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | atom(),
         "Type" => list(any())
       }
 
   """
-  @type theme_error() :: %{String.t() => any()}
+  @type theme_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14377,23 +14423,23 @@ defmodule AWS.QuickSight do
         "LineInterpolation" => list(any()),
         "LineStyle" => list(any()),
         "LineVisibility" => list(any()),
-        "LineWidth" => String.t()
+        "LineWidth" => String.t() | atom()
       }
 
   """
-  @type line_chart_line_style_settings() :: %{String.t() => any()}
+  @type line_chart_line_style_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       reference_line_style_configuration() :: %{
-        "Color" => String.t(),
+        "Color" => String.t() | atom(),
         "Pattern" => list(any())
       }
 
   """
-  @type reference_line_style_configuration() :: %{String.t() => any()}
+  @type reference_line_style_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14402,13 +14448,13 @@ defmodule AWS.QuickSight do
       date_dimension_field() :: %{
         "Column" => column_identifier(),
         "DateGranularity" => list(any()),
-        "FieldId" => String.t(),
+        "FieldId" => String.t() | atom(),
         "FormatConfiguration" => date_time_format_configuration(),
-        "HierarchyId" => String.t()
+        "HierarchyId" => String.t() | atom()
       }
 
   """
-  @type date_dimension_field() :: %{String.t() => any()}
+  @type date_dimension_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14416,27 +14462,27 @@ defmodule AWS.QuickSight do
 
       create_account_customization_response() :: %{
         "AccountCustomization" => account_customization(),
-        "Arn" => String.t(),
-        "AwsAccountId" => String.t(),
-        "Namespace" => String.t(),
-        "RequestId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "AwsAccountId" => String.t() | atom(),
+        "Namespace" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type create_account_customization_response() :: %{String.t() => any()}
+  @type create_account_customization_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       session_tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type session_tag() :: %{String.t() => any()}
+  @type session_tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14458,21 +14504,21 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type pie_chart_configuration() :: %{String.t() => any()}
+  @type pie_chart_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       generate_embed_url_for_anonymous_user_response() :: %{
-        "AnonymousUserArn" => String.t(),
-        "EmbedUrl" => String.t(),
-        "RequestId" => String.t(),
+        "AnonymousUserArn" => String.t() | atom(),
+        "EmbedUrl" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type generate_embed_url_for_anonymous_user_response() :: %{String.t() => any()}
+  @type generate_embed_url_for_anonymous_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14480,11 +14526,11 @@ defmodule AWS.QuickSight do
 
       list_users_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_users_request() :: %{String.t() => any()}
+  @type list_users_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14492,11 +14538,11 @@ defmodule AWS.QuickSight do
 
       asset_bundle_import_job_theme_override_tags() :: %{
         "Tags" => list(tag()),
-        "ThemeIds" => list(String.t())
+        "ThemeIds" => list(String.t() | atom())
       }
 
   """
-  @type asset_bundle_import_job_theme_override_tags() :: %{String.t() => any()}
+  @type asset_bundle_import_job_theme_override_tags() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14504,12 +14550,12 @@ defmodule AWS.QuickSight do
 
       search_dashboards_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("Filters") => list(dashboard_search_filter())
       }
 
   """
-  @type search_dashboards_request() :: %{String.t() => any()}
+  @type search_dashboards_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14525,28 +14571,30 @@ defmodule AWS.QuickSight do
   ## Example:
 
       asset_bundle_import_job_data_set_override_permissions() :: %{
-        "DataSetIds" => list(String.t()),
+        "DataSetIds" => list(String.t() | atom()),
         "Permissions" => asset_bundle_resource_permissions()
       }
 
   """
-  @type asset_bundle_import_job_data_set_override_permissions() :: %{String.t() => any()}
+  @type asset_bundle_import_job_data_set_override_permissions() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       delete_vpc_connection_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "AvailabilityStatus" => list(any()),
         "DeletionStatus" => list(any()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
-        "VPCConnectionId" => String.t()
+        "VPCConnectionId" => String.t() | atom()
       }
 
   """
-  @type delete_vpc_connection_response() :: %{String.t() => any()}
+  @type delete_vpc_connection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14558,7 +14606,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type bin_width_options() :: %{String.t() => any()}
+  @type bin_width_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14570,48 +14618,48 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type pagination_configuration() :: %{String.t() => any()}
+  @type pagination_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t(),
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "ResourceType" => list(any())
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_default_q_business_application_response() :: %{
-        "ApplicationId" => String.t(),
-        "RequestId" => String.t(),
+        "ApplicationId" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_default_q_business_application_response() :: %{String.t() => any()}
+  @type describe_default_q_business_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_vpc_connection_request() :: %{
-        optional("DnsResolvers") => list(String.t()),
-        required("Name") => String.t(),
-        required("RoleArn") => String.t(),
-        required("SecurityGroupIds") => list(String.t()),
-        required("SubnetIds") => list(String.t())
+        optional("DnsResolvers") => list(String.t() | atom()),
+        required("Name") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom(),
+        required("SecurityGroupIds") => list(String.t() | atom()),
+        required("SubnetIds") => list(String.t() | atom())
       }
 
   """
-  @type update_vpc_connection_request() :: %{String.t() => any()}
+  @type update_vpc_connection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14632,7 +14680,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type scatter_plot_configuration() :: %{String.t() => any()}
+  @type scatter_plot_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14643,7 +14691,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type table_conditional_formatting() :: %{String.t() => any()}
+  @type table_conditional_formatting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14651,25 +14699,25 @@ defmodule AWS.QuickSight do
 
       describe_folder_response() :: %{
         "Folder" => folder(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_folder_response() :: %{String.t() => any()}
+  @type describe_folder_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_account_customization_request() :: %{
-        optional("Namespace") => String.t(),
+        optional("Namespace") => String.t() | atom(),
         optional("Tags") => list(tag()),
         required("AccountCustomization") => account_customization()
       }
 
   """
-  @type create_account_customization_request() :: %{String.t() => any()}
+  @type create_account_customization_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14680,18 +14728,18 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_map_field_wells() :: %{String.t() => any()}
+  @type geospatial_map_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_brand_response() :: %{
-        "RequestId" => String.t()
+        "RequestId" => String.t() | atom()
       }
 
   """
-  @type delete_brand_response() :: %{String.t() => any()}
+  @type delete_brand_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14699,11 +14747,11 @@ defmodule AWS.QuickSight do
 
       cascading_control_source() :: %{
         "ColumnToMatch" => column_identifier(),
-        "SourceSheetControlId" => String.t()
+        "SourceSheetControlId" => String.t() | atom()
       }
 
   """
-  @type cascading_control_source() :: %{String.t() => any()}
+  @type cascading_control_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14714,29 +14762,29 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type single_axis_options() :: %{String.t() => any()}
+  @type single_axis_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc_connection_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "AvailabilityStatus" => list(any()),
         "CreatedTime" => non_neg_integer(),
-        "DnsResolvers" => list(String.t()),
+        "DnsResolvers" => list(String.t() | atom()),
         "LastUpdatedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "NetworkInterfaces" => list(network_interface()),
-        "RoleArn" => String.t(),
-        "SecurityGroupIds" => list(String.t()),
+        "RoleArn" => String.t() | atom(),
+        "SecurityGroupIds" => list(String.t() | atom()),
         "Status" => list(any()),
-        "VPCConnectionId" => String.t(),
-        "VPCId" => String.t()
+        "VPCConnectionId" => String.t() | atom(),
+        "VPCId" => String.t() | atom()
       }
 
   """
-  @type vpc_connection_summary() :: %{String.t() => any()}
+  @type vpc_connection_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14749,18 +14797,18 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type pivot_table_aggregated_field_wells() :: %{String.t() => any()}
+  @type pivot_table_aggregated_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       local_navigation_configuration() :: %{
-        "TargetSheetId" => String.t()
+        "TargetSheetId" => String.t() | atom()
       }
 
   """
-  @type local_navigation_configuration() :: %{String.t() => any()}
+  @type local_navigation_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14776,8 +14824,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       asset_bundle_export_job_summary() :: %{
-        "Arn" => String.t(),
-        "AssetBundleExportJobId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "AssetBundleExportJobId" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
         "ExportFormat" => list(any()),
         "IncludeAllDependencies" => boolean(),
@@ -14787,7 +14835,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type asset_bundle_export_job_summary() :: %{String.t() => any()}
+  @type asset_bundle_export_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14807,19 +14855,21 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type margin_style() :: %{String.t() => any()}
+  @type margin_style() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_bundle_export_job_dashboard_override_properties() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "Properties" => list(list(any())())
       }
 
   """
-  @type asset_bundle_export_job_dashboard_override_properties() :: %{String.t() => any()}
+  @type asset_bundle_export_job_dashboard_override_properties() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -14839,7 +14889,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type default_text_field_control_options() :: %{String.t() => any()}
+  @type default_text_field_control_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14847,15 +14897,15 @@ defmodule AWS.QuickSight do
 
       plugin_visual() :: %{
         "ChartConfiguration" => plugin_visual_configuration(),
-        "PluginArn" => String.t(),
+        "PluginArn" => String.t() | atom(),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
-        "VisualContentAltText" => String.t(),
-        "VisualId" => String.t()
+        "VisualContentAltText" => String.t() | atom(),
+        "VisualId" => String.t() | atom()
       }
 
   """
-  @type plugin_visual() :: %{String.t() => any()}
+  @type plugin_visual() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14869,7 +14919,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type anonymous_user_embedding_experience_configuration() :: %{String.t() => any()}
+  @type anonymous_user_embedding_experience_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14880,33 +14930,33 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type y_axis_options() :: %{String.t() => any()}
+  @type y_axis_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_topic_refresh_schedule_request() :: %{
-        optional("DatasetName") => String.t(),
-        required("DatasetArn") => String.t(),
+        optional("DatasetName") => String.t() | atom(),
+        required("DatasetArn") => String.t() | atom(),
         required("RefreshSchedule") => topic_refresh_schedule()
       }
 
   """
-  @type create_topic_refresh_schedule_request() :: %{String.t() => any()}
+  @type create_topic_refresh_schedule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       column_schema() :: %{
-        "DataType" => String.t(),
-        "GeographicRole" => String.t(),
-        "Name" => String.t()
+        "DataType" => String.t() | atom(),
+        "GeographicRole" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type column_schema() :: %{String.t() => any()}
+  @type column_schema() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14918,34 +14968,34 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type application_theme() :: %{String.t() => any()}
+  @type application_theme() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_ip_restriction_response() :: %{
-        "AwsAccountId" => String.t(),
-        "RequestId" => String.t(),
+        "AwsAccountId" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type update_ip_restriction_response() :: %{String.t() => any()}
+  @type update_ip_restriction_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       k_p_i_sparkline_options() :: %{
-        "Color" => String.t(),
+        "Color" => String.t() | atom(),
         "TooltipVisibility" => list(any()),
         "Type" => list(any()),
         "Visibility" => list(any())
       }
 
   """
-  @type k_p_i_sparkline_options() :: %{String.t() => any()}
+  @type k_p_i_sparkline_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14953,14 +15003,14 @@ defmodule AWS.QuickSight do
 
       update_theme_permissions_response() :: %{
         "Permissions" => list(resource_permission()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
-        "ThemeArn" => String.t(),
-        "ThemeId" => String.t()
+        "ThemeArn" => String.t() | atom(),
+        "ThemeId" => String.t() | atom()
       }
 
   """
-  @type update_theme_permissions_response() :: %{String.t() => any()}
+  @type update_theme_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14972,7 +15022,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type waterfall_chart_sort_configuration() :: %{String.t() => any()}
+  @type waterfall_chart_sort_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14985,7 +15035,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type date_time_default_values() :: %{String.t() => any()}
+  @type date_time_default_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14996,7 +15046,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type data_set_schema() :: %{String.t() => any()}
+  @type data_set_schema() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15007,21 +15057,21 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type table_field_image_configuration() :: %{String.t() => any()}
+  @type table_field_image_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       topic_refresh_schedule_summary() :: %{
-        "DatasetArn" => String.t(),
-        "DatasetId" => String.t(),
-        "DatasetName" => String.t(),
+        "DatasetArn" => String.t() | atom(),
+        "DatasetId" => String.t() | atom(),
+        "DatasetName" => String.t() | atom(),
         "RefreshSchedule" => topic_refresh_schedule()
       }
 
   """
-  @type topic_refresh_schedule_summary() :: %{String.t() => any()}
+  @type topic_refresh_schedule_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15033,20 +15083,20 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type update_data_set_permissions_request() :: %{String.t() => any()}
+  @type update_data_set_permissions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_color() :: %{
-        "Color" => String.t(),
-        "FieldValue" => String.t(),
+        "Color" => String.t() | atom(),
+        "FieldValue" => String.t() | atom(),
         "SpecialValue" => list(any())
       }
 
   """
-  @type custom_color() :: %{String.t() => any()}
+  @type custom_color() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15060,26 +15110,26 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type aggregation_function() :: %{String.t() => any()}
+  @type aggregation_function() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_dashboard_request() :: %{
-        optional("AliasName") => String.t(),
+        optional("AliasName") => String.t() | atom(),
         optional("VersionNumber") => float()
       }
 
   """
-  @type describe_dashboard_request() :: %{String.t() => any()}
+  @type describe_dashboard_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       total_options() :: %{
-        "CustomLabel" => String.t(),
+        "CustomLabel" => String.t() | atom(),
         "Placement" => list(any()),
         "ScrollStatus" => list(any()),
         "TotalAggregationOptions" => list(total_aggregation_option()),
@@ -15088,7 +15138,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type total_options() :: %{String.t() => any()}
+  @type total_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15096,25 +15146,25 @@ defmodule AWS.QuickSight do
 
       search_dashboards_response() :: %{
         "DashboardSummaryList" => list(dashboard_summary()),
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type search_dashboards_response() :: %{String.t() => any()}
+  @type search_dashboards_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       identity_type_not_supported_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
       }
 
   """
-  @type identity_type_not_supported_exception() :: %{String.t() => any()}
+  @type identity_type_not_supported_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15126,7 +15176,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type navbar_style() :: %{String.t() => any()}
+  @type navbar_style() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15139,23 +15189,23 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type box_plot_options() :: %{String.t() => any()}
+  @type box_plot_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_template_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreationStatus" => list(any()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
-        "TemplateId" => String.t(),
-        "VersionArn" => String.t()
+        "TemplateId" => String.t() | atom(),
+        "VersionArn" => String.t() | atom()
       }
 
   """
-  @type create_template_response() :: %{String.t() => any()}
+  @type create_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15163,12 +15213,12 @@ defmodule AWS.QuickSight do
 
       describe_group_response() :: %{
         "Group" => group(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_group_response() :: %{String.t() => any()}
+  @type describe_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15186,7 +15236,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type funnel_chart_configuration() :: %{String.t() => any()}
+  @type funnel_chart_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15221,19 +15271,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type visual() :: %{String.t() => any()}
+  @type visual() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_permission() :: %{
-        "Actions" => list(String.t()),
-        "Principal" => String.t()
+        "Actions" => list(String.t() | atom()),
+        "Principal" => String.t() | atom()
       }
 
   """
-  @type resource_permission() :: %{String.t() => any()}
+  @type resource_permission() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15241,25 +15291,27 @@ defmodule AWS.QuickSight do
 
       registered_user_quick_sight_console_embedding_configuration() :: %{
         "FeatureConfigurations" => registered_user_console_feature_configurations(),
-        "InitialPath" => String.t()
+        "InitialPath" => String.t() | atom()
       }
 
   """
-  @type registered_user_quick_sight_console_embedding_configuration() :: %{String.t() => any()}
+  @type registered_user_quick_sight_console_embedding_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       delete_template_response() :: %{
-        "Arn" => String.t(),
-        "RequestId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
-        "TemplateId" => String.t()
+        "TemplateId" => String.t() | atom()
       }
 
   """
-  @type delete_template_response() :: %{String.t() => any()}
+  @type delete_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15273,7 +15325,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type table_options() :: %{String.t() => any()}
+  @type table_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15281,25 +15333,25 @@ defmodule AWS.QuickSight do
 
       redshift_iam_parameters() :: %{
         "AutoCreateDatabaseUser" => boolean(),
-        "DatabaseGroups" => list(String.t()),
-        "DatabaseUser" => String.t(),
-        "RoleArn" => String.t()
+        "DatabaseGroups" => list(String.t() | atom()),
+        "DatabaseUser" => String.t() | atom(),
+        "RoleArn" => String.t() | atom()
       }
 
   """
-  @type redshift_iam_parameters() :: %{String.t() => any()}
+  @type redshift_iam_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_bundle_export_job_warning() :: %{
-        "Arn" => String.t(),
-        "Message" => String.t()
+        "Arn" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type asset_bundle_export_job_warning() :: %{String.t() => any()}
+  @type asset_bundle_export_job_warning() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15311,7 +15363,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type update_folder_permissions_request() :: %{String.t() => any()}
+  @type update_folder_permissions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15322,23 +15374,23 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type typography() :: %{String.t() => any()}
+  @type typography() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       template() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
         "LastUpdatedTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "TemplateId" => String.t(),
+        "Name" => String.t() | atom(),
+        "TemplateId" => String.t() | atom(),
         "Version" => template_version()
       }
 
   """
-  @type template() :: %{String.t() => any()}
+  @type template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15350,7 +15402,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type filled_map_aggregated_field_wells() :: %{String.t() => any()}
+  @type filled_map_aggregated_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15361,7 +15413,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type dashboard_source_entity() :: %{String.t() => any()}
+  @type dashboard_source_entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15377,12 +15429,12 @@ defmodule AWS.QuickSight do
   ## Example:
 
       table_cell_conditional_formatting() :: %{
-        "FieldId" => String.t(),
+        "FieldId" => String.t() | atom(),
         "TextFormat" => text_conditional_format()
       }
 
   """
-  @type table_cell_conditional_formatting() :: %{String.t() => any()}
+  @type table_cell_conditional_formatting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15396,20 +15448,20 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type histogram_bin_options() :: %{String.t() => any()}
+  @type histogram_bin_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       trino_parameters() :: %{
-        "Catalog" => String.t(),
-        "Host" => String.t(),
+        "Catalog" => String.t() | atom(),
+        "Host" => String.t() | atom(),
         "Port" => integer()
       }
 
   """
-  @type trino_parameters() :: %{String.t() => any()}
+  @type trino_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15417,12 +15469,12 @@ defmodule AWS.QuickSight do
 
       create_group_membership_response() :: %{
         "GroupMember" => group_member(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type create_group_membership_response() :: %{String.t() => any()}
+  @type create_group_membership_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15430,12 +15482,12 @@ defmodule AWS.QuickSight do
 
       describe_data_set_response() :: %{
         "DataSet" => data_set(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_data_set_response() :: %{String.t() => any()}
+  @type describe_data_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15451,7 +15503,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type asset_bundle_import_job_override_permissions() :: %{String.t() => any()}
+  @type asset_bundle_import_job_override_permissions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15464,30 +15516,30 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type column_hierarchy() :: %{String.t() => any()}
+  @type column_hierarchy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       simple_cluster_marker() :: %{
-        "Color" => String.t()
+        "Color" => String.t() | atom()
       }
 
   """
-  @type simple_cluster_marker() :: %{String.t() => any()}
+  @type simple_cluster_marker() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       font_size() :: %{
-        "Absolute" => String.t(),
+        "Absolute" => String.t() | atom(),
         "Relative" => list(any())
       }
 
   """
-  @type font_size() :: %{String.t() => any()}
+  @type font_size() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15498,20 +15550,20 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type waterfall_chart_field_wells() :: %{String.t() => any()}
+  @type waterfall_chart_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       calculated_field() :: %{
-        "DataSetIdentifier" => String.t(),
-        "Expression" => String.t(),
-        "Name" => String.t()
+        "DataSetIdentifier" => String.t() | atom(),
+        "Expression" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type calculated_field() :: %{String.t() => any()}
+  @type calculated_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15522,7 +15574,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type export_with_hidden_fields_option() :: %{String.t() => any()}
+  @type export_with_hidden_fields_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15533,7 +15585,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type decimal_dataset_parameter_default_values() :: %{String.t() => any()}
+  @type decimal_dataset_parameter_default_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15544,7 +15596,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type incremental_refresh() :: %{String.t() => any()}
+  @type incremental_refresh() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15556,7 +15608,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type pivot_table_paginated_report_options() :: %{String.t() => any()}
+  @type pivot_table_paginated_report_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15568,7 +15620,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type k_p_iprimary_value_conditional_formatting() :: %{String.t() => any()}
+  @type k_p_iprimary_value_conditional_formatting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15580,7 +15632,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type topic_range_filter_constant() :: %{String.t() => any()}
+  @type topic_range_filter_constant() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15588,14 +15640,14 @@ defmodule AWS.QuickSight do
 
       data_source() :: %{
         "AlternateDataSourceParameters" => list(list()),
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "DataSourceId" => String.t(),
+        "DataSourceId" => String.t() | atom(),
         "DataSourceParameters" => list(),
         "ErrorInfo" => data_source_error_info(),
         "LastUpdatedTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "SecretArn" => String.t(),
+        "Name" => String.t() | atom(),
+        "SecretArn" => String.t() | atom(),
         "SslProperties" => ssl_properties(),
         "Status" => list(any()),
         "Type" => list(any()),
@@ -15603,7 +15655,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type data_source() :: %{String.t() => any()}
+  @type data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15611,26 +15663,26 @@ defmodule AWS.QuickSight do
 
       search_groups_response() :: %{
         "GroupList" => list(group()),
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type search_groups_response() :: %{String.t() => any()}
+  @type search_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       calculated_column() :: %{
-        "ColumnId" => String.t(),
-        "ColumnName" => String.t(),
-        "Expression" => String.t()
+        "ColumnId" => String.t() | atom(),
+        "ColumnName" => String.t() | atom(),
+        "Expression" => String.t() | atom()
       }
 
   """
-  @type calculated_column() :: %{String.t() => any()}
+  @type calculated_column() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15643,20 +15695,20 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type dimension_field() :: %{String.t() => any()}
+  @type dimension_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       waterfall_chart_group_color_configuration() :: %{
-        "NegativeBarColor" => String.t(),
-        "PositiveBarColor" => String.t(),
-        "TotalBarColor" => String.t()
+        "NegativeBarColor" => String.t() | atom(),
+        "PositiveBarColor" => String.t() | atom(),
+        "TotalBarColor" => String.t() | atom()
       }
 
   """
-  @type waterfall_chart_group_color_configuration() :: %{String.t() => any()}
+  @type waterfall_chart_group_color_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15665,25 +15717,25 @@ defmodule AWS.QuickSight do
       string_parameter_declaration() :: %{
         "DefaultValues" => string_default_values(),
         "MappedDataSetParameters" => list(mapped_data_set_parameter()),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "ParameterValueType" => list(any()),
         "ValueWhenUnset" => string_value_when_unset_configuration()
       }
 
   """
-  @type string_parameter_declaration() :: %{String.t() => any()}
+  @type string_parameter_declaration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_set_reference() :: %{
-        "DataSetArn" => String.t(),
-        "DataSetPlaceholder" => String.t()
+        "DataSetArn" => String.t() | atom(),
+        "DataSetPlaceholder" => String.t() | atom()
       }
 
   """
-  @type data_set_reference() :: %{String.t() => any()}
+  @type data_set_reference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15691,13 +15743,13 @@ defmodule AWS.QuickSight do
 
       list_group_memberships_response() :: %{
         "GroupMemberList" => list(group_member()),
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type list_group_memberships_response() :: %{String.t() => any()}
+  @type list_group_memberships_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15709,12 +15761,12 @@ defmodule AWS.QuickSight do
         "ColumnHierarchies" => list(column_hierarchy()),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
-        "VisualContentAltText" => String.t(),
-        "VisualId" => String.t()
+        "VisualContentAltText" => String.t() | atom(),
+        "VisualId" => String.t() | atom()
       }
 
   """
-  @type combo_chart_visual() :: %{String.t() => any()}
+  @type combo_chart_visual() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15726,7 +15778,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type comparison_configuration() :: %{String.t() => any()}
+  @type comparison_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15738,7 +15790,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type numeric_axis_options() :: %{String.t() => any()}
+  @type numeric_axis_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15750,7 +15802,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type forecast_configuration() :: %{String.t() => any()}
+  @type forecast_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15758,25 +15810,25 @@ defmodule AWS.QuickSight do
 
       create_folder_membership_response() :: %{
         "FolderMember" => folder_member(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type create_folder_membership_response() :: %{String.t() => any()}
+  @type create_folder_membership_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sql_server_parameters() :: %{
-        "Database" => String.t(),
-        "Host" => String.t(),
+        "Database" => String.t() | atom(),
+        "Host" => String.t() | atom(),
         "Port" => integer()
       }
 
   """
-  @type sql_server_parameters() :: %{String.t() => any()}
+  @type sql_server_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15784,42 +15836,42 @@ defmodule AWS.QuickSight do
 
       list_groups_response() :: %{
         "GroupList" => list(group()),
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type list_groups_response() :: %{String.t() => any()}
+  @type list_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_asset_bundle_export_job_response() :: %{
-        "Arn" => String.t(),
-        "AssetBundleExportJobId" => String.t(),
-        "RequestId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "AssetBundleExportJobId" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type start_asset_bundle_export_job_response() :: %{String.t() => any()}
+  @type start_asset_bundle_export_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       filter_text_area_control() :: %{
-        "Delimiter" => String.t(),
+        "Delimiter" => String.t() | atom(),
         "DisplayOptions" => text_area_control_display_options(),
-        "FilterControlId" => String.t(),
-        "SourceFilterId" => String.t(),
-        "Title" => String.t()
+        "FilterControlId" => String.t() | atom(),
+        "SourceFilterId" => String.t() | atom(),
+        "Title" => String.t() | atom()
       }
 
   """
-  @type filter_text_area_control() :: %{String.t() => any()}
+  @type filter_text_area_control() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15827,24 +15879,24 @@ defmodule AWS.QuickSight do
 
       describe_custom_permissions_response() :: %{
         "CustomPermissions" => custom_permissions(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_custom_permissions_response() :: %{String.t() => any()}
+  @type describe_custom_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conditional_formatting_solid_color() :: %{
-        "Color" => String.t(),
-        "Expression" => String.t()
+        "Color" => String.t() | atom(),
+        "Expression" => String.t() | atom()
       }
 
   """
-  @type conditional_formatting_solid_color() :: %{String.t() => any()}
+  @type conditional_formatting_solid_color() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15857,7 +15909,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type image_set() :: %{String.t() => any()}
+  @type image_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15868,19 +15920,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type snapshot_anonymous_user() :: %{String.t() => any()}
+  @type snapshot_anonymous_user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       rolling_date_configuration() :: %{
-        "DataSetIdentifier" => String.t(),
-        "Expression" => String.t()
+        "DataSetIdentifier" => String.t() | atom(),
+        "Expression" => String.t() | atom()
       }
 
   """
-  @type rolling_date_configuration() :: %{String.t() => any()}
+  @type rolling_date_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15888,11 +15940,11 @@ defmodule AWS.QuickSight do
 
       conditional_formatting_gradient_color() :: %{
         "Color" => gradient_color(),
-        "Expression" => String.t()
+        "Expression" => String.t() | atom()
       }
 
   """
-  @type conditional_formatting_gradient_color() :: %{String.t() => any()}
+  @type conditional_formatting_gradient_color() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15903,45 +15955,45 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type shared_view_configurations() :: %{String.t() => any()}
+  @type shared_view_configurations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ui_color_palette() :: %{
-        "Accent" => String.t(),
-        "AccentForeground" => String.t(),
-        "Danger" => String.t(),
-        "DangerForeground" => String.t(),
-        "Dimension" => String.t(),
-        "DimensionForeground" => String.t(),
-        "Measure" => String.t(),
-        "MeasureForeground" => String.t(),
-        "PrimaryBackground" => String.t(),
-        "PrimaryForeground" => String.t(),
-        "SecondaryBackground" => String.t(),
-        "SecondaryForeground" => String.t(),
-        "Success" => String.t(),
-        "SuccessForeground" => String.t(),
-        "Warning" => String.t(),
-        "WarningForeground" => String.t()
+        "Accent" => String.t() | atom(),
+        "AccentForeground" => String.t() | atom(),
+        "Danger" => String.t() | atom(),
+        "DangerForeground" => String.t() | atom(),
+        "Dimension" => String.t() | atom(),
+        "DimensionForeground" => String.t() | atom(),
+        "Measure" => String.t() | atom(),
+        "MeasureForeground" => String.t() | atom(),
+        "PrimaryBackground" => String.t() | atom(),
+        "PrimaryForeground" => String.t() | atom(),
+        "SecondaryBackground" => String.t() | atom(),
+        "SecondaryForeground" => String.t() | atom(),
+        "Success" => String.t() | atom(),
+        "SuccessForeground" => String.t() | atom(),
+        "Warning" => String.t() | atom(),
+        "WarningForeground" => String.t() | atom()
       }
 
   """
-  @type ui_color_palette() :: %{String.t() => any()}
+  @type ui_color_palette() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       manifest_file_location() :: %{
-        "Bucket" => String.t(),
-        "Key" => String.t()
+        "Bucket" => String.t() | atom(),
+        "Key" => String.t() | atom()
       }
 
   """
-  @type manifest_file_location() :: %{String.t() => any()}
+  @type manifest_file_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15952,20 +16004,20 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_circle_radius() :: %{String.t() => any()}
+  @type geospatial_circle_radius() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       relative_date_time_control_display_options() :: %{
-        "DateTimeFormat" => String.t(),
+        "DateTimeFormat" => String.t() | atom(),
         "InfoIconLabelOptions" => sheet_control_info_icon_label_options(),
         "TitleOptions" => label_options()
       }
 
   """
-  @type relative_date_time_control_display_options() :: %{String.t() => any()}
+  @type relative_date_time_control_display_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15986,7 +16038,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type snapshot_file() :: %{String.t() => any()}
+  @type snapshot_file() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15999,7 +16051,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type color_scale() :: %{String.t() => any()}
+  @type color_scale() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16007,11 +16059,11 @@ defmodule AWS.QuickSight do
 
       asset_bundle_import_job_data_source_credentials() :: %{
         "CredentialPair" => asset_bundle_import_job_data_source_credential_pair(),
-        "SecretArn" => String.t()
+        "SecretArn" => String.t() | atom()
       }
 
   """
-  @type asset_bundle_import_job_data_source_credentials() :: %{String.t() => any()}
+  @type asset_bundle_import_job_data_source_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16019,23 +16071,23 @@ defmodule AWS.QuickSight do
 
       same_sheet_target_visual_configuration() :: %{
         "TargetVisualOptions" => list(any()),
-        "TargetVisuals" => list(String.t())
+        "TargetVisuals" => list(String.t() | atom())
       }
 
   """
-  @type same_sheet_target_visual_configuration() :: %{String.t() => any()}
+  @type same_sheet_target_visual_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_user_by_principal_id_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type delete_user_by_principal_id_response() :: %{String.t() => any()}
+  @type delete_user_by_principal_id_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16046,7 +16098,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type pivot_table_conditional_formatting() :: %{String.t() => any()}
+  @type pivot_table_conditional_formatting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16057,7 +16109,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type image_configuration() :: %{String.t() => any()}
+  @type image_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16065,49 +16117,49 @@ defmodule AWS.QuickSight do
 
       data_field_series_item() :: %{
         "AxisBinding" => list(any()),
-        "FieldId" => String.t(),
-        "FieldValue" => String.t(),
+        "FieldId" => String.t() | atom(),
+        "FieldValue" => String.t() | atom(),
         "Settings" => line_chart_series_settings()
       }
 
   """
-  @type data_field_series_item() :: %{String.t() => any()}
+  @type data_field_series_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_narrative_options() :: %{
-        "Narrative" => String.t()
+        "Narrative" => String.t() | atom()
       }
 
   """
-  @type custom_narrative_options() :: %{String.t() => any()}
+  @type custom_narrative_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_iam_policy_assignment_response() :: %{
-        "AssignmentName" => String.t(),
-        "RequestId" => String.t(),
+        "AssignmentName" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type delete_iam_policy_assignment_response() :: %{String.t() => any()}
+  @type delete_iam_policy_assignment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       snapshot_job_error_info() :: %{
-        "ErrorMessage" => String.t(),
-        "ErrorType" => String.t()
+        "ErrorMessage" => String.t() | atom(),
+        "ErrorType" => String.t() | atom()
       }
 
   """
-  @type snapshot_job_error_info() :: %{String.t() => any()}
+  @type snapshot_job_error_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16115,43 +16167,43 @@ defmodule AWS.QuickSight do
 
       create_folder_request() :: %{
         optional("FolderType") => list(any()),
-        optional("Name") => String.t(),
-        optional("ParentFolderArn") => String.t(),
+        optional("Name") => String.t() | atom(),
+        optional("ParentFolderArn") => String.t() | atom(),
         optional("Permissions") => list(resource_permission()),
         optional("SharingModel") => list(any()),
         optional("Tags") => list(tag())
       }
 
   """
-  @type create_folder_request() :: %{String.t() => any()}
+  @type create_folder_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_themes_response() :: %{
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "ThemeSummaryList" => list(theme_summary())
       }
 
   """
-  @type list_themes_response() :: %{String.t() => any()}
+  @type list_themes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_theme_versions_response() :: %{
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "ThemeVersionSummaryList" => list(theme_version_summary())
       }
 
   """
-  @type list_theme_versions_response() :: %{String.t() => any()}
+  @type list_theme_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16159,11 +16211,11 @@ defmodule AWS.QuickSight do
 
       date_time_hierarchy() :: %{
         "DrillDownFilters" => list(drill_down_filter()),
-        "HierarchyId" => String.t()
+        "HierarchyId" => String.t() | atom()
       }
 
   """
-  @type date_time_hierarchy() :: %{String.t() => any()}
+  @type date_time_hierarchy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16174,7 +16226,9 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type asset_bundle_import_job_override_validation_strategy() :: %{String.t() => any()}
+  @type asset_bundle_import_job_override_validation_strategy() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -16184,12 +16238,12 @@ defmodule AWS.QuickSight do
         "Content" => body_section_content(),
         "PageBreakConfiguration" => section_page_break_configuration(),
         "RepeatConfiguration" => body_section_repeat_configuration(),
-        "SectionId" => String.t(),
+        "SectionId" => String.t() | atom(),
         "Style" => section_style()
       }
 
   """
-  @type body_section_configuration() :: %{String.t() => any()}
+  @type body_section_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16197,24 +16251,24 @@ defmodule AWS.QuickSight do
 
       list_dashboards_response() :: %{
         "DashboardSummaryList" => list(dashboard_summary()),
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type list_dashboards_response() :: %{String.t() => any()}
+  @type list_dashboards_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       pivot_table_field_subtotal_options() :: %{
-        "FieldId" => String.t()
+        "FieldId" => String.t() | atom()
       }
 
   """
-  @type pivot_table_field_subtotal_options() :: %{String.t() => any()}
+  @type pivot_table_field_subtotal_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16225,19 +16279,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type asset_bundle_export_job_validation_strategy() :: %{String.t() => any()}
+  @type asset_bundle_export_job_validation_strategy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aggregation_partition_by() :: %{
-        "FieldName" => String.t(),
+        "FieldName" => String.t() | atom(),
         "TimeGranularity" => list(any())
       }
 
   """
-  @type aggregation_partition_by() :: %{String.t() => any()}
+  @type aggregation_partition_by() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16248,22 +16302,22 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type analysis_defaults() :: %{String.t() => any()}
+  @type analysis_defaults() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_topic_refresh_schedule_response() :: %{
-        "DatasetArn" => String.t(),
-        "RequestId" => String.t(),
+        "DatasetArn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
-        "TopicArn" => String.t(),
-        "TopicId" => String.t()
+        "TopicArn" => String.t() | atom(),
+        "TopicId" => String.t() | atom()
       }
 
   """
-  @type create_topic_refresh_schedule_response() :: %{String.t() => any()}
+  @type create_topic_refresh_schedule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16278,7 +16332,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type small_multiples_options() :: %{String.t() => any()}
+  @type small_multiples_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16286,11 +16340,11 @@ defmodule AWS.QuickSight do
 
       list_groups_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_groups_request() :: %{String.t() => any()}
+  @type list_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16302,23 +16356,23 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type reference_line_value_label_configuration() :: %{String.t() => any()}
+  @type reference_line_value_label_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_folder_resolved_permissions_response() :: %{
-        "Arn" => String.t(),
-        "FolderId" => String.t(),
-        "NextToken" => String.t(),
+        "Arn" => String.t() | atom(),
+        "FolderId" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
         "Permissions" => list(resource_permission()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_folder_resolved_permissions_response() :: %{String.t() => any()}
+  @type describe_folder_resolved_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16332,7 +16386,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type reference_line() :: %{String.t() => any()}
+  @type reference_line() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16345,7 +16399,9 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type body_section_dynamic_category_dimension_configuration() :: %{String.t() => any()}
+  @type body_section_dynamic_category_dimension_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -16356,7 +16412,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type section_page_break_configuration() :: %{String.t() => any()}
+  @type section_page_break_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16365,11 +16421,11 @@ defmodule AWS.QuickSight do
       snapshot_job_s3_result() :: %{
         "ErrorInfo" => list(snapshot_job_result_error_info()),
         "S3DestinationConfiguration" => snapshot_s3_destination_configuration(),
-        "S3Uri" => String.t()
+        "S3Uri" => String.t() | atom()
       }
 
   """
-  @type snapshot_job_s3_result() :: %{String.t() => any()}
+  @type snapshot_job_s3_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16380,19 +16436,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type schedules_configurations() :: %{String.t() => any()}
+  @type schedules_configurations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       precondition_not_met_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
       }
 
   """
-  @type precondition_not_met_exception() :: %{String.t() => any()}
+  @type precondition_not_met_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16406,21 +16462,21 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type sankey_diagram_chart_configuration() :: %{String.t() => any()}
+  @type sankey_diagram_chart_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_data_set_response() :: %{
-        "Arn" => String.t(),
-        "DataSetId" => String.t(),
-        "RequestId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "DataSetId" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type delete_data_set_response() :: %{String.t() => any()}
+  @type delete_data_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16431,7 +16487,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type filter_operation_target_visuals_configuration() :: %{String.t() => any()}
+  @type filter_operation_target_visuals_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16439,54 +16495,56 @@ defmodule AWS.QuickSight do
 
       batch_delete_topic_reviewed_answer_response() :: %{
         "InvalidAnswers" => list(invalid_topic_reviewed_answer()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "SucceededAnswers" => list(succeeded_topic_reviewed_answer()),
-        "TopicArn" => String.t(),
-        "TopicId" => String.t()
+        "TopicArn" => String.t() | atom(),
+        "TopicId" => String.t() | atom()
       }
 
   """
-  @type batch_delete_topic_reviewed_answer_response() :: %{String.t() => any()}
+  @type batch_delete_topic_reviewed_answer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       free_form_layout_element_background_style() :: %{
-        "Color" => String.t(),
+        "Color" => String.t() | atom(),
         "Visibility" => list(any())
       }
 
   """
-  @type free_form_layout_element_background_style() :: %{String.t() => any()}
+  @type free_form_layout_element_background_style() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       output_column() :: %{
-        "Description" => String.t(),
-        "Name" => String.t(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "SubType" => list(any()),
         "Type" => list(any())
       }
 
   """
-  @type output_column() :: %{String.t() => any()}
+  @type output_column() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       generate_embed_url_for_registered_user_with_identity_response() :: %{
-        "EmbedUrl" => String.t(),
-        "RequestId" => String.t(),
+        "EmbedUrl" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type generate_embed_url_for_registered_user_with_identity_response() :: %{String.t() => any()}
+  @type generate_embed_url_for_registered_user_with_identity_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -16494,16 +16552,16 @@ defmodule AWS.QuickSight do
 
       insight_visual() :: %{
         "Actions" => list(visual_custom_action()),
-        "DataSetIdentifier" => String.t(),
+        "DataSetIdentifier" => String.t() | atom(),
         "InsightConfiguration" => insight_configuration(),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
-        "VisualContentAltText" => String.t(),
-        "VisualId" => String.t()
+        "VisualContentAltText" => String.t() | atom(),
+        "VisualId" => String.t() | atom()
       }
 
   """
-  @type insight_visual() :: %{String.t() => any()}
+  @type insight_visual() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16516,7 +16574,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type drop_down_control_display_options() :: %{String.t() => any()}
+  @type drop_down_control_display_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16533,28 +16591,28 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type pivot_table_configuration() :: %{String.t() => any()}
+  @type pivot_table_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       register_user_request() :: %{
-        optional("CustomFederationProviderUrl") => String.t(),
-        optional("CustomPermissionsName") => String.t(),
-        optional("ExternalLoginFederationProviderType") => String.t(),
-        optional("ExternalLoginId") => String.t(),
-        optional("IamArn") => String.t(),
-        optional("SessionName") => String.t(),
+        optional("CustomFederationProviderUrl") => String.t() | atom(),
+        optional("CustomPermissionsName") => String.t() | atom(),
+        optional("ExternalLoginFederationProviderType") => String.t() | atom(),
+        optional("ExternalLoginId") => String.t() | atom(),
+        optional("IamArn") => String.t() | atom(),
+        optional("SessionName") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        optional("UserName") => String.t(),
-        required("Email") => String.t(),
+        optional("UserName") => String.t() | atom(),
+        required("Email") => String.t() | atom(),
         required("IdentityType") => list(any()),
         required("UserRole") => list(any())
       }
 
   """
-  @type register_user_request() :: %{String.t() => any()}
+  @type register_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16565,7 +16623,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type create_refresh_schedule_request() :: %{String.t() => any()}
+  @type create_refresh_schedule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16584,19 +16642,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type asset_bundle_import_job_override_parameters() :: %{String.t() => any()}
+  @type asset_bundle_import_job_override_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_source_error_info() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | atom(),
         "Type" => list(any())
       }
 
   """
-  @type data_source_error_info() :: %{String.t() => any()}
+  @type data_source_error_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16607,7 +16665,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type custom_action_set_parameters_operation() :: %{String.t() => any()}
+  @type custom_action_set_parameters_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16621,20 +16679,20 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type amazon_q_in_quick_sight_console_configurations() :: %{String.t() => any()}
+  @type amazon_q_in_quick_sight_console_configurations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       comparative_order() :: %{
-        "SpecifedOrder" => list(String.t()),
+        "SpecifedOrder" => list(String.t() | atom()),
         "TreatUndefinedSpecifiedValues" => list(any()),
         "UseOrdering" => list(any())
       }
 
   """
-  @type comparative_order() :: %{String.t() => any()}
+  @type comparative_order() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16646,12 +16704,12 @@ defmodule AWS.QuickSight do
         "ColumnHierarchies" => list(column_hierarchy()),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
-        "VisualContentAltText" => String.t(),
-        "VisualId" => String.t()
+        "VisualContentAltText" => String.t() | atom(),
+        "VisualId" => String.t() | atom()
       }
 
   """
-  @type scatter_plot_visual() :: %{String.t() => any()}
+  @type scatter_plot_visual() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16672,12 +16730,12 @@ defmodule AWS.QuickSight do
         "ColumnHierarchies" => list(column_hierarchy()),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
-        "VisualContentAltText" => String.t(),
-        "VisualId" => String.t()
+        "VisualContentAltText" => String.t() | atom(),
+        "VisualId" => String.t() | atom()
       }
 
   """
-  @type heat_map_visual() :: %{String.t() => any()}
+  @type heat_map_visual() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16686,13 +16744,13 @@ defmodule AWS.QuickSight do
       decimal_parameter_declaration() :: %{
         "DefaultValues" => decimal_default_values(),
         "MappedDataSetParameters" => list(mapped_data_set_parameter()),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "ParameterValueType" => list(any()),
         "ValueWhenUnset" => decimal_value_when_unset_configuration()
       }
 
   """
-  @type decimal_parameter_declaration() :: %{String.t() => any()}
+  @type decimal_parameter_declaration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16700,18 +16758,18 @@ defmodule AWS.QuickSight do
 
       create_analysis_request() :: %{
         optional("Definition") => analysis_definition(),
-        optional("FolderArns") => list(String.t()),
+        optional("FolderArns") => list(String.t() | atom()),
         optional("Parameters") => parameters(),
         optional("Permissions") => list(resource_permission()),
         optional("SourceEntity") => analysis_source_entity(),
         optional("Tags") => list(tag()),
-        optional("ThemeArn") => String.t(),
+        optional("ThemeArn") => String.t() | atom(),
         optional("ValidationStrategy") => validation_strategy(),
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_analysis_request() :: %{String.t() => any()}
+  @type create_analysis_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16719,27 +16777,27 @@ defmodule AWS.QuickSight do
 
       brand_definition() :: %{
         "ApplicationTheme" => application_theme(),
-        "BrandName" => String.t(),
-        "Description" => String.t(),
+        "BrandName" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "LogoConfiguration" => logo_configuration()
       }
 
   """
-  @type brand_definition() :: %{String.t() => any()}
+  @type brand_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       oracle_parameters() :: %{
-        "Database" => String.t(),
-        "Host" => String.t(),
+        "Database" => String.t() | atom(),
+        "Host" => String.t() | atom(),
         "Port" => integer(),
         "UseServiceName" => boolean()
       }
 
   """
-  @type oracle_parameters() :: %{String.t() => any()}
+  @type oracle_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16747,15 +16805,15 @@ defmodule AWS.QuickSight do
 
       top_bottom_ranked_computation() :: %{
         "Category" => dimension_field(),
-        "ComputationId" => String.t(),
-        "Name" => String.t(),
+        "ComputationId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "ResultSize" => integer(),
         "Type" => list(any()),
         "Value" => measure_field()
       }
 
   """
-  @type top_bottom_ranked_computation() :: %{String.t() => any()}
+  @type top_bottom_ranked_computation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16766,20 +16824,20 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type cascading_control_configuration() :: %{String.t() => any()}
+  @type cascading_control_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_color_palette() :: %{
-        "Colors" => list(String.t()),
-        "EmptyFillColor" => String.t(),
-        "MinMaxGradient" => list(String.t())
+        "Colors" => list(String.t() | atom()),
+        "EmptyFillColor" => String.t() | atom(),
+        "MinMaxGradient" => list(String.t() | atom())
       }
 
   """
-  @type data_color_palette() :: %{String.t() => any()}
+  @type data_color_palette() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16789,11 +16847,11 @@ defmodule AWS.QuickSight do
         "DateTimeValues" => list(non_neg_integer()),
         "DecimalValues" => list(float()),
         "IntegerValues" => list(float()),
-        "StringValues" => list(String.t())
+        "StringValues" => list(String.t() | atom())
       }
 
   """
-  @type custom_parameter_values() :: %{String.t() => any()}
+  @type custom_parameter_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16801,12 +16859,12 @@ defmodule AWS.QuickSight do
 
       update_group_response() :: %{
         "Group" => group(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type update_group_response() :: %{String.t() => any()}
+  @type update_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16815,11 +16873,11 @@ defmodule AWS.QuickSight do
       create_brand_response() :: %{
         "BrandDefinition" => brand_definition(),
         "BrandDetail" => brand_detail(),
-        "RequestId" => String.t()
+        "RequestId" => String.t() | atom()
       }
 
   """
-  @type create_brand_response() :: %{String.t() => any()}
+  @type create_brand_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16835,12 +16893,12 @@ defmodule AWS.QuickSight do
   ## Example:
 
       delete_identity_propagation_config_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type delete_identity_propagation_config_response() :: %{String.t() => any()}
+  @type delete_identity_propagation_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16849,20 +16907,20 @@ defmodule AWS.QuickSight do
       free_form_layout_element() :: %{
         "BackgroundStyle" => free_form_layout_element_background_style(),
         "BorderStyle" => free_form_layout_element_border_style(),
-        "ElementId" => String.t(),
+        "ElementId" => String.t() | atom(),
         "ElementType" => list(any()),
-        "Height" => String.t(),
+        "Height" => String.t() | atom(),
         "LoadingAnimation" => loading_animation(),
         "RenderingRules" => list(sheet_element_rendering_rule()),
         "SelectedBorderStyle" => free_form_layout_element_border_style(),
         "Visibility" => list(any()),
-        "Width" => String.t(),
-        "XAxisLocation" => String.t(),
-        "YAxisLocation" => String.t()
+        "Width" => String.t() | atom(),
+        "XAxisLocation" => String.t() | atom(),
+        "YAxisLocation" => String.t() | atom()
       }
 
   """
-  @type free_form_layout_element() :: %{String.t() => any()}
+  @type free_form_layout_element() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16873,7 +16931,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type filled_map_conditional_formatting() :: %{String.t() => any()}
+  @type filled_map_conditional_formatting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16890,7 +16948,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type asset_bundle_import_job_override_tags() :: %{String.t() => any()}
+  @type asset_bundle_import_job_override_tags() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16900,15 +16958,15 @@ defmodule AWS.QuickSight do
         "CalculatedFields" => list(topic_calculated_field()),
         "Columns" => list(topic_column()),
         "DataAggregation" => data_aggregation(),
-        "DatasetArn" => String.t(),
-        "DatasetDescription" => String.t(),
-        "DatasetName" => String.t(),
+        "DatasetArn" => String.t() | atom(),
+        "DatasetDescription" => String.t() | atom(),
+        "DatasetName" => String.t() | atom(),
         "Filters" => list(topic_filter()),
         "NamedEntities" => list(topic_named_entity())
       }
 
   """
-  @type dataset_metadata() :: %{String.t() => any()}
+  @type dataset_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16920,22 +16978,22 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type word_cloud_aggregated_field_wells() :: %{String.t() => any()}
+  @type word_cloud_aggregated_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       template_version_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "Status" => list(any()),
         "VersionNumber" => float()
       }
 
   """
-  @type template_version_summary() :: %{String.t() => any()}
+  @type template_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16945,24 +17003,24 @@ defmodule AWS.QuickSight do
         "Aggregation" => list(any()),
         "AggregationFunctionParameters" => map(),
         "Period" => list(any()),
-        "PeriodField" => String.t()
+        "PeriodField" => String.t() | atom()
       }
 
   """
-  @type agg_function() :: %{String.t() => any()}
+  @type agg_function() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       geospatial_null_symbol_style() :: %{
-        "FillColor" => String.t(),
-        "StrokeColor" => String.t(),
+        "FillColor" => String.t() | atom(),
+        "StrokeColor" => String.t() | atom(),
         "StrokeWidth" => float()
       }
 
   """
-  @type geospatial_null_symbol_style() :: %{String.t() => any()}
+  @type geospatial_null_symbol_style() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16973,19 +17031,19 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type text_box_interaction_options() :: %{String.t() => any()}
+  @type text_box_interaction_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_role_custom_permission_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type update_role_custom_permission_response() :: %{String.t() => any()}
+  @type update_role_custom_permission_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16993,7 +17051,7 @@ defmodule AWS.QuickSight do
 
       reference_line_label_configuration() :: %{
         "CustomLabelConfiguration" => reference_line_custom_label_configuration(),
-        "FontColor" => String.t(),
+        "FontColor" => String.t() | atom(),
         "FontConfiguration" => font_configuration(),
         "HorizontalPosition" => list(any()),
         "ValueLabelConfiguration" => reference_line_value_label_configuration(),
@@ -17001,7 +17059,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type reference_line_label_configuration() :: %{String.t() => any()}
+  @type reference_line_label_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17012,7 +17070,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type section_based_layout_canvas_size_options() :: %{String.t() => any()}
+  @type section_based_layout_canvas_size_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17021,15 +17079,15 @@ defmodule AWS.QuickSight do
       topic_calculated_field() :: %{
         "Aggregation" => list(any()),
         "AllowedAggregations" => list(list(any())()),
-        "CalculatedFieldDescription" => String.t(),
-        "CalculatedFieldName" => String.t(),
-        "CalculatedFieldSynonyms" => list(String.t()),
+        "CalculatedFieldDescription" => String.t() | atom(),
+        "CalculatedFieldName" => String.t() | atom(),
+        "CalculatedFieldSynonyms" => list(String.t() | atom()),
         "CellValueSynonyms" => list(cell_value_synonym()),
         "ColumnDataRole" => list(any()),
         "ComparativeOrder" => comparative_order(),
         "DefaultFormatting" => default_formatting(),
         "DisableIndexing" => boolean(),
-        "Expression" => String.t(),
+        "Expression" => String.t() | atom(),
         "IsIncludedInTopic" => boolean(),
         "NeverAggregateInFilter" => boolean(),
         "NonAdditive" => boolean(),
@@ -17039,7 +17097,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type topic_calculated_field() :: %{String.t() => any()}
+  @type topic_calculated_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17047,23 +17105,23 @@ defmodule AWS.QuickSight do
 
       data_path_value() :: %{
         "DataPathType" => data_path_type(),
-        "FieldId" => String.t(),
-        "FieldValue" => String.t()
+        "FieldId" => String.t() | atom(),
+        "FieldValue" => String.t() | atom()
       }
 
   """
-  @type data_path_value() :: %{String.t() => any()}
+  @type data_path_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       succeeded_topic_reviewed_answer() :: %{
-        "AnswerId" => String.t()
+        "AnswerId" => String.t() | atom()
       }
 
   """
-  @type succeeded_topic_reviewed_answer() :: %{String.t() => any()}
+  @type succeeded_topic_reviewed_answer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17079,27 +17137,27 @@ defmodule AWS.QuickSight do
   ## Example:
 
       describe_template_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer(),
         "Template" => template()
       }
 
   """
-  @type describe_template_response() :: %{String.t() => any()}
+  @type describe_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       line_chart_marker_style_settings() :: %{
-        "MarkerColor" => String.t(),
+        "MarkerColor" => String.t() | atom(),
         "MarkerShape" => list(any()),
-        "MarkerSize" => String.t(),
+        "MarkerSize" => String.t() | atom(),
         "MarkerVisibility" => list(any())
       }
 
   """
-  @type line_chart_marker_style_settings() :: %{String.t() => any()}
+  @type line_chart_marker_style_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17118,7 +17176,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type brand_color_palette() :: %{String.t() => any()}
+  @type brand_color_palette() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17126,11 +17184,11 @@ defmodule AWS.QuickSight do
 
       list_asset_bundle_export_jobs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_asset_bundle_export_jobs_request() :: %{String.t() => any()}
+  @type list_asset_bundle_export_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17141,7 +17199,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type decimal_places_configuration() :: %{String.t() => any()}
+  @type decimal_places_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17158,12 +17216,12 @@ defmodule AWS.QuickSight do
         optional("RowLevelPermissionDataSet") => row_level_permission_data_set(),
         optional("RowLevelPermissionTagConfiguration") => row_level_permission_tag_configuration(),
         required("ImportMode") => list(any()),
-        required("Name") => String.t(),
+        required("Name") => String.t() | atom(),
         required("PhysicalTableMap") => map()
       }
 
   """
-  @type update_data_set_request() :: %{String.t() => any()}
+  @type update_data_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17171,11 +17229,11 @@ defmodule AWS.QuickSight do
 
       list_theme_versions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_theme_versions_request() :: %{String.t() => any()}
+  @type list_theme_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17195,7 +17253,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type body_section_content() :: %{String.t() => any()}
+  @type body_section_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17206,18 +17264,18 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type pivot_table_conditional_formatting_scope() :: %{String.t() => any()}
+  @type pivot_table_conditional_formatting_scope() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_account_customization_request() :: %{
-        optional("Namespace") => String.t()
+        optional("Namespace") => String.t() | atom()
       }
 
   """
-  @type delete_account_customization_request() :: %{String.t() => any()}
+  @type delete_account_customization_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17225,24 +17283,24 @@ defmodule AWS.QuickSight do
 
       create_group_response() :: %{
         "Group" => group(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type create_group_response() :: %{String.t() => any()}
+  @type create_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       geospatial_solid_color() :: %{
-        "Color" => String.t(),
+        "Color" => String.t() | atom(),
         "State" => list(any())
       }
 
   """
-  @type geospatial_solid_color() :: %{String.t() => any()}
+  @type geospatial_solid_color() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17263,7 +17321,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type k_p_i_comparison_value_conditional_formatting() :: %{String.t() => any()}
+  @type k_p_i_comparison_value_conditional_formatting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17275,7 +17333,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type box_plot_sort_configuration() :: %{String.t() => any()}
+  @type box_plot_sort_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17283,11 +17341,11 @@ defmodule AWS.QuickSight do
 
       list_folder_members_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_folder_members_request() :: %{String.t() => any()}
+  @type list_folder_members_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17306,7 +17364,9 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type asset_bundle_cloud_formation_override_property_configuration() :: %{String.t() => any()}
+  @type asset_bundle_cloud_formation_override_property_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -17318,7 +17378,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type box_plot_aggregated_field_wells() :: %{String.t() => any()}
+  @type box_plot_aggregated_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17329,7 +17389,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type sheet_image_source() :: %{String.t() => any()}
+  @type sheet_image_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17362,7 +17422,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type capabilities() :: %{String.t() => any()}
+  @type capabilities() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17373,7 +17433,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type k_p_i_visual_standard_layout() :: %{String.t() => any()}
+  @type k_p_i_visual_standard_layout() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17395,33 +17455,35 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type layout_configuration() :: %{String.t() => any()}
+  @type layout_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_path_color() :: %{
-        "Color" => String.t(),
+        "Color" => String.t() | atom(),
         "Element" => data_path_value(),
         "TimeGranularity" => list(any())
       }
 
   """
-  @type data_path_color() :: %{String.t() => any()}
+  @type data_path_color() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_bundle_import_job_data_set_override_parameters() :: %{
-        "DataSetId" => String.t(),
+        "DataSetId" => String.t() | atom(),
         "DataSetRefreshProperties" => data_set_refresh_properties(),
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type asset_bundle_import_job_data_set_override_parameters() :: %{String.t() => any()}
+  @type asset_bundle_import_job_data_set_override_parameters() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -17431,34 +17493,34 @@ defmodule AWS.QuickSight do
         "CategoryFilter" => topic_category_filter(),
         "DateRangeFilter" => topic_date_range_filter(),
         "FilterClass" => list(any()),
-        "FilterDescription" => String.t(),
-        "FilterName" => String.t(),
-        "FilterSynonyms" => list(String.t()),
+        "FilterDescription" => String.t() | atom(),
+        "FilterName" => String.t() | atom(),
+        "FilterSynonyms" => list(String.t() | atom()),
         "FilterType" => list(any()),
         "NumericEqualityFilter" => topic_numeric_equality_filter(),
         "NumericRangeFilter" => topic_numeric_range_filter(),
-        "OperandFieldName" => String.t(),
+        "OperandFieldName" => String.t() | atom(),
         "RelativeDateFilter" => topic_relative_date_filter()
       }
 
   """
-  @type topic_filter() :: %{String.t() => any()}
+  @type topic_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       redshift_parameters() :: %{
-        "ClusterId" => String.t(),
-        "Database" => String.t(),
-        "Host" => String.t(),
+        "ClusterId" => String.t() | atom(),
+        "Database" => String.t() | atom(),
+        "Host" => String.t() | atom(),
         "IAMParameters" => redshift_iam_parameters(),
         "IdentityCenterConfiguration" => identity_center_configuration(),
         "Port" => integer()
       }
 
   """
-  @type redshift_parameters() :: %{String.t() => any()}
+  @type redshift_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17469,7 +17531,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type histogram_aggregated_field_wells() :: %{String.t() => any()}
+  @type histogram_aggregated_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17478,12 +17540,12 @@ defmodule AWS.QuickSight do
       predict_q_a_results_response() :: %{
         "AdditionalResults" => list(q_a_result()),
         "PrimaryResult" => q_a_result(),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type predict_q_a_results_response() :: %{String.t() => any()}
+  @type predict_q_a_results_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17491,24 +17553,24 @@ defmodule AWS.QuickSight do
 
       describe_folder_resolved_permissions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("Namespace") => String.t(),
-        optional("NextToken") => String.t()
+        optional("Namespace") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type describe_folder_resolved_permissions_request() :: %{String.t() => any()}
+  @type describe_folder_resolved_permissions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_public_sharing_settings_response() :: %{
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type update_public_sharing_settings_response() :: %{String.t() => any()}
+  @type update_public_sharing_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17519,7 +17581,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type performance_configuration() :: %{String.t() => any()}
+  @type performance_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17531,7 +17593,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type scatter_plot_field_wells() :: %{String.t() => any()}
+  @type scatter_plot_field_wells() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17543,31 +17605,33 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type update_data_source_permissions_request() :: %{String.t() => any()}
+  @type update_data_source_permissions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       topic_refresh_details() :: %{
-        "RefreshArn" => String.t(),
-        "RefreshId" => String.t(),
+        "RefreshArn" => String.t() | atom(),
+        "RefreshId" => String.t() | atom(),
         "RefreshStatus" => list(any())
       }
 
   """
-  @type topic_refresh_details() :: %{String.t() => any()}
+  @type topic_refresh_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       anonymous_user_generative_qn_a_embedding_configuration() :: %{
-        "InitialTopicId" => String.t()
+        "InitialTopicId" => String.t() | atom()
       }
 
   """
-  @type anonymous_user_generative_qn_a_embedding_configuration() :: %{String.t() => any()}
+  @type anonymous_user_generative_qn_a_embedding_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -17579,7 +17643,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type custom_values_configuration() :: %{String.t() => any()}
+  @type custom_values_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17587,12 +17651,14 @@ defmodule AWS.QuickSight do
 
       describe_quick_sight_q_search_configuration_response() :: %{
         "QSearchStatus" => list(any()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_quick_sight_q_search_configuration_response() :: %{String.t() => any()}
+  @type describe_quick_sight_q_search_configuration_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -17603,7 +17669,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type data_qn_a_configurations() :: %{String.t() => any()}
+  @type data_qn_a_configurations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17615,7 +17681,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type table_sort_configuration() :: %{String.t() => any()}
+  @type table_sort_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17623,11 +17689,11 @@ defmodule AWS.QuickSight do
 
       s3_parameters() :: %{
         "ManifestFileLocation" => manifest_file_location(),
-        "RoleArn" => String.t()
+        "RoleArn" => String.t() | atom()
       }
 
   """
-  @type s3_parameters() :: %{String.t() => any()}
+  @type s3_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17636,23 +17702,25 @@ defmodule AWS.QuickSight do
       list_iam_policy_assignments_request() :: %{
         optional("AssignmentStatus") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_iam_policy_assignments_request() :: %{String.t() => any()}
+  @type list_iam_policy_assignments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_bundle_import_job_data_source_override_permissions() :: %{
-        "DataSourceIds" => list(String.t()),
+        "DataSourceIds" => list(String.t() | atom()),
         "Permissions" => asset_bundle_resource_permissions()
       }
 
   """
-  @type asset_bundle_import_job_data_source_override_permissions() :: %{String.t() => any()}
+  @type asset_bundle_import_job_data_source_override_permissions() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -17665,7 +17733,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type default_new_sheet_configuration() :: %{String.t() => any()}
+  @type default_new_sheet_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17673,15 +17741,15 @@ defmodule AWS.QuickSight do
 
       describe_account_customization_response() :: %{
         "AccountCustomization" => account_customization(),
-        "Arn" => String.t(),
-        "AwsAccountId" => String.t(),
-        "Namespace" => String.t(),
-        "RequestId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "AwsAccountId" => String.t() | atom(),
+        "Namespace" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type describe_account_customization_response() :: %{String.t() => any()}
+  @type describe_account_customization_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17697,12 +17765,12 @@ defmodule AWS.QuickSight do
   ## Example:
 
       default_text_area_control_options() :: %{
-        "Delimiter" => String.t(),
+        "Delimiter" => String.t() | atom(),
         "DisplayOptions" => text_area_control_display_options()
       }
 
   """
-  @type default_text_area_control_options() :: %{String.t() => any()}
+  @type default_text_area_control_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17710,12 +17778,12 @@ defmodule AWS.QuickSight do
 
       update_quick_sight_q_search_configuration_response() :: %{
         "QSearchStatus" => list(any()),
-        "RequestId" => String.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type update_quick_sight_q_search_configuration_response() :: %{String.t() => any()}
+  @type update_quick_sight_q_search_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17727,7 +17795,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type custom_action_filter_operation() :: %{String.t() => any()}
+  @type custom_action_filter_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17739,12 +17807,12 @@ defmodule AWS.QuickSight do
         "ColumnHierarchies" => list(column_hierarchy()),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
-        "VisualContentAltText" => String.t(),
-        "VisualId" => String.t()
+        "VisualContentAltText" => String.t() | atom(),
+        "VisualId" => String.t() | atom()
       }
 
   """
-  @type word_cloud_visual() :: %{String.t() => any()}
+  @type word_cloud_visual() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17757,18 +17825,18 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type format_configuration() :: %{String.t() => any()}
+  @type format_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_brand_published_version_request() :: %{
-        required("VersionId") => String.t()
+        required("VersionId") => String.t() | atom()
       }
 
   """
-  @type update_brand_published_version_request() :: %{String.t() => any()}
+  @type update_brand_published_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17776,13 +17844,13 @@ defmodule AWS.QuickSight do
 
       list_dashboard_versions_response() :: %{
         "DashboardVersionSummaryList" => list(dashboard_version_summary()),
-        "NextToken" => String.t(),
-        "RequestId" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type list_dashboard_versions_response() :: %{String.t() => any()}
+  @type list_dashboard_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17800,7 +17868,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type geospatial_map_configuration() :: %{String.t() => any()}
+  @type geospatial_map_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17814,7 +17882,7 @@ defmodule AWS.QuickSight do
       }
 
   """
-  @type section_based_layout_configuration() :: %{String.t() => any()}
+  @type section_based_layout_configuration() :: %{(String.t() | atom()) => any()}
 
   @type batch_create_topic_reviewed_answer_errors() ::
           throttling_exception()
@@ -19649,8 +19717,8 @@ defmodule AWS.QuickSight do
   """
   @spec batch_create_topic_reviewed_answer(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           batch_create_topic_reviewed_answer_request(),
           list()
         ) ::
@@ -19692,8 +19760,8 @@ defmodule AWS.QuickSight do
   """
   @spec batch_delete_topic_reviewed_answer(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           batch_delete_topic_reviewed_answer_request(),
           list()
         ) ::
@@ -19735,9 +19803,9 @@ defmodule AWS.QuickSight do
   """
   @spec cancel_ingestion(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           cancel_ingestion_request(),
           list()
         ) ::
@@ -19818,7 +19886,7 @@ defmodule AWS.QuickSight do
   """
   @spec create_account_customization(
           map(),
-          String.t(),
+          String.t() | atom(),
           create_account_customization_request(),
           list()
         ) ::
@@ -19894,7 +19962,7 @@ defmodule AWS.QuickSight do
   """
   @spec create_account_subscription(
           map(),
-          String.t(),
+          String.t() | atom(),
           create_account_subscription_request(),
           list()
         ) ::
@@ -19928,7 +19996,13 @@ defmodule AWS.QuickSight do
 
   Analyses can be created either from a template or from an `AnalysisDefinition`.
   """
-  @spec create_analysis(map(), String.t(), String.t(), create_analysis_request(), list()) ::
+  @spec create_analysis(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          create_analysis_request(),
+          list()
+        ) ::
           {:ok, create_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -19959,7 +20033,13 @@ defmodule AWS.QuickSight do
   @doc """
   Creates an Amazon QuickSight brand.
   """
-  @spec create_brand(map(), String.t(), String.t(), create_brand_request(), list()) ::
+  @spec create_brand(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          create_brand_request(),
+          list()
+        ) ::
           {:ok, create_brand_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -19990,7 +20070,12 @@ defmodule AWS.QuickSight do
   @doc """
   Creates a custom permissions profile.
   """
-  @spec create_custom_permissions(map(), String.t(), create_custom_permissions_request(), list()) ::
+  @spec create_custom_permissions(
+          map(),
+          String.t() | atom(),
+          create_custom_permissions_request(),
+          list()
+        ) ::
           {:ok, create_custom_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -20039,7 +20124,13 @@ defmodule AWS.QuickSight do
   create a dashboard from a template that exists in a different Amazon Web
   Services account.
   """
-  @spec create_dashboard(map(), String.t(), String.t(), create_dashboard_request(), list()) ::
+  @spec create_dashboard(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          create_dashboard_request(),
+          list()
+        ) ::
           {:ok, create_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -20072,7 +20163,7 @@ defmodule AWS.QuickSight do
 
   This operation doesn't support datasets that include uploaded files as a source.
   """
-  @spec create_data_set(map(), String.t(), create_data_set_request(), list()) ::
+  @spec create_data_set(map(), String.t() | atom(), create_data_set_request(), list()) ::
           {:ok, create_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -20101,7 +20192,7 @@ defmodule AWS.QuickSight do
   @doc """
   Creates a data source.
   """
-  @spec create_data_source(map(), String.t(), create_data_source_request(), list()) ::
+  @spec create_data_source(map(), String.t() | atom(), create_data_source_request(), list()) ::
           {:ok, create_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -20130,7 +20221,13 @@ defmodule AWS.QuickSight do
   @doc """
   Creates an empty shared folder.
   """
-  @spec create_folder(map(), String.t(), String.t(), create_folder_request(), list()) ::
+  @spec create_folder(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          create_folder_request(),
+          list()
+        ) ::
           {:ok, create_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -20163,10 +20260,10 @@ defmodule AWS.QuickSight do
   """
   @spec create_folder_membership(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_folder_membership_request(),
           list()
         ) ::
@@ -20222,7 +20319,13 @@ defmodule AWS.QuickSight do
 
   The response is a group object.
   """
-  @spec create_group(map(), String.t(), String.t(), create_group_request(), list()) ::
+  @spec create_group(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          create_group_request(),
+          list()
+        ) ::
           {:ok, create_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -20255,10 +20358,10 @@ defmodule AWS.QuickSight do
   """
   @spec create_group_membership(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_group_membership_request(),
           list()
         ) ::
@@ -20310,8 +20413,8 @@ defmodule AWS.QuickSight do
   """
   @spec create_iam_policy_assignment(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_iam_policy_assignment_request(),
           list()
         ) ::
@@ -20367,9 +20470,9 @@ defmodule AWS.QuickSight do
   """
   @spec create_ingestion(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_ingestion_request(),
           list()
         ) ::
@@ -20424,7 +20527,7 @@ defmodule AWS.QuickSight do
   create a ticket with
   Amazon Web ServicesSupport.
   """
-  @spec create_namespace(map(), String.t(), create_namespace_request(), list()) ::
+  @spec create_namespace(map(), String.t() | atom(), create_namespace_request(), list()) ::
           {:ok, create_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -20457,8 +20560,8 @@ defmodule AWS.QuickSight do
   """
   @spec create_refresh_schedule(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_refresh_schedule_request(),
           list()
         ) ::
@@ -20501,10 +20604,10 @@ defmodule AWS.QuickSight do
   """
   @spec create_role_membership(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_role_membership_request(),
           list()
         ) ::
@@ -20561,7 +20664,13 @@ defmodule AWS.QuickSight do
   analysis
   and template.
   """
-  @spec create_template(map(), String.t(), String.t(), create_template_request(), list()) ::
+  @spec create_template(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          create_template_request(),
+          list()
+        ) ::
           {:ok, create_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -20594,9 +20703,9 @@ defmodule AWS.QuickSight do
   """
   @spec create_template_alias(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_template_alias_request(),
           list()
         ) ::
@@ -20642,7 +20751,13 @@ defmodule AWS.QuickSight do
   QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html)
   in the *Amazon QuickSight User Guide*.
   """
-  @spec create_theme(map(), String.t(), String.t(), create_theme_request(), list()) ::
+  @spec create_theme(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          create_theme_request(),
+          list()
+        ) ::
           {:ok, create_theme_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -20675,9 +20790,9 @@ defmodule AWS.QuickSight do
   """
   @spec create_theme_alias(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_theme_alias_request(),
           list()
         ) ::
@@ -20718,7 +20833,7 @@ defmodule AWS.QuickSight do
   @doc """
   Creates a new Q topic.
   """
-  @spec create_topic(map(), String.t(), create_topic_request(), list()) ::
+  @spec create_topic(map(), String.t() | atom(), create_topic_request(), list()) ::
           {:ok, create_topic_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -20749,8 +20864,8 @@ defmodule AWS.QuickSight do
   """
   @spec create_topic_refresh_schedule(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_topic_refresh_schedule_request(),
           list()
         ) ::
@@ -20790,7 +20905,7 @@ defmodule AWS.QuickSight do
   @doc """
   Creates a new VPC connection.
   """
-  @spec create_vpc_connection(map(), String.t(), create_vpc_connection_request(), list()) ::
+  @spec create_vpc_connection(map(), String.t() | atom(), create_vpc_connection_request(), list()) ::
           {:ok, create_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -20823,7 +20938,7 @@ defmodule AWS.QuickSight do
   """
   @spec delete_account_customization(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_account_customization_request(),
           list()
         ) ::
@@ -20869,7 +20984,7 @@ defmodule AWS.QuickSight do
   """
   @spec delete_account_subscription(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_account_subscription_request(),
           list()
         ) ::
@@ -20921,7 +21036,13 @@ defmodule AWS.QuickSight do
   To access it in the console, restore it. Deleting an analysis doesn't delete the
   dashboards that you publish from it.
   """
-  @spec delete_analysis(map(), String.t(), String.t(), delete_analysis_request(), list()) ::
+  @spec delete_analysis(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_analysis_request(),
+          list()
+        ) ::
           {:ok, delete_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -20958,7 +21079,13 @@ defmodule AWS.QuickSight do
   @doc """
   Deletes an Amazon QuickSight brand.
   """
-  @spec delete_brand(map(), String.t(), String.t(), delete_brand_request(), list()) ::
+  @spec delete_brand(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_brand_request(),
+          list()
+        ) ::
           {:ok, delete_brand_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -20989,7 +21116,12 @@ defmodule AWS.QuickSight do
   @doc """
   Deletes a brand assignment.
   """
-  @spec delete_brand_assignment(map(), String.t(), delete_brand_assignment_request(), list()) ::
+  @spec delete_brand_assignment(
+          map(),
+          String.t() | atom(),
+          delete_brand_assignment_request(),
+          list()
+        ) ::
           {:ok, delete_brand_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -21020,8 +21152,8 @@ defmodule AWS.QuickSight do
   """
   @spec delete_custom_permissions(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_custom_permissions_request(),
           list()
         ) ::
@@ -21061,7 +21193,13 @@ defmodule AWS.QuickSight do
   @doc """
   Deletes a dashboard.
   """
-  @spec delete_dashboard(map(), String.t(), String.t(), delete_dashboard_request(), list()) ::
+  @spec delete_dashboard(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_dashboard_request(),
+          list()
+        ) ::
           {:ok, delete_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -21097,7 +21235,13 @@ defmodule AWS.QuickSight do
   @doc """
   Deletes a dataset.
   """
-  @spec delete_data_set(map(), String.t(), String.t(), delete_data_set_request(), list()) ::
+  @spec delete_data_set(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_data_set_request(),
+          list()
+        ) ::
           {:ok, delete_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -21130,8 +21274,8 @@ defmodule AWS.QuickSight do
   """
   @spec delete_data_set_refresh_properties(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_data_set_refresh_properties_request(),
           list()
         ) ::
@@ -21174,7 +21318,13 @@ defmodule AWS.QuickSight do
   This operation breaks
   all the datasets that reference the deleted data source.
   """
-  @spec delete_data_source(map(), String.t(), String.t(), delete_data_source_request(), list()) ::
+  @spec delete_data_source(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_data_source_request(),
+          list()
+        ) ::
           {:ok, delete_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -21207,7 +21357,7 @@ defmodule AWS.QuickSight do
   """
   @spec delete_default_q_business_application(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_default_q_business_application_request(),
           list()
         ) ::
@@ -21249,7 +21399,13 @@ defmodule AWS.QuickSight do
   @doc """
   Deletes an empty folder.
   """
-  @spec delete_folder(map(), String.t(), String.t(), delete_folder_request(), list()) ::
+  @spec delete_folder(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_folder_request(),
+          list()
+        ) ::
           {:ok, delete_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -21282,10 +21438,10 @@ defmodule AWS.QuickSight do
   """
   @spec delete_folder_membership(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_folder_membership_request(),
           list()
         ) ::
@@ -21327,7 +21483,14 @@ defmodule AWS.QuickSight do
   @doc """
   Removes a user group from Amazon QuickSight.
   """
-  @spec delete_group(map(), String.t(), String.t(), String.t(), delete_group_request(), list()) ::
+  @spec delete_group(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_group_request(),
+          list()
+        ) ::
           {:ok, delete_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -21367,10 +21530,10 @@ defmodule AWS.QuickSight do
   """
   @spec delete_group_membership(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_group_membership_request(),
           list()
         ) ::
@@ -21414,9 +21577,9 @@ defmodule AWS.QuickSight do
   """
   @spec delete_iam_policy_assignment(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_iam_policy_assignment_request(),
           list()
         ) ::
@@ -21463,8 +21626,8 @@ defmodule AWS.QuickSight do
   """
   @spec delete_identity_propagation_config(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_identity_propagation_config_request(),
           list()
         ) ::
@@ -21510,7 +21673,13 @@ defmodule AWS.QuickSight do
   deleted. To delete these assets, you use the API operations for the relevant
   asset.
   """
-  @spec delete_namespace(map(), String.t(), String.t(), delete_namespace_request(), list()) ::
+  @spec delete_namespace(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_namespace_request(),
+          list()
+        ) ::
           {:ok, delete_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -21543,9 +21712,9 @@ defmodule AWS.QuickSight do
   """
   @spec delete_refresh_schedule(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_refresh_schedule_request(),
           list()
         ) ::
@@ -21588,9 +21757,9 @@ defmodule AWS.QuickSight do
   """
   @spec delete_role_custom_permission(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_role_custom_permission_request(),
           list()
         ) ::
@@ -21633,10 +21802,10 @@ defmodule AWS.QuickSight do
   """
   @spec delete_role_membership(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_role_membership_request(),
           list()
         ) ::
@@ -21678,7 +21847,13 @@ defmodule AWS.QuickSight do
   @doc """
   Deletes a template.
   """
-  @spec delete_template(map(), String.t(), String.t(), delete_template_request(), list()) ::
+  @spec delete_template(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_template_request(),
+          list()
+        ) ::
           {:ok, delete_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -21719,9 +21894,9 @@ defmodule AWS.QuickSight do
   """
   @spec delete_template_alias(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_template_alias_request(),
           list()
         ) ::
@@ -21762,7 +21937,13 @@ defmodule AWS.QuickSight do
   @doc """
   Deletes a theme.
   """
-  @spec delete_theme(map(), String.t(), String.t(), delete_theme_request(), list()) ::
+  @spec delete_theme(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_theme_request(),
+          list()
+        ) ::
           {:ok, delete_theme_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -21803,9 +21984,9 @@ defmodule AWS.QuickSight do
   """
   @spec delete_theme_alias(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_theme_alias_request(),
           list()
         ) ::
@@ -21846,7 +22027,13 @@ defmodule AWS.QuickSight do
   @doc """
   Deletes a topic.
   """
-  @spec delete_topic(map(), String.t(), String.t(), delete_topic_request(), list()) ::
+  @spec delete_topic(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_topic_request(),
+          list()
+        ) ::
           {:ok, delete_topic_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -21879,9 +22066,9 @@ defmodule AWS.QuickSight do
   """
   @spec delete_topic_refresh_schedule(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_topic_refresh_schedule_request(),
           list()
         ) ::
@@ -21926,7 +22113,14 @@ defmodule AWS.QuickSight do
   The IAM user
   isn't deleted as a result of this call.
   """
-  @spec delete_user(map(), String.t(), String.t(), String.t(), delete_user_request(), list()) ::
+  @spec delete_user(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_user_request(),
+          list()
+        ) ::
           {:ok, delete_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -21959,9 +22153,9 @@ defmodule AWS.QuickSight do
   """
   @spec delete_user_by_principal_id(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_user_by_principal_id_request(),
           list()
         ) ::
@@ -22004,9 +22198,9 @@ defmodule AWS.QuickSight do
   """
   @spec delete_user_custom_permission(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_user_custom_permission_request(),
           list()
         ) ::
@@ -22049,8 +22243,8 @@ defmodule AWS.QuickSight do
   """
   @spec delete_vpc_connection(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_vpc_connection_request(),
           list()
         ) ::
@@ -22162,9 +22356,9 @@ defmodule AWS.QuickSight do
   """
   @spec describe_account_customization(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_account_customization_response(), any()}
@@ -22206,7 +22400,7 @@ defmodule AWS.QuickSight do
   was first
   created in this Amazon Web Services account.
   """
-  @spec describe_account_settings(map(), String.t(), list()) ::
+  @spec describe_account_settings(map(), String.t() | atom(), list()) ::
           {:ok, describe_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22229,7 +22423,7 @@ defmodule AWS.QuickSight do
   name, subscription status, authentication type, edition, and notification email
   address.
   """
-  @spec describe_account_subscription(map(), String.t(), list()) ::
+  @spec describe_account_subscription(map(), String.t() | atom(), list()) ::
           {:ok, describe_account_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22247,7 +22441,7 @@ defmodule AWS.QuickSight do
   @doc """
   Provides a summary of the metadata for an analysis.
   """
-  @spec describe_analysis(map(), String.t(), String.t(), list()) ::
+  @spec describe_analysis(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22276,7 +22470,7 @@ defmodule AWS.QuickSight do
   ](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAnalysis.html)
   instead.
   """
-  @spec describe_analysis_definition(map(), String.t(), String.t(), list()) ::
+  @spec describe_analysis_definition(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_analysis_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22296,7 +22490,7 @@ defmodule AWS.QuickSight do
   @doc """
   Provides the read and write permissions for an analysis.
   """
-  @spec describe_analysis_permissions(map(), String.t(), String.t(), list()) ::
+  @spec describe_analysis_permissions(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_analysis_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22328,7 +22522,7 @@ defmodule AWS.QuickSight do
 
   Job descriptions are available for 14 days after the job starts.
   """
-  @spec describe_asset_bundle_export_job(map(), String.t(), String.t(), list()) ::
+  @spec describe_asset_bundle_export_job(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_asset_bundle_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22356,7 +22550,7 @@ defmodule AWS.QuickSight do
   Poll job descriptions after starting a job to know when it has succeeded or
   failed. Job descriptions are available for 14 days after job starts.
   """
-  @spec describe_asset_bundle_import_job(map(), String.t(), String.t(), list()) ::
+  @spec describe_asset_bundle_import_job(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_asset_bundle_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22381,7 +22575,13 @@ defmodule AWS.QuickSight do
   @doc """
   Describes a brand.
   """
-  @spec describe_brand(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec describe_brand(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, describe_brand_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22414,7 +22614,7 @@ defmodule AWS.QuickSight do
   @doc """
   Describes a brand assignment.
   """
-  @spec describe_brand_assignment(map(), String.t(), list()) ::
+  @spec describe_brand_assignment(map(), String.t() | atom(), list()) ::
           {:ok, describe_brand_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22432,7 +22632,7 @@ defmodule AWS.QuickSight do
   @doc """
   Describes the published version of the brand.
   """
-  @spec describe_brand_published_version(map(), String.t(), String.t(), list()) ::
+  @spec describe_brand_published_version(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_brand_published_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22457,7 +22657,7 @@ defmodule AWS.QuickSight do
   @doc """
   Describes a custom permissions profile.
   """
-  @spec describe_custom_permissions(map(), String.t(), String.t(), list()) ::
+  @spec describe_custom_permissions(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_custom_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22484,10 +22684,10 @@ defmodule AWS.QuickSight do
   """
   @spec describe_dashboard(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_dashboard_response(), any()}
@@ -22541,10 +22741,10 @@ defmodule AWS.QuickSight do
   """
   @spec describe_dashboard_definition(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_dashboard_definition_response(), any()}
@@ -22587,7 +22787,7 @@ defmodule AWS.QuickSight do
   @doc """
   Describes read and write permissions for a dashboard.
   """
-  @spec describe_dashboard_permissions(map(), String.t(), String.t(), list()) ::
+  @spec describe_dashboard_permissions(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_dashboard_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22615,7 +22815,13 @@ defmodule AWS.QuickSight do
   Poll job descriptions after a job starts to know the status of the job. For
   information on available status codes, see `JobStatus`.
   """
-  @spec describe_dashboard_snapshot_job(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_dashboard_snapshot_job(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, describe_dashboard_snapshot_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22647,7 +22853,13 @@ defmodule AWS.QuickSight do
   If the job has not finished running, this operation returns a message that says
   `Dashboard Snapshot Job with id has not reached a terminal state.`.
   """
-  @spec describe_dashboard_snapshot_job_result(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_dashboard_snapshot_job_result(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, describe_dashboard_snapshot_job_result_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22673,7 +22885,7 @@ defmodule AWS.QuickSight do
   @doc """
   Describes an existing dashboard QA configuration.
   """
-  @spec describe_dashboards_q_a_configuration(map(), String.t(), list()) ::
+  @spec describe_dashboards_q_a_configuration(map(), String.t() | atom(), list()) ::
           {:ok, describe_dashboards_q_a_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22693,7 +22905,7 @@ defmodule AWS.QuickSight do
 
   This operation doesn't support datasets that include uploaded files as a source.
   """
-  @spec describe_data_set(map(), String.t(), String.t(), list()) ::
+  @spec describe_data_set(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22716,7 +22928,7 @@ defmodule AWS.QuickSight do
   The permissions resource is
   `arn:aws:quicksight:region:aws-account-id:dataset/data-set-id`.
   """
-  @spec describe_data_set_permissions(map(), String.t(), String.t(), list()) ::
+  @spec describe_data_set_permissions(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_data_set_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22741,7 +22953,12 @@ defmodule AWS.QuickSight do
   @doc """
   Describes the refresh properties of a dataset.
   """
-  @spec describe_data_set_refresh_properties(map(), String.t(), String.t(), list()) ::
+  @spec describe_data_set_refresh_properties(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, describe_data_set_refresh_properties_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22766,7 +22983,7 @@ defmodule AWS.QuickSight do
   @doc """
   Describes a data source.
   """
-  @spec describe_data_source(map(), String.t(), String.t(), list()) ::
+  @spec describe_data_source(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22786,7 +23003,7 @@ defmodule AWS.QuickSight do
   @doc """
   Describes the resource permissions for a data source.
   """
-  @spec describe_data_source_permissions(map(), String.t(), String.t(), list()) ::
+  @spec describe_data_source_permissions(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_data_source_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22812,7 +23029,12 @@ defmodule AWS.QuickSight do
   Describes a Amazon Q Business application that is linked to an Amazon QuickSight
   account.
   """
-  @spec describe_default_q_business_application(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_default_q_business_application(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, describe_default_q_business_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22842,7 +23064,7 @@ defmodule AWS.QuickSight do
   @doc """
   Describes a folder.
   """
-  @spec describe_folder(map(), String.t(), String.t(), list()) ::
+  @spec describe_folder(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22864,11 +23086,11 @@ defmodule AWS.QuickSight do
   """
   @spec describe_folder_permissions(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_folder_permissions_response(), any()}
@@ -22924,11 +23146,11 @@ defmodule AWS.QuickSight do
   """
   @spec describe_folder_resolved_permissions(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_folder_resolved_permissions_response(), any()}
@@ -22979,7 +23201,13 @@ defmodule AWS.QuickSight do
   @doc """
   Returns an Amazon QuickSight group's description and Amazon Resource Name (ARN).
   """
-  @spec describe_group(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_group(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, describe_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -23003,7 +23231,14 @@ defmodule AWS.QuickSight do
   If the user exists and is a member of the specified
   group, an associated `GroupMember` object is returned.
   """
-  @spec describe_group_membership(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_group_membership(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, describe_group_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -23031,7 +23266,13 @@ defmodule AWS.QuickSight do
   Describes an existing IAM policy assignment, as specified by the
   assignment name.
   """
-  @spec describe_iam_policy_assignment(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_iam_policy_assignment(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, describe_iam_policy_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -23057,7 +23298,13 @@ defmodule AWS.QuickSight do
   @doc """
   Describes a SPICE ingestion.
   """
-  @spec describe_ingestion(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_ingestion(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, describe_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -23083,7 +23330,7 @@ defmodule AWS.QuickSight do
   @doc """
   Provides a summary and status of IP rules.
   """
-  @spec describe_ip_restriction(map(), String.t(), list()) ::
+  @spec describe_ip_restriction(map(), String.t() | atom(), list()) ::
           {:ok, describe_ip_restriction_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -23101,7 +23348,7 @@ defmodule AWS.QuickSight do
   @doc """
   Describes all customer managed key registrations in a Amazon QuickSight account.
   """
-  @spec describe_key_registration(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_key_registration(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, describe_key_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -23131,7 +23378,7 @@ defmodule AWS.QuickSight do
   @doc """
   Describes the current namespace.
   """
-  @spec describe_namespace(map(), String.t(), String.t(), list()) ::
+  @spec describe_namespace(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -23151,7 +23398,7 @@ defmodule AWS.QuickSight do
   @doc """
   Describes a personalization configuration.
   """
-  @spec describe_q_personalization_configuration(map(), String.t(), list()) ::
+  @spec describe_q_personalization_configuration(map(), String.t() | atom(), list()) ::
           {:ok, describe_q_personalization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -23169,7 +23416,7 @@ defmodule AWS.QuickSight do
   @doc """
   Describes the state of a Amazon QuickSight Q Search configuration.
   """
-  @spec describe_quick_sight_q_search_configuration(map(), String.t(), list()) ::
+  @spec describe_quick_sight_q_search_configuration(map(), String.t() | atom(), list()) ::
           {:ok, describe_quick_sight_q_search_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -23193,7 +23440,13 @@ defmodule AWS.QuickSight do
   @doc """
   Provides a summary of a refresh schedule.
   """
-  @spec describe_refresh_schedule(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_refresh_schedule(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, describe_refresh_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -23219,7 +23472,13 @@ defmodule AWS.QuickSight do
   @doc """
   Describes all custom permissions that are mapped to a role.
   """
-  @spec describe_role_custom_permission(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_role_custom_permission(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, describe_role_custom_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -23247,10 +23506,10 @@ defmodule AWS.QuickSight do
   """
   @spec describe_template(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_template_response(), any()}
@@ -23293,7 +23552,13 @@ defmodule AWS.QuickSight do
   @doc """
   Describes the template alias for a template.
   """
-  @spec describe_template_alias(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_template_alias(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, describe_template_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -23330,10 +23595,10 @@ defmodule AWS.QuickSight do
   """
   @spec describe_template_definition(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_template_definition_response(), any()}
@@ -23376,7 +23641,7 @@ defmodule AWS.QuickSight do
   @doc """
   Describes read and write permissions on a template.
   """
-  @spec describe_template_permissions(map(), String.t(), String.t(), list()) ::
+  @spec describe_template_permissions(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_template_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -23401,7 +23666,14 @@ defmodule AWS.QuickSight do
   @doc """
   Describes a theme.
   """
-  @spec describe_theme(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec describe_theme(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, describe_theme_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -23442,7 +23714,13 @@ defmodule AWS.QuickSight do
   @doc """
   Describes the alias for a theme.
   """
-  @spec describe_theme_alias(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_theme_alias(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, describe_theme_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -23468,7 +23746,7 @@ defmodule AWS.QuickSight do
   @doc """
   Describes the read and write permissions for a theme.
   """
-  @spec describe_theme_permissions(map(), String.t(), String.t(), list()) ::
+  @spec describe_theme_permissions(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_theme_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -23488,7 +23766,7 @@ defmodule AWS.QuickSight do
   @doc """
   Describes a topic.
   """
-  @spec describe_topic(map(), String.t(), String.t(), list()) ::
+  @spec describe_topic(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_topic_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -23508,7 +23786,7 @@ defmodule AWS.QuickSight do
   @doc """
   Describes the permissions of a topic.
   """
-  @spec describe_topic_permissions(map(), String.t(), String.t(), list()) ::
+  @spec describe_topic_permissions(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_topic_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -23528,7 +23806,13 @@ defmodule AWS.QuickSight do
   @doc """
   Describes the status of a topic refresh.
   """
-  @spec describe_topic_refresh(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_topic_refresh(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, describe_topic_refresh_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -23554,7 +23838,13 @@ defmodule AWS.QuickSight do
   @doc """
   Deletes a topic refresh schedule.
   """
-  @spec describe_topic_refresh_schedule(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_topic_refresh_schedule(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, describe_topic_refresh_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -23580,7 +23870,13 @@ defmodule AWS.QuickSight do
   @doc """
   Returns information about a user, given the user name.
   """
-  @spec describe_user(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_user(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, describe_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -23600,7 +23896,7 @@ defmodule AWS.QuickSight do
   @doc """
   Describes a VPC connection.
   """
-  @spec describe_vpc_connection(map(), String.t(), String.t(), list()) ::
+  @spec describe_vpc_connection(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -23661,7 +23957,7 @@ defmodule AWS.QuickSight do
   """
   @spec generate_embed_url_for_anonymous_user(
           map(),
-          String.t(),
+          String.t() | atom(),
           generate_embed_url_for_anonymous_user_request(),
           list()
         ) ::
@@ -23738,7 +24034,7 @@ defmodule AWS.QuickSight do
   """
   @spec generate_embed_url_for_registered_user(
           map(),
-          String.t(),
+          String.t() | atom(),
           generate_embed_url_for_registered_user_request(),
           list()
         ) ::
@@ -23791,7 +24087,7 @@ defmodule AWS.QuickSight do
   """
   @spec generate_embed_url_for_registered_user_with_identity(
           map(),
-          String.t(),
+          String.t() | atom(),
           generate_embed_url_for_registered_user_with_identity_request(),
           list()
         ) ::
@@ -23866,16 +24162,16 @@ defmodule AWS.QuickSight do
   """
   @spec get_dashboard_embed_url(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_dashboard_embed_url_response(), any()}
@@ -24004,10 +24300,10 @@ defmodule AWS.QuickSight do
   """
   @spec get_session_embed_url(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_session_embed_url_response(), any()}
@@ -24056,7 +24352,13 @@ defmodule AWS.QuickSight do
   Lists Amazon QuickSight analyses that exist in the specified Amazon Web Services
   account.
   """
-  @spec list_analyses(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_analyses(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_analyses_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -24101,9 +24403,9 @@ defmodule AWS.QuickSight do
   """
   @spec list_asset_bundle_export_jobs(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_asset_bundle_export_jobs_response(), any()}
@@ -24149,9 +24451,9 @@ defmodule AWS.QuickSight do
   """
   @spec list_asset_bundle_import_jobs(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_asset_bundle_import_jobs_response(), any()}
@@ -24191,7 +24493,13 @@ defmodule AWS.QuickSight do
   @doc """
   Lists all brands in an Amazon QuickSight account.
   """
-  @spec list_brands(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_brands(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_brands_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -24229,7 +24537,13 @@ defmodule AWS.QuickSight do
   @doc """
   Returns a list of all the custom permissions profiles.
   """
-  @spec list_custom_permissions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_custom_permissions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_custom_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -24269,10 +24583,10 @@ defmodule AWS.QuickSight do
   """
   @spec list_dashboard_versions(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_dashboard_versions_response(), any()}
@@ -24315,7 +24629,13 @@ defmodule AWS.QuickSight do
   @doc """
   Lists dashboards in an Amazon Web Services account.
   """
-  @spec list_dashboards(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_dashboards(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_dashboards_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -24357,7 +24677,13 @@ defmodule AWS.QuickSight do
   The permissions resource is
   `arn:aws:quicksight:region:aws-account-id:dataset/*`.
   """
-  @spec list_data_sets(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_data_sets(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_data_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -24396,7 +24722,13 @@ defmodule AWS.QuickSight do
   Lists data sources in current Amazon Web Services Region that belong to this
   Amazon Web Services account.
   """
-  @spec list_data_sources(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_data_sources(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_data_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -24436,10 +24768,10 @@ defmodule AWS.QuickSight do
   """
   @spec list_folder_members(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_folder_members_response(), any()}
@@ -24482,7 +24814,13 @@ defmodule AWS.QuickSight do
   @doc """
   Lists all folders in an account.
   """
-  @spec list_folders(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_folders(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_folders_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -24522,10 +24860,10 @@ defmodule AWS.QuickSight do
   """
   @spec list_folders_for_resource(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_folders_for_resource_response(), any()}
@@ -24570,11 +24908,11 @@ defmodule AWS.QuickSight do
   """
   @spec list_group_memberships(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_group_memberships_response(), any()}
@@ -24618,7 +24956,14 @@ defmodule AWS.QuickSight do
   @doc """
   Lists all user groups in Amazon QuickSight.
   """
-  @spec list_groups(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_groups(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -24663,11 +25008,11 @@ defmodule AWS.QuickSight do
   """
   @spec list_iam_policy_assignments(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_iam_policy_assignments_response(), any()}
@@ -24726,11 +25071,11 @@ defmodule AWS.QuickSight do
   """
   @spec list_iam_policy_assignments_for_user(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_iam_policy_assignments_for_user_response(), any()}
@@ -24780,9 +25125,9 @@ defmodule AWS.QuickSight do
   """
   @spec list_identity_propagation_configs(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_identity_propagation_configs_response(), any()}
@@ -24824,7 +25169,14 @@ defmodule AWS.QuickSight do
 
   Limited to 5 TPS per user and 25 TPS per account.
   """
-  @spec list_ingestions(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_ingestions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_ingestions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -24867,7 +25219,13 @@ defmodule AWS.QuickSight do
 
   This operation doesn't list deleted namespaces.
   """
-  @spec list_namespaces(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_namespaces(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_namespaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -24907,7 +25265,7 @@ defmodule AWS.QuickSight do
 
   Each dataset can have up to 5 schedules.
   """
-  @spec list_refresh_schedules(map(), String.t(), String.t(), list()) ::
+  @spec list_refresh_schedules(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, list_refresh_schedules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -24929,11 +25287,11 @@ defmodule AWS.QuickSight do
   """
   @spec list_role_memberships(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_role_memberships_response(), any()}
@@ -24977,7 +25335,7 @@ defmodule AWS.QuickSight do
   @doc """
   Lists the tags assigned to a resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -24997,10 +25355,10 @@ defmodule AWS.QuickSight do
   """
   @spec list_template_aliases(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_template_aliases_response(), any()}
@@ -25046,10 +25404,10 @@ defmodule AWS.QuickSight do
   """
   @spec list_template_versions(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_template_versions_response(), any()}
@@ -25092,7 +25450,13 @@ defmodule AWS.QuickSight do
   @doc """
   Lists all the templates in the current Amazon QuickSight account.
   """
-  @spec list_templates(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_templates(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -25132,10 +25496,10 @@ defmodule AWS.QuickSight do
   """
   @spec list_theme_aliases(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_theme_aliases_response(), any()}
@@ -25180,10 +25544,10 @@ defmodule AWS.QuickSight do
   """
   @spec list_theme_versions(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_theme_versions_response(), any()}
@@ -25228,10 +25592,10 @@ defmodule AWS.QuickSight do
   """
   @spec list_themes(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_themes_response(), any()}
@@ -25279,7 +25643,7 @@ defmodule AWS.QuickSight do
   @doc """
   Lists all of the refresh schedules for a topic.
   """
-  @spec list_topic_refresh_schedules(map(), String.t(), String.t(), list()) ::
+  @spec list_topic_refresh_schedules(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, list_topic_refresh_schedules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -25299,7 +25663,7 @@ defmodule AWS.QuickSight do
   @doc """
   Lists all reviewed answers for a Q Topic.
   """
-  @spec list_topic_reviewed_answers(map(), String.t(), String.t(), list()) ::
+  @spec list_topic_reviewed_answers(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, list_topic_reviewed_answers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -25319,7 +25683,13 @@ defmodule AWS.QuickSight do
   @doc """
   Lists all of the topics within an account.
   """
-  @spec list_topics(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_topics(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_topics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -25360,11 +25730,11 @@ defmodule AWS.QuickSight do
   """
   @spec list_user_groups(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_user_groups_response(), any()}
@@ -25408,7 +25778,14 @@ defmodule AWS.QuickSight do
   @doc """
   Returns a list of all of the Amazon QuickSight users belonging to this account.
   """
-  @spec list_users(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_users(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -25451,7 +25828,13 @@ defmodule AWS.QuickSight do
   of an
   Amazon Web Services account.
   """
-  @spec list_vpc_connections(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_vpc_connections(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_vpc_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -25504,7 +25887,7 @@ defmodule AWS.QuickSight do
   update the `QSearchStatus`, see
   [UpdateQuickSightQSearchConfiguration](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateQuickSightQSearchConfiguration.html).
   """
-  @spec predict_q_a_results(map(), String.t(), predict_q_a_results_request(), list()) ::
+  @spec predict_q_a_results(map(), String.t() | atom(), predict_q_a_results_request(), list()) ::
           {:ok, predict_q_a_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -25535,8 +25918,8 @@ defmodule AWS.QuickSight do
   """
   @spec put_data_set_refresh_properties(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           put_data_set_refresh_properties_request(),
           list()
         ) ::
@@ -25585,7 +25968,13 @@ defmodule AWS.QuickSight do
   more information on registering a new user in the Amazon QuickSight console, see
   [ Inviting users to access Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/managing-users.html#inviting-users).
   """
-  @spec register_user(map(), String.t(), String.t(), register_user_request(), list()) ::
+  @spec register_user(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          register_user_request(),
+          list()
+        ) ::
           {:ok, register_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -25616,7 +26005,13 @@ defmodule AWS.QuickSight do
   @doc """
   Restores an analysis.
   """
-  @spec restore_analysis(map(), String.t(), String.t(), restore_analysis_request(), list()) ::
+  @spec restore_analysis(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          restore_analysis_request(),
+          list()
+        ) ::
           {:ok, restore_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -25655,7 +26050,7 @@ defmodule AWS.QuickSight do
   This operation is eventually consistent. The results are best effort and may not
   reflect very recent updates and changes.
   """
-  @spec search_analyses(map(), String.t(), search_analyses_request(), list()) ::
+  @spec search_analyses(map(), String.t() | atom(), search_analyses_request(), list()) ::
           {:ok, search_analyses_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -25687,7 +26082,7 @@ defmodule AWS.QuickSight do
   This operation is eventually consistent. The results are best effort and may not
   reflect very recent updates and changes.
   """
-  @spec search_dashboards(map(), String.t(), search_dashboards_request(), list()) ::
+  @spec search_dashboards(map(), String.t() | atom(), search_dashboards_request(), list()) ::
           {:ok, search_dashboards_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -25717,7 +26112,7 @@ defmodule AWS.QuickSight do
   Use the `SearchDataSets` operation to search for datasets that belong to an
   account.
   """
-  @spec search_data_sets(map(), String.t(), search_data_sets_request(), list()) ::
+  @spec search_data_sets(map(), String.t() | atom(), search_data_sets_request(), list()) ::
           {:ok, search_data_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -25747,7 +26142,7 @@ defmodule AWS.QuickSight do
   Use the `SearchDataSources` operation to search for data sources that belong to
   an account.
   """
-  @spec search_data_sources(map(), String.t(), search_data_sources_request(), list()) ::
+  @spec search_data_sources(map(), String.t() | atom(), search_data_sources_request(), list()) ::
           {:ok, search_data_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -25776,7 +26171,7 @@ defmodule AWS.QuickSight do
   @doc """
   Searches the subfolders in a folder.
   """
-  @spec search_folders(map(), String.t(), search_folders_request(), list()) ::
+  @spec search_folders(map(), String.t() | atom(), search_folders_request(), list()) ::
           {:ok, search_folders_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -25806,7 +26201,13 @@ defmodule AWS.QuickSight do
   Use the `SearchGroups` operation to search groups in a specified Amazon
   QuickSight namespace using the supplied filters.
   """
-  @spec search_groups(map(), String.t(), String.t(), search_groups_request(), list()) ::
+  @spec search_groups(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          search_groups_request(),
+          list()
+        ) ::
           {:ok, search_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -25843,7 +26244,7 @@ defmodule AWS.QuickSight do
   @doc """
   Searches for any Q topic that exists in an Amazon QuickSight account.
   """
-  @spec search_topics(map(), String.t(), search_topics_request(), list()) ::
+  @spec search_topics(map(), String.t() | atom(), search_topics_request(), list()) ::
           {:ok, search_topics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -25885,7 +26286,7 @@ defmodule AWS.QuickSight do
   """
   @spec start_asset_bundle_export_job(
           map(),
-          String.t(),
+          String.t() | atom(),
           start_asset_bundle_export_job_request(),
           list()
         ) ::
@@ -25930,7 +26331,7 @@ defmodule AWS.QuickSight do
   """
   @spec start_asset_bundle_import_job(
           map(),
-          String.t(),
+          String.t() | atom(),
           start_asset_bundle_import_job_request(),
           list()
         ) ::
@@ -26055,8 +26456,8 @@ defmodule AWS.QuickSight do
   """
   @spec start_dashboard_snapshot_job(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           start_dashboard_snapshot_job_request(),
           list()
         ) ::
@@ -26106,9 +26507,9 @@ defmodule AWS.QuickSight do
   """
   @spec start_dashboard_snapshot_job_schedule(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           start_dashboard_snapshot_job_schedule_request(),
           list()
         ) ::
@@ -26178,7 +26579,7 @@ defmodule AWS.QuickSight do
     *
   Amazon QuickSight doesn't currently support the tag editor for Resource Groups.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -26207,7 +26608,7 @@ defmodule AWS.QuickSight do
   @doc """
   Removes a tag or tags from a resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -26254,7 +26655,7 @@ defmodule AWS.QuickSight do
   """
   @spec update_account_customization(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_account_customization_request(),
           list()
         ) ::
@@ -26291,7 +26692,12 @@ defmodule AWS.QuickSight do
   @doc """
   Updates the Amazon QuickSight settings in your Amazon Web Services account.
   """
-  @spec update_account_settings(map(), String.t(), update_account_settings_request(), list()) ::
+  @spec update_account_settings(
+          map(),
+          String.t() | atom(),
+          update_account_settings_request(),
+          list()
+        ) ::
           {:ok, update_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -26320,7 +26726,13 @@ defmodule AWS.QuickSight do
   @doc """
   Updates an analysis in Amazon QuickSight
   """
-  @spec update_analysis(map(), String.t(), String.t(), update_analysis_request(), list()) ::
+  @spec update_analysis(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_analysis_request(),
+          list()
+        ) ::
           {:ok, update_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -26353,8 +26765,8 @@ defmodule AWS.QuickSight do
   """
   @spec update_analysis_permissions(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_analysis_permissions_request(),
           list()
         ) ::
@@ -26399,7 +26811,7 @@ defmodule AWS.QuickSight do
   """
   @spec update_application_with_token_exchange_grant(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_application_with_token_exchange_grant_request(),
           list()
         ) ::
@@ -26443,7 +26855,13 @@ defmodule AWS.QuickSight do
   @doc """
   Updates a brand.
   """
-  @spec update_brand(map(), String.t(), String.t(), update_brand_request(), list()) ::
+  @spec update_brand(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_brand_request(),
+          list()
+        ) ::
           {:ok, update_brand_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -26474,7 +26892,12 @@ defmodule AWS.QuickSight do
   @doc """
   Updates a brand assignment.
   """
-  @spec update_brand_assignment(map(), String.t(), update_brand_assignment_request(), list()) ::
+  @spec update_brand_assignment(
+          map(),
+          String.t() | atom(),
+          update_brand_assignment_request(),
+          list()
+        ) ::
           {:ok, update_brand_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -26505,8 +26928,8 @@ defmodule AWS.QuickSight do
   """
   @spec update_brand_published_version(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_brand_published_version_request(),
           list()
         ) ::
@@ -26548,8 +26971,8 @@ defmodule AWS.QuickSight do
   """
   @spec update_custom_permissions(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_custom_permissions_request(),
           list()
         ) ::
@@ -26602,7 +27025,13 @@ defmodule AWS.QuickSight do
 
   API operation.
   """
-  @spec update_dashboard(map(), String.t(), String.t(), update_dashboard_request(), list()) ::
+  @spec update_dashboard(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_dashboard_request(),
+          list()
+        ) ::
           {:ok, update_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -26635,8 +27064,8 @@ defmodule AWS.QuickSight do
   """
   @spec update_dashboard_links(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_dashboard_links_request(),
           list()
         ) ::
@@ -26678,8 +27107,8 @@ defmodule AWS.QuickSight do
   """
   @spec update_dashboard_permissions(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_dashboard_permissions_request(),
           list()
         ) ::
@@ -26721,9 +27150,9 @@ defmodule AWS.QuickSight do
   """
   @spec update_dashboard_published_version(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_dashboard_published_version_request(),
           list()
         ) ::
@@ -26766,7 +27195,7 @@ defmodule AWS.QuickSight do
   """
   @spec update_dashboards_q_a_configuration(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_dashboards_q_a_configuration_request(),
           list()
         ) ::
@@ -26806,7 +27235,13 @@ defmodule AWS.QuickSight do
   This operation doesn't support datasets that include uploaded files as a source.
   Partial updates are not supported by this operation.
   """
-  @spec update_data_set(map(), String.t(), String.t(), update_data_set_request(), list()) ::
+  @spec update_data_set(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_data_set_request(),
+          list()
+        ) ::
           {:ok, update_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -26842,8 +27277,8 @@ defmodule AWS.QuickSight do
   """
   @spec update_data_set_permissions(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_data_set_permissions_request(),
           list()
         ) ::
@@ -26883,7 +27318,13 @@ defmodule AWS.QuickSight do
   @doc """
   Updates a data source.
   """
-  @spec update_data_source(map(), String.t(), String.t(), update_data_source_request(), list()) ::
+  @spec update_data_source(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_data_source_request(),
+          list()
+        ) ::
           {:ok, update_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -26916,8 +27357,8 @@ defmodule AWS.QuickSight do
   """
   @spec update_data_source_permissions(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_data_source_permissions_request(),
           list()
         ) ::
@@ -26960,7 +27401,7 @@ defmodule AWS.QuickSight do
   """
   @spec update_default_q_business_application(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_default_q_business_application_request(),
           list()
         ) ::
@@ -27002,7 +27443,13 @@ defmodule AWS.QuickSight do
   @doc """
   Updates the name of a folder.
   """
-  @spec update_folder(map(), String.t(), String.t(), update_folder_request(), list()) ::
+  @spec update_folder(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_folder_request(),
+          list()
+        ) ::
           {:ok, update_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -27035,8 +27482,8 @@ defmodule AWS.QuickSight do
   """
   @spec update_folder_permissions(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_folder_permissions_request(),
           list()
         ) ::
@@ -27076,7 +27523,14 @@ defmodule AWS.QuickSight do
   @doc """
   Changes a group description.
   """
-  @spec update_group(map(), String.t(), String.t(), String.t(), update_group_request(), list()) ::
+  @spec update_group(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_group_request(),
+          list()
+        ) ::
           {:ok, update_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -27121,9 +27575,9 @@ defmodule AWS.QuickSight do
   """
   @spec update_iam_policy_assignment(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_iam_policy_assignment_request(),
           list()
         ) ::
@@ -27170,8 +27624,8 @@ defmodule AWS.QuickSight do
   """
   @spec update_identity_propagation_config(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_identity_propagation_config_request(),
           list()
         ) ::
@@ -27216,7 +27670,7 @@ defmodule AWS.QuickSight do
   To use this operation, you must provide the entire map of rules. You can use the
   `DescribeIpRestriction` operation to get the current rule map.
   """
-  @spec update_ip_restriction(map(), String.t(), update_ip_restriction_request(), list()) ::
+  @spec update_ip_restriction(map(), String.t() | atom(), update_ip_restriction_request(), list()) ::
           {:ok, update_ip_restriction_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -27245,7 +27699,12 @@ defmodule AWS.QuickSight do
   @doc """
   Updates a customer managed key in a Amazon QuickSight account.
   """
-  @spec update_key_registration(map(), String.t(), update_key_registration_request(), list()) ::
+  @spec update_key_registration(
+          map(),
+          String.t() | atom(),
+          update_key_registration_request(),
+          list()
+        ) ::
           {:ok, update_key_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -27290,7 +27749,7 @@ defmodule AWS.QuickSight do
   """
   @spec update_public_sharing_settings(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_public_sharing_settings_request(),
           list()
         ) ::
@@ -27324,7 +27783,7 @@ defmodule AWS.QuickSight do
   """
   @spec update_q_personalization_configuration(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_q_personalization_configuration_request(),
           list()
         ) ::
@@ -27363,7 +27822,7 @@ defmodule AWS.QuickSight do
   """
   @spec update_quick_sight_q_search_configuration(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_quick_sight_q_search_configuration_request(),
           list()
         ) ::
@@ -27404,8 +27863,8 @@ defmodule AWS.QuickSight do
   """
   @spec update_refresh_schedule(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_refresh_schedule_request(),
           list()
         ) ::
@@ -27447,9 +27906,9 @@ defmodule AWS.QuickSight do
   """
   @spec update_role_custom_permission(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_role_custom_permission_request(),
           list()
         ) ::
@@ -27492,7 +27951,7 @@ defmodule AWS.QuickSight do
   """
   @spec update_s_p_i_c_e_capacity_configuration(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_s_p_i_c_e_capacity_configuration_request(),
           list()
         ) ::
@@ -27530,7 +27989,13 @@ defmodule AWS.QuickSight do
   Updates a template from an existing Amazon QuickSight analysis or another
   template.
   """
-  @spec update_template(map(), String.t(), String.t(), update_template_request(), list()) ::
+  @spec update_template(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_template_request(),
+          list()
+        ) ::
           {:ok, update_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -27563,9 +28028,9 @@ defmodule AWS.QuickSight do
   """
   @spec update_template_alias(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_template_alias_request(),
           list()
         ) ::
@@ -27608,8 +28073,8 @@ defmodule AWS.QuickSight do
   """
   @spec update_template_permissions(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_template_permissions_request(),
           list()
         ) ::
@@ -27649,7 +28114,13 @@ defmodule AWS.QuickSight do
   @doc """
   Updates a theme.
   """
-  @spec update_theme(map(), String.t(), String.t(), update_theme_request(), list()) ::
+  @spec update_theme(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_theme_request(),
+          list()
+        ) ::
           {:ok, update_theme_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -27682,9 +28153,9 @@ defmodule AWS.QuickSight do
   """
   @spec update_theme_alias(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_theme_alias_request(),
           list()
         ) ::
@@ -27803,8 +28274,8 @@ defmodule AWS.QuickSight do
   """
   @spec update_theme_permissions(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_theme_permissions_request(),
           list()
         ) ::
@@ -27838,7 +28309,13 @@ defmodule AWS.QuickSight do
   @doc """
   Updates a topic.
   """
-  @spec update_topic(map(), String.t(), String.t(), update_topic_request(), list()) ::
+  @spec update_topic(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_topic_request(),
+          list()
+        ) ::
           {:ok, update_topic_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -27871,8 +28348,8 @@ defmodule AWS.QuickSight do
   """
   @spec update_topic_permissions(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_topic_permissions_request(),
           list()
         ) ::
@@ -27908,9 +28385,9 @@ defmodule AWS.QuickSight do
   """
   @spec update_topic_refresh_schedule(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_topic_refresh_schedule_request(),
           list()
         ) ::
@@ -27951,7 +28428,14 @@ defmodule AWS.QuickSight do
   @doc """
   Updates an Amazon QuickSight user.
   """
-  @spec update_user(map(), String.t(), String.t(), String.t(), update_user_request(), list()) ::
+  @spec update_user(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_user_request(),
+          list()
+        ) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -27984,9 +28468,9 @@ defmodule AWS.QuickSight do
   """
   @spec update_user_custom_permission(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_user_custom_permission_request(),
           list()
         ) ::
@@ -28029,8 +28513,8 @@ defmodule AWS.QuickSight do
   """
   @spec update_vpc_connection(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_vpc_connection_request(),
           list()
         ) ::

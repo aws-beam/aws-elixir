@@ -23,12 +23,12 @@ defmodule AWS.MigrationHubOrchestrator do
   ## Example:
 
       list_workflow_steps_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("workflowStepsSummary") => list(workflow_step_summary())
       }
 
   """
-  @type list_workflow_steps_response() :: %{String.t() => any()}
+  @type list_workflow_steps_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -36,11 +36,11 @@ defmodule AWS.MigrationHubOrchestrator do
 
       list_workflow_steps_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_workflow_steps_request() :: %{String.t() => any()}
+  @type list_workflow_steps_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -51,59 +51,59 @@ defmodule AWS.MigrationHubOrchestrator do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_workflow_step_request() :: %{
-        optional("description") => String.t(),
-        optional("next") => list(String.t()),
+        optional("description") => String.t() | atom(),
+        optional("next") => list(String.t() | atom()),
         optional("outputs") => list(workflow_step_output()),
-        optional("previous") => list(String.t()),
-        optional("stepTarget") => list(String.t()),
+        optional("previous") => list(String.t() | atom()),
+        optional("stepTarget") => list(String.t() | atom()),
         optional("workflowStepAutomationConfiguration") => workflow_step_automation_configuration(),
-        required("name") => String.t(),
-        required("stepActionType") => String.t(),
-        required("stepGroupId") => String.t(),
-        required("workflowId") => String.t()
+        required("name") => String.t() | atom(),
+        required("stepActionType") => String.t() | atom(),
+        required("stepGroupId") => String.t() | atom(),
+        required("workflowId") => String.t() | atom()
       }
 
   """
-  @type create_workflow_step_request() :: %{String.t() => any()}
+  @type create_workflow_step_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_migration_workflow_response() :: %{
-        optional("arn") => [String.t()],
-        optional("id") => String.t(),
+        optional("arn") => [String.t() | atom()],
+        optional("id") => String.t() | atom(),
         optional("lastStopTime") => [non_neg_integer()],
-        optional("status") => String.t(),
-        optional("statusMessage") => [String.t()]
+        optional("status") => String.t() | atom(),
+        optional("statusMessage") => [String.t() | atom()]
       }
 
   """
-  @type stop_migration_workflow_response() :: %{String.t() => any()}
+  @type stop_migration_workflow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_migration_workflow_request() :: %{
-        optional("applicationConfigurationId") => [String.t()],
-        optional("description") => [String.t()],
-        optional("stepTargets") => list(String.t()),
+        optional("applicationConfigurationId") => [String.t() | atom()],
+        optional("description") => [String.t() | atom()],
+        optional("stepTargets") => list(String.t() | atom()),
         optional("tags") => map(),
         required("inputParameters") => map(),
-        required("name") => [String.t()],
-        required("templateId") => [String.t()]
+        required("name") => [String.t() | atom()],
+        required("templateId") => [String.t() | atom()]
       }
 
   """
-  @type create_migration_workflow_request() :: %{String.t() => any()}
+  @type create_migration_workflow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -128,173 +128,173 @@ defmodule AWS.MigrationHubOrchestrator do
   ## Example:
 
       update_workflow_step_group_request() :: %{
-        optional("description") => String.t(),
-        optional("name") => String.t(),
-        optional("next") => list(String.t()),
-        optional("previous") => list(String.t()),
-        required("workflowId") => String.t()
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("next") => list(String.t() | atom()),
+        optional("previous") => list(String.t() | atom()),
+        required("workflowId") => String.t() | atom()
       }
 
   """
-  @type update_workflow_step_group_request() :: %{String.t() => any()}
+  @type update_workflow_step_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_template_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | atom(),
         optional("tags") => map(),
-        optional("templateDescription") => [String.t()],
-        required("templateName") => [String.t()],
+        optional("templateDescription") => [String.t() | atom()],
+        required("templateName") => [String.t() | atom()],
         required("templateSource") => list()
       }
 
   """
-  @type create_template_request() :: %{String.t() => any()}
+  @type create_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       step_output() :: %{
-        "dataType" => String.t(),
-        "name" => [String.t()],
+        "dataType" => String.t() | atom(),
+        "name" => [String.t() | atom()],
         "required" => [boolean()]
       }
 
   """
-  @type step_output() :: %{String.t() => any()}
+  @type step_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       migration_workflow_summary() :: %{
-        "adsApplicationConfigurationName" => [String.t()],
+        "adsApplicationConfigurationName" => [String.t() | atom()],
         "completedSteps" => [integer()],
         "creationTime" => [non_neg_integer()],
         "endTime" => [non_neg_integer()],
-        "id" => String.t(),
-        "name" => [String.t()],
-        "status" => String.t(),
-        "statusMessage" => [String.t()],
-        "templateId" => [String.t()],
+        "id" => String.t() | atom(),
+        "name" => [String.t() | atom()],
+        "status" => String.t() | atom(),
+        "statusMessage" => [String.t() | atom()],
+        "templateId" => [String.t() | atom()],
         "totalSteps" => [integer()]
       }
 
   """
-  @type migration_workflow_summary() :: %{String.t() => any()}
+  @type migration_workflow_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_workflow_step_request() :: %{
-        optional("description") => String.t(),
-        optional("name") => String.t(),
-        optional("next") => list(String.t()),
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("next") => list(String.t() | atom()),
         optional("outputs") => list(workflow_step_output()),
-        optional("previous") => list(String.t()),
-        optional("status") => String.t(),
-        optional("stepActionType") => String.t(),
-        optional("stepTarget") => list(String.t()),
+        optional("previous") => list(String.t() | atom()),
+        optional("status") => String.t() | atom(),
+        optional("stepActionType") => String.t() | atom(),
+        optional("stepTarget") => list(String.t() | atom()),
         optional("workflowStepAutomationConfiguration") => workflow_step_automation_configuration(),
-        required("stepGroupId") => String.t(),
-        required("workflowId") => String.t()
+        required("stepGroupId") => String.t() | atom(),
+        required("workflowId") => String.t() | atom()
       }
 
   """
-  @type update_workflow_step_request() :: %{String.t() => any()}
+  @type update_workflow_step_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_migration_workflow_request() :: %{
-        optional("description") => [String.t()],
+        optional("description") => [String.t() | atom()],
         optional("inputParameters") => map(),
-        optional("name") => [String.t()],
-        optional("stepTargets") => list(String.t())
+        optional("name") => [String.t() | atom()],
+        optional("stepTargets") => list(String.t() | atom())
       }
 
   """
-  @type update_migration_workflow_request() :: %{String.t() => any()}
+  @type update_migration_workflow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_migration_workflows_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("migrationWorkflowSummary") => list(migration_workflow_summary())
       }
 
   """
-  @type list_migration_workflows_response() :: %{String.t() => any()}
+  @type list_migration_workflows_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_template_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("templateDescription") => [String.t()],
-        optional("templateName") => [String.t()]
+        optional("clientToken") => String.t() | atom(),
+        optional("templateDescription") => [String.t() | atom()],
+        optional("templateName") => [String.t() | atom()]
       }
 
   """
-  @type update_template_request() :: %{String.t() => any()}
+  @type update_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_workflow_step_group_request() :: %{
-        required("workflowId") => String.t()
+        required("workflowId") => String.t() | atom()
       }
 
   """
-  @type get_workflow_step_group_request() :: %{String.t() => any()}
+  @type get_workflow_step_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       plugin_summary() :: %{
-        "hostname" => [String.t()],
-        "ipAddress" => String.t(),
-        "pluginId" => String.t(),
-        "registeredTime" => [String.t()],
-        "status" => String.t(),
-        "version" => String.t()
+        "hostname" => [String.t() | atom()],
+        "ipAddress" => String.t() | atom(),
+        "pluginId" => String.t() | atom(),
+        "registeredTime" => [String.t() | atom()],
+        "status" => String.t() | atom(),
+        "version" => String.t() | atom()
       }
 
   """
-  @type plugin_summary() :: %{String.t() => any()}
+  @type plugin_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       platform_command() :: %{
-        "linux" => [String.t()],
-        "windows" => [String.t()]
+        "linux" => [String.t() | atom()],
+        "windows" => [String.t() | atom()]
       }
 
   """
-  @type platform_command() :: %{String.t() => any()}
+  @type platform_command() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -302,54 +302,54 @@ defmodule AWS.MigrationHubOrchestrator do
 
       get_workflow_step_response() :: %{
         optional("creationTime") => [non_neg_integer()],
-        optional("description") => [String.t()],
+        optional("description") => [String.t() | atom()],
         optional("endTime") => [non_neg_integer()],
         optional("lastStartTime") => [non_neg_integer()],
-        optional("name") => [String.t()],
-        optional("next") => list(String.t()),
+        optional("name") => [String.t() | atom()],
+        optional("next") => list(String.t() | atom()),
         optional("noOfSrvCompleted") => [integer()],
         optional("noOfSrvFailed") => [integer()],
         optional("outputs") => list(workflow_step_output()),
-        optional("owner") => String.t(),
-        optional("previous") => list(String.t()),
-        optional("scriptOutputLocation") => [String.t()],
-        optional("status") => String.t(),
-        optional("statusMessage") => [String.t()],
-        optional("stepActionType") => String.t(),
-        optional("stepGroupId") => [String.t()],
-        optional("stepId") => [String.t()],
-        optional("stepTarget") => list(String.t()),
+        optional("owner") => String.t() | atom(),
+        optional("previous") => list(String.t() | atom()),
+        optional("scriptOutputLocation") => [String.t() | atom()],
+        optional("status") => String.t() | atom(),
+        optional("statusMessage") => [String.t() | atom()],
+        optional("stepActionType") => String.t() | atom(),
+        optional("stepGroupId") => [String.t() | atom()],
+        optional("stepId") => [String.t() | atom()],
+        optional("stepTarget") => list(String.t() | atom()),
         optional("totalNoOfSrv") => [integer()],
-        optional("workflowId") => [String.t()],
+        optional("workflowId") => [String.t() | atom()],
         optional("workflowStepAutomationConfiguration") => workflow_step_automation_configuration()
       }
 
   """
-  @type get_workflow_step_response() :: %{String.t() => any()}
+  @type get_workflow_step_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_workflow_step_request() :: %{
-        required("stepGroupId") => String.t(),
-        required("workflowId") => String.t()
+        required("stepGroupId") => String.t() | atom(),
+        required("workflowId") => String.t() | atom()
       }
 
   """
-  @type get_workflow_step_request() :: %{String.t() => any()}
+  @type get_workflow_step_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_template_step_request() :: %{
-        required("stepGroupId") => String.t(),
-        required("templateId") => String.t()
+        required("stepGroupId") => String.t() | atom(),
+        required("templateId") => String.t() | atom()
       }
 
   """
-  @type get_template_step_request() :: %{String.t() => any()}
+  @type get_template_step_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -357,34 +357,34 @@ defmodule AWS.MigrationHubOrchestrator do
 
       get_migration_workflow_template_response() :: %{
         optional("creationTime") => [non_neg_integer()],
-        optional("description") => [String.t()],
-        optional("id") => [String.t()],
+        optional("description") => [String.t() | atom()],
+        optional("id") => [String.t() | atom()],
         optional("inputs") => list(template_input()),
-        optional("name") => [String.t()],
-        optional("owner") => [String.t()],
-        optional("status") => String.t(),
-        optional("statusMessage") => [String.t()],
+        optional("name") => [String.t() | atom()],
+        optional("owner") => [String.t() | atom()],
+        optional("status") => String.t() | atom(),
+        optional("statusMessage") => [String.t() | atom()],
         optional("tags") => map(),
-        optional("templateArn") => [String.t()],
-        optional("templateClass") => [String.t()],
+        optional("templateArn") => [String.t() | atom()],
+        optional("templateClass") => [String.t() | atom()],
         optional("tools") => list(tool())
       }
 
   """
-  @type get_migration_workflow_template_response() :: %{String.t() => any()}
+  @type get_migration_workflow_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_migration_workflow_response() :: %{
-        optional("arn") => [String.t()],
-        optional("id") => String.t(),
-        optional("status") => String.t()
+        optional("arn") => [String.t() | atom()],
+        optional("id") => String.t() | atom(),
+        optional("status") => String.t() | atom()
       }
 
   """
-  @type delete_migration_workflow_response() :: %{String.t() => any()}
+  @type delete_migration_workflow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -400,101 +400,101 @@ defmodule AWS.MigrationHubOrchestrator do
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_migration_workflow_response() :: %{
-        optional("arn") => [String.t()],
-        optional("id") => String.t(),
+        optional("arn") => [String.t() | atom()],
+        optional("id") => String.t() | atom(),
         optional("lastStartTime") => [non_neg_integer()],
-        optional("status") => String.t(),
-        optional("statusMessage") => [String.t()]
+        optional("status") => String.t() | atom(),
+        optional("statusMessage") => [String.t() | atom()]
       }
 
   """
-  @type start_migration_workflow_response() :: %{String.t() => any()}
+  @type start_migration_workflow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_migration_workflow_response() :: %{
-        optional("adsApplicationConfigurationId") => [String.t()],
-        optional("arn") => [String.t()],
+        optional("adsApplicationConfigurationId") => [String.t() | atom()],
+        optional("arn") => [String.t() | atom()],
         optional("creationTime") => [non_neg_integer()],
-        optional("description") => [String.t()],
-        optional("id") => String.t(),
-        optional("name") => [String.t()],
-        optional("status") => String.t(),
-        optional("stepTargets") => list(String.t()),
+        optional("description") => [String.t() | atom()],
+        optional("id") => String.t() | atom(),
+        optional("name") => [String.t() | atom()],
+        optional("status") => String.t() | atom(),
+        optional("stepTargets") => list(String.t() | atom()),
         optional("tags") => map(),
-        optional("templateId") => [String.t()],
+        optional("templateId") => [String.t() | atom()],
         optional("workflowInputs") => map()
       }
 
   """
-  @type create_migration_workflow_response() :: %{String.t() => any()}
+  @type create_migration_workflow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       template_step_group_summary() :: %{
-        "id" => [String.t()],
-        "name" => [String.t()],
-        "next" => list(String.t()),
-        "previous" => list(String.t())
+        "id" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "next" => list(String.t() | atom()),
+        "previous" => list(String.t() | atom())
       }
 
   """
-  @type template_step_group_summary() :: %{String.t() => any()}
+  @type template_step_group_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       template_summary() :: %{
-        "arn" => [String.t()],
-        "description" => [String.t()],
-        "id" => [String.t()],
-        "name" => [String.t()]
+        "arn" => [String.t() | atom()],
+        "description" => [String.t() | atom()],
+        "id" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type template_summary() :: %{String.t() => any()}
+  @type template_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_workflow_step_group_request() :: %{
-        optional("description") => String.t(),
-        optional("next") => list(String.t()),
-        optional("previous") => list(String.t()),
-        required("name") => String.t(),
-        required("workflowId") => String.t()
+        optional("description") => String.t() | atom(),
+        optional("next") => list(String.t() | atom()),
+        optional("previous") => list(String.t() | atom()),
+        required("name") => String.t() | atom(),
+        required("workflowId") => String.t() | atom()
       }
 
   """
-  @type create_workflow_step_group_request() :: %{String.t() => any()}
+  @type create_workflow_step_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -502,14 +502,14 @@ defmodule AWS.MigrationHubOrchestrator do
 
       step_automation_configuration() :: %{
         "command" => platform_command(),
-        "runEnvironment" => String.t(),
-        "scriptLocationS3Bucket" => [String.t()],
+        "runEnvironment" => String.t() | atom(),
+        "scriptLocationS3Bucket" => [String.t() | atom()],
         "scriptLocationS3Key" => platform_script_key(),
-        "targetType" => String.t()
+        "targetType" => String.t() | atom()
       }
 
   """
-  @type step_automation_configuration() :: %{String.t() => any()}
+  @type step_automation_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -517,49 +517,49 @@ defmodule AWS.MigrationHubOrchestrator do
 
       get_template_step_group_response() :: %{
         optional("creationTime") => [non_neg_integer()],
-        optional("description") => [String.t()],
-        optional("id") => [String.t()],
+        optional("description") => [String.t() | atom()],
+        optional("id") => [String.t() | atom()],
         optional("lastModifiedTime") => [non_neg_integer()],
-        optional("name") => [String.t()],
-        optional("next") => list(String.t()),
-        optional("previous") => list(String.t()),
-        optional("status") => String.t(),
-        optional("templateId") => [String.t()],
+        optional("name") => [String.t() | atom()],
+        optional("next") => list(String.t() | atom()),
+        optional("previous") => list(String.t() | atom()),
+        optional("status") => String.t() | atom(),
+        optional("templateId") => [String.t() | atom()],
         optional("tools") => list(tool())
       }
 
   """
-  @type get_template_step_group_response() :: %{String.t() => any()}
+  @type get_template_step_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_migration_workflow_response() :: %{
-        optional("adsApplicationConfigurationId") => [String.t()],
-        optional("adsApplicationName") => [String.t()],
-        optional("arn") => [String.t()],
+        optional("adsApplicationConfigurationId") => [String.t() | atom()],
+        optional("adsApplicationName") => [String.t() | atom()],
+        optional("arn") => [String.t() | atom()],
         optional("completedSteps") => [integer()],
         optional("creationTime") => [non_neg_integer()],
-        optional("description") => [String.t()],
+        optional("description") => [String.t() | atom()],
         optional("endTime") => [non_neg_integer()],
-        optional("id") => String.t(),
+        optional("id") => String.t() | atom(),
         optional("lastModifiedTime") => [non_neg_integer()],
         optional("lastStartTime") => [non_neg_integer()],
         optional("lastStopTime") => [non_neg_integer()],
-        optional("name") => [String.t()],
-        optional("status") => String.t(),
-        optional("statusMessage") => [String.t()],
+        optional("name") => [String.t() | atom()],
+        optional("status") => String.t() | atom(),
+        optional("statusMessage") => [String.t() | atom()],
         optional("tags") => map(),
-        optional("templateId") => [String.t()],
+        optional("templateId") => [String.t() | atom()],
         optional("tools") => list(tool()),
         optional("totalSteps") => [integer()],
-        optional("workflowBucket") => [String.t()],
+        optional("workflowBucket") => [String.t() | atom()],
         optional("workflowInputs") => map()
       }
 
   """
-  @type get_migration_workflow_response() :: %{String.t() => any()}
+  @type get_migration_workflow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -575,12 +575,12 @@ defmodule AWS.MigrationHubOrchestrator do
   ## Example:
 
       platform_script_key() :: %{
-        "linux" => String.t(),
-        "windows" => String.t()
+        "linux" => String.t() | atom(),
+        "windows" => String.t() | atom()
       }
 
   """
-  @type platform_script_key() :: %{String.t() => any()}
+  @type platform_script_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -591,58 +591,58 @@ defmodule AWS.MigrationHubOrchestrator do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_plugins_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("plugins") => list(plugin_summary())
       }
 
   """
-  @type list_plugins_response() :: %{String.t() => any()}
+  @type list_plugins_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       workflow_step_summary() :: %{
-        "description" => [String.t()],
-        "name" => [String.t()],
-        "next" => list(String.t()),
+        "description" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "next" => list(String.t() | atom()),
         "noOfSrvCompleted" => [integer()],
         "noOfSrvFailed" => [integer()],
-        "owner" => String.t(),
-        "previous" => list(String.t()),
-        "scriptLocation" => [String.t()],
-        "status" => String.t(),
-        "statusMessage" => [String.t()],
-        "stepActionType" => String.t(),
-        "stepId" => [String.t()],
+        "owner" => String.t() | atom(),
+        "previous" => list(String.t() | atom()),
+        "scriptLocation" => [String.t() | atom()],
+        "status" => String.t() | atom(),
+        "statusMessage" => [String.t() | atom()],
+        "stepActionType" => String.t() | atom(),
+        "stepId" => [String.t() | atom()],
         "totalNoOfSrv" => [integer()]
       }
 
   """
-  @type workflow_step_summary() :: %{String.t() => any()}
+  @type workflow_step_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       workflow_step_group_summary() :: %{
-        "id" => [String.t()],
-        "name" => [String.t()],
-        "next" => list(String.t()),
-        "owner" => String.t(),
-        "previous" => list(String.t()),
-        "status" => String.t()
+        "id" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "next" => list(String.t() | atom()),
+        "owner" => String.t() | atom(),
+        "previous" => list(String.t() | atom()),
+        "status" => String.t() | atom()
       }
 
   """
-  @type workflow_step_group_summary() :: %{String.t() => any()}
+  @type workflow_step_group_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -659,25 +659,25 @@ defmodule AWS.MigrationHubOrchestrator do
 
       list_plugins_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_plugins_request() :: %{String.t() => any()}
+  @type list_plugins_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       retry_workflow_step_response() :: %{
-        optional("id") => [String.t()],
-        optional("status") => String.t(),
-        optional("stepGroupId") => [String.t()],
-        optional("workflowId") => [String.t()]
+        optional("id") => [String.t() | atom()],
+        optional("status") => String.t() | atom(),
+        optional("stepGroupId") => [String.t() | atom()],
+        optional("workflowId") => [String.t() | atom()]
       }
 
   """
-  @type retry_workflow_step_response() :: %{String.t() => any()}
+  @type retry_workflow_step_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -685,48 +685,48 @@ defmodule AWS.MigrationHubOrchestrator do
 
       update_template_response() :: %{
         "tags" => map(),
-        "templateArn" => [String.t()],
-        "templateId" => [String.t()]
+        "templateArn" => [String.t() | atom()],
+        "templateId" => [String.t() | atom()]
       }
 
   """
-  @type update_template_response() :: %{String.t() => any()}
+  @type update_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       template_input() :: %{
-        "dataType" => String.t(),
-        "inputName" => String.t(),
+        "dataType" => String.t() | atom(),
+        "inputName" => String.t() | atom(),
         "required" => [boolean()]
       }
 
   """
-  @type template_input() :: %{String.t() => any()}
+  @type template_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_workflow_step_request() :: %{
-        required("stepGroupId") => String.t(),
-        required("workflowId") => String.t()
+        required("stepGroupId") => String.t() | atom(),
+        required("workflowId") => String.t() | atom()
       }
 
   """
-  @type delete_workflow_step_request() :: %{String.t() => any()}
+  @type delete_workflow_step_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -734,76 +734,76 @@ defmodule AWS.MigrationHubOrchestrator do
 
       create_workflow_step_group_response() :: %{
         optional("creationTime") => [non_neg_integer()],
-        optional("description") => [String.t()],
-        optional("id") => [String.t()],
-        optional("name") => [String.t()],
-        optional("next") => list(String.t()),
-        optional("previous") => list(String.t()),
+        optional("description") => [String.t() | atom()],
+        optional("id") => [String.t() | atom()],
+        optional("name") => [String.t() | atom()],
+        optional("next") => list(String.t() | atom()),
+        optional("previous") => list(String.t() | atom()),
         optional("tools") => list(tool()),
-        optional("workflowId") => [String.t()]
+        optional("workflowId") => [String.t() | atom()]
       }
 
   """
-  @type create_workflow_step_group_response() :: %{String.t() => any()}
+  @type create_workflow_step_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_migration_workflow_response() :: %{
-        optional("adsApplicationConfigurationId") => [String.t()],
-        optional("arn") => [String.t()],
+        optional("adsApplicationConfigurationId") => [String.t() | atom()],
+        optional("arn") => [String.t() | atom()],
         optional("creationTime") => [non_neg_integer()],
-        optional("description") => [String.t()],
-        optional("id") => String.t(),
+        optional("description") => [String.t() | atom()],
+        optional("id") => String.t() | atom(),
         optional("lastModifiedTime") => [non_neg_integer()],
-        optional("name") => [String.t()],
-        optional("status") => String.t(),
-        optional("stepTargets") => list(String.t()),
+        optional("name") => [String.t() | atom()],
+        optional("status") => String.t() | atom(),
+        optional("stepTargets") => list(String.t() | atom()),
         optional("tags") => map(),
-        optional("templateId") => [String.t()],
+        optional("templateId") => [String.t() | atom()],
         optional("workflowInputs") => map()
       }
 
   """
-  @type update_migration_workflow_response() :: %{String.t() => any()}
+  @type update_migration_workflow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       workflow_step_output() :: %{
-        "dataType" => String.t(),
-        "name" => String.t(),
+        "dataType" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "required" => [boolean()],
         "value" => list()
       }
 
   """
-  @type workflow_step_output() :: %{String.t() => any()}
+  @type workflow_step_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       retry_workflow_step_request() :: %{
-        required("stepGroupId") => String.t(),
-        required("workflowId") => String.t()
+        required("stepGroupId") => String.t() | atom(),
+        required("workflowId") => String.t() | atom()
       }
 
   """
-  @type retry_workflow_step_request() :: %{String.t() => any()}
+  @type retry_workflow_step_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -837,44 +837,44 @@ defmodule AWS.MigrationHubOrchestrator do
   ## Example:
 
       list_workflow_step_groups_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("workflowStepGroupsSummary") => list(workflow_step_group_summary())
       }
 
   """
-  @type list_workflow_step_groups_response() :: %{String.t() => any()}
+  @type list_workflow_step_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_workflow_step_response() :: %{
-        optional("id") => [String.t()],
-        optional("name") => [String.t()],
-        optional("stepGroupId") => [String.t()],
-        optional("workflowId") => [String.t()]
+        optional("id") => [String.t() | atom()],
+        optional("name") => [String.t() | atom()],
+        optional("stepGroupId") => [String.t() | atom()],
+        optional("workflowId") => [String.t() | atom()]
       }
 
   """
-  @type create_workflow_step_response() :: %{String.t() => any()}
+  @type create_workflow_step_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_workflow_step_group_response() :: %{
-        optional("description") => [String.t()],
-        optional("id") => [String.t()],
+        optional("description") => [String.t() | atom()],
+        optional("id") => [String.t() | atom()],
         optional("lastModifiedTime") => [non_neg_integer()],
-        optional("name") => [String.t()],
-        optional("next") => list(String.t()),
-        optional("previous") => list(String.t()),
+        optional("name") => [String.t() | atom()],
+        optional("next") => list(String.t() | atom()),
+        optional("previous") => list(String.t() | atom()),
         optional("tools") => list(tool()),
-        optional("workflowId") => [String.t()]
+        optional("workflowId") => [String.t() | atom()]
       }
 
   """
-  @type update_workflow_step_group_response() :: %{String.t() => any()}
+  @type update_workflow_step_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -882,22 +882,22 @@ defmodule AWS.MigrationHubOrchestrator do
 
       list_template_step_groups_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_template_step_groups_request() :: %{String.t() => any()}
+  @type list_template_step_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -913,11 +913,11 @@ defmodule AWS.MigrationHubOrchestrator do
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -933,19 +933,19 @@ defmodule AWS.MigrationHubOrchestrator do
   ## Example:
 
       template_step_summary() :: %{
-        "id" => [String.t()],
-        "name" => [String.t()],
-        "next" => list(String.t()),
-        "owner" => String.t(),
-        "previous" => list(String.t()),
-        "stepActionType" => String.t(),
-        "stepGroupId" => [String.t()],
-        "targetType" => String.t(),
-        "templateId" => [String.t()]
+        "id" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "next" => list(String.t() | atom()),
+        "owner" => String.t() | atom(),
+        "previous" => list(String.t() | atom()),
+        "stepActionType" => String.t() | atom(),
+        "stepGroupId" => [String.t() | atom()],
+        "targetType" => String.t() | atom(),
+        "templateId" => [String.t() | atom()]
       }
 
   """
-  @type template_step_summary() :: %{String.t() => any()}
+  @type template_step_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -953,12 +953,12 @@ defmodule AWS.MigrationHubOrchestrator do
 
       list_workflow_step_groups_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("workflowId") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("workflowId") => String.t() | atom()
       }
 
   """
-  @type list_workflow_step_groups_request() :: %{String.t() => any()}
+  @type list_workflow_step_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -966,27 +966,27 @@ defmodule AWS.MigrationHubOrchestrator do
 
       list_template_steps_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("stepGroupId") => String.t(),
-        required("templateId") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("stepGroupId") => String.t() | atom(),
+        required("templateId") => String.t() | atom()
       }
 
   """
-  @type list_template_steps_request() :: %{String.t() => any()}
+  @type list_template_steps_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_workflow_step_response() :: %{
-        optional("id") => String.t(),
-        optional("name") => [String.t()],
-        optional("stepGroupId") => [String.t()],
-        optional("workflowId") => [String.t()]
+        optional("id") => String.t() | atom(),
+        optional("name") => [String.t() | atom()],
+        optional("stepGroupId") => [String.t() | atom()],
+        optional("workflowId") => [String.t() | atom()]
       }
 
   """
-  @type update_workflow_step_response() :: %{String.t() => any()}
+  @type update_workflow_step_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -994,12 +994,12 @@ defmodule AWS.MigrationHubOrchestrator do
 
       create_template_response() :: %{
         "tags" => map(),
-        "templateArn" => [String.t()],
-        "templateId" => [String.t()]
+        "templateArn" => [String.t() | atom()],
+        "templateId" => [String.t() | atom()]
       }
 
   """
-  @type create_template_response() :: %{String.t() => any()}
+  @type create_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1007,21 +1007,21 @@ defmodule AWS.MigrationHubOrchestrator do
 
       get_workflow_step_group_response() :: %{
         optional("creationTime") => [non_neg_integer()],
-        optional("description") => [String.t()],
+        optional("description") => [String.t() | atom()],
         optional("endTime") => [non_neg_integer()],
-        optional("id") => String.t(),
+        optional("id") => String.t() | atom(),
         optional("lastModifiedTime") => [non_neg_integer()],
-        optional("name") => [String.t()],
-        optional("next") => list(String.t()),
-        optional("owner") => String.t(),
-        optional("previous") => list(String.t()),
-        optional("status") => String.t(),
+        optional("name") => [String.t() | atom()],
+        optional("next") => list(String.t() | atom()),
+        optional("owner") => String.t() | atom(),
+        optional("previous") => list(String.t() | atom()),
+        optional("status") => String.t() | atom(),
         optional("tools") => list(tool()),
-        optional("workflowId") => [String.t()]
+        optional("workflowId") => [String.t() | atom()]
       }
 
   """
-  @type get_workflow_step_group_response() :: %{String.t() => any()}
+  @type get_workflow_step_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1037,21 +1037,21 @@ defmodule AWS.MigrationHubOrchestrator do
   ## Example:
 
       get_template_step_response() :: %{
-        optional("creationTime") => [String.t()],
-        optional("description") => [String.t()],
-        optional("id") => String.t(),
-        optional("name") => [String.t()],
-        optional("next") => list(String.t()),
+        optional("creationTime") => [String.t() | atom()],
+        optional("description") => [String.t() | atom()],
+        optional("id") => String.t() | atom(),
+        optional("name") => [String.t() | atom()],
+        optional("next") => list(String.t() | atom()),
         optional("outputs") => list(step_output()),
-        optional("previous") => list(String.t()),
-        optional("stepActionType") => String.t(),
+        optional("previous") => list(String.t() | atom()),
+        optional("stepActionType") => String.t() | atom(),
         optional("stepAutomationConfiguration") => step_automation_configuration(),
-        optional("stepGroupId") => String.t(),
-        optional("templateId") => String.t()
+        optional("stepGroupId") => String.t() | atom(),
+        optional("templateId") => String.t() | atom()
       }
 
   """
-  @type get_template_step_response() :: %{String.t() => any()}
+  @type get_template_step_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1059,12 +1059,12 @@ defmodule AWS.MigrationHubOrchestrator do
 
       list_migration_workflow_templates_request() :: %{
         optional("maxResults") => integer(),
-        optional("name") => String.t(),
-        optional("nextToken") => String.t()
+        optional("name") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_migration_workflow_templates_request() :: %{String.t() => any()}
+  @type list_migration_workflow_templates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1081,62 +1081,62 @@ defmodule AWS.MigrationHubOrchestrator do
 
       workflow_step_automation_configuration() :: %{
         "command" => platform_command(),
-        "runEnvironment" => String.t(),
-        "scriptLocationS3Bucket" => String.t(),
+        "runEnvironment" => String.t() | atom(),
+        "scriptLocationS3Bucket" => String.t() | atom(),
         "scriptLocationS3Key" => platform_script_key(),
-        "targetType" => String.t()
+        "targetType" => String.t() | atom()
       }
 
   """
-  @type workflow_step_automation_configuration() :: %{String.t() => any()}
+  @type workflow_step_automation_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_migration_workflow_templates_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("templateSummary") => list(template_summary())
       }
 
   """
-  @type list_migration_workflow_templates_response() :: %{String.t() => any()}
+  @type list_migration_workflow_templates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_template_steps_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("templateStepSummaryList") => list(template_step_summary())
       }
 
   """
-  @type list_template_steps_response() :: %{String.t() => any()}
+  @type list_template_steps_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tool() :: %{
-        "name" => [String.t()],
-        "url" => [String.t()]
+        "name" => [String.t() | atom()],
+        "url" => [String.t() | atom()]
       }
 
   """
-  @type tool() :: %{String.t() => any()}
+  @type tool() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_template_step_groups_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("templateStepGroupSummary") => list(template_step_group_summary())
       }
 
   """
-  @type list_template_step_groups_response() :: %{String.t() => any()}
+  @type list_template_step_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1152,27 +1152,27 @@ defmodule AWS.MigrationHubOrchestrator do
   ## Example:
 
       delete_workflow_step_group_request() :: %{
-        required("workflowId") => String.t()
+        required("workflowId") => String.t() | atom()
       }
 
   """
-  @type delete_workflow_step_group_request() :: %{String.t() => any()}
+  @type delete_workflow_step_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_migration_workflows_request() :: %{
-        optional("adsApplicationConfigurationName") => String.t(),
+        optional("adsApplicationConfigurationName") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("name") => [String.t()],
-        optional("nextToken") => String.t(),
-        optional("status") => String.t(),
-        optional("templateId") => String.t()
+        optional("name") => [String.t() | atom()],
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => String.t() | atom(),
+        optional("templateId") => String.t() | atom()
       }
 
   """
-  @type list_migration_workflows_request() :: %{String.t() => any()}
+  @type list_migration_workflows_request() :: %{(String.t() | atom()) => any()}
 
   @type create_template_errors() ::
           throttling_exception()
@@ -1494,7 +1494,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Deletes a migration workflow template.
   """
-  @spec delete_template(map(), String.t(), delete_template_request(), list()) ::
+  @spec delete_template(map(), String.t() | atom(), delete_template_request(), list()) ::
           {:ok, delete_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1526,7 +1526,7 @@ defmodule AWS.MigrationHubOrchestrator do
   You must pause a running workflow in Migration Hub Orchestrator console to
   delete it.
   """
-  @spec delete_workflow(map(), String.t(), delete_migration_workflow_request(), list()) ::
+  @spec delete_workflow(map(), String.t() | atom(), delete_migration_workflow_request(), list()) ::
           {:ok, delete_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1558,7 +1558,7 @@ defmodule AWS.MigrationHubOrchestrator do
   Pause the workflow to delete a running
   step.
   """
-  @spec delete_workflow_step(map(), String.t(), delete_workflow_step_request(), list()) ::
+  @spec delete_workflow_step(map(), String.t() | atom(), delete_workflow_step_request(), list()) ::
           {:ok, delete_workflow_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1595,7 +1595,7 @@ defmodule AWS.MigrationHubOrchestrator do
   """
   @spec delete_workflow_step_group(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_workflow_step_group_request(),
           list()
         ) ::
@@ -1632,7 +1632,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Get the template you want to use for creating a migration workflow.
   """
-  @spec get_template(map(), String.t(), list()) ::
+  @spec get_template(map(), String.t() | atom(), list()) ::
           {:ok, get_migration_workflow_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1650,7 +1650,13 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Get a specific step in a template.
   """
-  @spec get_template_step(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_template_step(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, get_template_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1682,7 +1688,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Get a step group in a template.
   """
-  @spec get_template_step_group(map(), String.t(), String.t(), list()) ::
+  @spec get_template_step_group(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_template_step_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1702,7 +1708,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Get migration workflow.
   """
-  @spec get_workflow(map(), String.t(), list()) ::
+  @spec get_workflow(map(), String.t() | atom(), list()) ::
           {:ok, get_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1720,7 +1726,13 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Get a step in the migration workflow.
   """
-  @spec get_workflow_step(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_workflow_step(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, get_workflow_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1752,7 +1764,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Get the step group of a migration workflow.
   """
-  @spec get_workflow_step_group(map(), String.t(), String.t(), list()) ::
+  @spec get_workflow_step_group(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_workflow_step_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1777,7 +1789,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   List AWS Migration Hub Orchestrator plugins.
   """
-  @spec list_plugins(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_plugins(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_plugins_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1809,7 +1821,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   List the tags added to a resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1827,7 +1839,13 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   List the step groups in a template.
   """
-  @spec list_template_step_groups(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_template_step_groups(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_template_step_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1867,10 +1885,10 @@ defmodule AWS.MigrationHubOrchestrator do
   """
   @spec list_template_steps(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          String.t(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_template_steps_response(), any()}
@@ -1926,7 +1944,13 @@ defmodule AWS.MigrationHubOrchestrator do
   List the templates available in Migration Hub Orchestrator to create a migration
   workflow.
   """
-  @spec list_templates(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_templates(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_migration_workflow_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1971,7 +1995,13 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   List the step groups in a migration workflow.
   """
-  @spec list_workflow_step_groups(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
+  @spec list_workflow_step_groups(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, list_workflow_step_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2018,10 +2048,10 @@ defmodule AWS.MigrationHubOrchestrator do
   """
   @spec list_workflow_steps(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_workflow_steps_response(), any()}
@@ -2066,12 +2096,12 @@ defmodule AWS.MigrationHubOrchestrator do
   """
   @spec list_workflows(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_migration_workflows_response(), any()}
@@ -2142,7 +2172,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Retry a failed step in a migration workflow.
   """
-  @spec retry_workflow_step(map(), String.t(), retry_workflow_step_request(), list()) ::
+  @spec retry_workflow_step(map(), String.t() | atom(), retry_workflow_step_request(), list()) ::
           {:ok, retry_workflow_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2177,7 +2207,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Start a migration workflow.
   """
-  @spec start_workflow(map(), String.t(), start_migration_workflow_request(), list()) ::
+  @spec start_workflow(map(), String.t() | atom(), start_migration_workflow_request(), list()) ::
           {:ok, start_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2206,7 +2236,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Stop an ongoing migration workflow.
   """
-  @spec stop_workflow(map(), String.t(), stop_migration_workflow_request(), list()) ::
+  @spec stop_workflow(map(), String.t() | atom(), stop_migration_workflow_request(), list()) ::
           {:ok, stop_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2235,7 +2265,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Tag a resource by specifying its Amazon Resource Name (ARN).
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2264,7 +2294,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Deletes the tags for a resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2298,7 +2328,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Updates a migration workflow template.
   """
-  @spec update_template(map(), String.t(), update_template_request(), list()) ::
+  @spec update_template(map(), String.t() | atom(), update_template_request(), list()) ::
           {:ok, update_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2327,7 +2357,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Update a migration workflow.
   """
-  @spec update_workflow(map(), String.t(), update_migration_workflow_request(), list()) ::
+  @spec update_workflow(map(), String.t() | atom(), update_migration_workflow_request(), list()) ::
           {:ok, update_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2356,7 +2386,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Update a step in a migration workflow.
   """
-  @spec update_workflow_step(map(), String.t(), update_workflow_step_request(), list()) ::
+  @spec update_workflow_step(map(), String.t() | atom(), update_workflow_step_request(), list()) ::
           {:ok, update_workflow_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2387,7 +2417,7 @@ defmodule AWS.MigrationHubOrchestrator do
   """
   @spec update_workflow_step_group(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_workflow_step_group_request(),
           list()
         ) ::

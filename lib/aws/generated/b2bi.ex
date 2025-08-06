@@ -29,13 +29,13 @@ defmodule AWS.B2bi do
   ## Example:
       
       x12_delimiters() :: %{
-        "componentSeparator" => String.t(),
-        "dataElementSeparator" => String.t(),
-        "segmentTerminator" => String.t()
+        "componentSeparator" => String.t() | atom(),
+        "dataElementSeparator" => String.t() | atom(),
+        "segmentTerminator" => String.t() | atom()
       }
       
   """
-  @type x12_delimiters() :: %{String.t() => any()}
+  @type x12_delimiters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -46,7 +46,7 @@ defmodule AWS.B2bi do
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -59,7 +59,7 @@ defmodule AWS.B2bi do
       }
       
   """
-  @type wrap_options() :: %{String.t() => any()}
+  @type wrap_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -71,35 +71,35 @@ defmodule AWS.B2bi do
       }
       
   """
-  @type x12_details() :: %{String.t() => any()}
+  @type x12_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       test_conversion_response() :: %{
-        "convertedFileContent" => [String.t()],
-        "validationMessages" => list([String.t()]())
+        "convertedFileContent" => [String.t() | atom()],
+        "validationMessages" => list([String.t() | atom()]())
       }
       
   """
-  @type test_conversion_response() :: %{String.t() => any()}
+  @type test_conversion_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_capability_request() :: %{
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => [String.t() | atom()],
         optional("instructionsDocuments") => list(s3_location()),
         optional("tags") => list(tag()),
         required("configuration") => list(),
-        required("name") => String.t(),
+        required("name") => String.t() | atom(),
         required("type") => list(any())
       }
       
   """
-  @type create_capability_request() :: %{String.t() => any()}
+  @type create_capability_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -116,17 +116,17 @@ defmodule AWS.B2bi do
       
       create_partnership_request() :: %{
         optional("capabilityOptions") => capability_options(),
-        optional("clientToken") => [String.t()],
-        optional("phone") => String.t(),
+        optional("clientToken") => [String.t() | atom()],
+        optional("phone") => String.t() | atom(),
         optional("tags") => list(tag()),
-        required("capabilities") => list(String.t()),
-        required("email") => String.t(),
-        required("name") => String.t(),
-        required("profileId") => String.t()
+        required("capabilities") => list(String.t() | atom()),
+        required("email") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("profileId") => String.t() | atom()
       }
       
   """
-  @type create_partnership_request() :: %{String.t() => any()}
+  @type create_partnership_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -143,29 +143,29 @@ defmodule AWS.B2bi do
       
       list_profiles_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_profiles_request() :: %{String.t() => any()}
+  @type list_profiles_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       partnership_summary() :: %{
-        "capabilities" => list(String.t()),
+        "capabilities" => list(String.t() | atom()),
         "capabilityOptions" => capability_options(),
         "createdAt" => non_neg_integer(),
         "modifiedAt" => non_neg_integer(),
-        "name" => String.t(),
-        "partnershipId" => String.t(),
-        "profileId" => String.t(),
-        "tradingPartnerId" => String.t()
+        "name" => String.t() | atom(),
+        "partnershipId" => String.t() | atom(),
+        "profileId" => String.t() | atom(),
+        "tradingPartnerId" => String.t() | atom()
       }
       
   """
-  @type partnership_summary() :: %{String.t() => any()}
+  @type partnership_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -173,51 +173,51 @@ defmodule AWS.B2bi do
       
       list_partnerships_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("profileId") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("profileId") => String.t() | atom()
       }
       
   """
-  @type list_partnerships_request() :: %{String.t() => any()}
+  @type list_partnerships_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_partnership_response() :: %{
-        "capabilities" => list(String.t()),
+        "capabilities" => list(String.t() | atom()),
         "capabilityOptions" => capability_options(),
         "createdAt" => non_neg_integer(),
-        "email" => String.t(),
+        "email" => String.t() | atom(),
         "modifiedAt" => non_neg_integer(),
-        "name" => String.t(),
-        "partnershipArn" => String.t(),
-        "partnershipId" => String.t(),
-        "phone" => String.t(),
-        "profileId" => String.t(),
-        "tradingPartnerId" => String.t()
+        "name" => String.t() | atom(),
+        "partnershipArn" => String.t() | atom(),
+        "partnershipId" => String.t() | atom(),
+        "phone" => String.t() | atom(),
+        "profileId" => String.t() | atom(),
+        "tradingPartnerId" => String.t() | atom()
       }
       
   """
-  @type get_partnership_response() :: %{String.t() => any()}
+  @type get_partnership_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_capability_response() :: %{
-        "capabilityArn" => String.t(),
-        "capabilityId" => String.t(),
+        "capabilityArn" => String.t() | atom(),
+        "capabilityId" => String.t() | atom(),
         "configuration" => list(),
         "createdAt" => non_neg_integer(),
         "instructionsDocuments" => list(s3_location()),
         "modifiedAt" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "type" => list(any())
       }
       
   """
-  @type get_capability_response() :: %{String.t() => any()}
+  @type get_capability_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -228,7 +228,7 @@ defmodule AWS.B2bi do
       }
       
   """
-  @type x12_split_options() :: %{String.t() => any()}
+  @type x12_split_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -240,7 +240,7 @@ defmodule AWS.B2bi do
       }
       
   """
-  @type test_conversion_request() :: %{String.t() => any()}
+  @type test_conversion_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -251,16 +251,16 @@ defmodule AWS.B2bi do
         optional("fileFormat") => list(any()),
         optional("inputConversion") => input_conversion(),
         optional("mapping") => mapping(),
-        optional("mappingTemplate") => String.t(),
-        optional("name") => String.t(),
+        optional("mappingTemplate") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
         optional("outputConversion") => output_conversion(),
-        optional("sampleDocument") => String.t(),
+        optional("sampleDocument") => String.t() | atom(),
         optional("sampleDocuments") => sample_documents(),
         optional("status") => list(any())
       }
       
   """
-  @type update_transformer_request() :: %{String.t() => any()}
+  @type update_transformer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -273,7 +273,7 @@ defmodule AWS.B2bi do
       }
       
   """
-  @type input_conversion() :: %{String.t() => any()}
+  @type input_conversion() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -281,22 +281,22 @@ defmodule AWS.B2bi do
       
       generate_mapping_response() :: %{
         "mappingAccuracy" => [float()],
-        "mappingTemplate" => [String.t()]
+        "mappingTemplate" => [String.t() | atom()]
       }
       
   """
-  @type generate_mapping_response() :: %{String.t() => any()}
+  @type generate_mapping_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t())
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -304,32 +304,32 @@ defmodule AWS.B2bi do
       
       list_transformers_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_transformers_request() :: %{String.t() => any()}
+  @type list_transformers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_transformer_request() :: %{
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => [String.t() | atom()],
         optional("ediType") => list(),
         optional("fileFormat") => list(any()),
         optional("inputConversion") => input_conversion(),
         optional("mapping") => mapping(),
-        optional("mappingTemplate") => String.t(),
+        optional("mappingTemplate") => String.t() | atom(),
         optional("outputConversion") => output_conversion(),
-        optional("sampleDocument") => String.t(),
+        optional("sampleDocument") => String.t() | atom(),
         optional("sampleDocuments") => sample_documents(),
         optional("tags") => list(tag()),
-        required("name") => String.t()
+        required("name") => String.t() | atom()
       }
       
   """
-  @type create_transformer_request() :: %{String.t() => any()}
+  @type create_transformer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -341,119 +341,119 @@ defmodule AWS.B2bi do
         "fileFormat" => list(any()),
         "inputConversion" => input_conversion(),
         "mapping" => mapping(),
-        "mappingTemplate" => String.t(),
+        "mappingTemplate" => String.t() | atom(),
         "modifiedAt" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "outputConversion" => output_conversion(),
-        "sampleDocument" => String.t(),
+        "sampleDocument" => String.t() | atom(),
         "sampleDocuments" => sample_documents(),
         "status" => list(any()),
-        "transformerArn" => String.t(),
-        "transformerId" => String.t()
+        "transformerArn" => String.t() | atom(),
+        "transformerId" => String.t() | atom()
       }
       
   """
-  @type get_transformer_response() :: %{String.t() => any()}
+  @type get_transformer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_capability_response() :: %{
-        "capabilityArn" => String.t(),
-        "capabilityId" => String.t(),
+        "capabilityArn" => String.t() | atom(),
+        "capabilityId" => String.t() | atom(),
         "configuration" => list(),
         "createdAt" => non_neg_integer(),
         "instructionsDocuments" => list(s3_location()),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "type" => list(any())
       }
       
   """
-  @type create_capability_response() :: %{String.t() => any()}
+  @type create_capability_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_transformers_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "transformers" => list(transformer_summary())
       }
       
   """
-  @type list_transformers_response() :: %{String.t() => any()}
+  @type list_transformers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_capability_response() :: %{
-        "capabilityArn" => String.t(),
-        "capabilityId" => String.t(),
+        "capabilityArn" => String.t() | atom(),
+        "capabilityId" => String.t() | atom(),
         "configuration" => list(),
         "createdAt" => non_neg_integer(),
         "instructionsDocuments" => list(s3_location()),
         "modifiedAt" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "type" => list(any())
       }
       
   """
-  @type update_capability_response() :: %{String.t() => any()}
+  @type update_capability_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_transformer_job_request() :: %{
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => [String.t() | atom()],
         required("inputFile") => s3_location(),
         required("outputLocation") => s3_location(),
-        required("transformerId") => String.t()
+        required("transformerId") => String.t() | atom()
       }
       
   """
-  @type start_transformer_job_request() :: %{String.t() => any()}
+  @type start_transformer_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_partnership_request() :: %{
-        optional("capabilities") => list(String.t()),
+        optional("capabilities") => list(String.t() | atom()),
         optional("capabilityOptions") => capability_options(),
-        optional("name") => String.t()
+        optional("name") => String.t() | atom()
       }
       
   """
-  @type update_partnership_request() :: %{String.t() => any()}
+  @type update_partnership_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       capability_summary() :: %{
-        "capabilityId" => String.t(),
+        "capabilityId" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "modifiedAt" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "type" => list(any())
       }
       
   """
-  @type capability_summary() :: %{String.t() => any()}
+  @type capability_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_starter_mapping_template_response() :: %{
-        "mappingTemplate" => [String.t()]
+        "mappingTemplate" => [String.t() | atom()]
       }
       
   """
-  @type create_starter_mapping_template_response() :: %{String.t() => any()}
+  @type create_starter_mapping_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -465,7 +465,7 @@ defmodule AWS.B2bi do
       }
       
   """
-  @type output_conversion() :: %{String.t() => any()}
+  @type output_conversion() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -477,82 +477,82 @@ defmodule AWS.B2bi do
         "fileFormat" => list(any()),
         "inputConversion" => input_conversion(),
         "mapping" => mapping(),
-        "mappingTemplate" => String.t(),
+        "mappingTemplate" => String.t() | atom(),
         "modifiedAt" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "outputConversion" => output_conversion(),
-        "sampleDocument" => String.t(),
+        "sampleDocument" => String.t() | atom(),
         "sampleDocuments" => sample_documents(),
         "status" => list(any()),
-        "transformerId" => String.t()
+        "transformerId" => String.t() | atom()
       }
       
   """
-  @type transformer_summary() :: %{String.t() => any()}
+  @type transformer_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_profile_request() :: %{
-        optional("clientToken") => [String.t()],
-        optional("email") => String.t(),
+        optional("clientToken") => [String.t() | atom()],
+        optional("email") => String.t() | atom(),
         optional("tags") => list(tag()),
-        required("businessName") => String.t(),
+        required("businessName") => String.t() | atom(),
         required("logging") => list(any()),
-        required("name") => String.t(),
-        required("phone") => String.t()
+        required("name") => String.t() | atom(),
+        required("phone") => String.t() | atom()
       }
       
   """
-  @type create_profile_request() :: %{String.t() => any()}
+  @type create_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_transformer_job_request() :: %{
-        required("transformerId") => String.t()
+        required("transformerId") => String.t() | atom()
       }
       
   """
-  @type get_transformer_job_request() :: %{String.t() => any()}
+  @type get_transformer_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_profile_request() :: %{
-        optional("businessName") => String.t(),
-        optional("email") => String.t(),
-        optional("name") => String.t(),
-        optional("phone") => String.t()
+        optional("businessName") => String.t() | atom(),
+        optional("email") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("phone") => String.t() | atom()
       }
       
   """
-  @type update_profile_request() :: %{String.t() => any()}
+  @type update_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -568,12 +568,12 @@ defmodule AWS.B2bi do
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -585,42 +585,42 @@ defmodule AWS.B2bi do
       }
       
   """
-  @type x12_envelope() :: %{String.t() => any()}
+  @type x12_envelope() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "message" => String.t(),
-        "quotaCode" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()],
-        "serviceCode" => [String.t()]
+        "message" => String.t() | atom(),
+        "quotaCode" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()],
+        "serviceCode" => [String.t() | atom()]
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_profile_response() :: %{
-        "businessName" => String.t(),
+        "businessName" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "email" => String.t(),
-        "logGroupName" => String.t(),
+        "email" => String.t() | atom(),
+        "logGroupName" => String.t() | atom(),
         "logging" => list(any()),
         "modifiedAt" => non_neg_integer(),
-        "name" => String.t(),
-        "phone" => String.t(),
-        "profileArn" => String.t(),
-        "profileId" => String.t()
+        "name" => String.t() | atom(),
+        "phone" => String.t() | atom(),
+        "profileArn" => String.t() | atom(),
+        "profileId" => String.t() | atom()
       }
       
   """
-  @type get_profile_response() :: %{String.t() => any()}
+  @type get_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -628,56 +628,56 @@ defmodule AWS.B2bi do
       
       list_capabilities_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_capabilities_request() :: %{String.t() => any()}
+  @type list_capabilities_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_profile_response() :: %{
-        "businessName" => String.t(),
+        "businessName" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "email" => String.t(),
-        "logGroupName" => String.t(),
+        "email" => String.t() | atom(),
+        "logGroupName" => String.t() | atom(),
         "logging" => list(any()),
-        "name" => String.t(),
-        "phone" => String.t(),
-        "profileArn" => String.t(),
-        "profileId" => String.t()
+        "name" => String.t() | atom(),
+        "phone" => String.t() | atom(),
+        "profileArn" => String.t() | atom(),
+        "profileId" => String.t() | atom()
       }
       
   """
-  @type create_profile_response() :: %{String.t() => any()}
+  @type create_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       x12_functional_group_headers() :: %{
-        "applicationReceiverCode" => String.t(),
-        "applicationSenderCode" => String.t(),
-        "responsibleAgencyCode" => String.t()
+        "applicationReceiverCode" => String.t() | atom(),
+        "applicationSenderCode" => String.t() | atom(),
+        "responsibleAgencyCode" => String.t() | atom()
       }
       
   """
-  @type x12_functional_group_headers() :: %{String.t() => any()}
+  @type x12_functional_group_headers() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_transformer_job_response() :: %{
-        "message" => [String.t()],
+        "message" => [String.t() | atom()],
         "outputFiles" => list(s3_location()),
         "status" => list(any())
       }
       
   """
-  @type get_transformer_job_response() :: %{String.t() => any()}
+  @type get_transformer_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -688,7 +688,7 @@ defmodule AWS.B2bi do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -699,7 +699,7 @@ defmodule AWS.B2bi do
       }
       
   """
-  @type inbound_edi_options() :: %{String.t() => any()}
+  @type inbound_edi_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -709,12 +709,12 @@ defmodule AWS.B2bi do
         "capabilityDirection" => list(any()),
         "inputLocation" => s3_location(),
         "outputLocation" => s3_location(),
-        "transformerId" => String.t(),
+        "transformerId" => String.t() | atom(),
         "type" => list()
       }
       
   """
-  @type edi_configuration() :: %{String.t() => any()}
+  @type edi_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -723,35 +723,35 @@ defmodule AWS.B2bi do
       update_capability_request() :: %{
         optional("configuration") => list(),
         optional("instructionsDocuments") => list(s3_location()),
-        optional("name") => String.t()
+        optional("name") => String.t() | atom()
       }
       
   """
-  @type update_capability_request() :: %{String.t() => any()}
+  @type update_capability_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_location() :: %{
-        "bucketName" => String.t(),
-        "key" => String.t()
+        "bucketName" => String.t() | atom(),
+        "key" => String.t() | atom()
       }
       
   """
-  @type s3_location() :: %{String.t() => any()}
+  @type s3_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_partnerships_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "partnerships" => list(partnership_summary())
       }
       
   """
-  @type list_partnerships_response() :: %{String.t() => any()}
+  @type list_partnerships_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -763,60 +763,60 @@ defmodule AWS.B2bi do
         "fileFormat" => list(any()),
         "inputConversion" => input_conversion(),
         "mapping" => mapping(),
-        "mappingTemplate" => String.t(),
-        "name" => String.t(),
+        "mappingTemplate" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "outputConversion" => output_conversion(),
-        "sampleDocument" => String.t(),
+        "sampleDocument" => String.t() | atom(),
         "sampleDocuments" => sample_documents(),
         "status" => list(any()),
-        "transformerArn" => String.t(),
-        "transformerId" => String.t()
+        "transformerArn" => String.t() | atom(),
+        "transformerId" => String.t() | atom()
       }
       
   """
-  @type create_transformer_response() :: %{String.t() => any()}
+  @type create_transformer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       generate_mapping_request() :: %{
-        required("inputFileContent") => String.t(),
+        required("inputFileContent") => String.t() | atom(),
         required("mappingType") => list(any()),
-        required("outputFileContent") => String.t()
+        required("outputFileContent") => String.t() | atom()
       }
       
   """
-  @type generate_mapping_request() :: %{String.t() => any()}
+  @type generate_mapping_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       x12_interchange_control_headers() :: %{
-        "acknowledgmentRequestedCode" => String.t(),
-        "receiverId" => String.t(),
-        "receiverIdQualifier" => String.t(),
-        "repetitionSeparator" => String.t(),
-        "senderId" => String.t(),
-        "senderIdQualifier" => String.t(),
-        "usageIndicatorCode" => String.t()
+        "acknowledgmentRequestedCode" => String.t() | atom(),
+        "receiverId" => String.t() | atom(),
+        "receiverIdQualifier" => String.t() | atom(),
+        "repetitionSeparator" => String.t() | atom(),
+        "senderId" => String.t() | atom(),
+        "senderIdQualifier" => String.t() | atom(),
+        "usageIndicatorCode" => String.t() | atom()
       }
       
   """
-  @type x12_interchange_control_headers() :: %{String.t() => any()}
+  @type x12_interchange_control_headers() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "message" => String.t(),
+        "message" => String.t() | atom(),
         "retryAfterSeconds" => [integer()]
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -828,43 +828,43 @@ defmodule AWS.B2bi do
         "fileFormat" => list(any()),
         "inputConversion" => input_conversion(),
         "mapping" => mapping(),
-        "mappingTemplate" => String.t(),
+        "mappingTemplate" => String.t() | atom(),
         "modifiedAt" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "outputConversion" => output_conversion(),
-        "sampleDocument" => String.t(),
+        "sampleDocument" => String.t() | atom(),
         "sampleDocuments" => sample_documents(),
         "status" => list(any()),
-        "transformerArn" => String.t(),
-        "transformerId" => String.t()
+        "transformerArn" => String.t() | atom(),
+        "transformerId" => String.t() | atom()
       }
       
   """
-  @type update_transformer_response() :: %{String.t() => any()}
+  @type update_transformer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       sample_document_keys() :: %{
-        "input" => String.t(),
-        "output" => String.t()
+        "input" => String.t() | atom(),
+        "output" => String.t() | atom()
       }
       
   """
-  @type sample_document_keys() :: %{String.t() => any()}
+  @type sample_document_keys() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       test_parsing_response() :: %{
-        "parsedFileContent" => [String.t()],
-        "parsedSplitFileContents" => list([String.t()]())
+        "parsedFileContent" => [String.t() | atom()],
+        "parsedSplitFileContents" => list([String.t() | atom()]())
       }
       
   """
-  @type test_parsing_response() :: %{String.t() => any()}
+  @type test_parsing_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -872,11 +872,11 @@ defmodule AWS.B2bi do
       
       list_capabilities_response() :: %{
         "capabilities" => list(capability_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_capabilities_response() :: %{String.t() => any()}
+  @type list_capabilities_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -888,7 +888,7 @@ defmodule AWS.B2bi do
       }
       
   """
-  @type x12_acknowledgment_options() :: %{String.t() => any()}
+  @type x12_acknowledgment_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -904,31 +904,31 @@ defmodule AWS.B2bi do
   ## Example:
       
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_profile_response() :: %{
-        "businessName" => String.t(),
+        "businessName" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "email" => String.t(),
-        "logGroupName" => String.t(),
+        "email" => String.t() | atom(),
+        "logGroupName" => String.t() | atom(),
         "logging" => list(any()),
         "modifiedAt" => non_neg_integer(),
-        "name" => String.t(),
-        "phone" => String.t(),
-        "profileArn" => String.t(),
-        "profileId" => String.t()
+        "name" => String.t() | atom(),
+        "phone" => String.t() | atom(),
+        "profileArn" => String.t() | atom(),
+        "profileId" => String.t() | atom()
       }
       
   """
-  @type update_profile_response() :: %{String.t() => any()}
+  @type update_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -944,23 +944,23 @@ defmodule AWS.B2bi do
   ## Example:
       
       list_profiles_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "profiles" => list(profile_summary())
       }
       
   """
-  @type list_profiles_response() :: %{String.t() => any()}
+  @type list_profiles_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -985,12 +985,12 @@ defmodule AWS.B2bi do
   ## Example:
       
       sample_documents() :: %{
-        "bucketName" => String.t(),
+        "bucketName" => String.t() | atom(),
         "keys" => list(sample_document_keys())
       }
       
   """
-  @type sample_documents() :: %{String.t() => any()}
+  @type sample_documents() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1002,28 +1002,28 @@ defmodule AWS.B2bi do
       }
       
   """
-  @type conversion_source() :: %{String.t() => any()}
+  @type conversion_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_partnership_response() :: %{
-        "capabilities" => list(String.t()),
+        "capabilities" => list(String.t() | atom()),
         "capabilityOptions" => capability_options(),
         "createdAt" => non_neg_integer(),
-        "email" => String.t(),
+        "email" => String.t() | atom(),
         "modifiedAt" => non_neg_integer(),
-        "name" => String.t(),
-        "partnershipArn" => String.t(),
-        "partnershipId" => String.t(),
-        "phone" => String.t(),
-        "profileId" => String.t(),
-        "tradingPartnerId" => String.t()
+        "name" => String.t() | atom(),
+        "partnershipArn" => String.t() | atom(),
+        "partnershipId" => String.t() | atom(),
+        "phone" => String.t() | atom(),
+        "profileId" => String.t() | atom(),
+        "tradingPartnerId" => String.t() | atom()
       }
       
   """
-  @type update_partnership_response() :: %{String.t() => any()}
+  @type update_partnership_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1036,7 +1036,7 @@ defmodule AWS.B2bi do
       }
       
   """
-  @type x12_control_numbers() :: %{String.t() => any()}
+  @type x12_control_numbers() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1052,19 +1052,19 @@ defmodule AWS.B2bi do
       }
       
   """
-  @type x12_outbound_edi_headers() :: %{String.t() => any()}
+  @type x12_outbound_edi_headers() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "message" => String.t(),
+        "message" => String.t() | atom(),
         "retryAfterSeconds" => [integer()]
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1072,12 +1072,12 @@ defmodule AWS.B2bi do
       
       test_mapping_request() :: %{
         required("fileFormat") => list(any()),
-        required("inputFileContent") => String.t(),
-        required("mappingTemplate") => String.t()
+        required("inputFileContent") => String.t() | atom(),
+        required("mappingTemplate") => String.t() | atom()
       }
       
   """
-  @type test_mapping_request() :: %{String.t() => any()}
+  @type test_mapping_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1090,7 +1090,7 @@ defmodule AWS.B2bi do
       }
       
   """
-  @type create_starter_mapping_template_request() :: %{String.t() => any()}
+  @type create_starter_mapping_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1111,7 +1111,7 @@ defmodule AWS.B2bi do
       }
       
   """
-  @type capability_options() :: %{String.t() => any()}
+  @type capability_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1122,39 +1122,39 @@ defmodule AWS.B2bi do
       }
       
   """
-  @type x12_advanced_options() :: %{String.t() => any()}
+  @type x12_advanced_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       mapping() :: %{
-        "template" => String.t(),
+        "template" => String.t() | atom(),
         "templateLanguage" => list(any())
       }
       
   """
-  @type mapping() :: %{String.t() => any()}
+  @type mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_partnership_response() :: %{
-        "capabilities" => list(String.t()),
+        "capabilities" => list(String.t() | atom()),
         "capabilityOptions" => capability_options(),
         "createdAt" => non_neg_integer(),
-        "email" => String.t(),
-        "name" => String.t(),
-        "partnershipArn" => String.t(),
-        "partnershipId" => String.t(),
-        "phone" => String.t(),
-        "profileId" => String.t(),
-        "tradingPartnerId" => String.t()
+        "email" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "partnershipArn" => String.t() | atom(),
+        "partnershipId" => String.t() | atom(),
+        "phone" => String.t() | atom(),
+        "profileId" => String.t() | atom(),
+        "tradingPartnerId" => String.t() | atom()
       }
       
   """
-  @type create_partnership_response() :: %{String.t() => any()}
+  @type create_partnership_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1168,7 +1168,7 @@ defmodule AWS.B2bi do
       }
       
   """
-  @type test_parsing_request() :: %{String.t() => any()}
+  @type test_parsing_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1190,7 +1190,7 @@ defmodule AWS.B2bi do
       }
       
   """
-  @type conversion_target() :: %{String.t() => any()}
+  @type conversion_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1201,35 +1201,35 @@ defmodule AWS.B2bi do
       }
       
   """
-  @type advanced_options() :: %{String.t() => any()}
+  @type advanced_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       test_mapping_response() :: %{
-        "mappedFileContent" => [String.t()]
+        "mappedFileContent" => [String.t() | atom()]
       }
       
   """
-  @type test_mapping_response() :: %{String.t() => any()}
+  @type test_mapping_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       profile_summary() :: %{
-        "businessName" => String.t(),
+        "businessName" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "logGroupName" => String.t(),
+        "logGroupName" => String.t() | atom(),
         "logging" => list(any()),
         "modifiedAt" => non_neg_integer(),
-        "name" => String.t(),
-        "profileId" => String.t()
+        "name" => String.t() | atom(),
+        "profileId" => String.t() | atom()
       }
       
   """
-  @type profile_summary() :: %{String.t() => any()}
+  @type profile_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1240,18 +1240,18 @@ defmodule AWS.B2bi do
       }
       
   """
-  @type x12_inbound_edi_options() :: %{String.t() => any()}
+  @type x12_inbound_edi_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_transformer_job_response() :: %{
-        "transformerJobId" => String.t()
+        "transformerJobId" => String.t() | atom()
       }
       
   """
-  @type start_transformer_job_response() :: %{String.t() => any()}
+  @type start_transformer_job_response() :: %{(String.t() | atom()) => any()}
 
   @type create_capability_errors() ::
           throttling_exception()
@@ -1498,7 +1498,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, create_capability_errors()}
   def create_capability(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCapability", input, options)
   end
@@ -1516,7 +1517,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, create_partnership_errors()}
   def create_partnership(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePartnership", input, options)
   end
@@ -1534,7 +1536,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, create_profile_errors()}
   def create_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProfile", input, options)
   end
@@ -1562,7 +1565,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, create_starter_mapping_template_errors()}
   def create_starter_mapping_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStarterMappingTemplate", input, options)
   end
@@ -1602,7 +1606,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, create_transformer_errors()}
   def create_transformer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTransformer", input, options)
   end
@@ -1619,7 +1624,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, delete_capability_errors()}
   def delete_capability(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCapability", input, options)
   end
@@ -1636,7 +1642,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, delete_partnership_errors()}
   def delete_partnership(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePartnership", input, options)
   end
@@ -1652,7 +1659,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, delete_profile_errors()}
   def delete_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProfile", input, options)
   end
@@ -1670,7 +1678,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, delete_transformer_errors()}
   def delete_transformer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTransformer", input, options)
   end
@@ -1702,7 +1711,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, generate_mapping_errors()}
   def generate_mapping(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GenerateMapping", input, options)
   end
@@ -1719,7 +1729,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, get_capability_errors()}
   def get_capability(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCapability", input, options)
   end
@@ -1737,7 +1748,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, get_partnership_errors()}
   def get_partnership(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPartnership", input, options)
   end
@@ -1753,7 +1765,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, get_profile_errors()}
   def get_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetProfile", input, options)
   end
@@ -1771,7 +1784,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, get_transformer_errors()}
   def get_transformer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTransformer", input, options)
   end
@@ -1790,7 +1804,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, get_transformer_job_errors()}
   def get_transformer_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTransformerJob", input, options)
   end
@@ -1808,7 +1823,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, list_capabilities_errors()}
   def list_capabilities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCapabilities", input, options)
   end
@@ -1826,7 +1842,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, list_partnerships_errors()}
   def list_partnerships(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPartnerships", input, options)
   end
@@ -1843,7 +1860,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, list_profiles_errors()}
   def list_profiles(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProfiles", input, options)
   end
@@ -1860,7 +1878,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1878,7 +1897,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, list_transformers_errors()}
   def list_transformers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTransformers", input, options)
   end
@@ -1904,7 +1924,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, start_transformer_job_errors()}
   def start_transformer_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartTransformerJob", input, options)
   end
@@ -1923,7 +1944,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1940,7 +1962,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, test_conversion_errors()}
   def test_conversion(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TestConversion", input, options)
   end
@@ -1957,7 +1980,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, test_mapping_errors()}
   def test_mapping(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TestMapping", input, options)
   end
@@ -1973,7 +1997,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, test_parsing_errors()}
   def test_parsing(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TestParsing", input, options)
   end
@@ -1990,7 +2015,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2008,7 +2034,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, update_capability_errors()}
   def update_capability(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCapability", input, options)
   end
@@ -2026,7 +2053,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, update_partnership_errors()}
   def update_partnership(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePartnership", input, options)
   end
@@ -2042,7 +2070,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, update_profile_errors()}
   def update_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProfile", input, options)
   end
@@ -2060,7 +2089,8 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, update_transformer_errors()}
   def update_transformer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTransformer", input, options)
   end

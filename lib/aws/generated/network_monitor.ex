@@ -40,12 +40,12 @@ defmodule AWS.NetworkMonitor do
 
       list_monitors_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("state") => [String.t()]
+        optional("nextToken") => String.t() | atom(),
+        optional("state") => [String.t() | atom()]
       }
 
   """
-  @type list_monitors_input() :: %{String.t() => any()}
+  @type list_monitors_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -55,15 +55,15 @@ defmodule AWS.NetworkMonitor do
         "aggregationPeriod" => float(),
         "createdAt" => non_neg_integer(),
         "modifiedAt" => non_neg_integer(),
-        "monitorArn" => String.t(),
-        "monitorName" => String.t(),
+        "monitorArn" => String.t() | atom(),
+        "monitorName" => String.t() | atom(),
         "probes" => list(probe()),
         "state" => list(any()),
         "tags" => map()
       }
 
   """
-  @type get_monitor_output() :: %{String.t() => any()}
+  @type get_monitor_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -71,27 +71,27 @@ defmodule AWS.NetworkMonitor do
 
       list_monitors_output() :: %{
         "monitors" => list(monitor_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_monitors_output() :: %{String.t() => any()}
+  @type list_monitors_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_monitor_probe_input() :: %{
-        "destination" => String.t(),
+        "destination" => String.t() | atom(),
         "destinationPort" => integer(),
         "packetSize" => integer(),
         "probeTags" => map(),
         "protocol" => list(any()),
-        "sourceArn" => String.t()
+        "sourceArn" => String.t() | atom()
       }
 
   """
-  @type create_monitor_probe_input() :: %{String.t() => any()}
+  @type create_monitor_probe_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -100,21 +100,21 @@ defmodule AWS.NetworkMonitor do
       update_probe_output() :: %{
         "addressFamily" => list(any()),
         "createdAt" => non_neg_integer(),
-        "destination" => String.t(),
+        "destination" => String.t() | atom(),
         "destinationPort" => integer(),
         "modifiedAt" => non_neg_integer(),
         "packetSize" => integer(),
-        "probeArn" => String.t(),
-        "probeId" => String.t(),
+        "probeArn" => String.t() | atom(),
+        "probeId" => String.t() | atom(),
         "protocol" => list(any()),
-        "sourceArn" => String.t(),
+        "sourceArn" => String.t() | atom(),
         "state" => list(any()),
         "tags" => map(),
-        "vpcId" => String.t()
+        "vpcId" => String.t() | atom()
       }
 
   """
-  @type update_probe_output() :: %{String.t() => any()}
+  @type update_probe_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -134,7 +134,7 @@ defmodule AWS.NetworkMonitor do
       }
 
   """
-  @type list_tags_for_resource_output() :: %{String.t() => any()}
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -150,46 +150,46 @@ defmodule AWS.NetworkMonitor do
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_probe_input() :: %{
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => [String.t() | atom()],
         optional("tags") => map(),
         required("probe") => probe_input()
       }
 
   """
-  @type create_probe_input() :: %{String.t() => any()}
+  @type create_probe_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -225,21 +225,21 @@ defmodule AWS.NetworkMonitor do
       create_probe_output() :: %{
         "addressFamily" => list(any()),
         "createdAt" => non_neg_integer(),
-        "destination" => String.t(),
+        "destination" => String.t() | atom(),
         "destinationPort" => integer(),
         "modifiedAt" => non_neg_integer(),
         "packetSize" => integer(),
-        "probeArn" => String.t(),
-        "probeId" => String.t(),
+        "probeArn" => String.t() | atom(),
+        "probeId" => String.t() | atom(),
         "protocol" => list(any()),
-        "sourceArn" => String.t(),
+        "sourceArn" => String.t() | atom(),
         "state" => list(any()),
         "tags" => map(),
-        "vpcId" => String.t()
+        "vpcId" => String.t() | atom()
       }
 
   """
-  @type create_probe_output() :: %{String.t() => any()}
+  @type create_probe_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -250,7 +250,7 @@ defmodule AWS.NetworkMonitor do
       }
 
   """
-  @type tag_resource_input() :: %{String.t() => any()}
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -275,18 +275,18 @@ defmodule AWS.NetworkMonitor do
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_probe_input() :: %{
-        optional("destination") => String.t(),
+        optional("destination") => String.t() | atom(),
         optional("destinationPort") => integer(),
         optional("packetSize") => integer(),
         optional("protocol") => list(any()),
@@ -294,45 +294,45 @@ defmodule AWS.NetworkMonitor do
       }
 
   """
-  @type update_probe_input() :: %{String.t() => any()}
+  @type update_probe_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_input() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_input() :: %{String.t() => any()}
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       probe_input() :: %{
-        "destination" => String.t(),
+        "destination" => String.t() | atom(),
         "destinationPort" => integer(),
         "packetSize" => integer(),
         "protocol" => list(any()),
-        "sourceArn" => String.t(),
+        "sourceArn" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type probe_input() :: %{String.t() => any()}
+  @type probe_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -343,18 +343,18 @@ defmodule AWS.NetworkMonitor do
       }
 
   """
-  @type update_monitor_input() :: %{String.t() => any()}
+  @type update_monitor_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -372,21 +372,21 @@ defmodule AWS.NetworkMonitor do
       probe() :: %{
         "addressFamily" => list(any()),
         "createdAt" => non_neg_integer(),
-        "destination" => String.t(),
+        "destination" => String.t() | atom(),
         "destinationPort" => integer(),
         "modifiedAt" => non_neg_integer(),
         "packetSize" => integer(),
-        "probeArn" => String.t(),
-        "probeId" => String.t(),
+        "probeArn" => String.t() | atom(),
+        "probeId" => String.t() | atom(),
         "protocol" => list(any()),
-        "sourceArn" => String.t(),
+        "sourceArn" => String.t() | atom(),
         "state" => list(any()),
         "tags" => map(),
-        "vpcId" => String.t()
+        "vpcId" => String.t() | atom()
       }
 
   """
-  @type probe() :: %{String.t() => any()}
+  @type probe() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -402,11 +402,11 @@ defmodule AWS.NetworkMonitor do
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -415,21 +415,21 @@ defmodule AWS.NetworkMonitor do
       get_probe_output() :: %{
         "addressFamily" => list(any()),
         "createdAt" => non_neg_integer(),
-        "destination" => String.t(),
+        "destination" => String.t() | atom(),
         "destinationPort" => integer(),
         "modifiedAt" => non_neg_integer(),
         "packetSize" => integer(),
-        "probeArn" => String.t(),
-        "probeId" => String.t(),
+        "probeArn" => String.t() | atom(),
+        "probeId" => String.t() | atom(),
         "protocol" => list(any()),
-        "sourceArn" => String.t(),
+        "sourceArn" => String.t() | atom(),
         "state" => list(any()),
         "tags" => map(),
-        "vpcId" => String.t()
+        "vpcId" => String.t() | atom()
       }
 
   """
-  @type get_probe_output() :: %{String.t() => any()}
+  @type get_probe_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -437,14 +437,14 @@ defmodule AWS.NetworkMonitor do
 
       create_monitor_output() :: %{
         "aggregationPeriod" => float(),
-        "monitorArn" => String.t(),
-        "monitorName" => String.t(),
+        "monitorArn" => String.t() | atom(),
+        "monitorName" => String.t() | atom(),
         "state" => list(any()),
         "tags" => map()
       }
 
   """
-  @type create_monitor_output() :: %{String.t() => any()}
+  @type create_monitor_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -452,14 +452,14 @@ defmodule AWS.NetworkMonitor do
 
       monitor_summary() :: %{
         "aggregationPeriod" => float(),
-        "monitorArn" => String.t(),
-        "monitorName" => String.t(),
+        "monitorArn" => String.t() | atom(),
+        "monitorName" => String.t() | atom(),
         "state" => list(any()),
         "tags" => map()
       }
 
   """
-  @type monitor_summary() :: %{String.t() => any()}
+  @type monitor_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -467,14 +467,14 @@ defmodule AWS.NetworkMonitor do
 
       update_monitor_output() :: %{
         "aggregationPeriod" => float(),
-        "monitorArn" => String.t(),
-        "monitorName" => String.t(),
+        "monitorArn" => String.t() | atom(),
+        "monitorName" => String.t() | atom(),
         "state" => list(any()),
         "tags" => map()
       }
 
   """
-  @type update_monitor_output() :: %{String.t() => any()}
+  @type update_monitor_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -482,14 +482,14 @@ defmodule AWS.NetworkMonitor do
 
       create_monitor_input() :: %{
         optional("aggregationPeriod") => float(),
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => [String.t() | atom()],
         optional("probes") => list(create_monitor_probe_input()),
         optional("tags") => map(),
-        required("monitorName") => String.t()
+        required("monitorName") => String.t() | atom()
       }
 
   """
-  @type create_monitor_input() :: %{String.t() => any()}
+  @type create_monitor_input() :: %{(String.t() | atom()) => any()}
 
   @type create_monitor_errors() ::
           throttling_exception()
@@ -673,7 +673,7 @@ defmodule AWS.NetworkMonitor do
   monitor names. Note the name of the `monitorName` you want to create the
   probe for.
   """
-  @spec create_probe(map(), String.t(), create_probe_input(), list()) ::
+  @spec create_probe(map(), String.t() | atom(), create_probe_input(), list()) ::
           {:ok, create_probe_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -705,7 +705,7 @@ defmodule AWS.NetworkMonitor do
   This action requires the `monitorName` parameter. Run
   `ListMonitors` to get a list of monitor names.
   """
-  @spec delete_monitor(map(), String.t(), delete_monitor_input(), list()) ::
+  @spec delete_monitor(map(), String.t() | atom(), delete_monitor_input(), list()) ::
           {:ok, delete_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -742,7 +742,13 @@ defmodule AWS.NetworkMonitor do
   `GetMonitor` to get a list of probes and probe IDs. You can only delete a
   single probe at a time using this action.
   """
-  @spec delete_probe(map(), String.t(), String.t(), delete_probe_input(), list()) ::
+  @spec delete_probe(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_probe_input(),
+          list()
+        ) ::
           {:ok, delete_probe_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -776,7 +782,7 @@ defmodule AWS.NetworkMonitor do
   This action requires the `monitorName` parameter. Run
   `ListMonitors` to get a list of monitor names.
   """
-  @spec get_monitor(map(), String.t(), list()) ::
+  @spec get_monitor(map(), String.t() | atom(), list()) ::
           {:ok, get_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -799,7 +805,7 @@ defmodule AWS.NetworkMonitor do
   `ListMonitors` to get a list of monitor names. Run
   `GetMonitor` to get a list of probes and probe IDs.
   """
-  @spec get_probe(map(), String.t(), String.t(), list()) ::
+  @spec get_probe(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_probe_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -819,7 +825,13 @@ defmodule AWS.NetworkMonitor do
   @doc """
   Returns a list of all of your monitors.
   """
-  @spec list_monitors(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_monitors(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_monitors_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -864,7 +876,7 @@ defmodule AWS.NetworkMonitor do
   @doc """
   Lists the tags assigned to this resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -882,7 +894,7 @@ defmodule AWS.NetworkMonitor do
   @doc """
   Adds key-value pairs to a monitor or probe.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -911,7 +923,7 @@ defmodule AWS.NetworkMonitor do
   @doc """
   Removes a key-value pair from a monitor or probe.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -950,7 +962,7 @@ defmodule AWS.NetworkMonitor do
   This action requires the `monitorName` and `probeId` parameter.
   Run `ListMonitors` to get a list of monitor names.
   """
-  @spec update_monitor(map(), String.t(), update_monitor_input(), list()) ::
+  @spec update_monitor(map(), String.t() | atom(), update_monitor_input(), list()) ::
           {:ok, update_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1015,7 +1027,13 @@ defmodule AWS.NetworkMonitor do
   (Optional) `tags` —Key-value pairs created and assigned to the
   probe.
   """
-  @spec update_probe(map(), String.t(), String.t(), update_probe_input(), list()) ::
+  @spec update_probe(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_probe_input(),
+          list()
+        ) ::
           {:ok, update_probe_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

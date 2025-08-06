@@ -58,11 +58,11 @@ defmodule AWS.Route53Resolver do
   ## Example:
       
       get_resolver_query_log_config_association_request() :: %{
-        required("ResolverQueryLogConfigAssociationId") => String.t()
+        required("ResolverQueryLogConfigAssociationId") => String.t() | atom()
       }
       
   """
-  @type get_resolver_query_log_config_association_request() :: %{String.t() => any()}
+  @type get_resolver_query_log_config_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -73,7 +73,7 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type update_firewall_rule_group_association_response() :: %{String.t() => any()}
+  @type update_firewall_rule_group_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -81,62 +81,62 @@ defmodule AWS.Route53Resolver do
       
       resolver_config() :: %{
         "AutodefinedReverse" => list(any()),
-        "Id" => String.t(),
-        "OwnerId" => String.t(),
-        "ResourceId" => String.t()
+        "Id" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "ResourceId" => String.t() | atom()
       }
       
   """
-  @type resolver_config() :: %{String.t() => any()}
+  @type resolver_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ip_address_update() :: %{
-        "Ip" => String.t(),
-        "IpId" => String.t(),
-        "Ipv6" => String.t(),
-        "SubnetId" => String.t()
+        "Ip" => String.t() | atom(),
+        "IpId" => String.t() | atom(),
+        "Ipv6" => String.t() | atom(),
+        "SubnetId" => String.t() | atom()
       }
       
   """
-  @type ip_address_update() :: %{String.t() => any()}
+  @type ip_address_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_resolver_dnssec_config_request() :: %{
-        required("ResourceId") => String.t(),
+        required("ResourceId") => String.t() | atom(),
         required("Validation") => list(any())
       }
       
   """
-  @type update_resolver_dnssec_config_request() :: %{String.t() => any()}
+  @type update_resolver_dnssec_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | atom(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_firewall_rule_group_request() :: %{
-        required("FirewallRuleGroupAssociationId") => String.t()
+        required("FirewallRuleGroupAssociationId") => String.t() | atom()
       }
       
   """
-  @type disassociate_firewall_rule_group_request() :: %{String.t() => any()}
+  @type disassociate_firewall_rule_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -147,7 +147,7 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type create_firewall_rule_group_response() :: %{String.t() => any()}
+  @type create_firewall_rule_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -158,7 +158,7 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type associate_resolver_query_log_config_response() :: %{String.t() => any()}
+  @type associate_resolver_query_log_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -169,7 +169,7 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type create_resolver_query_log_config_response() :: %{String.t() => any()}
+  @type create_resolver_query_log_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -180,7 +180,7 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type get_firewall_rule_group_association_response() :: %{String.t() => any()}
+  @type get_firewall_rule_group_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -189,22 +189,22 @@ defmodule AWS.Route53Resolver do
       update_firewall_rule_request() :: %{
         optional("Action") => list(any()),
         optional("BlockOverrideDnsType") => list(any()),
-        optional("BlockOverrideDomain") => String.t(),
+        optional("BlockOverrideDomain") => String.t() | atom(),
         optional("BlockOverrideTtl") => integer(),
         optional("BlockResponse") => list(any()),
         optional("ConfidenceThreshold") => list(any()),
         optional("DnsThreatProtection") => list(any()),
-        optional("FirewallDomainListId") => String.t(),
+        optional("FirewallDomainListId") => String.t() | atom(),
         optional("FirewallDomainRedirectionAction") => list(any()),
-        optional("FirewallThreatProtectionId") => String.t(),
-        optional("Name") => String.t(),
+        optional("FirewallThreatProtectionId") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
         optional("Priority") => integer(),
-        optional("Qtype") => String.t(),
-        required("FirewallRuleGroupId") => String.t()
+        optional("Qtype") => String.t() | atom(),
+        required("FirewallRuleGroupId") => String.t() | atom()
       }
       
   """
-  @type update_firewall_rule_request() :: %{String.t() => any()}
+  @type update_firewall_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -213,13 +213,13 @@ defmodule AWS.Route53Resolver do
       list_firewall_rules_request() :: %{
         optional("Action") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Priority") => integer(),
-        required("FirewallRuleGroupId") => String.t()
+        required("FirewallRuleGroupId") => String.t() | atom()
       }
       
   """
-  @type list_firewall_rules_request() :: %{String.t() => any()}
+  @type list_firewall_rules_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -230,18 +230,18 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type get_resolver_dnssec_config_response() :: %{String.t() => any()}
+  @type get_resolver_dnssec_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resolver_endpoint_request() :: %{
-        required("ResolverEndpointId") => String.t()
+        required("ResolverEndpointId") => String.t() | atom()
       }
       
   """
-  @type get_resolver_endpoint_request() :: %{String.t() => any()}
+  @type get_resolver_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -249,11 +249,11 @@ defmodule AWS.Route53Resolver do
       
       list_firewall_rules_response() :: %{
         "FirewallRules" => list(firewall_rule()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_firewall_rules_response() :: %{String.t() => any()}
+  @type list_firewall_rules_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -273,7 +273,7 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type delete_resolver_query_log_config_response() :: %{String.t() => any()}
+  @type delete_resolver_query_log_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -281,35 +281,35 @@ defmodule AWS.Route53Resolver do
       
       list_firewall_configs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_firewall_configs_request() :: %{String.t() => any()}
+  @type list_firewall_configs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_resolver_query_log_config_request() :: %{
-        required("ResolverQueryLogConfigId") => String.t(),
-        required("ResourceId") => String.t()
+        required("ResolverQueryLogConfigId") => String.t() | atom(),
+        required("ResourceId") => String.t() | atom()
       }
       
   """
-  @type associate_resolver_query_log_config_request() :: %{String.t() => any()}
+  @type associate_resolver_query_log_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_in_use_exception() :: %{
-        "Message" => String.t(),
-        "ResourceType" => String.t()
+        "Message" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
       
   """
-  @type resource_in_use_exception() :: %{String.t() => any()}
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -320,7 +320,7 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type update_resolver_endpoint_response() :: %{String.t() => any()}
+  @type update_resolver_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -331,7 +331,7 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type get_firewall_domain_list_response() :: %{String.t() => any()}
+  @type get_firewall_domain_list_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -339,13 +339,13 @@ defmodule AWS.Route53Resolver do
       
       update_firewall_rule_group_association_request() :: %{
         optional("MutationProtection") => list(any()),
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | atom(),
         optional("Priority") => integer(),
-        required("FirewallRuleGroupAssociationId") => String.t()
+        required("FirewallRuleGroupAssociationId") => String.t() | atom()
       }
       
   """
-  @type update_firewall_rule_group_association_request() :: %{String.t() => any()}
+  @type update_firewall_rule_group_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -354,11 +354,11 @@ defmodule AWS.Route53Resolver do
       list_resolver_dnssec_configs_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_resolver_dnssec_configs_request() :: %{String.t() => any()}
+  @type list_resolver_dnssec_configs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -367,13 +367,13 @@ defmodule AWS.Route53Resolver do
       list_resolver_query_log_configs_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("SortBy") => String.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortBy") => String.t() | atom(),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_resolver_query_log_configs_request() :: %{String.t() => any()}
+  @type list_resolver_query_log_configs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -381,25 +381,25 @@ defmodule AWS.Route53Resolver do
       
       update_outpost_resolver_request() :: %{
         optional("InstanceCount") => integer(),
-        optional("Name") => String.t(),
-        optional("PreferredInstanceType") => String.t(),
-        required("Id") => String.t()
+        optional("Name") => String.t() | atom(),
+        optional("PreferredInstanceType") => String.t() | atom(),
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type update_outpost_resolver_request() :: %{String.t() => any()}
+  @type update_outpost_resolver_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_unavailable_exception() :: %{
-        "Message" => String.t(),
-        "ResourceType" => String.t()
+        "Message" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
       
   """
-  @type resource_unavailable_exception() :: %{String.t() => any()}
+  @type resource_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -407,11 +407,11 @@ defmodule AWS.Route53Resolver do
       
       list_firewall_domain_lists_response() :: %{
         "FirewallDomainLists" => list(firewall_domain_list_metadata()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_firewall_domain_lists_response() :: %{String.t() => any()}
+  @type list_firewall_domain_lists_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -419,43 +419,43 @@ defmodule AWS.Route53Resolver do
       
       create_firewall_rule_request() :: %{
         optional("BlockOverrideDnsType") => list(any()),
-        optional("BlockOverrideDomain") => String.t(),
+        optional("BlockOverrideDomain") => String.t() | atom(),
         optional("BlockOverrideTtl") => integer(),
         optional("BlockResponse") => list(any()),
         optional("ConfidenceThreshold") => list(any()),
         optional("DnsThreatProtection") => list(any()),
-        optional("FirewallDomainListId") => String.t(),
+        optional("FirewallDomainListId") => String.t() | atom(),
         optional("FirewallDomainRedirectionAction") => list(any()),
-        optional("Qtype") => String.t(),
+        optional("Qtype") => String.t() | atom(),
         required("Action") => list(any()),
-        required("CreatorRequestId") => String.t(),
-        required("FirewallRuleGroupId") => String.t(),
-        required("Name") => String.t(),
+        required("CreatorRequestId") => String.t() | atom(),
+        required("FirewallRuleGroupId") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("Priority") => integer()
       }
       
   """
-  @type create_firewall_rule_request() :: %{String.t() => any()}
+  @type create_firewall_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       firewall_domain_list() :: %{
-        "Arn" => String.t(),
-        "CreationTime" => String.t(),
-        "CreatorRequestId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "CreationTime" => String.t() | atom(),
+        "CreatorRequestId" => String.t() | atom(),
         "DomainCount" => integer(),
-        "Id" => String.t(),
-        "ManagedOwnerName" => String.t(),
-        "ModificationTime" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | atom(),
+        "ManagedOwnerName" => String.t() | atom(),
+        "ModificationTime" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusMessage" => String.t()
+        "StatusMessage" => String.t() | atom()
       }
       
   """
-  @type firewall_domain_list() :: %{String.t() => any()}
+  @type firewall_domain_list() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -466,7 +466,7 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type get_firewall_rule_group_response() :: %{String.t() => any()}
+  @type get_firewall_rule_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -474,11 +474,11 @@ defmodule AWS.Route53Resolver do
       
       list_firewall_domain_lists_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_firewall_domain_lists_request() :: %{String.t() => any()}
+  @type list_firewall_domain_lists_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -487,22 +487,22 @@ defmodule AWS.Route53Resolver do
       list_resolver_rules_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_resolver_rules_request() :: %{String.t() => any()}
+  @type list_resolver_rules_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_firewall_rule_group_request() :: %{
-        required("FirewallRuleGroupId") => String.t()
+        required("FirewallRuleGroupId") => String.t() | atom()
       }
       
   """
-  @type get_firewall_rule_group_request() :: %{String.t() => any()}
+  @type get_firewall_rule_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -510,13 +510,13 @@ defmodule AWS.Route53Resolver do
       
       firewall_config() :: %{
         "FirewallFailOpen" => list(any()),
-        "Id" => String.t(),
-        "OwnerId" => String.t(),
-        "ResourceId" => String.t()
+        "Id" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "ResourceId" => String.t() | atom()
       }
       
   """
-  @type firewall_config() :: %{String.t() => any()}
+  @type firewall_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -524,11 +524,11 @@ defmodule AWS.Route53Resolver do
       
       update_resolver_rule_request() :: %{
         required("Config") => resolver_rule_config(),
-        required("ResolverRuleId") => String.t()
+        required("ResolverRuleId") => String.t() | atom()
       }
       
   """
-  @type update_resolver_rule_request() :: %{String.t() => any()}
+  @type update_resolver_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -539,60 +539,60 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type delete_firewall_domain_list_response() :: %{String.t() => any()}
+  @type delete_firewall_domain_list_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_firewall_domain_list_request() :: %{
-        required("FirewallDomainListId") => String.t()
+        required("FirewallDomainListId") => String.t() | atom()
       }
       
   """
-  @type delete_firewall_domain_list_request() :: %{String.t() => any()}
+  @type delete_firewall_domain_list_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_firewall_domain_list_request() :: %{
-        required("FirewallDomainListId") => String.t()
+        required("FirewallDomainListId") => String.t() | atom()
       }
       
   """
-  @type get_firewall_domain_list_request() :: %{String.t() => any()}
+  @type get_firewall_domain_list_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resolver_dnssec_config_request() :: %{
-        required("ResourceId") => String.t()
+        required("ResourceId") => String.t() | atom()
       }
       
   """
-  @type get_resolver_dnssec_config_request() :: %{String.t() => any()}
+  @type get_resolver_dnssec_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resolver_query_log_config() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "AssociationCount" => integer(),
-        "CreationTime" => String.t(),
-        "CreatorRequestId" => String.t(),
-        "DestinationArn" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
-        "OwnerId" => String.t(),
+        "CreationTime" => String.t() | atom(),
+        "CreatorRequestId" => String.t() | atom(),
+        "DestinationArn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
         "ShareStatus" => list(any()),
         "Status" => list(any())
       }
       
   """
-  @type resolver_query_log_config() :: %{String.t() => any()}
+  @type resolver_query_log_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -601,11 +601,11 @@ defmodule AWS.Route53Resolver do
       list_resolver_endpoints_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_resolver_endpoints_request() :: %{String.t() => any()}
+  @type list_resolver_endpoints_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -613,13 +613,13 @@ defmodule AWS.Route53Resolver do
       
       create_resolver_query_log_config_request() :: %{
         optional("Tags") => list(tag()),
-        required("CreatorRequestId") => String.t(),
-        required("DestinationArn") => String.t(),
-        required("Name") => String.t()
+        required("CreatorRequestId") => String.t() | atom(),
+        required("DestinationArn") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type create_resolver_query_log_config_request() :: %{String.t() => any()}
+  @type create_resolver_query_log_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -630,18 +630,18 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type put_resolver_rule_policy_response() :: %{String.t() => any()}
+  @type put_resolver_rule_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_service_error_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type internal_service_error_exception() :: %{String.t() => any()}
+  @type internal_service_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -649,35 +649,35 @@ defmodule AWS.Route53Resolver do
       
       create_firewall_domain_list_request() :: %{
         optional("Tags") => list(tag()),
-        required("CreatorRequestId") => String.t(),
-        required("Name") => String.t()
+        required("CreatorRequestId") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type create_firewall_domain_list_request() :: %{String.t() => any()}
+  @type create_firewall_domain_list_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_resolver_query_log_config_request() :: %{
-        required("ResolverQueryLogConfigId") => String.t(),
-        required("ResourceId") => String.t()
+        required("ResolverQueryLogConfigId") => String.t() | atom(),
+        required("ResourceId") => String.t() | atom()
       }
       
   """
-  @type disassociate_resolver_query_log_config_request() :: %{String.t() => any()}
+  @type disassociate_resolver_query_log_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resolver_rule_association_request() :: %{
-        required("ResolverRuleAssociationId") => String.t()
+        required("ResolverRuleAssociationId") => String.t() | atom()
       }
       
   """
-  @type get_resolver_rule_association_request() :: %{String.t() => any()}
+  @type get_resolver_rule_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -688,43 +688,43 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type get_resolver_query_log_config_association_response() :: %{String.t() => any()}
+  @type get_resolver_query_log_config_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ip_address_request() :: %{
-        "Ip" => String.t(),
-        "Ipv6" => String.t(),
-        "SubnetId" => String.t()
+        "Ip" => String.t() | atom(),
+        "Ipv6" => String.t() | atom(),
+        "SubnetId" => String.t() | atom()
       }
       
   """
-  @type ip_address_request() :: %{String.t() => any()}
+  @type ip_address_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_resolver_query_log_config_request() :: %{
-        required("ResolverQueryLogConfigId") => String.t()
+        required("ResolverQueryLogConfigId") => String.t() | atom()
       }
       
   """
-  @type delete_resolver_query_log_config_request() :: %{String.t() => any()}
+  @type delete_resolver_query_log_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -732,12 +732,12 @@ defmodule AWS.Route53Resolver do
       
       list_firewall_domains_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("FirewallDomainListId") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("FirewallDomainListId") => String.t() | atom()
       }
       
   """
-  @type list_firewall_domains_request() :: %{String.t() => any()}
+  @type list_firewall_domains_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -748,23 +748,23 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type update_resolver_config_response() :: %{String.t() => any()}
+  @type update_resolver_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resolver_rule_association() :: %{
-        "Id" => String.t(),
-        "Name" => String.t(),
-        "ResolverRuleId" => String.t(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ResolverRuleId" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusMessage" => String.t(),
-        "VPCId" => String.t()
+        "StatusMessage" => String.t() | atom(),
+        "VPCId" => String.t() | atom()
       }
       
   """
-  @type resolver_rule_association() :: %{String.t() => any()}
+  @type resolver_rule_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -775,7 +775,7 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type update_firewall_rule_response() :: %{String.t() => any()}
+  @type update_firewall_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -784,35 +784,35 @@ defmodule AWS.Route53Resolver do
       associate_firewall_rule_group_request() :: %{
         optional("MutationProtection") => list(any()),
         optional("Tags") => list(tag()),
-        required("CreatorRequestId") => String.t(),
-        required("FirewallRuleGroupId") => String.t(),
-        required("Name") => String.t(),
+        required("CreatorRequestId") => String.t() | atom(),
+        required("FirewallRuleGroupId") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("Priority") => integer(),
-        required("VpcId") => String.t()
+        required("VpcId") => String.t() | atom()
       }
       
   """
-  @type associate_firewall_rule_group_request() :: %{String.t() => any()}
+  @type associate_firewall_rule_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_resolver_endpoint_request() :: %{
-        optional("Name") => String.t(),
-        optional("OutpostArn") => String.t(),
-        optional("PreferredInstanceType") => String.t(),
+        optional("Name") => String.t() | atom(),
+        optional("OutpostArn") => String.t() | atom(),
+        optional("PreferredInstanceType") => String.t() | atom(),
         optional("Protocols") => list(list(any())()),
         optional("ResolverEndpointType") => list(any()),
         optional("Tags") => list(tag()),
-        required("CreatorRequestId") => String.t(),
+        required("CreatorRequestId") => String.t() | atom(),
         required("Direction") => list(any()),
         required("IpAddresses") => list(ip_address_request()),
-        required("SecurityGroupIds") => list(String.t())
+        required("SecurityGroupIds") => list(String.t() | atom())
       }
       
   """
-  @type create_resolver_endpoint_request() :: %{String.t() => any()}
+  @type create_resolver_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -823,7 +823,7 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type delete_firewall_rule_response() :: %{String.t() => any()}
+  @type delete_firewall_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -832,25 +832,25 @@ defmodule AWS.Route53Resolver do
       create_outpost_resolver_request() :: %{
         optional("InstanceCount") => integer(),
         optional("Tags") => list(tag()),
-        required("CreatorRequestId") => String.t(),
-        required("Name") => String.t(),
-        required("OutpostArn") => String.t(),
-        required("PreferredInstanceType") => String.t()
+        required("CreatorRequestId") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("OutpostArn") => String.t() | atom(),
+        required("PreferredInstanceType") => String.t() | atom()
       }
       
   """
-  @type create_outpost_resolver_request() :: %{String.t() => any()}
+  @type create_outpost_resolver_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_resolver_rule_request() :: %{
-        required("ResolverRuleId") => String.t()
+        required("ResolverRuleId") => String.t() | atom()
       }
       
   """
-  @type delete_resolver_rule_request() :: %{String.t() => any()}
+  @type delete_resolver_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -861,7 +861,7 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type disassociate_resolver_query_log_config_response() :: %{String.t() => any()}
+  @type disassociate_resolver_query_log_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -872,7 +872,7 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type get_resolver_rule_association_response() :: %{String.t() => any()}
+  @type get_resolver_rule_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -880,40 +880,40 @@ defmodule AWS.Route53Resolver do
       
       list_resolver_endpoints_response() :: %{
         "MaxResults" => integer(),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "ResolverEndpoints" => list(resolver_endpoint())
       }
       
   """
-  @type list_resolver_endpoints_response() :: %{String.t() => any()}
+  @type list_resolver_endpoints_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       firewall_rule_group_metadata() :: %{
-        "Arn" => String.t(),
-        "CreatorRequestId" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
-        "OwnerId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "CreatorRequestId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
         "ShareStatus" => list(any())
       }
       
   """
-  @type firewall_rule_group_metadata() :: %{String.t() => any()}
+  @type firewall_rule_group_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_resolver_rule_policy_request() :: %{
-        required("Arn") => String.t(),
-        required("ResolverRulePolicy") => String.t()
+        required("Arn") => String.t() | atom(),
+        required("ResolverRulePolicy") => String.t() | atom()
       }
       
   """
-  @type put_resolver_rule_policy_request() :: %{String.t() => any()}
+  @type put_resolver_rule_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -924,29 +924,29 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type get_firewall_config_response() :: %{String.t() => any()}
+  @type get_firewall_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_firewall_rule_group_request() :: %{
-        required("FirewallRuleGroupId") => String.t()
+        required("FirewallRuleGroupId") => String.t() | atom()
       }
       
   """
-  @type delete_firewall_rule_group_request() :: %{String.t() => any()}
+  @type delete_firewall_rule_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resolver_config_request() :: %{
-        required("ResourceId") => String.t()
+        required("ResourceId") => String.t() | atom()
       }
       
   """
-  @type get_resolver_config_request() :: %{String.t() => any()}
+  @type get_resolver_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -955,11 +955,11 @@ defmodule AWS.Route53Resolver do
       list_resolver_endpoint_ip_addresses_response() :: %{
         "IpAddresses" => list(ip_address_response()),
         "MaxResults" => integer(),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_resolver_endpoint_ip_addresses_response() :: %{String.t() => any()}
+  @type list_resolver_endpoint_ip_addresses_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -970,7 +970,7 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type disassociate_resolver_endpoint_ip_address_response() :: %{String.t() => any()}
+  @type disassociate_resolver_endpoint_ip_address_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -981,7 +981,7 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type update_resolver_rule_response() :: %{String.t() => any()}
+  @type update_resolver_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -992,43 +992,43 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type delete_firewall_rule_group_response() :: %{String.t() => any()}
+  @type delete_firewall_rule_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t(),
-        "ResourceType" => String.t()
+        "Message" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_resolver_rule_request() :: %{
-        optional("Name") => String.t(),
-        required("ResolverRuleId") => String.t(),
-        required("VPCId") => String.t()
+        optional("Name") => String.t() | atom(),
+        required("ResolverRuleId") => String.t() | atom(),
+        required("VPCId") => String.t() | atom()
       }
       
   """
-  @type associate_resolver_rule_request() :: %{String.t() => any()}
+  @type associate_resolver_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1036,23 +1036,23 @@ defmodule AWS.Route53Resolver do
       
       list_outpost_resolvers_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("OutpostArn") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("OutpostArn") => String.t() | atom()
       }
       
   """
-  @type list_outpost_resolvers_request() :: %{String.t() => any()}
+  @type list_outpost_resolvers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resolver_rule_policy_response() :: %{
-        "ResolverRulePolicy" => String.t()
+        "ResolverRulePolicy" => String.t() | atom()
       }
       
   """
-  @type get_resolver_rule_policy_response() :: %{String.t() => any()}
+  @type get_resolver_rule_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1060,11 +1060,11 @@ defmodule AWS.Route53Resolver do
       
       list_firewall_configs_response() :: %{
         "FirewallConfigs" => list(firewall_config()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_firewall_configs_response() :: %{String.t() => any()}
+  @type list_firewall_configs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1072,23 +1072,23 @@ defmodule AWS.Route53Resolver do
       
       list_firewall_rule_groups_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_firewall_rule_groups_request() :: %{String.t() => any()}
+  @type list_firewall_rule_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1099,99 +1099,99 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type create_firewall_domain_list_response() :: %{String.t() => any()}
+  @type create_firewall_domain_list_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_request_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_request_exception() :: %{String.t() => any()}
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resolver_rule() :: %{
-        "Arn" => String.t(),
-        "CreationTime" => String.t(),
-        "CreatorRequestId" => String.t(),
-        "DelegationRecord" => String.t(),
-        "DomainName" => String.t(),
-        "Id" => String.t(),
-        "ModificationTime" => String.t(),
-        "Name" => String.t(),
-        "OwnerId" => String.t(),
-        "ResolverEndpointId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "CreationTime" => String.t() | atom(),
+        "CreatorRequestId" => String.t() | atom(),
+        "DelegationRecord" => String.t() | atom(),
+        "DomainName" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ModificationTime" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "ResolverEndpointId" => String.t() | atom(),
         "RuleType" => list(any()),
         "ShareStatus" => list(any()),
         "Status" => list(any()),
-        "StatusMessage" => String.t(),
+        "StatusMessage" => String.t() | atom(),
         "TargetIps" => list(target_address())
       }
       
   """
-  @type resolver_rule() :: %{String.t() => any()}
+  @type resolver_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resolver_rule_request() :: %{
-        required("ResolverRuleId") => String.t()
+        required("ResolverRuleId") => String.t() | atom()
       }
       
   """
-  @type get_resolver_rule_request() :: %{String.t() => any()}
+  @type get_resolver_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_next_token_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_next_token_exception() :: %{String.t() => any()}
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       firewall_rule_group_association() :: %{
-        "Arn" => String.t(),
-        "CreationTime" => String.t(),
-        "CreatorRequestId" => String.t(),
-        "FirewallRuleGroupId" => String.t(),
-        "Id" => String.t(),
-        "ManagedOwnerName" => String.t(),
-        "ModificationTime" => String.t(),
+        "Arn" => String.t() | atom(),
+        "CreationTime" => String.t() | atom(),
+        "CreatorRequestId" => String.t() | atom(),
+        "FirewallRuleGroupId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ManagedOwnerName" => String.t() | atom(),
+        "ModificationTime" => String.t() | atom(),
         "MutationProtection" => list(any()),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Priority" => integer(),
         "Status" => list(any()),
-        "StatusMessage" => String.t(),
-        "VpcId" => String.t()
+        "StatusMessage" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
       
   """
-  @type firewall_rule_group_association() :: %{String.t() => any()}
+  @type firewall_rule_group_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1202,18 +1202,18 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type delete_resolver_endpoint_response() :: %{String.t() => any()}
+  @type delete_resolver_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_firewall_rule_group_policy_request() :: %{
-        required("Arn") => String.t()
+        required("Arn") => String.t() | atom()
       }
       
   """
-  @type get_firewall_rule_group_policy_request() :: %{String.t() => any()}
+  @type get_firewall_rule_group_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1224,7 +1224,7 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type put_resolver_query_log_config_policy_response() :: %{String.t() => any()}
+  @type put_resolver_query_log_config_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1232,22 +1232,22 @@ defmodule AWS.Route53Resolver do
       
       update_firewall_config_request() :: %{
         required("FirewallFailOpen") => list(any()),
-        required("ResourceId") => String.t()
+        required("ResourceId") => String.t() | atom()
       }
       
   """
-  @type update_firewall_config_request() :: %{String.t() => any()}
+  @type update_firewall_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_firewall_rule_group_association_request() :: %{
-        required("FirewallRuleGroupAssociationId") => String.t()
+        required("FirewallRuleGroupAssociationId") => String.t() | atom()
       }
       
   """
-  @type get_firewall_rule_group_association_request() :: %{String.t() => any()}
+  @type get_firewall_rule_group_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1258,31 +1258,31 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type put_firewall_rule_group_policy_response() :: %{String.t() => any()}
+  @type put_firewall_rule_group_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Tags" => list(tag())
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_resolver_query_log_config_policy_request() :: %{
-        required("Arn") => String.t(),
-        required("ResolverQueryLogConfigPolicy") => String.t()
+        required("Arn") => String.t() | atom(),
+        required("ResolverQueryLogConfigPolicy") => String.t() | atom()
       }
       
   """
-  @type put_resolver_query_log_config_policy_request() :: %{String.t() => any()}
+  @type put_resolver_query_log_config_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1293,7 +1293,7 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type get_outpost_resolver_response() :: %{String.t() => any()}
+  @type get_outpost_resolver_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1302,25 +1302,25 @@ defmodule AWS.Route53Resolver do
       firewall_rule() :: %{
         "Action" => list(any()),
         "BlockOverrideDnsType" => list(any()),
-        "BlockOverrideDomain" => String.t(),
+        "BlockOverrideDomain" => String.t() | atom(),
         "BlockOverrideTtl" => integer(),
         "BlockResponse" => list(any()),
         "ConfidenceThreshold" => list(any()),
-        "CreationTime" => String.t(),
-        "CreatorRequestId" => String.t(),
+        "CreationTime" => String.t() | atom(),
+        "CreatorRequestId" => String.t() | atom(),
         "DnsThreatProtection" => list(any()),
-        "FirewallDomainListId" => String.t(),
+        "FirewallDomainListId" => String.t() | atom(),
         "FirewallDomainRedirectionAction" => list(any()),
-        "FirewallRuleGroupId" => String.t(),
-        "FirewallThreatProtectionId" => String.t(),
-        "ModificationTime" => String.t(),
-        "Name" => String.t(),
+        "FirewallRuleGroupId" => String.t() | atom(),
+        "FirewallThreatProtectionId" => String.t() | atom(),
+        "ModificationTime" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Priority" => integer(),
-        "Qtype" => String.t()
+        "Qtype" => String.t() | atom()
       }
       
   """
-  @type firewall_rule() :: %{String.t() => any()}
+  @type firewall_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1331,184 +1331,184 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type disassociate_firewall_rule_group_response() :: %{String.t() => any()}
+  @type disassociate_firewall_rule_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resolver_endpoint() :: %{
-        "Arn" => String.t(),
-        "CreationTime" => String.t(),
-        "CreatorRequestId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "CreationTime" => String.t() | atom(),
+        "CreatorRequestId" => String.t() | atom(),
         "Direction" => list(any()),
-        "HostVPCId" => String.t(),
-        "Id" => String.t(),
+        "HostVPCId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "IpAddressCount" => integer(),
-        "ModificationTime" => String.t(),
-        "Name" => String.t(),
-        "OutpostArn" => String.t(),
-        "PreferredInstanceType" => String.t(),
+        "ModificationTime" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OutpostArn" => String.t() | atom(),
+        "PreferredInstanceType" => String.t() | atom(),
         "Protocols" => list(list(any())()),
         "ResolverEndpointType" => list(any()),
-        "SecurityGroupIds" => list(String.t()),
+        "SecurityGroupIds" => list(String.t() | atom()),
         "Status" => list(any()),
-        "StatusMessage" => String.t()
+        "StatusMessage" => String.t() | atom()
       }
       
   """
-  @type resolver_endpoint() :: %{String.t() => any()}
+  @type resolver_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resolver_rule_policy_request() :: %{
-        required("Arn") => String.t()
+        required("Arn") => String.t() | atom()
       }
       
   """
-  @type get_resolver_rule_policy_request() :: %{String.t() => any()}
+  @type get_resolver_rule_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       import_firewall_domains_response() :: %{
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusMessage" => String.t()
+        "StatusMessage" => String.t() | atom()
       }
       
   """
-  @type import_firewall_domains_response() :: %{String.t() => any()}
+  @type import_firewall_domains_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       filter() :: %{
-        "Name" => String.t(),
-        "Values" => list(String.t())
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       firewall_rule_group() :: %{
-        "Arn" => String.t(),
-        "CreationTime" => String.t(),
-        "CreatorRequestId" => String.t(),
-        "Id" => String.t(),
-        "ModificationTime" => String.t(),
-        "Name" => String.t(),
-        "OwnerId" => String.t(),
+        "Arn" => String.t() | atom(),
+        "CreationTime" => String.t() | atom(),
+        "CreatorRequestId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ModificationTime" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
         "RuleCount" => integer(),
         "ShareStatus" => list(any()),
         "Status" => list(any()),
-        "StatusMessage" => String.t()
+        "StatusMessage" => String.t() | atom()
       }
       
   """
-  @type firewall_rule_group() :: %{String.t() => any()}
+  @type firewall_rule_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_firewall_rule_group_policy_request() :: %{
-        required("Arn") => String.t(),
-        required("FirewallRuleGroupPolicy") => String.t()
+        required("Arn") => String.t() | atom(),
+        required("FirewallRuleGroupPolicy") => String.t() | atom()
       }
       
   """
-  @type put_firewall_rule_group_policy_request() :: %{String.t() => any()}
+  @type put_firewall_rule_group_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_resolver_configs_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "ResolverConfigs" => list(resolver_config())
       }
       
   """
-  @type list_resolver_configs_response() :: %{String.t() => any()}
+  @type list_resolver_configs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_resolver_rule_request() :: %{
-        required("ResolverRuleId") => String.t(),
-        required("VPCId") => String.t()
+        required("ResolverRuleId") => String.t() | atom(),
+        required("VPCId") => String.t() | atom()
       }
       
   """
-  @type disassociate_resolver_rule_request() :: %{String.t() => any()}
+  @type disassociate_resolver_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       import_firewall_domains_request() :: %{
-        required("DomainFileUrl") => String.t(),
-        required("FirewallDomainListId") => String.t(),
+        required("DomainFileUrl") => String.t() | atom(),
+        required("FirewallDomainListId") => String.t() | atom(),
         required("Operation") => list(any())
       }
       
   """
-  @type import_firewall_domains_request() :: %{String.t() => any()}
+  @type import_firewall_domains_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_resolver_dnssec_configs_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "ResolverDnssecConfigs" => list(resolver_dnssec_config())
       }
       
   """
-  @type list_resolver_dnssec_configs_response() :: %{String.t() => any()}
+  @type list_resolver_dnssec_configs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_firewall_rule_request() :: %{
-        optional("FirewallDomainListId") => String.t(),
-        optional("FirewallThreatProtectionId") => String.t(),
-        optional("Qtype") => String.t(),
-        required("FirewallRuleGroupId") => String.t()
+        optional("FirewallDomainListId") => String.t() | atom(),
+        optional("FirewallThreatProtectionId") => String.t() | atom(),
+        optional("Qtype") => String.t() | atom(),
+        required("FirewallRuleGroupId") => String.t() | atom()
       }
       
   """
-  @type delete_firewall_rule_request() :: %{String.t() => any()}
+  @type delete_firewall_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_resolver_rule_request() :: %{
-        optional("DelegationRecord") => String.t(),
-        optional("DomainName") => String.t(),
-        optional("Name") => String.t(),
-        optional("ResolverEndpointId") => String.t(),
+        optional("DelegationRecord") => String.t() | atom(),
+        optional("DomainName") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("ResolverEndpointId") => String.t() | atom(),
         optional("Tags") => list(tag()),
         optional("TargetIps") => list(target_address()),
-        required("CreatorRequestId") => String.t(),
+        required("CreatorRequestId") => String.t() | atom(),
         required("RuleType") => list(any())
       }
       
   """
-  @type create_resolver_rule_request() :: %{String.t() => any()}
+  @type create_resolver_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1519,32 +1519,34 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type create_resolver_rule_response() :: %{String.t() => any()}
+  @type create_resolver_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_resolver_endpoint_request() :: %{
-        required("ResolverEndpointId") => String.t()
+        required("ResolverEndpointId") => String.t() | atom()
       }
       
   """
-  @type delete_resolver_endpoint_request() :: %{String.t() => any()}
+  @type delete_resolver_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_resolver_query_log_config_associations_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "ResolverQueryLogConfigAssociations" => list(resolver_query_log_config_association()),
         "TotalCount" => integer(),
         "TotalFilteredCount" => integer()
       }
       
   """
-  @type list_resolver_query_log_config_associations_response() :: %{String.t() => any()}
+  @type list_resolver_query_log_config_associations_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -1552,12 +1554,12 @@ defmodule AWS.Route53Resolver do
       
       create_firewall_rule_group_request() :: %{
         optional("Tags") => list(tag()),
-        required("CreatorRequestId") => String.t(),
-        required("Name") => String.t()
+        required("CreatorRequestId") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type create_firewall_rule_group_request() :: %{String.t() => any()}
+  @type create_firewall_rule_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1568,7 +1570,7 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type associate_firewall_rule_group_response() :: %{String.t() => any()}
+  @type associate_firewall_rule_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1576,25 +1578,25 @@ defmodule AWS.Route53Resolver do
       
       list_firewall_rule_groups_response() :: %{
         "FirewallRuleGroups" => list(firewall_rule_group_metadata()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_firewall_rule_groups_response() :: %{String.t() => any()}
+  @type list_firewall_rule_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_firewall_domains_response() :: %{
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusMessage" => String.t()
+        "StatusMessage" => String.t() | atom()
       }
       
   """
-  @type update_firewall_domains_response() :: %{String.t() => any()}
+  @type update_firewall_domains_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1602,12 +1604,12 @@ defmodule AWS.Route53Resolver do
       
       list_resolver_rules_response() :: %{
         "MaxResults" => integer(),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "ResolverRules" => list(resolver_rule())
       }
       
   """
-  @type list_resolver_rules_response() :: %{String.t() => any()}
+  @type list_resolver_rules_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1615,48 +1617,48 @@ defmodule AWS.Route53Resolver do
       
       update_resolver_config_request() :: %{
         required("AutodefinedReverseFlag") => list(any()),
-        required("ResourceId") => String.t()
+        required("ResourceId") => String.t() | atom()
       }
       
   """
-  @type update_resolver_config_request() :: %{String.t() => any()}
+  @type update_resolver_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_exists_exception() :: %{
-        "Message" => String.t(),
-        "ResourceType" => String.t()
+        "Message" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
       
   """
-  @type resource_exists_exception() :: %{String.t() => any()}
+  @type resource_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resolver_dnssec_config() :: %{
-        "Id" => String.t(),
-        "OwnerId" => String.t(),
-        "ResourceId" => String.t(),
+        "Id" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
         "ValidationStatus" => list(any())
       }
       
   """
-  @type resolver_dnssec_config() :: %{String.t() => any()}
+  @type resolver_dnssec_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       unknown_resource_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type unknown_resource_exception() :: %{String.t() => any()}
+  @type unknown_resource_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1667,42 +1669,42 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type delete_outpost_resolver_response() :: %{String.t() => any()}
+  @type delete_outpost_resolver_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_exception() :: %{
-        "FieldName" => String.t(),
-        "Message" => String.t()
+        "FieldName" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_parameter_exception() :: %{String.t() => any()}
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_ip_address() :: %{
-        "IpId" => String.t(),
-        "Ipv6" => String.t()
+        "IpId" => String.t() | atom(),
+        "Ipv6" => String.t() | atom()
       }
       
   """
-  @type update_ip_address() :: %{String.t() => any()}
+  @type update_ip_address() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1722,7 +1724,7 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type get_resolver_query_log_config_response() :: %{String.t() => any()}
+  @type get_resolver_query_log_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1733,18 +1735,18 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type update_outpost_resolver_response() :: %{String.t() => any()}
+  @type update_outpost_resolver_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1752,12 +1754,12 @@ defmodule AWS.Route53Resolver do
       
       list_tags_for_resource_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ResourceArn") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1768,7 +1770,7 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type associate_resolver_endpoint_ip_address_response() :: %{String.t() => any()}
+  @type associate_resolver_endpoint_ip_address_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1779,18 +1781,18 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type create_outpost_resolver_response() :: %{String.t() => any()}
+  @type create_outpost_resolver_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resolver_query_log_config_policy_response() :: %{
-        "ResolverQueryLogConfigPolicy" => String.t()
+        "ResolverQueryLogConfigPolicy" => String.t() | atom()
       }
       
   """
-  @type get_resolver_query_log_config_policy_response() :: %{String.t() => any()}
+  @type get_resolver_query_log_config_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1798,22 +1800,22 @@ defmodule AWS.Route53Resolver do
       
       list_firewall_rule_group_associations_response() :: %{
         "FirewallRuleGroupAssociations" => list(firewall_rule_group_association()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_firewall_rule_group_associations_response() :: %{String.t() => any()}
+  @type list_firewall_rule_group_associations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_firewall_config_request() :: %{
-        required("ResourceId") => String.t()
+        required("ResourceId") => String.t() | atom()
       }
       
   """
-  @type get_firewall_config_request() :: %{String.t() => any()}
+  @type get_firewall_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1824,35 +1826,35 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type get_resolver_rule_response() :: %{String.t() => any()}
+  @type get_resolver_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_resolver_endpoint_request() :: %{
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | atom(),
         optional("Protocols") => list(list(any())()),
         optional("ResolverEndpointType") => list(any()),
         optional("UpdateIpAddresses") => list(update_ip_address()),
-        required("ResolverEndpointId") => String.t()
+        required("ResolverEndpointId") => String.t() | atom()
       }
       
   """
-  @type update_resolver_endpoint_request() :: %{String.t() => any()}
+  @type update_resolver_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_firewall_domains_request() :: %{
-        required("Domains") => list(String.t()),
-        required("FirewallDomainListId") => String.t(),
+        required("Domains") => list(String.t() | atom()),
+        required("FirewallDomainListId") => String.t() | atom(),
         required("Operation") => list(any())
       }
       
   """
-  @type update_firewall_domains_request() :: %{String.t() => any()}
+  @type update_firewall_domains_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1860,22 +1862,22 @@ defmodule AWS.Route53Resolver do
       
       associate_resolver_endpoint_ip_address_request() :: %{
         required("IpAddress") => ip_address_update(),
-        required("ResolverEndpointId") => String.t()
+        required("ResolverEndpointId") => String.t() | atom()
       }
       
   """
-  @type associate_resolver_endpoint_ip_address_request() :: %{String.t() => any()}
+  @type associate_resolver_endpoint_ip_address_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1886,7 +1888,7 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type create_resolver_endpoint_response() :: %{String.t() => any()}
+  @type create_resolver_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1894,26 +1896,26 @@ defmodule AWS.Route53Resolver do
       
       disassociate_resolver_endpoint_ip_address_request() :: %{
         required("IpAddress") => ip_address_update(),
-        required("ResolverEndpointId") => String.t()
+        required("ResolverEndpointId") => String.t() | atom()
       }
       
   """
-  @type disassociate_resolver_endpoint_ip_address_request() :: %{String.t() => any()}
+  @type disassociate_resolver_endpoint_ip_address_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       target_address() :: %{
-        "Ip" => String.t(),
-        "Ipv6" => String.t(),
+        "Ip" => String.t() | atom(),
+        "Ipv6" => String.t() | atom(),
         "Port" => integer(),
         "Protocol" => list(any()),
-        "ServerNameIndication" => String.t()
+        "ServerNameIndication" => String.t() | atom()
       }
       
   """
-  @type target_address() :: %{String.t() => any()}
+  @type target_address() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1924,43 +1926,43 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type create_firewall_rule_response() :: %{String.t() => any()}
+  @type create_firewall_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resolver_rule_config() :: %{
-        "Name" => String.t(),
-        "ResolverEndpointId" => String.t(),
+        "Name" => String.t() | atom(),
+        "ResolverEndpointId" => String.t() | atom(),
         "TargetIps" => list(target_address())
       }
       
   """
-  @type resolver_rule_config() :: %{String.t() => any()}
+  @type resolver_rule_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "Message" => String.t(),
-        "ResourceType" => String.t()
+        "Message" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resolver_query_log_config_request() :: %{
-        required("ResolverQueryLogConfigId") => String.t()
+        required("ResolverQueryLogConfigId") => String.t() | atom()
       }
       
   """
-  @type get_resolver_query_log_config_request() :: %{String.t() => any()}
+  @type get_resolver_query_log_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1971,21 +1973,21 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type update_firewall_config_response() :: %{String.t() => any()}
+  @type update_firewall_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_resolver_query_log_configs_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "ResolverQueryLogConfigs" => list(resolver_query_log_config()),
         "TotalCount" => integer(),
         "TotalFilteredCount" => integer()
       }
       
   """
-  @type list_resolver_query_log_configs_response() :: %{String.t() => any()}
+  @type list_resolver_query_log_configs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1994,58 +1996,58 @@ defmodule AWS.Route53Resolver do
       list_resolver_rule_associations_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_resolver_rule_associations_request() :: %{String.t() => any()}
+  @type list_resolver_rule_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       firewall_domain_list_metadata() :: %{
-        "Arn" => String.t(),
-        "CreatorRequestId" => String.t(),
-        "Id" => String.t(),
-        "ManagedOwnerName" => String.t(),
-        "Name" => String.t()
+        "Arn" => String.t() | atom(),
+        "CreatorRequestId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ManagedOwnerName" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type firewall_domain_list_metadata() :: %{String.t() => any()}
+  @type firewall_domain_list_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resolver_query_log_config_policy_request() :: %{
-        required("Arn") => String.t()
+        required("Arn") => String.t() | atom()
       }
       
   """
-  @type get_resolver_query_log_config_policy_request() :: %{String.t() => any()}
+  @type get_resolver_query_log_config_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       outpost_resolver() :: %{
-        "Arn" => String.t(),
-        "CreationTime" => String.t(),
-        "CreatorRequestId" => String.t(),
-        "Id" => String.t(),
+        "Arn" => String.t() | atom(),
+        "CreationTime" => String.t() | atom(),
+        "CreatorRequestId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "InstanceCount" => integer(),
-        "ModificationTime" => String.t(),
-        "Name" => String.t(),
-        "OutpostArn" => String.t(),
-        "PreferredInstanceType" => String.t(),
+        "ModificationTime" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OutpostArn" => String.t() | atom(),
+        "PreferredInstanceType" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusMessage" => String.t()
+        "StatusMessage" => String.t() | atom()
       }
       
   """
-  @type outpost_resolver() :: %{String.t() => any()}
+  @type outpost_resolver() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2054,13 +2056,13 @@ defmodule AWS.Route53Resolver do
       list_resolver_query_log_config_associations_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("SortBy") => String.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortBy") => String.t() | atom(),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_resolver_query_log_config_associations_request() :: %{String.t() => any()}
+  @type list_resolver_query_log_config_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2068,58 +2070,58 @@ defmodule AWS.Route53Resolver do
       
       list_resolver_rule_associations_response() :: %{
         "MaxResults" => integer(),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "ResolverRuleAssociations" => list(resolver_rule_association())
       }
       
   """
-  @type list_resolver_rule_associations_response() :: %{String.t() => any()}
+  @type list_resolver_rule_associations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_firewall_domains_response() :: %{
-        "Domains" => list(String.t()),
-        "NextToken" => String.t()
+        "Domains" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_firewall_domains_response() :: %{String.t() => any()}
+  @type list_firewall_domains_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_firewall_rule_group_policy_response() :: %{
-        "FirewallRuleGroupPolicy" => String.t()
+        "FirewallRuleGroupPolicy" => String.t() | atom()
       }
       
   """
-  @type get_firewall_rule_group_policy_response() :: %{String.t() => any()}
+  @type get_firewall_rule_group_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_outpost_resolvers_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "OutpostResolvers" => list(outpost_resolver())
       }
       
   """
-  @type list_outpost_resolvers_response() :: %{String.t() => any()}
+  @type list_outpost_resolvers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_outpost_resolver_request() :: %{
-        required("Id") => String.t()
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type get_outpost_resolver_request() :: %{String.t() => any()}
+  @type get_outpost_resolver_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2130,18 +2132,18 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type disassociate_resolver_rule_response() :: %{String.t() => any()}
+  @type disassociate_resolver_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_tag_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_tag_exception() :: %{String.t() => any()}
+  @type invalid_tag_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2152,18 +2154,18 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type get_resolver_endpoint_response() :: %{String.t() => any()}
+  @type get_resolver_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_policy_document() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_policy_document() :: %{String.t() => any()}
+  @type invalid_policy_document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2171,63 +2173,63 @@ defmodule AWS.Route53Resolver do
       
       list_resolver_endpoint_ip_addresses_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ResolverEndpointId") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ResolverEndpointId") => String.t() | atom()
       }
       
   """
-  @type list_resolver_endpoint_ip_addresses_request() :: %{String.t() => any()}
+  @type list_resolver_endpoint_ip_addresses_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ip_address_response() :: %{
-        "CreationTime" => String.t(),
-        "Ip" => String.t(),
-        "IpId" => String.t(),
-        "Ipv6" => String.t(),
-        "ModificationTime" => String.t(),
+        "CreationTime" => String.t() | atom(),
+        "Ip" => String.t() | atom(),
+        "IpId" => String.t() | atom(),
+        "Ipv6" => String.t() | atom(),
+        "ModificationTime" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusMessage" => String.t(),
-        "SubnetId" => String.t()
+        "StatusMessage" => String.t() | atom(),
+        "SubnetId" => String.t() | atom()
       }
       
   """
-  @type ip_address_response() :: %{String.t() => any()}
+  @type ip_address_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_firewall_rule_group_associations_request() :: %{
-        optional("FirewallRuleGroupId") => String.t(),
+        optional("FirewallRuleGroupId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Priority") => integer(),
         optional("Status") => list(any()),
-        optional("VpcId") => String.t()
+        optional("VpcId") => String.t() | atom()
       }
       
   """
-  @type list_firewall_rule_group_associations_request() :: %{String.t() => any()}
+  @type list_firewall_rule_group_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resolver_query_log_config_association() :: %{
-        "CreationTime" => String.t(),
+        "CreationTime" => String.t() | atom(),
         "Error" => list(any()),
-        "ErrorMessage" => String.t(),
-        "Id" => String.t(),
-        "ResolverQueryLogConfigId" => String.t(),
-        "ResourceId" => String.t(),
+        "ErrorMessage" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ResolverQueryLogConfigId" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type resolver_query_log_config_association() :: %{String.t() => any()}
+  @type resolver_query_log_config_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2238,18 +2240,18 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type delete_resolver_rule_response() :: %{String.t() => any()}
+  @type delete_resolver_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_outpost_resolver_request() :: %{
-        required("Id") => String.t()
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type delete_outpost_resolver_request() :: %{String.t() => any()}
+  @type delete_outpost_resolver_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2260,7 +2262,7 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type update_resolver_dnssec_config_response() :: %{String.t() => any()}
+  @type update_resolver_dnssec_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2271,7 +2273,7 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type get_resolver_config_response() :: %{String.t() => any()}
+  @type get_resolver_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2282,7 +2284,7 @@ defmodule AWS.Route53Resolver do
       }
       
   """
-  @type associate_resolver_rule_response() :: %{String.t() => any()}
+  @type associate_resolver_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2290,11 +2292,11 @@ defmodule AWS.Route53Resolver do
       
       list_resolver_configs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_resolver_configs_request() :: %{String.t() => any()}
+  @type list_resolver_configs_request() :: %{(String.t() | atom()) => any()}
 
   @type associate_firewall_rule_group_errors() ::
           limit_exceeded_exception()
@@ -2844,7 +2846,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, associate_firewall_rule_group_errors()}
   def associate_firewall_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateFirewallRuleGroup", input, options)
   end
@@ -2868,7 +2871,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, associate_resolver_endpoint_ip_address_errors()}
   def associate_resolver_endpoint_ip_address(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateResolverEndpointIpAddress", input, options)
   end
@@ -2898,7 +2902,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, associate_resolver_query_log_config_errors()}
   def associate_resolver_query_log_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateResolverQueryLogConfig", input, options)
   end
@@ -2919,7 +2924,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, associate_resolver_rule_errors()}
   def associate_resolver_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateResolverRule", input, options)
   end
@@ -2936,7 +2942,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, create_firewall_domain_list_errors()}
   def create_firewall_domain_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFirewallDomainList", input, options)
   end
@@ -2951,7 +2958,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, create_firewall_rule_errors()}
   def create_firewall_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFirewallRule", input, options)
   end
@@ -2969,7 +2977,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, create_firewall_rule_group_errors()}
   def create_firewall_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFirewallRuleGroup", input, options)
   end
@@ -2983,7 +2992,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, create_outpost_resolver_errors()}
   def create_outpost_resolver(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateOutpostResolver", input, options)
   end
@@ -3008,7 +3018,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, create_resolver_endpoint_errors()}
   def create_resolver_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateResolverEndpoint", input, options)
   end
@@ -3040,7 +3051,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, create_resolver_query_log_config_errors()}
   def create_resolver_query_log_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateResolverQueryLogConfig", input, options)
   end
@@ -3057,7 +3069,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, create_resolver_rule_errors()}
   def create_resolver_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateResolverRule", input, options)
   end
@@ -3071,7 +3084,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, delete_firewall_domain_list_errors()}
   def delete_firewall_domain_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFirewallDomainList", input, options)
   end
@@ -3085,7 +3099,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, delete_firewall_rule_errors()}
   def delete_firewall_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFirewallRule", input, options)
   end
@@ -3099,7 +3114,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, delete_firewall_rule_group_errors()}
   def delete_firewall_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFirewallRuleGroup", input, options)
   end
@@ -3113,7 +3129,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, delete_outpost_resolver_errors()}
   def delete_outpost_resolver(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteOutpostResolver", input, options)
   end
@@ -3140,7 +3157,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, delete_resolver_endpoint_errors()}
   def delete_resolver_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResolverEndpoint", input, options)
   end
@@ -3176,7 +3194,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, delete_resolver_query_log_config_errors()}
   def delete_resolver_query_log_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResolverQueryLogConfig", input, options)
   end
@@ -3195,7 +3214,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, delete_resolver_rule_errors()}
   def delete_resolver_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResolverRule", input, options)
   end
@@ -3214,7 +3234,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, disassociate_firewall_rule_group_errors()}
   def disassociate_firewall_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateFirewallRuleGroup", input, options)
   end
@@ -3238,7 +3259,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, disassociate_resolver_endpoint_ip_address_errors()}
   def disassociate_resolver_endpoint_ip_address(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateResolverEndpointIpAddress", input, options)
   end
@@ -3270,7 +3292,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, disassociate_resolver_query_log_config_errors()}
   def disassociate_resolver_query_log_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateResolverQueryLogConfig", input, options)
   end
@@ -3288,7 +3311,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, disassociate_resolver_rule_errors()}
   def disassociate_resolver_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateResolverRule", input, options)
   end
@@ -3304,7 +3328,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_firewall_config_errors()}
   def get_firewall_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetFirewallConfig", input, options)
   end
@@ -3318,7 +3343,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_firewall_domain_list_errors()}
   def get_firewall_domain_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetFirewallDomainList", input, options)
   end
@@ -3332,7 +3358,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_firewall_rule_group_errors()}
   def get_firewall_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetFirewallRuleGroup", input, options)
   end
@@ -3354,7 +3381,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_firewall_rule_group_association_errors()}
   def get_firewall_rule_group_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetFirewallRuleGroupAssociation", input, options)
   end
@@ -3373,7 +3401,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_firewall_rule_group_policy_errors()}
   def get_firewall_rule_group_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetFirewallRuleGroupPolicy", input, options)
   end
@@ -3389,7 +3418,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_outpost_resolver_errors()}
   def get_outpost_resolver(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetOutpostResolver", input, options)
   end
@@ -3405,7 +3435,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_resolver_config_errors()}
   def get_resolver_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResolverConfig", input, options)
   end
@@ -3419,7 +3450,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_resolver_dnssec_config_errors()}
   def get_resolver_dnssec_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResolverDnssecConfig", input, options)
   end
@@ -3435,7 +3467,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_resolver_endpoint_errors()}
   def get_resolver_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResolverEndpoint", input, options)
   end
@@ -3451,7 +3484,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_resolver_query_log_config_errors()}
   def get_resolver_query_log_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResolverQueryLogConfig", input, options)
   end
@@ -3474,7 +3508,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_resolver_query_log_config_association_errors()}
   def get_resolver_query_log_config_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResolverQueryLogConfigAssociation", input, options)
   end
@@ -3496,7 +3531,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_resolver_query_log_config_policy_errors()}
   def get_resolver_query_log_config_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResolverQueryLogConfigPolicy", input, options)
   end
@@ -3512,7 +3548,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_resolver_rule_errors()}
   def get_resolver_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResolverRule", input, options)
   end
@@ -3530,7 +3567,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_resolver_rule_association_errors()}
   def get_resolver_rule_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResolverRuleAssociation", input, options)
   end
@@ -3548,7 +3586,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_resolver_rule_policy_errors()}
   def get_resolver_rule_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResolverRulePolicy", input, options)
   end
@@ -3577,7 +3616,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, import_firewall_domains_errors()}
   def import_firewall_domains(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportFirewallDomains", input, options)
   end
@@ -3596,7 +3636,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_firewall_configs_errors()}
   def list_firewall_configs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFirewallConfigs", input, options)
   end
@@ -3616,7 +3657,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_firewall_domain_lists_errors()}
   def list_firewall_domain_lists(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFirewallDomainLists", input, options)
   end
@@ -3634,7 +3676,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_firewall_domains_errors()}
   def list_firewall_domains(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFirewallDomains", input, options)
   end
@@ -3657,7 +3700,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_firewall_rule_group_associations_errors()}
   def list_firewall_rule_group_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFirewallRuleGroupAssociations", input, options)
   end
@@ -3675,7 +3719,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_firewall_rule_groups_errors()}
   def list_firewall_rule_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFirewallRuleGroups", input, options)
   end
@@ -3696,7 +3741,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_firewall_rules_errors()}
   def list_firewall_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFirewallRules", input, options)
   end
@@ -3711,7 +3757,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_outpost_resolvers_errors()}
   def list_outpost_resolvers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListOutpostResolvers", input, options)
   end
@@ -3728,7 +3775,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_resolver_configs_errors()}
   def list_resolver_configs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResolverConfigs", input, options)
   end
@@ -3743,7 +3791,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_resolver_dnssec_configs_errors()}
   def list_resolver_dnssec_configs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResolverDnssecConfigs", input, options)
   end
@@ -3761,7 +3810,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_resolver_endpoint_ip_addresses_errors()}
   def list_resolver_endpoint_ip_addresses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResolverEndpointIpAddresses", input, options)
   end
@@ -3776,7 +3826,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_resolver_endpoints_errors()}
   def list_resolver_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResolverEndpoints", input, options)
   end
@@ -3795,7 +3846,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_resolver_query_log_config_associations_errors()}
   def list_resolver_query_log_config_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResolverQueryLogConfigAssociations", input, options)
   end
@@ -3812,7 +3864,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_resolver_query_log_configs_errors()}
   def list_resolver_query_log_configs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResolverQueryLogConfigs", input, options)
   end
@@ -3827,7 +3880,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_resolver_rule_associations_errors()}
   def list_resolver_rule_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResolverRuleAssociations", input, options)
   end
@@ -3842,7 +3896,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_resolver_rules_errors()}
   def list_resolver_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResolverRules", input, options)
   end
@@ -3856,7 +3911,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3875,7 +3931,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, put_firewall_rule_group_policy_errors()}
   def put_firewall_rule_group_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutFirewallRuleGroupPolicy", input, options)
   end
@@ -3896,7 +3953,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, put_resolver_query_log_config_policy_errors()}
   def put_resolver_query_log_config_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResolverQueryLogConfigPolicy", input, options)
   end
@@ -3912,7 +3970,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, put_resolver_rule_policy_errors()}
   def put_resolver_rule_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResolverRulePolicy", input, options)
   end
@@ -3926,7 +3985,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3940,7 +4000,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -3956,7 +4017,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, update_firewall_config_errors()}
   def update_firewall_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFirewallConfig", input, options)
   end
@@ -3970,7 +4032,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, update_firewall_domains_errors()}
   def update_firewall_domains(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFirewallDomains", input, options)
   end
@@ -3984,7 +4047,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, update_firewall_rule_errors()}
   def update_firewall_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFirewallRule", input, options)
   end
@@ -4004,7 +4068,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, update_firewall_rule_group_association_errors()}
   def update_firewall_rule_group_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFirewallRuleGroupAssociation", input, options)
   end
@@ -4019,7 +4084,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, update_outpost_resolver_errors()}
   def update_outpost_resolver(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateOutpostResolver", input, options)
   end
@@ -4035,7 +4101,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, update_resolver_config_errors()}
   def update_resolver_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateResolverConfig", input, options)
   end
@@ -4051,7 +4118,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, update_resolver_dnssec_config_errors()}
   def update_resolver_dnssec_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateResolverDnssecConfig", input, options)
   end
@@ -4069,7 +4137,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, update_resolver_endpoint_errors()}
   def update_resolver_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateResolverEndpoint", input, options)
   end
@@ -4086,7 +4155,8 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, update_resolver_rule_errors()}
   def update_resolver_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateResolverRule", input, options)
   end

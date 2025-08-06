@@ -32,16 +32,16 @@ defmodule AWS.MarketplaceEntitlement do
   ## Example:
       
       entitlement() :: %{
-        "CustomerAWSAccountId" => String.t(),
-        "CustomerIdentifier" => String.t(),
-        "Dimension" => String.t(),
+        "CustomerAWSAccountId" => String.t() | atom(),
+        "CustomerIdentifier" => String.t() | atom(),
+        "Dimension" => String.t() | atom(),
         "ExpirationDate" => non_neg_integer(),
-        "ProductCode" => String.t(),
+        "ProductCode" => String.t() | atom(),
         "Value" => entitlement_value()
       }
       
   """
-  @type entitlement() :: %{String.t() => any()}
+  @type entitlement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -51,11 +51,11 @@ defmodule AWS.MarketplaceEntitlement do
         "BooleanValue" => boolean(),
         "DoubleValue" => float(),
         "IntegerValue" => integer(),
-        "StringValue" => String.t()
+        "StringValue" => String.t() | atom()
       }
       
   """
-  @type entitlement_value() :: %{String.t() => any()}
+  @type entitlement_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -64,12 +64,12 @@ defmodule AWS.MarketplaceEntitlement do
       get_entitlements_request() :: %{
         optional("Filter") => map(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ProductCode") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ProductCode") => String.t() | atom()
       }
       
   """
-  @type get_entitlements_request() :: %{String.t() => any()}
+  @type get_entitlements_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -77,44 +77,44 @@ defmodule AWS.MarketplaceEntitlement do
       
       get_entitlements_result() :: %{
         "Entitlements" => list(entitlement()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type get_entitlements_result() :: %{String.t() => any()}
+  @type get_entitlements_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_service_error_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type internal_service_error_exception() :: %{String.t() => any()}
+  @type internal_service_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_parameter_exception() :: %{String.t() => any()}
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @type get_entitlements_errors() ::
           throttling_exception()
@@ -155,7 +155,8 @@ defmodule AWS.MarketplaceEntitlement do
           | {:error, term()}
           | {:error, get_entitlements_errors()}
   def get_entitlements(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEntitlements", input, options)
   end

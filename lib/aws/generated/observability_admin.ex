@@ -30,15 +30,15 @@ defmodule AWS.ObservabilityAdmin do
 
       list_resource_telemetry_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ResourceIdentifierPrefix") => String.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceIdentifierPrefix") => String.t() | atom(),
         optional("ResourceTags") => map(),
         optional("ResourceTypes") => list(list(any())()),
         optional("TelemetryConfigurationState") => map()
       }
 
   """
-  @type list_resource_telemetry_input() :: %{String.t() => any()}
+  @type list_resource_telemetry_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -47,11 +47,11 @@ defmodule AWS.ObservabilityAdmin do
       create_telemetry_rule_input() :: %{
         optional("Tags") => map(),
         required("Rule") => telemetry_rule(),
-        required("RuleName") => String.t()
+        required("RuleName") => String.t() | atom()
       }
 
   """
-  @type create_telemetry_rule_input() :: %{String.t() => any()}
+  @type create_telemetry_rule_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -60,95 +60,97 @@ defmodule AWS.ObservabilityAdmin do
       get_telemetry_rule_output() :: %{
         "CreatedTimeStamp" => [float()],
         "LastUpdateTimeStamp" => [float()],
-        "RuleArn" => String.t(),
-        "RuleName" => String.t(),
+        "RuleArn" => String.t() | atom(),
+        "RuleName" => String.t() | atom(),
         "TelemetryRule" => telemetry_rule()
       }
 
   """
-  @type get_telemetry_rule_output() :: %{String.t() => any()}
+  @type get_telemetry_rule_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_telemetry_evaluation_status_for_organization_output() :: %{
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | atom(),
         "Status" => list(any())
       }
 
   """
-  @type get_telemetry_evaluation_status_for_organization_output() :: %{String.t() => any()}
+  @type get_telemetry_evaluation_status_for_organization_output() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       get_telemetry_evaluation_status_output() :: %{
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | atom(),
         "Status" => list(any())
       }
 
   """
-  @type get_telemetry_evaluation_status_output() :: %{String.t() => any()}
+  @type get_telemetry_evaluation_status_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_telemetry_rule_for_organization_output() :: %{
-        "RuleArn" => String.t()
+        "RuleArn" => String.t() | atom()
       }
 
   """
-  @type create_telemetry_rule_for_organization_output() :: %{String.t() => any()}
+  @type create_telemetry_rule_for_organization_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_telemetry_rule_for_organization_input() :: %{
-        required("RuleIdentifier") => String.t()
+        required("RuleIdentifier") => String.t() | atom()
       }
 
   """
-  @type get_telemetry_rule_for_organization_input() :: %{String.t() => any()}
+  @type get_telemetry_rule_for_organization_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       telemetry_destination_configuration() :: %{
-        "DestinationPattern" => [String.t()],
+        "DestinationPattern" => [String.t() | atom()],
         "DestinationType" => list(any()),
         "RetentionInDays" => integer(),
         "VPCFlowLogParameters" => vpc_flow_log_parameters()
       }
 
   """
-  @type telemetry_destination_configuration() :: %{String.t() => any()}
+  @type telemetry_destination_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_requests_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type too_many_requests_exception() :: %{String.t() => any()}
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_telemetry_rule_input() :: %{
-        required("RuleIdentifier") => String.t()
+        required("RuleIdentifier") => String.t() | atom()
       }
 
   """
-  @type get_telemetry_rule_input() :: %{String.t() => any()}
+  @type get_telemetry_rule_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -159,7 +161,7 @@ defmodule AWS.ObservabilityAdmin do
       }
 
   """
-  @type list_tags_for_resource_output() :: %{String.t() => any()}
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -168,110 +170,110 @@ defmodule AWS.ObservabilityAdmin do
       get_telemetry_rule_for_organization_output() :: %{
         "CreatedTimeStamp" => [float()],
         "LastUpdateTimeStamp" => [float()],
-        "RuleArn" => String.t(),
-        "RuleName" => String.t(),
+        "RuleArn" => String.t() | atom(),
+        "RuleName" => String.t() | atom(),
         "TelemetryRule" => telemetry_rule()
       }
 
   """
-  @type get_telemetry_rule_for_organization_output() :: %{String.t() => any()}
+  @type get_telemetry_rule_for_organization_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       telemetry_configuration() :: %{
-        "AccountIdentifier" => String.t(),
+        "AccountIdentifier" => String.t() | atom(),
         "LastUpdateTimeStamp" => [float()],
-        "ResourceIdentifier" => String.t(),
+        "ResourceIdentifier" => String.t() | atom(),
         "ResourceTags" => map(),
         "ResourceType" => list(any()),
         "TelemetryConfigurationState" => map()
       }
 
   """
-  @type telemetry_configuration() :: %{String.t() => any()}
+  @type telemetry_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_resource_telemetry_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "TelemetryConfigurations" => list(telemetry_configuration())
       }
 
   """
-  @type list_resource_telemetry_output() :: %{String.t() => any()}
+  @type list_resource_telemetry_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_telemetry_rule_for_organization_output() :: %{
-        "RuleArn" => String.t()
+        "RuleArn" => String.t() | atom()
       }
 
   """
-  @type update_telemetry_rule_for_organization_output() :: %{String.t() => any()}
+  @type update_telemetry_rule_for_organization_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => [String.t()],
-        "amznErrorType" => [String.t()]
+        "Message" => [String.t() | atom()],
+        "amznErrorType" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_telemetry_rules_for_organization_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "TelemetryRuleSummaries" => list(telemetry_rule_summary())
       }
 
   """
-  @type list_telemetry_rules_for_organization_output() :: %{String.t() => any()}
+  @type list_telemetry_rules_for_organization_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_resource_telemetry_for_organization_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "TelemetryConfigurations" => list(telemetry_configuration())
       }
 
   """
-  @type list_resource_telemetry_for_organization_output() :: %{String.t() => any()}
+  @type list_resource_telemetry_for_organization_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -279,11 +281,11 @@ defmodule AWS.ObservabilityAdmin do
 
       update_telemetry_rule_for_organization_input() :: %{
         required("Rule") => telemetry_rule(),
-        required("RuleIdentifier") => String.t()
+        required("RuleIdentifier") => String.t() | atom()
       }
 
   """
-  @type update_telemetry_rule_for_organization_input() :: %{String.t() => any()}
+  @type update_telemetry_rule_for_organization_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -291,103 +293,103 @@ defmodule AWS.ObservabilityAdmin do
 
       list_telemetry_rules_for_organization_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("RuleNamePrefix") => [String.t()],
-        optional("SourceAccountIds") => list(String.t()),
-        optional("SourceOrganizationUnitIds") => list(String.t())
+        optional("NextToken") => String.t() | atom(),
+        optional("RuleNamePrefix") => [String.t() | atom()],
+        optional("SourceAccountIds") => list(String.t() | atom()),
+        optional("SourceOrganizationUnitIds") => list(String.t() | atom())
       }
 
   """
-  @type list_telemetry_rules_for_organization_input() :: %{String.t() => any()}
+  @type list_telemetry_rules_for_organization_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_resource_telemetry_for_organization_input() :: %{
-        optional("AccountIdentifiers") => list(String.t()),
+        optional("AccountIdentifiers") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ResourceIdentifierPrefix") => String.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceIdentifierPrefix") => String.t() | atom(),
         optional("ResourceTags") => map(),
         optional("ResourceTypes") => list(list(any())()),
         optional("TelemetryConfigurationState") => map()
       }
 
   """
-  @type list_resource_telemetry_for_organization_input() :: %{String.t() => any()}
+  @type list_resource_telemetry_for_organization_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_resource_input() :: %{
-        required("ResourceARN") => String.t(),
+        required("ResourceARN") => String.t() | atom(),
         required("Tags") => map()
       }
 
   """
-  @type tag_resource_input() :: %{String.t() => any()}
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_telemetry_rule_output() :: %{
-        "RuleArn" => String.t()
+        "RuleArn" => String.t() | atom()
       }
 
   """
-  @type update_telemetry_rule_output() :: %{String.t() => any()}
+  @type update_telemetry_rule_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => [String.t()],
-        "amznErrorType" => [String.t()]
+        "Message" => [String.t() | atom()],
+        "amznErrorType" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => [String.t()],
-        "amznErrorType" => [String.t()]
+        "Message" => [String.t() | atom()],
+        "amznErrorType" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc_flow_log_parameters() :: %{
-        "LogFormat" => [String.t()],
+        "LogFormat" => [String.t() | atom()],
         "MaxAggregationInterval" => [integer()],
-        "TrafficType" => [String.t()]
+        "TrafficType" => [String.t() | atom()]
       }
 
   """
-  @type vpc_flow_log_parameters() :: %{String.t() => any()}
+  @type vpc_flow_log_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_input() :: %{
-        required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_input() :: %{String.t() => any()}
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -395,11 +397,11 @@ defmodule AWS.ObservabilityAdmin do
 
       update_telemetry_rule_input() :: %{
         required("Rule") => telemetry_rule(),
-        required("RuleIdentifier") => String.t()
+        required("RuleIdentifier") => String.t() | atom()
       }
 
   """
-  @type update_telemetry_rule_input() :: %{String.t() => any()}
+  @type update_telemetry_rule_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -407,12 +409,12 @@ defmodule AWS.ObservabilityAdmin do
 
       list_telemetry_rules_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("RuleNamePrefix") => [String.t()]
+        optional("NextToken") => String.t() | atom(),
+        optional("RuleNamePrefix") => [String.t() | atom()]
       }
 
   """
-  @type list_telemetry_rules_input() :: %{String.t() => any()}
+  @type list_telemetry_rules_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -422,35 +424,35 @@ defmodule AWS.ObservabilityAdmin do
         "CreatedTimeStamp" => [float()],
         "LastUpdateTimeStamp" => [float()],
         "ResourceType" => list(any()),
-        "RuleArn" => String.t(),
-        "RuleName" => String.t(),
+        "RuleArn" => String.t() | atom(),
+        "RuleName" => String.t() | atom(),
         "TelemetryType" => list(any())
       }
 
   """
-  @type telemetry_rule_summary() :: %{String.t() => any()}
+  @type telemetry_rule_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_input() :: %{
-        required("ResourceARN") => String.t()
+        required("ResourceARN") => String.t() | atom()
       }
 
   """
-  @type list_tags_for_resource_input() :: %{String.t() => any()}
+  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -459,11 +461,11 @@ defmodule AWS.ObservabilityAdmin do
       create_telemetry_rule_for_organization_input() :: %{
         optional("Tags") => map(),
         required("Rule") => telemetry_rule(),
-        required("RuleName") => String.t()
+        required("RuleName") => String.t() | atom()
       }
 
   """
-  @type create_telemetry_rule_for_organization_input() :: %{String.t() => any()}
+  @type create_telemetry_rule_for_organization_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -472,58 +474,58 @@ defmodule AWS.ObservabilityAdmin do
       telemetry_rule() :: %{
         "DestinationConfiguration" => telemetry_destination_configuration(),
         "ResourceType" => list(any()),
-        "Scope" => [String.t()],
-        "SelectionCriteria" => [String.t()],
+        "Scope" => [String.t() | atom()],
+        "SelectionCriteria" => [String.t() | atom()],
         "TelemetryType" => list(any())
       }
 
   """
-  @type telemetry_rule() :: %{String.t() => any()}
+  @type telemetry_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_telemetry_rule_input() :: %{
-        required("RuleIdentifier") => String.t()
+        required("RuleIdentifier") => String.t() | atom()
       }
 
   """
-  @type delete_telemetry_rule_input() :: %{String.t() => any()}
+  @type delete_telemetry_rule_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_telemetry_rule_for_organization_input() :: %{
-        required("RuleIdentifier") => String.t()
+        required("RuleIdentifier") => String.t() | atom()
       }
 
   """
-  @type delete_telemetry_rule_for_organization_input() :: %{String.t() => any()}
+  @type delete_telemetry_rule_for_organization_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_telemetry_rule_output() :: %{
-        "RuleArn" => String.t()
+        "RuleArn" => String.t() | atom()
       }
 
   """
-  @type create_telemetry_rule_output() :: %{String.t() => any()}
+  @type create_telemetry_rule_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_telemetry_rules_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "TelemetryRuleSummaries" => list(telemetry_rule_summary())
       }
 
   """
-  @type list_telemetry_rules_output() :: %{String.t() => any()}
+  @type list_telemetry_rules_output() :: %{(String.t() | atom()) => any()}
 
   @type create_telemetry_rule_errors() ::
           validation_exception()

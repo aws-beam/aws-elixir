@@ -37,7 +37,7 @@ defmodule AWS.EMRServerless do
       }
 
   """
-  @type get_job_run_response() :: %{String.t() => any()}
+  @type get_job_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -48,44 +48,44 @@ defmodule AWS.EMRServerless do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       image_configuration_input() :: %{
-        "imageUri" => String.t()
+        "imageUri" => String.t() | atom()
       }
 
   """
-  @type image_configuration_input() :: %{String.t() => any()}
+  @type image_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       worker_resource_config() :: %{
-        "cpu" => String.t(),
-        "disk" => String.t(),
-        "diskType" => String.t(),
-        "memory" => String.t()
+        "cpu" => String.t() | atom(),
+        "disk" => String.t() | atom(),
+        "diskType" => String.t() | atom(),
+        "memory" => String.t() | atom()
       }
 
   """
-  @type worker_resource_config() :: %{String.t() => any()}
+  @type worker_resource_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_monitoring_configuration() :: %{
-        "encryptionKeyArn" => String.t(),
-        "logUri" => String.t()
+        "encryptionKeyArn" => String.t() | atom(),
+        "logUri" => String.t() | atom()
       }
 
   """
-  @type s3_monitoring_configuration() :: %{String.t() => any()}
+  @type s3_monitoring_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -96,7 +96,7 @@ defmodule AWS.EMRServerless do
       }
 
   """
-  @type get_job_run_request() :: %{String.t() => any()}
+  @type get_job_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -109,7 +109,7 @@ defmodule AWS.EMRServerless do
       }
 
   """
-  @type resource_utilization() :: %{String.t() => any()}
+  @type resource_utilization() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -117,11 +117,11 @@ defmodule AWS.EMRServerless do
 
       list_job_run_attempts_response() :: %{
         "jobRunAttempts" => list(job_run_attempt_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_job_run_attempts_response() :: %{String.t() => any()}
+  @type list_job_run_attempts_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -129,11 +129,11 @@ defmodule AWS.EMRServerless do
 
       list_job_run_attempts_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_job_run_attempts_request() :: %{String.t() => any()}
+  @type list_job_run_attempts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -145,37 +145,37 @@ defmodule AWS.EMRServerless do
       }
 
   """
-  @type initial_capacity_config() :: %{String.t() => any()}
+  @type initial_capacity_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       job_run() :: %{
-        "applicationId" => String.t(),
-        "arn" => String.t(),
+        "applicationId" => String.t() | atom(),
+        "arn" => String.t() | atom(),
         "attempt" => integer(),
         "attemptCreatedAt" => non_neg_integer(),
         "attemptUpdatedAt" => non_neg_integer(),
         "billedResourceUtilization" => resource_utilization(),
         "configurationOverrides" => configuration_overrides(),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
+        "createdBy" => String.t() | atom(),
         "endedAt" => non_neg_integer(),
         "executionIamPolicy" => job_run_execution_iam_policy(),
-        "executionRole" => String.t(),
+        "executionRole" => String.t() | atom(),
         "executionTimeoutMinutes" => float(),
         "jobDriver" => list(),
-        "jobRunId" => String.t(),
-        "mode" => String.t(),
-        "name" => String.t(),
+        "jobRunId" => String.t() | atom(),
+        "mode" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "networkConfiguration" => network_configuration(),
         "queuedDurationMilliseconds" => [float()],
-        "releaseLabel" => String.t(),
+        "releaseLabel" => String.t() | atom(),
         "retryPolicy" => retry_policy(),
         "startedAt" => non_neg_integer(),
-        "state" => String.t(),
-        "stateDetails" => String.t(),
+        "state" => String.t() | atom(),
+        "stateDetails" => String.t() | atom(),
         "tags" => map(),
         "totalExecutionDurationSeconds" => [integer()],
         "totalResourceUtilization" => total_resource_utilization(),
@@ -183,7 +183,7 @@ defmodule AWS.EMRServerless do
       }
 
   """
-  @type job_run() :: %{String.t() => any()}
+  @type job_run() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -199,26 +199,26 @@ defmodule AWS.EMRServerless do
   ## Example:
 
       job_run_summary() :: %{
-        "applicationId" => String.t(),
-        "arn" => String.t(),
+        "applicationId" => String.t() | atom(),
+        "arn" => String.t() | atom(),
         "attempt" => integer(),
         "attemptCreatedAt" => non_neg_integer(),
         "attemptUpdatedAt" => non_neg_integer(),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "executionRole" => String.t(),
-        "id" => String.t(),
-        "mode" => String.t(),
-        "name" => String.t(),
-        "releaseLabel" => String.t(),
-        "state" => String.t(),
-        "stateDetails" => String.t(),
-        "type" => String.t(),
+        "createdBy" => String.t() | atom(),
+        "executionRole" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "mode" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "releaseLabel" => String.t() | atom(),
+        "state" => String.t() | atom(),
+        "stateDetails" => String.t() | atom(),
+        "type" => String.t() | atom(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type job_run_summary() :: %{String.t() => any()}
+  @type job_run_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -228,64 +228,64 @@ defmodule AWS.EMRServerless do
         optional("createdAtAfter") => non_neg_integer(),
         optional("createdAtBefore") => non_neg_integer(),
         optional("maxResults") => [integer()],
-        optional("mode") => String.t(),
-        optional("nextToken") => String.t(),
-        optional("states") => list(String.t())
+        optional("mode") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("states") => list(String.t() | atom())
       }
 
   """
-  @type list_job_runs_request() :: %{String.t() => any()}
+  @type list_job_runs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       maximum_allowed_resources() :: %{
-        "cpu" => String.t(),
-        "disk" => String.t(),
-        "memory" => String.t()
+        "cpu" => String.t() | atom(),
+        "disk" => String.t() | atom(),
+        "memory" => String.t() | atom()
       }
 
   """
-  @type maximum_allowed_resources() :: %{String.t() => any()}
+  @type maximum_allowed_resources() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       configuration() :: %{
-        "classification" => String.t(),
+        "classification" => String.t() | atom(),
         "configurations" => list(configuration()),
         "properties" => map()
       }
 
   """
-  @type configuration() :: %{String.t() => any()}
+  @type configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       job_run_attempt_summary() :: %{
-        "applicationId" => String.t(),
-        "arn" => String.t(),
+        "applicationId" => String.t() | atom(),
+        "arn" => String.t() | atom(),
         "attempt" => integer(),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "executionRole" => String.t(),
-        "id" => String.t(),
+        "createdBy" => String.t() | atom(),
+        "executionRole" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "jobCreatedAt" => non_neg_integer(),
-        "mode" => String.t(),
-        "name" => String.t(),
-        "releaseLabel" => String.t(),
-        "state" => String.t(),
-        "stateDetails" => String.t(),
-        "type" => String.t(),
+        "mode" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "releaseLabel" => String.t() | atom(),
+        "state" => String.t() | atom(),
+        "stateDetails" => String.t() | atom(),
+        "type" => String.t() | atom(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type job_run_attempt_summary() :: %{String.t() => any()}
+  @type job_run_attempt_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -299,29 +299,29 @@ defmodule AWS.EMRServerless do
       }
 
   """
-  @type monitoring_configuration() :: %{String.t() => any()}
+  @type monitoring_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       identity_center_configuration_input() :: %{
-        "identityCenterInstanceArn" => String.t()
+        "identityCenterInstanceArn" => String.t() | atom()
       }
 
   """
-  @type identity_center_configuration_input() :: %{String.t() => any()}
+  @type identity_center_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -332,7 +332,7 @@ defmodule AWS.EMRServerless do
       }
 
   """
-  @type auto_start_config() :: %{String.t() => any()}
+  @type auto_start_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -344,7 +344,7 @@ defmodule AWS.EMRServerless do
       }
 
   """
-  @type auto_stop_config() :: %{String.t() => any()}
+  @type auto_stop_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -355,112 +355,112 @@ defmodule AWS.EMRServerless do
       }
 
   """
-  @type worker_type_specification() :: %{String.t() => any()}
+  @type worker_type_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       job_run_execution_iam_policy() :: %{
-        "policy" => String.t(),
-        "policyArns" => list(String.t())
+        "policy" => String.t() | atom(),
+        "policyArns" => list(String.t() | atom())
       }
 
   """
-  @type job_run_execution_iam_policy() :: %{String.t() => any()}
+  @type job_run_execution_iam_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       spark_submit() :: %{
-        "entryPoint" => String.t(),
-        "entryPointArguments" => list(String.t()),
-        "sparkSubmitParameters" => String.t()
+        "entryPoint" => String.t() | atom(),
+        "entryPointArguments" => list(String.t() | atom()),
+        "sparkSubmitParameters" => String.t() | atom()
       }
 
   """
-  @type spark_submit() :: %{String.t() => any()}
+  @type spark_submit() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       prometheus_monitoring_configuration() :: %{
-        "remoteWriteUrl" => String.t()
+        "remoteWriteUrl" => String.t() | atom()
       }
 
   """
-  @type prometheus_monitoring_configuration() :: %{String.t() => any()}
+  @type prometheus_monitoring_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_job_run_response() :: %{
-        required("applicationId") => String.t(),
-        required("arn") => String.t(),
-        required("jobRunId") => String.t()
+        required("applicationId") => String.t() | atom(),
+        required("arn") => String.t() | atom(),
+        required("jobRunId") => String.t() | atom()
       }
 
   """
-  @type start_job_run_response() :: %{String.t() => any()}
+  @type start_job_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_job_run_response() :: %{
-        required("applicationId") => String.t(),
-        required("jobRunId") => String.t()
+        required("applicationId") => String.t() | atom(),
+        required("jobRunId") => String.t() | atom()
       }
 
   """
-  @type cancel_job_run_response() :: %{String.t() => any()}
+  @type cancel_job_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_dashboard_for_job_run_response() :: %{
-        optional("url") => String.t()
+        optional("url") => String.t() | atom()
       }
 
   """
-  @type get_dashboard_for_job_run_response() :: %{String.t() => any()}
+  @type get_dashboard_for_job_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -476,21 +476,21 @@ defmodule AWS.EMRServerless do
   ## Example:
 
       list_job_runs_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("jobRuns") => list(job_run_summary())
       }
 
   """
-  @type list_job_runs_response() :: %{String.t() => any()}
+  @type list_job_runs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       application() :: %{
-        "applicationId" => String.t(),
-        "architecture" => String.t(),
-        "arn" => String.t(),
+        "applicationId" => String.t() | atom(),
+        "architecture" => String.t() | atom(),
+        "arn" => String.t() | atom(),
         "autoStartConfiguration" => auto_start_config(),
         "autoStopConfiguration" => auto_stop_config(),
         "createdAt" => non_neg_integer(),
@@ -500,21 +500,21 @@ defmodule AWS.EMRServerless do
         "interactiveConfiguration" => interactive_configuration(),
         "maximumCapacity" => maximum_allowed_resources(),
         "monitoringConfiguration" => monitoring_configuration(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "networkConfiguration" => network_configuration(),
-        "releaseLabel" => String.t(),
+        "releaseLabel" => String.t() | atom(),
         "runtimeConfiguration" => list(configuration()),
         "schedulerConfiguration" => scheduler_configuration(),
-        "state" => String.t(),
-        "stateDetails" => String.t(),
+        "state" => String.t() | atom(),
+        "stateDetails" => String.t() | atom(),
         "tags" => map(),
-        "type" => String.t(),
+        "type" => String.t() | atom(),
         "updatedAt" => non_neg_integer(),
         "workerTypeSpecifications" => map()
       }
 
   """
-  @type application() :: %{String.t() => any()}
+  @type application() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -525,14 +525,14 @@ defmodule AWS.EMRServerless do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_application_request() :: %{
-        optional("architecture") => String.t(),
+        optional("architecture") => String.t() | atom(),
         optional("autoStartConfiguration") => auto_start_config(),
         optional("autoStopConfiguration") => auto_stop_config(),
         optional("identityCenterConfiguration") => identity_center_configuration_input(),
@@ -541,32 +541,32 @@ defmodule AWS.EMRServerless do
         optional("interactiveConfiguration") => interactive_configuration(),
         optional("maximumCapacity") => maximum_allowed_resources(),
         optional("monitoringConfiguration") => monitoring_configuration(),
-        optional("name") => String.t(),
+        optional("name") => String.t() | atom(),
         optional("networkConfiguration") => network_configuration(),
         optional("runtimeConfiguration") => list(configuration()),
         optional("schedulerConfiguration") => scheduler_configuration(),
         optional("tags") => map(),
         optional("workerTypeSpecifications") => map(),
-        required("clientToken") => String.t(),
-        required("releaseLabel") => String.t(),
-        required("type") => String.t()
+        required("clientToken") => String.t() | atom(),
+        required("releaseLabel") => String.t() | atom(),
+        required("type") => String.t() | atom()
       }
 
   """
-  @type create_application_request() :: %{String.t() => any()}
+  @type create_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_application_response() :: %{
-        optional("name") => String.t(),
-        required("applicationId") => String.t(),
-        required("arn") => String.t()
+        optional("name") => String.t() | atom(),
+        required("applicationId") => String.t() | atom(),
+        required("arn") => String.t() | atom()
       }
 
   """
-  @type create_application_response() :: %{String.t() => any()}
+  @type create_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -578,7 +578,7 @@ defmodule AWS.EMRServerless do
       }
 
   """
-  @type interactive_configuration() :: %{String.t() => any()}
+  @type interactive_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -607,27 +607,27 @@ defmodule AWS.EMRServerless do
       }
 
   """
-  @type worker_type_specification_input() :: %{String.t() => any()}
+  @type worker_type_specification_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       hive() :: %{
-        "initQueryFile" => String.t(),
-        "parameters" => String.t(),
-        "query" => String.t()
+        "initQueryFile" => String.t() | atom(),
+        "parameters" => String.t() | atom(),
+        "query" => String.t() | atom()
       }
 
   """
-  @type hive() :: %{String.t() => any()}
+  @type hive() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_application_request() :: %{
-        optional("architecture") => String.t(),
+        optional("architecture") => String.t() | atom(),
         optional("autoStartConfiguration") => auto_start_config(),
         optional("autoStopConfiguration") => auto_stop_config(),
         optional("identityCenterConfiguration") => identity_center_configuration_input(),
@@ -637,15 +637,15 @@ defmodule AWS.EMRServerless do
         optional("maximumCapacity") => maximum_allowed_resources(),
         optional("monitoringConfiguration") => monitoring_configuration(),
         optional("networkConfiguration") => network_configuration(),
-        optional("releaseLabel") => String.t(),
+        optional("releaseLabel") => String.t() | atom(),
         optional("runtimeConfiguration") => list(configuration()),
         optional("schedulerConfiguration") => scheduler_configuration(),
         optional("workerTypeSpecifications") => map(),
-        required("clientToken") => String.t()
+        required("clientToken") => String.t() | atom()
       }
 
   """
-  @type update_application_request() :: %{String.t() => any()}
+  @type update_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -656,18 +656,18 @@ defmodule AWS.EMRServerless do
       }
 
   """
-  @type update_application_response() :: %{String.t() => any()}
+  @type update_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -679,7 +679,7 @@ defmodule AWS.EMRServerless do
       }
 
   """
-  @type scheduler_configuration() :: %{String.t() => any()}
+  @type scheduler_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -699,16 +699,16 @@ defmodule AWS.EMRServerless do
         optional("executionIamPolicy") => job_run_execution_iam_policy(),
         optional("executionTimeoutMinutes") => float(),
         optional("jobDriver") => list(),
-        optional("mode") => String.t(),
-        optional("name") => String.t(),
+        optional("mode") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
         optional("retryPolicy") => retry_policy(),
         optional("tags") => map(),
-        required("clientToken") => String.t(),
-        required("executionRoleArn") => String.t()
+        required("clientToken") => String.t() | atom(),
+        required("executionRoleArn") => String.t() | atom()
       }
 
   """
-  @type start_job_run_request() :: %{String.t() => any()}
+  @type start_job_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -719,7 +719,7 @@ defmodule AWS.EMRServerless do
       }
 
   """
-  @type get_application_response() :: %{String.t() => any()}
+  @type get_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -727,24 +727,24 @@ defmodule AWS.EMRServerless do
 
       list_applications_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t(),
-        optional("states") => list(String.t())
+        optional("nextToken") => String.t() | atom(),
+        optional("states") => list(String.t() | atom())
       }
 
   """
-  @type list_applications_request() :: %{String.t() => any()}
+  @type list_applications_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       network_configuration() :: %{
-        "securityGroupIds" => list(String.t()),
-        "subnetIds" => list(String.t())
+        "securityGroupIds" => list(String.t() | atom()),
+        "subnetIds" => list(String.t() | atom())
       }
 
   """
-  @type network_configuration() :: %{String.t() => any()}
+  @type network_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -774,18 +774,18 @@ defmodule AWS.EMRServerless do
       }
 
   """
-  @type get_dashboard_for_job_run_request() :: %{String.t() => any()}
+  @type get_dashboard_for_job_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -801,12 +801,12 @@ defmodule AWS.EMRServerless do
   ## Example:
 
       identity_center_configuration() :: %{
-        "identityCenterApplicationArn" => String.t(),
-        "identityCenterInstanceArn" => String.t()
+        "identityCenterApplicationArn" => String.t() | atom(),
+        "identityCenterInstanceArn" => String.t() | atom()
       }
 
   """
-  @type identity_center_configuration() :: %{String.t() => any()}
+  @type identity_center_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -819,7 +819,7 @@ defmodule AWS.EMRServerless do
       }
 
   """
-  @type total_resource_utilization() :: %{String.t() => any()}
+  @type total_resource_utilization() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -831,39 +831,39 @@ defmodule AWS.EMRServerless do
       }
 
   """
-  @type configuration_overrides() :: %{String.t() => any()}
+  @type configuration_overrides() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       application_summary() :: %{
-        "architecture" => String.t(),
-        "arn" => String.t(),
+        "architecture" => String.t() | atom(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "releaseLabel" => String.t(),
-        "state" => String.t(),
-        "stateDetails" => String.t(),
-        "type" => String.t(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "releaseLabel" => String.t() | atom(),
+        "state" => String.t() | atom(),
+        "stateDetails" => String.t() | atom(),
+        "type" => String.t() | atom(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type application_summary() :: %{String.t() => any()}
+  @type application_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_applications_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("applications") => list(application_summary())
       }
 
   """
-  @type list_applications_response() :: %{String.t() => any()}
+  @type list_applications_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -871,11 +871,11 @@ defmodule AWS.EMRServerless do
 
       managed_persistence_monitoring_configuration() :: %{
         "enabled" => [boolean()],
-        "encryptionKeyArn" => String.t()
+        "encryptionKeyArn" => String.t() | atom()
       }
 
   """
-  @type managed_persistence_monitoring_configuration() :: %{String.t() => any()}
+  @type managed_persistence_monitoring_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -886,19 +886,19 @@ defmodule AWS.EMRServerless do
       }
 
   """
-  @type cancel_job_run_request() :: %{String.t() => any()}
+  @type cancel_job_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       image_configuration() :: %{
-        "imageUri" => String.t(),
-        "resolvedImageDigest" => String.t()
+        "imageUri" => String.t() | atom(),
+        "resolvedImageDigest" => String.t() | atom()
       }
 
   """
-  @type image_configuration() :: %{String.t() => any()}
+  @type image_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -906,14 +906,14 @@ defmodule AWS.EMRServerless do
 
       cloud_watch_logging_configuration() :: %{
         "enabled" => [boolean()],
-        "encryptionKeyArn" => String.t(),
-        "logGroupName" => String.t(),
-        "logStreamNamePrefix" => String.t(),
+        "encryptionKeyArn" => String.t() | atom(),
+        "logGroupName" => String.t() | atom(),
+        "logStreamNamePrefix" => String.t() | atom(),
         "logTypes" => map()
       }
 
   """
-  @type cloud_watch_logging_configuration() :: %{String.t() => any()}
+  @type cloud_watch_logging_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -925,7 +925,7 @@ defmodule AWS.EMRServerless do
       }
 
   """
-  @type retry_policy() :: %{String.t() => any()}
+  @type retry_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1019,7 +1019,13 @@ defmodule AWS.EMRServerless do
   @doc """
   Cancels a job run.
   """
-  @spec cancel_job_run(map(), String.t(), String.t(), cancel_job_run_request(), list()) ::
+  @spec cancel_job_run(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          cancel_job_run_request(),
+          list()
+        ) ::
           {:ok, cancel_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1086,7 +1092,7 @@ defmodule AWS.EMRServerless do
 
   An application has to be in a stopped or created state in order to be deleted.
   """
-  @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
+  @spec delete_application(map(), String.t() | atom(), delete_application_request(), list()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1115,7 +1121,7 @@ defmodule AWS.EMRServerless do
   @doc """
   Displays detailed information about a specified application.
   """
-  @spec get_application(map(), String.t(), list()) ::
+  @spec get_application(map(), String.t() | atom(), list()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1144,10 +1150,10 @@ defmodule AWS.EMRServerless do
   """
   @spec get_dashboard_for_job_run(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_dashboard_for_job_run_response(), any()}
@@ -1190,7 +1196,13 @@ defmodule AWS.EMRServerless do
   @doc """
   Displays detailed information about a job run.
   """
-  @spec get_job_run(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_job_run(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1217,7 +1229,13 @@ defmodule AWS.EMRServerless do
   @doc """
   Lists applications based on a set of parameters.
   """
-  @spec list_applications(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_applications(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1264,10 +1282,10 @@ defmodule AWS.EMRServerless do
   """
   @spec list_job_run_attempts(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_job_run_attempts_response(), any()}
@@ -1312,13 +1330,13 @@ defmodule AWS.EMRServerless do
   """
   @spec list_job_runs(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_job_runs_response(), any()}
@@ -1390,7 +1408,7 @@ defmodule AWS.EMRServerless do
   @doc """
   Lists the tags assigned to the resources.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1408,7 +1426,7 @@ defmodule AWS.EMRServerless do
   @doc """
   Starts a specified application and initializes initial capacity if configured.
   """
-  @spec start_application(map(), String.t(), start_application_request(), list()) ::
+  @spec start_application(map(), String.t() | atom(), start_application_request(), list()) ::
           {:ok, start_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1437,7 +1455,7 @@ defmodule AWS.EMRServerless do
   @doc """
   Starts a job run.
   """
-  @spec start_job_run(map(), String.t(), start_job_run_request(), list()) ::
+  @spec start_job_run(map(), String.t() | atom(), start_job_run_request(), list()) ::
           {:ok, start_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1469,7 +1487,7 @@ defmodule AWS.EMRServerless do
   All scheduled and running jobs must be completed or cancelled before stopping an
   application.
   """
-  @spec stop_application(map(), String.t(), stop_application_request(), list()) ::
+  @spec stop_application(map(), String.t() | atom(), stop_application_request(), list()) ::
           {:ok, stop_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1505,7 +1523,7 @@ defmodule AWS.EMRServerless do
   you can quickly identify a specific resource based on the tags you've assigned
   to it.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1534,7 +1552,7 @@ defmodule AWS.EMRServerless do
   @doc """
   Removes tags from resources.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1570,7 +1588,7 @@ defmodule AWS.EMRServerless do
 
   An application has to be in a stopped or created state in order to be updated.
   """
-  @spec update_application(map(), String.t(), update_application_request(), list()) ::
+  @spec update_application(map(), String.t() | atom(), update_application_request(), list()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

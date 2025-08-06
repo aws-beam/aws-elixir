@@ -75,46 +75,46 @@ defmodule AWS.Chime do
   ## Example:
 
       create_meeting_dial_out_response() :: %{
-        "TransactionId" => String.t()
+        "TransactionId" => String.t() | atom()
       }
 
   """
-  @type create_meeting_dial_out_response() :: %{String.t() => any()}
+  @type create_meeting_dial_out_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       events_configuration() :: %{
-        "BotId" => String.t(),
-        "LambdaFunctionArn" => String.t(),
-        "OutboundEventsHTTPSEndpoint" => String.t()
+        "BotId" => String.t() | atom(),
+        "LambdaFunctionArn" => String.t() | atom(),
+        "OutboundEventsHTTPSEndpoint" => String.t() | atom()
       }
 
   """
-  @type events_configuration() :: %{String.t() => any()}
+  @type events_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       business_calling_settings() :: %{
-        "CdrBucket" => String.t()
+        "CdrBucket" => String.t() | atom()
       }
 
   """
-  @type business_calling_settings() :: %{String.t() => any()}
+  @type business_calling_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_delete_phone_number_request() :: %{
-        required("PhoneNumberIds") => list(String.t())
+        required("PhoneNumberIds") => list(String.t() | atom())
       }
 
   """
-  @type batch_delete_phone_number_request() :: %{String.t() => any()}
+  @type batch_delete_phone_number_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -125,7 +125,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type create_phone_number_order_response() :: %{String.t() => any()}
+  @type create_phone_number_order_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -136,7 +136,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type batch_update_user_response() :: %{String.t() => any()}
+  @type batch_update_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -147,7 +147,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type batch_create_room_membership_response() :: %{String.t() => any()}
+  @type batch_create_room_membership_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -155,12 +155,12 @@ defmodule AWS.Chime do
 
       member_error() :: %{
         "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t(),
-        "MemberId" => String.t()
+        "ErrorMessage" => String.t() | atom(),
+        "MemberId" => String.t() | atom()
       }
 
   """
-  @type member_error() :: %{String.t() => any()}
+  @type member_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -180,7 +180,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type batch_update_phone_number_response() :: %{String.t() => any()}
+  @type batch_update_phone_number_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -191,7 +191,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type get_account_response() :: %{String.t() => any()}
+  @type get_account_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -216,12 +216,12 @@ defmodule AWS.Chime do
   ## Example:
 
       list_phone_number_orders_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "PhoneNumberOrders" => list(phone_number_order())
       }
 
   """
-  @type list_phone_number_orders_response() :: %{String.t() => any()}
+  @type list_phone_number_orders_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -237,16 +237,16 @@ defmodule AWS.Chime do
   ## Example:
 
       room() :: %{
-        "AccountId" => String.t(),
-        "CreatedBy" => String.t(),
+        "AccountId" => String.t() | atom(),
+        "CreatedBy" => String.t() | atom(),
         "CreatedTimestamp" => non_neg_integer(),
-        "Name" => String.t(),
-        "RoomId" => String.t(),
+        "Name" => String.t() | atom(),
+        "RoomId" => String.t() | atom(),
         "UpdatedTimestamp" => non_neg_integer()
       }
 
   """
-  @type room() :: %{String.t() => any()}
+  @type room() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -257,19 +257,19 @@ defmodule AWS.Chime do
       }
 
   """
-  @type batch_unsuspend_user_response() :: %{String.t() => any()}
+  @type batch_unsuspend_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_room_memberships_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "RoomMemberships" => list(room_membership())
       }
 
   """
-  @type list_room_memberships_response() :: %{String.t() => any()}
+  @type list_room_memberships_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -280,43 +280,43 @@ defmodule AWS.Chime do
       }
 
   """
-  @type update_user_response() :: %{String.t() => any()}
+  @type update_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       phone_number_country() :: %{
-        "CountryCode" => String.t(),
+        "CountryCode" => String.t() | atom(),
         "SupportedPhoneNumberTypes" => list(list(any())())
       }
 
   """
-  @type phone_number_country() :: %{String.t() => any()}
+  @type phone_number_country() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       search_available_phone_numbers_response() :: %{
-        "E164PhoneNumbers" => list(String.t()),
-        "NextToken" => String.t()
+        "E164PhoneNumbers" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type search_available_phone_numbers_response() :: %{String.t() => any()}
+  @type search_available_phone_numbers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_rooms_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Rooms" => list(room())
       }
 
   """
-  @type list_rooms_response() :: %{String.t() => any()}
+  @type list_rooms_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -332,11 +332,11 @@ defmodule AWS.Chime do
   ## Example:
 
       update_phone_number_settings_request() :: %{
-        required("CallingName") => String.t()
+        required("CallingName") => String.t() | atom()
       }
 
   """
-  @type update_phone_number_settings_request() :: %{String.t() => any()}
+  @type update_phone_number_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -353,11 +353,11 @@ defmodule AWS.Chime do
 
       service_failure_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type service_failure_exception() :: %{String.t() => any()}
+  @type service_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -368,7 +368,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type get_account_settings_response() :: %{String.t() => any()}
+  @type get_account_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -385,11 +385,11 @@ defmodule AWS.Chime do
 
       forbidden_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type forbidden_exception() :: %{String.t() => any()}
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -400,7 +400,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type get_bot_response() :: %{String.t() => any()}
+  @type get_bot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -431,7 +431,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type telephony_settings() :: %{String.t() => any()}
+  @type telephony_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -440,11 +440,11 @@ defmodule AWS.Chime do
       phone_number_association() :: %{
         "AssociatedTimestamp" => non_neg_integer(),
         "Name" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | atom()
       }
 
   """
-  @type phone_number_association() :: %{String.t() => any()}
+  @type phone_number_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -455,7 +455,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type get_user_response() :: %{String.t() => any()}
+  @type get_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -463,11 +463,11 @@ defmodule AWS.Chime do
 
       unauthorized_client_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type unauthorized_client_exception() :: %{String.t() => any()}
+  @type unauthorized_client_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -475,14 +475,14 @@ defmodule AWS.Chime do
 
       phone_number() :: %{
         "Associations" => list(phone_number_association()),
-        "CallingName" => String.t(),
+        "CallingName" => String.t() | atom(),
         "CallingNameStatus" => list(any()),
         "Capabilities" => phone_number_capabilities(),
-        "Country" => String.t(),
+        "Country" => String.t() | atom(),
         "CreatedTimestamp" => non_neg_integer(),
         "DeletionTimestamp" => non_neg_integer(),
-        "E164PhoneNumber" => String.t(),
-        "PhoneNumberId" => String.t(),
+        "E164PhoneNumber" => String.t() | atom(),
+        "PhoneNumberId" => String.t() | atom(),
         "ProductType" => list(any()),
         "Status" => list(any()),
         "Type" => list(any()),
@@ -490,7 +490,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type phone_number() :: %{String.t() => any()}
+  @type phone_number() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -519,7 +519,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type update_phone_number_response() :: %{String.t() => any()}
+  @type update_phone_number_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -527,11 +527,11 @@ defmodule AWS.Chime do
 
       throttled_client_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type throttled_client_exception() :: %{String.t() => any()}
+  @type throttled_client_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -547,11 +547,11 @@ defmodule AWS.Chime do
   ## Example:
 
       signin_delegate_group() :: %{
-        "GroupName" => String.t()
+        "GroupName" => String.t() | atom()
       }
 
   """
-  @type signin_delegate_group() :: %{String.t() => any()}
+  @type signin_delegate_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -562,7 +562,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type update_room_response() :: %{String.t() => any()}
+  @type update_room_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -573,42 +573,42 @@ defmodule AWS.Chime do
       }
 
   """
-  @type get_user_settings_response() :: %{String.t() => any()}
+  @type get_user_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ordered_phone_number() :: %{
-        "E164PhoneNumber" => String.t(),
+        "E164PhoneNumber" => String.t() | atom(),
         "Status" => list(any())
       }
 
   """
-  @type ordered_phone_number() :: %{String.t() => any()}
+  @type ordered_phone_number() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_phone_number_order_request() :: %{
-        required("E164PhoneNumbers") => list(String.t()),
+        required("E164PhoneNumbers") => list(String.t() | atom()),
         required("ProductType") => list(any())
       }
 
   """
-  @type create_phone_number_order_request() :: %{String.t() => any()}
+  @type create_phone_number_order_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       voice_connector_settings() :: %{
-        "CdrBucket" => String.t()
+        "CdrBucket" => String.t() | atom()
       }
 
   """
-  @type voice_connector_settings() :: %{String.t() => any()}
+  @type voice_connector_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -619,7 +619,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type restore_phone_number_response() :: %{String.t() => any()}
+  @type restore_phone_number_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -627,11 +627,11 @@ defmodule AWS.Chime do
 
       list_phone_number_orders_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_phone_number_orders_request() :: %{String.t() => any()}
+  @type list_phone_number_orders_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -643,7 +643,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type put_retention_settings_response() :: %{String.t() => any()}
+  @type put_retention_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -654,7 +654,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type list_supported_phone_number_countries_response() :: %{String.t() => any()}
+  @type list_supported_phone_number_countries_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -665,7 +665,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type batch_create_room_membership_request() :: %{String.t() => any()}
+  @type batch_create_room_membership_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -677,7 +677,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type retention_settings() :: %{String.t() => any()}
+  @type retention_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -693,15 +693,15 @@ defmodule AWS.Chime do
   ## Example:
 
       room_membership() :: %{
-        "InvitedBy" => String.t(),
+        "InvitedBy" => String.t() | atom(),
         "Member" => member(),
         "Role" => list(any()),
-        "RoomId" => String.t(),
+        "RoomId" => String.t() | atom(),
         "UpdatedTimestamp" => non_neg_integer()
       }
 
   """
-  @type room_membership() :: %{String.t() => any()}
+  @type room_membership() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -709,11 +709,11 @@ defmodule AWS.Chime do
 
       list_bots_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_bots_request() :: %{String.t() => any()}
+  @type list_bots_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -721,11 +721,11 @@ defmodule AWS.Chime do
 
       conflict_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -733,11 +733,11 @@ defmodule AWS.Chime do
 
       list_room_memberships_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_room_memberships_request() :: %{String.t() => any()}
+  @type list_room_memberships_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -745,11 +745,11 @@ defmodule AWS.Chime do
 
       list_accounts_response() :: %{
         "Accounts" => list(account()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_accounts_response() :: %{String.t() => any()}
+  @type list_accounts_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -765,11 +765,11 @@ defmodule AWS.Chime do
   ## Example:
 
       associate_phone_number_with_user_request() :: %{
-        required("E164PhoneNumber") => String.t()
+        required("E164PhoneNumber") => String.t() | atom()
       }
 
   """
-  @type associate_phone_number_with_user_request() :: %{String.t() => any()}
+  @type associate_phone_number_with_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -789,7 +789,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type batch_delete_phone_number_response() :: %{String.t() => any()}
+  @type batch_delete_phone_number_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -800,7 +800,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type get_phone_number_order_response() :: %{String.t() => any()}
+  @type get_phone_number_order_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -811,7 +811,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type create_room_membership_response() :: %{String.t() => any()}
+  @type create_room_membership_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -819,15 +819,15 @@ defmodule AWS.Chime do
 
       list_phone_numbers_request() :: %{
         optional("FilterName") => list(any()),
-        optional("FilterValue") => String.t(),
+        optional("FilterValue") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("ProductType") => list(any()),
         optional("Status") => list(any())
       }
 
   """
-  @type list_phone_numbers_request() :: %{String.t() => any()}
+  @type list_phone_numbers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -835,11 +835,11 @@ defmodule AWS.Chime do
 
       resource_limit_exceeded_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type resource_limit_exceeded_exception() :: %{String.t() => any()}
+  @type resource_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -855,12 +855,12 @@ defmodule AWS.Chime do
   ## Example:
 
       list_users_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Users" => list(user())
       }
 
   """
-  @type list_users_response() :: %{String.t() => any()}
+  @type list_users_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -868,30 +868,30 @@ defmodule AWS.Chime do
 
       not_found_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type not_found_exception() :: %{String.t() => any()}
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       account() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | atom(),
         "AccountStatus" => list(any()),
         "AccountType" => list(any()),
-        "AwsAccountId" => String.t(),
+        "AwsAccountId" => String.t() | atom(),
         "CreatedTimestamp" => non_neg_integer(),
         "DefaultLicense" => list(any()),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "SigninDelegateGroups" => list(signin_delegate_group()),
         "SupportedLicenses" => list(list(any())())
       }
 
   """
-  @type account() :: %{String.t() => any()}
+  @type account() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -900,14 +900,14 @@ defmodule AWS.Chime do
       phone_number_order() :: %{
         "CreatedTimestamp" => non_neg_integer(),
         "OrderedPhoneNumbers" => list(ordered_phone_number()),
-        "PhoneNumberOrderId" => String.t(),
+        "PhoneNumberOrderId" => String.t() | atom(),
         "ProductType" => list(any()),
         "Status" => list(any()),
         "UpdatedTimestamp" => non_neg_integer()
       }
 
   """
-  @type phone_number_order() :: %{String.t() => any()}
+  @type phone_number_order() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -918,7 +918,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type put_retention_settings_request() :: %{String.t() => any()}
+  @type put_retention_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -934,11 +934,13 @@ defmodule AWS.Chime do
   ## Example:
 
       disassociate_signin_delegate_groups_from_account_request() :: %{
-        required("GroupNames") => list(String.t())
+        required("GroupNames") => list(String.t() | atom())
       }
 
   """
-  @type disassociate_signin_delegate_groups_from_account_request() :: %{String.t() => any()}
+  @type disassociate_signin_delegate_groups_from_account_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -949,7 +951,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type update_room_membership_request() :: %{String.t() => any()}
+  @type update_room_membership_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -961,7 +963,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type get_global_settings_response() :: %{String.t() => any()}
+  @type get_global_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -972,7 +974,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type update_account_settings_request() :: %{String.t() => any()}
+  @type update_account_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -980,11 +982,11 @@ defmodule AWS.Chime do
 
       service_unavailable_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type service_unavailable_exception() :: %{String.t() => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1004,7 +1006,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type get_phone_number_response() :: %{String.t() => any()}
+  @type get_phone_number_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1016,7 +1018,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type update_global_settings_request() :: %{String.t() => any()}
+  @type update_global_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1027,7 +1029,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type update_user_settings_request() :: %{String.t() => any()}
+  @type update_user_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1035,11 +1037,11 @@ defmodule AWS.Chime do
 
       update_account_request() :: %{
         optional("DefaultLicense") => list(any()),
-        optional("Name") => String.t()
+        optional("Name") => String.t() | atom()
       }
 
   """
-  @type update_account_request() :: %{String.t() => any()}
+  @type update_account_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1047,12 +1049,12 @@ defmodule AWS.Chime do
 
       user_error() :: %{
         "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t(),
-        "UserId" => String.t()
+        "ErrorMessage" => String.t() | atom(),
+        "UserId" => String.t() | atom()
       }
 
   """
-  @type user_error() :: %{String.t() => any()}
+  @type user_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1086,23 +1088,23 @@ defmodule AWS.Chime do
   ## Example:
 
       alexa_for_business_metadata() :: %{
-        "AlexaForBusinessRoomArn" => String.t(),
+        "AlexaForBusinessRoomArn" => String.t() | atom(),
         "IsAlexaForBusinessEnabled" => boolean()
       }
 
   """
-  @type alexa_for_business_metadata() :: %{String.t() => any()}
+  @type alexa_for_business_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_account_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_account_request() :: %{String.t() => any()}
+  @type create_account_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1113,7 +1115,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type invite_users_response() :: %{String.t() => any()}
+  @type invite_users_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1130,11 +1132,11 @@ defmodule AWS.Chime do
 
       list_bots_response() :: %{
         "Bots" => list(bot()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_bots_response() :: %{String.t() => any()}
+  @type list_bots_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1151,11 +1153,11 @@ defmodule AWS.Chime do
 
       unprocessable_entity_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type unprocessable_entity_exception() :: %{String.t() => any()}
+  @type unprocessable_entity_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1163,11 +1165,11 @@ defmodule AWS.Chime do
 
       access_denied_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1178,7 +1180,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type get_room_response() :: %{String.t() => any()}
+  @type get_room_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1186,25 +1188,25 @@ defmodule AWS.Chime do
 
       phone_number_error() :: %{
         "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t(),
-        "PhoneNumberId" => String.t()
+        "ErrorMessage" => String.t() | atom(),
+        "PhoneNumberId" => String.t() | atom()
       }
 
   """
-  @type phone_number_error() :: %{String.t() => any()}
+  @type phone_number_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_phone_number_request_item() :: %{
-        "CallingName" => String.t(),
-        "PhoneNumberId" => String.t(),
+        "CallingName" => String.t() | atom(),
+        "PhoneNumberId" => String.t() | atom(),
         "ProductType" => list(any())
       }
 
   """
-  @type update_phone_number_request_item() :: %{String.t() => any()}
+  @type update_phone_number_request_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1216,18 +1218,18 @@ defmodule AWS.Chime do
       }
 
   """
-  @type account_settings() :: %{String.t() => any()}
+  @type account_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_suspend_user_request() :: %{
-        required("UserIdList") => list(String.t())
+        required("UserIdList") => list(String.t() | atom())
       }
 
   """
-  @type batch_suspend_user_request() :: %{String.t() => any()}
+  @type batch_suspend_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1238,7 +1240,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type update_bot_request() :: %{String.t() => any()}
+  @type update_bot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1251,7 +1253,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type update_user_request() :: %{String.t() => any()}
+  @type update_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1260,12 +1262,12 @@ defmodule AWS.Chime do
       update_user_request_item() :: %{
         "AlexaForBusinessMetadata" => alexa_for_business_metadata(),
         "LicenseType" => list(any()),
-        "UserId" => String.t(),
+        "UserId" => String.t() | atom(),
         "UserType" => list(any())
       }
 
   """
-  @type update_user_request_item() :: %{String.t() => any()}
+  @type update_user_request_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1282,34 +1284,34 @@ defmodule AWS.Chime do
 
       create_room_membership_request() :: %{
         optional("Role") => list(any()),
-        required("MemberId") => String.t()
+        required("MemberId") => String.t() | atom()
       }
 
   """
-  @type create_room_membership_request() :: %{String.t() => any()}
+  @type create_room_membership_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_room_request() :: %{
-        optional("ClientRequestToken") => String.t(),
-        required("Name") => String.t()
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_room_request() :: %{String.t() => any()}
+  @type create_room_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_unsuspend_user_request() :: %{
-        required("UserIdList") => list(String.t())
+        required("UserIdList") => list(String.t() | atom())
       }
 
   """
-  @type batch_unsuspend_user_request() :: %{String.t() => any()}
+  @type batch_unsuspend_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1317,35 +1319,35 @@ defmodule AWS.Chime do
 
       list_rooms_request() :: %{
         optional("MaxResults") => integer(),
-        optional("MemberId") => String.t(),
-        optional("NextToken") => String.t()
+        optional("MemberId") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_rooms_request() :: %{String.t() => any()}
+  @type list_rooms_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       user() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | atom(),
         "AlexaForBusinessMetadata" => alexa_for_business_metadata(),
-        "DisplayName" => String.t(),
+        "DisplayName" => String.t() | atom(),
         "InvitedOn" => non_neg_integer(),
         "LicenseType" => list(any()),
-        "PersonalPIN" => String.t(),
-        "PrimaryEmail" => String.t(),
-        "PrimaryProvisionedNumber" => String.t(),
+        "PersonalPIN" => String.t() | atom(),
+        "PrimaryEmail" => String.t() | atom(),
+        "PrimaryProvisionedNumber" => String.t() | atom(),
         "RegisteredOn" => non_neg_integer(),
-        "UserId" => String.t(),
+        "UserId" => String.t() | atom(),
         "UserInvitationStatus" => list(any()),
         "UserRegistrationStatus" => list(any()),
         "UserType" => list(any())
       }
 
   """
-  @type user() :: %{String.t() => any()}
+  @type user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1353,47 +1355,47 @@ defmodule AWS.Chime do
 
       invite_users_request() :: %{
         optional("UserType") => list(any()),
-        required("UserEmailList") => list(String.t())
+        required("UserEmailList") => list(String.t() | atom())
       }
 
   """
-  @type invite_users_request() :: %{String.t() => any()}
+  @type invite_users_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_phone_number_settings_response() :: %{
-        "CallingName" => String.t(),
+        "CallingName" => String.t() | atom(),
         "CallingNameUpdatedTimestamp" => non_neg_integer()
       }
 
   """
-  @type get_phone_number_settings_response() :: %{String.t() => any()}
+  @type get_phone_number_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       membership_item() :: %{
-        "MemberId" => String.t(),
+        "MemberId" => String.t() | atom(),
         "Role" => list(any())
       }
 
   """
-  @type membership_item() :: %{String.t() => any()}
+  @type membership_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_bot_request() :: %{
-        optional("Domain") => String.t(),
-        required("DisplayName") => String.t()
+        optional("Domain") => String.t() | atom(),
+        required("DisplayName") => String.t() | atom()
       }
 
   """
-  @type create_bot_request() :: %{String.t() => any()}
+  @type create_bot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1404,22 +1406,22 @@ defmodule AWS.Chime do
       }
 
   """
-  @type regenerate_security_token_response() :: %{String.t() => any()}
+  @type regenerate_security_token_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       member() :: %{
-        "AccountId" => String.t(),
-        "Email" => String.t(),
-        "FullName" => String.t(),
-        "MemberId" => String.t(),
+        "AccountId" => String.t() | atom(),
+        "Email" => String.t() | atom(),
+        "FullName" => String.t() | atom(),
+        "MemberId" => String.t() | atom(),
         "MemberType" => list(any())
       }
 
   """
-  @type member() :: %{String.t() => any()}
+  @type member() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1427,13 +1429,13 @@ defmodule AWS.Chime do
 
       list_users_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("UserEmail") => String.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("UserEmail") => String.t() | atom(),
         optional("UserType") => list(any())
       }
 
   """
-  @type list_users_request() :: %{String.t() => any()}
+  @type list_users_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1444,7 +1446,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type get_events_configuration_response() :: %{String.t() => any()}
+  @type get_events_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1455,7 +1457,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type create_bot_response() :: %{String.t() => any()}
+  @type create_bot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1466,7 +1468,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type create_account_response() :: %{String.t() => any()}
+  @type create_account_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1477,7 +1479,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type reset_personal_pin_response() :: %{String.t() => any()}
+  @type reset_personal_pin_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1485,37 +1487,37 @@ defmodule AWS.Chime do
 
       bad_request_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_phone_numbers_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "PhoneNumbers" => list(phone_number())
       }
 
   """
-  @type list_phone_numbers_response() :: %{String.t() => any()}
+  @type list_phone_numbers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invite() :: %{
-        "EmailAddress" => String.t(),
+        "EmailAddress" => String.t() | atom(),
         "EmailStatus" => list(any()),
-        "InviteId" => String.t(),
+        "InviteId" => String.t() | atom(),
         "Status" => list(any())
       }
 
   """
-  @type invite() :: %{String.t() => any()}
+  @type invite() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1526,7 +1528,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type user_settings() :: %{String.t() => any()}
+  @type user_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1537,7 +1539,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type update_room_membership_response() :: %{String.t() => any()}
+  @type update_room_membership_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1566,7 +1568,9 @@ defmodule AWS.Chime do
       }
 
   """
-  @type associate_signin_delegate_groups_with_account_request() :: %{String.t() => any()}
+  @type associate_signin_delegate_groups_with_account_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -1582,26 +1586,26 @@ defmodule AWS.Chime do
       }
 
   """
-  @type phone_number_capabilities() :: %{String.t() => any()}
+  @type phone_number_capabilities() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       bot() :: %{
-        "BotEmail" => String.t(),
-        "BotId" => String.t(),
+        "BotEmail" => String.t() | atom(),
+        "BotId" => String.t() | atom(),
         "BotType" => list(any()),
         "CreatedTimestamp" => non_neg_integer(),
         "Disabled" => boolean(),
-        "DisplayName" => String.t(),
-        "SecurityToken" => String.t(),
+        "DisplayName" => String.t() | atom(),
+        "SecurityToken" => String.t() | atom(),
         "UpdatedTimestamp" => non_neg_integer(),
-        "UserId" => String.t()
+        "UserId" => String.t() | atom()
       }
 
   """
-  @type bot() :: %{String.t() => any()}
+  @type bot() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1609,25 +1613,25 @@ defmodule AWS.Chime do
 
       list_accounts_request() :: %{
         optional("MaxResults") => integer(),
-        optional("Name") => String.t(),
-        optional("NextToken") => String.t(),
-        optional("UserEmail") => String.t()
+        optional("Name") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("UserEmail") => String.t() | atom()
       }
 
   """
-  @type list_accounts_request() :: %{String.t() => any()}
+  @type list_accounts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_phone_number_request() :: %{
-        optional("CallingName") => String.t(),
+        optional("CallingName") => String.t() | atom(),
         optional("ProductType") => list(any())
       }
 
   """
-  @type update_phone_number_request() :: %{String.t() => any()}
+  @type update_phone_number_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1652,12 +1656,12 @@ defmodule AWS.Chime do
   ## Example:
 
       put_events_configuration_request() :: %{
-        optional("LambdaFunctionArn") => String.t(),
-        optional("OutboundEventsHTTPSEndpoint") => String.t()
+        optional("LambdaFunctionArn") => String.t() | atom(),
+        optional("OutboundEventsHTTPSEndpoint") => String.t() | atom()
       }
 
   """
-  @type put_events_configuration_request() :: %{String.t() => any()}
+  @type put_events_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1669,18 +1673,18 @@ defmodule AWS.Chime do
       }
 
   """
-  @type get_retention_settings_response() :: %{String.t() => any()}
+  @type get_retention_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_room_request() :: %{
-        optional("Name") => String.t()
+        optional("Name") => String.t() | atom()
       }
 
   """
-  @type update_room_request() :: %{String.t() => any()}
+  @type update_room_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1700,7 +1704,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type update_account_response() :: %{String.t() => any()}
+  @type update_account_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1711,7 +1715,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type create_user_response() :: %{String.t() => any()}
+  @type create_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1722,7 +1726,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type update_bot_response() :: %{String.t() => any()}
+  @type update_bot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1733,7 +1737,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type batch_suspend_user_response() :: %{String.t() => any()}
+  @type batch_suspend_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1744,25 +1748,25 @@ defmodule AWS.Chime do
       }
 
   """
-  @type batch_update_phone_number_request() :: %{String.t() => any()}
+  @type batch_update_phone_number_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       search_available_phone_numbers_request() :: %{
-        optional("AreaCode") => String.t(),
-        optional("City") => String.t(),
-        optional("Country") => String.t(),
+        optional("AreaCode") => String.t() | atom(),
+        optional("City") => String.t() | atom(),
+        optional("Country") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("PhoneNumberType") => list(any()),
-        optional("State") => String.t(),
-        optional("TollFreePrefix") => String.t()
+        optional("State") => String.t() | atom(),
+        optional("TollFreePrefix") => String.t() | atom()
       }
 
   """
-  @type search_available_phone_numbers_request() :: %{String.t() => any()}
+  @type search_available_phone_numbers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1773,20 +1777,20 @@ defmodule AWS.Chime do
       }
 
   """
-  @type put_events_configuration_response() :: %{String.t() => any()}
+  @type put_events_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_meeting_dial_out_request() :: %{
-        required("FromPhoneNumber") => String.t(),
-        required("JoinToken") => String.t(),
-        required("ToPhoneNumber") => String.t()
+        required("FromPhoneNumber") => String.t() | atom(),
+        required("JoinToken") => String.t() | atom(),
+        required("ToPhoneNumber") => String.t() | atom()
       }
 
   """
-  @type create_meeting_dial_out_request() :: %{String.t() => any()}
+  @type create_meeting_dial_out_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1797,7 +1801,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type create_room_response() :: %{String.t() => any()}
+  @type create_room_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1808,7 +1812,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type room_retention_settings() :: %{String.t() => any()}
+  @type room_retention_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1819,7 +1823,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type list_supported_phone_number_countries_request() :: %{String.t() => any()}
+  @type list_supported_phone_number_countries_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1830,20 +1834,20 @@ defmodule AWS.Chime do
       }
 
   """
-  @type conversation_retention_settings() :: %{String.t() => any()}
+  @type conversation_retention_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_user_request() :: %{
-        optional("Email") => String.t(),
+        optional("Email") => String.t() | atom(),
         optional("UserType") => list(any()),
-        optional("Username") => String.t()
+        optional("Username") => String.t() | atom()
       }
 
   """
-  @type create_user_request() :: %{String.t() => any()}
+  @type create_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1854,7 +1858,7 @@ defmodule AWS.Chime do
       }
 
   """
-  @type batch_update_user_request() :: %{String.t() => any()}
+  @type batch_update_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2460,8 +2464,8 @@ defmodule AWS.Chime do
   """
   @spec associate_phone_number_with_user(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           associate_phone_number_with_user_request(),
           list()
         ) ::
@@ -2504,7 +2508,7 @@ defmodule AWS.Chime do
   """
   @spec associate_signin_delegate_groups_with_account(
           map(),
-          String.t(),
+          String.t() | atom(),
           associate_signin_delegate_groups_with_account_request(),
           list()
         ) ::
@@ -2548,8 +2552,8 @@ defmodule AWS.Chime do
   """
   @spec batch_create_room_membership(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           batch_create_room_membership_request(),
           list()
         ) ::
@@ -2641,7 +2645,7 @@ defmodule AWS.Chime do
   To sign out users without suspending them, use the
   `LogoutUser` action.
   """
-  @spec batch_suspend_user(map(), String.t(), batch_suspend_user_request(), list()) ::
+  @spec batch_suspend_user(map(), String.t() | atom(), batch_suspend_user_request(), list()) ::
           {:ok, batch_suspend_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2684,7 +2688,7 @@ defmodule AWS.Chime do
   `Registered`
   status. Users who are not previously suspended are ignored.
   """
-  @spec batch_unsuspend_user(map(), String.t(), batch_unsuspend_user_request(), list()) ::
+  @spec batch_unsuspend_user(map(), String.t() | atom(), batch_unsuspend_user_request(), list()) ::
           {:ok, batch_unsuspend_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2756,7 +2760,7 @@ defmodule AWS.Chime do
 
   Currently, only `LicenseType` updates are supported for this action.
   """
-  @spec batch_update_user(map(), String.t(), batch_update_user_request(), list()) ::
+  @spec batch_update_user(map(), String.t() | atom(), batch_update_user_request(), list()) ::
           {:ok, batch_update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2821,7 +2825,7 @@ defmodule AWS.Chime do
   @doc """
   Creates a bot for an Amazon Chime Enterprise account.
   """
-  @spec create_bot(map(), String.t(), create_bot_request(), list()) ::
+  @spec create_bot(map(), String.t() | atom(), create_bot_request(), list()) ::
           {:ok, create_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2860,7 +2864,12 @@ defmodule AWS.Chime do
 
   ## This API is not available in a dedicated namespace.
   """
-  @spec create_meeting_dial_out(map(), String.t(), create_meeting_dial_out_request(), list()) ::
+  @spec create_meeting_dial_out(
+          map(),
+          String.t() | atom(),
+          create_meeting_dial_out_request(),
+          list()
+        ) ::
           {:ok, create_meeting_dial_out_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2923,7 +2932,7 @@ defmodule AWS.Chime do
   @doc """
   Creates a chat room for the specified Amazon Chime Enterprise account.
   """
-  @spec create_room(map(), String.t(), create_room_request(), list()) ::
+  @spec create_room(map(), String.t() | atom(), create_room_request(), list()) ::
           {:ok, create_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2957,8 +2966,8 @@ defmodule AWS.Chime do
   """
   @spec create_room_membership(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_room_membership_request(),
           list()
         ) ::
@@ -2992,7 +3001,7 @@ defmodule AWS.Chime do
   @doc """
   Creates a user under the specified Amazon Chime account.
   """
-  @spec create_user(map(), String.t(), create_user_request(), list()) ::
+  @spec create_user(map(), String.t() | atom(), create_user_request(), list()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3037,7 +3046,7 @@ defmodule AWS.Chime do
   After 90 days, deleted accounts are permanently removed from your
   `Disabled` accounts list.
   """
-  @spec delete_account(map(), String.t(), delete_account_request(), list()) ::
+  @spec delete_account(map(), String.t() | atom(), delete_account_request(), list()) ::
           {:ok, delete_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3068,8 +3077,8 @@ defmodule AWS.Chime do
   """
   @spec delete_events_configuration(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_events_configuration_request(),
           list()
         ) ::
@@ -3112,7 +3121,7 @@ defmodule AWS.Chime do
   ## Deletion queue
   for 7 days before they are deleted permanently.
   """
-  @spec delete_phone_number(map(), String.t(), delete_phone_number_request(), list()) ::
+  @spec delete_phone_number(map(), String.t() | atom(), delete_phone_number_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3141,7 +3150,13 @@ defmodule AWS.Chime do
   @doc """
   Deletes a chat room in an Amazon Chime Enterprise account.
   """
-  @spec delete_room(map(), String.t(), String.t(), delete_room_request(), list()) ::
+  @spec delete_room(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_room_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3174,9 +3189,9 @@ defmodule AWS.Chime do
   """
   @spec delete_room_membership(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_room_membership_request(),
           list()
         ) ::
@@ -3220,8 +3235,8 @@ defmodule AWS.Chime do
   """
   @spec disassociate_phone_number_from_user(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           disassociate_phone_number_from_user_request(),
           list()
         ) ::
@@ -3264,7 +3279,7 @@ defmodule AWS.Chime do
   """
   @spec disassociate_signin_delegate_groups_from_account(
           map(),
-          String.t(),
+          String.t() | atom(),
           disassociate_signin_delegate_groups_from_account_request(),
           list()
         ) ::
@@ -3305,7 +3320,7 @@ defmodule AWS.Chime do
   and supported
   licenses.
   """
-  @spec get_account(map(), String.t(), list()) ::
+  @spec get_account(map(), String.t() | atom(), list()) ::
           {:ok, get_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3329,7 +3344,7 @@ defmodule AWS.Chime do
   [Use the Policies Page](https://docs.aws.amazon.com/chime/latest/ag/policies.html) in the *Amazon
   Chime Administration Guide*.
   """
-  @spec get_account_settings(map(), String.t(), list()) ::
+  @spec get_account_settings(map(), String.t() | atom(), list()) ::
           {:ok, get_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3348,7 +3363,7 @@ defmodule AWS.Chime do
   Retrieves details for the specified bot, such as bot email address, bot type,
   status, and display name.
   """
-  @spec get_bot(map(), String.t(), String.t(), list()) ::
+  @spec get_bot(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3367,7 +3382,7 @@ defmodule AWS.Chime do
   Gets details for an events configuration that allows a bot to receive outgoing
   events, such as an HTTPS endpoint or Lambda function ARN.
   """
-  @spec get_events_configuration(map(), String.t(), String.t(), list()) ::
+  @spec get_events_configuration(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_events_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3408,7 +3423,7 @@ defmodule AWS.Chime do
   Retrieves details for the specified phone number ID, such as associations,
   capabilities, and product type.
   """
-  @spec get_phone_number(map(), String.t(), list()) ::
+  @spec get_phone_number(map(), String.t() | atom(), list()) ::
           {:ok, get_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3428,7 +3443,7 @@ defmodule AWS.Chime do
   creation timestamp, phone
   numbers in E.164 format, product type, and order status.
   """
-  @spec get_phone_number_order(map(), String.t(), list()) ::
+  @spec get_phone_number_order(map(), String.t() | atom(), list()) ::
           {:ok, get_phone_number_order_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3470,7 +3485,7 @@ defmodule AWS.Chime do
   [Managing Chat Retention Policies](https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html) in
   the *Amazon Chime Administration Guide*.
   """
-  @spec get_retention_settings(map(), String.t(), list()) ::
+  @spec get_retention_settings(map(), String.t() | atom(), list()) ::
           {:ok, get_retention_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3489,7 +3504,7 @@ defmodule AWS.Chime do
   Retrieves room details, such as the room name, for a room in an Amazon Chime
   Enterprise account.
   """
-  @spec get_room(map(), String.t(), String.t(), list()) ::
+  @spec get_room(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3513,7 +3528,7 @@ defmodule AWS.Chime do
   To retrieve user details with an email address instead of a user ID, use the
   `ListUsers` action, and then filter by email address.
   """
-  @spec get_user(map(), String.t(), String.t(), list()) ::
+  @spec get_user(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3534,7 +3549,7 @@ defmodule AWS.Chime do
   Retrieves settings for the specified user ID, such as any associated phone
   number settings.
   """
-  @spec get_user_settings(map(), String.t(), String.t(), list()) ::
+  @spec get_user_settings(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3559,7 +3574,7 @@ defmodule AWS.Chime do
   Only `Team` account types are currently
   supported for this action.
   """
-  @spec invite_users(map(), String.t(), invite_users_request(), list()) ::
+  @spec invite_users(map(), String.t() | atom(), invite_users_request(), list()) ::
           {:ok, invite_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3595,10 +3610,10 @@ defmodule AWS.Chime do
   """
   @spec list_accounts(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_accounts_response(), any()}
@@ -3654,7 +3669,13 @@ defmodule AWS.Chime do
   Lists the bots associated with the administrator's Amazon Chime Enterprise
   account ID.
   """
-  @spec list_bots(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_bots(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_bots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3692,7 +3713,12 @@ defmodule AWS.Chime do
   @doc """
   Lists the phone number orders for the administrator's Amazon Chime account.
   """
-  @spec list_phone_number_orders(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_phone_number_orders(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_phone_number_orders_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3732,12 +3758,12 @@ defmodule AWS.Chime do
   """
   @spec list_phone_numbers(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_phone_numbers_response(), any()}
@@ -3812,10 +3838,10 @@ defmodule AWS.Chime do
   """
   @spec list_room_memberships(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_room_memberships_response(), any()}
@@ -3863,10 +3889,10 @@ defmodule AWS.Chime do
   """
   @spec list_rooms(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_rooms_response(), any()}
@@ -3914,7 +3940,7 @@ defmodule AWS.Chime do
   @doc """
   Lists supported phone number countries.
   """
-  @spec list_supported_phone_number_countries(map(), String.t(), list()) ::
+  @spec list_supported_phone_number_countries(map(), String.t() | atom(), list()) ::
           {:ok, list_supported_phone_number_countries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3944,11 +3970,11 @@ defmodule AWS.Chime do
   """
   @spec list_users(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_users_response(), any()}
@@ -4005,7 +4031,13 @@ defmodule AWS.Chime do
   Logs out the specified user from all of the devices they are currently logged
   into.
   """
-  @spec logout_user(map(), String.t(), String.t(), logout_user_request(), list()) ::
+  @spec logout_user(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          logout_user_request(),
+          list()
+        ) ::
           {:ok, logout_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4043,8 +4075,8 @@ defmodule AWS.Chime do
   """
   @spec put_events_configuration(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           put_events_configuration_request(),
           list()
         ) ::
@@ -4093,7 +4125,12 @@ defmodule AWS.Chime do
   [Managing Chat Retention Policies](https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html)
   in the *Amazon Chime Administration Guide*.
   """
-  @spec put_retention_settings(map(), String.t(), put_retention_settings_request(), list()) ::
+  @spec put_retention_settings(
+          map(),
+          String.t() | atom(),
+          put_retention_settings_request(),
+          list()
+        ) ::
           {:ok, put_retention_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4124,9 +4161,9 @@ defmodule AWS.Chime do
   """
   @spec redact_conversation_message(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           redact_conversation_message_request(),
           list()
         ) ::
@@ -4169,9 +4206,9 @@ defmodule AWS.Chime do
   """
   @spec redact_room_message(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           redact_room_message_request(),
           list()
         ) ::
@@ -4214,8 +4251,8 @@ defmodule AWS.Chime do
   """
   @spec regenerate_security_token(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           regenerate_security_token_request(),
           list()
         ) ::
@@ -4253,7 +4290,13 @@ defmodule AWS.Chime do
   Returns
   the `User` object with the updated personal meeting PIN.
   """
-  @spec reset_personal_pin(map(), String.t(), String.t(), reset_personal_pin_request(), list()) ::
+  @spec reset_personal_pin(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          reset_personal_pin_request(),
+          list()
+        ) ::
           {:ok, reset_personal_pin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4285,7 +4328,7 @@ defmodule AWS.Chime do
   Moves a phone number from the **Deletion queue** back into the
   phone number **Inventory**.
   """
-  @spec restore_phone_number(map(), String.t(), restore_phone_number_request(), list()) ::
+  @spec restore_phone_number(map(), String.t() | atom(), restore_phone_number_request(), list()) ::
           {:ok, restore_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4322,14 +4365,14 @@ defmodule AWS.Chime do
   """
   @spec search_available_phone_numbers(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, search_available_phone_numbers_response(), any()}
@@ -4419,7 +4462,7 @@ defmodule AWS.Chime do
   Currently, only account name and default license updates are supported for this
   action.
   """
-  @spec update_account(map(), String.t(), update_account_request(), list()) ::
+  @spec update_account(map(), String.t() | atom(), update_account_request(), list()) ::
           {:ok, update_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4455,7 +4498,12 @@ defmodule AWS.Chime do
   the *Amazon Chime Administration
   Guide*.
   """
-  @spec update_account_settings(map(), String.t(), update_account_settings_request(), list()) ::
+  @spec update_account_settings(
+          map(),
+          String.t() | atom(),
+          update_account_settings_request(),
+          list()
+        ) ::
           {:ok, update_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4485,7 +4533,7 @@ defmodule AWS.Chime do
   Updates the status of the specified bot, such as starting or stopping the bot
   from running in your Amazon Chime Enterprise account.
   """
-  @spec update_bot(map(), String.t(), String.t(), update_bot_request(), list()) ::
+  @spec update_bot(map(), String.t() | atom(), String.t() | atom(), update_bot_request(), list()) ::
           {:ok, update_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4556,7 +4604,7 @@ defmodule AWS.Chime do
   to outbound calling names must be complete before you can request another
   update.
   """
-  @spec update_phone_number(map(), String.t(), update_phone_number_request(), list()) ::
+  @spec update_phone_number(map(), String.t() | atom(), update_phone_number_request(), list()) ::
           {:ok, update_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4620,7 +4668,13 @@ defmodule AWS.Chime do
   Updates room details, such as the room name, for a room in an Amazon Chime
   Enterprise account.
   """
-  @spec update_room(map(), String.t(), String.t(), update_room_request(), list()) ::
+  @spec update_room(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_room_request(),
+          list()
+        ) ::
           {:ok, update_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4660,9 +4714,9 @@ defmodule AWS.Chime do
   """
   @spec update_room_membership(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_room_membership_request(),
           list()
         ) ::
@@ -4705,7 +4759,13 @@ defmodule AWS.Chime do
 
   Currently, only `LicenseType` updates are supported for this action.
   """
-  @spec update_user(map(), String.t(), String.t(), update_user_request(), list()) ::
+  @spec update_user(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_user_request(),
+          list()
+        ) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4738,8 +4798,8 @@ defmodule AWS.Chime do
   """
   @spec update_user_settings(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_user_settings_request(),
           list()
         ) ::

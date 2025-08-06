@@ -68,40 +68,40 @@ defmodule AWS.SupportApp do
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_slack_channel_configuration_request() :: %{
-        optional("channelName") => String.t(),
+        optional("channelName") => String.t() | atom(),
         optional("notifyOnAddCorrespondenceToCase") => boolean(),
         optional("notifyOnCreateOrReopenCase") => boolean(),
         optional("notifyOnResolveCase") => boolean(),
-        required("channelId") => String.t(),
-        required("channelRoleArn") => String.t(),
-        required("notifyOnCaseSeverity") => String.t(),
-        required("teamId") => String.t()
+        required("channelId") => String.t() | atom(),
+        required("channelRoleArn") => String.t() | atom(),
+        required("notifyOnCaseSeverity") => String.t() | atom(),
+        required("teamId") => String.t() | atom()
       }
 
   """
-  @type create_slack_channel_configuration_request() :: %{String.t() => any()}
+  @type create_slack_channel_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -135,12 +135,12 @@ defmodule AWS.SupportApp do
   ## Example:
 
       delete_slack_channel_configuration_request() :: %{
-        required("channelId") => String.t(),
-        required("teamId") => String.t()
+        required("channelId") => String.t() | atom(),
+        required("teamId") => String.t() | atom()
       }
 
   """
-  @type delete_slack_channel_configuration_request() :: %{String.t() => any()}
+  @type delete_slack_channel_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -156,11 +156,11 @@ defmodule AWS.SupportApp do
   ## Example:
 
       delete_slack_workspace_configuration_request() :: %{
-        required("teamId") => String.t()
+        required("teamId") => String.t() | atom()
       }
 
   """
-  @type delete_slack_workspace_configuration_request() :: %{String.t() => any()}
+  @type delete_slack_workspace_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -185,79 +185,79 @@ defmodule AWS.SupportApp do
   ## Example:
 
       get_account_alias_result() :: %{
-        optional("accountAlias") => String.t()
+        optional("accountAlias") => String.t() | atom()
       }
 
   """
-  @type get_account_alias_result() :: %{String.t() => any()}
+  @type get_account_alias_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_slack_channel_configurations_request() :: %{
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_slack_channel_configurations_request() :: %{String.t() => any()}
+  @type list_slack_channel_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_slack_channel_configurations_result() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("slackChannelConfigurations") => list(slack_channel_configuration())
       }
 
   """
-  @type list_slack_channel_configurations_result() :: %{String.t() => any()}
+  @type list_slack_channel_configurations_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_slack_workspace_configurations_request() :: %{
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_slack_workspace_configurations_request() :: %{String.t() => any()}
+  @type list_slack_workspace_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_slack_workspace_configurations_result() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("slackWorkspaceConfigurations") => list(slack_workspace_configuration())
       }
 
   """
-  @type list_slack_workspace_configurations_result() :: %{String.t() => any()}
+  @type list_slack_workspace_configurations_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_account_alias_request() :: %{
-        required("accountAlias") => String.t()
+        required("accountAlias") => String.t() | atom()
       }
 
   """
-  @type put_account_alias_request() :: %{String.t() => any()}
+  @type put_account_alias_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -273,64 +273,64 @@ defmodule AWS.SupportApp do
   ## Example:
 
       register_slack_workspace_for_organization_request() :: %{
-        required("teamId") => String.t()
+        required("teamId") => String.t() | atom()
       }
 
   """
-  @type register_slack_workspace_for_organization_request() :: %{String.t() => any()}
+  @type register_slack_workspace_for_organization_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       register_slack_workspace_for_organization_result() :: %{
-        optional("accountType") => String.t(),
-        optional("teamId") => String.t(),
-        optional("teamName") => String.t()
+        optional("accountType") => String.t() | atom(),
+        optional("teamId") => String.t() | atom(),
+        optional("teamName") => String.t() | atom()
       }
 
   """
-  @type register_slack_workspace_for_organization_result() :: %{String.t() => any()}
+  @type register_slack_workspace_for_organization_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       slack_channel_configuration() :: %{
-        "channelId" => String.t(),
-        "channelName" => String.t(),
-        "channelRoleArn" => String.t(),
+        "channelId" => String.t() | atom(),
+        "channelName" => String.t() | atom(),
+        "channelRoleArn" => String.t() | atom(),
         "notifyOnAddCorrespondenceToCase" => boolean(),
-        "notifyOnCaseSeverity" => String.t(),
+        "notifyOnCaseSeverity" => String.t() | atom(),
         "notifyOnCreateOrReopenCase" => boolean(),
         "notifyOnResolveCase" => boolean(),
-        "teamId" => String.t()
+        "teamId" => String.t() | atom()
       }
 
   """
-  @type slack_channel_configuration() :: %{String.t() => any()}
+  @type slack_channel_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -338,59 +338,59 @@ defmodule AWS.SupportApp do
 
       slack_workspace_configuration() :: %{
         "allowOrganizationMemberAccount" => boolean(),
-        "teamId" => String.t(),
-        "teamName" => String.t()
+        "teamId" => String.t() | atom(),
+        "teamName" => String.t() | atom()
       }
 
   """
-  @type slack_workspace_configuration() :: %{String.t() => any()}
+  @type slack_workspace_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_slack_channel_configuration_request() :: %{
-        optional("channelName") => String.t(),
-        optional("channelRoleArn") => String.t(),
+        optional("channelName") => String.t() | atom(),
+        optional("channelRoleArn") => String.t() | atom(),
         optional("notifyOnAddCorrespondenceToCase") => boolean(),
-        optional("notifyOnCaseSeverity") => String.t(),
+        optional("notifyOnCaseSeverity") => String.t() | atom(),
         optional("notifyOnCreateOrReopenCase") => boolean(),
         optional("notifyOnResolveCase") => boolean(),
-        required("channelId") => String.t(),
-        required("teamId") => String.t()
+        required("channelId") => String.t() | atom(),
+        required("teamId") => String.t() | atom()
       }
 
   """
-  @type update_slack_channel_configuration_request() :: %{String.t() => any()}
+  @type update_slack_channel_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_slack_channel_configuration_result() :: %{
-        optional("channelId") => String.t(),
-        optional("channelName") => String.t(),
-        optional("channelRoleArn") => String.t(),
+        optional("channelId") => String.t() | atom(),
+        optional("channelName") => String.t() | atom(),
+        optional("channelRoleArn") => String.t() | atom(),
         optional("notifyOnAddCorrespondenceToCase") => boolean(),
-        optional("notifyOnCaseSeverity") => String.t(),
+        optional("notifyOnCaseSeverity") => String.t() | atom(),
         optional("notifyOnCreateOrReopenCase") => boolean(),
         optional("notifyOnResolveCase") => boolean(),
-        optional("teamId") => String.t()
+        optional("teamId") => String.t() | atom()
       }
 
   """
-  @type update_slack_channel_configuration_result() :: %{String.t() => any()}
+  @type update_slack_channel_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @type create_slack_channel_configuration_errors() ::
           validation_exception()

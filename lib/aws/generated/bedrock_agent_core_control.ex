@@ -21,19 +21,19 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       update_gateway_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | atom(),
         optional("exceptionLevel") => list(any()),
-        optional("kmsKeyArn") => String.t(),
+        optional("kmsKeyArn") => String.t() | atom(),
         optional("protocolConfiguration") => list(),
         required("authorizerConfiguration") => list(),
         required("authorizerType") => list(any()),
-        required("name") => String.t(),
+        required("name") => String.t() | atom(),
         required("protocolType") => list(any()),
-        required("roleArn") => String.t()
+        required("roleArn") => String.t() | atom()
       }
 
   """
-  @type update_gateway_request() :: %{String.t() => any()}
+  @type update_gateway_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -45,7 +45,7 @@ defmodule AWS.BedrockAgentCoreControl do
       }
 
   """
-  @type modify_strategy_configuration() :: %{String.t() => any()}
+  @type modify_strategy_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -53,25 +53,25 @@ defmodule AWS.BedrockAgentCoreControl do
 
       list_gateway_targets_response() :: %{
         "items" => list(target_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_gateway_targets_response() :: %{String.t() => any()}
+  @type list_gateway_targets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_agent_runtime_endpoint_request() :: %{
-        optional("agentRuntimeVersion") => String.t(),
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        required("name") => String.t()
+        optional("agentRuntimeVersion") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
 
   """
-  @type create_agent_runtime_endpoint_request() :: %{String.t() => any()}
+  @type create_agent_runtime_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -88,12 +88,12 @@ defmodule AWS.BedrockAgentCoreControl do
 
       create_oauth2_credential_provider_response() :: %{
         "clientSecretArn" => secret(),
-        "credentialProviderArn" => String.t(),
-        "name" => String.t()
+        "credentialProviderArn" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type create_oauth2_credential_provider_response() :: %{String.t() => any()}
+  @type create_oauth2_credential_provider_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -102,17 +102,17 @@ defmodule AWS.BedrockAgentCoreControl do
       memory_strategy() :: %{
         "configuration" => strategy_configuration(),
         "createdAt" => [non_neg_integer()],
-        "description" => String.t(),
-        "name" => String.t(),
-        "namespaces" => list(String.t()),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "namespaces" => list(String.t() | atom()),
         "status" => list(any()),
-        "strategyId" => String.t(),
+        "strategyId" => String.t() | atom(),
         "type" => list(any()),
         "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type memory_strategy() :: %{String.t() => any()}
+  @type memory_strategy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -121,68 +121,68 @@ defmodule AWS.BedrockAgentCoreControl do
       get_api_key_credential_provider_response() :: %{
         "apiKeySecretArn" => secret(),
         "createdTime" => [non_neg_integer()],
-        "credentialProviderArn" => String.t(),
+        "credentialProviderArn" => String.t() | atom(),
         "lastUpdatedTime" => [non_neg_integer()],
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type get_api_key_credential_provider_response() :: %{String.t() => any()}
+  @type get_api_key_credential_provider_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       browser_summary() :: %{
-        "browserArn" => String.t(),
-        "browserId" => String.t(),
+        "browserArn" => String.t() | atom(),
+        "browserId" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type browser_summary() :: %{String.t() => any()}
+  @type browser_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       summary_override_consolidation_configuration_input() :: %{
-        "appendToPrompt" => String.t(),
-        "modelId" => [String.t()]
+        "appendToPrompt" => String.t() | atom(),
+        "modelId" => [String.t() | atom()]
       }
 
   """
-  @type summary_override_consolidation_configuration_input() :: %{String.t() => any()}
+  @type summary_override_consolidation_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       memory_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
-        "id" => String.t(),
+        "id" => String.t() | atom(),
         "status" => list(any()),
         "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type memory_summary() :: %{String.t() => any()}
+  @type memory_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unauthorized_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type unauthorized_exception() :: %{String.t() => any()}
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -190,41 +190,41 @@ defmodule AWS.BedrockAgentCoreControl do
 
       list_code_interpreters_response() :: %{
         "codeInterpreterSummaries" => list(code_interpreter_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_code_interpreters_response() :: %{String.t() => any()}
+  @type list_code_interpreters_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_memory_input() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        optional("encryptionKeyArn") => String.t(),
-        optional("memoryExecutionRoleArn") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("encryptionKeyArn") => String.t() | atom(),
+        optional("memoryExecutionRoleArn") => String.t() | atom(),
         optional("memoryStrategies") => list(list()),
         required("eventExpiryDuration") => [integer()],
-        required("name") => String.t()
+        required("name") => String.t() | atom()
       }
 
   """
-  @type create_memory_input() :: %{String.t() => any()}
+  @type create_memory_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       summary_memory_strategy_input() :: %{
-        "description" => String.t(),
-        "name" => String.t(),
-        "namespaces" => list(String.t())
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "namespaces" => list(String.t() | atom())
       }
 
   """
-  @type summary_memory_strategy_input() :: %{String.t() => any()}
+  @type summary_memory_strategy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -232,26 +232,26 @@ defmodule AWS.BedrockAgentCoreControl do
 
       kms_configuration() :: %{
         "keyType" => list(any()),
-        "kmsKeyArn" => String.t()
+        "kmsKeyArn" => String.t() | atom()
       }
 
   """
-  @type kms_configuration() :: %{String.t() => any()}
+  @type kms_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       schema_definition() :: %{
-        "description" => [String.t()],
+        "description" => [String.t() | atom()],
         "items" => schema_definition(),
         "properties" => map(),
-        "required" => list([String.t()]()),
+        "required" => list([String.t() | atom()]()),
         "type" => list(any())
       }
 
   """
-  @type schema_definition() :: %{String.t() => any()}
+  @type schema_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -259,11 +259,11 @@ defmodule AWS.BedrockAgentCoreControl do
 
       list_agent_runtime_versions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_agent_runtime_versions_request() :: %{String.t() => any()}
+  @type list_agent_runtime_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -273,36 +273,36 @@ defmodule AWS.BedrockAgentCoreControl do
         "authorizerConfiguration" => list(),
         "authorizerType" => list(any()),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "exceptionLevel" => list(any()),
-        "gatewayArn" => String.t(),
-        "gatewayId" => String.t(),
-        "gatewayUrl" => String.t(),
-        "kmsKeyArn" => String.t(),
-        "name" => String.t(),
+        "gatewayArn" => String.t() | atom(),
+        "gatewayId" => String.t() | atom(),
+        "gatewayUrl" => String.t() | atom(),
+        "kmsKeyArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "protocolConfiguration" => list(),
         "protocolType" => list(any()),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | atom(),
         "status" => list(any()),
-        "statusReasons" => list(String.t()),
+        "statusReasons" => list(String.t() | atom()),
         "updatedAt" => non_neg_integer(),
         "workloadIdentityDetails" => workload_identity_details()
       }
 
   """
-  @type create_gateway_response() :: %{String.t() => any()}
+  @type create_gateway_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       salesforce_oauth2_provider_config_input() :: %{
-        "clientId" => String.t(),
-        "clientSecret" => String.t()
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom()
       }
 
   """
-  @type salesforce_oauth2_provider_config_input() :: %{String.t() => any()}
+  @type salesforce_oauth2_provider_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -310,138 +310,138 @@ defmodule AWS.BedrockAgentCoreControl do
 
       list_gateways_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_gateways_request() :: %{String.t() => any()}
+  @type list_gateways_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_oauth2_credential_provider_request() :: %{
-        required("name") => String.t()
+        required("name") => String.t() | atom()
       }
 
   """
-  @type get_oauth2_credential_provider_request() :: %{String.t() => any()}
+  @type get_oauth2_credential_provider_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_workload_identity_request() :: %{
-        required("name") => String.t()
+        required("name") => String.t() | atom()
       }
 
   """
-  @type get_workload_identity_request() :: %{String.t() => any()}
+  @type get_workload_identity_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_gateway_target_response() :: %{
-        "gatewayArn" => String.t(),
+        "gatewayArn" => String.t() | atom(),
         "status" => list(any()),
-        "statusReasons" => list(String.t()),
-        "targetId" => String.t()
+        "statusReasons" => list(String.t() | atom()),
+        "targetId" => String.t() | atom()
       }
 
   """
-  @type delete_gateway_target_response() :: %{String.t() => any()}
+  @type delete_gateway_target_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tool_definition() :: %{
-        "description" => [String.t()],
+        "description" => [String.t() | atom()],
         "inputSchema" => schema_definition(),
-        "name" => [String.t()],
+        "name" => [String.t() | atom()],
         "outputSchema" => schema_definition()
       }
 
   """
-  @type tool_definition() :: %{String.t() => any()}
+  @type tool_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       decryption_failure() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type decryption_failure() :: %{String.t() => any()}
+  @type decryption_failure() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       code_interpreter_summary() :: %{
-        "codeInterpreterArn" => String.t(),
-        "codeInterpreterId" => String.t(),
+        "codeInterpreterArn" => String.t() | atom(),
+        "codeInterpreterId" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type code_interpreter_summary() :: %{String.t() => any()}
+  @type code_interpreter_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_browser_response() :: %{
-        "browserArn" => String.t(),
-        "browserId" => String.t(),
+        "browserArn" => String.t() | atom(),
+        "browserId" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "status" => list(any())
       }
 
   """
-  @type create_browser_response() :: %{String.t() => any()}
+  @type create_browser_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       encryption_failure() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type encryption_failure() :: %{String.t() => any()}
+  @type encryption_failure() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_browser_response() :: %{
-        "browserId" => String.t(),
+        "browserId" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
         "status" => list(any())
       }
 
   """
-  @type delete_browser_response() :: %{String.t() => any()}
+  @type delete_browser_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_agent_runtime_request() :: %{
-        optional("agentRuntimeVersion") => String.t()
+        optional("agentRuntimeVersion") => String.t() | atom()
       }
 
   """
-  @type get_agent_runtime_request() :: %{String.t() => any()}
+  @type get_agent_runtime_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -457,49 +457,49 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       semantic_memory_strategy_input() :: %{
-        "description" => String.t(),
-        "name" => String.t(),
-        "namespaces" => list(String.t())
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "namespaces" => list(String.t() | atom())
       }
 
   """
-  @type semantic_memory_strategy_input() :: %{String.t() => any()}
+  @type semantic_memory_strategy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_memory_input() :: %{
-        optional("clientToken") => String.t()
+        optional("clientToken") => String.t() | atom()
       }
 
   """
-  @type delete_memory_input() :: %{String.t() => any()}
+  @type delete_memory_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_gateway_response() :: %{
-        "gatewayId" => String.t(),
+        "gatewayId" => String.t() | atom(),
         "status" => list(any()),
-        "statusReasons" => list(String.t())
+        "statusReasons" => list(String.t() | atom())
       }
 
   """
-  @type delete_gateway_response() :: %{String.t() => any()}
+  @type delete_gateway_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       summary_consolidation_override() :: %{
-        "appendToPrompt" => String.t(),
-        "modelId" => [String.t()]
+        "appendToPrompt" => String.t() | atom(),
+        "modelId" => [String.t() | atom()]
       }
 
   """
-  @type summary_consolidation_override() :: %{String.t() => any()}
+  @type summary_consolidation_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -507,12 +507,12 @@ defmodule AWS.BedrockAgentCoreControl do
 
       create_api_key_credential_provider_response() :: %{
         "apiKeySecretArn" => secret(),
-        "credentialProviderArn" => String.t(),
-        "name" => String.t()
+        "credentialProviderArn" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type create_api_key_credential_provider_response() :: %{String.t() => any()}
+  @type create_api_key_credential_provider_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -520,13 +520,13 @@ defmodule AWS.BedrockAgentCoreControl do
 
       custom_memory_strategy_input() :: %{
         "configuration" => list(),
-        "description" => String.t(),
-        "name" => String.t(),
-        "namespaces" => list(String.t())
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "namespaces" => list(String.t() | atom())
       }
 
   """
-  @type custom_memory_strategy_input() :: %{String.t() => any()}
+  @type custom_memory_strategy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -538,7 +538,7 @@ defmodule AWS.BedrockAgentCoreControl do
       }
 
   """
-  @type user_preference_override_configuration_input() :: %{String.t() => any()}
+  @type user_preference_override_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -547,18 +547,18 @@ defmodule AWS.BedrockAgentCoreControl do
       get_gateway_target_response() :: %{
         "createdAt" => non_neg_integer(),
         "credentialProviderConfigurations" => list(credential_provider_configuration()),
-        "description" => String.t(),
-        "gatewayArn" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | atom(),
+        "gatewayArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
-        "statusReasons" => list(String.t()),
+        "statusReasons" => list(String.t() | atom()),
         "targetConfiguration" => list(),
-        "targetId" => String.t(),
+        "targetId" => String.t() | atom(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type get_gateway_target_response() :: %{String.t() => any()}
+  @type get_gateway_target_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -574,135 +574,135 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       semantic_extraction_override() :: %{
-        "appendToPrompt" => String.t(),
-        "modelId" => [String.t()]
+        "appendToPrompt" => String.t() | atom(),
+        "modelId" => [String.t() | atom()]
       }
 
   """
-  @type semantic_extraction_override() :: %{String.t() => any()}
+  @type semantic_extraction_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       semantic_override_consolidation_configuration_input() :: %{
-        "appendToPrompt" => String.t(),
-        "modelId" => [String.t()]
+        "appendToPrompt" => String.t() | atom(),
+        "modelId" => [String.t() | atom()]
       }
 
   """
-  @type semantic_override_consolidation_configuration_input() :: %{String.t() => any()}
+  @type semantic_override_consolidation_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_agent_runtime_endpoint_response() :: %{
-        "agentRuntimeArn" => String.t(),
-        "agentRuntimeEndpointArn" => String.t(),
+        "agentRuntimeArn" => String.t() | atom(),
+        "agentRuntimeEndpointArn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "status" => list(any()),
-        "targetVersion" => String.t()
+        "targetVersion" => String.t() | atom()
       }
 
   """
-  @type create_agent_runtime_endpoint_response() :: %{String.t() => any()}
+  @type create_agent_runtime_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_api_key_credential_provider_request() :: %{
-        required("apiKey") => String.t(),
-        required("name") => String.t()
+        required("apiKey") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
 
   """
-  @type create_api_key_credential_provider_request() :: %{String.t() => any()}
+  @type create_api_key_credential_provider_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_browser_response() :: %{
-        "browserArn" => String.t(),
-        "browserId" => String.t(),
+        "browserArn" => String.t() | atom(),
+        "browserId" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "executionRoleArn" => String.t(),
+        "description" => String.t() | atom(),
+        "executionRoleArn" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "networkConfiguration" => browser_network_configuration(),
         "recording" => recording_config(),
         "status" => list(any())
       }
 
   """
-  @type get_browser_response() :: %{String.t() => any()}
+  @type get_browser_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       workload_identity_details() :: %{
-        "workloadIdentityArn" => String.t()
+        "workloadIdentityArn" => String.t() | atom()
       }
 
   """
-  @type workload_identity_details() :: %{String.t() => any()}
+  @type workload_identity_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_gateway_target_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         required("credentialProviderConfigurations") => list(credential_provider_configuration()),
-        required("name") => String.t(),
+        required("name") => String.t() | atom(),
         required("targetConfiguration") => list()
       }
 
   """
-  @type create_gateway_target_request() :: %{String.t() => any()}
+  @type create_gateway_target_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       semantic_consolidation_override() :: %{
-        "appendToPrompt" => String.t(),
-        "modelId" => [String.t()]
+        "appendToPrompt" => String.t() | atom(),
+        "modelId" => [String.t() | atom()]
       }
 
   """
-  @type semantic_consolidation_override() :: %{String.t() => any()}
+  @type semantic_consolidation_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_memory_input() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("eventExpiryDuration") => [integer()],
-        optional("memoryExecutionRoleArn") => String.t(),
+        optional("memoryExecutionRoleArn") => String.t() | atom(),
         optional("memoryStrategies") => modify_memory_strategies()
       }
 
   """
-  @type update_memory_input() :: %{String.t() => any()}
+  @type update_memory_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_oauth2_credential_provider_request() :: %{
-        required("name") => String.t()
+        required("name") => String.t() | atom()
       }
 
   """
-  @type delete_oauth2_credential_provider_request() :: %{String.t() => any()}
+  @type delete_oauth2_credential_provider_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -711,44 +711,44 @@ defmodule AWS.BedrockAgentCoreControl do
       create_gateway_target_response() :: %{
         "createdAt" => non_neg_integer(),
         "credentialProviderConfigurations" => list(credential_provider_configuration()),
-        "description" => String.t(),
-        "gatewayArn" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | atom(),
+        "gatewayArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
-        "statusReasons" => list(String.t()),
+        "statusReasons" => list(String.t() | atom()),
         "targetConfiguration" => list(),
-        "targetId" => String.t(),
+        "targetId" => String.t() | atom(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type create_gateway_target_response() :: %{String.t() => any()}
+  @type create_gateway_target_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       github_oauth2_provider_config_input() :: %{
-        "clientId" => String.t(),
-        "clientSecret" => String.t()
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom()
       }
 
   """
-  @type github_oauth2_provider_config_input() :: %{String.t() => any()}
+  @type github_oauth2_provider_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       oauth2_authorization_server_metadata() :: %{
-        "authorizationEndpoint" => String.t(),
-        "issuer" => String.t(),
-        "responseTypes" => list(String.t()),
-        "tokenEndpoint" => String.t()
+        "authorizationEndpoint" => String.t() | atom(),
+        "issuer" => String.t() | atom(),
+        "responseTypes" => list(String.t() | atom()),
+        "tokenEndpoint" => String.t() | atom()
       }
 
   """
-  @type oauth2_authorization_server_metadata() :: %{String.t() => any()}
+  @type oauth2_authorization_server_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -768,18 +768,18 @@ defmodule AWS.BedrockAgentCoreControl do
       }
 
   """
-  @type github_oauth2_provider_config_output() :: %{String.t() => any()}
+  @type github_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_api_key_credential_provider_request() :: %{
-        required("name") => String.t()
+        required("name") => String.t() | atom()
       }
 
   """
-  @type get_api_key_credential_provider_request() :: %{String.t() => any()}
+  @type get_api_key_credential_provider_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -787,18 +787,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
       create_agent_runtime_request() :: %{
         optional("authorizerConfiguration") => list(),
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("environmentVariables") => map(),
         optional("protocolConfiguration") => protocol_configuration(),
         required("agentRuntimeArtifact") => list(),
-        required("agentRuntimeName") => String.t(),
+        required("agentRuntimeName") => String.t() | atom(),
         required("networkConfiguration") => network_configuration(),
-        required("roleArn") => String.t()
+        required("roleArn") => String.t() | atom()
       }
 
   """
-  @type create_agent_runtime_request() :: %{String.t() => any()}
+  @type create_agent_runtime_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -807,48 +807,48 @@ defmodule AWS.BedrockAgentCoreControl do
       gateway_summary() :: %{
         "authorizerType" => list(any()),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "gatewayId" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | atom(),
+        "gatewayId" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "protocolType" => list(any()),
         "status" => list(any()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type gateway_summary() :: %{String.t() => any()}
+  @type gateway_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_agent_runtime_endpoint_request() :: %{
-        optional("clientToken") => String.t()
+        optional("clientToken") => String.t() | atom()
       }
 
   """
-  @type delete_agent_runtime_endpoint_request() :: %{String.t() => any()}
+  @type delete_agent_runtime_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_agent_runtime_endpoint_response() :: %{
-        "agentRuntimeArn" => String.t(),
-        "agentRuntimeEndpointArn" => String.t(),
+        "agentRuntimeArn" => String.t() | atom(),
+        "agentRuntimeEndpointArn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "failureReason" => [String.t()],
-        "id" => String.t(),
+        "description" => String.t() | atom(),
+        "failureReason" => [String.t() | atom()],
+        "id" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
-        "liveVersion" => String.t(),
-        "name" => String.t(),
+        "liveVersion" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
-        "targetVersion" => String.t()
+        "targetVersion" => String.t() | atom()
       }
 
   """
-  @type get_agent_runtime_endpoint_response() :: %{String.t() => any()}
+  @type get_agent_runtime_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -856,26 +856,26 @@ defmodule AWS.BedrockAgentCoreControl do
 
       update_agent_runtime_request() :: %{
         optional("authorizerConfiguration") => list(),
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("environmentVariables") => map(),
         optional("protocolConfiguration") => protocol_configuration(),
         required("agentRuntimeArtifact") => list(),
         required("networkConfiguration") => network_configuration(),
-        required("roleArn") => String.t()
+        required("roleArn") => String.t() | atom()
       }
 
   """
-  @type update_agent_runtime_request() :: %{String.t() => any()}
+  @type update_agent_runtime_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_agent_runtime_response() :: %{
-        "agentRuntimeArn" => String.t(),
-        "agentRuntimeId" => String.t(),
-        "agentRuntimeVersion" => String.t(),
+        "agentRuntimeArn" => String.t() | atom(),
+        "agentRuntimeId" => String.t() | atom(),
+        "agentRuntimeVersion" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "lastUpdatedAt" => non_neg_integer(),
         "status" => list(any()),
@@ -883,57 +883,57 @@ defmodule AWS.BedrockAgentCoreControl do
       }
 
   """
-  @type update_agent_runtime_response() :: %{String.t() => any()}
+  @type update_agent_runtime_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_api_key_credential_provider_request() :: %{
-        required("name") => String.t()
+        required("name") => String.t() | atom()
       }
 
   """
-  @type delete_api_key_credential_provider_request() :: %{String.t() => any()}
+  @type delete_api_key_credential_provider_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttled_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type throttled_exception() :: %{String.t() => any()}
+  @type throttled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_browser_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        optional("executionRoleArn") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("executionRoleArn") => String.t() | atom(),
         optional("recording") => recording_config(),
-        required("name") => String.t(),
+        required("name") => String.t() | atom(),
         required("networkConfiguration") => browser_network_configuration()
       }
 
   """
-  @type create_browser_request() :: %{String.t() => any()}
+  @type create_browser_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_workload_identity_request() :: %{
-        optional("allowedResourceOauth2ReturnUrls") => list(String.t()),
-        required("name") => String.t()
+        optional("allowedResourceOauth2ReturnUrls") => list(String.t() | atom()),
+        required("name") => String.t() | atom()
       }
 
   """
-  @type update_workload_identity_request() :: %{String.t() => any()}
+  @type update_workload_identity_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -942,52 +942,52 @@ defmodule AWS.BedrockAgentCoreControl do
       update_gateway_target_response() :: %{
         "createdAt" => non_neg_integer(),
         "credentialProviderConfigurations" => list(credential_provider_configuration()),
-        "description" => String.t(),
-        "gatewayArn" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | atom(),
+        "gatewayArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
-        "statusReasons" => list(String.t()),
+        "statusReasons" => list(String.t() | atom()),
         "targetConfiguration" => list(),
-        "targetId" => String.t(),
+        "targetId" => String.t() | atom(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type update_gateway_target_response() :: %{String.t() => any()}
+  @type update_gateway_target_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_workload_identity_request() :: %{
-        optional("allowedResourceOauth2ReturnUrls") => list(String.t()),
-        required("name") => String.t()
+        optional("allowedResourceOauth2ReturnUrls") => list(String.t() | atom()),
+        required("name") => String.t() | atom()
       }
 
   """
-  @type create_workload_identity_request() :: %{String.t() => any()}
+  @type create_workload_identity_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -997,24 +997,24 @@ defmodule AWS.BedrockAgentCoreControl do
         "authorizerConfiguration" => list(),
         "authorizerType" => list(any()),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "exceptionLevel" => list(any()),
-        "gatewayArn" => String.t(),
-        "gatewayId" => String.t(),
-        "gatewayUrl" => String.t(),
-        "kmsKeyArn" => String.t(),
-        "name" => String.t(),
+        "gatewayArn" => String.t() | atom(),
+        "gatewayId" => String.t() | atom(),
+        "gatewayUrl" => String.t() | atom(),
+        "kmsKeyArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "protocolConfiguration" => list(),
         "protocolType" => list(any()),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | atom(),
         "status" => list(any()),
-        "statusReasons" => list(String.t()),
+        "statusReasons" => list(String.t() | atom()),
         "updatedAt" => non_neg_integer(),
         "workloadIdentityDetails" => workload_identity_details()
       }
 
   """
-  @type get_gateway_response() :: %{String.t() => any()}
+  @type get_gateway_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1025,29 +1025,29 @@ defmodule AWS.BedrockAgentCoreControl do
       }
 
   """
-  @type create_memory_output() :: %{String.t() => any()}
+  @type create_memory_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_code_interpreter_request() :: %{
-        optional("clientToken") => String.t()
+        optional("clientToken") => String.t() | atom()
       }
 
   """
-  @type delete_code_interpreter_request() :: %{String.t() => any()}
+  @type delete_code_interpreter_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1055,15 +1055,15 @@ defmodule AWS.BedrockAgentCoreControl do
 
       target_summary() :: %{
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
-        "targetId" => String.t(),
+        "targetId" => String.t() | atom(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type target_summary() :: %{String.t() => any()}
+  @type target_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1072,11 +1072,11 @@ defmodule AWS.BedrockAgentCoreControl do
       set_token_vault_cm_k_response() :: %{
         "kmsConfiguration" => kms_configuration(),
         "lastModifiedDate" => [non_neg_integer()],
-        "tokenVaultId" => String.t()
+        "tokenVaultId" => String.t() | atom()
       }
 
   """
-  @type set_token_vault_cm_k_response() :: %{String.t() => any()}
+  @type set_token_vault_cm_k_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1084,50 +1084,50 @@ defmodule AWS.BedrockAgentCoreControl do
 
       oauth2_credential_provider_item() :: %{
         "createdTime" => [non_neg_integer()],
-        "credentialProviderArn" => String.t(),
+        "credentialProviderArn" => String.t() | atom(),
         "credentialProviderVendor" => list(any()),
         "lastUpdatedTime" => [non_neg_integer()],
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type oauth2_credential_provider_item() :: %{String.t() => any()}
+  @type oauth2_credential_provider_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_limit_exceeded_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type resource_limit_exceeded_exception() :: %{String.t() => any()}
+  @type resource_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       workload_identity_type() :: %{
-        "name" => String.t(),
-        "workloadIdentityArn" => String.t()
+        "name" => String.t() | atom(),
+        "workloadIdentityArn" => String.t() | atom()
       }
 
   """
-  @type workload_identity_type() :: %{String.t() => any()}
+  @type workload_identity_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_oauth2_provider_config_input() :: %{
-        "clientId" => String.t(),
-        "clientSecret" => String.t(),
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom(),
         "oauthDiscovery" => list()
       }
 
   """
-  @type custom_oauth2_provider_config_input() :: %{String.t() => any()}
+  @type custom_oauth2_provider_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1135,12 +1135,12 @@ defmodule AWS.BedrockAgentCoreControl do
 
       create_oauth2_credential_provider_request() :: %{
         required("credentialProviderVendor") => list(any()),
-        required("name") => String.t(),
+        required("name") => String.t() | atom(),
         required("oauth2ProviderConfigInput") => list()
       }
 
   """
-  @type create_oauth2_credential_provider_request() :: %{String.t() => any()}
+  @type create_oauth2_credential_provider_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1148,28 +1148,28 @@ defmodule AWS.BedrockAgentCoreControl do
 
       gateway_api_key_credential_provider() :: %{
         "credentialLocation" => list(any()),
-        "credentialParameterName" => String.t(),
-        "credentialPrefix" => String.t(),
-        "providerArn" => String.t()
+        "credentialParameterName" => String.t() | atom(),
+        "credentialPrefix" => String.t() | atom(),
+        "providerArn" => String.t() | atom()
       }
 
   """
-  @type gateway_api_key_credential_provider() :: %{String.t() => any()}
+  @type gateway_api_key_credential_provider() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_workload_identity_response() :: %{
-        "allowedResourceOauth2ReturnUrls" => list(String.t()),
+        "allowedResourceOauth2ReturnUrls" => list(String.t() | atom()),
         "createdTime" => [non_neg_integer()],
         "lastUpdatedTime" => [non_neg_integer()],
-        "name" => String.t(),
-        "workloadIdentityArn" => String.t()
+        "name" => String.t() | atom(),
+        "workloadIdentityArn" => String.t() | atom()
       }
 
   """
-  @type get_workload_identity_response() :: %{String.t() => any()}
+  @type get_workload_identity_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1189,26 +1189,26 @@ defmodule AWS.BedrockAgentCoreControl do
       }
 
   """
-  @type custom_oauth2_provider_config_output() :: %{String.t() => any()}
+  @type custom_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_code_interpreter_response() :: %{
-        "codeInterpreterArn" => String.t(),
-        "codeInterpreterId" => String.t(),
+        "codeInterpreterArn" => String.t() | atom(),
+        "codeInterpreterId" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "executionRoleArn" => String.t(),
+        "description" => String.t() | atom(),
+        "executionRoleArn" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "networkConfiguration" => code_interpreter_network_configuration(),
         "status" => list(any())
       }
 
   """
-  @type get_code_interpreter_response() :: %{String.t() => any()}
+  @type get_code_interpreter_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1221,46 +1221,46 @@ defmodule AWS.BedrockAgentCoreControl do
       }
 
   """
-  @type modify_memory_strategies() :: %{String.t() => any()}
+  @type modify_memory_strategies() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       agent() :: %{
-        "agentRuntimeArn" => String.t(),
-        "agentRuntimeId" => String.t(),
-        "agentRuntimeName" => String.t(),
-        "agentRuntimeVersion" => String.t(),
-        "description" => String.t(),
+        "agentRuntimeArn" => String.t() | atom(),
+        "agentRuntimeId" => String.t() | atom(),
+        "agentRuntimeName" => String.t() | atom(),
+        "agentRuntimeVersion" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
         "status" => list(any())
       }
 
   """
-  @type agent() :: %{String.t() => any()}
+  @type agent() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type service_exception() :: %{String.t() => any()}
+  @type service_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       secret() :: %{
-        "secretArn" => String.t()
+        "secretArn" => String.t() | atom()
       }
 
   """
-  @type secret() :: %{String.t() => any()}
+  @type secret() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1268,12 +1268,12 @@ defmodule AWS.BedrockAgentCoreControl do
 
       update_oauth2_credential_provider_request() :: %{
         required("credentialProviderVendor") => list(any()),
-        required("name") => String.t(),
+        required("name") => String.t() | atom(),
         required("oauth2ProviderConfigInput") => list()
       }
 
   """
-  @type update_oauth2_credential_provider_request() :: %{String.t() => any()}
+  @type update_oauth2_credential_provider_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1281,23 +1281,23 @@ defmodule AWS.BedrockAgentCoreControl do
 
       list_agent_runtimes_response() :: %{
         "agentRuntimes" => list(agent()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_agent_runtimes_response() :: %{String.t() => any()}
+  @type list_agent_runtimes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_workload_identities_response() :: %{
-        "nextToken" => [String.t()],
+        "nextToken" => [String.t() | atom()],
         "workloadIdentities" => list(workload_identity_type())
       }
 
   """
-  @type list_workload_identities_response() :: %{String.t() => any()}
+  @type list_workload_identities_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1313,58 +1313,58 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       user_preference_extraction_override() :: %{
-        "appendToPrompt" => String.t(),
-        "modelId" => [String.t()]
+        "appendToPrompt" => String.t() | atom(),
+        "modelId" => [String.t() | atom()]
       }
 
   """
-  @type user_preference_extraction_override() :: %{String.t() => any()}
+  @type user_preference_extraction_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => [String.t()],
-        "name" => [String.t()]
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_location() :: %{
-        "bucket" => [String.t()],
-        "prefix" => [String.t()]
+        "bucket" => [String.t() | atom()],
+        "prefix" => [String.t() | atom()]
       }
 
   """
-  @type s3_location() :: %{String.t() => any()}
+  @type s3_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       container_configuration() :: %{
-        "containerUri" => String.t()
+        "containerUri" => String.t() | atom()
       }
 
   """
-  @type container_configuration() :: %{String.t() => any()}
+  @type container_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_memory_strategy_input() :: %{
-        "memoryStrategyId" => [String.t()]
+        "memoryStrategyId" => [String.t() | atom()]
       }
 
   """
-  @type delete_memory_strategy_input() :: %{String.t() => any()}
+  @type delete_memory_strategy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1374,35 +1374,35 @@ defmodule AWS.BedrockAgentCoreControl do
         "authorizerConfiguration" => list(),
         "authorizerType" => list(any()),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "exceptionLevel" => list(any()),
-        "gatewayArn" => String.t(),
-        "gatewayId" => String.t(),
-        "gatewayUrl" => String.t(),
-        "kmsKeyArn" => String.t(),
-        "name" => String.t(),
+        "gatewayArn" => String.t() | atom(),
+        "gatewayId" => String.t() | atom(),
+        "gatewayUrl" => String.t() | atom(),
+        "kmsKeyArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "protocolConfiguration" => list(),
         "protocolType" => list(any()),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | atom(),
         "status" => list(any()),
-        "statusReasons" => list(String.t()),
+        "statusReasons" => list(String.t() | atom()),
         "updatedAt" => non_neg_integer(),
         "workloadIdentityDetails" => workload_identity_details()
       }
 
   """
-  @type update_gateway_response() :: %{String.t() => any()}
+  @type update_gateway_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_workload_identity_request() :: %{
-        required("name") => String.t()
+        required("name") => String.t() | atom()
       }
 
   """
-  @type delete_workload_identity_request() :: %{String.t() => any()}
+  @type delete_workload_identity_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1413,7 +1413,7 @@ defmodule AWS.BedrockAgentCoreControl do
       }
 
   """
-  @type salesforce_oauth2_provider_config_output() :: %{String.t() => any()}
+  @type salesforce_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1422,27 +1422,29 @@ defmodule AWS.BedrockAgentCoreControl do
       update_oauth2_credential_provider_response() :: %{
         "clientSecretArn" => secret(),
         "createdTime" => [non_neg_integer()],
-        "credentialProviderArn" => String.t(),
+        "credentialProviderArn" => String.t() | atom(),
         "credentialProviderVendor" => list(any()),
         "lastUpdatedTime" => [non_neg_integer()],
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "oauth2ProviderConfigOutput" => list()
       }
 
   """
-  @type update_oauth2_credential_provider_response() :: %{String.t() => any()}
+  @type update_oauth2_credential_provider_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       user_preference_override_extraction_configuration_input() :: %{
-        "appendToPrompt" => String.t(),
-        "modelId" => [String.t()]
+        "appendToPrompt" => String.t() | atom(),
+        "modelId" => [String.t() | atom()]
       }
 
   """
-  @type user_preference_override_extraction_configuration_input() :: %{String.t() => any()}
+  @type user_preference_override_extraction_configuration_input() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -1453,7 +1455,7 @@ defmodule AWS.BedrockAgentCoreControl do
       }
 
   """
-  @type microsoft_oauth2_provider_config_output() :: %{String.t() => any()}
+  @type microsoft_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1461,24 +1463,24 @@ defmodule AWS.BedrockAgentCoreControl do
 
       o_auth_credential_provider() :: %{
         "customParameters" => map(),
-        "providerArn" => String.t(),
-        "scopes" => list(String.t())
+        "providerArn" => String.t() | atom(),
+        "scopes" => list(String.t() | atom())
       }
 
   """
-  @type o_auth_credential_provider() :: %{String.t() => any()}
+  @type o_auth_credential_provider() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       slack_oauth2_provider_config_input() :: %{
-        "clientId" => String.t(),
-        "clientSecret" => String.t()
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom()
       }
 
   """
-  @type slack_oauth2_provider_config_input() :: %{String.t() => any()}
+  @type slack_oauth2_provider_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1489,21 +1491,21 @@ defmodule AWS.BedrockAgentCoreControl do
       }
 
   """
-  @type update_memory_output() :: %{String.t() => any()}
+  @type update_memory_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_code_interpreter_response() :: %{
-        "codeInterpreterArn" => String.t(),
-        "codeInterpreterId" => String.t(),
+        "codeInterpreterArn" => String.t() | atom(),
+        "codeInterpreterId" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "status" => list(any())
       }
 
   """
-  @type create_code_interpreter_response() :: %{String.t() => any()}
+  @type create_code_interpreter_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1511,11 +1513,11 @@ defmodule AWS.BedrockAgentCoreControl do
 
       list_agent_runtime_versions_response() :: %{
         "agentRuntimes" => list(agent()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_agent_runtime_versions_response() :: %{String.t() => any()}
+  @type list_agent_runtime_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1526,19 +1528,19 @@ defmodule AWS.BedrockAgentCoreControl do
       }
 
   """
-  @type get_memory_output() :: %{String.t() => any()}
+  @type get_memory_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_memory_output() :: %{
-        "memoryId" => String.t(),
+        "memoryId" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type delete_memory_output() :: %{String.t() => any()}
+  @type delete_memory_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1546,47 +1548,47 @@ defmodule AWS.BedrockAgentCoreControl do
 
       list_api_key_credential_providers_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_api_key_credential_providers_request() :: %{String.t() => any()}
+  @type list_api_key_credential_providers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       user_preference_memory_strategy_input() :: %{
-        "description" => String.t(),
-        "name" => String.t(),
-        "namespaces" => list(String.t())
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "namespaces" => list(String.t() | atom())
       }
 
   """
-  @type user_preference_memory_strategy_input() :: %{String.t() => any()}
+  @type user_preference_memory_strategy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       microsoft_oauth2_provider_config_input() :: %{
-        "clientId" => String.t(),
-        "clientSecret" => String.t()
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom()
       }
 
   """
-  @type microsoft_oauth2_provider_config_input() :: %{String.t() => any()}
+  @type microsoft_oauth2_provider_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1594,37 +1596,37 @@ defmodule AWS.BedrockAgentCoreControl do
 
       list_browsers_response() :: %{
         "browserSummaries" => list(browser_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_browsers_response() :: %{String.t() => any()}
+  @type list_browsers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_browser_request() :: %{
-        optional("clientToken") => String.t()
+        optional("clientToken") => String.t() | atom()
       }
 
   """
-  @type delete_browser_request() :: %{String.t() => any()}
+  @type delete_browser_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_code_interpreter_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        optional("executionRoleArn") => String.t(),
-        required("name") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("executionRoleArn") => String.t() | atom(),
+        required("name") => String.t() | atom(),
         required("networkConfiguration") => code_interpreter_network_configuration()
       }
 
   """
-  @type create_code_interpreter_request() :: %{String.t() => any()}
+  @type create_code_interpreter_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1632,11 +1634,11 @@ defmodule AWS.BedrockAgentCoreControl do
 
       list_memories_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_memories_input() :: %{String.t() => any()}
+  @type list_memories_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1644,90 +1646,90 @@ defmodule AWS.BedrockAgentCoreControl do
 
       modify_memory_strategy_input() :: %{
         "configuration" => modify_strategy_configuration(),
-        "description" => String.t(),
-        "memoryStrategyId" => [String.t()],
-        "namespaces" => list(String.t())
+        "description" => String.t() | atom(),
+        "memoryStrategyId" => [String.t() | atom()],
+        "namespaces" => list(String.t() | atom())
       }
 
   """
-  @type modify_memory_strategy_input() :: %{String.t() => any()}
+  @type modify_memory_strategy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_gateway_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("exceptionLevel") => list(any()),
-        optional("kmsKeyArn") => String.t(),
+        optional("kmsKeyArn") => String.t() | atom(),
         optional("protocolConfiguration") => list(),
         required("authorizerConfiguration") => list(),
         required("authorizerType") => list(any()),
-        required("name") => String.t(),
+        required("name") => String.t() | atom(),
         required("protocolType") => list(any()),
-        required("roleArn") => String.t()
+        required("roleArn") => String.t() | atom()
       }
 
   """
-  @type create_gateway_request() :: %{String.t() => any()}
+  @type create_gateway_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_agent_runtime_response() :: %{
-        "agentRuntimeArn" => String.t(),
+        "agentRuntimeArn" => String.t() | atom(),
         "agentRuntimeArtifact" => list(),
-        "agentRuntimeId" => String.t(),
-        "agentRuntimeName" => String.t(),
-        "agentRuntimeVersion" => String.t(),
+        "agentRuntimeId" => String.t() | atom(),
+        "agentRuntimeName" => String.t() | atom(),
+        "agentRuntimeVersion" => String.t() | atom(),
         "authorizerConfiguration" => list(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "environmentVariables" => map(),
         "lastUpdatedAt" => non_neg_integer(),
         "networkConfiguration" => network_configuration(),
         "protocolConfiguration" => protocol_configuration(),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | atom(),
         "status" => list(any()),
         "workloadIdentityDetails" => workload_identity_details()
       }
 
   """
-  @type get_agent_runtime_response() :: %{String.t() => any()}
+  @type get_agent_runtime_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       agent_endpoint() :: %{
-        "agentRuntimeArn" => String.t(),
-        "agentRuntimeEndpointArn" => String.t(),
+        "agentRuntimeArn" => String.t() | atom(),
+        "agentRuntimeEndpointArn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "id" => String.t(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
-        "liveVersion" => String.t(),
-        "name" => String.t(),
+        "liveVersion" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
-        "targetVersion" => String.t()
+        "targetVersion" => String.t() | atom()
       }
 
   """
-  @type agent_endpoint() :: %{String.t() => any()}
+  @type agent_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_api_key_credential_provider_request() :: %{
-        required("apiKey") => String.t(),
-        required("name") => String.t()
+        required("apiKey") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
 
   """
-  @type update_api_key_credential_provider_request() :: %{String.t() => any()}
+  @type update_api_key_credential_provider_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1735,11 +1737,11 @@ defmodule AWS.BedrockAgentCoreControl do
 
       list_workload_identities_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_workload_identities_request() :: %{String.t() => any()}
+  @type list_workload_identities_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1750,7 +1752,7 @@ defmodule AWS.BedrockAgentCoreControl do
       }
 
   """
-  @type network_configuration() :: %{String.t() => any()}
+  @type network_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1761,19 +1763,19 @@ defmodule AWS.BedrockAgentCoreControl do
       }
 
   """
-  @type slack_oauth2_provider_config_output() :: %{String.t() => any()}
+  @type slack_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       set_token_vault_cm_k_request() :: %{
-        optional("tokenVaultId") => String.t(),
+        optional("tokenVaultId") => String.t() | atom(),
         required("kmsConfiguration") => kms_configuration()
       }
 
   """
-  @type set_token_vault_cm_k_request() :: %{String.t() => any()}
+  @type set_token_vault_cm_k_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1784,7 +1786,7 @@ defmodule AWS.BedrockAgentCoreControl do
       }
 
   """
-  @type delete_agent_runtime_endpoint_response() :: %{String.t() => any()}
+  @type delete_agent_runtime_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1793,15 +1795,15 @@ defmodule AWS.BedrockAgentCoreControl do
       get_oauth2_credential_provider_response() :: %{
         "clientSecretArn" => secret(),
         "createdTime" => [non_neg_integer()],
-        "credentialProviderArn" => String.t(),
+        "credentialProviderArn" => String.t() | atom(),
         "credentialProviderVendor" => list(any()),
         "lastUpdatedTime" => [non_neg_integer()],
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "oauth2ProviderConfigOutput" => list()
       }
 
   """
-  @type get_oauth2_credential_provider_response() :: %{String.t() => any()}
+  @type get_oauth2_credential_provider_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1810,11 +1812,11 @@ defmodule AWS.BedrockAgentCoreControl do
       get_token_vault_response() :: %{
         "kmsConfiguration" => kms_configuration(),
         "lastModifiedDate" => [non_neg_integer()],
-        "tokenVaultId" => String.t()
+        "tokenVaultId" => String.t() | atom()
       }
 
   """
-  @type get_token_vault_response() :: %{String.t() => any()}
+  @type get_token_vault_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1825,7 +1827,7 @@ defmodule AWS.BedrockAgentCoreControl do
       }
 
   """
-  @type summary_override_configuration_input() :: %{String.t() => any()}
+  @type summary_override_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1847,43 +1849,43 @@ defmodule AWS.BedrockAgentCoreControl do
       }
 
   """
-  @type strategy_configuration() :: %{String.t() => any()}
+  @type strategy_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       semantic_override_extraction_configuration_input() :: %{
-        "appendToPrompt" => String.t(),
-        "modelId" => [String.t()]
+        "appendToPrompt" => String.t() | atom(),
+        "modelId" => [String.t() | atom()]
       }
 
   """
-  @type semantic_override_extraction_configuration_input() :: %{String.t() => any()}
+  @type semantic_override_extraction_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_j_w_t_authorizer_configuration() :: %{
-        "allowedAudience" => list(String.t()),
-        "allowedClients" => list(String.t()),
-        "discoveryUrl" => String.t()
+        "allowedAudience" => list(String.t() | atom()),
+        "allowedClients" => list(String.t() | atom()),
+        "discoveryUrl" => String.t() | atom()
       }
 
   """
-  @type custom_j_w_t_authorizer_configuration() :: %{String.t() => any()}
+  @type custom_j_w_t_authorizer_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1894,7 +1896,7 @@ defmodule AWS.BedrockAgentCoreControl do
       }
 
   """
-  @type browser_network_configuration() :: %{String.t() => any()}
+  @type browser_network_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1910,12 +1912,12 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       list_agent_runtime_endpoints_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "runtimeEndpoints" => list(agent_endpoint())
       }
 
   """
-  @type list_agent_runtime_endpoints_response() :: %{String.t() => any()}
+  @type list_agent_runtime_endpoints_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1931,24 +1933,24 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       concurrent_modification_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type concurrent_modification_exception() :: %{String.t() => any()}
+  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_code_interpreter_response() :: %{
-        "codeInterpreterId" => String.t(),
+        "codeInterpreterId" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
         "status" => list(any())
       }
 
   """
-  @type delete_code_interpreter_response() :: %{String.t() => any()}
+  @type delete_code_interpreter_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1959,7 +1961,7 @@ defmodule AWS.BedrockAgentCoreControl do
       }
 
   """
-  @type delete_agent_runtime_response() :: %{String.t() => any()}
+  @type delete_agent_runtime_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1976,51 +1978,51 @@ defmodule AWS.BedrockAgentCoreControl do
 
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
-        "message" => [String.t()],
+        "message" => [String.t() | atom()],
         "reason" => list(any())
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       m_c_p_gateway_configuration() :: %{
-        "instructions" => String.t(),
+        "instructions" => String.t() | atom(),
         "searchType" => list(any()),
-        "supportedVersions" => list(String.t())
+        "supportedVersions" => list(String.t() | atom())
       }
 
   """
-  @type m_c_p_gateway_configuration() :: %{String.t() => any()}
+  @type m_c_p_gateway_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_workload_identity_response() :: %{
-        "allowedResourceOauth2ReturnUrls" => list(String.t()),
+        "allowedResourceOauth2ReturnUrls" => list(String.t() | atom()),
         "createdTime" => [non_neg_integer()],
         "lastUpdatedTime" => [non_neg_integer()],
-        "name" => String.t(),
-        "workloadIdentityArn" => String.t()
+        "name" => String.t() | atom(),
+        "workloadIdentityArn" => String.t() | atom()
       }
 
   """
-  @type update_workload_identity_response() :: %{String.t() => any()}
+  @type update_workload_identity_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2028,13 +2030,13 @@ defmodule AWS.BedrockAgentCoreControl do
 
       api_key_credential_provider_item() :: %{
         "createdTime" => [non_neg_integer()],
-        "credentialProviderArn" => String.t(),
+        "credentialProviderArn" => String.t() | atom(),
         "lastUpdatedTime" => [non_neg_integer()],
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type api_key_credential_provider_item() :: %{String.t() => any()}
+  @type api_key_credential_provider_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2042,23 +2044,23 @@ defmodule AWS.BedrockAgentCoreControl do
 
       list_oauth2_credential_providers_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_oauth2_credential_providers_request() :: %{String.t() => any()}
+  @type list_oauth2_credential_providers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_configuration() :: %{
-        "bucketOwnerAccountId" => String.t(),
-        "uri" => String.t()
+        "bucketOwnerAccountId" => String.t() | atom(),
+        "uri" => String.t() | atom()
       }
 
   """
-  @type s3_configuration() :: %{String.t() => any()}
+  @type s3_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2066,12 +2068,12 @@ defmodule AWS.BedrockAgentCoreControl do
 
       list_code_interpreters_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("type") => list(any())
       }
 
   """
-  @type list_code_interpreters_request() :: %{String.t() => any()}
+  @type list_code_interpreters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2082,7 +2084,7 @@ defmodule AWS.BedrockAgentCoreControl do
       }
 
   """
-  @type protocol_configuration() :: %{String.t() => any()}
+  @type protocol_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2093,7 +2095,7 @@ defmodule AWS.BedrockAgentCoreControl do
       }
 
   """
-  @type google_oauth2_provider_config_output() :: %{String.t() => any()}
+  @type google_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2105,19 +2107,19 @@ defmodule AWS.BedrockAgentCoreControl do
       }
 
   """
-  @type semantic_override_configuration_input() :: %{String.t() => any()}
+  @type semantic_override_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       user_preference_consolidation_override() :: %{
-        "appendToPrompt" => String.t(),
-        "modelId" => [String.t()]
+        "appendToPrompt" => String.t() | atom(),
+        "modelId" => [String.t() | atom()]
       }
 
   """
-  @type user_preference_consolidation_override() :: %{String.t() => any()}
+  @type user_preference_consolidation_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2128,7 +2130,7 @@ defmodule AWS.BedrockAgentCoreControl do
       }
 
   """
-  @type code_interpreter_network_configuration() :: %{String.t() => any()}
+  @type code_interpreter_network_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2144,50 +2146,50 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       mcp_lambda_target_configuration() :: %{
-        "lambdaArn" => String.t(),
+        "lambdaArn" => String.t() | atom(),
         "toolSchema" => list()
       }
 
   """
-  @type mcp_lambda_target_configuration() :: %{String.t() => any()}
+  @type mcp_lambda_target_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       memory() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
-        "description" => String.t(),
-        "encryptionKeyArn" => String.t(),
+        "description" => String.t() | atom(),
+        "encryptionKeyArn" => String.t() | atom(),
         "eventExpiryDuration" => [integer()],
-        "failureReason" => [String.t()],
-        "id" => String.t(),
-        "memoryExecutionRoleArn" => String.t(),
-        "name" => String.t(),
+        "failureReason" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "memoryExecutionRoleArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
         "strategies" => list(memory_strategy()),
         "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type memory() :: %{String.t() => any()}
+  @type memory() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_agent_runtime_response() :: %{
-        "agentRuntimeArn" => String.t(),
-        "agentRuntimeId" => String.t(),
-        "agentRuntimeVersion" => String.t(),
+        "agentRuntimeArn" => String.t() | atom(),
+        "agentRuntimeId" => String.t() | atom(),
+        "agentRuntimeVersion" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "status" => list(any()),
         "workloadIdentityDetails" => workload_identity_details()
       }
 
   """
-  @type create_agent_runtime_response() :: %{String.t() => any()}
+  @type create_agent_runtime_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2199,24 +2201,24 @@ defmodule AWS.BedrockAgentCoreControl do
       }
 
   """
-  @type credential_provider_configuration() :: %{String.t() => any()}
+  @type credential_provider_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_agent_runtime_endpoint_response() :: %{
-        "agentRuntimeArn" => String.t(),
-        "agentRuntimeEndpointArn" => String.t(),
+        "agentRuntimeArn" => String.t() | atom(),
+        "agentRuntimeEndpointArn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "lastUpdatedAt" => non_neg_integer(),
-        "liveVersion" => String.t(),
+        "liveVersion" => String.t() | atom(),
         "status" => list(any()),
-        "targetVersion" => String.t()
+        "targetVersion" => String.t() | atom()
       }
 
   """
-  @type update_agent_runtime_endpoint_response() :: %{String.t() => any()}
+  @type update_agent_runtime_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2224,11 +2226,11 @@ defmodule AWS.BedrockAgentCoreControl do
 
       list_agent_runtime_endpoints_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_agent_runtime_endpoints_request() :: %{String.t() => any()}
+  @type list_agent_runtime_endpoints_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2236,62 +2238,62 @@ defmodule AWS.BedrockAgentCoreControl do
 
       list_agent_runtimes_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_agent_runtimes_request() :: %{String.t() => any()}
+  @type list_agent_runtimes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_token_vault_request() :: %{
-        optional("tokenVaultId") => String.t()
+        optional("tokenVaultId") => String.t() | atom()
       }
 
   """
-  @type get_token_vault_request() :: %{String.t() => any()}
+  @type get_token_vault_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_agent_runtime_endpoint_request() :: %{
-        optional("agentRuntimeVersion") => String.t(),
-        optional("clientToken") => String.t(),
-        optional("description") => String.t()
+        optional("agentRuntimeVersion") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom()
       }
 
   """
-  @type update_agent_runtime_endpoint_request() :: %{String.t() => any()}
+  @type update_agent_runtime_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_gateway_target_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | atom(),
         required("credentialProviderConfigurations") => list(credential_provider_configuration()),
-        required("name") => String.t(),
+        required("name") => String.t() | atom(),
         required("targetConfiguration") => list()
       }
 
   """
-  @type update_gateway_target_request() :: %{String.t() => any()}
+  @type update_gateway_target_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_workload_identity_response() :: %{
-        "allowedResourceOauth2ReturnUrls" => list(String.t()),
-        "name" => String.t(),
-        "workloadIdentityArn" => String.t()
+        "allowedResourceOauth2ReturnUrls" => list(String.t() | atom()),
+        "name" => String.t() | atom(),
+        "workloadIdentityArn" => String.t() | atom()
       }
 
   """
-  @type create_workload_identity_response() :: %{String.t() => any()}
+  @type create_workload_identity_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2299,11 +2301,11 @@ defmodule AWS.BedrockAgentCoreControl do
 
       list_oauth2_credential_providers_response() :: %{
         "credentialProviders" => list(oauth2_credential_provider_item()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_oauth2_credential_providers_response() :: %{String.t() => any()}
+  @type list_oauth2_credential_providers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2311,11 +2313,11 @@ defmodule AWS.BedrockAgentCoreControl do
 
       list_gateways_response() :: %{
         "items" => list(gateway_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_gateways_response() :: %{String.t() => any()}
+  @type list_gateways_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2327,7 +2329,7 @@ defmodule AWS.BedrockAgentCoreControl do
       }
 
   """
-  @type recording_config() :: %{String.t() => any()}
+  @type recording_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2336,25 +2338,27 @@ defmodule AWS.BedrockAgentCoreControl do
       update_api_key_credential_provider_response() :: %{
         "apiKeySecretArn" => secret(),
         "createdTime" => [non_neg_integer()],
-        "credentialProviderArn" => String.t(),
+        "credentialProviderArn" => String.t() | atom(),
         "lastUpdatedTime" => [non_neg_integer()],
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type update_api_key_credential_provider_response() :: %{String.t() => any()}
+  @type update_api_key_credential_provider_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       user_preference_override_consolidation_configuration_input() :: %{
-        "appendToPrompt" => String.t(),
-        "modelId" => [String.t()]
+        "appendToPrompt" => String.t() | atom(),
+        "modelId" => [String.t() | atom()]
       }
 
   """
-  @type user_preference_override_consolidation_configuration_input() :: %{String.t() => any()}
+  @type user_preference_override_consolidation_configuration_input() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -2362,23 +2366,23 @@ defmodule AWS.BedrockAgentCoreControl do
 
       list_api_key_credential_providers_response() :: %{
         "credentialProviders" => list(api_key_credential_provider_item()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_api_key_credential_providers_response() :: %{String.t() => any()}
+  @type list_api_key_credential_providers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       google_oauth2_provider_config_input() :: %{
-        "clientId" => String.t(),
-        "clientSecret" => String.t()
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom()
       }
 
   """
-  @type google_oauth2_provider_config_input() :: %{String.t() => any()}
+  @type google_oauth2_provider_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2386,11 +2390,11 @@ defmodule AWS.BedrockAgentCoreControl do
 
       list_gateway_targets_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_gateway_targets_request() :: %{String.t() => any()}
+  @type list_gateway_targets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2407,11 +2411,11 @@ defmodule AWS.BedrockAgentCoreControl do
 
       list_memories_output() :: %{
         "memories" => list(memory_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_memories_output() :: %{String.t() => any()}
+  @type list_memories_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2419,12 +2423,12 @@ defmodule AWS.BedrockAgentCoreControl do
 
       list_browsers_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("type") => list(any())
       }
 
   """
-  @type list_browsers_request() :: %{String.t() => any()}
+  @type list_browsers_request() :: %{(String.t() | atom()) => any()}
 
   @type create_agent_runtime_errors() ::
           throttling_exception()
@@ -2891,7 +2895,7 @@ defmodule AWS.BedrockAgentCoreControl do
   """
   @spec create_agent_runtime_endpoint(
           map(),
-          String.t(),
+          String.t() | atom(),
           create_agent_runtime_endpoint_request(),
           list()
         ) ::
@@ -3055,7 +3059,7 @@ defmodule AWS.BedrockAgentCoreControl do
   To create a target, you must specify the gateway identifier and target
   configuration.
   """
-  @spec create_gateway_target(map(), String.t(), create_gateway_target_request(), list()) ::
+  @spec create_gateway_target(map(), String.t() | atom(), create_gateway_target_request(), list()) ::
           {:ok, create_gateway_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3175,7 +3179,7 @@ defmodule AWS.BedrockAgentCoreControl do
   @doc """
   Deletes an Amazon Secure Agent.
   """
-  @spec delete_agent_runtime(map(), String.t(), delete_agent_runtime_request(), list()) ::
+  @spec delete_agent_runtime(map(), String.t() | atom(), delete_agent_runtime_request(), list()) ::
           {:ok, delete_agent_runtime_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3206,8 +3210,8 @@ defmodule AWS.BedrockAgentCoreControl do
   """
   @spec delete_agent_runtime_endpoint(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_agent_runtime_endpoint_request(),
           list()
         ) ::
@@ -3285,7 +3289,7 @@ defmodule AWS.BedrockAgentCoreControl do
   @doc """
   Deletes a custom browser.
   """
-  @spec delete_browser(map(), String.t(), delete_browser_request(), list()) ::
+  @spec delete_browser(map(), String.t() | atom(), delete_browser_request(), list()) ::
           {:ok, delete_browser_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3319,7 +3323,12 @@ defmodule AWS.BedrockAgentCoreControl do
   @doc """
   Deletes a custom code interpreter.
   """
-  @spec delete_code_interpreter(map(), String.t(), delete_code_interpreter_request(), list()) ::
+  @spec delete_code_interpreter(
+          map(),
+          String.t() | atom(),
+          delete_code_interpreter_request(),
+          list()
+        ) ::
           {:ok, delete_code_interpreter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3353,7 +3362,7 @@ defmodule AWS.BedrockAgentCoreControl do
   @doc """
   Deletes a Gateway.
   """
-  @spec delete_gateway(map(), String.t(), delete_gateway_request(), list()) ::
+  @spec delete_gateway(map(), String.t() | atom(), delete_gateway_request(), list()) ::
           {:ok, delete_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3384,8 +3393,8 @@ defmodule AWS.BedrockAgentCoreControl do
   """
   @spec delete_gateway_target(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_gateway_target_request(),
           list()
         ) ::
@@ -3425,7 +3434,7 @@ defmodule AWS.BedrockAgentCoreControl do
   @doc """
   Deletes a memory.
   """
-  @spec delete_memory(map(), String.t(), delete_memory_input(), list()) ::
+  @spec delete_memory(map(), String.t() | atom(), delete_memory_input(), list()) ::
           {:ok, delete_memory_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3521,7 +3530,7 @@ defmodule AWS.BedrockAgentCoreControl do
   @doc """
   Gets an Amazon Secure Agent.
   """
-  @spec get_agent_runtime(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_agent_runtime(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_agent_runtime_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3551,7 +3560,7 @@ defmodule AWS.BedrockAgentCoreControl do
   @doc """
   Gets information about an Amazon Secure AgentEndpoint.
   """
-  @spec get_agent_runtime_endpoint(map(), String.t(), String.t(), list()) ::
+  @spec get_agent_runtime_endpoint(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_agent_runtime_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3605,7 +3614,7 @@ defmodule AWS.BedrockAgentCoreControl do
   @doc """
   Gets information about a custom browser.
   """
-  @spec get_browser(map(), String.t(), list()) ::
+  @spec get_browser(map(), String.t() | atom(), list()) ::
           {:ok, get_browser_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3623,7 +3632,7 @@ defmodule AWS.BedrockAgentCoreControl do
   @doc """
   Gets information about a custom code interpreter.
   """
-  @spec get_code_interpreter(map(), String.t(), list()) ::
+  @spec get_code_interpreter(map(), String.t() | atom(), list()) ::
           {:ok, get_code_interpreter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3641,7 +3650,7 @@ defmodule AWS.BedrockAgentCoreControl do
   @doc """
   Retrieves information about a specific Gateway.
   """
-  @spec get_gateway(map(), String.t(), list()) ::
+  @spec get_gateway(map(), String.t() | atom(), list()) ::
           {:ok, get_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3659,7 +3668,7 @@ defmodule AWS.BedrockAgentCoreControl do
   @doc """
   Retrieves information about a specific Gateway Target.
   """
-  @spec get_gateway_target(map(), String.t(), String.t(), list()) ::
+  @spec get_gateway_target(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_gateway_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3679,7 +3688,7 @@ defmodule AWS.BedrockAgentCoreControl do
   @doc """
   Retrieve an existing memory.
   """
-  @spec get_memory(map(), String.t(), list()) ::
+  @spec get_memory(map(), String.t() | atom(), list()) ::
           {:ok, get_memory_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3786,7 +3795,7 @@ defmodule AWS.BedrockAgentCoreControl do
   """
   @spec list_agent_runtime_endpoints(
           map(),
-          String.t(),
+          String.t() | atom(),
           list_agent_runtime_endpoints_request(),
           list()
         ) ::
@@ -3826,7 +3835,7 @@ defmodule AWS.BedrockAgentCoreControl do
   """
   @spec list_agent_runtime_versions(
           map(),
-          String.t(),
+          String.t() | atom(),
           list_agent_runtime_versions_request(),
           list()
         ) ::
@@ -4004,7 +4013,13 @@ defmodule AWS.BedrockAgentCoreControl do
   @doc """
   Lists all targets for a specific Gateway.
   """
-  @spec list_gateway_targets(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_gateway_targets(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_gateway_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4042,7 +4057,7 @@ defmodule AWS.BedrockAgentCoreControl do
   @doc """
   Lists all Gateways in the account.
   """
-  @spec list_gateways(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_gateways(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_gateways_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4194,7 +4209,7 @@ defmodule AWS.BedrockAgentCoreControl do
   @doc """
   Updates an existing Amazon Secure Agent.
   """
-  @spec update_agent_runtime(map(), String.t(), update_agent_runtime_request(), list()) ::
+  @spec update_agent_runtime(map(), String.t() | atom(), update_agent_runtime_request(), list()) ::
           {:ok, update_agent_runtime_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4225,8 +4240,8 @@ defmodule AWS.BedrockAgentCoreControl do
   """
   @spec update_agent_runtime_endpoint(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_agent_runtime_endpoint_request(),
           list()
         ) ::
@@ -4299,7 +4314,7 @@ defmodule AWS.BedrockAgentCoreControl do
   @doc """
   Updates an existing Gateway.
   """
-  @spec update_gateway(map(), String.t(), update_gateway_request(), list()) ::
+  @spec update_gateway(map(), String.t() | atom(), update_gateway_request(), list()) ::
           {:ok, update_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4330,8 +4345,8 @@ defmodule AWS.BedrockAgentCoreControl do
   """
   @spec update_gateway_target(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_gateway_target_request(),
           list()
         ) ::
@@ -4371,7 +4386,7 @@ defmodule AWS.BedrockAgentCoreControl do
   @doc """
   Update memory.
   """
-  @spec update_memory(map(), String.t(), update_memory_input(), list()) ::
+  @spec update_memory(map(), String.t() | atom(), update_memory_input(), list()) ::
           {:ok, update_memory_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

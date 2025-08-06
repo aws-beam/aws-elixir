@@ -41,11 +41,11 @@ defmodule AWS.GeoMaps do
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -62,13 +62,13 @@ defmodule AWS.GeoMaps do
 
       get_glyphs_response() :: %{
         "Blob" => [binary()],
-        "CacheControl" => [String.t()],
-        "ContentType" => [String.t()],
-        "ETag" => [String.t()]
+        "CacheControl" => [String.t() | atom()],
+        "ContentType" => [String.t() | atom()],
+        "ETag" => [String.t() | atom()]
       }
 
   """
-  @type get_glyphs_response() :: %{String.t() => any()}
+  @type get_glyphs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -85,42 +85,42 @@ defmodule AWS.GeoMaps do
 
       get_sprites_response() :: %{
         "Blob" => [binary()],
-        "CacheControl" => [String.t()],
-        "ContentType" => [String.t()],
-        "ETag" => [String.t()]
+        "CacheControl" => [String.t() | atom()],
+        "ContentType" => [String.t() | atom()],
+        "ETag" => [String.t() | atom()]
       }
 
   """
-  @type get_sprites_response() :: %{String.t() => any()}
+  @type get_sprites_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_static_map_request() :: %{
-        optional("BoundedPositions") => String.t(),
-        optional("BoundingBox") => String.t(),
-        optional("Center") => String.t(),
-        optional("ColorScheme") => String.t(),
-        optional("CompactOverlay") => String.t(),
+        optional("BoundedPositions") => String.t() | atom(),
+        optional("BoundingBox") => String.t() | atom(),
+        optional("Center") => String.t() | atom(),
+        optional("ColorScheme") => String.t() | atom(),
+        optional("CompactOverlay") => String.t() | atom(),
         optional("CropLabels") => [boolean()],
-        optional("GeoJsonOverlay") => String.t(),
-        optional("Key") => String.t(),
-        optional("LabelSize") => String.t(),
-        optional("Language") => String.t(),
+        optional("GeoJsonOverlay") => String.t() | atom(),
+        optional("Key") => String.t() | atom(),
+        optional("LabelSize") => String.t() | atom(),
+        optional("Language") => String.t() | atom(),
         optional("Padding") => [integer()],
-        optional("PointsOfInterests") => String.t(),
-        optional("PoliticalView") => String.t(),
+        optional("PointsOfInterests") => String.t() | atom(),
+        optional("PoliticalView") => String.t() | atom(),
         optional("Radius") => float(),
-        optional("ScaleBarUnit") => String.t(),
-        optional("Style") => String.t(),
+        optional("ScaleBarUnit") => String.t() | atom(),
+        optional("Style") => String.t() | atom(),
         optional("Zoom") => [float()],
         required("Height") => [integer()],
         required("Width") => [integer()]
       }
 
   """
-  @type get_static_map_request() :: %{String.t() => any()}
+  @type get_static_map_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -128,27 +128,27 @@ defmodule AWS.GeoMaps do
 
       get_static_map_response() :: %{
         "Blob" => [binary()],
-        "CacheControl" => [String.t()],
-        "ContentType" => [String.t()],
-        "ETag" => [String.t()],
-        "PricingBucket" => [String.t()]
+        "CacheControl" => [String.t() | atom()],
+        "ContentType" => [String.t() | atom()],
+        "ETag" => [String.t() | atom()],
+        "PricingBucket" => [String.t() | atom()]
       }
 
   """
-  @type get_static_map_response() :: %{String.t() => any()}
+  @type get_static_map_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_style_descriptor_request() :: %{
-        optional("ColorScheme") => String.t(),
-        optional("Key") => String.t(),
-        optional("PoliticalView") => String.t()
+        optional("ColorScheme") => String.t() | atom(),
+        optional("Key") => String.t() | atom(),
+        optional("PoliticalView") => String.t() | atom()
       }
 
   """
-  @type get_style_descriptor_request() :: %{String.t() => any()}
+  @type get_style_descriptor_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -156,24 +156,24 @@ defmodule AWS.GeoMaps do
 
       get_style_descriptor_response() :: %{
         "Blob" => [binary()],
-        "CacheControl" => [String.t()],
-        "ContentType" => [String.t()],
-        "ETag" => [String.t()]
+        "CacheControl" => [String.t() | atom()],
+        "ContentType" => [String.t() | atom()],
+        "ETag" => [String.t() | atom()]
       }
 
   """
-  @type get_style_descriptor_response() :: %{String.t() => any()}
+  @type get_style_descriptor_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_tile_request() :: %{
-        optional("Key") => String.t()
+        optional("Key") => String.t() | atom()
       }
 
   """
-  @type get_tile_request() :: %{String.t() => any()}
+  @type get_tile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -181,36 +181,36 @@ defmodule AWS.GeoMaps do
 
       get_tile_response() :: %{
         "Blob" => [binary()],
-        "CacheControl" => [String.t()],
-        "ContentType" => [String.t()],
-        "ETag" => [String.t()],
-        "PricingBucket" => [String.t()]
+        "CacheControl" => [String.t() | atom()],
+        "ContentType" => [String.t() | atom()],
+        "ETag" => [String.t() | atom()],
+        "PricingBucket" => [String.t() | atom()]
       }
 
   """
-  @type get_tile_response() :: %{String.t() => any()}
+  @type get_tile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -218,24 +218,24 @@ defmodule AWS.GeoMaps do
 
       validation_exception() :: %{
         "FieldList" => list(validation_exception_field()),
-        "Message" => [String.t()],
-        "Reason" => String.t()
+        "Message" => [String.t() | atom()],
+        "Reason" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "Message" => [String.t()],
-        "Name" => [String.t()]
+        "Message" => [String.t() | atom()],
+        "Name" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @type get_static_map_errors() ::
           validation_exception()
@@ -269,7 +269,7 @@ defmodule AWS.GeoMaps do
 
   `GetGlyphs` returns the map's glyphs.
   """
-  @spec get_glyphs(map(), String.t(), String.t(), list()) ::
+  @spec get_glyphs(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_glyphs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -300,7 +300,14 @@ defmodule AWS.GeoMaps do
 
   `GetSprites` returns the map's sprites.
   """
-  @spec get_sprites(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_sprites(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, get_sprites_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -337,26 +344,26 @@ defmodule AWS.GeoMaps do
   """
   @spec get_static_map(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_static_map_response(), any()}
@@ -547,10 +554,10 @@ defmodule AWS.GeoMaps do
   """
   @spec get_style_descriptor(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_style_descriptor_response(), any()}
@@ -614,7 +621,15 @@ defmodule AWS.GeoMaps do
   and Z (zoom)
   level.
   """
-  @spec get_tile(map(), String.t(), String.t(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_tile(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_tile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

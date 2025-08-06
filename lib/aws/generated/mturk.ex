@@ -15,12 +15,12 @@ defmodule AWS.MTurk do
       
       approve_assignment_request() :: %{
         optional("OverrideRejection") => boolean(),
-        optional("RequesterFeedback") => String.t(),
-        required("AssignmentId") => String.t()
+        optional("RequesterFeedback") => String.t() | atom(),
+        required("AssignmentId") => String.t() | atom()
       }
       
   """
-  @type approve_assignment_request() :: %{String.t() => any()}
+  @type approve_assignment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -36,13 +36,13 @@ defmodule AWS.MTurk do
   ## Example:
       
       notify_workers_request() :: %{
-        required("MessageText") => String.t(),
-        required("Subject") => String.t(),
-        required("WorkerIds") => list(String.t())
+        required("MessageText") => String.t() | atom(),
+        required("Subject") => String.t() | atom(),
+        required("WorkerIds") => list(String.t() | atom())
       }
       
   """
-  @type notify_workers_request() :: %{String.t() => any()}
+  @type notify_workers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -53,12 +53,12 @@ defmodule AWS.MTurk do
         "Comparator" => list(any()),
         "IntegerValues" => list(integer()),
         "LocaleValues" => list(locale()),
-        "QualificationTypeId" => String.t(),
+        "QualificationTypeId" => String.t() | atom(),
         "RequiredToPreview" => boolean()
       }
       
   """
-  @type qualification_requirement() :: %{String.t() => any()}
+  @type qualification_requirement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -66,54 +66,54 @@ defmodule AWS.MTurk do
       
       review_policy() :: %{
         "Parameters" => list(policy_parameter()),
-        "PolicyName" => String.t()
+        "PolicyName" => String.t() | atom()
       }
       
   """
-  @type review_policy() :: %{String.t() => any()}
+  @type review_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_worker_block_request() :: %{
-        optional("Reason") => String.t(),
-        required("WorkerId") => String.t()
+        optional("Reason") => String.t() | atom(),
+        required("WorkerId") => String.t() | atom()
       }
       
   """
-  @type delete_worker_block_request() :: %{String.t() => any()}
+  @type delete_worker_block_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_qualification_type_request() :: %{
-        required("QualificationTypeId") => String.t()
+        required("QualificationTypeId") => String.t() | atom()
       }
       
   """
-  @type get_qualification_type_request() :: %{String.t() => any()}
+  @type get_qualification_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_qualification_type_request() :: %{
-        optional("AnswerKey") => String.t(),
+        optional("AnswerKey") => String.t() | atom(),
         optional("AutoGranted") => boolean(),
         optional("AutoGrantedValue") => integer(),
-        optional("Keywords") => String.t(),
+        optional("Keywords") => String.t() | atom(),
         optional("RetryDelayInSeconds") => float(),
-        optional("Test") => String.t(),
+        optional("Test") => String.t() | atom(),
         optional("TestDurationInSeconds") => float(),
-        required("Description") => String.t(),
-        required("Name") => String.t(),
+        required("Description") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("QualificationTypeStatus") => list(any())
       }
       
   """
-  @type create_qualification_type_request() :: %{String.t() => any()}
+  @type create_qualification_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -121,70 +121,70 @@ defmodule AWS.MTurk do
       
       assignment() :: %{
         "AcceptTime" => non_neg_integer(),
-        "Answer" => String.t(),
+        "Answer" => String.t() | atom(),
         "ApprovalTime" => non_neg_integer(),
-        "AssignmentId" => String.t(),
+        "AssignmentId" => String.t() | atom(),
         "AssignmentStatus" => list(any()),
         "AutoApprovalTime" => non_neg_integer(),
         "Deadline" => non_neg_integer(),
-        "HITId" => String.t(),
+        "HITId" => String.t() | atom(),
         "RejectionTime" => non_neg_integer(),
-        "RequesterFeedback" => String.t(),
+        "RequesterFeedback" => String.t() | atom(),
         "SubmitTime" => non_neg_integer(),
-        "WorkerId" => String.t()
+        "WorkerId" => String.t() | atom()
       }
       
   """
-  @type assignment() :: %{String.t() => any()}
+  @type assignment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reject_assignment_request() :: %{
-        required("AssignmentId") => String.t(),
-        required("RequesterFeedback") => String.t()
+        required("AssignmentId") => String.t() | atom(),
+        required("RequesterFeedback") => String.t() | atom()
       }
       
   """
-  @type reject_assignment_request() :: %{String.t() => any()}
+  @type reject_assignment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_account_balance_response() :: %{
-        "AvailableBalance" => String.t(),
-        "OnHoldBalance" => String.t()
+        "AvailableBalance" => String.t() | atom(),
+        "OnHoldBalance" => String.t() | atom()
       }
       
   """
-  @type get_account_balance_response() :: %{String.t() => any()}
+  @type get_account_balance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_reviewable_hits_request() :: %{
-        optional("HITTypeId") => String.t(),
+        optional("HITTypeId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Status") => list(any())
       }
       
   """
-  @type list_reviewable_hits_request() :: %{String.t() => any()}
+  @type list_reviewable_hits_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_file_upload_url_response() :: %{
-        "FileUploadURL" => String.t()
+        "FileUploadURL" => String.t() | atom()
       }
       
   """
-  @type get_file_upload_url_response() :: %{String.t() => any()}
+  @type get_file_upload_url_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -193,13 +193,13 @@ defmodule AWS.MTurk do
       list_qualification_types_request() :: %{
         optional("MaxResults") => integer(),
         optional("MustBeOwnedByCaller") => boolean(),
-        optional("NextToken") => String.t(),
-        optional("Query") => String.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Query") => String.t() | atom(),
         required("MustBeRequestable") => boolean()
       }
       
   """
-  @type list_qualification_types_request() :: %{String.t() => any()}
+  @type list_qualification_types_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -207,22 +207,22 @@ defmodule AWS.MTurk do
       
       accept_qualification_request_request() :: %{
         optional("IntegerValue") => integer(),
-        required("QualificationRequestId") => String.t()
+        required("QualificationRequestId") => String.t() | atom()
       }
       
   """
-  @type accept_qualification_request_request() :: %{String.t() => any()}
+  @type accept_qualification_request_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_hit_type_response() :: %{
-        "HITTypeId" => String.t()
+        "HITTypeId" => String.t() | atom()
       }
       
   """
-  @type create_hit_type_response() :: %{String.t() => any()}
+  @type create_hit_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -238,12 +238,12 @@ defmodule AWS.MTurk do
   ## Example:
       
       service_fault() :: %{
-        "Message" => String.t(),
-        "TurkErrorCode" => String.t()
+        "Message" => String.t() | atom(),
+        "TurkErrorCode" => String.t() | atom()
       }
       
   """
-  @type service_fault() :: %{String.t() => any()}
+  @type service_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -259,39 +259,39 @@ defmodule AWS.MTurk do
   ## Example:
       
       delete_qualification_type_request() :: %{
-        required("QualificationTypeId") => String.t()
+        required("QualificationTypeId") => String.t() | atom()
       }
       
   """
-  @type delete_qualification_type_request() :: %{String.t() => any()}
+  @type delete_qualification_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       locale() :: %{
-        "Country" => String.t(),
-        "Subdivision" => String.t()
+        "Country" => String.t() | atom(),
+        "Subdivision" => String.t() | atom()
       }
       
   """
-  @type locale() :: %{String.t() => any()}
+  @type locale() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       review_result_detail() :: %{
-        "ActionId" => String.t(),
-        "Key" => String.t(),
-        "QuestionId" => String.t(),
-        "SubjectId" => String.t(),
-        "SubjectType" => String.t(),
-        "Value" => String.t()
+        "ActionId" => String.t() | atom(),
+        "Key" => String.t() | atom(),
+        "QuestionId" => String.t() | atom(),
+        "SubjectId" => String.t() | atom(),
+        "SubjectType" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type review_result_detail() :: %{String.t() => any()}
+  @type review_result_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -299,12 +299,12 @@ defmodule AWS.MTurk do
       
       list_hits_for_qualification_type_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("QualificationTypeId") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("QualificationTypeId") => String.t() | atom()
       }
       
   """
-  @type list_hits_for_qualification_type_request() :: %{String.t() => any()}
+  @type list_hits_for_qualification_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -320,36 +320,36 @@ defmodule AWS.MTurk do
   ## Example:
       
       get_file_upload_url_request() :: %{
-        required("AssignmentId") => String.t(),
-        required("QuestionIdentifier") => String.t()
+        required("AssignmentId") => String.t() | atom(),
+        required("QuestionIdentifier") => String.t() | atom()
       }
       
   """
-  @type get_file_upload_url_request() :: %{String.t() => any()}
+  @type get_file_upload_url_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_qualification_score_request() :: %{
-        required("QualificationTypeId") => String.t(),
-        required("WorkerId") => String.t()
+        required("QualificationTypeId") => String.t() | atom(),
+        required("WorkerId") => String.t() | atom()
       }
       
   """
-  @type get_qualification_score_request() :: %{String.t() => any()}
+  @type get_qualification_score_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_hit_type_of_hit_request() :: %{
-        required("HITId") => String.t(),
-        required("HITTypeId") => String.t()
+        required("HITId") => String.t() | atom(),
+        required("HITTypeId") => String.t() | atom()
       }
       
   """
-  @type update_hit_type_of_hit_request() :: %{String.t() => any()}
+  @type update_hit_type_of_hit_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -366,15 +366,15 @@ defmodule AWS.MTurk do
       
       list_review_policy_results_for_hit_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("PolicyLevels") => list(list(any())()),
         optional("RetrieveActions") => boolean(),
         optional("RetrieveResults") => boolean(),
-        required("HITId") => String.t()
+        required("HITId") => String.t() | atom()
       }
       
   """
-  @type list_review_policy_results_for_hit_request() :: %{String.t() => any()}
+  @type list_review_policy_results_for_hit_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -382,26 +382,26 @@ defmodule AWS.MTurk do
       
       list_worker_blocks_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_worker_blocks_request() :: %{String.t() => any()}
+  @type list_worker_blocks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       send_bonus_request() :: %{
-        optional("UniqueRequestToken") => String.t(),
-        required("AssignmentId") => String.t(),
-        required("BonusAmount") => String.t(),
-        required("Reason") => String.t(),
-        required("WorkerId") => String.t()
+        optional("UniqueRequestToken") => String.t() | atom(),
+        required("AssignmentId") => String.t() | atom(),
+        required("BonusAmount") => String.t() | atom(),
+        required("Reason") => String.t() | atom(),
+        required("WorkerId") => String.t() | atom()
       }
       
   """
-  @type send_bonus_request() :: %{String.t() => any()}
+  @type send_bonus_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -417,14 +417,14 @@ defmodule AWS.MTurk do
   ## Example:
       
       notification_specification() :: %{
-        "Destination" => String.t(),
+        "Destination" => String.t() | atom(),
         "EventTypes" => list(list(any())()),
         "Transport" => list(any()),
-        "Version" => String.t()
+        "Version" => String.t() | atom()
       }
       
   """
-  @type notification_specification() :: %{String.t() => any()}
+  @type notification_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -432,12 +432,12 @@ defmodule AWS.MTurk do
       
       list_bonus_payments_response() :: %{
         "BonusPayments" => list(bonus_payment()),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "NumResults" => integer()
       }
       
   """
-  @type list_bonus_payments_response() :: %{String.t() => any()}
+  @type list_bonus_payments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -449,7 +449,7 @@ defmodule AWS.MTurk do
       }
       
   """
-  @type send_test_event_notification_request() :: %{String.t() => any()}
+  @type send_test_event_notification_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -457,12 +457,12 @@ defmodule AWS.MTurk do
       
       notify_workers_failure_status() :: %{
         "NotifyWorkersFailureCode" => list(any()),
-        "NotifyWorkersFailureMessage" => String.t(),
-        "WorkerId" => String.t()
+        "NotifyWorkersFailureMessage" => String.t() | atom(),
+        "WorkerId" => String.t() | atom()
       }
       
   """
-  @type notify_workers_failure_status() :: %{String.t() => any()}
+  @type notify_workers_failure_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -470,12 +470,12 @@ defmodule AWS.MTurk do
       
       list_hits_for_qualification_type_response() :: %{
         "HITs" => list(hit()),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "NumResults" => integer()
       }
       
   """
-  @type list_hits_for_qualification_type_response() :: %{String.t() => any()}
+  @type list_hits_for_qualification_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -513,7 +513,7 @@ defmodule AWS.MTurk do
       }
       
   """
-  @type update_qualification_type_response() :: %{String.t() => any()}
+  @type update_qualification_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -524,7 +524,7 @@ defmodule AWS.MTurk do
       }
       
   """
-  @type get_hit_response() :: %{String.t() => any()}
+  @type get_hit_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -536,31 +536,31 @@ defmodule AWS.MTurk do
       }
       
   """
-  @type get_assignment_response() :: %{String.t() => any()}
+  @type get_assignment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reject_qualification_request_request() :: %{
-        optional("Reason") => String.t(),
-        required("QualificationRequestId") => String.t()
+        optional("Reason") => String.t() | atom(),
+        required("QualificationRequestId") => String.t() | atom()
       }
       
   """
-  @type reject_qualification_request_request() :: %{String.t() => any()}
+  @type reject_qualification_request_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_worker_block_request() :: %{
-        required("Reason") => String.t(),
-        required("WorkerId") => String.t()
+        required("Reason") => String.t() | atom(),
+        required("WorkerId") => String.t() | atom()
       }
       
   """
-  @type create_worker_block_request() :: %{String.t() => any()}
+  @type create_worker_block_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -576,13 +576,13 @@ defmodule AWS.MTurk do
   ## Example:
       
       list_worker_blocks_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "NumResults" => integer(),
         "WorkerBlocks" => list(worker_block())
       }
       
   """
-  @type list_worker_blocks_response() :: %{String.t() => any()}
+  @type list_worker_blocks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -601,13 +601,13 @@ defmodule AWS.MTurk do
         "GrantTime" => non_neg_integer(),
         "IntegerValue" => integer(),
         "LocaleValue" => locale(),
-        "QualificationTypeId" => String.t(),
+        "QualificationTypeId" => String.t() | atom(),
         "Status" => list(any()),
-        "WorkerId" => String.t()
+        "WorkerId" => String.t() | atom()
       }
       
   """
-  @type qualification() :: %{String.t() => any()}
+  @type qualification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -627,19 +627,19 @@ defmodule AWS.MTurk do
       }
       
   """
-  @type notify_workers_response() :: %{String.t() => any()}
+  @type notify_workers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       worker_block() :: %{
-        "Reason" => String.t(),
-        "WorkerId" => String.t()
+        "Reason" => String.t() | atom(),
+        "WorkerId" => String.t() | atom()
       }
       
   """
-  @type worker_block() :: %{String.t() => any()}
+  @type worker_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -648,23 +648,23 @@ defmodule AWS.MTurk do
       update_notification_settings_request() :: %{
         optional("Active") => boolean(),
         optional("Notification") => notification_specification(),
-        required("HITTypeId") => String.t()
+        required("HITTypeId") => String.t() | atom()
       }
       
   """
-  @type update_notification_settings_request() :: %{String.t() => any()}
+  @type update_notification_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       request_error() :: %{
-        "Message" => String.t(),
-        "TurkErrorCode" => String.t()
+        "Message" => String.t() | atom(),
+        "TurkErrorCode" => String.t() | atom()
       }
       
   """
-  @type request_error() :: %{String.t() => any()}
+  @type request_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -690,12 +690,12 @@ defmodule AWS.MTurk do
       
       list_qualification_requests_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("QualificationTypeId") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("QualificationTypeId") => String.t() | atom()
       }
       
   """
-  @type list_qualification_requests_request() :: %{String.t() => any()}
+  @type list_qualification_requests_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -714,67 +714,67 @@ defmodule AWS.MTurk do
         "AssignmentDurationInSeconds" => float(),
         "AutoApprovalDelayInSeconds" => float(),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "Expiration" => non_neg_integer(),
-        "HITGroupId" => String.t(),
-        "HITId" => String.t(),
-        "HITLayoutId" => String.t(),
+        "HITGroupId" => String.t() | atom(),
+        "HITId" => String.t() | atom(),
+        "HITLayoutId" => String.t() | atom(),
         "HITReviewStatus" => list(any()),
         "HITStatus" => list(any()),
-        "HITTypeId" => String.t(),
-        "Keywords" => String.t(),
+        "HITTypeId" => String.t() | atom(),
+        "Keywords" => String.t() | atom(),
         "MaxAssignments" => integer(),
         "NumberOfAssignmentsAvailable" => integer(),
         "NumberOfAssignmentsCompleted" => integer(),
         "NumberOfAssignmentsPending" => integer(),
         "QualificationRequirements" => list(qualification_requirement()),
-        "Question" => String.t(),
-        "RequesterAnnotation" => String.t(),
-        "Reward" => String.t(),
-        "Title" => String.t()
+        "Question" => String.t() | atom(),
+        "RequesterAnnotation" => String.t() | atom(),
+        "Reward" => String.t() | atom(),
+        "Title" => String.t() | atom()
       }
       
   """
-  @type hit() :: %{String.t() => any()}
+  @type hit() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_hit_request() :: %{
-        required("HITId") => String.t()
+        required("HITId") => String.t() | atom()
       }
       
   """
-  @type get_hit_request() :: %{String.t() => any()}
+  @type get_hit_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       policy_parameter() :: %{
-        "Key" => String.t(),
+        "Key" => String.t() | atom(),
         "MapEntries" => list(parameter_map_entry()),
-        "Values" => list(String.t())
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type policy_parameter() :: %{String.t() => any()}
+  @type policy_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       bonus_payment() :: %{
-        "AssignmentId" => String.t(),
-        "BonusAmount" => String.t(),
+        "AssignmentId" => String.t() | atom(),
+        "BonusAmount" => String.t() | atom(),
         "GrantTime" => non_neg_integer(),
-        "Reason" => String.t(),
-        "WorkerId" => String.t()
+        "Reason" => String.t() | atom(),
+        "WorkerId" => String.t() | atom()
       }
       
   """
-  @type bonus_payment() :: %{String.t() => any()}
+  @type bonus_payment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -782,27 +782,27 @@ defmodule AWS.MTurk do
       
       list_workers_with_qualification_type_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Status") => list(any()),
-        required("QualificationTypeId") => String.t()
+        required("QualificationTypeId") => String.t() | atom()
       }
       
   """
-  @type list_workers_with_qualification_type_request() :: %{String.t() => any()}
+  @type list_workers_with_qualification_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_bonus_payments_request() :: %{
-        optional("AssignmentId") => String.t(),
-        optional("HITId") => String.t(),
+        optional("AssignmentId") => String.t() | atom(),
+        optional("HITId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_bonus_payments_request() :: %{String.t() => any()}
+  @type list_bonus_payments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -811,24 +811,24 @@ defmodule AWS.MTurk do
       create_hit_request() :: %{
         optional("AssignmentReviewPolicy") => review_policy(),
         optional("AutoApprovalDelayInSeconds") => float(),
-        optional("HITLayoutId") => String.t(),
+        optional("HITLayoutId") => String.t() | atom(),
         optional("HITLayoutParameters") => list(hit_layout_parameter()),
         optional("HITReviewPolicy") => review_policy(),
-        optional("Keywords") => String.t(),
+        optional("Keywords") => String.t() | atom(),
         optional("MaxAssignments") => integer(),
         optional("QualificationRequirements") => list(qualification_requirement()),
-        optional("Question") => String.t(),
-        optional("RequesterAnnotation") => String.t(),
-        optional("UniqueRequestToken") => String.t(),
+        optional("Question") => String.t() | atom(),
+        optional("RequesterAnnotation") => String.t() | atom(),
+        optional("UniqueRequestToken") => String.t() | atom(),
         required("AssignmentDurationInSeconds") => float(),
-        required("Description") => String.t(),
+        required("Description") => String.t() | atom(),
         required("LifetimeInSeconds") => float(),
-        required("Reward") => String.t(),
-        required("Title") => String.t()
+        required("Reward") => String.t() | atom(),
+        required("Title") => String.t() | atom()
       }
       
   """
-  @type create_hit_request() :: %{String.t() => any()}
+  @type create_hit_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -837,55 +837,55 @@ defmodule AWS.MTurk do
       associate_qualification_with_worker_request() :: %{
         optional("IntegerValue") => integer(),
         optional("SendNotification") => boolean(),
-        required("QualificationTypeId") => String.t(),
-        required("WorkerId") => String.t()
+        required("QualificationTypeId") => String.t() | atom(),
+        required("WorkerId") => String.t() | atom()
       }
       
   """
-  @type associate_qualification_with_worker_request() :: %{String.t() => any()}
+  @type associate_qualification_with_worker_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_qualification_requests_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "NumResults" => integer(),
         "QualificationRequests" => list(qualification_request())
       }
       
   """
-  @type list_qualification_requests_response() :: %{String.t() => any()}
+  @type list_qualification_requests_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       hit_layout_parameter() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type hit_layout_parameter() :: %{String.t() => any()}
+  @type hit_layout_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       review_action_detail() :: %{
-        "ActionId" => String.t(),
-        "ActionName" => String.t(),
+        "ActionId" => String.t() | atom(),
+        "ActionName" => String.t() | atom(),
         "CompleteTime" => non_neg_integer(),
-        "ErrorCode" => String.t(),
-        "Result" => String.t(),
+        "ErrorCode" => String.t() | atom(),
+        "Result" => String.t() | atom(),
         "Status" => list(any()),
-        "TargetId" => String.t(),
-        "TargetType" => String.t()
+        "TargetId" => String.t() | atom(),
+        "TargetType" => String.t() | atom()
       }
       
   """
-  @type review_action_detail() :: %{String.t() => any()}
+  @type review_action_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -896,7 +896,7 @@ defmodule AWS.MTurk do
       }
       
   """
-  @type create_hit_with_hit_type_response() :: %{String.t() => any()}
+  @type create_hit_with_hit_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -904,11 +904,11 @@ defmodule AWS.MTurk do
       
       list_hits_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_hits_request() :: %{String.t() => any()}
+  @type list_hits_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -925,24 +925,24 @@ defmodule AWS.MTurk do
       
       update_hit_review_status_request() :: %{
         optional("Revert") => boolean(),
-        required("HITId") => String.t()
+        required("HITId") => String.t() | atom()
       }
       
   """
-  @type update_hit_review_status_request() :: %{String.t() => any()}
+  @type update_hit_review_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_workers_with_qualification_type_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "NumResults" => integer(),
         "Qualifications" => list(qualification())
       }
       
   """
-  @type list_workers_with_qualification_type_response() :: %{String.t() => any()}
+  @type list_workers_with_qualification_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -951,27 +951,27 @@ defmodule AWS.MTurk do
       list_review_policy_results_for_hit_response() :: %{
         "AssignmentReviewPolicy" => review_policy(),
         "AssignmentReviewReport" => review_report(),
-        "HITId" => String.t(),
+        "HITId" => String.t() | atom(),
         "HITReviewPolicy" => review_policy(),
         "HITReviewReport" => review_report(),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_review_policy_results_for_hit_response() :: %{String.t() => any()}
+  @type list_review_policy_results_for_hit_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_additional_assignments_for_hit_request() :: %{
-        optional("UniqueRequestToken") => String.t(),
-        required("HITId") => String.t(),
+        optional("UniqueRequestToken") => String.t() | atom(),
+        required("HITId") => String.t() | atom(),
         required("NumberOfAdditionalAssignments") => integer()
       }
       
   """
-  @type create_additional_assignments_for_hit_request() :: %{String.t() => any()}
+  @type create_additional_assignments_for_hit_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -983,18 +983,18 @@ defmodule AWS.MTurk do
       }
       
   """
-  @type review_report() :: %{String.t() => any()}
+  @type review_report() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_assignment_request() :: %{
-        required("AssignmentId") => String.t()
+        required("AssignmentId") => String.t() | atom()
       }
       
   """
-  @type get_assignment_request() :: %{String.t() => any()}
+  @type get_assignment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1002,51 +1002,51 @@ defmodule AWS.MTurk do
       
       list_assignments_for_hit_response() :: %{
         "Assignments" => list(assignment()),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "NumResults" => integer()
       }
       
   """
-  @type list_assignments_for_hit_response() :: %{String.t() => any()}
+  @type list_assignments_for_hit_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       qualification_type() :: %{
-        "AnswerKey" => String.t(),
+        "AnswerKey" => String.t() | atom(),
         "AutoGranted" => boolean(),
         "AutoGrantedValue" => integer(),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "IsRequestable" => boolean(),
-        "Keywords" => String.t(),
-        "Name" => String.t(),
-        "QualificationTypeId" => String.t(),
+        "Keywords" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "QualificationTypeId" => String.t() | atom(),
         "QualificationTypeStatus" => list(any()),
         "RetryDelayInSeconds" => float(),
-        "Test" => String.t(),
+        "Test" => String.t() | atom(),
         "TestDurationInSeconds" => float()
       }
       
   """
-  @type qualification_type() :: %{String.t() => any()}
+  @type qualification_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       qualification_request() :: %{
-        "Answer" => String.t(),
-        "QualificationRequestId" => String.t(),
-        "QualificationTypeId" => String.t(),
+        "Answer" => String.t() | atom(),
+        "QualificationRequestId" => String.t() | atom(),
+        "QualificationTypeId" => String.t() | atom(),
         "SubmitTime" => non_neg_integer(),
-        "Test" => String.t(),
-        "WorkerId" => String.t()
+        "Test" => String.t() | atom(),
+        "WorkerId" => String.t() | atom()
       }
       
   """
-  @type qualification_request() :: %{String.t() => any()}
+  @type qualification_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1057,7 +1057,7 @@ defmodule AWS.MTurk do
       }
       
   """
-  @type get_qualification_score_response() :: %{String.t() => any()}
+  @type get_qualification_score_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1068,7 +1068,7 @@ defmodule AWS.MTurk do
       }
       
   """
-  @type create_qualification_type_response() :: %{String.t() => any()}
+  @type create_qualification_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1085,19 +1085,19 @@ defmodule AWS.MTurk do
       
       create_hit_with_hit_type_request() :: %{
         optional("AssignmentReviewPolicy") => review_policy(),
-        optional("HITLayoutId") => String.t(),
+        optional("HITLayoutId") => String.t() | atom(),
         optional("HITLayoutParameters") => list(hit_layout_parameter()),
         optional("HITReviewPolicy") => review_policy(),
         optional("MaxAssignments") => integer(),
-        optional("Question") => String.t(),
-        optional("RequesterAnnotation") => String.t(),
-        optional("UniqueRequestToken") => String.t(),
-        required("HITTypeId") => String.t(),
+        optional("Question") => String.t() | atom(),
+        optional("RequesterAnnotation") => String.t() | atom(),
+        optional("UniqueRequestToken") => String.t() | atom(),
+        required("HITTypeId") => String.t() | atom(),
         required("LifetimeInSeconds") => float()
       }
       
   """
-  @type create_hit_with_hit_type_request() :: %{String.t() => any()}
+  @type create_hit_with_hit_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1105,12 +1105,12 @@ defmodule AWS.MTurk do
       
       list_hits_response() :: %{
         "HITs" => list(hit()),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "NumResults" => integer()
       }
       
   """
-  @type list_hits_response() :: %{String.t() => any()}
+  @type list_hits_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1118,22 +1118,22 @@ defmodule AWS.MTurk do
       
       update_expiration_for_hit_request() :: %{
         required("ExpireAt") => non_neg_integer(),
-        required("HITId") => String.t()
+        required("HITId") => String.t() | atom()
       }
       
   """
-  @type update_expiration_for_hit_request() :: %{String.t() => any()}
+  @type update_expiration_for_hit_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_hit_request() :: %{
-        required("HITId") => String.t()
+        required("HITId") => String.t() | atom()
       }
       
   """
-  @type delete_hit_request() :: %{String.t() => any()}
+  @type delete_hit_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1141,12 +1141,12 @@ defmodule AWS.MTurk do
       
       list_reviewable_hits_response() :: %{
         "HITs" => list(hit()),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "NumResults" => integer()
       }
       
   """
-  @type list_reviewable_hits_response() :: %{String.t() => any()}
+  @type list_reviewable_hits_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1157,7 +1157,7 @@ defmodule AWS.MTurk do
       }
       
   """
-  @type get_qualification_type_response() :: %{String.t() => any()}
+  @type get_qualification_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1168,51 +1168,51 @@ defmodule AWS.MTurk do
       }
       
   """
-  @type create_hit_response() :: %{String.t() => any()}
+  @type create_hit_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_qualification_from_worker_request() :: %{
-        optional("Reason") => String.t(),
-        required("QualificationTypeId") => String.t(),
-        required("WorkerId") => String.t()
+        optional("Reason") => String.t() | atom(),
+        required("QualificationTypeId") => String.t() | atom(),
+        required("WorkerId") => String.t() | atom()
       }
       
   """
-  @type disassociate_qualification_from_worker_request() :: %{String.t() => any()}
+  @type disassociate_qualification_from_worker_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_qualification_type_request() :: %{
-        optional("AnswerKey") => String.t(),
+        optional("AnswerKey") => String.t() | atom(),
         optional("AutoGranted") => boolean(),
         optional("AutoGrantedValue") => integer(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("QualificationTypeStatus") => list(any()),
         optional("RetryDelayInSeconds") => float(),
-        optional("Test") => String.t(),
+        optional("Test") => String.t() | atom(),
         optional("TestDurationInSeconds") => float(),
-        required("QualificationTypeId") => String.t()
+        required("QualificationTypeId") => String.t() | atom()
       }
       
   """
-  @type update_qualification_type_request() :: %{String.t() => any()}
+  @type update_qualification_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       parameter_map_entry() :: %{
-        "Key" => String.t(),
-        "Values" => list(String.t())
+        "Key" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type parameter_map_entry() :: %{String.t() => any()}
+  @type parameter_map_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1221,25 +1221,25 @@ defmodule AWS.MTurk do
       list_assignments_for_hit_request() :: %{
         optional("AssignmentStatuses") => list(list(any())()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("HITId") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("HITId") => String.t() | atom()
       }
       
   """
-  @type list_assignments_for_hit_request() :: %{String.t() => any()}
+  @type list_assignments_for_hit_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_qualification_types_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "NumResults" => integer(),
         "QualificationTypes" => list(qualification_type())
       }
       
   """
-  @type list_qualification_types_response() :: %{String.t() => any()}
+  @type list_qualification_types_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1247,16 +1247,16 @@ defmodule AWS.MTurk do
       
       create_hit_type_request() :: %{
         optional("AutoApprovalDelayInSeconds") => float(),
-        optional("Keywords") => String.t(),
+        optional("Keywords") => String.t() | atom(),
         optional("QualificationRequirements") => list(qualification_requirement()),
         required("AssignmentDurationInSeconds") => float(),
-        required("Description") => String.t(),
-        required("Reward") => String.t(),
-        required("Title") => String.t()
+        required("Description") => String.t() | atom(),
+        required("Reward") => String.t() | atom(),
+        required("Title") => String.t() | atom()
       }
       
   """
-  @type create_hit_type_request() :: %{String.t() => any()}
+  @type create_hit_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1378,7 +1378,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, accept_qualification_request_errors()}
   def accept_qualification_request(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptQualificationRequest", input, options)
   end
@@ -1417,7 +1418,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, approve_assignment_errors()}
   def approve_assignment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ApproveAssignment", input, options)
   end
@@ -1455,7 +1457,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, associate_qualification_with_worker_errors()}
   def associate_qualification_with_worker(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateQualificationWithWorker", input, options)
   end
@@ -1493,7 +1496,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, create_additional_assignments_for_hit_errors()}
   def create_additional_assignments_for_hit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAdditionalAssignmentsForHIT", input, options)
   end
@@ -1533,7 +1537,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, create_hit_errors()}
   def create_hit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHIT", input, options)
   end
@@ -1554,7 +1559,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, create_hit_type_errors()}
   def create_hit_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHITType", input, options)
   end
@@ -1583,7 +1589,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, create_hit_with_hit_type_errors()}
   def create_hit_with_hit_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHITWithHITType", input, options)
   end
@@ -1602,7 +1609,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, create_qualification_type_errors()}
   def create_qualification_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateQualificationType", input, options)
   end
@@ -1620,7 +1628,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, create_worker_block_errors()}
   def create_worker_block(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWorkerBlock", input, options)
   end
@@ -1663,7 +1672,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, delete_hit_errors()}
   def delete_hit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteHIT", input, options)
   end
@@ -1694,7 +1704,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, delete_qualification_type_errors()}
   def delete_qualification_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteQualificationType", input, options)
   end
@@ -1714,7 +1725,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, delete_worker_block_errors()}
   def delete_worker_block(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWorkerBlock", input, options)
   end
@@ -1737,7 +1749,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, disassociate_qualification_from_worker_errors()}
   def disassociate_qualification_from_worker(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateQualificationFromWorker", input, options)
   end
@@ -1758,7 +1771,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, get_account_balance_errors()}
   def get_account_balance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAccountBalance", input, options)
   end
@@ -1773,7 +1787,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, get_assignment_errors()}
   def get_assignment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAssignment", input, options)
   end
@@ -1804,7 +1819,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, get_file_upload_url_errors()}
   def get_file_upload_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetFileUploadURL", input, options)
   end
@@ -1819,7 +1835,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, get_hit_errors()}
   def get_hit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetHIT", input, options)
   end
@@ -1845,7 +1862,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, get_qualification_score_errors()}
   def get_qualification_score(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetQualificationScore", input, options)
   end
@@ -1861,7 +1879,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, get_qualification_type_errors()}
   def get_qualification_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetQualificationType", input, options)
   end
@@ -1902,7 +1921,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, list_assignments_for_hit_errors()}
   def list_assignments_for_hit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAssignmentsForHIT", input, options)
   end
@@ -1920,7 +1940,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, list_bonus_payments_errors()}
   def list_bonus_payments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBonusPayments", input, options)
   end
@@ -1941,7 +1962,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, list_hits_errors()}
   def list_hits(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListHITs", input, options)
   end
@@ -1964,7 +1986,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, list_hits_for_qualification_type_errors()}
   def list_hits_for_qualification_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListHITsForQualificationType", input, options)
   end
@@ -1986,7 +2009,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, list_qualification_requests_errors()}
   def list_qualification_requests(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListQualificationRequests", input, options)
   end
@@ -2004,7 +2028,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, list_qualification_types_errors()}
   def list_qualification_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListQualificationTypes", input, options)
   end
@@ -2030,7 +2055,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, list_review_policy_results_for_hit_errors()}
   def list_review_policy_results_for_hit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListReviewPolicyResultsForHIT", input, options)
   end
@@ -2047,7 +2073,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, list_reviewable_hits_errors()}
   def list_reviewable_hits(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListReviewableHITs", input, options)
   end
@@ -2062,7 +2089,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, list_worker_blocks_errors()}
   def list_worker_blocks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWorkerBlocks", input, options)
   end
@@ -2082,7 +2110,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, list_workers_with_qualification_type_errors()}
   def list_workers_with_qualification_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWorkersWithQualificationType", input, options)
   end
@@ -2106,7 +2135,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, notify_workers_errors()}
   def notify_workers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "NotifyWorkers", input, options)
   end
@@ -2129,7 +2159,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, reject_assignment_errors()}
   def reject_assignment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RejectAssignment", input, options)
   end
@@ -2149,7 +2180,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, reject_qualification_request_errors()}
   def reject_qualification_request(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RejectQualificationRequest", input, options)
   end
@@ -2176,7 +2208,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, send_bonus_errors()}
   def send_bonus(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendBonus", input, options)
   end
@@ -2199,7 +2232,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, send_test_event_notification_errors()}
   def send_test_event_notification(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendTestEventNotification", input, options)
   end
@@ -2217,7 +2251,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, update_expiration_for_hit_errors()}
   def update_expiration_for_hit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateExpirationForHIT", input, options)
   end
@@ -2235,7 +2270,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, update_hit_review_status_errors()}
   def update_hit_review_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateHITReviewStatus", input, options)
   end
@@ -2257,7 +2293,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, update_hit_type_of_hit_errors()}
   def update_hit_type_of_hit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateHITTypeOfHIT", input, options)
   end
@@ -2287,7 +2324,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, update_notification_settings_errors()}
   def update_notification_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateNotificationSettings", input, options)
   end
@@ -2340,7 +2378,8 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, update_qualification_type_errors()}
   def update_qualification_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateQualificationType", input, options)
   end

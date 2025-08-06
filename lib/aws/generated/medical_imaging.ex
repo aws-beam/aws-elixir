@@ -17,22 +17,22 @@ defmodule AWS.MedicalImaging do
   ## Example:
 
       get_image_set_metadata_request() :: %{
-        optional("versionId") => String.t()
+        optional("versionId") => String.t() | atom()
       }
 
   """
-  @type get_image_set_metadata_request() :: %{String.t() => any()}
+  @type get_image_set_metadata_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       metadata_copies() :: %{
-        "copiableAttributes" => String.t()
+        "copiableAttributes" => String.t() | atom()
       }
 
   """
-  @type metadata_copies() :: %{String.t() => any()}
+  @type metadata_copies() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -43,23 +43,23 @@ defmodule AWS.MedicalImaging do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_d_i_c_o_m_import_job_request() :: %{
-        optional("inputOwnerAccountId") => String.t(),
-        optional("jobName") => String.t(),
-        required("clientToken") => String.t(),
-        required("dataAccessRoleArn") => String.t(),
-        required("inputS3Uri") => String.t(),
-        required("outputS3Uri") => String.t()
+        optional("inputOwnerAccountId") => String.t() | atom(),
+        optional("jobName") => String.t() | atom(),
+        required("clientToken") => String.t() | atom(),
+        required("dataAccessRoleArn") => String.t() | atom(),
+        required("inputS3Uri") => String.t() | atom(),
+        required("outputS3Uri") => String.t() | atom()
       }
 
   """
-  @type start_d_i_c_o_m_import_job_request() :: %{String.t() => any()}
+  @type start_d_i_c_o_m_import_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -67,12 +67,12 @@ defmodule AWS.MedicalImaging do
 
       search_image_sets_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("searchCriteria") => search_criteria()
       }
 
   """
-  @type search_image_sets_request() :: %{String.t() => any()}
+  @type search_image_sets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -83,7 +83,7 @@ defmodule AWS.MedicalImaging do
       }
 
   """
-  @type overrides() :: %{String.t() => any()}
+  @type overrides() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -92,14 +92,14 @@ defmodule AWS.MedicalImaging do
       image_sets_metadata_summary() :: %{
         "DICOMTags" => d_i_c_o_m_tags(),
         "createdAt" => non_neg_integer(),
-        "imageSetId" => String.t(),
+        "imageSetId" => String.t() | atom(),
         "isPrimary" => [boolean()],
         "updatedAt" => non_neg_integer(),
         "version" => [integer()]
       }
 
   """
-  @type image_sets_metadata_summary() :: %{String.t() => any()}
+  @type image_sets_metadata_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -121,7 +121,7 @@ defmodule AWS.MedicalImaging do
       }
 
   """
-  @type copy_image_set_request() :: %{String.t() => any()}
+  @type copy_image_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -129,11 +129,11 @@ defmodule AWS.MedicalImaging do
 
       copy_source_image_set_information() :: %{
         "DICOMCopies" => metadata_copies(),
-        "latestVersionId" => String.t()
+        "latestVersionId" => String.t() | atom()
       }
 
   """
-  @type copy_source_image_set_information() :: %{String.t() => any()}
+  @type copy_source_image_set_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -141,16 +141,16 @@ defmodule AWS.MedicalImaging do
 
       copy_source_image_set_properties() :: %{
         "createdAt" => non_neg_integer(),
-        "imageSetArn" => String.t(),
-        "imageSetId" => String.t(),
+        "imageSetArn" => String.t() | atom(),
+        "imageSetId" => String.t() | atom(),
         "imageSetState" => list(any()),
         "imageSetWorkflowStatus" => list(any()),
-        "latestVersionId" => String.t(),
+        "latestVersionId" => String.t() | atom(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type copy_source_image_set_properties() :: %{String.t() => any()}
+  @type copy_source_image_set_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -167,40 +167,40 @@ defmodule AWS.MedicalImaging do
 
       list_image_set_versions_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_image_set_versions_request() :: %{String.t() => any()}
+  @type list_image_set_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       d_i_c_o_m_import_job_summary() :: %{
-        "dataAccessRoleArn" => String.t(),
-        "datastoreId" => String.t(),
+        "dataAccessRoleArn" => String.t() | atom(),
+        "datastoreId" => String.t() | atom(),
         "endedAt" => non_neg_integer(),
-        "jobId" => String.t(),
-        "jobName" => String.t(),
+        "jobId" => String.t() | atom(),
+        "jobName" => String.t() | atom(),
         "jobStatus" => list(any()),
-        "message" => String.t(),
+        "message" => String.t() | atom(),
         "submittedAt" => non_neg_integer()
       }
 
   """
-  @type d_i_c_o_m_import_job_summary() :: %{String.t() => any()}
+  @type d_i_c_o_m_import_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -210,28 +210,28 @@ defmodule AWS.MedicalImaging do
         "ImageSetWorkflowStatus" => list(any()),
         "createdAt" => non_neg_integer(),
         "deletedAt" => non_neg_integer(),
-        "imageSetId" => String.t(),
+        "imageSetId" => String.t() | atom(),
         "imageSetState" => list(any()),
         "isPrimary" => [boolean()],
-        "message" => String.t(),
+        "message" => String.t() | atom(),
         "overrides" => overrides(),
         "updatedAt" => non_neg_integer(),
-        "versionId" => String.t()
+        "versionId" => String.t() | atom()
       }
 
   """
-  @type image_set_properties() :: %{String.t() => any()}
+  @type image_set_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       image_frame_information() :: %{
-        "imageFrameId" => String.t()
+        "imageFrameId" => String.t() | atom()
       }
 
   """
-  @type image_frame_information() :: %{String.t() => any()}
+  @type image_frame_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -243,7 +243,7 @@ defmodule AWS.MedicalImaging do
       }
 
   """
-  @type search_filter() :: %{String.t() => any()}
+  @type search_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -260,66 +260,66 @@ defmodule AWS.MedicalImaging do
 
       get_image_set_response() :: %{
         "createdAt" => non_neg_integer(),
-        "datastoreId" => String.t(),
+        "datastoreId" => String.t() | atom(),
         "deletedAt" => non_neg_integer(),
-        "imageSetArn" => String.t(),
-        "imageSetId" => String.t(),
+        "imageSetArn" => String.t() | atom(),
+        "imageSetId" => String.t() | atom(),
         "imageSetState" => list(any()),
         "imageSetWorkflowStatus" => list(any()),
         "isPrimary" => [boolean()],
-        "message" => String.t(),
+        "message" => String.t() | atom(),
         "overrides" => overrides(),
         "updatedAt" => non_neg_integer(),
-        "versionId" => String.t()
+        "versionId" => String.t() | atom()
       }
 
   """
-  @type get_image_set_response() :: %{String.t() => any()}
+  @type get_image_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_datastore_response() :: %{
-        "datastoreId" => String.t(),
+        "datastoreId" => String.t() | atom(),
         "datastoreStatus" => list(any())
       }
 
   """
-  @type delete_datastore_response() :: %{String.t() => any()}
+  @type delete_datastore_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_image_set_request() :: %{
-        optional("versionId") => String.t()
+        optional("versionId") => String.t() | atom()
       }
 
   """
-  @type get_image_set_request() :: %{String.t() => any()}
+  @type get_image_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -327,12 +327,12 @@ defmodule AWS.MedicalImaging do
 
       search_image_sets_response() :: %{
         "imageSetsMetadataSummaries" => list(image_sets_metadata_summary()),
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "sort" => sort()
       }
 
   """
-  @type search_image_sets_response() :: %{String.t() => any()}
+  @type search_image_sets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -340,36 +340,36 @@ defmodule AWS.MedicalImaging do
 
       update_image_set_metadata_request() :: %{
         optional("force") => [boolean()],
-        required("latestVersionId") => String.t(),
+        required("latestVersionId") => String.t() | atom(),
         required("updateImageSetMetadataUpdates") => list()
       }
 
   """
-  @type update_image_set_metadata_request() :: %{String.t() => any()}
+  @type update_image_set_metadata_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       copy_image_set_response() :: %{
-        "datastoreId" => String.t(),
+        "datastoreId" => String.t() | atom(),
         "destinationImageSetProperties" => copy_destination_image_set_properties(),
         "sourceImageSetProperties" => copy_source_image_set_properties()
       }
 
   """
-  @type copy_image_set_response() :: %{String.t() => any()}
+  @type copy_image_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -380,7 +380,7 @@ defmodule AWS.MedicalImaging do
       }
 
   """
-  @type get_datastore_response() :: %{String.t() => any()}
+  @type get_datastore_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -388,25 +388,25 @@ defmodule AWS.MedicalImaging do
 
       list_datastores_response() :: %{
         "datastoreSummaries" => list(datastore_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_datastores_response() :: %{String.t() => any()}
+  @type list_datastores_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_d_i_c_o_m_import_job_response() :: %{
-        "datastoreId" => String.t(),
-        "jobId" => String.t(),
+        "datastoreId" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
         "jobStatus" => list(any()),
         "submittedAt" => non_neg_integer()
       }
 
   """
-  @type start_d_i_c_o_m_import_job_response() :: %{String.t() => any()}
+  @type start_d_i_c_o_m_import_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -417,27 +417,27 @@ defmodule AWS.MedicalImaging do
       }
 
   """
-  @type get_image_frame_request() :: %{String.t() => any()}
+  @type get_image_frame_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       d_i_c_o_m_import_job_properties() :: %{
-        "dataAccessRoleArn" => String.t(),
-        "datastoreId" => String.t(),
+        "dataAccessRoleArn" => String.t() | atom(),
+        "datastoreId" => String.t() | atom(),
         "endedAt" => non_neg_integer(),
-        "inputS3Uri" => String.t(),
-        "jobId" => String.t(),
-        "jobName" => String.t(),
+        "inputS3Uri" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "jobName" => String.t() | atom(),
         "jobStatus" => list(any()),
-        "message" => String.t(),
-        "outputS3Uri" => String.t(),
+        "message" => String.t() | atom(),
+        "outputS3Uri" => String.t() | atom(),
         "submittedAt" => non_neg_integer()
       }
 
   """
-  @type d_i_c_o_m_import_job_properties() :: %{String.t() => any()}
+  @type d_i_c_o_m_import_job_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -448,7 +448,7 @@ defmodule AWS.MedicalImaging do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -457,11 +457,11 @@ defmodule AWS.MedicalImaging do
       list_datastores_request() :: %{
         optional("datastoreStatus") => list(any()),
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_datastores_request() :: %{String.t() => any()}
+  @type list_datastores_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -469,16 +469,16 @@ defmodule AWS.MedicalImaging do
 
       datastore_properties() :: %{
         "createdAt" => non_neg_integer(),
-        "datastoreArn" => String.t(),
-        "datastoreId" => String.t(),
-        "datastoreName" => String.t(),
+        "datastoreArn" => String.t() | atom(),
+        "datastoreId" => String.t() | atom(),
+        "datastoreName" => String.t() | atom(),
         "datastoreStatus" => list(any()),
-        "kmsKeyArn" => String.t(),
+        "kmsKeyArn" => String.t() | atom(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type datastore_properties() :: %{String.t() => any()}
+  @type datastore_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -490,44 +490,44 @@ defmodule AWS.MedicalImaging do
       }
 
   """
-  @type sort() :: %{String.t() => any()}
+  @type sort() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       d_i_c_o_m_tags() :: %{
-        "DICOMAccessionNumber" => String.t(),
+        "DICOMAccessionNumber" => String.t() | atom(),
         "DICOMNumberOfStudyRelatedInstances" => integer(),
         "DICOMNumberOfStudyRelatedSeries" => integer(),
-        "DICOMPatientBirthDate" => String.t(),
-        "DICOMPatientId" => String.t(),
-        "DICOMPatientName" => String.t(),
-        "DICOMPatientSex" => String.t(),
-        "DICOMSeriesBodyPart" => String.t(),
-        "DICOMSeriesInstanceUID" => String.t(),
-        "DICOMSeriesModality" => String.t(),
+        "DICOMPatientBirthDate" => String.t() | atom(),
+        "DICOMPatientId" => String.t() | atom(),
+        "DICOMPatientName" => String.t() | atom(),
+        "DICOMPatientSex" => String.t() | atom(),
+        "DICOMSeriesBodyPart" => String.t() | atom(),
+        "DICOMSeriesInstanceUID" => String.t() | atom(),
+        "DICOMSeriesModality" => String.t() | atom(),
         "DICOMSeriesNumber" => integer(),
-        "DICOMStudyDate" => String.t(),
-        "DICOMStudyDescription" => String.t(),
-        "DICOMStudyId" => String.t(),
-        "DICOMStudyInstanceUID" => String.t(),
-        "DICOMStudyTime" => String.t()
+        "DICOMStudyDate" => String.t() | atom(),
+        "DICOMStudyDescription" => String.t() | atom(),
+        "DICOMStudyId" => String.t() | atom(),
+        "DICOMStudyInstanceUID" => String.t() | atom(),
+        "DICOMStudyTime" => String.t() | atom()
       }
 
   """
-  @type d_i_c_o_m_tags() :: %{String.t() => any()}
+  @type d_i_c_o_m_tags() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -535,16 +535,16 @@ defmodule AWS.MedicalImaging do
 
       copy_destination_image_set_properties() :: %{
         "createdAt" => non_neg_integer(),
-        "imageSetArn" => String.t(),
-        "imageSetId" => String.t(),
+        "imageSetArn" => String.t() | atom(),
+        "imageSetId" => String.t() | atom(),
         "imageSetState" => list(any()),
         "imageSetWorkflowStatus" => list(any()),
-        "latestVersionId" => String.t(),
+        "latestVersionId" => String.t() | atom(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type copy_destination_image_set_properties() :: %{String.t() => any()}
+  @type copy_destination_image_set_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -552,15 +552,15 @@ defmodule AWS.MedicalImaging do
 
       datastore_summary() :: %{
         "createdAt" => non_neg_integer(),
-        "datastoreArn" => String.t(),
-        "datastoreId" => String.t(),
-        "datastoreName" => String.t(),
+        "datastoreArn" => String.t() | atom(),
+        "datastoreId" => String.t() | atom(),
+        "datastoreName" => String.t() | atom(),
         "datastoreStatus" => list(any()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type datastore_summary() :: %{String.t() => any()}
+  @type datastore_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -572,7 +572,7 @@ defmodule AWS.MedicalImaging do
       }
 
   """
-  @type d_i_c_o_m_updates() :: %{String.t() => any()}
+  @type d_i_c_o_m_updates() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -580,22 +580,22 @@ defmodule AWS.MedicalImaging do
 
       list_image_set_versions_response() :: %{
         "imageSetPropertiesList" => list(image_set_properties()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_image_set_versions_response() :: %{String.t() => any()}
+  @type list_image_set_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -611,12 +611,12 @@ defmodule AWS.MedicalImaging do
   ## Example:
 
       copy_destination_image_set() :: %{
-        "imageSetId" => String.t(),
-        "latestVersionId" => String.t()
+        "imageSetId" => String.t() | atom(),
+        "latestVersionId" => String.t() | atom()
       }
 
   """
-  @type copy_destination_image_set() :: %{String.t() => any()}
+  @type copy_destination_image_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -625,11 +625,11 @@ defmodule AWS.MedicalImaging do
       list_d_i_c_o_m_import_jobs_request() :: %{
         optional("jobStatus") => list(any()),
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_d_i_c_o_m_import_jobs_request() :: %{String.t() => any()}
+  @type list_d_i_c_o_m_import_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -645,11 +645,11 @@ defmodule AWS.MedicalImaging do
   ## Example:
 
       validation_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -665,38 +665,38 @@ defmodule AWS.MedicalImaging do
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_datastore_request() :: %{
-        optional("datastoreName") => String.t(),
-        optional("kmsKeyArn") => String.t(),
+        optional("datastoreName") => String.t() | atom(),
+        optional("kmsKeyArn") => String.t() | atom(),
         optional("tags") => map(),
-        required("clientToken") => String.t()
+        required("clientToken") => String.t() | atom()
       }
 
   """
-  @type create_datastore_request() :: %{String.t() => any()}
+  @type create_datastore_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_image_set_metadata_response() :: %{
-        "contentEncoding" => [String.t()],
-        "contentType" => [String.t()],
+        "contentEncoding" => [String.t() | atom()],
+        "contentType" => [String.t() | atom()],
         "imageSetMetadataBlob" => binary()
       }
 
   """
-  @type get_image_set_metadata_response() :: %{String.t() => any()}
+  @type get_image_set_metadata_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -704,41 +704,41 @@ defmodule AWS.MedicalImaging do
 
       update_image_set_metadata_response() :: %{
         "createdAt" => non_neg_integer(),
-        "datastoreId" => String.t(),
-        "imageSetId" => String.t(),
+        "datastoreId" => String.t() | atom(),
+        "imageSetId" => String.t() | atom(),
         "imageSetState" => list(any()),
         "imageSetWorkflowStatus" => list(any()),
-        "latestVersionId" => String.t(),
-        "message" => String.t(),
+        "latestVersionId" => String.t() | atom(),
+        "message" => String.t() | atom(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type update_image_set_metadata_response() :: %{String.t() => any()}
+  @type update_image_set_metadata_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       d_i_c_o_m_study_date_and_time() :: %{
-        "DICOMStudyDate" => String.t(),
-        "DICOMStudyTime" => String.t()
+        "DICOMStudyDate" => String.t() | atom(),
+        "DICOMStudyTime" => String.t() | atom()
       }
 
   """
-  @type d_i_c_o_m_study_date_and_time() :: %{String.t() => any()}
+  @type d_i_c_o_m_study_date_and_time() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_datastore_response() :: %{
-        "datastoreId" => String.t(),
+        "datastoreId" => String.t() | atom(),
         "datastoreStatus" => list(any())
       }
 
   """
-  @type create_datastore_response() :: %{String.t() => any()}
+  @type create_datastore_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -750,21 +750,21 @@ defmodule AWS.MedicalImaging do
       }
 
   """
-  @type copy_image_set_information() :: %{String.t() => any()}
+  @type copy_image_set_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_image_set_response() :: %{
-        "datastoreId" => String.t(),
-        "imageSetId" => String.t(),
+        "datastoreId" => String.t() | atom(),
+        "imageSetId" => String.t() | atom(),
         "imageSetState" => list(any()),
         "imageSetWorkflowStatus" => list(any())
       }
 
   """
-  @type delete_image_set_response() :: %{String.t() => any()}
+  @type delete_image_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -776,19 +776,19 @@ defmodule AWS.MedicalImaging do
       }
 
   """
-  @type search_criteria() :: %{String.t() => any()}
+  @type search_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_image_frame_response() :: %{
-        "contentType" => [String.t()],
+        "contentType" => [String.t() | atom()],
         "imageFrameBlob" => binary()
       }
 
   """
-  @type get_image_frame_response() :: %{String.t() => any()}
+  @type get_image_frame_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -796,11 +796,11 @@ defmodule AWS.MedicalImaging do
 
       list_d_i_c_o_m_import_jobs_response() :: %{
         "jobSummaries" => list(d_i_c_o_m_import_job_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_d_i_c_o_m_import_jobs_response() :: %{String.t() => any()}
+  @type list_d_i_c_o_m_import_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -820,7 +820,7 @@ defmodule AWS.MedicalImaging do
       }
 
   """
-  @type get_d_i_c_o_m_import_job_response() :: %{String.t() => any()}
+  @type get_d_i_c_o_m_import_job_response() :: %{(String.t() | atom()) => any()}
 
   @type copy_image_set_errors() ::
           throttling_exception()
@@ -982,7 +982,13 @@ defmodule AWS.MedicalImaging do
   @doc """
   Copy an image set.
   """
-  @spec copy_image_set(map(), String.t(), String.t(), copy_image_set_request(), list()) ::
+  @spec copy_image_set(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          copy_image_set_request(),
+          list()
+        ) ::
           {:ok, copy_image_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1051,7 +1057,7 @@ defmodule AWS.MedicalImaging do
   Before a data store can be deleted, you must first delete all image sets within
   it.
   """
-  @spec delete_datastore(map(), String.t(), delete_datastore_request(), list()) ::
+  @spec delete_datastore(map(), String.t() | atom(), delete_datastore_request(), list()) ::
           {:ok, delete_datastore_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1080,7 +1086,13 @@ defmodule AWS.MedicalImaging do
   @doc """
   Delete an image set.
   """
-  @spec delete_image_set(map(), String.t(), String.t(), delete_image_set_request(), list()) ::
+  @spec delete_image_set(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_image_set_request(),
+          list()
+        ) ::
           {:ok, delete_image_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1117,7 +1129,7 @@ defmodule AWS.MedicalImaging do
   we still recommend you review the output manifests written to S3, as they
   provide details on the success or failure of individual P10 object imports.
   """
-  @spec get_d_i_c_o_m_import_job(map(), String.t(), String.t(), list()) ::
+  @spec get_d_i_c_o_m_import_job(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_d_i_c_o_m_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1137,7 +1149,7 @@ defmodule AWS.MedicalImaging do
   @doc """
   Get data store properties.
   """
-  @spec get_datastore(map(), String.t(), list()) ::
+  @spec get_datastore(map(), String.t() | atom(), list()) ::
           {:ok, get_datastore_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1155,7 +1167,13 @@ defmodule AWS.MedicalImaging do
   @doc """
   Get an image frame (pixel data) for an image set.
   """
-  @spec get_image_frame(map(), String.t(), String.t(), get_image_frame_request(), list()) ::
+  @spec get_image_frame(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          get_image_frame_request(),
+          list()
+        ) ::
           {:ok, get_image_frame_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1193,7 +1211,13 @@ defmodule AWS.MedicalImaging do
   @doc """
   Get image set properties.
   """
-  @spec get_image_set(map(), String.t(), String.t(), get_image_set_request(), list()) ::
+  @spec get_image_set(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          get_image_set_request(),
+          list()
+        ) ::
           {:ok, get_image_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1231,8 +1255,8 @@ defmodule AWS.MedicalImaging do
   """
   @spec get_image_set_metadata(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           get_image_set_metadata_request(),
           list()
         ) ::
@@ -1280,10 +1304,10 @@ defmodule AWS.MedicalImaging do
   """
   @spec list_d_i_c_o_m_import_jobs(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_d_i_c_o_m_import_jobs_response(), any()}
@@ -1331,7 +1355,13 @@ defmodule AWS.MedicalImaging do
   @doc """
   List data stores.
   """
-  @spec list_datastores(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_datastores(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_datastores_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1378,8 +1408,8 @@ defmodule AWS.MedicalImaging do
   """
   @spec list_image_set_versions(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           list_image_set_versions_request(),
           list()
         ) ::
@@ -1425,7 +1455,7 @@ defmodule AWS.MedicalImaging do
   @doc """
   Lists all tags associated with a medical imaging resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1450,7 +1480,7 @@ defmodule AWS.MedicalImaging do
   By default, `SearchImageSets` uses the `updatedAt` field for sorting in
   descending order from newest to oldest.
   """
-  @spec search_image_sets(map(), String.t(), search_image_sets_request(), list()) ::
+  @spec search_image_sets(map(), String.t() | atom(), search_image_sets_request(), list()) ::
           {:ok, search_image_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1491,7 +1521,7 @@ defmodule AWS.MedicalImaging do
   """
   @spec start_d_i_c_o_m_import_job(
           map(),
-          String.t(),
+          String.t() | atom(),
           start_d_i_c_o_m_import_job_request(),
           list()
         ) ::
@@ -1523,7 +1553,7 @@ defmodule AWS.MedicalImaging do
   @doc """
   Adds a user-specifed key and value tag to a medical imaging resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1552,7 +1582,7 @@ defmodule AWS.MedicalImaging do
   @doc """
   Removes tags from a medical imaging resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1588,8 +1618,8 @@ defmodule AWS.MedicalImaging do
   """
   @spec update_image_set_metadata(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_image_set_metadata_request(),
           list()
         ) ::

@@ -18,19 +18,19 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type create_blueprint_version_response() :: %{String.t() => any()}
+  @type create_blueprint_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_data_automation_project_response() :: %{
-        "projectArn" => String.t(),
+        "projectArn" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type delete_data_automation_project_response() :: %{String.t() => any()}
+  @type delete_data_automation_project_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -38,39 +38,39 @@ defmodule AWS.BedrockDataAutomation do
 
       encryption_configuration() :: %{
         "kmsEncryptionContext" => map(),
-        "kmsKeyId" => String.t()
+        "kmsKeyId" => String.t() | atom()
       }
 
   """
-  @type encryption_configuration() :: %{String.t() => any()}
+  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_blueprints_request() :: %{
-        optional("blueprintArn") => String.t(),
+        optional("blueprintArn") => String.t() | atom(),
         optional("blueprintStageFilter") => list(any()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("projectFilter") => data_automation_project_filter(),
         optional("resourceOwner") => list(any())
       }
 
   """
-  @type list_blueprints_request() :: %{String.t() => any()}
+  @type list_blueprints_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_resource_request() :: %{
-        required("resourceARN") => String.t(),
+        required("resourceARN") => String.t() | atom(),
         required("tags") => list(tag())
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -82,7 +82,7 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type video_standard_output_configuration() :: %{String.t() => any()}
+  @type video_standard_output_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -96,7 +96,7 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type standard_output_configuration() :: %{String.t() => any()}
+  @type standard_output_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -107,7 +107,7 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type image_override_configuration() :: %{String.t() => any()}
+  @type image_override_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -115,13 +115,13 @@ defmodule AWS.BedrockDataAutomation do
 
       data_automation_project_summary() :: %{
         "creationTime" => non_neg_integer(),
-        "projectArn" => String.t(),
-        "projectName" => String.t(),
+        "projectArn" => String.t() | atom(),
+        "projectName" => String.t() | atom(),
         "projectStage" => list(any())
       }
 
   """
-  @type data_automation_project_summary() :: %{String.t() => any()}
+  @type data_automation_project_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -137,13 +137,13 @@ defmodule AWS.BedrockDataAutomation do
   ## Example:
 
       blueprint_item() :: %{
-        "blueprintArn" => String.t(),
+        "blueprintArn" => String.t() | atom(),
         "blueprintStage" => list(any()),
-        "blueprintVersion" => String.t()
+        "blueprintVersion" => String.t() | atom()
       }
 
   """
-  @type blueprint_item() :: %{String.t() => any()}
+  @type blueprint_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -154,7 +154,7 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type video_bounding_box() :: %{String.t() => any()}
+  @type video_bounding_box() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -165,7 +165,7 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type update_blueprint_response() :: %{String.t() => any()}
+  @type update_blueprint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -180,7 +180,7 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type override_configuration() :: %{String.t() => any()}
+  @type override_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -190,29 +190,29 @@ defmodule AWS.BedrockDataAutomation do
         optional("customOutputConfiguration") => custom_output_configuration(),
         optional("encryptionConfiguration") => encryption_configuration(),
         optional("overrideConfiguration") => override_configuration(),
-        optional("projectDescription") => String.t(),
+        optional("projectDescription") => String.t() | atom(),
         optional("projectStage") => list(any()),
         required("standardOutputConfiguration") => standard_output_configuration()
       }
 
   """
-  @type update_data_automation_project_request() :: %{String.t() => any()}
+  @type update_data_automation_project_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       blueprint_summary() :: %{
-        "blueprintArn" => String.t(),
-        "blueprintName" => String.t(),
+        "blueprintArn" => String.t() | atom(),
+        "blueprintName" => String.t() | atom(),
         "blueprintStage" => list(any()),
-        "blueprintVersion" => String.t(),
+        "blueprintVersion" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
         "lastModifiedTime" => non_neg_integer()
       }
 
   """
-  @type blueprint_summary() :: %{String.t() => any()}
+  @type blueprint_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -221,13 +221,13 @@ defmodule AWS.BedrockDataAutomation do
       list_data_automation_projects_request() :: %{
         optional("blueprintFilter") => blueprint_filter(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("projectStageFilter") => list(any()),
         optional("resourceOwner") => list(any())
       }
 
   """
-  @type list_data_automation_projects_request() :: %{String.t() => any()}
+  @type list_data_automation_projects_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -248,7 +248,7 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type document_override_configuration() :: %{String.t() => any()}
+  @type document_override_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -259,7 +259,7 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type video_override_configuration() :: %{String.t() => any()}
+  @type video_override_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -271,7 +271,7 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type audio_standard_output_configuration() :: %{String.t() => any()}
+  @type audio_standard_output_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -282,7 +282,7 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type document_standard_generative_field() :: %{String.t() => any()}
+  @type document_standard_generative_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -293,43 +293,43 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type document_output_text_format() :: %{String.t() => any()}
+  @type document_output_text_format() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_data_automation_project_response() :: %{
-        "projectArn" => String.t(),
+        "projectArn" => String.t() | atom(),
         "projectStage" => list(any()),
         "status" => list(any())
       }
 
   """
-  @type create_data_automation_project_response() :: %{String.t() => any()}
+  @type create_data_automation_project_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("resourceARN") => String.t(),
-        required("tagKeys") => list(String.t())
+        required("resourceARN") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_blueprint_version_request() :: %{
-        optional("clientToken") => String.t()
+        optional("clientToken") => String.t() | atom()
       }
 
   """
-  @type create_blueprint_version_request() :: %{String.t() => any()}
+  @type create_blueprint_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -337,11 +337,11 @@ defmodule AWS.BedrockDataAutomation do
 
       get_blueprint_request() :: %{
         optional("blueprintStage") => list(any()),
-        optional("blueprintVersion") => String.t()
+        optional("blueprintVersion") => String.t() | atom()
       }
 
   """
-  @type get_blueprint_request() :: %{String.t() => any()}
+  @type get_blueprint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -352,29 +352,29 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type document_extraction_granularity() :: %{String.t() => any()}
+  @type document_extraction_granularity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -386,7 +386,7 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type video_standard_generative_field() :: %{String.t() => any()}
+  @type video_standard_generative_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -398,7 +398,7 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type image_standard_extraction() :: %{String.t() => any()}
+  @type image_standard_extraction() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -410,30 +410,30 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type audio_standard_generative_field() :: %{String.t() => any()}
+  @type audio_standard_generative_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -444,7 +444,7 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type document_output_additional_file_format() :: %{String.t() => any()}
+  @type document_output_additional_file_format() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -455,26 +455,26 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type get_blueprint_response() :: %{String.t() => any()}
+  @type get_blueprint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_data_automation_project_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | atom(),
         optional("customOutputConfiguration") => custom_output_configuration(),
         optional("encryptionConfiguration") => encryption_configuration(),
         optional("overrideConfiguration") => override_configuration(),
-        optional("projectDescription") => String.t(),
+        optional("projectDescription") => String.t() | atom(),
         optional("projectStage") => list(any()),
         optional("tags") => list(tag()),
-        required("projectName") => String.t(),
+        required("projectName") => String.t() | atom(),
         required("standardOutputConfiguration") => standard_output_configuration()
       }
 
   """
-  @type create_data_automation_project_request() :: %{String.t() => any()}
+  @type create_data_automation_project_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -485,7 +485,7 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -496,7 +496,7 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type get_data_automation_project_response() :: %{String.t() => any()}
+  @type get_data_automation_project_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -508,7 +508,7 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type video_extraction_category() :: %{String.t() => any()}
+  @type video_extraction_category() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -520,19 +520,19 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type audio_extraction_category() :: %{String.t() => any()}
+  @type audio_extraction_category() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => String.t(),
-        "name" => String.t()
+        "message" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -546,27 +546,27 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type modality_routing_configuration() :: %{String.t() => any()}
+  @type modality_routing_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       blueprint() :: %{
-        "blueprintArn" => String.t(),
-        "blueprintName" => String.t(),
+        "blueprintArn" => String.t() | atom(),
+        "blueprintName" => String.t() | atom(),
         "blueprintStage" => list(any()),
-        "blueprintVersion" => String.t(),
+        "blueprintVersion" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
         "kmsEncryptionContext" => map(),
-        "kmsKeyId" => String.t(),
+        "kmsKeyId" => String.t() | atom(),
         "lastModifiedTime" => non_neg_integer(),
-        "schema" => String.t(),
+        "schema" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type blueprint() :: %{String.t() => any()}
+  @type blueprint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -576,19 +576,19 @@ defmodule AWS.BedrockDataAutomation do
         "creationTime" => non_neg_integer(),
         "customOutputConfiguration" => custom_output_configuration(),
         "kmsEncryptionContext" => map(),
-        "kmsKeyId" => String.t(),
+        "kmsKeyId" => String.t() | atom(),
         "lastModifiedTime" => non_neg_integer(),
         "overrideConfiguration" => override_configuration(),
-        "projectArn" => String.t(),
-        "projectDescription" => String.t(),
-        "projectName" => String.t(),
+        "projectArn" => String.t() | atom(),
+        "projectDescription" => String.t() | atom(),
+        "projectName" => String.t() | atom(),
         "projectStage" => list(any()),
         "standardOutputConfiguration" => standard_output_configuration(),
         "status" => list(any())
       }
 
   """
-  @type data_automation_project() :: %{String.t() => any()}
+  @type data_automation_project() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -600,7 +600,7 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type video_standard_extraction() :: %{String.t() => any()}
+  @type video_standard_extraction() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -612,7 +612,7 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type image_standard_output_configuration() :: %{String.t() => any()}
+  @type image_standard_output_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -623,7 +623,7 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type splitter_configuration() :: %{String.t() => any()}
+  @type splitter_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -634,7 +634,7 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type create_blueprint_response() :: %{String.t() => any()}
+  @type create_blueprint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -643,11 +643,11 @@ defmodule AWS.BedrockDataAutomation do
       update_blueprint_request() :: %{
         optional("blueprintStage") => list(any()),
         optional("encryptionConfiguration") => encryption_configuration(),
-        required("schema") => String.t()
+        required("schema") => String.t() | atom()
       }
 
   """
-  @type update_blueprint_request() :: %{String.t() => any()}
+  @type update_blueprint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -659,29 +659,29 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type document_standard_extraction() :: %{String.t() => any()}
+  @type document_standard_extraction() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -692,7 +692,7 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type audio_standard_extraction() :: %{String.t() => any()}
+  @type audio_standard_extraction() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -714,20 +714,20 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type document_standard_output_configuration() :: %{String.t() => any()}
+  @type document_standard_output_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_data_automation_project_response() :: %{
-        "projectArn" => String.t(),
+        "projectArn" => String.t() | atom(),
         "projectStage" => list(any()),
         "status" => list(any())
       }
 
   """
-  @type update_data_automation_project_response() :: %{String.t() => any()}
+  @type update_data_automation_project_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -738,7 +738,7 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type modality_processing_configuration() :: %{String.t() => any()}
+  @type modality_processing_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -746,22 +746,22 @@ defmodule AWS.BedrockDataAutomation do
 
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_request() :: %{
-        required("resourceARN") => String.t()
+        required("resourceARN") => String.t() | atom()
       }
 
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -772,18 +772,18 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type document_bounding_box() :: %{String.t() => any()}
+  @type document_bounding_box() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_blueprint_request() :: %{
-        optional("blueprintVersion") => String.t()
+        optional("blueprintVersion") => String.t() | atom()
       }
 
   """
-  @type delete_blueprint_request() :: %{String.t() => any()}
+  @type delete_blueprint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -795,18 +795,18 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type image_standard_generative_field() :: %{String.t() => any()}
+  @type image_standard_generative_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -817,7 +817,7 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type audio_override_configuration() :: %{String.t() => any()}
+  @type audio_override_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -825,16 +825,16 @@ defmodule AWS.BedrockDataAutomation do
 
       create_blueprint_request() :: %{
         optional("blueprintStage") => list(any()),
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | atom(),
         optional("encryptionConfiguration") => encryption_configuration(),
         optional("tags") => list(tag()),
-        required("blueprintName") => String.t(),
-        required("schema") => String.t(),
+        required("blueprintName") => String.t() | atom(),
+        required("schema") => String.t() | atom(),
         required("type") => list(any())
       }
 
   """
-  @type create_blueprint_request() :: %{String.t() => any()}
+  @type create_blueprint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -842,11 +842,11 @@ defmodule AWS.BedrockDataAutomation do
 
       list_blueprints_response() :: %{
         "blueprints" => list(blueprint_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_blueprints_response() :: %{String.t() => any()}
+  @type list_blueprints_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -858,7 +858,7 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type image_extraction_category() :: %{String.t() => any()}
+  @type image_extraction_category() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -869,19 +869,19 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type image_bounding_box() :: %{String.t() => any()}
+  @type image_bounding_box() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_automation_project_filter() :: %{
-        "projectArn" => String.t(),
+        "projectArn" => String.t() | atom(),
         "projectStage" => list(any())
       }
 
   """
-  @type data_automation_project_filter() :: %{String.t() => any()}
+  @type data_automation_project_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -892,7 +892,7 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type custom_output_configuration() :: %{String.t() => any()}
+  @type custom_output_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -903,7 +903,7 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type get_data_automation_project_request() :: %{String.t() => any()}
+  @type get_data_automation_project_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -919,25 +919,25 @@ defmodule AWS.BedrockDataAutomation do
   ## Example:
 
       list_data_automation_projects_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "projects" => list(data_automation_project_summary())
       }
 
   """
-  @type list_data_automation_projects_response() :: %{String.t() => any()}
+  @type list_data_automation_projects_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       blueprint_filter() :: %{
-        "blueprintArn" => String.t(),
+        "blueprintArn" => String.t() | atom(),
         "blueprintStage" => list(any()),
-        "blueprintVersion" => String.t()
+        "blueprintVersion" => String.t() | atom()
       }
 
   """
-  @type blueprint_filter() :: %{String.t() => any()}
+  @type blueprint_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -949,7 +949,7 @@ defmodule AWS.BedrockDataAutomation do
       }
 
   """
-  @type document_output_format() :: %{String.t() => any()}
+  @type document_output_format() :: %{(String.t() | atom()) => any()}
 
   @type create_blueprint_errors() ::
           throttling_exception()
@@ -1104,7 +1104,12 @@ defmodule AWS.BedrockDataAutomation do
   @doc """
   Creates a new version of an existing Amazon Bedrock Data Automation Blueprint
   """
-  @spec create_blueprint_version(map(), String.t(), create_blueprint_version_request(), list()) ::
+  @spec create_blueprint_version(
+          map(),
+          String.t() | atom(),
+          create_blueprint_version_request(),
+          list()
+        ) ::
           {:ok, create_blueprint_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1162,7 +1167,7 @@ defmodule AWS.BedrockDataAutomation do
   @doc """
   Deletes an existing Amazon Bedrock Data Automation Blueprint
   """
-  @spec delete_blueprint(map(), String.t(), delete_blueprint_request(), list()) ::
+  @spec delete_blueprint(map(), String.t() | atom(), delete_blueprint_request(), list()) ::
           {:ok, delete_blueprint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1198,7 +1203,7 @@ defmodule AWS.BedrockDataAutomation do
   """
   @spec delete_data_automation_project(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_data_automation_project_request(),
           list()
         ) ::
@@ -1230,7 +1235,7 @@ defmodule AWS.BedrockDataAutomation do
   @doc """
   Gets an existing Amazon Bedrock Data Automation Blueprint
   """
-  @spec get_blueprint(map(), String.t(), get_blueprint_request(), list()) ::
+  @spec get_blueprint(map(), String.t() | atom(), get_blueprint_request(), list()) ::
           {:ok, get_blueprint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1261,7 +1266,7 @@ defmodule AWS.BedrockDataAutomation do
   """
   @spec get_data_automation_project(
           map(),
-          String.t(),
+          String.t() | atom(),
           get_data_automation_project_request(),
           list()
         ) ::
@@ -1438,7 +1443,7 @@ defmodule AWS.BedrockDataAutomation do
   @doc """
   Updates an existing Amazon Bedrock Data Automation Blueprint
   """
-  @spec update_blueprint(map(), String.t(), update_blueprint_request(), list()) ::
+  @spec update_blueprint(map(), String.t() | atom(), update_blueprint_request(), list()) ::
           {:ok, update_blueprint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1469,7 +1474,7 @@ defmodule AWS.BedrockDataAutomation do
   """
   @spec update_data_automation_project(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_data_automation_project_request(),
           list()
         ) ::

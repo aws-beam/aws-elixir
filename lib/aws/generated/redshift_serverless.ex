@@ -32,33 +32,33 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type delete_namespace_response() :: %{String.t() => any()}
+  @type delete_namespace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       table_restore_status() :: %{
-        "message" => [String.t()],
-        "namespaceName" => [String.t()],
-        "newTableName" => [String.t()],
+        "message" => [String.t() | atom()],
+        "namespaceName" => [String.t() | atom()],
+        "newTableName" => [String.t() | atom()],
         "progressInMegaBytes" => [float()],
-        "recoveryPointId" => [String.t()],
+        "recoveryPointId" => [String.t() | atom()],
         "requestTime" => [non_neg_integer()],
-        "snapshotName" => [String.t()],
-        "sourceDatabaseName" => [String.t()],
-        "sourceSchemaName" => [String.t()],
-        "sourceTableName" => [String.t()],
-        "status" => [String.t()],
-        "tableRestoreRequestId" => [String.t()],
-        "targetDatabaseName" => [String.t()],
-        "targetSchemaName" => [String.t()],
+        "snapshotName" => [String.t() | atom()],
+        "sourceDatabaseName" => [String.t() | atom()],
+        "sourceSchemaName" => [String.t() | atom()],
+        "sourceTableName" => [String.t() | atom()],
+        "status" => [String.t() | atom()],
+        "tableRestoreRequestId" => [String.t() | atom()],
+        "targetDatabaseName" => [String.t() | atom()],
+        "targetSchemaName" => [String.t() | atom()],
         "totalDataInMegaBytes" => [float()],
-        "workgroupName" => [String.t()]
+        "workgroupName" => [String.t() | atom()]
       }
       
   """
-  @type table_restore_status() :: %{String.t() => any()}
+  @type table_restore_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -69,53 +69,53 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type get_track_response() :: %{String.t() => any()}
+  @type get_track_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_reservation_offering_request() :: %{
-        required("offeringId") => String.t()
+        required("offeringId") => String.t() | atom()
       }
       
   """
-  @type get_reservation_offering_request() :: %{String.t() => any()}
+  @type get_reservation_offering_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_endpoint_access_request() :: %{
-        optional("vpcSecurityGroupIds") => list(String.t()),
-        required("endpointName") => [String.t()]
+        optional("vpcSecurityGroupIds") => list(String.t() | atom()),
+        required("endpointName") => [String.t() | atom()]
       }
       
   """
-  @type update_endpoint_access_request() :: %{String.t() => any()}
+  @type update_endpoint_access_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_snapshot_request() :: %{
-        required("snapshotName") => [String.t()]
+        required("snapshotName") => [String.t() | atom()]
       }
       
   """
-  @type delete_snapshot_request() :: %{String.t() => any()}
+  @type delete_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("resourceArn") => String.t(),
+        required("resourceArn") => String.t() | atom(),
         required("tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -131,11 +131,11 @@ defmodule AWS.RedshiftServerless do
   ## Example:
       
       delete_snapshot_copy_configuration_request() :: %{
-        required("snapshotCopyConfigurationId") => [String.t()]
+        required("snapshotCopyConfigurationId") => [String.t() | atom()]
       }
       
   """
-  @type delete_snapshot_copy_configuration_request() :: %{String.t() => any()}
+  @type delete_snapshot_copy_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -146,7 +146,7 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type get_reservation_response() :: %{String.t() => any()}
+  @type get_reservation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -157,41 +157,41 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type get_usage_limit_response() :: %{String.t() => any()}
+  @type get_usage_limit_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       scheduled_action_association() :: %{
-        "namespaceName" => String.t(),
-        "scheduledActionName" => String.t()
+        "namespaceName" => String.t() | atom(),
+        "scheduledActionName" => String.t() | atom()
       }
       
   """
-  @type scheduled_action_association() :: %{String.t() => any()}
+  @type scheduled_action_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_table_restore_status_request() :: %{
-        required("tableRestoreRequestId") => [String.t()]
+        required("tableRestoreRequestId") => [String.t() | atom()]
       }
       
   """
-  @type get_table_restore_status_request() :: %{String.t() => any()}
+  @type get_table_restore_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_reservation_request() :: %{
-        required("reservationId") => String.t()
+        required("reservationId") => String.t() | atom()
       }
       
   """
-  @type get_reservation_request() :: %{String.t() => any()}
+  @type get_reservation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -199,12 +199,12 @@ defmodule AWS.RedshiftServerless do
       
       update_usage_limit_request() :: %{
         optional("amount") => [float()],
-        optional("breachAction") => String.t(),
-        required("usageLimitId") => [String.t()]
+        optional("breachAction") => String.t() | atom(),
+        required("usageLimitId") => [String.t() | atom()]
       }
       
   """
-  @type update_usage_limit_request() :: %{String.t() => any()}
+  @type update_usage_limit_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -215,7 +215,7 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type delete_scheduled_action_response() :: %{String.t() => any()}
+  @type delete_scheduled_action_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -231,12 +231,12 @@ defmodule AWS.RedshiftServerless do
   ## Example:
       
       get_custom_domain_association_request() :: %{
-        required("customDomainName") => String.t(),
-        required("workgroupName") => String.t()
+        required("customDomainName") => String.t() | atom(),
+        required("workgroupName") => String.t() | atom()
       }
       
   """
-  @type get_custom_domain_association_request() :: %{String.t() => any()}
+  @type get_custom_domain_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -244,11 +244,11 @@ defmodule AWS.RedshiftServerless do
       
       update_snapshot_request() :: %{
         optional("retentionPeriod") => [integer()],
-        required("snapshotName") => [String.t()]
+        required("snapshotName") => [String.t() | atom()]
       }
       
   """
-  @type update_snapshot_request() :: %{String.t() => any()}
+  @type update_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -256,33 +256,33 @@ defmodule AWS.RedshiftServerless do
       
       list_namespaces_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
       
   """
-  @type list_namespaces_request() :: %{String.t() => any()}
+  @type list_namespaces_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_usage_limit_request() :: %{
-        required("usageLimitId") => [String.t()]
+        required("usageLimitId") => [String.t() | atom()]
       }
       
   """
-  @type delete_usage_limit_request() :: %{String.t() => any()}
+  @type delete_usage_limit_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ipv6_cidr_block_not_found_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type ipv6_cidr_block_not_found_exception() :: %{String.t() => any()}
+  @type ipv6_cidr_block_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -290,11 +290,11 @@ defmodule AWS.RedshiftServerless do
       
       list_managed_workgroups_response() :: %{
         "managedWorkgroups" => list(managed_workgroup_list_item()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_managed_workgroups_response() :: %{String.t() => any()}
+  @type list_managed_workgroups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -303,12 +303,12 @@ defmodule AWS.RedshiftServerless do
       create_snapshot_request() :: %{
         optional("retentionPeriod") => [integer()],
         optional("tags") => list(tag()),
-        required("namespaceName") => [String.t()],
-        required("snapshotName") => [String.t()]
+        required("namespaceName") => [String.t() | atom()],
+        required("snapshotName") => [String.t() | atom()]
       }
       
   """
-  @type create_snapshot_request() :: %{String.t() => any()}
+  @type create_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -316,11 +316,11 @@ defmodule AWS.RedshiftServerless do
       
       list_reservations_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_reservations_request() :: %{String.t() => any()}
+  @type list_reservations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -331,19 +331,19 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type delete_snapshot_copy_configuration_response() :: %{String.t() => any()}
+  @type delete_snapshot_copy_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       config_parameter() :: %{
-        "parameterKey" => String.t(),
-        "parameterValue" => String.t()
+        "parameterKey" => String.t() | atom(),
+        "parameterValue" => String.t() | atom()
       }
       
   """
-  @type config_parameter() :: %{String.t() => any()}
+  @type config_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -354,24 +354,24 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type restore_table_from_recovery_point_response() :: %{String.t() => any()}
+  @type restore_table_from_recovery_point_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       restore_from_snapshot_request() :: %{
-        optional("adminPasswordSecretKmsKeyId") => String.t(),
+        optional("adminPasswordSecretKmsKeyId") => String.t() | atom(),
         optional("manageAdminPassword") => [boolean()],
-        optional("ownerAccount") => [String.t()],
-        optional("snapshotArn") => [String.t()],
-        optional("snapshotName") => [String.t()],
-        required("namespaceName") => String.t(),
-        required("workgroupName") => String.t()
+        optional("ownerAccount") => [String.t() | atom()],
+        optional("snapshotArn") => [String.t() | atom()],
+        optional("snapshotName") => [String.t() | atom()],
+        required("namespaceName") => String.t() | atom(),
+        required("workgroupName") => String.t() | atom()
       }
       
   """
-  @type restore_from_snapshot_request() :: %{String.t() => any()}
+  @type restore_from_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -382,22 +382,22 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type create_snapshot_response() :: %{String.t() => any()}
+  @type create_snapshot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       network_interface() :: %{
-        "availabilityZone" => [String.t()],
-        "ipv6Address" => [String.t()],
-        "networkInterfaceId" => [String.t()],
-        "privateIpAddress" => [String.t()],
-        "subnetId" => [String.t()]
+        "availabilityZone" => [String.t() | atom()],
+        "ipv6Address" => [String.t() | atom()],
+        "networkInterfaceId" => [String.t() | atom()],
+        "privateIpAddress" => [String.t() | atom()],
+        "subnetId" => [String.t() | atom()]
       }
       
   """
-  @type network_interface() :: %{String.t() => any()}
+  @type network_interface() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -408,19 +408,19 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type get_snapshot_response() :: %{String.t() => any()}
+  @type get_snapshot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_custom_domain_association_request() :: %{
-        required("customDomainName") => String.t(),
-        required("workgroupName") => String.t()
+        required("customDomainName") => String.t() | atom(),
+        required("workgroupName") => String.t() | atom()
       }
       
   """
-  @type delete_custom_domain_association_request() :: %{String.t() => any()}
+  @type delete_custom_domain_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -431,7 +431,7 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type delete_workgroup_response() :: %{String.t() => any()}
+  @type delete_workgroup_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -442,7 +442,7 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type restore_table_from_snapshot_response() :: %{String.t() => any()}
+  @type restore_table_from_snapshot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -450,12 +450,12 @@ defmodule AWS.RedshiftServerless do
       
       restore_from_snapshot_response() :: %{
         "namespace" => namespace(),
-        "ownerAccount" => [String.t()],
-        "snapshotName" => [String.t()]
+        "ownerAccount" => [String.t() | atom()],
+        "snapshotName" => [String.t() | atom()]
       }
       
   """
-  @type restore_from_snapshot_response() :: %{String.t() => any()}
+  @type restore_from_snapshot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -466,33 +466,33 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type get_resource_policy_response() :: %{String.t() => any()}
+  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_workgroup_request() :: %{
-        required("workgroupName") => String.t()
+        required("workgroupName") => String.t() | atom()
       }
       
   """
-  @type delete_workgroup_request() :: %{String.t() => any()}
+  @type delete_workgroup_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_usage_limit_request() :: %{
-        optional("breachAction") => String.t(),
-        optional("period") => String.t(),
+        optional("breachAction") => String.t() | atom(),
+        optional("period") => String.t() | atom(),
         required("amount") => [float()],
-        required("resourceArn") => [String.t()],
-        required("usageType") => String.t()
+        required("resourceArn") => [String.t() | atom()],
+        required("usageType") => String.t() | atom()
       }
       
   """
-  @type create_usage_limit_request() :: %{String.t() => any()}
+  @type create_usage_limit_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -500,11 +500,11 @@ defmodule AWS.RedshiftServerless do
       
       restore_from_recovery_point_response() :: %{
         "namespace" => namespace(),
-        "recoveryPointId" => [String.t()]
+        "recoveryPointId" => [String.t() | atom()]
       }
       
   """
-  @type restore_from_recovery_point_response() :: %{String.t() => any()}
+  @type restore_from_recovery_point_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -512,20 +512,20 @@ defmodule AWS.RedshiftServerless do
       
       scheduled_action_response() :: %{
         "endTime" => [non_neg_integer()],
-        "namespaceName" => String.t(),
+        "namespaceName" => String.t() | atom(),
         "nextInvocations" => list([non_neg_integer()]()),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | atom(),
         "schedule" => list(),
-        "scheduledActionDescription" => [String.t()],
-        "scheduledActionName" => String.t(),
-        "scheduledActionUuid" => [String.t()],
+        "scheduledActionDescription" => [String.t() | atom()],
+        "scheduledActionName" => String.t() | atom(),
+        "scheduledActionUuid" => [String.t() | atom()],
         "startTime" => [non_neg_integer()],
-        "state" => String.t(),
+        "state" => String.t() | atom(),
         "targetAction" => list()
       }
       
   """
-  @type scheduled_action_response() :: %{String.t() => any()}
+  @type scheduled_action_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -536,31 +536,31 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type create_reservation_response() :: %{String.t() => any()}
+  @type create_reservation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_table_restore_status_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "tableRestoreStatuses" => list(table_restore_status())
       }
       
   """
-  @type list_table_restore_status_response() :: %{String.t() => any()}
+  @type list_table_restore_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t())
+        required("resourceArn") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -571,46 +571,46 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type update_usage_limit_response() :: %{String.t() => any()}
+  @type update_usage_limit_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_endpoint_access_request() :: %{
-        optional("ownerAccount") => String.t(),
-        optional("vpcSecurityGroupIds") => list(String.t()),
-        required("endpointName") => [String.t()],
-        required("subnetIds") => list(String.t()),
-        required("workgroupName") => [String.t()]
+        optional("ownerAccount") => String.t() | atom(),
+        optional("vpcSecurityGroupIds") => list(String.t() | atom()),
+        required("endpointName") => [String.t() | atom()],
+        required("subnetIds") => list(String.t() | atom()),
+        required("workgroupName") => [String.t() | atom()]
       }
       
   """
-  @type create_endpoint_access_request() :: %{String.t() => any()}
+  @type create_endpoint_access_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_custom_domain_association_request() :: %{
-        required("customDomainCertificateArn") => String.t(),
-        required("customDomainName") => String.t(),
-        required("workgroupName") => String.t()
+        required("customDomainCertificateArn") => String.t() | atom(),
+        required("customDomainName") => String.t() | atom(),
+        required("workgroupName") => String.t() | atom()
       }
       
   """
-  @type update_custom_domain_association_request() :: %{String.t() => any()}
+  @type update_custom_domain_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_pagination_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type invalid_pagination_exception() :: %{String.t() => any()}
+  @type invalid_pagination_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -621,18 +621,18 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type update_scheduled_action_response() :: %{String.t() => any()}
+  @type update_scheduled_action_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_track_request() :: %{
-        required("trackName") => String.t()
+        required("trackName") => String.t() | atom()
       }
       
   """
-  @type get_track_request() :: %{String.t() => any()}
+  @type get_track_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -640,19 +640,19 @@ defmodule AWS.RedshiftServerless do
       
       restore_table_from_recovery_point_request() :: %{
         optional("activateCaseSensitiveIdentifier") => [boolean()],
-        optional("sourceSchemaName") => [String.t()],
-        optional("targetDatabaseName") => [String.t()],
-        optional("targetSchemaName") => [String.t()],
-        required("namespaceName") => [String.t()],
-        required("newTableName") => [String.t()],
-        required("recoveryPointId") => [String.t()],
-        required("sourceDatabaseName") => [String.t()],
-        required("sourceTableName") => [String.t()],
-        required("workgroupName") => [String.t()]
+        optional("sourceSchemaName") => [String.t() | atom()],
+        optional("targetDatabaseName") => [String.t() | atom()],
+        optional("targetSchemaName") => [String.t() | atom()],
+        required("namespaceName") => [String.t() | atom()],
+        required("newTableName") => [String.t() | atom()],
+        required("recoveryPointId") => [String.t() | atom()],
+        required("sourceDatabaseName") => [String.t() | atom()],
+        required("sourceTableName") => [String.t() | atom()],
+        required("workgroupName") => [String.t() | atom()]
       }
       
   """
-  @type restore_table_from_recovery_point_request() :: %{String.t() => any()}
+  @type restore_table_from_recovery_point_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -663,18 +663,18 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type get_recovery_point_response() :: %{String.t() => any()}
+  @type get_recovery_point_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       insufficient_capacity_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type insufficient_capacity_exception() :: %{String.t() => any()}
+  @type insufficient_capacity_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -685,7 +685,7 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type create_scheduled_action_response() :: %{String.t() => any()}
+  @type create_scheduled_action_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -696,31 +696,31 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type get_namespace_response() :: %{String.t() => any()}
+  @type get_namespace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_recovery_point_request() :: %{
-        required("recoveryPointId") => [String.t()]
+        required("recoveryPointId") => [String.t() | atom()]
       }
       
   """
-  @type get_recovery_point_request() :: %{String.t() => any()}
+  @type get_recovery_point_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       serverless_track() :: %{
-        "trackName" => String.t(),
+        "trackName" => String.t() | atom(),
         "updateTargets" => list(update_target()),
-        "workgroupVersion" => [String.t()]
+        "workgroupVersion" => [String.t() | atom()]
       }
       
   """
-  @type serverless_track() :: %{String.t() => any()}
+  @type serverless_track() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -728,67 +728,67 @@ defmodule AWS.RedshiftServerless do
       
       list_scheduled_actions_request() :: %{
         optional("maxResults") => [integer()],
-        optional("namespaceName") => String.t(),
-        optional("nextToken") => String.t()
+        optional("namespaceName") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_scheduled_actions_request() :: %{String.t() => any()}
+  @type list_scheduled_actions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_workgroup_request() :: %{
-        required("workgroupName") => String.t()
+        required("workgroupName") => String.t() | atom()
       }
       
   """
-  @type get_workgroup_request() :: %{String.t() => any()}
+  @type get_workgroup_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_usage_limit_request() :: %{
-        required("usageLimitId") => [String.t()]
+        required("usageLimitId") => [String.t() | atom()]
       }
       
   """
-  @type get_usage_limit_request() :: %{String.t() => any()}
+  @type get_usage_limit_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_endpoint_access_request() :: %{
-        required("endpointName") => [String.t()]
+        required("endpointName") => [String.t() | atom()]
       }
       
   """
-  @type get_endpoint_access_request() :: %{String.t() => any()}
+  @type get_endpoint_access_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_namespace_request() :: %{
-        optional("adminPasswordSecretKmsKeyId") => String.t(),
-        optional("adminUserPassword") => String.t(),
-        optional("adminUsername") => String.t(),
-        optional("dbName") => [String.t()],
-        optional("defaultIamRoleArn") => [String.t()],
-        optional("iamRoles") => list(String.t()),
-        optional("kmsKeyId") => [String.t()],
-        optional("logExports") => list(String.t()),
+        optional("adminPasswordSecretKmsKeyId") => String.t() | atom(),
+        optional("adminUserPassword") => String.t() | atom(),
+        optional("adminUsername") => String.t() | atom(),
+        optional("dbName") => [String.t() | atom()],
+        optional("defaultIamRoleArn") => [String.t() | atom()],
+        optional("iamRoles") => list(String.t() | atom()),
+        optional("kmsKeyId") => [String.t() | atom()],
+        optional("logExports") => list(String.t() | atom()),
         optional("manageAdminPassword") => [boolean()],
-        optional("redshiftIdcApplicationArn") => String.t(),
+        optional("redshiftIdcApplicationArn") => String.t() | atom(),
         optional("tags") => list(tag()),
-        required("namespaceName") => String.t()
+        required("namespaceName") => String.t() | atom()
       }
       
   """
-  @type create_namespace_request() :: %{String.t() => any()}
+  @type create_namespace_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -796,11 +796,11 @@ defmodule AWS.RedshiftServerless do
       
       list_tracks_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_tracks_request() :: %{String.t() => any()}
+  @type list_tracks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -809,16 +809,16 @@ defmodule AWS.RedshiftServerless do
       update_scheduled_action_request() :: %{
         optional("enabled") => [boolean()],
         optional("endTime") => [non_neg_integer()],
-        optional("roleArn") => String.t(),
+        optional("roleArn") => String.t() | atom(),
         optional("schedule") => list(),
-        optional("scheduledActionDescription") => [String.t()],
+        optional("scheduledActionDescription") => [String.t() | atom()],
         optional("startTime") => [non_neg_integer()],
         optional("targetAction") => list(),
-        required("scheduledActionName") => String.t()
+        required("scheduledActionName") => String.t() | atom()
       }
       
   """
-  @type update_scheduled_action_request() :: %{String.t() => any()}
+  @type update_scheduled_action_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -826,34 +826,34 @@ defmodule AWS.RedshiftServerless do
       
       list_endpoint_access_response() :: %{
         "endpoints" => list(endpoint_access()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | atom()]
       }
       
   """
-  @type list_endpoint_access_response() :: %{String.t() => any()}
+  @type list_endpoint_access_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => [String.t()],
-        "resourceName" => String.t()
+        "message" => [String.t() | atom()],
+        "resourceName" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -863,79 +863,79 @@ defmodule AWS.RedshiftServerless do
         "baseCapacity" => [integer()],
         "configParameters" => list(config_parameter()),
         "creationDate" => [non_neg_integer()],
-        "crossAccountVpcs" => list([String.t()]()),
-        "customDomainCertificateArn" => String.t(),
+        "crossAccountVpcs" => list([String.t() | atom()]()),
+        "customDomainCertificateArn" => String.t() | atom(),
         "customDomainCertificateExpiryTime" => [non_neg_integer()],
-        "customDomainName" => String.t(),
+        "customDomainName" => String.t() | atom(),
         "endpoint" => endpoint(),
         "enhancedVpcRouting" => [boolean()],
-        "ipAddressType" => String.t(),
+        "ipAddressType" => String.t() | atom(),
         "maxCapacity" => [integer()],
-        "namespaceName" => [String.t()],
-        "patchVersion" => [String.t()],
-        "pendingTrackName" => String.t(),
+        "namespaceName" => [String.t() | atom()],
+        "patchVersion" => [String.t() | atom()],
+        "pendingTrackName" => String.t() | atom(),
         "port" => [integer()],
         "pricePerformanceTarget" => performance_target(),
         "publiclyAccessible" => [boolean()],
-        "securityGroupIds" => list(String.t()),
-        "status" => String.t(),
-        "subnetIds" => list(String.t()),
-        "trackName" => String.t(),
-        "workgroupArn" => [String.t()],
-        "workgroupId" => [String.t()],
-        "workgroupName" => String.t(),
-        "workgroupVersion" => [String.t()]
+        "securityGroupIds" => list(String.t() | atom()),
+        "status" => String.t() | atom(),
+        "subnetIds" => list(String.t() | atom()),
+        "trackName" => String.t() | atom(),
+        "workgroupArn" => [String.t() | atom()],
+        "workgroupId" => [String.t() | atom()],
+        "workgroupName" => String.t() | atom(),
+        "workgroupVersion" => [String.t() | atom()]
       }
       
   """
-  @type workgroup() :: %{String.t() => any()}
+  @type workgroup() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_usage_limits_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "usageLimits" => list(usage_limit())
       }
       
   """
-  @type list_usage_limits_response() :: %{String.t() => any()}
+  @type list_usage_limits_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_snapshots_response() :: %{
-        "nextToken" => [String.t()],
+        "nextToken" => [String.t() | atom()],
         "snapshots" => list(snapshot())
       }
       
   """
-  @type list_snapshots_response() :: %{String.t() => any()}
+  @type list_snapshots_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -944,12 +944,12 @@ defmodule AWS.RedshiftServerless do
       convert_recovery_point_to_snapshot_request() :: %{
         optional("retentionPeriod") => [integer()],
         optional("tags") => list(tag()),
-        required("recoveryPointId") => [String.t()],
-        required("snapshotName") => [String.t()]
+        required("recoveryPointId") => [String.t() | atom()],
+        required("snapshotName") => [String.t() | atom()]
       }
       
   """
-  @type convert_recovery_point_to_snapshot_request() :: %{String.t() => any()}
+  @type convert_recovery_point_to_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -957,52 +957,52 @@ defmodule AWS.RedshiftServerless do
       
       list_managed_workgroups_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t(),
-        optional("sourceArn") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("sourceArn") => String.t() | atom()
       }
       
   """
-  @type list_managed_workgroups_request() :: %{String.t() => any()}
+  @type list_managed_workgroups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot_copy_configuration() :: %{
-        "destinationKmsKeyId" => String.t(),
-        "destinationRegion" => [String.t()],
-        "namespaceName" => String.t(),
-        "snapshotCopyConfigurationArn" => [String.t()],
-        "snapshotCopyConfigurationId" => [String.t()],
+        "destinationKmsKeyId" => String.t() | atom(),
+        "destinationRegion" => [String.t() | atom()],
+        "namespaceName" => String.t() | atom(),
+        "snapshotCopyConfigurationArn" => [String.t() | atom()],
+        "snapshotCopyConfigurationId" => [String.t() | atom()],
         "snapshotRetentionPeriod" => [integer()]
       }
       
   """
-  @type snapshot_copy_configuration() :: %{String.t() => any()}
+  @type snapshot_copy_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_recovery_points_response() :: %{
-        "nextToken" => [String.t()],
+        "nextToken" => [String.t() | atom()],
         "recoveryPoints" => list(recovery_point())
       }
       
   """
-  @type list_recovery_points_response() :: %{String.t() => any()}
+  @type list_recovery_points_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_scheduled_actions_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "scheduledActions" => list(scheduled_action_association())
       }
       
   """
-  @type list_scheduled_actions_response() :: %{String.t() => any()}
+  @type list_scheduled_actions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1013,7 +1013,7 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type get_table_restore_status_response() :: %{String.t() => any()}
+  @type get_table_restore_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1024,7 +1024,7 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type delete_endpoint_access_response() :: %{String.t() => any()}
+  @type delete_endpoint_access_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1032,11 +1032,11 @@ defmodule AWS.RedshiftServerless do
       
       list_reservation_offerings_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_reservation_offerings_request() :: %{String.t() => any()}
+  @type list_reservation_offerings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1044,47 +1044,47 @@ defmodule AWS.RedshiftServerless do
       
       restore_table_from_snapshot_request() :: %{
         optional("activateCaseSensitiveIdentifier") => [boolean()],
-        optional("sourceSchemaName") => [String.t()],
-        optional("targetDatabaseName") => [String.t()],
-        optional("targetSchemaName") => [String.t()],
-        required("namespaceName") => [String.t()],
-        required("newTableName") => [String.t()],
-        required("snapshotName") => [String.t()],
-        required("sourceDatabaseName") => [String.t()],
-        required("sourceTableName") => [String.t()],
-        required("workgroupName") => [String.t()]
+        optional("sourceSchemaName") => [String.t() | atom()],
+        optional("targetDatabaseName") => [String.t() | atom()],
+        optional("targetSchemaName") => [String.t() | atom()],
+        required("namespaceName") => [String.t() | atom()],
+        required("newTableName") => [String.t() | atom()],
+        required("snapshotName") => [String.t() | atom()],
+        required("sourceDatabaseName") => [String.t() | atom()],
+        required("sourceTableName") => [String.t() | atom()],
+        required("workgroupName") => [String.t() | atom()]
       }
       
   """
-  @type restore_table_from_snapshot_request() :: %{String.t() => any()}
+  @type restore_table_from_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       association() :: %{
-        "customDomainCertificateArn" => String.t(),
+        "customDomainCertificateArn" => String.t() | atom(),
         "customDomainCertificateExpiryTime" => [non_neg_integer()],
-        "customDomainName" => String.t(),
-        "workgroupName" => String.t()
+        "customDomainName" => String.t() | atom(),
+        "workgroupName" => String.t() | atom()
       }
       
   """
-  @type association() :: %{String.t() => any()}
+  @type association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_snapshot_schedule_action_parameters() :: %{
-        "namespaceName" => String.t(),
+        "namespaceName" => String.t() | atom(),
         "retentionPeriod" => [integer()],
-        "snapshotNamePrefix" => String.t(),
+        "snapshotNamePrefix" => String.t() | atom(),
         "tags" => list(tag())
       }
       
   """
-  @type create_snapshot_schedule_action_parameters() :: %{String.t() => any()}
+  @type create_snapshot_schedule_action_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1092,13 +1092,13 @@ defmodule AWS.RedshiftServerless do
       
       list_table_restore_status_request() :: %{
         optional("maxResults") => [integer()],
-        optional("namespaceName") => [String.t()],
-        optional("nextToken") => String.t(),
-        optional("workgroupName") => [String.t()]
+        optional("namespaceName") => [String.t() | atom()],
+        optional("nextToken") => String.t() | atom(),
+        optional("workgroupName") => [String.t() | atom()]
       }
       
   """
-  @type list_table_restore_status_request() :: %{String.t() => any()}
+  @type list_table_restore_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1109,18 +1109,18 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_endpoint_access_request() :: %{
-        required("endpointName") => [String.t()]
+        required("endpointName") => [String.t() | atom()]
       }
       
   """
-  @type delete_endpoint_access_request() :: %{String.t() => any()}
+  @type delete_endpoint_access_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1130,14 +1130,14 @@ defmodule AWS.RedshiftServerless do
         "capacity" => integer(),
         "endDate" => [non_neg_integer()],
         "offering" => reservation_offering(),
-        "reservationArn" => String.t(),
-        "reservationId" => String.t(),
+        "reservationArn" => String.t() | atom(),
+        "reservationId" => String.t() | atom(),
         "startDate" => [non_neg_integer()],
-        "status" => String.t()
+        "status" => String.t() | atom()
       }
       
   """
-  @type reservation() :: %{String.t() => any()}
+  @type reservation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1145,26 +1145,26 @@ defmodule AWS.RedshiftServerless do
       
       vpc_endpoint() :: %{
         "networkInterfaces" => list(network_interface()),
-        "vpcEndpointId" => [String.t()],
-        "vpcId" => [String.t()]
+        "vpcEndpointId" => [String.t() | atom()],
+        "vpcId" => [String.t() | atom()]
       }
       
   """
-  @type vpc_endpoint() :: %{String.t() => any()}
+  @type vpc_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_snapshot_copy_configuration_request() :: %{
-        optional("destinationKmsKeyId") => String.t(),
+        optional("destinationKmsKeyId") => String.t() | atom(),
         optional("snapshotRetentionPeriod") => [integer()],
-        required("destinationRegion") => [String.t()],
-        required("namespaceName") => String.t()
+        required("destinationRegion") => [String.t() | atom()],
+        required("namespaceName") => String.t() | atom()
       }
       
   """
-  @type create_snapshot_copy_configuration_request() :: %{String.t() => any()}
+  @type create_snapshot_copy_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1173,26 +1173,26 @@ defmodule AWS.RedshiftServerless do
       list_snapshots_request() :: %{
         optional("endTime") => [non_neg_integer()],
         optional("maxResults") => [integer()],
-        optional("namespaceArn") => [String.t()],
-        optional("namespaceName") => [String.t()],
-        optional("nextToken") => [String.t()],
-        optional("ownerAccount") => [String.t()],
+        optional("namespaceArn") => [String.t() | atom()],
+        optional("namespaceName") => [String.t() | atom()],
+        optional("nextToken") => [String.t() | atom()],
+        optional("ownerAccount") => [String.t() | atom()],
         optional("startTime") => [non_neg_integer()]
       }
       
   """
-  @type list_snapshots_request() :: %{String.t() => any()}
+  @type list_snapshots_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resource_policy_request() :: %{
-        required("resourceArn") => [String.t()]
+        required("resourceArn") => [String.t() | atom()]
       }
       
   """
-  @type get_resource_policy_request() :: %{String.t() => any()}
+  @type get_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1203,7 +1203,7 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type create_workgroup_response() :: %{String.t() => any()}
+  @type create_workgroup_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1212,17 +1212,17 @@ defmodule AWS.RedshiftServerless do
       create_scheduled_action_request() :: %{
         optional("enabled") => [boolean()],
         optional("endTime") => [non_neg_integer()],
-        optional("scheduledActionDescription") => [String.t()],
+        optional("scheduledActionDescription") => [String.t() | atom()],
         optional("startTime") => [non_neg_integer()],
-        required("namespaceName") => String.t(),
-        required("roleArn") => String.t(),
+        required("namespaceName") => String.t() | atom(),
+        required("roleArn") => String.t() | atom(),
         required("schedule") => list(),
-        required("scheduledActionName") => String.t(),
+        required("scheduledActionName") => String.t() | atom(),
         required("targetAction") => list()
       }
       
   """
-  @type create_scheduled_action_request() :: %{String.t() => any()}
+  @type create_scheduled_action_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1232,21 +1232,21 @@ defmodule AWS.RedshiftServerless do
         optional("baseCapacity") => [integer()],
         optional("configParameters") => list(config_parameter()),
         optional("enhancedVpcRouting") => [boolean()],
-        optional("ipAddressType") => String.t(),
+        optional("ipAddressType") => String.t() | atom(),
         optional("maxCapacity") => [integer()],
         optional("port") => [integer()],
         optional("pricePerformanceTarget") => performance_target(),
         optional("publiclyAccessible") => [boolean()],
-        optional("securityGroupIds") => list(String.t()),
-        optional("subnetIds") => list(String.t()),
+        optional("securityGroupIds") => list(String.t() | atom()),
+        optional("subnetIds") => list(String.t() | atom()),
         optional("tags") => list(tag()),
-        optional("trackName") => String.t(),
-        required("namespaceName") => String.t(),
-        required("workgroupName") => String.t()
+        optional("trackName") => String.t() | atom(),
+        required("namespaceName") => String.t() | atom(),
+        required("workgroupName") => String.t() | atom()
       }
       
   """
-  @type create_workgroup_request() :: %{String.t() => any()}
+  @type create_workgroup_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1257,7 +1257,7 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type convert_recovery_point_to_snapshot_response() :: %{String.t() => any()}
+  @type convert_recovery_point_to_snapshot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1268,20 +1268,20 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type get_reservation_offering_response() :: %{String.t() => any()}
+  @type get_reservation_offering_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       restore_from_recovery_point_request() :: %{
-        required("namespaceName") => String.t(),
-        required("recoveryPointId") => [String.t()],
-        required("workgroupName") => String.t()
+        required("namespaceName") => String.t() | atom(),
+        required("recoveryPointId") => [String.t() | atom()],
+        required("workgroupName") => String.t() | atom()
       }
       
   """
-  @type restore_from_recovery_point_request() :: %{String.t() => any()}
+  @type restore_from_recovery_point_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1292,7 +1292,7 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type update_endpoint_access_response() :: %{String.t() => any()}
+  @type update_endpoint_access_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1300,89 +1300,89 @@ defmodule AWS.RedshiftServerless do
       
       list_usage_limits_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t(),
-        optional("resourceArn") => [String.t()],
-        optional("usageType") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("resourceArn") => [String.t() | atom()],
+        optional("usageType") => String.t() | atom()
       }
       
   """
-  @type list_usage_limits_request() :: %{String.t() => any()}
+  @type list_usage_limits_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_custom_domain_association_response() :: %{
-        "customDomainCertificateArn" => String.t(),
+        "customDomainCertificateArn" => String.t() | atom(),
         "customDomainCertificateExpiryTime" => [non_neg_integer()],
-        "customDomainName" => String.t(),
-        "workgroupName" => String.t()
+        "customDomainName" => String.t() | atom(),
+        "workgroupName" => String.t() | atom()
       }
       
   """
-  @type create_custom_domain_association_response() :: %{String.t() => any()}
+  @type create_custom_domain_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint() :: %{
-        "address" => [String.t()],
+        "address" => [String.t() | atom()],
         "port" => [integer()],
         "vpcEndpoints" => list(vpc_endpoint())
       }
       
   """
-  @type endpoint() :: %{String.t() => any()}
+  @type endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_custom_domain_association_response() :: %{
-        "customDomainCertificateArn" => String.t(),
+        "customDomainCertificateArn" => String.t() | atom(),
         "customDomainCertificateExpiryTime" => [non_neg_integer()],
-        "customDomainName" => String.t(),
-        "workgroupName" => String.t()
+        "customDomainName" => String.t() | atom(),
+        "workgroupName" => String.t() | atom()
       }
       
   """
-  @type update_custom_domain_association_response() :: %{String.t() => any()}
+  @type update_custom_domain_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_policy() :: %{
-        "policy" => [String.t()],
-        "resourceArn" => [String.t()]
+        "policy" => [String.t() | atom()],
+        "resourceArn" => [String.t() | atom()]
       }
       
   """
-  @type resource_policy() :: %{String.t() => any()}
+  @type resource_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_reservation_offerings_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "reservationOfferingsList" => list(reservation_offering())
       }
       
   """
-  @type list_reservation_offerings_response() :: %{String.t() => any()}
+  @type list_reservation_offerings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1393,7 +1393,7 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type get_scheduled_action_response() :: %{String.t() => any()}
+  @type get_scheduled_action_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1409,46 +1409,46 @@ defmodule AWS.RedshiftServerless do
   ## Example:
       
       get_credentials_request() :: %{
-        optional("customDomainName") => String.t(),
-        optional("dbName") => String.t(),
+        optional("customDomainName") => String.t() | atom(),
+        optional("dbName") => String.t() | atom(),
         optional("durationSeconds") => [integer()],
-        optional("workgroupName") => String.t()
+        optional("workgroupName") => String.t() | atom()
       }
       
   """
-  @type get_credentials_request() :: %{String.t() => any()}
+  @type get_credentials_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot() :: %{
-        "accountsWithProvisionedRestoreAccess" => list([String.t()]()),
-        "accountsWithRestoreAccess" => list([String.t()]()),
+        "accountsWithProvisionedRestoreAccess" => list([String.t() | atom()]()),
+        "accountsWithRestoreAccess" => list([String.t() | atom()]()),
         "actualIncrementalBackupSizeInMegaBytes" => [float()],
-        "adminPasswordSecretArn" => [String.t()],
-        "adminPasswordSecretKmsKeyId" => String.t(),
-        "adminUsername" => [String.t()],
+        "adminPasswordSecretArn" => [String.t() | atom()],
+        "adminPasswordSecretKmsKeyId" => String.t() | atom(),
+        "adminUsername" => [String.t() | atom()],
         "backupProgressInMegaBytes" => [float()],
         "currentBackupRateInMegaBytesPerSecond" => [float()],
         "elapsedTimeInSeconds" => [float()],
         "estimatedSecondsToCompletion" => [float()],
-        "kmsKeyId" => String.t(),
-        "namespaceArn" => [String.t()],
-        "namespaceName" => [String.t()],
-        "ownerAccount" => [String.t()],
-        "snapshotArn" => [String.t()],
+        "kmsKeyId" => String.t() | atom(),
+        "namespaceArn" => [String.t() | atom()],
+        "namespaceName" => [String.t() | atom()],
+        "ownerAccount" => [String.t() | atom()],
+        "snapshotArn" => [String.t() | atom()],
         "snapshotCreateTime" => [non_neg_integer()],
-        "snapshotName" => [String.t()],
+        "snapshotName" => [String.t() | atom()],
         "snapshotRemainingDays" => [integer()],
         "snapshotRetentionPeriod" => [integer()],
         "snapshotRetentionStartTime" => [non_neg_integer()],
-        "status" => String.t(),
+        "status" => String.t() | atom(),
         "totalBackupSizeInMegaBytes" => [float()]
       }
       
   """
-  @type snapshot() :: %{String.t() => any()}
+  @type snapshot() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1456,11 +1456,11 @@ defmodule AWS.RedshiftServerless do
       
       list_custom_domain_associations_response() :: %{
         "associations" => list(association()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_custom_domain_associations_response() :: %{String.t() => any()}
+  @type list_custom_domain_associations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1468,26 +1468,26 @@ defmodule AWS.RedshiftServerless do
       
       managed_workgroup_list_item() :: %{
         "creationDate" => [non_neg_integer()],
-        "managedWorkgroupId" => [String.t()],
-        "managedWorkgroupName" => String.t(),
-        "sourceArn" => String.t(),
+        "managedWorkgroupId" => [String.t() | atom()],
+        "managedWorkgroupName" => String.t() | atom(),
+        "sourceArn" => String.t() | atom(),
         "status" => list(any())
       }
       
   """
-  @type managed_workgroup_list_item() :: %{String.t() => any()}
+  @type managed_workgroup_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_resource_policy_request() :: %{
-        required("policy") => [String.t()],
-        required("resourceArn") => [String.t()]
+        required("policy") => [String.t() | atom()],
+        required("resourceArn") => [String.t() | atom()]
       }
       
   """
-  @type put_resource_policy_request() :: %{String.t() => any()}
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1498,45 +1498,45 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type create_snapshot_copy_configuration_response() :: %{String.t() => any()}
+  @type create_snapshot_copy_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "code" => [String.t()],
-        "message" => [String.t()]
+        "code" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_reservations_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "reservationsList" => list(reservation())
       }
       
   """
-  @type list_reservations_response() :: %{String.t() => any()}
+  @type list_reservations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_custom_domain_association_response() :: %{
-        "customDomainCertificateArn" => String.t(),
+        "customDomainCertificateArn" => String.t() | atom(),
         "customDomainCertificateExpiryTime" => [non_neg_integer()],
-        "customDomainName" => String.t(),
-        "workgroupName" => String.t()
+        "customDomainName" => String.t() | atom(),
+        "workgroupName" => String.t() | atom()
       }
       
   """
-  @type get_custom_domain_association_response() :: %{String.t() => any()}
+  @type get_custom_domain_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1545,28 +1545,28 @@ defmodule AWS.RedshiftServerless do
       list_recovery_points_request() :: %{
         optional("endTime") => [non_neg_integer()],
         optional("maxResults") => [integer()],
-        optional("namespaceArn") => [String.t()],
-        optional("namespaceName") => String.t(),
-        optional("nextToken") => [String.t()],
+        optional("namespaceArn") => [String.t() | atom()],
+        optional("namespaceName") => String.t() | atom(),
+        optional("nextToken") => [String.t() | atom()],
         optional("startTime") => [non_neg_integer()]
       }
       
   """
-  @type list_recovery_points_request() :: %{String.t() => any()}
+  @type list_recovery_points_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_custom_domain_associations_request() :: %{
-        optional("customDomainCertificateArn") => String.t(),
-        optional("customDomainName") => String.t(),
+        optional("customDomainCertificateArn") => String.t() | atom(),
+        optional("customDomainName") => String.t() | atom(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_custom_domain_associations_request() :: %{String.t() => any()}
+  @type list_custom_domain_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1586,7 +1586,7 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type update_workgroup_response() :: %{String.t() => any()}
+  @type update_workgroup_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1597,7 +1597,7 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type create_namespace_response() :: %{String.t() => any()}
+  @type create_namespace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1605,114 +1605,114 @@ defmodule AWS.RedshiftServerless do
       
       usage_limit() :: %{
         "amount" => [float()],
-        "breachAction" => String.t(),
-        "period" => String.t(),
-        "resourceArn" => [String.t()],
-        "usageLimitArn" => [String.t()],
-        "usageLimitId" => [String.t()],
-        "usageType" => String.t()
+        "breachAction" => String.t() | atom(),
+        "period" => String.t() | atom(),
+        "resourceArn" => [String.t() | atom()],
+        "usageLimitArn" => [String.t() | atom()],
+        "usageLimitId" => [String.t() | atom()],
+        "usageType" => String.t() | atom()
       }
       
   """
-  @type usage_limit() :: %{String.t() => any()}
+  @type usage_limit() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_snapshot_request() :: %{
-        optional("ownerAccount") => [String.t()],
-        optional("snapshotArn") => [String.t()],
-        optional("snapshotName") => [String.t()]
+        optional("ownerAccount") => [String.t() | atom()],
+        optional("snapshotArn") => [String.t() | atom()],
+        optional("snapshotName") => [String.t() | atom()]
       }
       
   """
-  @type get_snapshot_request() :: %{String.t() => any()}
+  @type get_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_reservation_request() :: %{
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => [String.t() | atom()],
         required("capacity") => integer(),
-        required("offeringId") => String.t()
+        required("offeringId") => String.t() | atom()
       }
       
   """
-  @type create_reservation_request() :: %{String.t() => any()}
+  @type create_reservation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t()
+        required("resourceArn") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_credentials_response() :: %{
-        "dbPassword" => String.t(),
-        "dbUser" => String.t(),
+        "dbPassword" => String.t() | atom(),
+        "dbUser" => String.t() | atom(),
         "expiration" => [non_neg_integer()],
         "nextRefreshTime" => [non_neg_integer()]
       }
       
   """
-  @type get_credentials_response() :: %{String.t() => any()}
+  @type get_credentials_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_scheduled_action_request() :: %{
-        required("scheduledActionName") => String.t()
+        required("scheduledActionName") => String.t() | atom()
       }
       
   """
-  @type get_scheduled_action_request() :: %{String.t() => any()}
+  @type get_scheduled_action_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_target() :: %{
-        "trackName" => String.t(),
-        "workgroupVersion" => [String.t()]
+        "trackName" => String.t() | atom(),
+        "workgroupVersion" => [String.t() | atom()]
       }
       
   """
-  @type update_target() :: %{String.t() => any()}
+  @type update_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_custom_domain_association_request() :: %{
-        required("customDomainCertificateArn") => String.t(),
-        required("customDomainName") => String.t(),
-        required("workgroupName") => String.t()
+        required("customDomainCertificateArn") => String.t() | atom(),
+        required("customDomainName") => String.t() | atom(),
+        required("workgroupName") => String.t() | atom()
       }
       
   """
-  @type create_custom_domain_association_request() :: %{String.t() => any()}
+  @type create_custom_domain_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1720,23 +1720,23 @@ defmodule AWS.RedshiftServerless do
       
       list_namespaces_response() :: %{
         "namespaces" => list(namespace()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | atom()]
       }
       
   """
-  @type list_namespaces_response() :: %{String.t() => any()}
+  @type list_namespaces_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "code" => [String.t()],
-        "message" => [String.t()]
+        "code" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1747,39 +1747,39 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type get_endpoint_access_response() :: %{String.t() => any()}
+  @type get_endpoint_access_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_namespace_request() :: %{
-        optional("finalSnapshotName") => [String.t()],
+        optional("finalSnapshotName") => [String.t() | atom()],
         optional("finalSnapshotRetentionPeriod") => [integer()],
-        required("namespaceName") => String.t()
+        required("namespaceName") => String.t() | atom()
       }
       
   """
-  @type delete_namespace_request() :: %{String.t() => any()}
+  @type delete_namespace_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_namespace_request() :: %{
-        optional("adminPasswordSecretKmsKeyId") => String.t(),
-        optional("adminUserPassword") => String.t(),
-        optional("adminUsername") => String.t(),
-        optional("defaultIamRoleArn") => [String.t()],
-        optional("iamRoles") => list(String.t()),
-        optional("kmsKeyId") => [String.t()],
-        optional("logExports") => list(String.t()),
+        optional("adminPasswordSecretKmsKeyId") => String.t() | atom(),
+        optional("adminUserPassword") => String.t() | atom(),
+        optional("adminUsername") => String.t() | atom(),
+        optional("defaultIamRoleArn") => [String.t() | atom()],
+        optional("iamRoles") => list(String.t() | atom()),
+        optional("kmsKeyId") => [String.t() | atom()],
+        optional("logExports") => list(String.t() | atom()),
         optional("manageAdminPassword") => [boolean()],
-        required("namespaceName") => String.t()
+        required("namespaceName") => String.t() | atom()
       }
       
   """
-  @type update_namespace_request() :: %{String.t() => any()}
+  @type update_namespace_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1790,7 +1790,7 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type update_snapshot_copy_configuration_response() :: %{String.t() => any()}
+  @type update_snapshot_copy_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1798,12 +1798,12 @@ defmodule AWS.RedshiftServerless do
       
       list_snapshot_copy_configurations_request() :: %{
         optional("maxResults") => [integer()],
-        optional("namespaceName") => String.t(),
-        optional("nextToken") => String.t()
+        optional("namespaceName") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_snapshot_copy_configurations_request() :: %{String.t() => any()}
+  @type list_snapshot_copy_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1814,19 +1814,19 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type create_endpoint_access_response() :: %{String.t() => any()}
+  @type create_endpoint_access_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_snapshot_copy_configurations_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "snapshotCopyConfigurations" => list(snapshot_copy_configuration())
       }
       
   """
-  @type list_snapshot_copy_configurations_response() :: %{String.t() => any()}
+  @type list_snapshot_copy_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1837,7 +1837,7 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type update_snapshot_response() :: %{String.t() => any()}
+  @type update_snapshot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1848,7 +1848,7 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type put_resource_policy_response() :: %{String.t() => any()}
+  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1859,18 +1859,18 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type delete_usage_limit_response() :: %{String.t() => any()}
+  @type delete_usage_limit_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_scheduled_action_request() :: %{
-        required("scheduledActionName") => String.t()
+        required("scheduledActionName") => String.t() | atom()
       }
       
   """
-  @type delete_scheduled_action_request() :: %{String.t() => any()}
+  @type delete_scheduled_action_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1880,30 +1880,30 @@ defmodule AWS.RedshiftServerless do
         optional("baseCapacity") => [integer()],
         optional("configParameters") => list(config_parameter()),
         optional("enhancedVpcRouting") => [boolean()],
-        optional("ipAddressType") => String.t(),
+        optional("ipAddressType") => String.t() | atom(),
         optional("maxCapacity") => [integer()],
         optional("port") => [integer()],
         optional("pricePerformanceTarget") => performance_target(),
         optional("publiclyAccessible") => [boolean()],
-        optional("securityGroupIds") => list(String.t()),
-        optional("subnetIds") => list(String.t()),
-        optional("trackName") => String.t(),
-        required("workgroupName") => String.t()
+        optional("securityGroupIds") => list(String.t() | atom()),
+        optional("subnetIds") => list(String.t() | atom()),
+        optional("trackName") => String.t() | atom(),
+        required("workgroupName") => String.t() | atom()
       }
       
   """
-  @type update_workgroup_request() :: %{String.t() => any()}
+  @type update_workgroup_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_resource_policy_request() :: %{
-        required("resourceArn") => [String.t()]
+        required("resourceArn") => [String.t() | atom()]
       }
       
   """
-  @type delete_resource_policy_request() :: %{String.t() => any()}
+  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1914,27 +1914,27 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type update_namespace_response() :: %{String.t() => any()}
+  @type update_namespace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint_access() :: %{
-        "address" => [String.t()],
-        "endpointArn" => [String.t()],
+        "address" => [String.t() | atom()],
+        "endpointArn" => [String.t() | atom()],
         "endpointCreateTime" => [non_neg_integer()],
-        "endpointName" => [String.t()],
-        "endpointStatus" => [String.t()],
+        "endpointName" => [String.t() | atom()],
+        "endpointStatus" => [String.t() | atom()],
         "port" => [integer()],
-        "subnetIds" => list(String.t()),
+        "subnetIds" => list(String.t() | atom()),
         "vpcEndpoint" => vpc_endpoint(),
         "vpcSecurityGroups" => list(vpc_security_group_membership()),
-        "workgroupName" => [String.t()]
+        "workgroupName" => [String.t() | atom()]
       }
       
   """
-  @type endpoint_access() :: %{String.t() => any()}
+  @type endpoint_access() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1945,7 +1945,7 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type create_usage_limit_response() :: %{String.t() => any()}
+  @type create_usage_limit_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1953,58 +1953,58 @@ defmodule AWS.RedshiftServerless do
       
       performance_target() :: %{
         "level" => [integer()],
-        "status" => String.t()
+        "status" => String.t() | atom()
       }
       
   """
-  @type performance_target() :: %{String.t() => any()}
+  @type performance_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tracks_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "tracks" => list(serverless_track())
       }
       
   """
-  @type list_tracks_response() :: %{String.t() => any()}
+  @type list_tracks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       namespace() :: %{
-        "adminPasswordSecretArn" => [String.t()],
-        "adminPasswordSecretKmsKeyId" => String.t(),
-        "adminUsername" => String.t(),
+        "adminPasswordSecretArn" => [String.t() | atom()],
+        "adminPasswordSecretKmsKeyId" => String.t() | atom(),
+        "adminUsername" => String.t() | atom(),
         "creationDate" => [non_neg_integer()],
-        "dbName" => [String.t()],
-        "defaultIamRoleArn" => [String.t()],
-        "iamRoles" => list(String.t()),
-        "kmsKeyId" => [String.t()],
-        "logExports" => list(String.t()),
-        "namespaceArn" => [String.t()],
-        "namespaceId" => [String.t()],
-        "namespaceName" => String.t(),
-        "status" => String.t()
+        "dbName" => [String.t() | atom()],
+        "defaultIamRoleArn" => [String.t() | atom()],
+        "iamRoles" => list(String.t() | atom()),
+        "kmsKeyId" => [String.t() | atom()],
+        "logExports" => list(String.t() | atom()),
+        "namespaceArn" => [String.t() | atom()],
+        "namespaceId" => [String.t() | atom()],
+        "namespaceName" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
       
   """
-  @type namespace() :: %{String.t() => any()}
+  @type namespace() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       vpc_security_group_membership() :: %{
-        "status" => [String.t()],
-        "vpcSecurityGroupId" => String.t()
+        "status" => [String.t() | atom()],
+        "vpcSecurityGroupId" => String.t() | atom()
       }
       
   """
-  @type vpc_security_group_membership() :: %{String.t() => any()}
+  @type vpc_security_group_membership() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2012,14 +2012,14 @@ defmodule AWS.RedshiftServerless do
       
       list_endpoint_access_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()],
-        optional("ownerAccount") => String.t(),
-        optional("vpcId") => [String.t()],
-        optional("workgroupName") => [String.t()]
+        optional("nextToken") => [String.t() | atom()],
+        optional("ownerAccount") => String.t() | atom(),
+        optional("vpcId") => [String.t() | atom()],
+        optional("workgroupName") => [String.t() | atom()]
       }
       
   """
-  @type list_endpoint_access_request() :: %{String.t() => any()}
+  @type list_endpoint_access_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2027,39 +2027,39 @@ defmodule AWS.RedshiftServerless do
       
       update_snapshot_copy_configuration_request() :: %{
         optional("snapshotRetentionPeriod") => [integer()],
-        required("snapshotCopyConfigurationId") => [String.t()]
+        required("snapshotCopyConfigurationId") => [String.t() | atom()]
       }
       
   """
-  @type update_snapshot_copy_configuration_request() :: %{String.t() => any()}
+  @type update_snapshot_copy_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_workgroups_response() :: %{
-        "nextToken" => [String.t()],
+        "nextToken" => [String.t() | atom()],
         "workgroups" => list(workgroup())
       }
       
   """
-  @type list_workgroups_response() :: %{String.t() => any()}
+  @type list_workgroups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reservation_offering() :: %{
-        "currencyCode" => String.t(),
+        "currencyCode" => String.t() | atom(),
         "duration" => integer(),
         "hourlyCharge" => float(),
-        "offeringId" => String.t(),
-        "offeringType" => String.t(),
+        "offeringId" => String.t() | atom(),
+        "offeringType" => String.t() | atom(),
         "upfrontCharge" => float()
       }
       
   """
-  @type reservation_offering() :: %{String.t() => any()}
+  @type reservation_offering() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2070,7 +2070,7 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type get_workgroup_response() :: %{String.t() => any()}
+  @type get_workgroup_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2078,51 +2078,51 @@ defmodule AWS.RedshiftServerless do
       
       list_workgroups_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()],
-        optional("ownerAccount") => String.t()
+        optional("nextToken") => [String.t() | atom()],
+        optional("ownerAccount") => String.t() | atom()
       }
       
   """
-  @type list_workgroups_request() :: %{String.t() => any()}
+  @type list_workgroups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_tags_exception() :: %{
-        "message" => [String.t()],
-        "resourceName" => String.t()
+        "message" => [String.t() | atom()],
+        "resourceName" => String.t() | atom()
       }
       
   """
-  @type too_many_tags_exception() :: %{String.t() => any()}
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_namespace_request() :: %{
-        required("namespaceName") => String.t()
+        required("namespaceName") => String.t() | atom()
       }
       
   """
-  @type get_namespace_request() :: %{String.t() => any()}
+  @type get_namespace_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       recovery_point() :: %{
-        "namespaceArn" => [String.t()],
-        "namespaceName" => String.t(),
+        "namespaceArn" => [String.t() | atom()],
+        "namespaceName" => String.t() | atom(),
         "recoveryPointCreateTime" => [non_neg_integer()],
-        "recoveryPointId" => [String.t()],
+        "recoveryPointId" => [String.t() | atom()],
         "totalSizeInMegaBytes" => [float()],
-        "workgroupName" => String.t()
+        "workgroupName" => String.t() | atom()
       }
       
   """
-  @type recovery_point() :: %{String.t() => any()}
+  @type recovery_point() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2133,7 +2133,7 @@ defmodule AWS.RedshiftServerless do
       }
       
   """
-  @type delete_snapshot_response() :: %{String.t() => any()}
+  @type delete_snapshot_response() :: %{(String.t() | atom()) => any()}
 
   @type convert_recovery_point_to_snapshot_errors() ::
           too_many_tags_exception()
@@ -2528,7 +2528,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, convert_recovery_point_to_snapshot_errors()}
   def convert_recovery_point_to_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ConvertRecoveryPointToSnapshot", input, options)
   end
@@ -2546,7 +2547,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, create_custom_domain_association_errors()}
   def create_custom_domain_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCustomDomainAssociation", input, options)
   end
@@ -2560,7 +2562,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, create_endpoint_access_errors()}
   def create_endpoint_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEndpointAccess", input, options)
   end
@@ -2574,7 +2577,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, create_namespace_errors()}
   def create_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateNamespace", input, options)
   end
@@ -2590,7 +2594,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, create_reservation_errors()}
   def create_reservation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateReservation", input, options)
   end
@@ -2608,7 +2613,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, create_scheduled_action_errors()}
   def create_scheduled_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateScheduledAction", input, options)
   end
@@ -2627,7 +2633,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, create_snapshot_errors()}
   def create_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSnapshot", input, options)
   end
@@ -2646,7 +2653,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, create_snapshot_copy_configuration_errors()}
   def create_snapshot_copy_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSnapshotCopyConfiguration", input, options)
   end
@@ -2662,7 +2670,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, create_usage_limit_errors()}
   def create_usage_limit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUsageLimit", input, options)
   end
@@ -2697,7 +2706,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, create_workgroup_errors()}
   def create_workgroup(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWorkgroup", input, options)
   end
@@ -2715,7 +2725,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, delete_custom_domain_association_errors()}
   def delete_custom_domain_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCustomDomainAssociation", input, options)
   end
@@ -2729,7 +2740,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, delete_endpoint_access_errors()}
   def delete_endpoint_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEndpointAccess", input, options)
   end
@@ -2746,7 +2758,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, delete_namespace_errors()}
   def delete_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteNamespace", input, options)
   end
@@ -2760,7 +2773,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -2774,7 +2788,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, delete_scheduled_action_errors()}
   def delete_scheduled_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteScheduledAction", input, options)
   end
@@ -2788,7 +2803,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, delete_snapshot_errors()}
   def delete_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSnapshot", input, options)
   end
@@ -2806,7 +2822,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, delete_snapshot_copy_configuration_errors()}
   def delete_snapshot_copy_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSnapshotCopyConfiguration", input, options)
   end
@@ -2820,7 +2837,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, delete_usage_limit_errors()}
   def delete_usage_limit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUsageLimit", input, options)
   end
@@ -2834,7 +2852,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, delete_workgroup_errors()}
   def delete_workgroup(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWorkgroup", input, options)
   end
@@ -2860,7 +2879,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, get_credentials_errors()}
   def get_credentials(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCredentials", input, options)
   end
@@ -2874,7 +2894,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, get_custom_domain_association_errors()}
   def get_custom_domain_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCustomDomainAssociation", input, options)
   end
@@ -2888,7 +2909,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, get_endpoint_access_errors()}
   def get_endpoint_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEndpointAccess", input, options)
   end
@@ -2902,7 +2924,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, get_namespace_errors()}
   def get_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetNamespace", input, options)
   end
@@ -2916,7 +2939,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, get_recovery_point_errors()}
   def get_recovery_point(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRecoveryPoint", input, options)
   end
@@ -2934,7 +2958,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, get_reservation_errors()}
   def get_reservation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetReservation", input, options)
   end
@@ -2950,7 +2975,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, get_reservation_offering_errors()}
   def get_reservation_offering(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetReservationOffering", input, options)
   end
@@ -2964,7 +2990,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
@@ -2978,7 +3005,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, get_scheduled_action_errors()}
   def get_scheduled_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetScheduledAction", input, options)
   end
@@ -2992,7 +3020,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, get_snapshot_errors()}
   def get_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSnapshot", input, options)
   end
@@ -3006,7 +3035,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, get_table_restore_status_errors()}
   def get_table_restore_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTableRestoreStatus", input, options)
   end
@@ -3020,7 +3050,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, get_track_errors()}
   def get_track(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTrack", input, options)
   end
@@ -3034,7 +3065,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, get_usage_limit_errors()}
   def get_usage_limit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUsageLimit", input, options)
   end
@@ -3048,7 +3080,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, get_workgroup_errors()}
   def get_workgroup(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWorkgroup", input, options)
   end
@@ -3062,7 +3095,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_custom_domain_associations_errors()}
   def list_custom_domain_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCustomDomainAssociations", input, options)
   end
@@ -3076,7 +3110,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_endpoint_access_errors()}
   def list_endpoint_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEndpointAccess", input, options)
   end
@@ -3091,7 +3126,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_managed_workgroups_errors()}
   def list_managed_workgroups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListManagedWorkgroups", input, options)
   end
@@ -3105,7 +3141,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_namespaces_errors()}
   def list_namespaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListNamespaces", input, options)
   end
@@ -3119,7 +3156,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_recovery_points_errors()}
   def list_recovery_points(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRecoveryPoints", input, options)
   end
@@ -3133,7 +3171,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_reservation_offerings_errors()}
   def list_reservation_offerings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListReservationOfferings", input, options)
   end
@@ -3147,7 +3186,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_reservations_errors()}
   def list_reservations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListReservations", input, options)
   end
@@ -3163,7 +3203,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_scheduled_actions_errors()}
   def list_scheduled_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListScheduledActions", input, options)
   end
@@ -3181,7 +3222,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_snapshot_copy_configurations_errors()}
   def list_snapshot_copy_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSnapshotCopyConfigurations", input, options)
   end
@@ -3195,7 +3237,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_snapshots_errors()}
   def list_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSnapshots", input, options)
   end
@@ -3209,7 +3252,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_table_restore_status_errors()}
   def list_table_restore_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTableRestoreStatus", input, options)
   end
@@ -3223,7 +3267,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3237,7 +3282,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_tracks_errors()}
   def list_tracks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTracks", input, options)
   end
@@ -3251,7 +3297,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_usage_limits_errors()}
   def list_usage_limits(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUsageLimits", input, options)
   end
@@ -3265,7 +3312,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_workgroups_errors()}
   def list_workgroups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWorkgroups", input, options)
   end
@@ -3282,7 +3330,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -3296,7 +3345,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, restore_from_recovery_point_errors()}
   def restore_from_recovery_point(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreFromRecoveryPoint", input, options)
   end
@@ -3310,7 +3360,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, restore_from_snapshot_errors()}
   def restore_from_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreFromSnapshot", input, options)
   end
@@ -3331,7 +3382,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, restore_table_from_recovery_point_errors()}
   def restore_table_from_recovery_point(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreTableFromRecoveryPoint", input, options)
   end
@@ -3348,7 +3400,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, restore_table_from_snapshot_errors()}
   def restore_table_from_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreTableFromSnapshot", input, options)
   end
@@ -3362,7 +3415,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3376,7 +3430,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -3395,7 +3450,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, update_custom_domain_association_errors()}
   def update_custom_domain_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCustomDomainAssociation", input, options)
   end
@@ -3409,7 +3465,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, update_endpoint_access_errors()}
   def update_endpoint_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEndpointAccess", input, options)
   end
@@ -3429,7 +3486,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, update_namespace_errors()}
   def update_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateNamespace", input, options)
   end
@@ -3443,7 +3501,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, update_scheduled_action_errors()}
   def update_scheduled_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateScheduledAction", input, options)
   end
@@ -3457,7 +3516,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, update_snapshot_errors()}
   def update_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSnapshot", input, options)
   end
@@ -3475,7 +3535,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, update_snapshot_copy_configuration_errors()}
   def update_snapshot_copy_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSnapshotCopyConfiguration", input, options)
   end
@@ -3491,7 +3552,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, update_usage_limit_errors()}
   def update_usage_limit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUsageLimit", input, options)
   end
@@ -3530,7 +3592,8 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, update_workgroup_errors()}
   def update_workgroup(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWorkgroup", input, options)
   end

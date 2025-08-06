@@ -111,31 +111,31 @@ defmodule AWS.Detective do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       administrator() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | atom(),
         "DelegationTime" => non_neg_integer(),
-        "GraphArn" => String.t()
+        "GraphArn" => String.t() | atom()
       }
 
   """
-  @type administrator() :: %{String.t() => any()}
+  @type administrator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_organization_configuration_request() :: %{
-        required("GraphArn") => String.t()
+        required("GraphArn") => String.t() | atom()
       }
 
   """
-  @type describe_organization_configuration_request() :: %{String.t() => any()}
+  @type describe_organization_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -147,19 +147,19 @@ defmodule AWS.Detective do
       }
 
   """
-  @type get_members_response() :: %{String.t() => any()}
+  @type get_members_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       new_aso_detail() :: %{
-        "Aso" => String.t(),
+        "Aso" => String.t() | atom(),
         "IsNewForEntireAccount" => boolean()
       }
 
   """
-  @type new_aso_detail() :: %{String.t() => any()}
+  @type new_aso_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -183,7 +183,7 @@ defmodule AWS.Detective do
       }
 
   """
-  @type filter_criteria() :: %{String.t() => any()}
+  @type filter_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -191,12 +191,12 @@ defmodule AWS.Detective do
 
       list_datasource_packages_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("GraphArn") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("GraphArn") => String.t() | atom()
       }
 
   """
-  @type list_datasource_packages_request() :: %{String.t() => any()}
+  @type list_datasource_packages_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -207,7 +207,7 @@ defmodule AWS.Detective do
       }
 
   """
-  @type create_graph_request() :: %{String.t() => any()}
+  @type create_graph_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -215,11 +215,11 @@ defmodule AWS.Detective do
 
       new_user_agent_detail() :: %{
         "IsNewForEntireAccount" => boolean(),
-        "UserAgent" => String.t()
+        "UserAgent" => String.t() | atom()
       }
 
   """
-  @type new_user_agent_detail() :: %{String.t() => any()}
+  @type new_user_agent_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -227,58 +227,58 @@ defmodule AWS.Detective do
 
       update_datasource_packages_request() :: %{
         required("DatasourcePackages") => list(list(any())()),
-        required("GraphArn") => String.t()
+        required("GraphArn") => String.t() | atom()
       }
 
   """
-  @type update_datasource_packages_request() :: %{String.t() => any()}
+  @type update_datasource_packages_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_investigation_request() :: %{
-        required("EntityArn") => String.t(),
-        required("GraphArn") => String.t(),
+        required("EntityArn") => String.t() | atom(),
+        required("GraphArn") => String.t() | atom(),
         required("ScopeEndTime") => non_neg_integer(),
         required("ScopeStartTime") => non_neg_integer()
       }
 
   """
-  @type start_investigation_request() :: %{String.t() => any()}
+  @type start_investigation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t())
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_investigation_response() :: %{
-        "InvestigationId" => String.t()
+        "InvestigationId" => String.t() | atom()
       }
 
   """
-  @type start_investigation_response() :: %{String.t() => any()}
+  @type start_investigation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_requests_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type too_many_requests_exception() :: %{String.t() => any()}
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -286,23 +286,23 @@ defmodule AWS.Detective do
 
       list_graphs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_graphs_request() :: %{String.t() => any()}
+  @type list_graphs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_members_response() :: %{
-        "AccountIds" => list(String.t()),
+        "AccountIds" => list(String.t() | atom()),
         "UnprocessedAccounts" => list(unprocessed_account())
       }
 
   """
-  @type delete_members_response() :: %{String.t() => any()}
+  @type delete_members_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -310,22 +310,22 @@ defmodule AWS.Detective do
 
       list_investigations_response() :: %{
         "InvestigationDetails" => list(investigation_detail()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_investigations_response() :: %{String.t() => any()}
+  @type list_investigations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       related_finding_group_detail() :: %{
-        "Id" => String.t()
+        "Id" => String.t() | atom()
       }
 
   """
-  @type related_finding_group_detail() :: %{String.t() => any()}
+  @type related_finding_group_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -336,29 +336,29 @@ defmodule AWS.Detective do
       }
 
   """
-  @type describe_organization_configuration_response() :: %{String.t() => any()}
+  @type describe_organization_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -367,25 +367,25 @@ defmodule AWS.Detective do
       list_investigations_request() :: %{
         optional("FilterCriteria") => filter_criteria(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortCriteria") => sort_criteria(),
-        required("GraphArn") => String.t()
+        required("GraphArn") => String.t() | atom()
       }
 
   """
-  @type list_investigations_request() :: %{String.t() => any()}
+  @type list_investigations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_members_request() :: %{
-        required("AccountIds") => list(String.t()),
-        required("GraphArn") => String.t()
+        required("AccountIds") => list(String.t() | atom()),
+        required("GraphArn") => String.t() | atom()
       }
 
   """
-  @type get_members_request() :: %{String.t() => any()}
+  @type get_members_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -393,25 +393,25 @@ defmodule AWS.Detective do
 
       create_members_request() :: %{
         optional("DisableEmailNotification") => boolean(),
-        optional("Message") => String.t(),
+        optional("Message") => String.t() | atom(),
         required("Accounts") => list(account()),
-        required("GraphArn") => String.t()
+        required("GraphArn") => String.t() | atom()
       }
 
   """
-  @type create_members_request() :: %{String.t() => any()}
+  @type create_members_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       graph() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer()
       }
 
   """
-  @type graph() :: %{String.t() => any()}
+  @type graph() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -423,31 +423,31 @@ defmodule AWS.Detective do
       }
 
   """
-  @type batch_get_graph_member_datasources_response() :: %{String.t() => any()}
+  @type batch_get_graph_member_datasources_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t(),
-        "Resources" => list(String.t())
+        "Message" => String.t() | atom(),
+        "Resources" => list(String.t() | atom())
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_members_request() :: %{
-        required("AccountIds") => list(String.t()),
-        required("GraphArn") => String.t()
+        required("AccountIds") => list(String.t() | atom()),
+        required("GraphArn") => String.t() | atom()
       }
 
   """
-  @type delete_members_request() :: %{String.t() => any()}
+  @type delete_members_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -458,31 +458,31 @@ defmodule AWS.Detective do
       }
 
   """
-  @type timestamp_for_collection() :: %{String.t() => any()}
+  @type timestamp_for_collection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       account() :: %{
-        "AccountId" => String.t(),
-        "EmailAddress" => String.t()
+        "AccountId" => String.t() | atom(),
+        "EmailAddress" => String.t() | atom()
       }
 
   """
-  @type account() :: %{String.t() => any()}
+  @type account() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unprocessed_graph() :: %{
-        "GraphArn" => String.t(),
-        "Reason" => String.t()
+        "GraphArn" => String.t() | atom(),
+        "Reason" => String.t() | atom()
       }
 
   """
-  @type unprocessed_graph() :: %{String.t() => any()}
+  @type unprocessed_graph() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -494,32 +494,32 @@ defmodule AWS.Detective do
       }
 
   """
-  @type batch_get_membership_datasources_response() :: %{String.t() => any()}
+  @type batch_get_membership_datasources_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_graph_member_datasources_request() :: %{
-        required("AccountIds") => list(String.t()),
-        required("GraphArn") => String.t()
+        required("AccountIds") => list(String.t() | atom()),
+        required("GraphArn") => String.t() | atom()
       }
 
   """
-  @type batch_get_graph_member_datasources_request() :: %{String.t() => any()}
+  @type batch_get_graph_member_datasources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_investigation_state_request() :: %{
-        required("GraphArn") => String.t(),
-        required("InvestigationId") => String.t(),
+        required("GraphArn") => String.t() | atom(),
+        required("InvestigationId") => String.t() | atom(),
         required("State") => list(any())
       }
 
   """
-  @type update_investigation_state_request() :: %{String.t() => any()}
+  @type update_investigation_state_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -530,7 +530,7 @@ defmodule AWS.Detective do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -542,18 +542,18 @@ defmodule AWS.Detective do
       }
 
   """
-  @type date_filter() :: %{String.t() => any()}
+  @type date_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       reject_invitation_request() :: %{
-        required("GraphArn") => String.t()
+        required("GraphArn") => String.t() | atom()
       }
 
   """
-  @type reject_invitation_request() :: %{String.t() => any()}
+  @type reject_invitation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -561,64 +561,64 @@ defmodule AWS.Detective do
 
       investigation_detail() :: %{
         "CreatedTime" => non_neg_integer(),
-        "EntityArn" => String.t(),
+        "EntityArn" => String.t() | atom(),
         "EntityType" => list(any()),
-        "InvestigationId" => String.t(),
+        "InvestigationId" => String.t() | atom(),
         "Severity" => list(any()),
         "State" => list(any()),
         "Status" => list(any())
       }
 
   """
-  @type investigation_detail() :: %{String.t() => any()}
+  @type investigation_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       impossible_travel_detail() :: %{
-        "EndingIpAddress" => String.t(),
-        "EndingLocation" => String.t(),
+        "EndingIpAddress" => String.t() | atom(),
+        "EndingLocation" => String.t() | atom(),
         "HourlyTimeDelta" => integer(),
-        "StartingIpAddress" => String.t(),
-        "StartingLocation" => String.t()
+        "StartingIpAddress" => String.t() | atom(),
+        "StartingLocation" => String.t() | atom()
       }
 
   """
-  @type impossible_travel_detail() :: %{String.t() => any()}
+  @type impossible_travel_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_graph_request() :: %{
-        required("GraphArn") => String.t()
+        required("GraphArn") => String.t() | atom()
       }
 
   """
-  @type delete_graph_request() :: %{String.t() => any()}
+  @type delete_graph_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_membership_datasources_request() :: %{
-        required("GraphArns") => list(String.t())
+        required("GraphArns") => list(String.t() | atom())
       }
 
   """
-  @type batch_get_membership_datasources_request() :: %{String.t() => any()}
+  @type batch_get_membership_datasources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -626,22 +626,22 @@ defmodule AWS.Detective do
 
       update_organization_configuration_request() :: %{
         optional("AutoEnable") => boolean(),
-        required("GraphArn") => String.t()
+        required("GraphArn") => String.t() | atom()
       }
 
   """
-  @type update_organization_configuration_request() :: %{String.t() => any()}
+  @type update_organization_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       enable_organization_admin_account_request() :: %{
-        required("AccountId") => String.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type enable_organization_admin_account_request() :: %{String.t() => any()}
+  @type enable_organization_admin_account_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -649,11 +649,11 @@ defmodule AWS.Detective do
 
       list_graphs_response() :: %{
         "GraphList" => list(graph()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_graphs_response() :: %{String.t() => any()}
+  @type list_graphs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -665,7 +665,7 @@ defmodule AWS.Detective do
       }
 
   """
-  @type datasource_package_usage_info() :: %{String.t() => any()}
+  @type datasource_package_usage_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -673,24 +673,24 @@ defmodule AWS.Detective do
 
       list_datasource_packages_response() :: %{
         "DatasourcePackages" => map(),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_datasource_packages_response() :: %{String.t() => any()}
+  @type list_datasource_packages_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       membership_datasources() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | atom(),
         "DatasourcePackageIngestHistory" => map(),
-        "GraphArn" => String.t()
+        "GraphArn" => String.t() | atom()
       }
 
   """
-  @type membership_datasources() :: %{String.t() => any()}
+  @type membership_datasources() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -698,11 +698,11 @@ defmodule AWS.Detective do
 
       list_organization_admin_accounts_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_organization_admin_accounts_request() :: %{String.t() => any()}
+  @type list_organization_admin_accounts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -714,7 +714,7 @@ defmodule AWS.Detective do
       }
 
   """
-  @type sort_criteria() :: %{String.t() => any()}
+  @type sort_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -722,38 +722,38 @@ defmodule AWS.Detective do
 
       access_denied_exception() :: %{
         "ErrorCode" => list(any()),
-        "ErrorCodeReason" => String.t(),
-        "Message" => String.t(),
+        "ErrorCodeReason" => String.t() | atom(),
+        "Message" => String.t() | atom(),
         "SubErrorCode" => list(any()),
-        "SubErrorCodeReason" => String.t()
+        "SubErrorCodeReason" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       new_geolocation_detail() :: %{
-        "IpAddress" => String.t(),
+        "IpAddress" => String.t() | atom(),
         "IsNewForEntireAccount" => boolean(),
-        "Location" => String.t()
+        "Location" => String.t() | atom()
       }
 
   """
-  @type new_geolocation_detail() :: %{String.t() => any()}
+  @type new_geolocation_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       accept_invitation_request() :: %{
-        required("GraphArn") => String.t()
+        required("GraphArn") => String.t() | atom()
       }
 
   """
-  @type accept_invitation_request() :: %{String.t() => any()}
+  @type accept_invitation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -769,11 +769,11 @@ defmodule AWS.Detective do
   ## Example:
 
       create_graph_response() :: %{
-        "GraphArn" => String.t()
+        "GraphArn" => String.t() | atom()
       }
 
   """
-  @type create_graph_response() :: %{String.t() => any()}
+  @type create_graph_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -781,12 +781,12 @@ defmodule AWS.Detective do
 
       list_members_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("GraphArn") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("GraphArn") => String.t() | atom()
       }
 
   """
-  @type list_members_request() :: %{String.t() => any()}
+  @type list_members_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -794,23 +794,23 @@ defmodule AWS.Detective do
 
       list_members_response() :: %{
         "MemberDetails" => list(member_detail()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_members_response() :: %{String.t() => any()}
+  @type list_members_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_investigation_request() :: %{
-        required("GraphArn") => String.t(),
-        required("InvestigationId") => String.t()
+        required("GraphArn") => String.t() | atom(),
+        required("InvestigationId") => String.t() | atom()
       }
 
   """
-  @type get_investigation_request() :: %{String.t() => any()}
+  @type get_investigation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -818,10 +818,10 @@ defmodule AWS.Detective do
 
       get_investigation_response() :: %{
         "CreatedTime" => non_neg_integer(),
-        "EntityArn" => String.t(),
+        "EntityArn" => String.t() | atom(),
         "EntityType" => list(any()),
-        "GraphArn" => String.t(),
-        "InvestigationId" => String.t(),
+        "GraphArn" => String.t() | atom(),
+        "InvestigationId" => String.t() | atom(),
         "ScopeEndTime" => non_neg_integer(),
         "ScopeStartTime" => non_neg_integer(),
         "Severity" => list(any()),
@@ -830,7 +830,7 @@ defmodule AWS.Detective do
       }
 
   """
-  @type get_investigation_response() :: %{String.t() => any()}
+  @type get_investigation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -838,12 +838,12 @@ defmodule AWS.Detective do
 
       validation_exception() :: %{
         "ErrorCode" => list(any()),
-        "ErrorCodeReason" => String.t(),
-        "Message" => String.t()
+        "ErrorCodeReason" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -860,11 +860,11 @@ defmodule AWS.Detective do
 
       list_invitations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_invitations_request() :: %{String.t() => any()}
+  @type list_invitations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -882,81 +882,81 @@ defmodule AWS.Detective do
       }
 
   """
-  @type indicator_detail() :: %{String.t() => any()}
+  @type indicator_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       string_filter() :: %{
-        "Value" => String.t()
+        "Value" => String.t() | atom()
       }
 
   """
-  @type string_filter() :: %{String.t() => any()}
+  @type string_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       flagged_ip_address_detail() :: %{
-        "IpAddress" => String.t(),
+        "IpAddress" => String.t() | atom(),
         "Reason" => list(any())
       }
 
   """
-  @type flagged_ip_address_detail() :: %{String.t() => any()}
+  @type flagged_ip_address_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       related_finding_detail() :: %{
-        "Arn" => String.t(),
-        "IpAddress" => String.t(),
-        "Type" => String.t()
+        "Arn" => String.t() | atom(),
+        "IpAddress" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type related_finding_detail() :: %{String.t() => any()}
+  @type related_finding_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unprocessed_account() :: %{
-        "AccountId" => String.t(),
-        "Reason" => String.t()
+        "AccountId" => String.t() | atom(),
+        "Reason" => String.t() | atom()
       }
 
   """
-  @type unprocessed_account() :: %{String.t() => any()}
+  @type unprocessed_account() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_monitoring_member_request() :: %{
-        required("AccountId") => String.t(),
-        required("GraphArn") => String.t()
+        required("AccountId") => String.t() | atom(),
+        required("GraphArn") => String.t() | atom()
       }
 
   """
-  @type start_monitoring_member_request() :: %{String.t() => any()}
+  @type start_monitoring_member_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_indicators_response() :: %{
-        "GraphArn" => String.t(),
+        "GraphArn" => String.t() | atom(),
         "Indicators" => list(indicator()),
-        "InvestigationId" => String.t(),
-        "NextToken" => String.t()
+        "InvestigationId" => String.t() | atom(),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_indicators_response() :: %{String.t() => any()}
+  @type list_indicators_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -968,7 +968,7 @@ defmodule AWS.Detective do
       }
 
   """
-  @type datasource_package_ingest_detail() :: %{String.t() => any()}
+  @type datasource_package_ingest_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -976,11 +976,11 @@ defmodule AWS.Detective do
 
       list_organization_admin_accounts_response() :: %{
         "Administrators" => list(administrator()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_organization_admin_accounts_response() :: %{String.t() => any()}
+  @type list_organization_admin_accounts_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -989,24 +989,24 @@ defmodule AWS.Detective do
       list_indicators_request() :: %{
         optional("IndicatorType") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("GraphArn") => String.t(),
-        required("InvestigationId") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("GraphArn") => String.t() | atom(),
+        required("InvestigationId") => String.t() | atom()
       }
 
   """
-  @type list_indicators_request() :: %{String.t() => any()}
+  @type list_indicators_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_membership_request() :: %{
-        required("GraphArn") => String.t()
+        required("GraphArn") => String.t() | atom()
       }
 
   """
-  @type disassociate_membership_request() :: %{String.t() => any()}
+  @type disassociate_membership_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1014,16 +1014,16 @@ defmodule AWS.Detective do
 
       t_t_ps_observed_detail() :: %{
         "APIFailureCount" => float(),
-        "APIName" => String.t(),
+        "APIName" => String.t() | atom(),
         "APISuccessCount" => float(),
-        "IpAddress" => String.t(),
-        "Procedure" => String.t(),
-        "Tactic" => String.t(),
-        "Technique" => String.t()
+        "IpAddress" => String.t() | atom(),
+        "Procedure" => String.t() | atom(),
+        "Tactic" => String.t() | atom(),
+        "Technique" => String.t() | atom()
       }
 
   """
-  @type t_t_ps_observed_detail() :: %{String.t() => any()}
+  @type t_t_ps_observed_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1035,22 +1035,22 @@ defmodule AWS.Detective do
       }
 
   """
-  @type create_members_response() :: %{String.t() => any()}
+  @type create_members_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       member_detail() :: %{
-        "AccountId" => String.t(),
-        "AdministratorId" => String.t(),
+        "AccountId" => String.t() | atom(),
+        "AdministratorId" => String.t() | atom(),
         "DatasourcePackageIngestStates" => map(),
         "DisabledReason" => list(any()),
-        "EmailAddress" => String.t(),
-        "GraphArn" => String.t(),
+        "EmailAddress" => String.t() | atom(),
+        "GraphArn" => String.t() | atom(),
         "InvitationType" => list(any()),
         "InvitedTime" => non_neg_integer(),
-        "MasterId" => String.t(),
+        "MasterId" => String.t() | atom(),
         "PercentOfGraphUtilization" => float(),
         "PercentOfGraphUtilizationUpdatedTime" => non_neg_integer(),
         "Status" => list(any()),
@@ -1061,7 +1061,7 @@ defmodule AWS.Detective do
       }
 
   """
-  @type member_detail() :: %{String.t() => any()}
+  @type member_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1069,11 +1069,11 @@ defmodule AWS.Detective do
 
       list_invitations_response() :: %{
         "Invitations" => list(member_detail()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_invitations_response() :: %{String.t() => any()}
+  @type list_invitations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1085,7 +1085,7 @@ defmodule AWS.Detective do
       }
 
   """
-  @type indicator() :: %{String.t() => any()}
+  @type indicator() :: %{(String.t() | atom()) => any()}
 
   @type accept_invitation_errors() ::
           validation_exception()
@@ -2076,7 +2076,7 @@ defmodule AWS.Detective do
   @doc """
   Returns the tag values that are assigned to a behavior graph.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2207,7 +2207,7 @@ defmodule AWS.Detective do
   @doc """
   Applies tag values to a behavior graph.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2236,7 +2236,7 @@ defmodule AWS.Detective do
   @doc """
   Removes tags from a behavior graph.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

@@ -22,24 +22,24 @@ defmodule AWS.ChimeSDKIdentity do
 
       list_app_instances_response() :: %{
         "AppInstances" => list(app_instance_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_app_instances_response() :: %{String.t() => any()}
+  @type list_app_instances_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       app_instance_bot_summary() :: %{
-        "AppInstanceBotArn" => String.t(),
-        "Metadata" => String.t(),
-        "Name" => String.t()
+        "AppInstanceBotArn" => String.t() | atom(),
+        "Metadata" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type app_instance_bot_summary() :: %{String.t() => any()}
+  @type app_instance_bot_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -50,7 +50,7 @@ defmodule AWS.ChimeSDKIdentity do
       }
 
   """
-  @type put_app_instance_user_expiration_settings_request() :: %{String.t() => any()}
+  @type put_app_instance_user_expiration_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -75,12 +75,12 @@ defmodule AWS.ChimeSDKIdentity do
   ## Example:
 
       tag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
+        required("ResourceARN") => String.t() | atom(),
         required("Tags") => list(tag())
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -88,11 +88,11 @@ defmodule AWS.ChimeSDKIdentity do
 
       list_app_instance_admins_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_app_instance_admins_request() :: %{String.t() => any()}
+  @type list_app_instance_admins_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -104,7 +104,7 @@ defmodule AWS.ChimeSDKIdentity do
       }
 
   """
-  @type endpoint_state() :: %{String.t() => any()}
+  @type endpoint_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -112,34 +112,34 @@ defmodule AWS.ChimeSDKIdentity do
 
       list_app_instance_bots_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("AppInstanceArn") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("AppInstanceArn") => String.t() | atom()
       }
 
   """
-  @type list_app_instance_bots_request() :: %{String.t() => any()}
+  @type list_app_instance_bots_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_app_instance_response() :: %{
-        "AppInstanceArn" => String.t()
+        "AppInstanceArn" => String.t() | atom()
       }
 
   """
-  @type create_app_instance_response() :: %{String.t() => any()}
+  @type create_app_instance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_app_instance_response() :: %{
-        "AppInstanceArn" => String.t()
+        "AppInstanceArn" => String.t() | atom()
       }
 
   """
-  @type update_app_instance_response() :: %{String.t() => any()}
+  @type update_app_instance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -147,14 +147,14 @@ defmodule AWS.ChimeSDKIdentity do
 
       lex_configuration() :: %{
         "InvokedBy" => invoked_by(),
-        "LexBotAliasArn" => String.t(),
-        "LocaleId" => String.t(),
+        "LexBotAliasArn" => String.t() | atom(),
+        "LocaleId" => String.t() | atom(),
         "RespondsTo" => list(any()),
-        "WelcomeIntent" => String.t()
+        "WelcomeIntent" => String.t() | atom()
       }
 
   """
-  @type lex_configuration() :: %{String.t() => any()}
+  @type lex_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -162,12 +162,12 @@ defmodule AWS.ChimeSDKIdentity do
 
       list_app_instance_admins_response() :: %{
         "AppInstanceAdmins" => list(app_instance_admin_summary()),
-        "AppInstanceArn" => String.t(),
-        "NextToken" => String.t()
+        "AppInstanceArn" => String.t() | atom(),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_app_instance_admins_response() :: %{String.t() => any()}
+  @type list_app_instance_admins_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -175,23 +175,23 @@ defmodule AWS.ChimeSDKIdentity do
 
       service_failure_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type service_failure_exception() :: %{String.t() => any()}
+  @type service_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       identity() :: %{
-        "Arn" => String.t(),
-        "Name" => String.t()
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type identity() :: %{String.t() => any()}
+  @type identity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -199,11 +199,11 @@ defmodule AWS.ChimeSDKIdentity do
 
       forbidden_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type forbidden_exception() :: %{String.t() => any()}
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -211,11 +211,11 @@ defmodule AWS.ChimeSDKIdentity do
 
       unauthorized_client_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type unauthorized_client_exception() :: %{String.t() => any()}
+  @type unauthorized_client_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -232,11 +232,11 @@ defmodule AWS.ChimeSDKIdentity do
 
       list_app_instances_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_app_instances_request() :: %{String.t() => any()}
+  @type list_app_instances_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -247,19 +247,19 @@ defmodule AWS.ChimeSDKIdentity do
       }
 
   """
-  @type configuration() :: %{String.t() => any()}
+  @type configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_app_instance_request() :: %{
-        required("Metadata") => String.t(),
-        required("Name") => String.t()
+        required("Metadata") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type update_app_instance_request() :: %{String.t() => any()}
+  @type update_app_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -267,23 +267,23 @@ defmodule AWS.ChimeSDKIdentity do
 
       throttled_client_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type throttled_client_exception() :: %{String.t() => any()}
+  @type throttled_client_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       endpoint_attributes() :: %{
-        "DeviceToken" => String.t(),
-        "VoipDeviceToken" => String.t()
+        "DeviceToken" => String.t() | atom(),
+        "VoipDeviceToken" => String.t() | atom()
       }
 
   """
-  @type endpoint_attributes() :: %{String.t() => any()}
+  @type endpoint_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -291,12 +291,12 @@ defmodule AWS.ChimeSDKIdentity do
 
       list_app_instance_users_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("AppInstanceArn") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("AppInstanceArn") => String.t() | atom()
       }
 
   """
-  @type list_app_instance_users_request() :: %{String.t() => any()}
+  @type list_app_instance_users_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -308,19 +308,19 @@ defmodule AWS.ChimeSDKIdentity do
       }
 
   """
-  @type expiration_settings() :: %{String.t() => any()}
+  @type expiration_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -331,7 +331,7 @@ defmodule AWS.ChimeSDKIdentity do
       }
 
   """
-  @type put_app_instance_retention_settings_request() :: %{String.t() => any()}
+  @type put_app_instance_retention_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -339,15 +339,15 @@ defmodule AWS.ChimeSDKIdentity do
 
       register_app_instance_user_endpoint_request() :: %{
         optional("AllowMessages") => list(any()),
-        optional("Name") => String.t(),
-        required("ClientRequestToken") => String.t(),
+        optional("Name") => String.t() | atom(),
+        required("ClientRequestToken") => String.t() | atom(),
         required("EndpointAttributes") => endpoint_attributes(),
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | atom(),
         required("Type") => list(any())
       }
 
   """
-  @type register_app_instance_user_endpoint_request() :: %{String.t() => any()}
+  @type register_app_instance_user_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -364,11 +364,11 @@ defmodule AWS.ChimeSDKIdentity do
 
       conflict_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -384,36 +384,36 @@ defmodule AWS.ChimeSDKIdentity do
   ## Example:
 
       put_app_instance_user_expiration_settings_response() :: %{
-        "AppInstanceUserArn" => String.t(),
+        "AppInstanceUserArn" => String.t() | atom(),
         "ExpirationSettings" => expiration_settings()
       }
 
   """
-  @type put_app_instance_user_expiration_settings_response() :: %{String.t() => any()}
+  @type put_app_instance_user_expiration_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_app_instance_user_endpoint_response() :: %{
-        "AppInstanceUserArn" => String.t(),
-        "EndpointId" => String.t()
+        "AppInstanceUserArn" => String.t() | atom(),
+        "EndpointId" => String.t() | atom()
       }
 
   """
-  @type update_app_instance_user_endpoint_response() :: %{String.t() => any()}
+  @type update_app_instance_user_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -424,7 +424,7 @@ defmodule AWS.ChimeSDKIdentity do
       }
 
   """
-  @type describe_app_instance_user_response() :: %{String.t() => any()}
+  @type describe_app_instance_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -435,7 +435,7 @@ defmodule AWS.ChimeSDKIdentity do
       }
 
   """
-  @type describe_app_instance_bot_response() :: %{String.t() => any()}
+  @type describe_app_instance_bot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -446,31 +446,31 @@ defmodule AWS.ChimeSDKIdentity do
       }
 
   """
-  @type describe_app_instance_response() :: %{String.t() => any()}
+  @type describe_app_instance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_app_instance_user_response() :: %{
-        "AppInstanceUserArn" => String.t()
+        "AppInstanceUserArn" => String.t() | atom()
       }
 
   """
-  @type update_app_instance_user_response() :: %{String.t() => any()}
+  @type update_app_instance_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_app_instance_users_response() :: %{
-        "AppInstanceArn" => String.t(),
+        "AppInstanceArn" => String.t() | atom(),
         "AppInstanceUsers" => list(app_instance_user_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_app_instance_users_response() :: %{String.t() => any()}
+  @type list_app_instance_users_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -478,24 +478,24 @@ defmodule AWS.ChimeSDKIdentity do
 
       resource_limit_exceeded_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type resource_limit_exceeded_exception() :: %{String.t() => any()}
+  @type resource_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       app_instance_summary() :: %{
-        "AppInstanceArn" => String.t(),
-        "Metadata" => String.t(),
-        "Name" => String.t()
+        "AppInstanceArn" => String.t() | atom(),
+        "Metadata" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type app_instance_summary() :: %{String.t() => any()}
+  @type app_instance_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -503,27 +503,27 @@ defmodule AWS.ChimeSDKIdentity do
 
       not_found_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type not_found_exception() :: %{String.t() => any()}
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       app_instance_user() :: %{
-        "AppInstanceUserArn" => String.t(),
+        "AppInstanceUserArn" => String.t() | atom(),
         "CreatedTimestamp" => non_neg_integer(),
         "ExpirationSettings" => expiration_settings(),
         "LastUpdatedTimestamp" => non_neg_integer(),
-        "Metadata" => String.t(),
-        "Name" => String.t()
+        "Metadata" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type app_instance_user() :: %{String.t() => any()}
+  @type app_instance_user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -531,22 +531,22 @@ defmodule AWS.ChimeSDKIdentity do
 
       list_app_instance_user_endpoints_response() :: %{
         "AppInstanceUserEndpoints" => list(app_instance_user_endpoint_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_app_instance_user_endpoints_response() :: %{String.t() => any()}
+  @type list_app_instance_user_endpoints_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_app_instance_bot_response() :: %{
-        "AppInstanceBotArn" => String.t()
+        "AppInstanceBotArn" => String.t() | atom()
       }
 
   """
-  @type update_app_instance_bot_response() :: %{String.t() => any()}
+  @type update_app_instance_bot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -557,7 +557,7 @@ defmodule AWS.ChimeSDKIdentity do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -568,7 +568,7 @@ defmodule AWS.ChimeSDKIdentity do
       }
 
   """
-  @type channel_retention_settings() :: %{String.t() => any()}
+  @type channel_retention_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -576,19 +576,19 @@ defmodule AWS.ChimeSDKIdentity do
 
       app_instance_user_endpoint() :: %{
         "AllowMessages" => list(any()),
-        "AppInstanceUserArn" => String.t(),
+        "AppInstanceUserArn" => String.t() | atom(),
         "CreatedTimestamp" => non_neg_integer(),
         "EndpointAttributes" => endpoint_attributes(),
-        "EndpointId" => String.t(),
+        "EndpointId" => String.t() | atom(),
         "EndpointState" => endpoint_state(),
         "LastUpdatedTimestamp" => non_neg_integer(),
-        "Name" => String.t(),
-        "ResourceArn" => String.t(),
+        "Name" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
         "Type" => list(any())
       }
 
   """
-  @type app_instance_user_endpoint() :: %{String.t() => any()}
+  @type app_instance_user_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -596,11 +596,11 @@ defmodule AWS.ChimeSDKIdentity do
 
       service_unavailable_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type service_unavailable_exception() :: %{String.t() => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -608,15 +608,15 @@ defmodule AWS.ChimeSDKIdentity do
 
       app_instance_user_endpoint_summary() :: %{
         "AllowMessages" => list(any()),
-        "AppInstanceUserArn" => String.t(),
-        "EndpointId" => String.t(),
+        "AppInstanceUserArn" => String.t() | atom(),
+        "EndpointId" => String.t() | atom(),
         "EndpointState" => endpoint_state(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Type" => list(any())
       }
 
   """
-  @type app_instance_user_endpoint_summary() :: %{String.t() => any()}
+  @type app_instance_user_endpoint_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -628,7 +628,7 @@ defmodule AWS.ChimeSDKIdentity do
       }
 
   """
-  @type get_app_instance_retention_settings_response() :: %{String.t() => any()}
+  @type get_app_instance_retention_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -636,37 +636,37 @@ defmodule AWS.ChimeSDKIdentity do
 
       app_instance_admin() :: %{
         "Admin" => identity(),
-        "AppInstanceArn" => String.t(),
+        "AppInstanceArn" => String.t() | atom(),
         "CreatedTimestamp" => non_neg_integer()
       }
 
   """
-  @type app_instance_admin() :: %{String.t() => any()}
+  @type app_instance_admin() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_app_instance_bots_response() :: %{
-        "AppInstanceArn" => String.t(),
+        "AppInstanceArn" => String.t() | atom(),
         "AppInstanceBots" => list(app_instance_bot_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_app_instance_bots_response() :: %{String.t() => any()}
+  @type list_app_instance_bots_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_app_instance_user_request() :: %{
-        required("Metadata") => String.t(),
-        required("Name") => String.t()
+        required("Metadata") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type update_app_instance_user_request() :: %{String.t() => any()}
+  @type update_app_instance_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -677,32 +677,32 @@ defmodule AWS.ChimeSDKIdentity do
       }
 
   """
-  @type describe_app_instance_admin_response() :: %{String.t() => any()}
+  @type describe_app_instance_admin_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_app_instance_request() :: %{
-        optional("Metadata") => String.t(),
+        optional("Metadata") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("ClientRequestToken") => String.t(),
-        required("Name") => String.t()
+        required("ClientRequestToken") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_app_instance_request() :: %{String.t() => any()}
+  @type create_app_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_app_instance_bot_response() :: %{
-        "AppInstanceBotArn" => String.t()
+        "AppInstanceBotArn" => String.t() | atom()
       }
 
   """
-  @type create_app_instance_bot_response() :: %{String.t() => any()}
+  @type create_app_instance_bot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -713,18 +713,18 @@ defmodule AWS.ChimeSDKIdentity do
       }
 
   """
-  @type app_instance_admin_summary() :: %{String.t() => any()}
+  @type app_instance_admin_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t()
+        required("ResourceARN") => String.t() | atom()
       }
 
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -736,23 +736,23 @@ defmodule AWS.ChimeSDKIdentity do
       }
 
   """
-  @type invoked_by() :: %{String.t() => any()}
+  @type invoked_by() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_app_instance_bot_request() :: %{
-        optional("Metadata") => String.t(),
-        optional("Name") => String.t(),
+        optional("Metadata") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("AppInstanceArn") => String.t(),
-        required("ClientRequestToken") => String.t(),
+        required("AppInstanceArn") => String.t() | atom(),
+        required("ClientRequestToken") => String.t() | atom(),
         required("Configuration") => configuration()
       }
 
   """
-  @type create_app_instance_bot_request() :: %{String.t() => any()}
+  @type create_app_instance_bot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -760,11 +760,11 @@ defmodule AWS.ChimeSDKIdentity do
 
       create_app_instance_admin_response() :: %{
         "AppInstanceAdmin" => identity(),
-        "AppInstanceArn" => String.t()
+        "AppInstanceArn" => String.t() | atom()
       }
 
   """
-  @type create_app_instance_admin_response() :: %{String.t() => any()}
+  @type create_app_instance_admin_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -776,7 +776,7 @@ defmodule AWS.ChimeSDKIdentity do
       }
 
   """
-  @type put_app_instance_retention_settings_response() :: %{String.t() => any()}
+  @type put_app_instance_retention_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -787,18 +787,18 @@ defmodule AWS.ChimeSDKIdentity do
       }
 
   """
-  @type app_instance_retention_settings() :: %{String.t() => any()}
+  @type app_instance_retention_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_app_instance_admin_request() :: %{
-        required("AppInstanceAdminArn") => String.t()
+        required("AppInstanceAdminArn") => String.t() | atom()
       }
 
   """
-  @type create_app_instance_admin_request() :: %{String.t() => any()}
+  @type create_app_instance_admin_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -806,11 +806,11 @@ defmodule AWS.ChimeSDKIdentity do
 
       bad_request_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -853,25 +853,25 @@ defmodule AWS.ChimeSDKIdentity do
   ## Example:
 
       app_instance_user_summary() :: %{
-        "AppInstanceUserArn" => String.t(),
-        "Metadata" => String.t(),
-        "Name" => String.t()
+        "AppInstanceUserArn" => String.t() | atom(),
+        "Metadata" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type app_instance_user_summary() :: %{String.t() => any()}
+  @type app_instance_user_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       register_app_instance_user_endpoint_response() :: %{
-        "AppInstanceUserArn" => String.t(),
-        "EndpointId" => String.t()
+        "AppInstanceUserArn" => String.t() | atom(),
+        "EndpointId" => String.t() | atom()
       }
 
   """
-  @type register_app_instance_user_endpoint_response() :: %{String.t() => any()}
+  @type register_app_instance_user_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -879,11 +879,11 @@ defmodule AWS.ChimeSDKIdentity do
 
       update_app_instance_user_endpoint_request() :: %{
         optional("AllowMessages") => list(any()),
-        optional("Name") => String.t()
+        optional("Name") => String.t() | atom()
       }
 
   """
-  @type update_app_instance_user_endpoint_request() :: %{String.t() => any()}
+  @type update_app_instance_user_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -894,7 +894,7 @@ defmodule AWS.ChimeSDKIdentity do
       }
 
   """
-  @type describe_app_instance_user_endpoint_response() :: %{String.t() => any()}
+  @type describe_app_instance_user_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -911,12 +911,12 @@ defmodule AWS.ChimeSDKIdentity do
 
       update_app_instance_bot_request() :: %{
         optional("Configuration") => configuration(),
-        required("Metadata") => String.t(),
-        required("Name") => String.t()
+        required("Metadata") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type update_app_instance_bot_request() :: %{String.t() => any()}
+  @type update_app_instance_bot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -924,11 +924,11 @@ defmodule AWS.ChimeSDKIdentity do
 
       list_app_instance_user_endpoints_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_app_instance_user_endpoints_request() :: %{String.t() => any()}
+  @type list_app_instance_user_endpoints_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -945,58 +945,58 @@ defmodule AWS.ChimeSDKIdentity do
 
       create_app_instance_user_request() :: %{
         optional("ExpirationSettings") => expiration_settings(),
-        optional("Metadata") => String.t(),
+        optional("Metadata") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("AppInstanceArn") => String.t(),
-        required("AppInstanceUserId") => String.t(),
-        required("ClientRequestToken") => String.t(),
-        required("Name") => String.t()
+        required("AppInstanceArn") => String.t() | atom(),
+        required("AppInstanceUserId") => String.t() | atom(),
+        required("ClientRequestToken") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_app_instance_user_request() :: %{String.t() => any()}
+  @type create_app_instance_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       app_instance() :: %{
-        "AppInstanceArn" => String.t(),
+        "AppInstanceArn" => String.t() | atom(),
         "CreatedTimestamp" => non_neg_integer(),
         "LastUpdatedTimestamp" => non_neg_integer(),
-        "Metadata" => String.t(),
-        "Name" => String.t()
+        "Metadata" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type app_instance() :: %{String.t() => any()}
+  @type app_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       app_instance_bot() :: %{
-        "AppInstanceBotArn" => String.t(),
+        "AppInstanceBotArn" => String.t() | atom(),
         "Configuration" => configuration(),
         "CreatedTimestamp" => non_neg_integer(),
         "LastUpdatedTimestamp" => non_neg_integer(),
-        "Metadata" => String.t(),
-        "Name" => String.t()
+        "Metadata" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type app_instance_bot() :: %{String.t() => any()}
+  @type app_instance_bot() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_app_instance_user_response() :: %{
-        "AppInstanceUserArn" => String.t()
+        "AppInstanceUserArn" => String.t() | atom()
       }
 
   """
-  @type create_app_instance_user_response() :: %{String.t() => any()}
+  @type create_app_instance_user_response() :: %{(String.t() | atom()) => any()}
 
   @type create_app_instance_errors() ::
           bad_request_exception()
@@ -1336,7 +1336,12 @@ defmodule AWS.ChimeSDKIdentity do
   `AppInstanceAdmin`
   role.
   """
-  @spec create_app_instance_admin(map(), String.t(), create_app_instance_admin_request(), list()) ::
+  @spec create_app_instance_admin(
+          map(),
+          String.t() | atom(),
+          create_app_instance_admin_request(),
+          list()
+        ) ::
           {:ok, create_app_instance_admin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1429,7 +1434,7 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Deletes an `AppInstance` and all associated data asynchronously.
   """
-  @spec delete_app_instance(map(), String.t(), delete_app_instance_request(), list()) ::
+  @spec delete_app_instance(map(), String.t() | atom(), delete_app_instance_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1464,8 +1469,8 @@ defmodule AWS.ChimeSDKIdentity do
   """
   @spec delete_app_instance_admin(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_app_instance_admin_request(),
           list()
         ) ::
@@ -1505,7 +1510,12 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Deletes an `AppInstanceBot`.
   """
-  @spec delete_app_instance_bot(map(), String.t(), delete_app_instance_bot_request(), list()) ::
+  @spec delete_app_instance_bot(
+          map(),
+          String.t() | atom(),
+          delete_app_instance_bot_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1534,7 +1544,12 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Deletes an `AppInstanceUser`.
   """
-  @spec delete_app_instance_user(map(), String.t(), delete_app_instance_user_request(), list()) ::
+  @spec delete_app_instance_user(
+          map(),
+          String.t() | atom(),
+          delete_app_instance_user_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1565,8 +1580,8 @@ defmodule AWS.ChimeSDKIdentity do
   """
   @spec deregister_app_instance_user_endpoint(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           deregister_app_instance_user_endpoint_request(),
           list()
         ) ::
@@ -1606,7 +1621,7 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Returns the full details of an `AppInstance`.
   """
-  @spec describe_app_instance(map(), String.t(), list()) ::
+  @spec describe_app_instance(map(), String.t() | atom(), list()) ::
           {:ok, describe_app_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1624,7 +1639,7 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Returns the full details of an `AppInstanceAdmin`.
   """
-  @spec describe_app_instance_admin(map(), String.t(), String.t(), list()) ::
+  @spec describe_app_instance_admin(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_app_instance_admin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1649,7 +1664,7 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   The `AppInstanceBot's` information.
   """
-  @spec describe_app_instance_bot(map(), String.t(), list()) ::
+  @spec describe_app_instance_bot(map(), String.t() | atom(), list()) ::
           {:ok, describe_app_instance_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1667,7 +1682,7 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Returns the full details of an `AppInstanceUser`.
   """
-  @spec describe_app_instance_user(map(), String.t(), list()) ::
+  @spec describe_app_instance_user(map(), String.t() | atom(), list()) ::
           {:ok, describe_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1685,7 +1700,12 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Returns the full details of an `AppInstanceUserEndpoint`.
   """
-  @spec describe_app_instance_user_endpoint(map(), String.t(), String.t(), list()) ::
+  @spec describe_app_instance_user_endpoint(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, describe_app_instance_user_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1710,7 +1730,7 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Gets the retention settings for an `AppInstance`.
   """
-  @spec get_app_instance_retention_settings(map(), String.t(), list()) ::
+  @spec get_app_instance_retention_settings(map(), String.t() | atom(), list()) ::
           {:ok, get_app_instance_retention_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1728,7 +1748,13 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Returns a list of the administrators in the `AppInstance`.
   """
-  @spec list_app_instance_admins(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_app_instance_admins(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_app_instance_admins_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1766,7 +1792,13 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Lists all `AppInstanceBots` created under a single `AppInstance`.
   """
-  @spec list_app_instance_bots(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_app_instance_bots(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_app_instance_bots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1814,9 +1846,9 @@ defmodule AWS.ChimeSDKIdentity do
   """
   @spec list_app_instance_user_endpoints(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_app_instance_user_endpoints_response(), any()}
@@ -1857,7 +1889,13 @@ defmodule AWS.ChimeSDKIdentity do
   List all `AppInstanceUsers` created under a single
   `AppInstance`.
   """
-  @spec list_app_instance_users(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_app_instance_users(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_app_instance_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1903,7 +1941,7 @@ defmodule AWS.ChimeSDKIdentity do
   Lists all Amazon Chime `AppInstance`s created under a single AWS
   account.
   """
-  @spec list_app_instances(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_app_instances(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_app_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1935,7 +1973,7 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Lists the tags applied to an Amazon Chime SDK identity resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1963,7 +2001,7 @@ defmodule AWS.ChimeSDKIdentity do
   """
   @spec put_app_instance_retention_settings(
           map(),
-          String.t(),
+          String.t() | atom(),
           put_app_instance_retention_settings_request(),
           list()
         ) ::
@@ -2010,7 +2048,7 @@ defmodule AWS.ChimeSDKIdentity do
   """
   @spec put_app_instance_user_expiration_settings(
           map(),
-          String.t(),
+          String.t() | atom(),
           put_app_instance_user_expiration_settings_request(),
           list()
         ) ::
@@ -2054,7 +2092,7 @@ defmodule AWS.ChimeSDKIdentity do
   """
   @spec register_app_instance_user_endpoint(
           map(),
-          String.t(),
+          String.t() | atom(),
           register_app_instance_user_endpoint_request(),
           list()
         ) ::
@@ -2150,7 +2188,7 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Updates `AppInstance` metadata.
   """
-  @spec update_app_instance(map(), String.t(), update_app_instance_request(), list()) ::
+  @spec update_app_instance(map(), String.t() | atom(), update_app_instance_request(), list()) ::
           {:ok, update_app_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2179,7 +2217,12 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Updates the name and metadata of an `AppInstanceBot`.
   """
-  @spec update_app_instance_bot(map(), String.t(), update_app_instance_bot_request(), list()) ::
+  @spec update_app_instance_bot(
+          map(),
+          String.t() | atom(),
+          update_app_instance_bot_request(),
+          list()
+        ) ::
           {:ok, update_app_instance_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2211,7 +2254,12 @@ defmodule AWS.ChimeSDKIdentity do
   You can update names and
   metadata.
   """
-  @spec update_app_instance_user(map(), String.t(), update_app_instance_user_request(), list()) ::
+  @spec update_app_instance_user(
+          map(),
+          String.t() | atom(),
+          update_app_instance_user_request(),
+          list()
+        ) ::
           {:ok, update_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2244,8 +2292,8 @@ defmodule AWS.ChimeSDKIdentity do
   """
   @spec update_app_instance_user_endpoint(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_app_instance_user_endpoint_request(),
           list()
         ) ::

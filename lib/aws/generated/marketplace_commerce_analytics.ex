@@ -15,38 +15,38 @@ defmodule AWS.MarketplaceCommerceAnalytics do
       
       generate_data_set_request() :: %{
         optional("customerDefinedValues") => map(),
-        optional("destinationS3Prefix") => String.t(),
+        optional("destinationS3Prefix") => String.t() | atom(),
         required("dataSetPublicationDate") => non_neg_integer(),
         required("dataSetType") => list(any()),
-        required("destinationS3BucketName") => String.t(),
-        required("roleNameArn") => String.t(),
-        required("snsTopicArn") => String.t()
+        required("destinationS3BucketName") => String.t() | atom(),
+        required("roleNameArn") => String.t() | atom(),
+        required("snsTopicArn") => String.t() | atom()
       }
       
   """
-  @type generate_data_set_request() :: %{String.t() => any()}
+  @type generate_data_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       generate_data_set_result() :: %{
-        "dataSetRequestId" => String.t()
+        "dataSetRequestId" => String.t() | atom()
       }
       
   """
-  @type generate_data_set_result() :: %{String.t() => any()}
+  @type generate_data_set_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       marketplace_commerce_analytics_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type marketplace_commerce_analytics_exception() :: %{String.t() => any()}
+  @type marketplace_commerce_analytics_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -54,27 +54,27 @@ defmodule AWS.MarketplaceCommerceAnalytics do
       
       start_support_data_export_request() :: %{
         optional("customerDefinedValues") => map(),
-        optional("destinationS3Prefix") => String.t(),
+        optional("destinationS3Prefix") => String.t() | atom(),
         required("dataSetType") => list(any()),
-        required("destinationS3BucketName") => String.t(),
+        required("destinationS3BucketName") => String.t() | atom(),
         required("fromDate") => non_neg_integer(),
-        required("roleNameArn") => String.t(),
-        required("snsTopicArn") => String.t()
+        required("roleNameArn") => String.t() | atom(),
+        required("snsTopicArn") => String.t() | atom()
       }
       
   """
-  @type start_support_data_export_request() :: %{String.t() => any()}
+  @type start_support_data_export_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_support_data_export_result() :: %{
-        "dataSetRequestId" => String.t()
+        "dataSetRequestId" => String.t() | atom()
       }
       
   """
-  @type start_support_data_export_result() :: %{String.t() => any()}
+  @type start_support_data_export_result() :: %{(String.t() | atom()) => any()}
 
   @type generate_data_set_errors() :: marketplace_commerce_analytics_exception()
 
@@ -119,7 +119,8 @@ defmodule AWS.MarketplaceCommerceAnalytics do
           | {:error, term()}
           | {:error, generate_data_set_errors()}
   def generate_data_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GenerateDataSet", input, options)
   end
@@ -149,7 +150,8 @@ defmodule AWS.MarketplaceCommerceAnalytics do
           | {:error, term()}
           | {:error, start_support_data_export_errors()}
   def start_support_data_export(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartSupportDataExport", input, options)
   end

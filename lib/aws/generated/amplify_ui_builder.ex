@@ -37,19 +37,19 @@ defmodule AWS.AmplifyUIBuilder do
   ## Example:
 
       theme() :: %{
-        "appId" => [String.t()],
+        "appId" => [String.t() | atom()],
         "createdAt" => [non_neg_integer()],
-        "environmentName" => [String.t()],
-        "id" => String.t(),
+        "environmentName" => [String.t() | atom()],
+        "id" => String.t() | atom(),
         "modifiedAt" => [non_neg_integer()],
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "overrides" => list(theme_values()),
         "tags" => map(),
         "values" => list(theme_values())
       }
 
   """
-  @type theme() :: %{String.t() => any()}
+  @type theme() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -60,7 +60,7 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -71,7 +71,7 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type codegen_generic_data_non_model() :: %{String.t() => any()}
+  @type codegen_generic_data_non_model() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -79,7 +79,7 @@ defmodule AWS.AmplifyUIBuilder do
 
       codegen_generic_data_field() :: %{
         "dataType" => list(any()),
-        "dataTypeValue" => [String.t()],
+        "dataTypeValue" => [String.t() | atom()],
         "isArray" => [boolean()],
         "readOnly" => [boolean()],
         "relationship" => codegen_generic_data_relationship_type(),
@@ -87,20 +87,20 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type codegen_generic_data_field() :: %{String.t() => any()}
+  @type codegen_generic_data_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       exchange_code_for_token_response() :: %{
-        required("accessToken") => String.t(),
+        required("accessToken") => String.t() | atom(),
         required("expiresIn") => [integer()],
-        required("refreshToken") => String.t()
+        required("refreshToken") => String.t() | atom()
       }
 
   """
-  @type exchange_code_for_token_response() :: %{String.t() => any()}
+  @type exchange_code_for_token_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -116,23 +116,23 @@ defmodule AWS.AmplifyUIBuilder do
   ## Example:
 
       form() :: %{
-        "appId" => [String.t()],
+        "appId" => [String.t() | atom()],
         "cta" => form_c_t_a(),
         "dataType" => form_data_type_config(),
-        "environmentName" => [String.t()],
+        "environmentName" => [String.t() | atom()],
         "fields" => map(),
         "formActionType" => list(any()),
-        "id" => String.t(),
-        "labelDecorator" => String.t(),
-        "name" => String.t(),
-        "schemaVersion" => [String.t()],
+        "id" => String.t() | atom(),
+        "labelDecorator" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "schemaVersion" => [String.t() | atom()],
         "sectionalElements" => map(),
         "style" => form_style(),
         "tags" => map()
       }
 
   """
-  @type form() :: %{String.t() => any()}
+  @type form() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -148,47 +148,47 @@ defmodule AWS.AmplifyUIBuilder do
   ## Example:
 
       unauthorized_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type unauthorized_exception() :: %{String.t() => any()}
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       form_data_type_config() :: %{
-        "dataSourceType" => String.t(),
-        "dataTypeName" => [String.t()]
+        "dataSourceType" => String.t() | atom(),
+        "dataTypeName" => [String.t() | atom()]
       }
 
   """
-  @type form_data_type_config() :: %{String.t() => any()}
+  @type form_data_type_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       codegen_job() :: %{
-        "appId" => String.t(),
+        "appId" => String.t() | atom(),
         "asset" => codegen_job_asset(),
         "autoGenerateForms" => [boolean()],
         "createdAt" => [non_neg_integer()],
         "dependencies" => list(codegen_dependency()),
-        "environmentName" => [String.t()],
+        "environmentName" => [String.t() | atom()],
         "features" => codegen_feature_flags(),
         "genericDataSchema" => codegen_job_generic_data_schema(),
-        "id" => String.t(),
+        "id" => String.t() | atom(),
         "modifiedAt" => [non_neg_integer()],
         "renderConfig" => list(),
         "status" => list(any()),
-        "statusMessage" => [String.t()],
+        "statusMessage" => [String.t() | atom()],
         "tags" => map()
       }
 
   """
-  @type codegen_job() :: %{String.t() => any()}
+  @type codegen_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -211,14 +211,14 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type form_c_t_a() :: %{String.t() => any()}
+  @type form_c_t_a() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       file_uploader_field_config() :: %{
-        "acceptedFileTypes" => list([String.t()]()),
+        "acceptedFileTypes" => list([String.t() | atom()]()),
         "accessLevel" => list(any()),
         "isResumable" => [boolean()],
         "maxFileCount" => [integer()],
@@ -227,22 +227,22 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type file_uploader_field_config() :: %{String.t() => any()}
+  @type file_uploader_field_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       codegen_job_summary() :: %{
-        "appId" => String.t(),
+        "appId" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
-        "environmentName" => [String.t()],
-        "id" => String.t(),
+        "environmentName" => [String.t() | atom()],
+        "id" => String.t() | atom(),
         "modifiedAt" => [non_neg_integer()]
       }
 
   """
-  @type codegen_job_summary() :: %{String.t() => any()}
+  @type codegen_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -253,33 +253,33 @@ defmodule AWS.AmplifyUIBuilder do
         "dataType" => form_data_type_config(),
         "fields" => map(),
         "formActionType" => list(any()),
-        "labelDecorator" => String.t(),
-        "name" => String.t(),
-        "schemaVersion" => [String.t()],
+        "labelDecorator" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "schemaVersion" => [String.t() | atom()],
         "sectionalElements" => map(),
         "style" => form_style()
       }
 
   """
-  @type update_form_data() :: %{String.t() => any()}
+  @type update_form_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       component_binding_properties_value_properties() :: %{
-        "bucket" => [String.t()],
-        "defaultValue" => [String.t()],
-        "field" => [String.t()],
-        "key" => [String.t()],
-        "model" => [String.t()],
+        "bucket" => [String.t() | atom()],
+        "defaultValue" => [String.t() | atom()],
+        "field" => [String.t() | atom()],
+        "key" => [String.t() | atom()],
+        "model" => [String.t() | atom()],
         "predicates" => list(predicate()),
-        "slotName" => [String.t()],
-        "userAttribute" => [String.t()]
+        "slotName" => [String.t() | atom()],
+        "userAttribute" => [String.t() | atom()]
       }
 
   """
-  @type component_binding_properties_value_properties() :: %{String.t() => any()}
+  @type component_binding_properties_value_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -291,7 +291,7 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type component_variant() :: %{String.t() => any()}
+  @type component_variant() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -302,21 +302,21 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type update_form_response() :: %{String.t() => any()}
+  @type update_form_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_theme_data() :: %{
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "overrides" => list(theme_values()),
         "tags" => map(),
         "values" => list(theme_values())
       }
 
   """
-  @type create_theme_data() :: %{String.t() => any()}
+  @type create_theme_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -324,11 +324,11 @@ defmodule AWS.AmplifyUIBuilder do
 
       sort_property() :: %{
         "direction" => list(any()),
-        "field" => [String.t()]
+        "field" => [String.t() | atom()]
       }
 
   """
-  @type sort_property() :: %{String.t() => any()}
+  @type sort_property() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -361,7 +361,7 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type start_codegen_job_data() :: %{String.t() => any()}
+  @type start_codegen_job_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -372,64 +372,64 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type get_component_response() :: %{String.t() => any()}
+  @type get_component_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_metadata_flag_body() :: %{
-        "newValue" => [String.t()]
+        "newValue" => [String.t() | atom()]
       }
 
   """
-  @type put_metadata_flag_body() :: %{String.t() => any()}
+  @type put_metadata_flag_body() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       codegen_generic_data_enum() :: %{
-        "values" => list([String.t()]())
+        "values" => list([String.t() | atom()]())
       }
 
   """
-  @type codegen_generic_data_enum() :: %{String.t() => any()}
+  @type codegen_generic_data_enum() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       form_binding_element() :: %{
-        "element" => [String.t()],
-        "property" => [String.t()]
+        "element" => [String.t() | atom()],
+        "property" => [String.t() | atom()]
       }
 
   """
-  @type form_binding_element() :: %{String.t() => any()}
+  @type form_binding_element() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       refresh_token_response() :: %{
-        required("accessToken") => String.t(),
+        required("accessToken") => String.t() | atom(),
         required("expiresIn") => [integer()]
       }
 
   """
-  @type refresh_token_response() :: %{String.t() => any()}
+  @type refresh_token_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -440,7 +440,7 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type get_theme_response() :: %{String.t() => any()}
+  @type get_theme_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -451,7 +451,7 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type start_codegen_job_response() :: %{String.t() => any()}
+  @type start_codegen_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -471,45 +471,45 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type update_component_response() :: %{String.t() => any()}
+  @type update_component_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       component_summary() :: %{
-        "appId" => [String.t()],
-        "componentType" => String.t(),
-        "environmentName" => [String.t()],
-        "id" => String.t(),
-        "name" => String.t()
+        "appId" => [String.t() | atom()],
+        "componentType" => String.t() | atom(),
+        "environmentName" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type component_summary() :: %{String.t() => any()}
+  @type component_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       form_input_binding_properties_value_properties() :: %{
-        "model" => [String.t()]
+        "model" => [String.t() | atom()]
       }
 
   """
-  @type form_input_binding_properties_value_properties() :: %{String.t() => any()}
+  @type form_input_binding_properties_value_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       component_property_binding_properties() :: %{
-        "field" => [String.t()],
-        "property" => [String.t()]
+        "field" => [String.t() | atom()],
+        "property" => [String.t() | atom()]
       }
 
   """
-  @type component_property_binding_properties() :: %{String.t() => any()}
+  @type component_property_binding_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -520,19 +520,19 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type put_metadata_flag_request() :: %{String.t() => any()}
+  @type put_metadata_flag_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       refresh_token_request_body() :: %{
-        "clientId" => String.t(),
-        "token" => String.t()
+        "clientId" => String.t() | atom(),
+        "token" => String.t() | atom()
       }
 
   """
-  @type refresh_token_request_body() :: %{String.t() => any()}
+  @type refresh_token_request_body() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -543,7 +543,7 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type get_metadata_response() :: %{String.t() => any()}
+  @type get_metadata_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -551,11 +551,11 @@ defmodule AWS.AmplifyUIBuilder do
 
       list_codegen_jobs_response() :: %{
         "entities" => list(codegen_job_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_codegen_jobs_response() :: %{String.t() => any()}
+  @type list_codegen_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -566,7 +566,7 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type create_theme_response() :: %{String.t() => any()}
+  @type create_theme_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -587,7 +587,7 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type codegen_feature_flags() :: %{String.t() => any()}
+  @type codegen_feature_flags() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -598,7 +598,7 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type create_component_response() :: %{String.t() => any()}
+  @type create_component_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -608,19 +608,19 @@ defmodule AWS.AmplifyUIBuilder do
         "bindingProperties" => map(),
         "children" => list(component_child()),
         "collectionProperties" => map(),
-        "componentType" => String.t(),
+        "componentType" => String.t() | atom(),
         "events" => map(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "overrides" => map(),
         "properties" => map(),
-        "schemaVersion" => [String.t()],
-        "sourceId" => [String.t()],
+        "schemaVersion" => [String.t() | atom()],
+        "sourceId" => [String.t() | atom()],
         "tags" => map(),
         "variants" => list(component_variant())
       }
 
   """
-  @type create_component_data() :: %{String.t() => any()}
+  @type create_component_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -628,35 +628,35 @@ defmodule AWS.AmplifyUIBuilder do
 
       list_codegen_jobs_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_codegen_jobs_request() :: %{String.t() => any()}
+  @type list_codegen_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_component_request() :: %{
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => [String.t() | atom()],
         required("updatedComponent") => update_component_data()
       }
 
   """
-  @type update_component_request() :: %{String.t() => any()}
+  @type update_component_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       export_forms_response() :: %{
-        optional("nextToken") => [String.t()],
+        optional("nextToken") => [String.t() | atom()],
         required("entities") => list(form())
       }
 
   """
-  @type export_forms_response() :: %{String.t() => any()}
+  @type export_forms_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -664,22 +664,22 @@ defmodule AWS.AmplifyUIBuilder do
 
       list_themes_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_themes_request() :: %{String.t() => any()}
+  @type list_themes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -687,11 +687,11 @@ defmodule AWS.AmplifyUIBuilder do
 
       list_components_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_components_request() :: %{String.t() => any()}
+  @type list_components_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -709,13 +709,13 @@ defmodule AWS.AmplifyUIBuilder do
       field_config() :: %{
         "excluded" => [boolean()],
         "inputType" => field_input_config(),
-        "label" => [String.t()],
+        "label" => [String.t() | atom()],
         "position" => list(),
         "validations" => list(field_validation_configuration())
       }
 
   """
-  @type field_config() :: %{String.t() => any()}
+  @type field_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -726,18 +726,18 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type get_form_response() :: %{String.t() => any()}
+  @type get_form_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -745,42 +745,42 @@ defmodule AWS.AmplifyUIBuilder do
 
       component_child() :: %{
         "children" => list(component_child()),
-        "componentType" => [String.t()],
+        "componentType" => [String.t() | atom()],
         "events" => map(),
-        "name" => [String.t()],
+        "name" => [String.t() | atom()],
         "properties" => map(),
-        "sourceId" => [String.t()]
+        "sourceId" => [String.t() | atom()]
       }
 
   """
-  @type component_child() :: %{String.t() => any()}
+  @type component_child() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       component() :: %{
-        "appId" => [String.t()],
+        "appId" => [String.t() | atom()],
         "bindingProperties" => map(),
         "children" => list(component_child()),
         "collectionProperties" => map(),
-        "componentType" => String.t(),
+        "componentType" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
-        "environmentName" => [String.t()],
+        "environmentName" => [String.t() | atom()],
         "events" => map(),
-        "id" => String.t(),
+        "id" => String.t() | atom(),
         "modifiedAt" => [non_neg_integer()],
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "overrides" => map(),
         "properties" => map(),
-        "schemaVersion" => [String.t()],
-        "sourceId" => [String.t()],
+        "schemaVersion" => [String.t() | atom()],
+        "sourceId" => [String.t() | atom()],
         "tags" => map(),
         "variants" => list(component_variant())
       }
 
   """
-  @type component() :: %{String.t() => any()}
+  @type component() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -791,19 +791,19 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type refresh_token_request() :: %{String.t() => any()}
+  @type refresh_token_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_forms_response() :: %{
-        optional("nextToken") => [String.t()],
+        optional("nextToken") => [String.t() | atom()],
         required("entities") => list(form_summary())
       }
 
   """
-  @type list_forms_response() :: %{String.t() => any()}
+  @type list_forms_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -815,7 +815,7 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type value_mapping() :: %{String.t() => any()}
+  @type value_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -832,54 +832,54 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type react_start_codegen_job_data() :: %{String.t() => any()}
+  @type react_start_codegen_job_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       export_components_response() :: %{
-        optional("nextToken") => [String.t()],
+        optional("nextToken") => [String.t() | atom()],
         required("entities") => list(component())
       }
 
   """
-  @type export_components_response() :: %{String.t() => any()}
+  @type export_components_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_theme_request() :: %{
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => [String.t() | atom()],
         required("updatedTheme") => update_theme_data()
       }
 
   """
-  @type update_theme_request() :: %{String.t() => any()}
+  @type update_theme_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_theme_request() :: %{
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => [String.t() | atom()],
         required("themeToCreate") => create_theme_data()
       }
 
   """
-  @type create_theme_request() :: %{String.t() => any()}
+  @type create_theme_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       export_themes_request() :: %{
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type export_themes_request() :: %{String.t() => any()}
+  @type export_themes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -890,31 +890,31 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type exchange_code_for_token_request() :: %{String.t() => any()}
+  @type exchange_code_for_token_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_codegen_job_request() :: %{
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => [String.t() | atom()],
         required("codegenJobToCreate") => start_codegen_job_data()
       }
 
   """
-  @type start_codegen_job_request() :: %{String.t() => any()}
+  @type start_codegen_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_form_request() :: %{
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => [String.t() | atom()],
         required("formToCreate") => create_form_data()
       }
 
   """
-  @type create_form_request() :: %{String.t() => any()}
+  @type create_form_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -925,19 +925,19 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type get_codegen_job_response() :: %{String.t() => any()}
+  @type get_codegen_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_component_request() :: %{
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => [String.t() | atom()],
         required("componentToCreate") => create_component_data()
       }
 
   """
-  @type create_component_request() :: %{String.t() => any()}
+  @type create_component_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -946,40 +946,40 @@ defmodule AWS.AmplifyUIBuilder do
       sectional_element() :: %{
         "excluded" => [boolean()],
         "level" => [integer()],
-        "orientation" => [String.t()],
+        "orientation" => [String.t() | atom()],
         "position" => list(),
-        "text" => [String.t()],
-        "type" => [String.t()]
+        "text" => [String.t() | atom()],
+        "type" => [String.t() | atom()]
       }
 
   """
-  @type sectional_element() :: %{String.t() => any()}
+  @type sectional_element() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       exchange_code_for_token_request_body() :: %{
-        "clientId" => String.t(),
-        "code" => String.t(),
-        "redirectUri" => [String.t()]
+        "clientId" => String.t() | atom(),
+        "code" => String.t() | atom(),
+        "redirectUri" => [String.t() | atom()]
       }
 
   """
-  @type exchange_code_for_token_request_body() :: %{String.t() => any()}
+  @type exchange_code_for_token_request_body() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       mutation_action_set_state_parameter() :: %{
-        "componentName" => [String.t()],
-        "property" => [String.t()],
+        "componentName" => [String.t() | atom()],
+        "property" => [String.t() | atom()],
         "set" => component_property()
       }
 
   """
-  @type mutation_action_set_state_parameter() :: %{String.t() => any()}
+  @type mutation_action_set_state_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -990,18 +990,18 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       codegen_job_asset() :: %{
-        "downloadUrl" => [String.t()]
+        "downloadUrl" => [String.t() | atom()]
       }
 
   """
-  @type codegen_job_asset() :: %{String.t() => any()}
+  @type codegen_job_asset() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1009,25 +1009,25 @@ defmodule AWS.AmplifyUIBuilder do
 
       field_input_config() :: %{
         "defaultChecked" => [boolean()],
-        "defaultCountryCode" => [String.t()],
-        "defaultValue" => [String.t()],
-        "descriptiveText" => [String.t()],
+        "defaultCountryCode" => [String.t() | atom()],
+        "defaultValue" => [String.t() | atom()],
+        "descriptiveText" => [String.t() | atom()],
         "fileUploaderConfig" => file_uploader_field_config(),
         "isArray" => [boolean()],
         "maxValue" => [float()],
         "minValue" => [float()],
-        "name" => [String.t()],
-        "placeholder" => [String.t()],
+        "name" => [String.t() | atom()],
+        "placeholder" => [String.t() | atom()],
         "readOnly" => [boolean()],
         "required" => [boolean()],
         "step" => [float()],
-        "type" => [String.t()],
-        "value" => [String.t()],
+        "type" => [String.t() | atom()],
+        "value" => [String.t() | atom()],
         "valueMappings" => value_mappings()
       }
 
   """
-  @type field_input_config() :: %{String.t() => any()}
+  @type field_input_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1047,16 +1047,16 @@ defmodule AWS.AmplifyUIBuilder do
         "dataType" => form_data_type_config(),
         "fields" => map(),
         "formActionType" => list(any()),
-        "labelDecorator" => String.t(),
-        "name" => String.t(),
-        "schemaVersion" => [String.t()],
+        "labelDecorator" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "schemaVersion" => [String.t() | atom()],
         "sectionalElements" => map(),
         "style" => form_style(),
         "tags" => map()
       }
 
   """
-  @type create_form_data() :: %{String.t() => any()}
+  @type create_form_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1064,11 +1064,11 @@ defmodule AWS.AmplifyUIBuilder do
 
       theme_value() :: %{
         "children" => list(theme_values()),
-        "value" => [String.t()]
+        "value" => [String.t() | atom()]
       }
 
   """
-  @type theme_value() :: %{String.t() => any()}
+  @type theme_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1081,7 +1081,7 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type form_style() :: %{String.t() => any()}
+  @type form_style() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1092,7 +1092,7 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type create_form_response() :: %{String.t() => any()}
+  @type create_form_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1101,75 +1101,75 @@ defmodule AWS.AmplifyUIBuilder do
       form_input_value_property() :: %{
         "bindingProperties" => form_input_value_property_binding_properties(),
         "concat" => list(form_input_value_property()),
-        "value" => [String.t()]
+        "value" => [String.t() | atom()]
       }
 
   """
-  @type form_input_value_property() :: %{String.t() => any()}
+  @type form_input_value_property() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       component_event() :: %{
-        "action" => [String.t()],
-        "bindingEvent" => [String.t()],
+        "action" => [String.t() | atom()],
+        "bindingEvent" => [String.t() | atom()],
         "parameters" => action_parameters()
       }
 
   """
-  @type component_event() :: %{String.t() => any()}
+  @type component_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       form_input_value_property_binding_properties() :: %{
-        "field" => [String.t()],
-        "property" => [String.t()]
+        "field" => [String.t() | atom()],
+        "property" => [String.t() | atom()]
       }
 
   """
-  @type form_input_value_property_binding_properties() :: %{String.t() => any()}
+  @type form_input_value_property_binding_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       form_button() :: %{
-        "children" => [String.t()],
+        "children" => [String.t() | atom()],
         "excluded" => [boolean()],
         "position" => list()
       }
 
   """
-  @type form_button() :: %{String.t() => any()}
+  @type form_button() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       graph_q_l_render_config() :: %{
-        "fragmentsFilePath" => [String.t()],
-        "mutationsFilePath" => [String.t()],
-        "queriesFilePath" => [String.t()],
-        "subscriptionsFilePath" => [String.t()],
-        "typesFilePath" => [String.t()]
+        "fragmentsFilePath" => [String.t() | atom()],
+        "mutationsFilePath" => [String.t() | atom()],
+        "queriesFilePath" => [String.t() | atom()],
+        "subscriptionsFilePath" => [String.t() | atom()],
+        "typesFilePath" => [String.t() | atom()]
       }
 
   """
-  @type graph_q_l_render_config() :: %{String.t() => any()}
+  @type graph_q_l_render_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1177,11 +1177,11 @@ defmodule AWS.AmplifyUIBuilder do
 
       list_forms_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_forms_request() :: %{String.t() => any()}
+  @type list_forms_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1192,19 +1192,19 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type update_theme_response() :: %{String.t() => any()}
+  @type update_theme_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       theme_values() :: %{
-        "key" => [String.t()],
+        "key" => [String.t() | atom()],
         "value" => theme_value()
       }
 
   """
-  @type theme_values() :: %{String.t() => any()}
+  @type theme_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1214,33 +1214,33 @@ defmodule AWS.AmplifyUIBuilder do
         "bindingProperties" => component_property_binding_properties(),
         "bindings" => map(),
         "collectionBindingProperties" => component_property_binding_properties(),
-        "componentName" => [String.t()],
+        "componentName" => [String.t() | atom()],
         "concat" => list(component_property()),
         "condition" => component_condition_property(),
         "configured" => [boolean()],
-        "defaultValue" => [String.t()],
-        "event" => [String.t()],
-        "importedValue" => [String.t()],
-        "model" => [String.t()],
-        "property" => [String.t()],
-        "type" => [String.t()],
-        "userAttribute" => [String.t()],
-        "value" => [String.t()]
+        "defaultValue" => [String.t() | atom()],
+        "event" => [String.t() | atom()],
+        "importedValue" => [String.t() | atom()],
+        "model" => [String.t() | atom()],
+        "property" => [String.t() | atom()],
+        "type" => [String.t() | atom()],
+        "userAttribute" => [String.t() | atom()],
+        "value" => [String.t() | atom()]
       }
 
   """
-  @type component_property() :: %{String.t() => any()}
+  @type component_property() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_parameter_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type invalid_parameter_exception() :: %{String.t() => any()}
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1254,7 +1254,7 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type codegen_job_generic_data_schema() :: %{String.t() => any()}
+  @type codegen_job_generic_data_schema() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1265,7 +1265,7 @@ defmodule AWS.AmplifyUIBuilder do
         "fields" => map(),
         "global" => component_property(),
         "id" => component_property(),
-        "model" => [String.t()],
+        "model" => [String.t() | atom()],
         "state" => mutation_action_set_state_parameter(),
         "target" => component_property(),
         "type" => component_property(),
@@ -1273,7 +1273,7 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type action_parameters() :: %{String.t() => any()}
+  @type action_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1289,67 +1289,67 @@ defmodule AWS.AmplifyUIBuilder do
   ## Example:
 
       form_summary() :: %{
-        "appId" => [String.t()],
+        "appId" => [String.t() | atom()],
         "dataType" => form_data_type_config(),
-        "environmentName" => [String.t()],
+        "environmentName" => [String.t() | atom()],
         "formActionType" => list(any()),
-        "id" => String.t(),
-        "name" => String.t()
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type form_summary() :: %{String.t() => any()}
+  @type form_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       theme_summary() :: %{
-        "appId" => [String.t()],
-        "environmentName" => [String.t()],
-        "id" => String.t(),
-        "name" => String.t()
+        "appId" => [String.t() | atom()],
+        "environmentName" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type theme_summary() :: %{String.t() => any()}
+  @type theme_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_theme_data() :: %{
-        "id" => String.t(),
-        "name" => String.t(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "overrides" => list(theme_values()),
         "values" => list(theme_values())
       }
 
   """
-  @type update_theme_data() :: %{String.t() => any()}
+  @type update_theme_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_form_request() :: %{
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => [String.t() | atom()],
         required("updatedForm") => update_form_data()
       }
 
   """
-  @type update_form_request() :: %{String.t() => any()}
+  @type update_form_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       export_components_request() :: %{
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type export_components_request() :: %{String.t() => any()}
+  @type export_components_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1365,25 +1365,25 @@ defmodule AWS.AmplifyUIBuilder do
   ## Example:
 
       component_data_configuration() :: %{
-        "identifiers" => list([String.t()]()),
-        "model" => [String.t()],
+        "identifiers" => list([String.t() | atom()]()),
+        "model" => [String.t() | atom()],
         "predicate" => predicate(),
         "sort" => list(sort_property())
       }
 
   """
-  @type component_data_configuration() :: %{String.t() => any()}
+  @type component_data_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1391,26 +1391,26 @@ defmodule AWS.AmplifyUIBuilder do
 
       predicate() :: %{
         "and" => list(predicate()),
-        "field" => [String.t()],
-        "operand" => [String.t()],
-        "operandType" => String.t(),
-        "operator" => [String.t()],
+        "field" => [String.t() | atom()],
+        "operand" => [String.t() | atom()],
+        "operandType" => String.t() | atom(),
+        "operator" => [String.t() | atom()],
         "or" => list(predicate())
       }
 
   """
-  @type predicate() :: %{String.t() => any()}
+  @type predicate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       export_forms_request() :: %{
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type export_forms_request() :: %{String.t() => any()}
+  @type export_forms_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1418,44 +1418,44 @@ defmodule AWS.AmplifyUIBuilder do
 
       codegen_dependency() :: %{
         "isSemVer" => [boolean()],
-        "name" => [String.t()],
-        "reason" => [String.t()],
-        "supportedVersion" => [String.t()]
+        "name" => [String.t() | atom()],
+        "reason" => [String.t() | atom()],
+        "supportedVersion" => [String.t() | atom()]
       }
 
   """
-  @type codegen_dependency() :: %{String.t() => any()}
+  @type codegen_dependency() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_components_response() :: %{
-        optional("nextToken") => [String.t()],
+        optional("nextToken") => [String.t() | atom()],
         required("entities") => list(component_summary())
       }
 
   """
-  @type list_components_response() :: %{String.t() => any()}
+  @type list_components_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       codegen_generic_data_relationship_type() :: %{
-        "associatedFields" => list([String.t()]()),
-        "belongsToFieldOnRelatedModel" => [String.t()],
+        "associatedFields" => list([String.t() | atom()]()),
+        "belongsToFieldOnRelatedModel" => [String.t() | atom()],
         "canUnlinkAssociatedModel" => [boolean()],
         "isHasManyIndex" => [boolean()],
-        "relatedJoinFieldName" => [String.t()],
-        "relatedJoinTableName" => [String.t()],
-        "relatedModelFields" => list([String.t()]()),
-        "relatedModelName" => [String.t()],
+        "relatedJoinFieldName" => [String.t() | atom()],
+        "relatedJoinTableName" => [String.t() | atom()],
+        "relatedModelFields" => list([String.t() | atom()]()),
+        "relatedModelName" => [String.t() | atom()],
         "type" => list(any())
       }
 
   """
-  @type codegen_generic_data_relationship_type() :: %{String.t() => any()}
+  @type codegen_generic_data_relationship_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1464,11 +1464,11 @@ defmodule AWS.AmplifyUIBuilder do
       codegen_generic_data_model() :: %{
         "fields" => map(),
         "isJoinTable" => [boolean()],
-        "primaryKeys" => list([String.t()]())
+        "primaryKeys" => list([String.t() | atom()]())
       }
 
   """
-  @type codegen_generic_data_model() :: %{String.t() => any()}
+  @type codegen_generic_data_model() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1476,13 +1476,13 @@ defmodule AWS.AmplifyUIBuilder do
 
       field_validation_configuration() :: %{
         "numValues" => list([integer()]()),
-        "strValues" => list([String.t()]()),
-        "type" => [String.t()],
-        "validationMessage" => [String.t()]
+        "strValues" => list([String.t() | atom()]()),
+        "type" => [String.t() | atom()],
+        "validationMessage" => [String.t() | atom()]
       }
 
   """
-  @type field_validation_configuration() :: %{String.t() => any()}
+  @type field_validation_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1494,19 +1494,19 @@ defmodule AWS.AmplifyUIBuilder do
       }
 
   """
-  @type value_mappings() :: %{String.t() => any()}
+  @type value_mappings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_themes_response() :: %{
-        optional("nextToken") => [String.t()],
+        optional("nextToken") => [String.t() | atom()],
         required("entities") => list(theme_summary())
       }
 
   """
-  @type list_themes_response() :: %{String.t() => any()}
+  @type list_themes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1514,23 +1514,23 @@ defmodule AWS.AmplifyUIBuilder do
 
       form_input_binding_properties_value() :: %{
         "bindingProperties" => form_input_binding_properties_value_properties(),
-        "type" => [String.t()]
+        "type" => [String.t() | atom()]
       }
 
   """
-  @type form_input_binding_properties_value() :: %{String.t() => any()}
+  @type form_input_binding_properties_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       export_themes_response() :: %{
-        optional("nextToken") => [String.t()],
+        optional("nextToken") => [String.t() | atom()],
         required("entities") => list(theme())
       }
 
   """
-  @type export_themes_response() :: %{String.t() => any()}
+  @type export_themes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1538,23 +1538,23 @@ defmodule AWS.AmplifyUIBuilder do
 
       component_binding_properties_value() :: %{
         "bindingProperties" => component_binding_properties_value_properties(),
-        "defaultValue" => [String.t()],
-        "type" => [String.t()]
+        "defaultValue" => [String.t() | atom()],
+        "type" => [String.t() | atom()]
       }
 
   """
-  @type component_binding_properties_value() :: %{String.t() => any()}
+  @type component_binding_properties_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_conflict_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type resource_conflict_exception() :: %{String.t() => any()}
+  @type resource_conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1573,19 +1573,19 @@ defmodule AWS.AmplifyUIBuilder do
         "bindingProperties" => map(),
         "children" => list(component_child()),
         "collectionProperties" => map(),
-        "componentType" => String.t(),
+        "componentType" => String.t() | atom(),
         "events" => map(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "overrides" => map(),
         "properties" => map(),
-        "schemaVersion" => [String.t()],
-        "sourceId" => [String.t()],
+        "schemaVersion" => [String.t() | atom()],
+        "sourceId" => [String.t() | atom()],
         "variants" => list(component_variant())
       }
 
   """
-  @type update_component_data() :: %{String.t() => any()}
+  @type update_component_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1593,16 +1593,16 @@ defmodule AWS.AmplifyUIBuilder do
 
       component_condition_property() :: %{
         "else" => component_property(),
-        "field" => [String.t()],
-        "operand" => [String.t()],
-        "operandType" => [String.t()],
-        "operator" => [String.t()],
-        "property" => [String.t()],
+        "field" => [String.t() | atom()],
+        "operand" => [String.t() | atom()],
+        "operandType" => [String.t() | atom()],
+        "operator" => [String.t() | atom()],
+        "property" => [String.t() | atom()],
         "then" => component_property()
       }
 
   """
-  @type component_condition_property() :: %{String.t() => any()}
+  @type component_condition_property() :: %{(String.t() | atom()) => any()}
 
   @type create_component_errors() ::
           resource_conflict_exception()
@@ -1739,7 +1739,13 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Creates a new component for an Amplify app.
   """
-  @spec create_component(map(), String.t(), String.t(), create_component_request(), list()) ::
+  @spec create_component(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          create_component_request(),
+          list()
+        ) ::
           {:ok, create_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1775,7 +1781,13 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Creates a new form for an Amplify app.
   """
-  @spec create_form(map(), String.t(), String.t(), create_form_request(), list()) ::
+  @spec create_form(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          create_form_request(),
+          list()
+        ) ::
           {:ok, create_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1811,7 +1823,13 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Creates a theme to apply to the components in an Amplify app.
   """
-  @spec create_theme(map(), String.t(), String.t(), create_theme_request(), list()) ::
+  @spec create_theme(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          create_theme_request(),
+          list()
+        ) ::
           {:ok, create_theme_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1849,9 +1867,9 @@ defmodule AWS.AmplifyUIBuilder do
   """
   @spec delete_component(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_component_request(),
           list()
         ) ::
@@ -1885,7 +1903,14 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Deletes a form from an Amplify app.
   """
-  @spec delete_form(map(), String.t(), String.t(), String.t(), delete_form_request(), list()) ::
+  @spec delete_form(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_form_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1916,7 +1941,14 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Deletes a theme from an Amplify app.
   """
-  @spec delete_theme(map(), String.t(), String.t(), String.t(), delete_theme_request(), list()) ::
+  @spec delete_theme(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_theme_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1950,7 +1982,12 @@ defmodule AWS.AmplifyUIBuilder do
 
   Amplify uses this action to exchange an access code for a token.
   """
-  @spec exchange_code_for_token(map(), String.t(), exchange_code_for_token_request(), list()) ::
+  @spec exchange_code_for_token(
+          map(),
+          String.t() | atom(),
+          exchange_code_for_token_request(),
+          list()
+        ) ::
           {:ok, exchange_code_for_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1980,7 +2017,13 @@ defmodule AWS.AmplifyUIBuilder do
   Exports component configurations to code that is ready to integrate into an
   Amplify app.
   """
-  @spec export_components(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec export_components(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, export_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2014,7 +2057,13 @@ defmodule AWS.AmplifyUIBuilder do
   Exports form configurations to code that is ready to integrate into an Amplify
   app.
   """
-  @spec export_forms(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec export_forms(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, export_forms_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2042,7 +2091,13 @@ defmodule AWS.AmplifyUIBuilder do
   Exports theme configurations to code that is ready to integrate into an Amplify
   app.
   """
-  @spec export_themes(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec export_themes(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, export_themes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2075,7 +2130,13 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Returns an existing code generation job.
   """
-  @spec get_codegen_job(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_codegen_job(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, get_codegen_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2095,7 +2156,13 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Returns an existing component for an Amplify app.
   """
-  @spec get_component(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_component(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, get_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2115,7 +2182,7 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Returns an existing form for an Amplify app.
   """
-  @spec get_form(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_form(map(), String.t() | atom(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2135,7 +2202,7 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Returns existing metadata for an Amplify app.
   """
-  @spec get_metadata(map(), String.t(), String.t(), list()) ::
+  @spec get_metadata(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2155,7 +2222,7 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Returns an existing theme for an Amplify app.
   """
-  @spec get_theme(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_theme(map(), String.t() | atom(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_theme_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2178,10 +2245,10 @@ defmodule AWS.AmplifyUIBuilder do
   """
   @spec list_codegen_jobs(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_codegen_jobs_response(), any()}
@@ -2225,7 +2292,14 @@ defmodule AWS.AmplifyUIBuilder do
   Retrieves a list of components for a specified Amplify app and backend
   environment.
   """
-  @spec list_components(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_components(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2266,7 +2340,14 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Retrieves a list of forms for a specified Amplify app and backend environment.
   """
-  @spec list_forms(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_forms(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_forms_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2307,7 +2388,7 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Returns a list of tags for a specified Amazon Resource Name (ARN).
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2326,7 +2407,14 @@ defmodule AWS.AmplifyUIBuilder do
   Retrieves a list of themes for a specified Amplify app and backend
   environment.
   """
-  @spec list_themes(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_themes(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_themes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2369,9 +2457,9 @@ defmodule AWS.AmplifyUIBuilder do
   """
   @spec put_metadata_flag(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           put_metadata_flag_request(),
           list()
         ) ::
@@ -2416,7 +2504,7 @@ defmodule AWS.AmplifyUIBuilder do
   Amplify uses this action to refresh a previously issued access token that might
   have expired.
   """
-  @spec refresh_token(map(), String.t(), refresh_token_request(), list()) ::
+  @spec refresh_token(map(), String.t() | atom(), refresh_token_request(), list()) ::
           {:ok, refresh_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2446,7 +2534,13 @@ defmodule AWS.AmplifyUIBuilder do
   Starts a code generation job for a specified Amplify app and backend
   environment.
   """
-  @spec start_codegen_job(map(), String.t(), String.t(), start_codegen_job_request(), list()) ::
+  @spec start_codegen_job(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          start_codegen_job_request(),
+          list()
+        ) ::
           {:ok, start_codegen_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2482,7 +2576,7 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Tags the resource with a tag key and value.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2511,7 +2605,7 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Untags a resource with a specified Amazon Resource Name (ARN).
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2547,9 +2641,9 @@ defmodule AWS.AmplifyUIBuilder do
   """
   @spec update_component(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_component_request(),
           list()
         ) ::
@@ -2588,7 +2682,14 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Updates an existing form.
   """
-  @spec update_form(map(), String.t(), String.t(), String.t(), update_form_request(), list()) ::
+  @spec update_form(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_form_request(),
+          list()
+        ) ::
           {:ok, update_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2624,7 +2725,14 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Updates an existing theme.
   """
-  @spec update_theme(map(), String.t(), String.t(), String.t(), update_theme_request(), list()) ::
+  @spec update_theme(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_theme_request(),
+          list()
+        ) ::
           {:ok, update_theme_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

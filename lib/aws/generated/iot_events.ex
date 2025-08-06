@@ -20,11 +20,11 @@ defmodule AWS.IoTEvents do
 
       get_detector_model_analysis_results_response() :: %{
         "analysisResults" => list(analysis_result()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type get_detector_model_analysis_results_response() :: %{String.t() => any()}
+  @type get_detector_model_analysis_results_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -34,11 +34,11 @@ defmodule AWS.IoTEvents do
         "onEnter" => on_enter_lifecycle(),
         "onExit" => on_exit_lifecycle(),
         "onInput" => on_input_lifecycle(),
-        "stateName" => String.t()
+        "stateName" => String.t() | atom()
       }
 
   """
-  @type state() :: %{String.t() => any()}
+  @type state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -47,48 +47,48 @@ defmodule AWS.IoTEvents do
       analysis_result() :: %{
         "level" => list(any()),
         "locations" => list(analysis_result_location()),
-        "message" => String.t(),
-        "type" => String.t()
+        "message" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type analysis_result() :: %{String.t() => any()}
+  @type analysis_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_resource_request() :: %{
-        required("resourceArn") => String.t(),
+        required("resourceArn") => String.t() | atom(),
         required("tags") => list(tag())
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_failure_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_failure_exception() :: %{String.t() => any()}
+  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       firehose_action() :: %{
-        "deliveryStreamName" => String.t(),
+        "deliveryStreamName" => String.t() | atom(),
         "payload" => payload(),
-        "separator" => String.t()
+        "separator" => String.t() | atom()
       }
 
   """
-  @type firehose_action() :: %{String.t() => any()}
+  @type firehose_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -104,12 +104,12 @@ defmodule AWS.IoTEvents do
   ## Example:
 
       payload() :: %{
-        "contentExpression" => String.t(),
+        "contentExpression" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type payload() :: %{String.t() => any()}
+  @type payload() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -125,11 +125,11 @@ defmodule AWS.IoTEvents do
   ## Example:
 
       unsupported_operation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type unsupported_operation_exception() :: %{String.t() => any()}
+  @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -140,7 +140,7 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type describe_detector_model_analysis_response() :: %{String.t() => any()}
+  @type describe_detector_model_analysis_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -148,28 +148,28 @@ defmodule AWS.IoTEvents do
 
       input_summary() :: %{
         "creationTime" => non_neg_integer(),
-        "inputArn" => String.t(),
-        "inputDescription" => String.t(),
-        "inputName" => String.t(),
+        "inputArn" => String.t() | atom(),
+        "inputDescription" => String.t() | atom(),
+        "inputName" => String.t() | atom(),
         "lastUpdateTime" => non_neg_integer(),
         "status" => list(any())
       }
 
   """
-  @type input_summary() :: %{String.t() => any()}
+  @type input_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       set_timer_action() :: %{
-        "durationExpression" => String.t(),
+        "durationExpression" => String.t() | atom(),
         "seconds" => integer(),
-        "timerName" => String.t()
+        "timerName" => String.t() | atom()
       }
 
   """
-  @type set_timer_action() :: %{String.t() => any()}
+  @type set_timer_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -180,7 +180,7 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type start_detector_model_analysis_request() :: %{String.t() => any()}
+  @type start_detector_model_analysis_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -200,7 +200,7 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type alarm_event_actions() :: %{String.t() => any()}
+  @type alarm_event_actions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -211,18 +211,18 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type create_detector_model_response() :: %{String.t() => any()}
+  @type create_detector_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_in_use_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_in_use_exception() :: %{String.t() => any()}
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -230,24 +230,24 @@ defmodule AWS.IoTEvents do
 
       dynamo_dbv2_action() :: %{
         "payload" => payload(),
-        "tableName" => String.t()
+        "tableName" => String.t() | atom()
       }
 
   """
-  @type dynamo_dbv2_action() :: %{String.t() => any()}
+  @type dynamo_dbv2_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_property_value() :: %{
-        "quality" => String.t(),
+        "quality" => String.t() | atom(),
         "timestamp" => asset_property_timestamp(),
         "value" => asset_property_variant()
       }
 
   """
-  @type asset_property_value() :: %{String.t() => any()}
+  @type asset_property_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -256,41 +256,41 @@ defmodule AWS.IoTEvents do
       update_alarm_model_request() :: %{
         optional("alarmCapabilities") => alarm_capabilities(),
         optional("alarmEventActions") => alarm_event_actions(),
-        optional("alarmModelDescription") => String.t(),
+        optional("alarmModelDescription") => String.t() | atom(),
         optional("alarmNotification") => alarm_notification(),
         optional("severity") => integer(),
         required("alarmRule") => alarm_rule(),
-        required("roleArn") => String.t()
+        required("roleArn") => String.t() | atom()
       }
 
   """
-  @type update_alarm_model_request() :: %{String.t() => any()}
+  @type update_alarm_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_detector_model_request() :: %{
-        optional("detectorModelDescription") => String.t(),
+        optional("detectorModelDescription") => String.t() | atom(),
         optional("evaluationMethod") => list(any()),
         required("detectorModelDefinition") => detector_model_definition(),
-        required("roleArn") => String.t()
+        required("roleArn") => String.t() | atom()
       }
 
   """
-  @type update_detector_model_request() :: %{String.t() => any()}
+  @type update_detector_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       detector_model_definition() :: %{
-        "initialStateName" => String.t(),
+        "initialStateName" => String.t() | atom(),
         "states" => list(state())
       }
 
   """
-  @type detector_model_definition() :: %{String.t() => any()}
+  @type detector_model_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -301,74 +301,74 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type notification_target_actions() :: %{String.t() => any()}
+  @type notification_target_actions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dynamo_db_action() :: %{
-        "hashKeyField" => String.t(),
-        "hashKeyType" => String.t(),
-        "hashKeyValue" => String.t(),
-        "operation" => String.t(),
+        "hashKeyField" => String.t() | atom(),
+        "hashKeyType" => String.t() | atom(),
+        "hashKeyValue" => String.t() | atom(),
+        "operation" => String.t() | atom(),
         "payload" => payload(),
-        "payloadField" => String.t(),
-        "rangeKeyField" => String.t(),
-        "rangeKeyType" => String.t(),
-        "rangeKeyValue" => String.t(),
-        "tableName" => String.t()
+        "payloadField" => String.t() | atom(),
+        "rangeKeyField" => String.t() | atom(),
+        "rangeKeyType" => String.t() | atom(),
+        "rangeKeyValue" => String.t() | atom(),
+        "tableName" => String.t() | atom()
       }
 
   """
-  @type dynamo_db_action() :: %{String.t() => any()}
+  @type dynamo_db_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       alarm_model_summary() :: %{
-        "alarmModelDescription" => String.t(),
-        "alarmModelName" => String.t(),
+        "alarmModelDescription" => String.t() | atom(),
+        "alarmModelName" => String.t() | atom(),
         "creationTime" => non_neg_integer()
       }
 
   """
-  @type alarm_model_summary() :: %{String.t() => any()}
+  @type alarm_model_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       clear_timer_action() :: %{
-        "timerName" => String.t()
+        "timerName" => String.t() | atom()
       }
 
   """
-  @type clear_timer_action() :: %{String.t() => any()}
+  @type clear_timer_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_detector_model_analysis_response() :: %{
-        "analysisId" => String.t()
+        "analysisId" => String.t() | atom()
       }
 
   """
-  @type start_detector_model_analysis_response() :: %{String.t() => any()}
+  @type start_detector_model_analysis_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       email_content() :: %{
-        "additionalMessage" => String.t(),
-        "subject" => String.t()
+        "additionalMessage" => String.t() | atom(),
+        "subject" => String.t() | atom()
       }
 
   """
-  @type email_content() :: %{String.t() => any()}
+  @type email_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -379,7 +379,7 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type describe_logging_options_response() :: %{String.t() => any()}
+  @type describe_logging_options_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -387,23 +387,23 @@ defmodule AWS.IoTEvents do
 
       list_alarm_models_response() :: %{
         "alarmModelSummaries" => list(alarm_model_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_alarm_models_response() :: %{String.t() => any()}
+  @type list_alarm_models_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s_s_o_identity() :: %{
-        "identityStoreId" => String.t(),
-        "userId" => String.t()
+        "identityStoreId" => String.t() | atom(),
+        "userId" => String.t() | atom()
       }
 
   """
-  @type s_s_o_identity() :: %{String.t() => any()}
+  @type s_s_o_identity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -414,7 +414,7 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type on_exit_lifecycle() :: %{String.t() => any()}
+  @type on_exit_lifecycle() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -423,23 +423,23 @@ defmodule AWS.IoTEvents do
       describe_alarm_model_response() :: %{
         "alarmCapabilities" => alarm_capabilities(),
         "alarmEventActions" => alarm_event_actions(),
-        "alarmModelArn" => String.t(),
-        "alarmModelDescription" => String.t(),
-        "alarmModelName" => String.t(),
-        "alarmModelVersion" => String.t(),
+        "alarmModelArn" => String.t() | atom(),
+        "alarmModelDescription" => String.t() | atom(),
+        "alarmModelName" => String.t() | atom(),
+        "alarmModelVersion" => String.t() | atom(),
         "alarmNotification" => alarm_notification(),
         "alarmRule" => alarm_rule(),
         "creationTime" => non_neg_integer(),
-        "key" => String.t(),
+        "key" => String.t() | atom(),
         "lastUpdateTime" => non_neg_integer(),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | atom(),
         "severity" => integer(),
         "status" => list(any()),
-        "statusMessage" => String.t()
+        "statusMessage" => String.t() | atom()
       }
 
   """
-  @type describe_alarm_model_response() :: %{String.t() => any()}
+  @type describe_alarm_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -451,34 +451,34 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type detector_model() :: %{String.t() => any()}
+  @type detector_model() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_alarm_model_response() :: %{
-        "alarmModelArn" => String.t(),
-        "alarmModelVersion" => String.t(),
+        "alarmModelArn" => String.t() | atom(),
+        "alarmModelVersion" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
         "lastUpdateTime" => non_neg_integer(),
         "status" => list(any())
       }
 
   """
-  @type update_alarm_model_response() :: %{String.t() => any()}
+  @type update_alarm_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t())
+        required("resourceArn") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -497,7 +497,7 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type alarm_action() :: %{String.t() => any()}
+  @type alarm_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -505,11 +505,11 @@ defmodule AWS.IoTEvents do
 
       list_alarm_model_versions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_alarm_model_versions_request() :: %{String.t() => any()}
+  @type list_alarm_model_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -517,23 +517,23 @@ defmodule AWS.IoTEvents do
 
       list_input_routings_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("inputIdentifier") => input_identifier()
       }
 
   """
-  @type list_input_routings_request() :: %{String.t() => any()}
+  @type list_input_routings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_alarm_model_request() :: %{
-        optional("alarmModelVersion") => String.t()
+        optional("alarmModelVersion") => String.t() | atom()
       }
 
   """
-  @type describe_alarm_model_request() :: %{String.t() => any()}
+  @type describe_alarm_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -541,12 +541,12 @@ defmodule AWS.IoTEvents do
 
       simple_rule() :: %{
         "comparisonOperator" => list(any()),
-        "inputProperty" => String.t(),
-        "threshold" => String.t()
+        "inputProperty" => String.t() | atom(),
+        "threshold" => String.t() | atom()
       }
 
   """
-  @type simple_rule() :: %{String.t() => any()}
+  @type simple_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -557,7 +557,7 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type iot_site_wise_input_identifier() :: %{String.t() => any()}
+  @type iot_site_wise_input_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -565,11 +565,11 @@ defmodule AWS.IoTEvents do
 
       list_detector_models_response() :: %{
         "detectorModelSummaries" => list(detector_model_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_detector_models_response() :: %{String.t() => any()}
+  @type list_detector_models_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -580,7 +580,7 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type acknowledge_flow() :: %{String.t() => any()}
+  @type acknowledge_flow() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -592,7 +592,7 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type alarm_capabilities() :: %{String.t() => any()}
+  @type alarm_capabilities() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -603,20 +603,20 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type update_detector_model_response() :: %{String.t() => any()}
+  @type update_detector_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sms_configuration() :: %{
-        "additionalMessage" => String.t(),
+        "additionalMessage" => String.t() | atom(),
         "recipients" => list(recipient_detail()),
-        "senderId" => String.t()
+        "senderId" => String.t() | atom()
       }
 
   """
-  @type sms_configuration() :: %{String.t() => any()}
+  @type sms_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -627,45 +627,45 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type create_input_response() :: %{String.t() => any()}
+  @type create_input_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_input_request() :: %{
-        optional("inputDescription") => String.t(),
+        optional("inputDescription") => String.t() | atom(),
         optional("tags") => list(tag()),
         required("inputDefinition") => input_definition(),
-        required("inputName") => String.t()
+        required("inputName") => String.t() | atom()
       }
 
   """
-  @type create_input_request() :: %{String.t() => any()}
+  @type create_input_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       set_variable_action() :: %{
-        "value" => String.t(),
-        "variableName" => String.t()
+        "value" => String.t() | atom(),
+        "variableName" => String.t() | atom()
       }
 
   """
-  @type set_variable_action() :: %{String.t() => any()}
+  @type set_variable_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_input_routings_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "routedResources" => list(routed_resource())
       }
 
   """
-  @type list_input_routings_response() :: %{String.t() => any()}
+  @type list_input_routings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -677,7 +677,7 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type input() :: %{String.t() => any()}
+  @type input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -693,11 +693,11 @@ defmodule AWS.IoTEvents do
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -705,75 +705,75 @@ defmodule AWS.IoTEvents do
 
       detector_model_version_summary() :: %{
         "creationTime" => non_neg_integer(),
-        "detectorModelArn" => String.t(),
-        "detectorModelName" => String.t(),
-        "detectorModelVersion" => String.t(),
+        "detectorModelArn" => String.t() | atom(),
+        "detectorModelName" => String.t() | atom(),
+        "detectorModelVersion" => String.t() | atom(),
         "evaluationMethod" => list(any()),
         "lastUpdateTime" => non_neg_integer(),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type detector_model_version_summary() :: %{String.t() => any()}
+  @type detector_model_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_input_request() :: %{
-        optional("inputDescription") => String.t(),
+        optional("inputDescription") => String.t() | atom(),
         required("inputDefinition") => input_definition()
       }
 
   """
-  @type update_input_request() :: %{String.t() => any()}
+  @type update_input_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       lambda_action() :: %{
-        "functionArn" => String.t(),
+        "functionArn" => String.t() | atom(),
         "payload" => payload()
       }
 
   """
-  @type lambda_action() :: %{String.t() => any()}
+  @type lambda_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_detector_model_request() :: %{
-        optional("detectorModelVersion") => String.t()
+        optional("detectorModelVersion") => String.t() | atom()
       }
 
   """
-  @type describe_detector_model_request() :: %{String.t() => any()}
+  @type describe_detector_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_request_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_request_exception() :: %{String.t() => any()}
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -784,7 +784,7 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type describe_detector_model_response() :: %{String.t() => any()}
+  @type describe_detector_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -801,11 +801,11 @@ defmodule AWS.IoTEvents do
 
       list_inputs_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_inputs_request() :: %{String.t() => any()}
+  @type list_inputs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -817,7 +817,7 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type on_input_lifecycle() :: %{String.t() => any()}
+  @type on_input_lifecycle() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -834,11 +834,11 @@ defmodule AWS.IoTEvents do
 
       list_alarm_model_versions_response() :: %{
         "alarmModelVersionSummaries" => list(alarm_model_version_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_alarm_model_versions_response() :: %{String.t() => any()}
+  @type list_alarm_model_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -849,7 +849,7 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type describe_input_response() :: %{String.t() => any()}
+  @type describe_input_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -860,7 +860,7 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type alarm_rule() :: %{String.t() => any()}
+  @type alarm_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -868,11 +868,11 @@ defmodule AWS.IoTEvents do
 
       list_detector_model_versions_response() :: %{
         "detectorModelVersionSummaries" => list(detector_model_version_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_detector_model_versions_response() :: %{String.t() => any()}
+  @type list_detector_model_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -881,18 +881,18 @@ defmodule AWS.IoTEvents do
       create_alarm_model_request() :: %{
         optional("alarmCapabilities") => alarm_capabilities(),
         optional("alarmEventActions") => alarm_event_actions(),
-        optional("alarmModelDescription") => String.t(),
+        optional("alarmModelDescription") => String.t() | atom(),
         optional("alarmNotification") => alarm_notification(),
-        optional("key") => String.t(),
+        optional("key") => String.t() | atom(),
         optional("severity") => integer(),
         optional("tags") => list(tag()),
-        required("alarmModelName") => String.t(),
+        required("alarmModelName") => String.t() | atom(),
         required("alarmRule") => alarm_rule(),
-        required("roleArn") => String.t()
+        required("roleArn") => String.t() | atom()
       }
 
   """
-  @type create_alarm_model_request() :: %{String.t() => any()}
+  @type create_alarm_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -903,7 +903,7 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -911,22 +911,22 @@ defmodule AWS.IoTEvents do
 
       s_n_s_topic_publish_action() :: %{
         "payload" => payload(),
-        "targetArn" => String.t()
+        "targetArn" => String.t() | atom()
       }
 
   """
-  @type s_n_s_topic_publish_action() :: %{String.t() => any()}
+  @type s_n_s_topic_publish_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_unavailable_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type service_unavailable_exception() :: %{String.t() => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -937,7 +937,7 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type input_definition() :: %{String.t() => any()}
+  @type input_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -945,15 +945,15 @@ defmodule AWS.IoTEvents do
 
       input_configuration() :: %{
         "creationTime" => non_neg_integer(),
-        "inputArn" => String.t(),
-        "inputDescription" => String.t(),
-        "inputName" => String.t(),
+        "inputArn" => String.t() | atom(),
+        "inputDescription" => String.t() | atom(),
+        "inputName" => String.t() | atom(),
         "lastUpdateTime" => non_neg_integer(),
         "status" => list(any())
       }
 
   """
-  @type input_configuration() :: %{String.t() => any()}
+  @type input_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -961,11 +961,11 @@ defmodule AWS.IoTEvents do
 
       list_inputs_response() :: %{
         "inputSummaries" => list(input_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_inputs_response() :: %{String.t() => any()}
+  @type list_inputs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -977,7 +977,7 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type input_identifier() :: %{String.t() => any()}
+  @type input_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -988,7 +988,7 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type on_enter_lifecycle() :: %{String.t() => any()}
+  @type on_enter_lifecycle() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -996,11 +996,11 @@ defmodule AWS.IoTEvents do
 
       list_alarm_models_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_alarm_models_request() :: %{String.t() => any()}
+  @type list_alarm_models_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1016,12 +1016,12 @@ defmodule AWS.IoTEvents do
   ## Example:
 
       iot_site_wise_asset_model_property_identifier() :: %{
-        "assetModelId" => String.t(),
-        "propertyId" => String.t()
+        "assetModelId" => String.t() | atom(),
+        "propertyId" => String.t() | atom()
       }
 
   """
-  @type iot_site_wise_asset_model_property_identifier() :: %{String.t() => any()}
+  @type iot_site_wise_asset_model_property_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1037,23 +1037,23 @@ defmodule AWS.IoTEvents do
   ## Example:
 
       analysis_result_location() :: %{
-        "path" => String.t()
+        "path" => String.t() | atom()
       }
 
   """
-  @type analysis_result_location() :: %{String.t() => any()}
+  @type analysis_result_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_property_timestamp() :: %{
-        "offsetInNanos" => String.t(),
-        "timeInSeconds" => String.t()
+        "offsetInNanos" => String.t() | atom(),
+        "timeInSeconds" => String.t() | atom()
       }
 
   """
-  @type asset_property_timestamp() :: %{String.t() => any()}
+  @type asset_property_timestamp() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1061,23 +1061,23 @@ defmodule AWS.IoTEvents do
 
       event() :: %{
         "actions" => list(action()),
-        "condition" => String.t(),
-        "eventName" => String.t()
+        "condition" => String.t() | atom(),
+        "eventName" => String.t() | atom()
       }
 
   """
-  @type event() :: %{String.t() => any()}
+  @type event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       iot_events_input_identifier() :: %{
-        "inputName" => String.t()
+        "inputName" => String.t() | atom()
       }
 
   """
-  @type iot_events_input_identifier() :: %{String.t() => any()}
+  @type iot_events_input_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1100,19 +1100,19 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type action() :: %{String.t() => any()}
+  @type action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       routed_resource() :: %{
-        "arn" => String.t(),
-        "name" => String.t()
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type routed_resource() :: %{String.t() => any()}
+  @type routed_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1120,23 +1120,23 @@ defmodule AWS.IoTEvents do
 
       get_detector_model_analysis_results_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type get_detector_model_analysis_results_request() :: %{String.t() => any()}
+  @type get_detector_model_analysis_results_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       detector_debug_option() :: %{
-        "detectorModelName" => String.t(),
-        "keyValue" => String.t()
+        "detectorModelName" => String.t() | atom(),
+        "keyValue" => String.t() | atom()
       }
 
   """
-  @type detector_debug_option() :: %{String.t() => any()}
+  @type detector_debug_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1144,36 +1144,36 @@ defmodule AWS.IoTEvents do
 
       detector_model_configuration() :: %{
         "creationTime" => non_neg_integer(),
-        "detectorModelArn" => String.t(),
-        "detectorModelDescription" => String.t(),
-        "detectorModelName" => String.t(),
-        "detectorModelVersion" => String.t(),
+        "detectorModelArn" => String.t() | atom(),
+        "detectorModelDescription" => String.t() | atom(),
+        "detectorModelName" => String.t() | atom(),
+        "detectorModelVersion" => String.t() | atom(),
         "evaluationMethod" => list(any()),
-        "key" => String.t(),
+        "key" => String.t() | atom(),
         "lastUpdateTime" => non_neg_integer(),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type detector_model_configuration() :: %{String.t() => any()}
+  @type detector_model_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_detector_model_request() :: %{
-        optional("detectorModelDescription") => String.t(),
+        optional("detectorModelDescription") => String.t() | atom(),
         optional("evaluationMethod") => list(any()),
-        optional("key") => String.t(),
+        optional("key") => String.t() | atom(),
         optional("tags") => list(tag()),
         required("detectorModelDefinition") => detector_model_definition(),
-        required("detectorModelName") => String.t(),
-        required("roleArn") => String.t()
+        required("detectorModelName") => String.t() | atom(),
+        required("roleArn") => String.t() | atom()
       }
 
   """
-  @type create_detector_model_request() :: %{String.t() => any()}
+  @type create_detector_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1181,11 +1181,11 @@ defmodule AWS.IoTEvents do
 
       list_detector_model_versions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_detector_model_versions_request() :: %{String.t() => any()}
+  @type list_detector_model_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1205,7 +1205,7 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type put_logging_options_request() :: %{String.t() => any()}
+  @type put_logging_options_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1213,13 +1213,13 @@ defmodule AWS.IoTEvents do
 
       transition_event() :: %{
         "actions" => list(action()),
-        "condition" => String.t(),
-        "eventName" => String.t(),
-        "nextState" => String.t()
+        "condition" => String.t() | atom(),
+        "eventName" => String.t() | atom(),
+        "nextState" => String.t() | atom()
       }
 
   """
-  @type transition_event() :: %{String.t() => any()}
+  @type transition_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1227,22 +1227,22 @@ defmodule AWS.IoTEvents do
 
       list_detector_models_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_detector_models_request() :: %{String.t() => any()}
+  @type list_detector_models_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t()
+        required("resourceArn") => String.t() | atom()
       }
 
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1253,18 +1253,18 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type email_recipients() :: %{String.t() => any()}
+  @type email_recipients() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1275,41 +1275,41 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type alarm_notification() :: %{String.t() => any()}
+  @type alarm_notification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       reset_timer_action() :: %{
-        "timerName" => String.t()
+        "timerName" => String.t() | atom()
       }
 
   """
-  @type reset_timer_action() :: %{String.t() => any()}
+  @type reset_timer_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       iot_topic_publish_action() :: %{
-        "mqttTopic" => String.t(),
+        "mqttTopic" => String.t() | atom(),
         "payload" => payload()
       }
 
   """
-  @type iot_topic_publish_action() :: %{String.t() => any()}
+  @type iot_topic_publish_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       attribute() :: %{
-        "jsonPath" => String.t()
+        "jsonPath" => String.t() | atom()
       }
 
   """
-  @type attribute() :: %{String.t() => any()}
+  @type attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1317,23 +1317,23 @@ defmodule AWS.IoTEvents do
 
       detector_model_summary() :: %{
         "creationTime" => non_neg_integer(),
-        "detectorModelDescription" => String.t(),
-        "detectorModelName" => String.t()
+        "detectorModelDescription" => String.t() | atom(),
+        "detectorModelName" => String.t() | atom()
       }
 
   """
-  @type detector_model_summary() :: %{String.t() => any()}
+  @type detector_model_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1344,22 +1344,22 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type update_input_response() :: %{String.t() => any()}
+  @type update_input_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       iot_site_wise_action() :: %{
-        "assetId" => String.t(),
-        "entryId" => String.t(),
-        "propertyAlias" => String.t(),
-        "propertyId" => String.t(),
+        "assetId" => String.t() | atom(),
+        "entryId" => String.t() | atom(),
+        "propertyAlias" => String.t() | atom(),
+        "propertyId" => String.t() | atom(),
         "propertyValue" => asset_property_value()
       }
 
   """
-  @type iot_site_wise_action() :: %{String.t() => any()}
+  @type iot_site_wise_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1369,11 +1369,11 @@ defmodule AWS.IoTEvents do
         "detectorDebugOptions" => list(detector_debug_option()),
         "enabled" => boolean(),
         "level" => list(any()),
-        "roleArn" => String.t()
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type logging_options() :: %{String.t() => any()}
+  @type logging_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1386,49 +1386,49 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type notification_action() :: %{String.t() => any()}
+  @type notification_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_property_variant() :: %{
-        "booleanValue" => String.t(),
-        "doubleValue" => String.t(),
-        "integerValue" => String.t(),
-        "stringValue" => String.t()
+        "booleanValue" => String.t() | atom(),
+        "doubleValue" => String.t() | atom(),
+        "integerValue" => String.t() | atom(),
+        "stringValue" => String.t() | atom()
       }
 
   """
-  @type asset_property_variant() :: %{String.t() => any()}
+  @type asset_property_variant() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_alarm_model_response() :: %{
-        "alarmModelArn" => String.t(),
-        "alarmModelVersion" => String.t(),
+        "alarmModelArn" => String.t() | atom(),
+        "alarmModelVersion" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
         "lastUpdateTime" => non_neg_integer(),
         "status" => list(any())
       }
 
   """
-  @type create_alarm_model_response() :: %{String.t() => any()}
+  @type create_alarm_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_already_exists_exception() :: %{
-        "message" => String.t(),
-        "resourceArn" => String.t(),
-        "resourceId" => String.t()
+        "message" => String.t() | atom(),
+        "resourceArn" => String.t() | atom(),
+        "resourceId" => String.t() | atom()
       }
 
   """
-  @type resource_already_exists_exception() :: %{String.t() => any()}
+  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1448,7 +1448,7 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type recipient_detail() :: %{String.t() => any()}
+  @type recipient_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1464,18 +1464,18 @@ defmodule AWS.IoTEvents do
   ## Example:
 
       alarm_model_version_summary() :: %{
-        "alarmModelArn" => String.t(),
-        "alarmModelName" => String.t(),
-        "alarmModelVersion" => String.t(),
+        "alarmModelArn" => String.t() | atom(),
+        "alarmModelName" => String.t() | atom(),
+        "alarmModelVersion" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
         "lastUpdateTime" => non_neg_integer(),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | atom(),
         "status" => list(any()),
-        "statusMessage" => String.t()
+        "statusMessage" => String.t() | atom()
       }
 
   """
-  @type alarm_model_version_summary() :: %{String.t() => any()}
+  @type alarm_model_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1486,7 +1486,7 @@ defmodule AWS.IoTEvents do
       }
 
   """
-  @type initialization_configuration() :: %{String.t() => any()}
+  @type initialization_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1494,12 +1494,12 @@ defmodule AWS.IoTEvents do
 
       email_configuration() :: %{
         "content" => email_content(),
-        "from" => String.t(),
+        "from" => String.t() | atom(),
         "recipients" => email_recipients()
       }
 
   """
-  @type email_configuration() :: %{String.t() => any()}
+  @type email_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1507,24 +1507,24 @@ defmodule AWS.IoTEvents do
 
       sqs_action() :: %{
         "payload" => payload(),
-        "queueUrl" => String.t(),
+        "queueUrl" => String.t() | atom(),
         "useBase64" => boolean()
       }
 
   """
-  @type sqs_action() :: %{String.t() => any()}
+  @type sqs_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       iot_events_action() :: %{
-        "inputName" => String.t(),
+        "inputName" => String.t() | atom(),
         "payload" => payload()
       }
 
   """
-  @type iot_events_action() :: %{String.t() => any()}
+  @type iot_events_action() :: %{(String.t() | atom()) => any()}
 
   @type create_alarm_model_errors() ::
           resource_already_exists_exception()
@@ -1833,7 +1833,7 @@ defmodule AWS.IoTEvents do
   Any alarm instances that were created based on this alarm model
   are also deleted. This action can't be undone.
   """
-  @spec delete_alarm_model(map(), String.t(), delete_alarm_model_request(), list()) ::
+  @spec delete_alarm_model(map(), String.t() | atom(), delete_alarm_model_request(), list()) ::
           {:ok, delete_alarm_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1865,7 +1865,7 @@ defmodule AWS.IoTEvents do
   Any active instances of the detector model are also
   deleted.
   """
-  @spec delete_detector_model(map(), String.t(), delete_detector_model_request(), list()) ::
+  @spec delete_detector_model(map(), String.t() | atom(), delete_detector_model_request(), list()) ::
           {:ok, delete_detector_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1894,7 +1894,7 @@ defmodule AWS.IoTEvents do
   @doc """
   Deletes an input.
   """
-  @spec delete_input(map(), String.t(), delete_input_request(), list()) ::
+  @spec delete_input(map(), String.t() | atom(), delete_input_request(), list()) ::
           {:ok, delete_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1926,7 +1926,7 @@ defmodule AWS.IoTEvents do
   If you don't specify a value for the
   `alarmModelVersion` parameter, the latest version is returned.
   """
-  @spec describe_alarm_model(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_alarm_model(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, describe_alarm_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1959,7 +1959,7 @@ defmodule AWS.IoTEvents do
   If the `version` parameter is not specified,
   information about the latest version is returned.
   """
-  @spec describe_detector_model(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_detector_model(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, describe_detector_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1992,7 +1992,7 @@ defmodule AWS.IoTEvents do
   After AWS IoT Events starts analyzing your detector model, you have up to 24
   hours to retrieve the analysis results.
   """
-  @spec describe_detector_model_analysis(map(), String.t(), list()) ::
+  @spec describe_detector_model_analysis(map(), String.t() | atom(), list()) ::
           {:ok, describe_detector_model_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2010,7 +2010,7 @@ defmodule AWS.IoTEvents do
   @doc """
   Describes an input.
   """
-  @spec describe_input(map(), String.t(), list()) ::
+  @spec describe_input(map(), String.t() | atom(), list()) ::
           {:ok, describe_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2051,9 +2051,9 @@ defmodule AWS.IoTEvents do
   """
   @spec get_detector_model_analysis_results(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_detector_model_analysis_results_response(), any()}
@@ -2096,7 +2096,13 @@ defmodule AWS.IoTEvents do
   The operation returns only the metadata
   associated with each alarm model version.
   """
-  @spec list_alarm_model_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_alarm_model_versions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_alarm_model_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2137,7 +2143,7 @@ defmodule AWS.IoTEvents do
   The operation returns only the metadata
   associated with each alarm model.
   """
-  @spec list_alarm_models(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_alarm_models(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_alarm_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2174,9 +2180,9 @@ defmodule AWS.IoTEvents do
   """
   @spec list_detector_model_versions(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_detector_model_versions_response(), any()}
@@ -2219,7 +2225,7 @@ defmodule AWS.IoTEvents do
   Only the metadata associated with each
   detector model is returned.
   """
-  @spec list_detector_models(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_detector_models(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_detector_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2286,7 +2292,7 @@ defmodule AWS.IoTEvents do
   @doc """
   Lists the inputs you have created.
   """
-  @spec list_inputs(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_inputs(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_inputs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2318,7 +2324,7 @@ defmodule AWS.IoTEvents do
   @doc """
   Lists the tags (metadata) you have assigned to the resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2486,7 +2492,7 @@ defmodule AWS.IoTEvents do
   Any alarms that were created based on the previous version are
   deleted and then created again as new data arrives.
   """
-  @spec update_alarm_model(map(), String.t(), update_alarm_model_request(), list()) ::
+  @spec update_alarm_model(map(), String.t() | atom(), update_alarm_model_request(), list()) ::
           {:ok, update_alarm_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2518,7 +2524,7 @@ defmodule AWS.IoTEvents do
   Detectors (instances) spawned by the previous version are
   deleted and then re-created as new inputs arrive.
   """
-  @spec update_detector_model(map(), String.t(), update_detector_model_request(), list()) ::
+  @spec update_detector_model(map(), String.t() | atom(), update_detector_model_request(), list()) ::
           {:ok, update_detector_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2547,7 +2553,7 @@ defmodule AWS.IoTEvents do
   @doc """
   Updates an input.
   """
-  @spec update_input(map(), String.t(), update_input_request(), list()) ::
+  @spec update_input(map(), String.t() | atom(), update_input_request(), list()) ::
           {:ok, update_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

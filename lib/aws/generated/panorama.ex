@@ -23,16 +23,16 @@ defmodule AWS.Panorama do
 
       create_node_from_template_job_request() :: %{
         optional("JobTags") => list(job_resource_tags()),
-        optional("NodeDescription") => String.t(),
-        required("NodeName") => String.t(),
-        required("OutputPackageName") => String.t(),
-        required("OutputPackageVersion") => String.t(),
+        optional("NodeDescription") => String.t() | atom(),
+        required("NodeName") => String.t() | atom(),
+        required("OutputPackageName") => String.t() | atom(),
+        required("OutputPackageVersion") => String.t() | atom(),
         required("TemplateParameters") => map(),
-        required("TemplateType") => String.t()
+        required("TemplateType") => String.t() | atom()
       }
 
   """
-  @type create_node_from_template_job_request() :: %{String.t() => any()}
+  @type create_node_from_template_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -40,30 +40,30 @@ defmodule AWS.Panorama do
 
       device_job() :: %{
         "CreatedTime" => non_neg_integer(),
-        "DeviceId" => String.t(),
-        "DeviceName" => String.t(),
-        "JobId" => String.t(),
-        "JobType" => String.t()
+        "DeviceId" => String.t() | atom(),
+        "DeviceName" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
+        "JobType" => String.t() | atom()
       }
 
   """
-  @type device_job() :: %{String.t() => any()}
+  @type device_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_devices_request() :: %{
-        optional("DeviceAggregatedStatusFilter") => String.t(),
+        optional("DeviceAggregatedStatusFilter") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NameFilter") => String.t(),
-        optional("NextToken") => String.t(),
-        optional("SortBy") => String.t(),
-        optional("SortOrder") => String.t()
+        optional("NameFilter") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortBy") => String.t() | atom(),
+        optional("SortOrder") => String.t() | atom()
       }
 
   """
-  @type list_devices_request() :: %{String.t() => any()}
+  @type list_devices_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -74,7 +74,7 @@ defmodule AWS.Panorama do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -82,14 +82,14 @@ defmodule AWS.Panorama do
 
       provision_device_response() :: %{
         optional("Certificates") => binary(),
-        optional("DeviceId") => String.t(),
-        optional("IotThingName") => String.t(),
-        required("Arn") => String.t(),
-        required("Status") => String.t()
+        optional("DeviceId") => String.t() | atom(),
+        optional("IotThingName") => String.t() | atom(),
+        required("Arn") => String.t() | atom(),
+        required("Status") => String.t() | atom()
       }
 
   """
-  @type provision_device_response() :: %{String.t() => any()}
+  @type provision_device_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -97,63 +97,63 @@ defmodule AWS.Panorama do
 
       create_package_import_job_request() :: %{
         optional("JobTags") => list(job_resource_tags()),
-        required("ClientToken") => String.t(),
+        required("ClientToken") => String.t() | atom(),
         required("InputConfig") => package_import_job_input_config(),
-        required("JobType") => String.t(),
+        required("JobType") => String.t() | atom(),
         required("OutputConfig") => package_import_job_output_config()
       }
 
   """
-  @type create_package_import_job_request() :: %{String.t() => any()}
+  @type create_package_import_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       provision_device_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("NetworkingConfiguration") => network_payload(),
         optional("Tags") => map(),
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type provision_device_request() :: %{String.t() => any()}
+  @type provision_device_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       node_instance() :: %{
-        "CurrentStatus" => String.t(),
-        "NodeId" => String.t(),
-        "NodeInstanceId" => String.t(),
-        "NodeName" => String.t(),
-        "PackageName" => String.t(),
-        "PackagePatchVersion" => String.t(),
-        "PackageVersion" => String.t()
+        "CurrentStatus" => String.t() | atom(),
+        "NodeId" => String.t() | atom(),
+        "NodeInstanceId" => String.t() | atom(),
+        "NodeName" => String.t() | atom(),
+        "PackageName" => String.t() | atom(),
+        "PackagePatchVersion" => String.t() | atom(),
+        "PackageVersion" => String.t() | atom()
       }
 
   """
-  @type node_instance() :: %{String.t() => any()}
+  @type node_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_application_instance_details_response() :: %{
-        optional("ApplicationInstanceId") => String.t(),
-        optional("ApplicationInstanceIdToReplace") => String.t(),
+        optional("ApplicationInstanceId") => String.t() | atom(),
+        optional("ApplicationInstanceIdToReplace") => String.t() | atom(),
         optional("CreatedTime") => non_neg_integer(),
-        optional("DefaultRuntimeContextDevice") => String.t(),
-        optional("Description") => String.t(),
+        optional("DefaultRuntimeContextDevice") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("ManifestOverridesPayload") => list(),
         optional("ManifestPayload") => list(),
-        optional("Name") => String.t()
+        optional("Name") => String.t() | atom()
       }
 
   """
-  @type describe_application_instance_details_response() :: %{String.t() => any()}
+  @type describe_application_instance_details_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -169,12 +169,12 @@ defmodule AWS.Panorama do
   ## Example:
 
       list_node_from_template_jobs_response() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("NodeFromTemplateJobs") => list(node_from_template_job())
       }
 
   """
-  @type list_node_from_template_jobs_response() :: %{String.t() => any()}
+  @type list_node_from_template_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -182,29 +182,29 @@ defmodule AWS.Panorama do
 
       create_package_request() :: %{
         optional("Tags") => map(),
-        required("PackageName") => String.t()
+        required("PackageName") => String.t() | atom()
       }
 
   """
-  @type create_package_request() :: %{String.t() => any()}
+  @type create_package_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_application_instance_request() :: %{
-        optional("ApplicationInstanceIdToReplace") => String.t(),
-        optional("Description") => String.t(),
+        optional("ApplicationInstanceIdToReplace") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("ManifestOverridesPayload") => list(),
-        optional("Name") => String.t(),
-        optional("RuntimeRoleArn") => String.t(),
+        optional("Name") => String.t() | atom(),
+        optional("RuntimeRoleArn") => String.t() | atom(),
         optional("Tags") => map(),
-        required("DefaultRuntimeContextDevice") => String.t(),
+        required("DefaultRuntimeContextDevice") => String.t() | atom(),
         required("ManifestPayload") => list()
       }
 
   """
-  @type create_application_instance_request() :: %{String.t() => any()}
+  @type create_application_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -218,33 +218,33 @@ defmodule AWS.Panorama do
       }
 
   """
-  @type network_status() :: %{String.t() => any()}
+  @type network_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       reported_runtime_context_state() :: %{
-        "DesiredState" => String.t(),
-        "DeviceReportedStatus" => String.t(),
+        "DesiredState" => String.t() | atom(),
+        "DeviceReportedStatus" => String.t() | atom(),
         "DeviceReportedTime" => non_neg_integer(),
-        "RuntimeContextName" => String.t()
+        "RuntimeContextName" => String.t() | atom()
       }
 
   """
-  @type reported_runtime_context_state() :: %{String.t() => any()}
+  @type reported_runtime_context_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_package_import_jobs_response() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("PackageImportJobs") => list(package_import_job())
       }
 
   """
-  @type list_package_import_jobs_response() :: %{String.t() => any()}
+  @type list_package_import_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -255,7 +255,7 @@ defmodule AWS.Panorama do
       }
 
   """
-  @type package_version_input_config() :: %{String.t() => any()}
+  @type package_version_input_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -263,43 +263,43 @@ defmodule AWS.Panorama do
 
       describe_device_job_response() :: %{
         optional("CreatedTime") => non_neg_integer(),
-        optional("DeviceArn") => String.t(),
-        optional("DeviceId") => String.t(),
-        optional("DeviceName") => String.t(),
-        optional("DeviceType") => String.t(),
-        optional("ImageVersion") => String.t(),
-        optional("JobId") => String.t(),
-        optional("JobType") => String.t(),
-        optional("Status") => String.t()
+        optional("DeviceArn") => String.t() | atom(),
+        optional("DeviceId") => String.t() | atom(),
+        optional("DeviceName") => String.t() | atom(),
+        optional("DeviceType") => String.t() | atom(),
+        optional("ImageVersion") => String.t() | atom(),
+        optional("JobId") => String.t() | atom(),
+        optional("JobType") => String.t() | atom(),
+        optional("Status") => String.t() | atom()
       }
 
   """
-  @type describe_device_job_response() :: %{String.t() => any()}
+  @type describe_device_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_application_instance_response() :: %{
-        optional("ApplicationInstanceId") => String.t(),
-        optional("ApplicationInstanceIdToReplace") => String.t(),
-        optional("Arn") => String.t(),
+        optional("ApplicationInstanceId") => String.t() | atom(),
+        optional("ApplicationInstanceIdToReplace") => String.t() | atom(),
+        optional("Arn") => String.t() | atom(),
         optional("CreatedTime") => non_neg_integer(),
-        optional("DefaultRuntimeContextDevice") => String.t(),
-        optional("DefaultRuntimeContextDeviceName") => String.t(),
-        optional("Description") => String.t(),
-        optional("HealthStatus") => String.t(),
+        optional("DefaultRuntimeContextDevice") => String.t() | atom(),
+        optional("DefaultRuntimeContextDeviceName") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("HealthStatus") => String.t() | atom(),
         optional("LastUpdatedTime") => non_neg_integer(),
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | atom(),
         optional("RuntimeContextStates") => list(reported_runtime_context_state()),
-        optional("RuntimeRoleArn") => String.t(),
-        optional("Status") => String.t(),
-        optional("StatusDescription") => String.t(),
+        optional("RuntimeRoleArn") => String.t() | atom(),
+        optional("Status") => String.t() | atom(),
+        optional("StatusDescription") => String.t() | atom(),
         optional("Tags") => map()
       }
 
   """
-  @type describe_application_instance_response() :: %{String.t() => any()}
+  @type describe_application_instance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -310,22 +310,22 @@ defmodule AWS.Panorama do
       }
 
   """
-  @type create_job_for_devices_response() :: %{String.t() => any()}
+  @type create_job_for_devices_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       node_input_port() :: %{
-        "DefaultValue" => String.t(),
-        "Description" => String.t(),
+        "DefaultValue" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "MaxConnections" => integer(),
-        "Name" => String.t(),
-        "Type" => String.t()
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type node_input_port() :: %{String.t() => any()}
+  @type node_input_port() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -342,66 +342,66 @@ defmodule AWS.Panorama do
 
       list_packages_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_packages_request() :: %{String.t() => any()}
+  @type list_packages_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_device_metadata_response() :: %{
-        optional("DeviceId") => String.t()
+        optional("DeviceId") => String.t() | atom()
       }
 
   """
-  @type update_device_metadata_response() :: %{String.t() => any()}
+  @type update_device_metadata_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ethernet_status() :: %{
-        "ConnectionStatus" => String.t(),
-        "HwAddress" => String.t(),
-        "IpAddress" => String.t()
+        "ConnectionStatus" => String.t() | atom(),
+        "HwAddress" => String.t() | atom(),
+        "IpAddress" => String.t() | atom()
       }
 
   """
-  @type ethernet_status() :: %{String.t() => any()}
+  @type ethernet_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_package_response() :: %{
-        optional("ReadAccessPrincipalArns") => list(String.t()),
-        optional("WriteAccessPrincipalArns") => list(String.t()),
-        required("Arn") => String.t(),
+        optional("ReadAccessPrincipalArns") => list(String.t() | atom()),
+        optional("WriteAccessPrincipalArns") => list(String.t() | atom()),
+        required("Arn") => String.t() | atom(),
         required("CreatedTime") => non_neg_integer(),
-        required("PackageId") => String.t(),
-        required("PackageName") => String.t(),
+        required("PackageId") => String.t() | atom(),
+        required("PackageName") => String.t() | atom(),
         required("StorageLocation") => storage_location(),
         required("Tags") => map()
       }
 
   """
-  @type describe_package_response() :: %{String.t() => any()}
+  @type describe_package_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       package_object() :: %{
-        "Name" => String.t(),
-        "PackageVersion" => String.t(),
-        "PatchVersion" => String.t()
+        "Name" => String.t() | atom(),
+        "PackageVersion" => String.t() | atom(),
+        "PatchVersion" => String.t() | atom()
       }
 
   """
-  @type package_object() :: %{String.t() => any()}
+  @type package_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -418,33 +418,33 @@ defmodule AWS.Panorama do
 
       list_application_instance_dependencies_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_application_instance_dependencies_request() :: %{String.t() => any()}
+  @type list_application_instance_dependencies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       signal_application_instance_node_instances_response() :: %{
-        required("ApplicationInstanceId") => String.t()
+        required("ApplicationInstanceId") => String.t() | atom()
       }
 
   """
-  @type signal_application_instance_node_instances_response() :: %{String.t() => any()}
+  @type signal_application_instance_node_instances_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_device_metadata_request() :: %{
-        optional("Description") => String.t()
+        optional("Description") => String.t() | atom()
       }
 
   """
-  @type update_device_metadata_request() :: %{String.t() => any()}
+  @type update_device_metadata_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -452,71 +452,71 @@ defmodule AWS.Panorama do
 
       list_application_instances_response() :: %{
         optional("ApplicationInstances") => list(application_instance()),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_application_instances_response() :: %{String.t() => any()}
+  @type list_application_instances_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t())
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       node_output_port() :: %{
-        "Description" => String.t(),
-        "Name" => String.t(),
-        "Type" => String.t()
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type node_output_port() :: %{String.t() => any()}
+  @type node_output_port() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       panorama_node() :: %{
-        "Category" => String.t(),
+        "Category" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "Name" => String.t(),
-        "NodeId" => String.t(),
-        "OwnerAccount" => String.t(),
-        "PackageArn" => String.t(),
-        "PackageId" => String.t(),
-        "PackageName" => String.t(),
-        "PackageVersion" => String.t(),
-        "PatchVersion" => String.t()
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "NodeId" => String.t() | atom(),
+        "OwnerAccount" => String.t() | atom(),
+        "PackageArn" => String.t() | atom(),
+        "PackageId" => String.t() | atom(),
+        "PackageName" => String.t() | atom(),
+        "PackageVersion" => String.t() | atom(),
+        "PatchVersion" => String.t() | atom()
       }
 
   """
-  @type panorama_node() :: %{String.t() => any()}
+  @type panorama_node() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       package_list_item() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "PackageId" => String.t(),
-        "PackageName" => String.t(),
+        "PackageId" => String.t() | atom(),
+        "PackageName" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type package_list_item() :: %{String.t() => any()}
+  @type package_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -524,15 +524,15 @@ defmodule AWS.Panorama do
 
       node_from_template_job() :: %{
         "CreatedTime" => non_neg_integer(),
-        "JobId" => String.t(),
-        "NodeName" => String.t(),
-        "Status" => String.t(),
-        "StatusMessage" => String.t(),
-        "TemplateType" => String.t()
+        "JobId" => String.t() | atom(),
+        "NodeName" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom(),
+        "TemplateType" => String.t() | atom()
       }
 
   """
-  @type node_from_template_job() :: %{String.t() => any()}
+  @type node_from_template_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -548,24 +548,24 @@ defmodule AWS.Panorama do
   ## Example:
 
       describe_node_response() :: %{
-        optional("AssetName") => String.t(),
-        optional("PackageArn") => String.t(),
-        required("Category") => String.t(),
+        optional("AssetName") => String.t() | atom(),
+        optional("PackageArn") => String.t() | atom(),
+        required("Category") => String.t() | atom(),
         required("CreatedTime") => non_neg_integer(),
-        required("Description") => String.t(),
+        required("Description") => String.t() | atom(),
         required("LastUpdatedTime") => non_neg_integer(),
-        required("Name") => String.t(),
-        required("NodeId") => String.t(),
+        required("Name") => String.t() | atom(),
+        required("NodeId") => String.t() | atom(),
         required("NodeInterface") => node_interface(),
-        required("OwnerAccount") => String.t(),
-        required("PackageId") => String.t(),
-        required("PackageName") => String.t(),
-        required("PackageVersion") => String.t(),
-        required("PatchVersion") => String.t()
+        required("OwnerAccount") => String.t() | atom(),
+        required("PackageId") => String.t() | atom(),
+        required("PackageName") => String.t() | atom(),
+        required("PackageVersion") => String.t() | atom(),
+        required("PatchVersion") => String.t() | atom()
       }
 
   """
-  @type describe_node_response() :: %{String.t() => any()}
+  @type describe_node_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -576,32 +576,32 @@ defmodule AWS.Panorama do
       }
 
   """
-  @type package_import_job_output_config() :: %{String.t() => any()}
+  @type package_import_job_output_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ntp_status() :: %{
-        "ConnectionStatus" => String.t(),
-        "IpAddress" => String.t(),
-        "NtpServerName" => String.t()
+        "ConnectionStatus" => String.t() | atom(),
+        "IpAddress" => String.t() | atom(),
+        "NtpServerName" => String.t() | atom()
       }
 
   """
-  @type ntp_status() :: %{String.t() => any()}
+  @type ntp_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ethernet_payload() :: %{
-        "ConnectionType" => String.t(),
+        "ConnectionType" => String.t() | atom(),
         "StaticIpConnectionInfo" => static_ip_connection_info()
       }
 
   """
-  @type ethernet_payload() :: %{String.t() => any()}
+  @type ethernet_payload() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -609,14 +609,14 @@ defmodule AWS.Panorama do
 
       conflict_exception() :: %{
         "ErrorArguments" => list(conflict_exception_error_argument()),
-        "ErrorId" => String.t(),
-        "Message" => String.t(),
-        "ResourceId" => String.t(),
-        "ResourceType" => String.t()
+        "ErrorId" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -632,25 +632,25 @@ defmodule AWS.Panorama do
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t(),
-        "ResourceId" => String.t(),
-        "ResourceType" => String.t()
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_error_argument() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type validation_exception_error_argument() :: %{String.t() => any()}
+  @type validation_exception_error_argument() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -658,35 +658,35 @@ defmodule AWS.Panorama do
 
       list_package_import_jobs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_package_import_jobs_request() :: %{String.t() => any()}
+  @type list_package_import_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       deregister_package_version_request() :: %{
-        optional("OwnerAccount") => String.t(),
-        optional("UpdatedLatestPatchVersion") => String.t()
+        optional("OwnerAccount") => String.t() | atom(),
+        optional("UpdatedLatestPatchVersion") => String.t() | atom()
       }
 
   """
-  @type deregister_package_version_request() :: %{String.t() => any()}
+  @type deregister_package_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       node_signal() :: %{
-        "NodeInstanceId" => String.t(),
-        "Signal" => String.t()
+        "NodeInstanceId" => String.t() | atom(),
+        "Signal" => String.t() | atom()
       }
 
   """
-  @type node_signal() :: %{String.t() => any()}
+  @type node_signal() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -697,29 +697,29 @@ defmodule AWS.Panorama do
       }
 
   """
-  @type package_import_job_input_config() :: %{String.t() => any()}
+  @type package_import_job_input_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       application_instance() :: %{
-        "ApplicationInstanceId" => String.t(),
-        "Arn" => String.t(),
+        "ApplicationInstanceId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "DefaultRuntimeContextDevice" => String.t(),
-        "DefaultRuntimeContextDeviceName" => String.t(),
-        "Description" => String.t(),
-        "HealthStatus" => String.t(),
-        "Name" => String.t(),
+        "DefaultRuntimeContextDevice" => String.t() | atom(),
+        "DefaultRuntimeContextDeviceName" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "HealthStatus" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "RuntimeContextStates" => list(reported_runtime_context_state()),
-        "Status" => String.t(),
-        "StatusDescription" => String.t(),
+        "Status" => String.t() | atom(),
+        "StatusDescription" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type application_instance() :: %{String.t() => any()}
+  @type application_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -735,26 +735,26 @@ defmodule AWS.Panorama do
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t(),
-        "QuotaCode" => String.t(),
-        "ResourceId" => String.t(),
-        "ResourceType" => String.t(),
-        "ServiceCode" => String.t()
+        "Message" => String.t() | atom(),
+        "QuotaCode" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "ServiceCode" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_node_from_template_job_response() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | atom()
       }
 
   """
-  @type create_node_from_template_job_response() :: %{String.t() => any()}
+  @type create_node_from_template_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -767,18 +767,18 @@ defmodule AWS.Panorama do
       }
 
   """
-  @type network_payload() :: %{String.t() => any()}
+  @type network_payload() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ntp_payload() :: %{
-        "NtpServers" => list(String.t())
+        "NtpServers" => list(String.t() | atom())
       }
 
   """
-  @type ntp_payload() :: %{String.t() => any()}
+  @type ntp_payload() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -790,38 +790,38 @@ defmodule AWS.Panorama do
       }
 
   """
-  @type node_interface() :: %{String.t() => any()}
+  @type node_interface() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       static_ip_connection_info() :: %{
-        "DefaultGateway" => String.t(),
-        "Dns" => list(String.t()),
-        "IpAddress" => String.t(),
-        "Mask" => String.t()
+        "DefaultGateway" => String.t() | atom(),
+        "Dns" => list(String.t() | atom()),
+        "IpAddress" => String.t() | atom(),
+        "Mask" => String.t() | atom()
       }
 
   """
-  @type static_ip_connection_info() :: %{String.t() => any()}
+  @type static_ip_connection_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_nodes_request() :: %{
-        optional("Category") => String.t(),
+        optional("Category") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("OwnerAccount") => String.t(),
-        optional("PackageName") => String.t(),
-        optional("PackageVersion") => String.t(),
-        optional("PatchVersion") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("OwnerAccount") => String.t() | atom(),
+        optional("PackageName") => String.t() | atom(),
+        optional("PackageVersion") => String.t() | atom(),
+        optional("PatchVersion") => String.t() | atom()
       }
 
   """
-  @type list_nodes_request() :: %{String.t() => any()}
+  @type list_nodes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -841,39 +841,39 @@ defmodule AWS.Panorama do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_package_version_response() :: %{
-        optional("OwnerAccount") => String.t(),
-        optional("PackageArn") => String.t(),
+        optional("OwnerAccount") => String.t() | atom(),
+        optional("PackageArn") => String.t() | atom(),
         optional("RegisteredTime") => non_neg_integer(),
-        optional("StatusDescription") => String.t(),
+        optional("StatusDescription") => String.t() | atom(),
         required("IsLatestPatch") => boolean(),
-        required("PackageId") => String.t(),
-        required("PackageName") => String.t(),
-        required("PackageVersion") => String.t(),
-        required("PatchVersion") => String.t(),
-        required("Status") => String.t()
+        required("PackageId") => String.t() | atom(),
+        required("PackageName") => String.t() | atom(),
+        required("PackageVersion") => String.t() | atom(),
+        required("PatchVersion") => String.t() | atom(),
+        required("Status") => String.t() | atom()
       }
 
   """
-  @type describe_package_version_response() :: %{String.t() => any()}
+  @type describe_package_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_devices_response() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("Devices") => list(device())
       }
 
   """
-  @type list_devices_response() :: %{String.t() => any()}
+  @type list_devices_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -889,12 +889,12 @@ defmodule AWS.Panorama do
   ## Example:
 
       validation_exception_field() :: %{
-        "Message" => String.t(),
-        "Name" => String.t()
+        "Message" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -910,13 +910,13 @@ defmodule AWS.Panorama do
   ## Example:
 
       s3_location() :: %{
-        "BucketName" => String.t(),
-        "ObjectKey" => String.t(),
-        "Region" => String.t()
+        "BucketName" => String.t() | atom(),
+        "ObjectKey" => String.t() | atom(),
+        "Region" => String.t() | atom()
       }
 
   """
-  @type s3_location() :: %{String.t() => any()}
+  @type s3_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -924,45 +924,45 @@ defmodule AWS.Panorama do
 
       describe_node_from_template_job_response() :: %{
         optional("JobTags") => list(job_resource_tags()),
-        optional("NodeDescription") => String.t(),
+        optional("NodeDescription") => String.t() | atom(),
         required("CreatedTime") => non_neg_integer(),
-        required("JobId") => String.t(),
+        required("JobId") => String.t() | atom(),
         required("LastUpdatedTime") => non_neg_integer(),
-        required("NodeName") => String.t(),
-        required("OutputPackageName") => String.t(),
-        required("OutputPackageVersion") => String.t(),
-        required("Status") => String.t(),
-        required("StatusMessage") => String.t(),
+        required("NodeName") => String.t() | atom(),
+        required("OutputPackageName") => String.t() | atom(),
+        required("OutputPackageVersion") => String.t() | atom(),
+        required("Status") => String.t() | atom(),
+        required("StatusMessage") => String.t() | atom(),
         required("TemplateParameters") => map(),
-        required("TemplateType") => String.t()
+        required("TemplateType") => String.t() | atom()
       }
 
   """
-  @type describe_node_from_template_job_response() :: %{String.t() => any()}
+  @type describe_node_from_template_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_device_response() :: %{
-        optional("DeviceId") => String.t()
+        optional("DeviceId") => String.t() | atom()
       }
 
   """
-  @type delete_device_response() :: %{String.t() => any()}
+  @type delete_device_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_devices_jobs_request() :: %{
-        optional("DeviceId") => String.t(),
+        optional("DeviceId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_devices_jobs_request() :: %{String.t() => any()}
+  @type list_devices_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -979,23 +979,23 @@ defmodule AWS.Panorama do
 
       list_node_from_template_jobs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_node_from_template_jobs_request() :: %{String.t() => any()}
+  @type list_node_from_template_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | atom(),
         "RetryAfterSeconds" => integer()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1011,22 +1011,22 @@ defmodule AWS.Panorama do
   ## Example:
 
       create_application_instance_response() :: %{
-        required("ApplicationInstanceId") => String.t()
+        required("ApplicationInstanceId") => String.t() | atom()
       }
 
   """
-  @type create_application_instance_response() :: %{String.t() => any()}
+  @type create_application_instance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_package_import_job_response() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | atom()
       }
 
   """
-  @type create_package_import_job_response() :: %{String.t() => any()}
+  @type create_package_import_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1034,11 +1034,11 @@ defmodule AWS.Panorama do
 
       list_devices_jobs_response() :: %{
         optional("DeviceJobs") => list(device_job()),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_devices_jobs_response() :: %{String.t() => any()}
+  @type list_devices_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1046,25 +1046,25 @@ defmodule AWS.Panorama do
 
       package_import_job_output() :: %{
         "OutputS3Location" => out_put_s3_location(),
-        "PackageId" => String.t(),
-        "PackageVersion" => String.t(),
-        "PatchVersion" => String.t()
+        "PackageId" => String.t() | atom(),
+        "PackageVersion" => String.t() | atom(),
+        "PatchVersion" => String.t() | atom()
       }
 
   """
-  @type package_import_job_output() :: %{String.t() => any()}
+  @type package_import_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       out_put_s3_location() :: %{
-        "BucketName" => String.t(),
-        "ObjectKey" => String.t()
+        "BucketName" => String.t() | atom(),
+        "ObjectKey" => String.t() | atom()
       }
 
   """
-  @type out_put_s3_location() :: %{String.t() => any()}
+  @type out_put_s3_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1075,54 +1075,54 @@ defmodule AWS.Panorama do
       }
 
   """
-  @type delete_package_request() :: %{String.t() => any()}
+  @type delete_package_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_package_import_job_response() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("JobTags") => list(job_resource_tags()),
         required("CreatedTime") => non_neg_integer(),
         required("InputConfig") => package_import_job_input_config(),
-        required("JobId") => String.t(),
-        required("JobType") => String.t(),
+        required("JobId") => String.t() | atom(),
+        required("JobType") => String.t() | atom(),
         required("LastUpdatedTime") => non_neg_integer(),
         required("Output") => package_import_job_output(),
         required("OutputConfig") => package_import_job_output_config(),
-        required("Status") => String.t(),
-        required("StatusMessage") => String.t()
+        required("Status") => String.t() | atom(),
+        required("StatusMessage") => String.t() | atom()
       }
 
   """
-  @type describe_package_import_job_response() :: %{String.t() => any()}
+  @type describe_package_import_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       storage_location() :: %{
-        "BinaryPrefixLocation" => String.t(),
-        "Bucket" => String.t(),
-        "GeneratedPrefixLocation" => String.t(),
-        "ManifestPrefixLocation" => String.t(),
-        "RepoPrefixLocation" => String.t()
+        "BinaryPrefixLocation" => String.t() | atom(),
+        "Bucket" => String.t() | atom(),
+        "GeneratedPrefixLocation" => String.t() | atom(),
+        "ManifestPrefixLocation" => String.t() | atom(),
+        "RepoPrefixLocation" => String.t() | atom()
       }
 
   """
-  @type storage_location() :: %{String.t() => any()}
+  @type storage_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1142,30 +1142,30 @@ defmodule AWS.Panorama do
       }
 
   """
-  @type signal_application_instance_node_instances_request() :: %{String.t() => any()}
+  @type signal_application_instance_node_instances_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       alternate_software_metadata() :: %{
-        "Version" => String.t()
+        "Version" => String.t() | atom()
       }
 
   """
-  @type alternate_software_metadata() :: %{String.t() => any()}
+  @type alternate_software_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       job_resource_tags() :: %{
-        "ResourceType" => String.t(),
+        "ResourceType" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type job_resource_tags() :: %{String.t() => any()}
+  @type job_resource_tags() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1173,14 +1173,14 @@ defmodule AWS.Panorama do
 
       validation_exception() :: %{
         "ErrorArguments" => list(validation_exception_error_argument()),
-        "ErrorId" => String.t(),
+        "ErrorId" => String.t() | atom(),
         "Fields" => list(validation_exception_field()),
-        "Message" => String.t(),
-        "Reason" => String.t()
+        "Message" => String.t() | atom(),
+        "Reason" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1196,36 +1196,36 @@ defmodule AWS.Panorama do
   ## Example:
 
       job() :: %{
-        "DeviceId" => String.t(),
-        "JobId" => String.t()
+        "DeviceId" => String.t() | atom(),
+        "JobId" => String.t() | atom()
       }
 
   """
-  @type job() :: %{String.t() => any()}
+  @type job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception_error_argument() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type conflict_exception_error_argument() :: %{String.t() => any()}
+  @type conflict_exception_error_argument() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_application_instance_dependencies_response() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("PackageObjects") => list(package_object())
       }
 
   """
-  @type list_application_instance_dependencies_response() :: %{String.t() => any()}
+  @type list_application_instance_dependencies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1242,24 +1242,24 @@ defmodule AWS.Panorama do
 
       list_application_instance_node_instances_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_application_instance_node_instances_request() :: %{String.t() => any()}
+  @type list_application_instance_node_instances_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_package_response() :: %{
-        optional("Arn") => String.t(),
-        optional("PackageId") => String.t(),
+        optional("Arn") => String.t() | atom(),
+        optional("PackageId") => String.t() | atom(),
         required("StorageLocation") => storage_location()
       }
 
   """
-  @type create_package_response() :: %{String.t() => any()}
+  @type create_package_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1276,70 +1276,70 @@ defmodule AWS.Panorama do
 
       ota_job_config() :: %{
         "AllowMajorVersionUpdate" => boolean(),
-        "ImageVersion" => String.t()
+        "ImageVersion" => String.t() | atom()
       }
 
   """
-  @type ota_job_config() :: %{String.t() => any()}
+  @type ota_job_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_node_request() :: %{
-        optional("OwnerAccount") => String.t()
+        optional("OwnerAccount") => String.t() | atom()
       }
 
   """
-  @type describe_node_request() :: %{String.t() => any()}
+  @type describe_node_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       device() :: %{
-        "Brand" => String.t(),
+        "Brand" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "CurrentSoftware" => String.t(),
-        "Description" => String.t(),
-        "DeviceAggregatedStatus" => String.t(),
-        "DeviceId" => String.t(),
+        "CurrentSoftware" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "DeviceAggregatedStatus" => String.t() | atom(),
+        "DeviceId" => String.t() | atom(),
         "LastUpdatedTime" => non_neg_integer(),
         "LatestDeviceJob" => latest_device_job(),
         "LeaseExpirationTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "ProvisioningStatus" => String.t(),
+        "Name" => String.t() | atom(),
+        "ProvisioningStatus" => String.t() | atom(),
         "Tags" => map(),
-        "Type" => String.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type device() :: %{String.t() => any()}
+  @type device() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       latest_device_job() :: %{
-        "ImageVersion" => String.t(),
-        "JobType" => String.t(),
-        "Status" => String.t()
+        "ImageVersion" => String.t() | atom(),
+        "JobType" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
 
   """
-  @type latest_device_job() :: %{String.t() => any()}
+  @type latest_device_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_package_version_request() :: %{
-        optional("OwnerAccount") => String.t(),
-        optional("PatchVersion") => String.t()
+        optional("OwnerAccount") => String.t() | atom(),
+        optional("PatchVersion") => String.t() | atom()
       }
 
   """
-  @type describe_package_version_request() :: %{String.t() => any()}
+  @type describe_package_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1347,12 +1347,12 @@ defmodule AWS.Panorama do
 
       create_job_for_devices_request() :: %{
         optional("DeviceJobConfig") => device_job_config(),
-        required("DeviceIds") => list(String.t()),
-        required("JobType") => String.t()
+        required("DeviceIds") => list(String.t() | atom()),
+        required("JobType") => String.t() | atom()
       }
 
   """
-  @type create_job_for_devices_request() :: %{String.t() => any()}
+  @type create_job_for_devices_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1360,35 +1360,35 @@ defmodule AWS.Panorama do
 
       register_package_version_request() :: %{
         optional("MarkLatest") => boolean(),
-        optional("OwnerAccount") => String.t()
+        optional("OwnerAccount") => String.t() | atom()
       }
 
   """
-  @type register_package_version_request() :: %{String.t() => any()}
+  @type register_package_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_application_instance_node_instances_response() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("NodeInstances") => list(node_instance())
       }
 
   """
-  @type list_application_instance_node_instances_response() :: %{String.t() => any()}
+  @type list_application_instance_node_instances_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_packages_response() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Packages") => list(package_list_item())
       }
 
   """
-  @type list_packages_response() :: %{String.t() => any()}
+  @type list_packages_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1404,12 +1404,12 @@ defmodule AWS.Panorama do
   ## Example:
 
       list_nodes_response() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Nodes") => list(node())
       }
 
   """
-  @type list_nodes_response() :: %{String.t() => any()}
+  @type list_nodes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1420,7 +1420,7 @@ defmodule AWS.Panorama do
       }
 
   """
-  @type device_job_config() :: %{String.t() => any()}
+  @type device_job_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1428,12 +1428,12 @@ defmodule AWS.Panorama do
 
       package_version_output_config() :: %{
         "MarkLatest" => boolean(),
-        "PackageName" => String.t(),
-        "PackageVersion" => String.t()
+        "PackageName" => String.t() | atom(),
+        "PackageVersion" => String.t() | atom()
       }
 
   """
-  @type package_version_output_config() :: %{String.t() => any()}
+  @type package_version_output_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1441,29 +1441,29 @@ defmodule AWS.Panorama do
 
       package_import_job() :: %{
         "CreatedTime" => non_neg_integer(),
-        "JobId" => String.t(),
-        "JobType" => String.t(),
+        "JobId" => String.t() | atom(),
+        "JobType" => String.t() | atom(),
         "LastUpdatedTime" => non_neg_integer(),
-        "Status" => String.t(),
-        "StatusMessage" => String.t()
+        "Status" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type package_import_job() :: %{String.t() => any()}
+  @type package_import_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_application_instances_request() :: %{
-        optional("DeviceId") => String.t(),
+        optional("DeviceId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("StatusFilter") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("StatusFilter") => String.t() | atom()
       }
 
   """
-  @type list_application_instances_request() :: %{String.t() => any()}
+  @type list_application_instances_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1471,29 +1471,29 @@ defmodule AWS.Panorama do
 
       describe_device_response() :: %{
         optional("AlternateSoftwares") => list(alternate_software_metadata()),
-        optional("Arn") => String.t(),
-        optional("Brand") => String.t(),
+        optional("Arn") => String.t() | atom(),
+        optional("Brand") => String.t() | atom(),
         optional("CreatedTime") => non_neg_integer(),
         optional("CurrentNetworkingStatus") => network_status(),
-        optional("CurrentSoftware") => String.t(),
-        optional("Description") => String.t(),
-        optional("DeviceAggregatedStatus") => String.t(),
-        optional("DeviceConnectionStatus") => String.t(),
-        optional("DeviceId") => String.t(),
-        optional("LatestAlternateSoftware") => String.t(),
+        optional("CurrentSoftware") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("DeviceAggregatedStatus") => String.t() | atom(),
+        optional("DeviceConnectionStatus") => String.t() | atom(),
+        optional("DeviceId") => String.t() | atom(),
+        optional("LatestAlternateSoftware") => String.t() | atom(),
         optional("LatestDeviceJob") => latest_device_job(),
-        optional("LatestSoftware") => String.t(),
+        optional("LatestSoftware") => String.t() | atom(),
         optional("LeaseExpirationTime") => non_neg_integer(),
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | atom(),
         optional("NetworkingConfiguration") => network_payload(),
-        optional("ProvisioningStatus") => String.t(),
-        optional("SerialNumber") => String.t(),
+        optional("ProvisioningStatus") => String.t() | atom(),
+        optional("SerialNumber") => String.t() | atom(),
         optional("Tags") => map(),
-        optional("Type") => String.t()
+        optional("Type") => String.t() | atom()
       }
 
   """
-  @type describe_device_response() :: %{String.t() => any()}
+  @type describe_device_response() :: %{(String.t() | atom()) => any()}
 
   @type create_application_instance_errors() ::
           validation_exception()
@@ -1859,7 +1859,7 @@ defmodule AWS.Panorama do
   @doc """
   Deletes a device.
   """
-  @spec delete_device(map(), String.t(), delete_device_request(), list()) ::
+  @spec delete_device(map(), String.t() | atom(), delete_device_request(), list()) ::
           {:ok, delete_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1892,7 +1892,7 @@ defmodule AWS.Panorama do
   to permissions for
   the AWS Panorama API.
   """
-  @spec delete_package(map(), String.t(), delete_package_request(), list()) ::
+  @spec delete_package(map(), String.t() | atom(), delete_package_request(), list()) ::
           {:ok, delete_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1928,9 +1928,9 @@ defmodule AWS.Panorama do
   """
   @spec deregister_package_version(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           deregister_package_version_request(),
           list()
         ) ::
@@ -1977,7 +1977,7 @@ defmodule AWS.Panorama do
   @doc """
   Returns information about an application instance on a device.
   """
-  @spec describe_application_instance(map(), String.t(), list()) ::
+  @spec describe_application_instance(map(), String.t() | atom(), list()) ::
           {:ok, describe_application_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1995,7 +1995,7 @@ defmodule AWS.Panorama do
   @doc """
   Returns information about an application instance's configuration manifest.
   """
-  @spec describe_application_instance_details(map(), String.t(), list()) ::
+  @spec describe_application_instance_details(map(), String.t() | atom(), list()) ::
           {:ok, describe_application_instance_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2017,7 +2017,7 @@ defmodule AWS.Panorama do
   @doc """
   Returns information about a device.
   """
-  @spec describe_device(map(), String.t(), list()) ::
+  @spec describe_device(map(), String.t() | atom(), list()) ::
           {:ok, describe_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2035,7 +2035,7 @@ defmodule AWS.Panorama do
   @doc """
   Returns information about a device job.
   """
-  @spec describe_device_job(map(), String.t(), list()) ::
+  @spec describe_device_job(map(), String.t() | atom(), list()) ::
           {:ok, describe_device_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2053,7 +2053,7 @@ defmodule AWS.Panorama do
   @doc """
   Returns information about a node.
   """
-  @spec describe_node(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_node(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, describe_node_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2078,7 +2078,7 @@ defmodule AWS.Panorama do
   @doc """
   Returns information about a job to create a camera stream node.
   """
-  @spec describe_node_from_template_job(map(), String.t(), list()) ::
+  @spec describe_node_from_template_job(map(), String.t() | atom(), list()) ::
           {:ok, describe_node_from_template_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2096,7 +2096,7 @@ defmodule AWS.Panorama do
   @doc """
   Returns information about a package.
   """
-  @spec describe_package(map(), String.t(), list()) ::
+  @spec describe_package(map(), String.t() | atom(), list()) ::
           {:ok, describe_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2114,7 +2114,7 @@ defmodule AWS.Panorama do
   @doc """
   Returns information about a package import job.
   """
-  @spec describe_package_import_job(map(), String.t(), list()) ::
+  @spec describe_package_import_job(map(), String.t() | atom(), list()) ::
           {:ok, describe_package_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2134,10 +2134,10 @@ defmodule AWS.Panorama do
   """
   @spec describe_package_version(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_package_version_response(), any()}
@@ -2182,9 +2182,9 @@ defmodule AWS.Panorama do
   """
   @spec list_application_instance_dependencies(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_application_instance_dependencies_response(), any()}
@@ -2228,9 +2228,9 @@ defmodule AWS.Panorama do
   """
   @spec list_application_instance_node_instances(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_application_instance_node_instances_response(), any()}
@@ -2274,10 +2274,10 @@ defmodule AWS.Panorama do
   """
   @spec list_application_instances(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_application_instances_response(), any()}
@@ -2334,12 +2334,12 @@ defmodule AWS.Panorama do
   """
   @spec list_devices(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_devices_response(), any()}
@@ -2410,7 +2410,13 @@ defmodule AWS.Panorama do
   @doc """
   Returns a list of jobs.
   """
-  @spec list_devices_jobs(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_devices_jobs(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_devices_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2455,7 +2461,12 @@ defmodule AWS.Panorama do
   @doc """
   Returns a list of camera stream node jobs.
   """
-  @spec list_node_from_template_jobs(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_node_from_template_jobs(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_node_from_template_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2494,13 +2505,13 @@ defmodule AWS.Panorama do
   """
   @spec list_nodes(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_nodes_response(), any()}
@@ -2579,7 +2590,12 @@ defmodule AWS.Panorama do
   @doc """
   Returns a list of package import jobs.
   """
-  @spec list_package_import_jobs(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_package_import_jobs(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_package_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2616,7 +2632,7 @@ defmodule AWS.Panorama do
   @doc """
   Returns a list of packages.
   """
-  @spec list_packages(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_packages(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2648,7 +2664,7 @@ defmodule AWS.Panorama do
   @doc """
   Returns a list of tags for a resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2704,9 +2720,9 @@ defmodule AWS.Panorama do
   """
   @spec register_package_version(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           register_package_version_request(),
           list()
         ) ::
@@ -2749,7 +2765,7 @@ defmodule AWS.Panorama do
   """
   @spec remove_application_instance(
           map(),
-          String.t(),
+          String.t() | atom(),
           remove_application_instance_request(),
           list()
         ) ::
@@ -2788,7 +2804,7 @@ defmodule AWS.Panorama do
   """
   @spec signal_application_instance_node_instances(
           map(),
-          String.t(),
+          String.t() | atom(),
           signal_application_instance_node_instances_request(),
           list()
         ) ::
@@ -2827,7 +2843,7 @@ defmodule AWS.Panorama do
   @doc """
   Tags a resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2856,7 +2872,7 @@ defmodule AWS.Panorama do
   @doc """
   Removes tags from a resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2890,7 +2906,12 @@ defmodule AWS.Panorama do
   @doc """
   Updates a device's metadata.
   """
-  @spec update_device_metadata(map(), String.t(), update_device_metadata_request(), list()) ::
+  @spec update_device_metadata(
+          map(),
+          String.t() | atom(),
+          update_device_metadata_request(),
+          list()
+        ) ::
           {:ok, update_device_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

@@ -44,12 +44,12 @@ defmodule AWS.AccessAnalyzer do
 
       trail_properties() :: %{
         "allRegions" => [boolean()],
-        "cloudTrailArn" => String.t(),
-        "regions" => list([String.t()]())
+        "cloudTrailArn" => String.t() | atom(),
+        "regions" => list([String.t() | atom()]())
       }
 
   """
-  @type trail_properties() :: %{String.t() => any()}
+  @type trail_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -60,21 +60,21 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type update_analyzer_request() :: %{String.t() => any()}
+  @type update_analyzer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cloud_trail_details() :: %{
-        "accessRole" => String.t(),
+        "accessRole" => String.t() | atom(),
         "endTime" => non_neg_integer(),
         "startTime" => non_neg_integer(),
         "trails" => list(trail())
       }
 
   """
-  @type cloud_trail_details() :: %{String.t() => any()}
+  @type cloud_trail_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -85,7 +85,7 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type update_analyzer_response() :: %{String.t() => any()}
+  @type update_analyzer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -96,53 +96,53 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       reason_summary() :: %{
-        "description" => [String.t()],
-        "statementId" => [String.t()],
+        "description" => [String.t() | atom()],
+        "statementId" => [String.t() | atom()],
         "statementIndex" => [integer()]
       }
 
   """
-  @type reason_summary() :: %{String.t() => any()}
+  @type reason_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_findings_statistics_request() :: %{
-        required("analyzerArn") => String.t()
+        required("analyzerArn") => String.t() | atom()
       }
 
   """
-  @type get_findings_statistics_request() :: %{String.t() => any()}
+  @type get_findings_statistics_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       status_reason() :: %{
-        "code" => String.t()
+        "code" => String.t() | atom()
       }
 
   """
-  @type status_reason() :: %{String.t() => any()}
+  @type status_reason() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc_configuration() :: %{
-        "vpcId" => String.t()
+        "vpcId" => String.t() | atom()
       }
 
   """
-  @type vpc_configuration() :: %{String.t() => any()}
+  @type vpc_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -153,7 +153,7 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type analysis_rule() :: %{String.t() => any()}
+  @type analysis_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -161,48 +161,48 @@ defmodule AWS.AccessAnalyzer do
 
       unused_access_type_statistics() :: %{
         "total" => [integer()],
-        "unusedAccessType" => [String.t()]
+        "unusedAccessType" => [String.t() | atom()]
       }
 
   """
-  @type unused_access_type_statistics() :: %{String.t() => any()}
+  @type unused_access_type_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       check_no_public_access_response() :: %{
-        "message" => [String.t()],
+        "message" => [String.t() | atom()],
         "reasons" => list(reason_summary()),
-        "result" => String.t()
+        "result" => String.t() | atom()
       }
 
   """
-  @type check_no_public_access_response() :: %{String.t() => any()}
+  @type check_no_public_access_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_archive_rule_request() :: %{
-        "clientToken" => [String.t()]
+        "clientToken" => [String.t() | atom()]
       }
 
   """
-  @type delete_archive_rule_request() :: %{String.t() => any()}
+  @type delete_archive_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       finding_aggregation_account_details() :: %{
-        "account" => [String.t()],
+        "account" => [String.t() | atom()],
         "details" => map(),
         "numberOfActiveFindings" => [integer()]
       }
 
   """
-  @type finding_aggregation_account_details() :: %{String.t() => any()}
+  @type finding_aggregation_account_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -218,24 +218,24 @@ defmodule AWS.AccessAnalyzer do
   ## Example:
 
       list_access_previews_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("accessPreviews") => list(access_preview_summary())
       }
 
   """
-  @type list_access_previews_response() :: %{String.t() => any()}
+  @type list_access_previews_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unused_iam_user_access_key_details() :: %{
-        "accessKeyId" => [String.t()],
+        "accessKeyId" => [String.t() | atom()],
         "lastAccessed" => non_neg_integer()
       }
 
   """
-  @type unused_iam_user_access_key_details() :: %{String.t() => any()}
+  @type unused_iam_user_access_key_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -247,7 +247,7 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type kms_grant_constraints() :: %{String.t() => any()}
+  @type kms_grant_constraints() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -256,36 +256,36 @@ defmodule AWS.AccessAnalyzer do
       generated_policy_properties() :: %{
         "cloudTrailProperties" => cloud_trail_properties(),
         "isComplete" => [boolean()],
-        "principalArn" => String.t()
+        "principalArn" => String.t() | atom()
       }
 
   """
-  @type generated_policy_properties() :: %{String.t() => any()}
+  @type generated_policy_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       finding_summary() :: %{
-        "action" => list([String.t()]()),
+        "action" => list([String.t() | atom()]()),
         "analyzedAt" => non_neg_integer(),
         "condition" => map(),
         "createdAt" => non_neg_integer(),
-        "error" => [String.t()],
-        "id" => String.t(),
+        "error" => [String.t() | atom()],
+        "id" => String.t() | atom(),
         "isPublic" => [boolean()],
         "principal" => map(),
-        "resource" => [String.t()],
-        "resourceControlPolicyRestriction" => String.t(),
-        "resourceOwnerAccount" => [String.t()],
-        "resourceType" => String.t(),
+        "resource" => [String.t() | atom()],
+        "resourceControlPolicyRestriction" => String.t() | atom(),
+        "resourceOwnerAccount" => [String.t() | atom()],
+        "resourceType" => String.t() | atom(),
         "sources" => list(finding_source()),
-        "status" => String.t(),
+        "status" => String.t() | atom(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type finding_summary() :: %{String.t() => any()}
+  @type finding_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -293,23 +293,23 @@ defmodule AWS.AccessAnalyzer do
 
       list_access_previews_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t(),
-        required("analyzerArn") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("analyzerArn") => String.t() | atom()
       }
 
   """
-  @type list_access_previews_request() :: %{String.t() => any()}
+  @type list_access_previews_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sns_topic_configuration() :: %{
-        "topicPolicy" => String.t()
+        "topicPolicy" => String.t() | atom()
       }
 
   """
-  @type sns_topic_configuration() :: %{String.t() => any()}
+  @type sns_topic_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -321,7 +321,7 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type unused_access_configuration() :: %{String.t() => any()}
+  @type unused_access_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -329,11 +329,11 @@ defmodule AWS.AccessAnalyzer do
 
       s3_bucket_acl_grant_configuration() :: %{
         "grantee" => list(),
-        "permission" => String.t()
+        "permission" => String.t() | atom()
       }
 
   """
-  @type s3_bucket_acl_grant_configuration() :: %{String.t() => any()}
+  @type s3_bucket_acl_grant_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -345,7 +345,7 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type get_findings_statistics_response() :: %{String.t() => any()}
+  @type get_findings_statistics_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -354,37 +354,37 @@ defmodule AWS.AccessAnalyzer do
       get_finding_recommendation_response() :: %{
         "completedAt" => non_neg_integer(),
         "error" => recommendation_error(),
-        "nextToken" => String.t(),
-        "recommendationType" => String.t(),
+        "nextToken" => String.t() | atom(),
+        "recommendationType" => String.t() | atom(),
         "recommendedSteps" => list(list()),
-        "resourceArn" => String.t(),
+        "resourceArn" => String.t() | atom(),
         "startedAt" => non_neg_integer(),
-        "status" => String.t()
+        "status" => String.t() | atom()
       }
 
   """
-  @type get_finding_recommendation_response() :: %{String.t() => any()}
+  @type get_finding_recommendation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       analyzed_resource() :: %{
-        "actions" => list([String.t()]()),
+        "actions" => list([String.t() | atom()]()),
         "analyzedAt" => non_neg_integer(),
         "createdAt" => non_neg_integer(),
-        "error" => [String.t()],
+        "error" => [String.t() | atom()],
         "isPublic" => [boolean()],
-        "resourceArn" => String.t(),
-        "resourceOwnerAccount" => [String.t()],
-        "resourceType" => String.t(),
-        "sharedVia" => list([String.t()]()),
-        "status" => String.t(),
+        "resourceArn" => String.t() | atom(),
+        "resourceOwnerAccount" => [String.t() | atom()],
+        "resourceType" => String.t() | atom(),
+        "sharedVia" => list([String.t() | atom()]()),
+        "status" => String.t() | atom(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type analyzed_resource() :: %{String.t() => any()}
+  @type analyzed_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -395,20 +395,20 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type get_analyzer_response() :: %{String.t() => any()}
+  @type get_analyzer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_access_analysis_rule_criteria() :: %{
-        "accountIds" => list([String.t()]()),
-        "resourceArns" => list([String.t()]()),
-        "resourceTypes" => list(String.t())
+        "accountIds" => list([String.t() | atom()]()),
+        "resourceArns" => list([String.t() | atom()]()),
+        "resourceTypes" => list(String.t() | atom())
       }
 
   """
-  @type internal_access_analysis_rule_criteria() :: %{String.t() => any()}
+  @type internal_access_analysis_rule_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -416,27 +416,27 @@ defmodule AWS.AccessAnalyzer do
 
       list_findings_response() :: %{
         "findings" => list(finding_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_findings_response() :: %{String.t() => any()}
+  @type list_findings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_analyzer_request() :: %{
-        "analyzerName" => String.t(),
+        "analyzerName" => String.t() | atom(),
         "archiveRules" => list(inline_archive_rule()),
-        "clientToken" => [String.t()],
+        "clientToken" => [String.t() | atom()],
         "configuration" => list(),
         "tags" => map(),
-        "type" => String.t()
+        "type" => String.t() | atom()
       }
 
   """
-  @type create_analyzer_request() :: %{String.t() => any()}
+  @type create_analyzer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -447,7 +447,7 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type unused_iam_user_password_details() :: %{String.t() => any()}
+  @type unused_iam_user_password_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -458,7 +458,7 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type unused_iam_role_details() :: %{String.t() => any()}
+  @type unused_iam_role_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -467,22 +467,22 @@ defmodule AWS.AccessAnalyzer do
       unused_permission_details() :: %{
         "actions" => list(unused_action()),
         "lastAccessed" => non_neg_integer(),
-        "serviceNamespace" => [String.t()]
+        "serviceNamespace" => [String.t() | atom()]
       }
 
   """
-  @type unused_permission_details() :: %{String.t() => any()}
+  @type unused_permission_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        "tagKeys" => list([String.t()]())
+        "tagKeys" => list([String.t() | atom()]())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -493,7 +493,7 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type get_analyzed_resource_response() :: %{String.t() => any()}
+  @type get_analyzed_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -501,37 +501,37 @@ defmodule AWS.AccessAnalyzer do
 
       get_finding_v2_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t(),
-        required("analyzerArn") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("analyzerArn") => String.t() | atom()
       }
 
   """
-  @type get_finding_v2_request() :: %{String.t() => any()}
+  @type get_finding_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_express_directory_access_point_configuration() :: %{
-        "accessPointPolicy" => String.t(),
+        "accessPointPolicy" => String.t() | atom(),
         "networkOrigin" => list()
       }
 
   """
-  @type s3_express_directory_access_point_configuration() :: %{String.t() => any()}
+  @type s3_express_directory_access_point_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       check_no_new_access_request() :: %{
-        required("existingPolicyDocument") => String.t(),
-        required("newPolicyDocument") => String.t(),
-        required("policyType") => String.t()
+        required("existingPolicyDocument") => String.t() | atom(),
+        required("newPolicyDocument") => String.t() | atom(),
+        required("policyType") => String.t() | atom()
       }
 
   """
-  @type check_no_new_access_request() :: %{String.t() => any()}
+  @type check_no_new_access_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -544,18 +544,18 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type position() :: %{String.t() => any()}
+  @type position() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_analyzer_request() :: %{
-        "clientToken" => [String.t()]
+        "clientToken" => [String.t() | atom()]
       }
 
   """
-  @type delete_analyzer_request() :: %{String.t() => any()}
+  @type delete_analyzer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -563,36 +563,36 @@ defmodule AWS.AccessAnalyzer do
 
       list_analyzers_response() :: %{
         "analyzers" => list(analyzer_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_analyzers_response() :: %{String.t() => any()}
+  @type list_analyzers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       analysis_rule_criteria() :: %{
-        "accountIds" => list([String.t()]()),
+        "accountIds" => list([String.t() | atom()]()),
         "resourceTags" => list(map())
       }
 
   """
-  @type analysis_rule_criteria() :: %{String.t() => any()}
+  @type analysis_rule_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       check_access_not_granted_response() :: %{
-        "message" => [String.t()],
+        "message" => [String.t() | atom()],
         "reasons" => list(reason_summary()),
-        "result" => String.t()
+        "result" => String.t() | atom()
       }
 
   """
-  @type check_access_not_granted_response() :: %{String.t() => any()}
+  @type check_access_not_granted_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -603,7 +603,7 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type internal_access_configuration() :: %{String.t() => any()}
+  @type internal_access_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -621,38 +621,38 @@ defmodule AWS.AccessAnalyzer do
       list_findings_v2_request() :: %{
         optional("filter") => map(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("sort") => sort_criteria(),
-        required("analyzerArn") => String.t()
+        required("analyzerArn") => String.t() | atom()
       }
 
   """
-  @type list_findings_v2_request() :: %{String.t() => any()}
+  @type list_findings_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_analyzed_resources_request() :: %{
-        "analyzerArn" => String.t(),
+        "analyzerArn" => String.t() | atom(),
         "maxResults" => [integer()],
-        "nextToken" => String.t(),
-        "resourceType" => String.t()
+        "nextToken" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
       }
 
   """
-  @type list_analyzed_resources_request() :: %{String.t() => any()}
+  @type list_analyzed_resources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_preview_status_reason() :: %{
-        "code" => String.t()
+        "code" => String.t() | atom()
       }
 
   """
-  @type access_preview_status_reason() :: %{String.t() => any()}
+  @type access_preview_status_reason() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -660,11 +660,11 @@ defmodule AWS.AccessAnalyzer do
 
       list_archive_rules_request() :: %{
         "maxResults" => [integer()],
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_archive_rules_request() :: %{String.t() => any()}
+  @type list_archive_rules_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -676,7 +676,7 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type span() :: %{String.t() => any()}
+  @type span() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -684,11 +684,11 @@ defmodule AWS.AccessAnalyzer do
 
       finding_source() :: %{
         "detail" => finding_source_detail(),
-        "type" => String.t()
+        "type" => String.t() | atom()
       }
 
   """
-  @type finding_source() :: %{String.t() => any()}
+  @type finding_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -696,37 +696,37 @@ defmodule AWS.AccessAnalyzer do
 
       list_analyzed_resources_response() :: %{
         "analyzedResources" => list(analyzed_resource_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_analyzed_resources_response() :: %{String.t() => any()}
+  @type list_analyzed_resources_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_preview_finding() :: %{
-        "action" => list([String.t()]()),
-        "changeType" => String.t(),
+        "action" => list([String.t() | atom()]()),
+        "changeType" => String.t() | atom(),
         "condition" => map(),
         "createdAt" => non_neg_integer(),
-        "error" => [String.t()],
-        "existingFindingId" => String.t(),
-        "existingFindingStatus" => String.t(),
-        "id" => String.t(),
+        "error" => [String.t() | atom()],
+        "existingFindingId" => String.t() | atom(),
+        "existingFindingStatus" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "isPublic" => [boolean()],
         "principal" => map(),
-        "resource" => [String.t()],
-        "resourceControlPolicyRestriction" => String.t(),
-        "resourceOwnerAccount" => [String.t()],
-        "resourceType" => String.t(),
+        "resource" => [String.t() | atom()],
+        "resourceControlPolicyRestriction" => String.t() | atom(),
+        "resourceOwnerAccount" => [String.t() | atom()],
+        "resourceType" => String.t() | atom(),
         "sources" => list(finding_source()),
-        "status" => String.t()
+        "status" => String.t() | atom()
       }
 
   """
-  @type access_preview_finding() :: %{String.t() => any()}
+  @type access_preview_finding() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -735,38 +735,38 @@ defmodule AWS.AccessAnalyzer do
       archive_rule_summary() :: %{
         "createdAt" => non_neg_integer(),
         "filter" => map(),
-        "ruleName" => String.t(),
+        "ruleName" => String.t() | atom(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type archive_rule_summary() :: %{String.t() => any()}
+  @type archive_rule_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -780,42 +780,42 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type external_access_findings_statistics() :: %{String.t() => any()}
+  @type external_access_findings_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_access_preview_request() :: %{
-        optional("clientToken") => [String.t()],
-        required("analyzerArn") => String.t(),
+        optional("clientToken") => [String.t() | atom()],
+        required("analyzerArn") => String.t() | atom(),
         required("configurations") => map()
       }
 
   """
-  @type create_access_preview_request() :: %{String.t() => any()}
+  @type create_access_preview_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       policy_generation_details() :: %{
-        "principalArn" => String.t()
+        "principalArn" => String.t() | atom()
       }
 
   """
-  @type policy_generation_details() :: %{String.t() => any()}
+  @type policy_generation_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ecr_repository_configuration() :: %{
-        "repositoryPolicy" => String.t()
+        "repositoryPolicy" => String.t() | atom()
       }
 
   """
-  @type ecr_repository_configuration() :: %{String.t() => any()}
+  @type ecr_repository_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -826,7 +826,7 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type internal_access_analysis_rule() :: %{String.t() => any()}
+  @type internal_access_analysis_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -838,47 +838,47 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type get_generated_policy_response() :: %{String.t() => any()}
+  @type get_generated_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       check_no_public_access_request() :: %{
-        required("policyDocument") => String.t(),
-        required("resourceType") => String.t()
+        required("policyDocument") => String.t() | atom(),
+        required("resourceType") => String.t() | atom()
       }
 
   """
-  @type check_no_public_access_request() :: %{String.t() => any()}
+  @type check_no_public_access_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validate_policy_finding() :: %{
-        "findingDetails" => [String.t()],
-        "findingType" => String.t(),
-        "issueCode" => String.t(),
-        "learnMoreLink" => String.t(),
+        "findingDetails" => [String.t() | atom()],
+        "findingType" => String.t() | atom(),
+        "issueCode" => String.t() | atom(),
+        "learnMoreLink" => String.t() | atom(),
         "locations" => list(location())
       }
 
   """
-  @type validate_policy_finding() :: %{String.t() => any()}
+  @type validate_policy_finding() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -886,11 +886,11 @@ defmodule AWS.AccessAnalyzer do
 
       list_archive_rules_response() :: %{
         "archiveRules" => list(archive_rule_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_archive_rules_response() :: %{String.t() => any()}
+  @type list_archive_rules_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -902,45 +902,45 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type get_generated_policy_request() :: %{String.t() => any()}
+  @type get_generated_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       analyzed_resource_summary() :: %{
-        "resourceArn" => String.t(),
-        "resourceOwnerAccount" => [String.t()],
-        "resourceType" => String.t()
+        "resourceArn" => String.t() | atom(),
+        "resourceOwnerAccount" => [String.t() | atom()],
+        "resourceType" => String.t() | atom()
       }
 
   """
-  @type analyzed_resource_summary() :: %{String.t() => any()}
+  @type analyzed_resource_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       finding() :: %{
-        "action" => list([String.t()]()),
+        "action" => list([String.t() | atom()]()),
         "analyzedAt" => non_neg_integer(),
         "condition" => map(),
         "createdAt" => non_neg_integer(),
-        "error" => [String.t()],
-        "id" => String.t(),
+        "error" => [String.t() | atom()],
+        "id" => String.t() | atom(),
         "isPublic" => [boolean()],
         "principal" => map(),
-        "resource" => [String.t()],
-        "resourceControlPolicyRestriction" => String.t(),
-        "resourceOwnerAccount" => [String.t()],
-        "resourceType" => String.t(),
+        "resource" => [String.t() | atom()],
+        "resourceControlPolicyRestriction" => String.t() | atom(),
+        "resourceOwnerAccount" => [String.t() | atom()],
+        "resourceType" => String.t() | atom(),
         "sources" => list(finding_source()),
-        "status" => String.t(),
+        "status" => String.t() | atom(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type finding() :: %{String.t() => any()}
+  @type finding() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -948,27 +948,27 @@ defmodule AWS.AccessAnalyzer do
 
       kms_grant_configuration() :: %{
         "constraints" => kms_grant_constraints(),
-        "granteePrincipal" => String.t(),
-        "issuingAccount" => String.t(),
-        "operations" => list(String.t()),
-        "retiringPrincipal" => String.t()
+        "granteePrincipal" => String.t() | atom(),
+        "issuingAccount" => String.t() | atom(),
+        "operations" => list(String.t() | atom()),
+        "retiringPrincipal" => String.t() | atom()
       }
 
   """
-  @type kms_grant_configuration() :: %{String.t() => any()}
+  @type kms_grant_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       check_no_new_access_response() :: %{
-        "message" => [String.t()],
+        "message" => [String.t() | atom()],
         "reasons" => list(reason_summary()),
-        "result" => String.t()
+        "result" => String.t() | atom()
       }
 
   """
-  @type check_no_new_access_response() :: %{String.t() => any()}
+  @type check_no_new_access_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -979,22 +979,22 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_findings_request() :: %{
-        "analyzerArn" => String.t(),
+        "analyzerArn" => String.t() | atom(),
         "filter" => map(),
         "maxResults" => [integer()],
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "sort" => sort_criteria()
       }
 
   """
-  @type list_findings_request() :: %{String.t() => any()}
+  @type list_findings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1002,31 +1002,31 @@ defmodule AWS.AccessAnalyzer do
 
       list_policy_generations_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t(),
-        optional("principalArn") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("principalArn") => String.t() | atom()
       }
 
   """
-  @type list_policy_generations_request() :: %{String.t() => any()}
+  @type list_policy_generations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_access_details() :: %{
-        "accessType" => String.t(),
-        "action" => list([String.t()]()),
+        "accessType" => String.t() | atom(),
+        "action" => list([String.t() | atom()]()),
         "condition" => map(),
         "principal" => map(),
-        "principalOwnerAccount" => [String.t()],
-        "principalType" => String.t(),
-        "resourceControlPolicyRestriction" => String.t(),
-        "serviceControlPolicyRestriction" => String.t(),
+        "principalOwnerAccount" => [String.t() | atom()],
+        "principalType" => String.t() | atom(),
+        "resourceControlPolicyRestriction" => String.t() | atom(),
+        "serviceControlPolicyRestriction" => String.t() | atom(),
         "sources" => list(finding_source())
       }
 
   """
-  @type internal_access_details() :: %{String.t() => any()}
+  @type internal_access_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1038,42 +1038,42 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type generated_policy_result() :: %{String.t() => any()}
+  @type generated_policy_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       iam_role_configuration() :: %{
-        "trustPolicy" => String.t()
+        "trustPolicy" => String.t() | atom()
       }
 
   """
-  @type iam_role_configuration() :: %{String.t() => any()}
+  @type iam_role_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => [String.t()],
-        "name" => [String.t()]
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       recommendation_error() :: %{
-        "code" => [String.t()],
-        "message" => [String.t()]
+        "code" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type recommendation_error() :: %{String.t() => any()}
+  @type recommendation_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1085,7 +1085,7 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type location() :: %{String.t() => any()}
+  @type location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1093,14 +1093,14 @@ defmodule AWS.AccessAnalyzer do
 
       policy_generation() :: %{
         "completedOn" => non_neg_integer(),
-        "jobId" => String.t(),
-        "principalArn" => String.t(),
+        "jobId" => String.t() | atom(),
+        "principalArn" => String.t() | atom(),
         "startedOn" => non_neg_integer(),
-        "status" => String.t()
+        "status" => String.t() | atom()
       }
 
   """
-  @type policy_generation() :: %{String.t() => any()}
+  @type policy_generation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1112,32 +1112,32 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type resource_type_details() :: %{String.t() => any()}
+  @type resource_type_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       apply_archive_rule_request() :: %{
-        "analyzerArn" => String.t(),
-        "clientToken" => [String.t()],
-        "ruleName" => String.t()
+        "analyzerArn" => String.t() | atom(),
+        "clientToken" => [String.t() | atom()],
+        "ruleName" => String.t() | atom()
       }
 
   """
-  @type apply_archive_rule_request() :: %{String.t() => any()}
+  @type apply_archive_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_policy_generations_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("policyGenerations") => list(policy_generation())
       }
 
   """
-  @type list_policy_generations_response() :: %{String.t() => any()}
+  @type list_policy_generations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1145,23 +1145,23 @@ defmodule AWS.AccessAnalyzer do
 
       get_finding_recommendation_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t(),
-        required("analyzerArn") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("analyzerArn") => String.t() | atom()
       }
 
   """
-  @type get_finding_recommendation_request() :: %{String.t() => any()}
+  @type get_finding_recommendation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       generate_finding_recommendation_request() :: %{
-        required("analyzerArn") => String.t()
+        required("analyzerArn") => String.t() | atom()
       }
 
   """
-  @type generate_finding_recommendation_request() :: %{String.t() => any()}
+  @type generate_finding_recommendation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1173,7 +1173,7 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type kms_key_configuration() :: %{String.t() => any()}
+  @type kms_key_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1182,13 +1182,13 @@ defmodule AWS.AccessAnalyzer do
       job_details() :: %{
         "completedOn" => non_neg_integer(),
         "jobError" => job_error(),
-        "jobId" => String.t(),
+        "jobId" => String.t() | atom(),
         "startedOn" => non_neg_integer(),
-        "status" => String.t()
+        "status" => String.t() | atom()
       }
 
   """
-  @type job_details() :: %{String.t() => any()}
+  @type job_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1196,81 +1196,81 @@ defmodule AWS.AccessAnalyzer do
 
       inline_archive_rule() :: %{
         "filter" => map(),
-        "ruleName" => String.t()
+        "ruleName" => String.t() | atom()
       }
 
   """
-  @type inline_archive_rule() :: %{String.t() => any()}
+  @type inline_archive_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ebs_snapshot_configuration() :: %{
-        "groups" => list(String.t()),
-        "kmsKeyId" => String.t(),
-        "userIds" => list(String.t())
+        "groups" => list(String.t() | atom()),
+        "kmsKeyId" => String.t() | atom(),
+        "userIds" => list(String.t() | atom())
       }
 
   """
-  @type ebs_snapshot_configuration() :: %{String.t() => any()}
+  @type ebs_snapshot_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dynamodb_table_configuration() :: %{
-        "tablePolicy" => String.t()
+        "tablePolicy" => String.t() | atom()
       }
 
   """
-  @type dynamodb_table_configuration() :: %{String.t() => any()}
+  @type dynamodb_table_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()],
+        "message" => [String.t() | atom()],
         "retryAfterSeconds" => [integer()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       efs_file_system_configuration() :: %{
-        "fileSystemPolicy" => String.t()
+        "fileSystemPolicy" => String.t() | atom()
       }
 
   """
-  @type efs_file_system_configuration() :: %{String.t() => any()}
+  @type efs_file_system_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_finding_request() :: %{
-        "analyzerArn" => String.t()
+        "analyzerArn" => String.t() | atom()
       }
 
   """
-  @type get_finding_request() :: %{String.t() => any()}
+  @type get_finding_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validate_policy_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("findings") => list(validate_policy_finding())
       }
 
   """
-  @type validate_policy_response() :: %{String.t() => any()}
+  @type validate_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1278,51 +1278,51 @@ defmodule AWS.AccessAnalyzer do
 
       s3_express_directory_bucket_configuration() :: %{
         "accessPoints" => map(),
-        "bucketPolicy" => String.t()
+        "bucketPolicy" => String.t() | atom()
       }
 
   """
-  @type s3_express_directory_bucket_configuration() :: %{String.t() => any()}
+  @type s3_express_directory_bucket_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_access_preview_response() :: %{
-        required("id") => String.t()
+        required("id") => String.t() | atom()
       }
 
   """
-  @type create_access_preview_response() :: %{String.t() => any()}
+  @type create_access_preview_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_policy_generation_request() :: %{
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => [String.t() | atom()],
         optional("cloudTrailDetails") => cloud_trail_details(),
         required("policyGenerationDetails") => policy_generation_details()
       }
 
   """
-  @type start_policy_generation_request() :: %{String.t() => any()}
+  @type start_policy_generation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       external_access_details() :: %{
-        "action" => list([String.t()]()),
+        "action" => list([String.t() | atom()]()),
         "condition" => map(),
         "isPublic" => [boolean()],
         "principal" => map(),
-        "resourceControlPolicyRestriction" => String.t(),
+        "resourceControlPolicyRestriction" => String.t() | atom(),
         "sources" => list(finding_source())
       }
 
   """
-  @type external_access_details() :: %{String.t() => any()}
+  @type external_access_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1333,19 +1333,19 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type get_finding_response() :: %{String.t() => any()}
+  @type get_finding_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sort_criteria() :: %{
-        "attributeName" => [String.t()],
-        "orderBy" => String.t()
+        "attributeName" => [String.t() | atom()],
+        "orderBy" => String.t() | atom()
       }
 
   """
-  @type sort_criteria() :: %{String.t() => any()}
+  @type sort_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1358,7 +1358,7 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type cloud_trail_properties() :: %{String.t() => any()}
+  @type cloud_trail_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1367,23 +1367,23 @@ defmodule AWS.AccessAnalyzer do
       list_access_preview_findings_request() :: %{
         optional("filter") => map(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t(),
-        required("analyzerArn") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("analyzerArn") => String.t() | atom()
       }
 
   """
-  @type list_access_preview_findings_request() :: %{String.t() => any()}
+  @type list_access_preview_findings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unprocessable_entity_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type unprocessable_entity_exception() :: %{String.t() => any()}
+  @type unprocessable_entity_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1395,54 +1395,54 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type substring() :: %{String.t() => any()}
+  @type substring() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_analyzer_response() :: %{
-        "arn" => String.t()
+        "arn" => String.t() | atom()
       }
 
   """
-  @type create_analyzer_response() :: %{String.t() => any()}
+  @type create_analyzer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unused_permissions_recommended_step() :: %{
-        "existingPolicyId" => [String.t()],
+        "existingPolicyId" => [String.t() | atom()],
         "policyUpdatedAt" => non_neg_integer(),
-        "recommendedAction" => String.t(),
-        "recommendedPolicy" => [String.t()]
+        "recommendedAction" => String.t() | atom(),
+        "recommendedPolicy" => [String.t() | atom()]
       }
 
   """
-  @type unused_permissions_recommended_step() :: %{String.t() => any()}
+  @type unused_permissions_recommended_step() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_parameter_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type invalid_parameter_exception() :: %{String.t() => any()}
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1458,16 +1458,16 @@ defmodule AWS.AccessAnalyzer do
   ## Example:
 
       validate_policy_request() :: %{
-        optional("locale") => String.t(),
+        optional("locale") => String.t() | atom(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t(),
-        optional("validatePolicyResourceType") => String.t(),
-        required("policyDocument") => String.t(),
-        required("policyType") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("validatePolicyResourceType") => String.t() | atom(),
+        required("policyDocument") => String.t() | atom(),
+        required("policyType") => String.t() | atom()
       }
 
   """
-  @type validate_policy_request() :: %{String.t() => any()}
+  @type validate_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1483,12 +1483,12 @@ defmodule AWS.AccessAnalyzer do
   ## Example:
 
       get_analyzed_resource_request() :: %{
-        "analyzerArn" => String.t(),
-        "resourceArn" => String.t()
+        "analyzerArn" => String.t() | atom(),
+        "resourceArn" => String.t() | atom()
       }
 
   """
-  @type get_analyzed_resource_request() :: %{String.t() => any()}
+  @type get_analyzed_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1503,7 +1503,7 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type unused_access_findings_statistics() :: %{String.t() => any()}
+  @type unused_access_findings_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1512,12 +1512,12 @@ defmodule AWS.AccessAnalyzer do
       s3_bucket_configuration() :: %{
         "accessPoints" => map(),
         "bucketAclGrants" => list(s3_bucket_acl_grant_configuration()),
-        "bucketPolicy" => String.t(),
+        "bucketPolicy" => String.t() | atom(),
         "bucketPublicAccessBlock" => s3_public_access_block_configuration()
       }
 
   """
-  @type s3_bucket_configuration() :: %{String.t() => any()}
+  @type s3_bucket_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1525,12 +1525,12 @@ defmodule AWS.AccessAnalyzer do
 
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
-        "message" => [String.t()],
-        "reason" => String.t()
+        "message" => [String.t() | atom()],
+        "reason" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1546,15 +1546,15 @@ defmodule AWS.AccessAnalyzer do
   ## Example:
 
       update_findings_request() :: %{
-        "analyzerArn" => String.t(),
-        "clientToken" => [String.t()],
-        "ids" => list(String.t()),
-        "resourceArn" => String.t(),
-        "status" => String.t()
+        "analyzerArn" => String.t() | atom(),
+        "clientToken" => [String.t() | atom()],
+        "ids" => list(String.t() | atom()),
+        "resourceArn" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
 
   """
-  @type update_findings_request() :: %{String.t() => any()}
+  @type update_findings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1567,54 +1567,54 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type internal_access_resource_type_details() :: %{String.t() => any()}
+  @type internal_access_resource_type_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_access_preview_request() :: %{
-        required("analyzerArn") => String.t()
+        required("analyzerArn") => String.t() | atom()
       }
 
   """
-  @type get_access_preview_request() :: %{String.t() => any()}
+  @type get_access_preview_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()],
+        "message" => [String.t() | atom()],
         "retryAfterSeconds" => [integer()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       finding_source_detail() :: %{
-        "accessPointAccount" => [String.t()],
-        "accessPointArn" => [String.t()]
+        "accessPointAccount" => [String.t() | atom()],
+        "accessPointArn" => [String.t() | atom()]
       }
 
   """
-  @type finding_source_detail() :: %{String.t() => any()}
+  @type finding_source_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access() :: %{
-        "actions" => list(String.t()),
-        "resources" => list(String.t())
+        "actions" => list(String.t() | atom()),
+        "resources" => list(String.t() | atom())
       }
 
   """
-  @type access() :: %{String.t() => any()}
+  @type access() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1622,11 +1622,11 @@ defmodule AWS.AccessAnalyzer do
 
       rds_db_snapshot_configuration() :: %{
         "attributes" => map(),
-        "kmsKeyId" => String.t()
+        "kmsKeyId" => String.t() | atom()
       }
 
   """
-  @type rds_db_snapshot_configuration() :: %{String.t() => any()}
+  @type rds_db_snapshot_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1635,20 +1635,20 @@ defmodule AWS.AccessAnalyzer do
       get_finding_v2_response() :: %{
         "analyzedAt" => non_neg_integer(),
         "createdAt" => non_neg_integer(),
-        "error" => [String.t()],
+        "error" => [String.t() | atom()],
         "findingDetails" => list(list()),
-        "findingType" => String.t(),
-        "id" => String.t(),
-        "nextToken" => String.t(),
-        "resource" => [String.t()],
-        "resourceOwnerAccount" => [String.t()],
-        "resourceType" => String.t(),
-        "status" => String.t(),
+        "findingType" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "nextToken" => String.t() | atom(),
+        "resource" => [String.t() | atom()],
+        "resourceOwnerAccount" => [String.t() | atom()],
+        "resourceType" => String.t() | atom(),
+        "status" => String.t() | atom(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type get_finding_v2_response() :: %{String.t() => any()}
+  @type get_finding_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1657,18 +1657,18 @@ defmodule AWS.AccessAnalyzer do
       finding_summary_v2() :: %{
         "analyzedAt" => non_neg_integer(),
         "createdAt" => non_neg_integer(),
-        "error" => [String.t()],
-        "findingType" => String.t(),
-        "id" => String.t(),
-        "resource" => [String.t()],
-        "resourceOwnerAccount" => [String.t()],
-        "resourceType" => String.t(),
-        "status" => String.t(),
+        "error" => [String.t() | atom()],
+        "findingType" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "resource" => [String.t() | atom()],
+        "resourceOwnerAccount" => [String.t() | atom()],
+        "resourceType" => String.t() | atom(),
+        "status" => String.t() | atom(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type finding_summary_v2() :: %{String.t() => any()}
+  @type finding_summary_v2() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1693,20 +1693,20 @@ defmodule AWS.AccessAnalyzer do
   ## Example:
 
       analyzer_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "configuration" => list(),
         "createdAt" => non_neg_integer(),
-        "lastResourceAnalyzed" => [String.t()],
+        "lastResourceAnalyzed" => [String.t() | atom()],
         "lastResourceAnalyzedAt" => non_neg_integer(),
-        "name" => String.t(),
-        "status" => String.t(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom(),
         "statusReason" => status_reason(),
         "tags" => map(),
-        "type" => String.t()
+        "type" => String.t() | atom()
       }
 
   """
-  @type analyzer_summary() :: %{String.t() => any()}
+  @type analyzer_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1714,23 +1714,23 @@ defmodule AWS.AccessAnalyzer do
 
       trail() :: %{
         "allRegions" => [boolean()],
-        "cloudTrailArn" => String.t(),
-        "regions" => list([String.t()]())
+        "cloudTrailArn" => String.t() | atom(),
+        "regions" => list([String.t() | atom()]())
       }
 
   """
-  @type trail() :: %{String.t() => any()}
+  @type trail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       generated_policy() :: %{
-        "policy" => [String.t()]
+        "policy" => [String.t() | atom()]
       }
 
   """
-  @type generated_policy() :: %{String.t() => any()}
+  @type generated_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1738,12 +1738,12 @@ defmodule AWS.AccessAnalyzer do
 
       check_access_not_granted_request() :: %{
         required("access") => list(access()),
-        required("policyDocument") => String.t(),
-        required("policyType") => String.t()
+        required("policyDocument") => String.t() | atom(),
+        required("policyType") => String.t() | atom()
       }
 
   """
-  @type check_access_not_granted_request() :: %{String.t() => any()}
+  @type check_access_not_granted_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1751,26 +1751,26 @@ defmodule AWS.AccessAnalyzer do
 
       rds_db_cluster_snapshot_configuration() :: %{
         "attributes" => map(),
-        "kmsKeyId" => String.t()
+        "kmsKeyId" => String.t() | atom()
       }
 
   """
-  @type rds_db_cluster_snapshot_configuration() :: %{String.t() => any()}
+  @type rds_db_cluster_snapshot_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_preview_summary() :: %{
-        "analyzerArn" => String.t(),
+        "analyzerArn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "id" => String.t(),
-        "status" => String.t(),
+        "id" => String.t() | atom(),
+        "status" => String.t() | atom(),
         "statusReason" => access_preview_status_reason()
       }
 
   """
-  @type access_preview_summary() :: %{String.t() => any()}
+  @type access_preview_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1784,7 +1784,7 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type internal_access_findings_statistics() :: %{String.t() => any()}
+  @type internal_access_findings_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1792,12 +1792,12 @@ defmodule AWS.AccessAnalyzer do
 
       list_analyzers_request() :: %{
         "maxResults" => [integer()],
-        "nextToken" => String.t(),
-        "type" => String.t()
+        "nextToken" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type list_analyzers_request() :: %{String.t() => any()}
+  @type list_analyzers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1805,22 +1805,22 @@ defmodule AWS.AccessAnalyzer do
 
       list_findings_v2_response() :: %{
         "findings" => list(finding_summary_v2()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_findings_v2_response() :: %{String.t() => any()}
+  @type list_findings_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_policy_generation_response() :: %{
-        required("jobId") => String.t()
+        required("jobId") => String.t() | atom()
       }
 
   """
-  @type start_policy_generation_response() :: %{String.t() => any()}
+  @type start_policy_generation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1831,7 +1831,7 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type get_access_preview_response() :: %{String.t() => any()}
+  @type get_access_preview_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1847,64 +1847,64 @@ defmodule AWS.AccessAnalyzer do
   ## Example:
 
       criterion() :: %{
-        "contains" => list([String.t()]()),
-        "eq" => list([String.t()]()),
+        "contains" => list([String.t() | atom()]()),
+        "eq" => list([String.t() | atom()]()),
         "exists" => [boolean()],
-        "neq" => list([String.t()]())
+        "neq" => list([String.t() | atom()]())
       }
 
   """
-  @type criterion() :: %{String.t() => any()}
+  @type criterion() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_archive_rule_request() :: %{
-        "clientToken" => [String.t()],
+        "clientToken" => [String.t() | atom()],
         "filter" => map(),
-        "ruleName" => String.t()
+        "ruleName" => String.t() | atom()
       }
 
   """
-  @type create_archive_rule_request() :: %{String.t() => any()}
+  @type create_archive_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_resource_scan_request() :: %{
-        "analyzerArn" => String.t(),
-        "resourceArn" => String.t(),
-        "resourceOwnerAccount" => [String.t()]
+        "analyzerArn" => String.t() | atom(),
+        "resourceArn" => String.t() | atom(),
+        "resourceOwnerAccount" => [String.t() | atom()]
       }
 
   """
-  @type start_resource_scan_request() :: %{String.t() => any()}
+  @type start_resource_scan_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       secrets_manager_secret_configuration() :: %{
-        "kmsKeyId" => String.t(),
-        "secretPolicy" => String.t()
+        "kmsKeyId" => String.t() | atom(),
+        "secretPolicy" => String.t() | atom()
       }
 
   """
-  @type secrets_manager_secret_configuration() :: %{String.t() => any()}
+  @type secrets_manager_secret_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       job_error() :: %{
-        "code" => String.t(),
-        "message" => [String.t()]
+        "code" => String.t() | atom(),
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type job_error() :: %{String.t() => any()}
+  @type job_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1916,23 +1916,23 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type s3_public_access_block_configuration() :: %{String.t() => any()}
+  @type s3_public_access_block_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_preview() :: %{
-        "analyzerArn" => String.t(),
+        "analyzerArn" => String.t() | atom(),
         "configurations" => map(),
         "createdAt" => non_neg_integer(),
-        "id" => String.t(),
-        "status" => String.t(),
+        "id" => String.t() | atom(),
+        "status" => String.t() | atom(),
         "statusReason" => access_preview_status_reason()
       }
 
   """
-  @type access_preview() :: %{String.t() => any()}
+  @type access_preview() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1943,78 +1943,78 @@ defmodule AWS.AccessAnalyzer do
       }
 
   """
-  @type get_archive_rule_response() :: %{String.t() => any()}
+  @type get_archive_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sqs_queue_configuration() :: %{
-        "queuePolicy" => String.t()
+        "queuePolicy" => String.t() | atom()
       }
 
   """
-  @type sqs_queue_configuration() :: %{String.t() => any()}
+  @type sqs_queue_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_access_point_configuration() :: %{
-        "accessPointPolicy" => String.t(),
+        "accessPointPolicy" => String.t() | atom(),
         "networkOrigin" => list(),
         "publicAccessBlock" => s3_public_access_block_configuration()
       }
 
   """
-  @type s3_access_point_configuration() :: %{String.t() => any()}
+  @type s3_access_point_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_archive_rule_request() :: %{
-        "clientToken" => [String.t()],
+        "clientToken" => [String.t() | atom()],
         "filter" => map()
       }
 
   """
-  @type update_archive_rule_request() :: %{String.t() => any()}
+  @type update_archive_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_access_preview_findings_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("findings") => list(access_preview_finding())
       }
 
   """
-  @type list_access_preview_findings_response() :: %{String.t() => any()}
+  @type list_access_preview_findings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dynamodb_stream_configuration() :: %{
-        "streamPolicy" => String.t()
+        "streamPolicy" => String.t() | atom()
       }
 
   """
-  @type dynamodb_stream_configuration() :: %{String.t() => any()}
+  @type dynamodb_stream_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unused_action() :: %{
-        "action" => [String.t()],
+        "action" => [String.t() | atom()],
         "lastAccessed" => non_neg_integer()
       }
 
   """
-  @type unused_action() :: %{String.t() => any()}
+  @type unused_action() :: %{(String.t() | atom()) => any()}
 
   @type apply_archive_rule_errors() ::
           throttling_exception()
@@ -2328,7 +2328,12 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Cancels the requested policy generation.
   """
-  @spec cancel_policy_generation(map(), String.t(), cancel_policy_generation_request(), list()) ::
+  @spec cancel_policy_generation(
+          map(),
+          String.t() | atom(),
+          cancel_policy_generation_request(),
+          list()
+        ) ::
           {:ok, cancel_policy_generation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2518,7 +2523,7 @@ defmodule AWS.AccessAnalyzer do
   keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html)
   in the **IAM User Guide**.
   """
-  @spec create_archive_rule(map(), String.t(), create_archive_rule_request(), list()) ::
+  @spec create_archive_rule(map(), String.t() | atom(), create_archive_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2551,7 +2556,7 @@ defmodule AWS.AccessAnalyzer do
   organization in the current or specific Region. All findings that were generated
   by the analyzer are deleted. You cannot undo this action.
   """
-  @spec delete_analyzer(map(), String.t(), delete_analyzer_request(), list()) ::
+  @spec delete_analyzer(map(), String.t() | atom(), delete_analyzer_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2585,7 +2590,13 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Deletes the specified archive rule.
   """
-  @spec delete_archive_rule(map(), String.t(), String.t(), delete_archive_rule_request(), list()) ::
+  @spec delete_archive_rule(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_archive_rule_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2623,7 +2634,7 @@ defmodule AWS.AccessAnalyzer do
   """
   @spec generate_finding_recommendation(
           map(),
-          String.t(),
+          String.t() | atom(),
           generate_finding_recommendation_request(),
           list()
         ) ::
@@ -2660,7 +2671,7 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Retrieves information about an access preview for the specified analyzer.
   """
-  @spec get_access_preview(map(), String.t(), String.t(), list()) ::
+  @spec get_access_preview(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_access_preview_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2685,7 +2696,7 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Retrieves information about a resource that was analyzed.
   """
-  @spec get_analyzed_resource(map(), String.t(), String.t(), list()) ::
+  @spec get_analyzed_resource(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_analyzed_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2717,7 +2728,7 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Retrieves information about the specified analyzer.
   """
-  @spec get_analyzer(map(), String.t(), list()) ::
+  @spec get_analyzer(map(), String.t() | atom(), list()) ::
           {:ok, get_analyzer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2739,7 +2750,7 @@ defmodule AWS.AccessAnalyzer do
   keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html)
   in the **IAM User Guide**.
   """
-  @spec get_archive_rule(map(), String.t(), String.t(), list()) ::
+  @spec get_archive_rule(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_archive_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2763,7 +2774,7 @@ defmodule AWS.AccessAnalyzer do
   `Action` element of an IAM policy statement. You must have permission to perform
   the `access-analyzer:GetFinding` action.
   """
-  @spec get_finding(map(), String.t(), String.t(), list()) ::
+  @spec get_finding(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_finding_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2790,10 +2801,10 @@ defmodule AWS.AccessAnalyzer do
   """
   @spec get_finding_recommendation(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_finding_recommendation_response(), any()}
@@ -2845,7 +2856,14 @@ defmodule AWS.AccessAnalyzer do
   `Action` element of an IAM policy statement. You must have permission to perform
   the `access-analyzer:GetFinding` action.
   """
-  @spec get_finding_v2(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_finding_v2(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_finding_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2921,7 +2939,13 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Retrieves the policy that was generated using `StartPolicyGeneration`.
   """
-  @spec get_generated_policy(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_generated_policy(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_generated_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2962,7 +2986,7 @@ defmodule AWS.AccessAnalyzer do
   """
   @spec list_access_preview_findings(
           map(),
-          String.t(),
+          String.t() | atom(),
           list_access_preview_findings_request(),
           list()
         ) ::
@@ -2994,7 +3018,13 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Retrieves a list of access previews for the specified analyzer.
   """
-  @spec list_access_previews(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_access_previews(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_access_previews_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3069,7 +3099,13 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Retrieves a list of analyzers.
   """
-  @spec list_analyzers(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_analyzers(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_analyzers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3114,7 +3150,13 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Retrieves a list of archive rules created for the specified analyzer.
   """
-  @spec list_archive_rules(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_archive_rules(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_archive_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3228,9 +3270,9 @@ defmodule AWS.AccessAnalyzer do
   """
   @spec list_policy_generations(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_policy_generations_response(), any()}
@@ -3277,7 +3319,7 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Retrieves a list of tags applied to the specified resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3353,7 +3395,7 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Adds a tag to the specified resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3382,7 +3424,7 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Removes a tag from the specified resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3416,7 +3458,7 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Modifies the configuration of an existing analyzer.
   """
-  @spec update_analyzer(map(), String.t(), update_analyzer_request(), list()) ::
+  @spec update_analyzer(map(), String.t() | atom(), update_analyzer_request(), list()) ::
           {:ok, update_analyzer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3445,7 +3487,13 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Updates the criteria and values for the specified archive rule.
   """
-  @spec update_archive_rule(map(), String.t(), String.t(), update_archive_rule_request(), list()) ::
+  @spec update_archive_rule(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_archive_rule_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

@@ -27,7 +27,7 @@ defmodule AWS.S3Tables do
       }
 
   """
-  @type put_table_maintenance_configuration_request() :: %{String.t() => any()}
+  @type put_table_maintenance_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -43,26 +43,26 @@ defmodule AWS.S3Tables do
   ## Example:
 
       list_table_buckets_request() :: %{
-        optional("continuationToken") => String.t(),
+        optional("continuationToken") => String.t() | atom(),
         optional("maxBuckets") => integer(),
-        optional("prefix") => [String.t()],
+        optional("prefix") => [String.t() | atom()],
         optional("type") => list(any())
       }
 
   """
-  @type list_table_buckets_request() :: %{String.t() => any()}
+  @type list_table_buckets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       encryption_configuration() :: %{
-        "kmsKeyArn" => [String.t()],
+        "kmsKeyArn" => [String.t() | atom()],
         "sseAlgorithm" => list(any())
       }
 
   """
-  @type encryption_configuration() :: %{String.t() => any()}
+  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -74,7 +74,7 @@ defmodule AWS.S3Tables do
       }
 
   """
-  @type iceberg_snapshot_management_settings() :: %{String.t() => any()}
+  @type iceberg_snapshot_management_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -90,47 +90,47 @@ defmodule AWS.S3Tables do
   ## Example:
 
       update_table_metadata_location_request() :: %{
-        required("metadataLocation") => String.t(),
-        required("versionToken") => String.t()
+        required("metadataLocation") => String.t() | atom(),
+        required("versionToken") => String.t() | atom()
       }
 
   """
-  @type update_table_metadata_location_request() :: %{String.t() => any()}
+  @type update_table_metadata_location_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_table_bucket_policy_request() :: %{
-        required("resourcePolicy") => String.t()
+        required("resourcePolicy") => String.t() | atom()
       }
 
   """
-  @type put_table_bucket_policy_request() :: %{String.t() => any()}
+  @type put_table_bucket_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_table_bucket_policy_response() :: %{
-        "resourcePolicy" => String.t()
+        "resourcePolicy" => String.t() | atom()
       }
 
   """
-  @type get_table_bucket_policy_response() :: %{String.t() => any()}
+  @type get_table_bucket_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_namespaces_request() :: %{
-        optional("continuationToken") => String.t(),
+        optional("continuationToken") => String.t() | atom(),
         optional("maxNamespaces") => integer(),
-        optional("prefix") => [String.t()]
+        optional("prefix") => [String.t() | atom()]
       }
 
   """
-  @type list_namespaces_request() :: %{String.t() => any()}
+  @type list_namespaces_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -141,29 +141,29 @@ defmodule AWS.S3Tables do
       }
 
   """
-  @type get_table_encryption_response() :: %{String.t() => any()}
+  @type get_table_encryption_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_table_request() :: %{
-        optional("versionToken") => String.t()
+        optional("versionToken") => String.t() | atom()
       }
 
   """
-  @type delete_table_request() :: %{String.t() => any()}
+  @type delete_table_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       forbidden_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type forbidden_exception() :: %{String.t() => any()}
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -174,7 +174,7 @@ defmodule AWS.S3Tables do
       }
 
   """
-  @type get_table_bucket_encryption_response() :: %{String.t() => any()}
+  @type get_table_bucket_encryption_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -182,15 +182,15 @@ defmodule AWS.S3Tables do
 
       namespace_summary() :: %{
         "createdAt" => [non_neg_integer()],
-        "createdBy" => String.t(),
-        "namespace" => list(String.t()),
-        "namespaceId" => String.t(),
-        "ownerAccountId" => String.t(),
-        "tableBucketId" => String.t()
+        "createdBy" => String.t() | atom(),
+        "namespace" => list(String.t() | atom()),
+        "namespaceId" => String.t() | atom(),
+        "ownerAccountId" => String.t() | atom(),
+        "tableBucketId" => String.t() | atom()
       }
 
   """
-  @type namespace_summary() :: %{String.t() => any()}
+  @type namespace_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -199,30 +199,30 @@ defmodule AWS.S3Tables do
       table_summary() :: %{
         "createdAt" => [non_neg_integer()],
         "modifiedAt" => [non_neg_integer()],
-        "name" => String.t(),
-        "namespace" => list(String.t()),
-        "namespaceId" => String.t(),
-        "tableARN" => String.t(),
-        "tableBucketId" => String.t(),
+        "name" => String.t() | atom(),
+        "namespace" => list(String.t() | atom()),
+        "namespaceId" => String.t() | atom(),
+        "tableARN" => String.t() | atom(),
+        "tableBucketId" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type table_summary() :: %{String.t() => any()}
+  @type table_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_table_request() :: %{
-        optional("name") => String.t(),
-        optional("namespace") => String.t(),
-        optional("tableArn") => String.t(),
-        optional("tableBucketARN") => String.t()
+        optional("name") => String.t() | atom(),
+        optional("namespace") => String.t() | atom(),
+        optional("tableArn") => String.t() | atom(),
+        optional("tableBucketARN") => String.t() | atom()
       }
 
   """
-  @type get_table_request() :: %{String.t() => any()}
+  @type get_table_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -230,26 +230,26 @@ defmodule AWS.S3Tables do
 
       get_table_maintenance_configuration_response() :: %{
         "configuration" => map(),
-        "tableARN" => String.t()
+        "tableARN" => String.t() | atom()
       }
 
   """
-  @type get_table_maintenance_configuration_response() :: %{String.t() => any()}
+  @type get_table_maintenance_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_table_metadata_location_response() :: %{
-        "metadataLocation" => String.t(),
-        "name" => String.t(),
-        "namespace" => list(String.t()),
-        "tableARN" => String.t(),
-        "versionToken" => String.t()
+        "metadataLocation" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "namespace" => list(String.t() | atom()),
+        "tableARN" => String.t() | atom(),
+        "versionToken" => String.t() | atom()
       }
 
   """
-  @type update_table_metadata_location_response() :: %{String.t() => any()}
+  @type update_table_metadata_location_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -259,11 +259,11 @@ defmodule AWS.S3Tables do
         optional("encryptionConfiguration") => encryption_configuration(),
         optional("metadata") => list(),
         required("format") => list(any()),
-        required("name") => String.t()
+        required("name") => String.t() | atom()
       }
 
   """
-  @type create_table_request() :: %{String.t() => any()}
+  @type create_table_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -271,25 +271,25 @@ defmodule AWS.S3Tables do
 
       get_table_response() :: %{
         "createdAt" => [non_neg_integer()],
-        "createdBy" => String.t(),
+        "createdBy" => String.t() | atom(),
         "format" => list(any()),
-        "managedByService" => [String.t()],
-        "metadataLocation" => String.t(),
+        "managedByService" => [String.t() | atom()],
+        "metadataLocation" => String.t() | atom(),
         "modifiedAt" => [non_neg_integer()],
-        "modifiedBy" => String.t(),
-        "name" => String.t(),
-        "namespace" => list(String.t()),
-        "namespaceId" => String.t(),
-        "ownerAccountId" => String.t(),
-        "tableARN" => String.t(),
-        "tableBucketId" => String.t(),
+        "modifiedBy" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "namespace" => list(String.t() | atom()),
+        "namespaceId" => String.t() | atom(),
+        "ownerAccountId" => String.t() | atom(),
+        "tableARN" => String.t() | atom(),
+        "tableBucketId" => String.t() | atom(),
         "type" => list(any()),
-        "versionToken" => String.t(),
-        "warehouseLocation" => String.t()
+        "versionToken" => String.t() | atom(),
+        "warehouseLocation" => String.t() | atom()
       }
 
   """
-  @type get_table_response() :: %{String.t() => any()}
+  @type get_table_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -306,11 +306,11 @@ defmodule AWS.S3Tables do
 
       get_table_maintenance_job_status_response() :: %{
         "status" => map(),
-        "tableARN" => String.t()
+        "tableARN" => String.t() | atom()
       }
 
   """
-  @type get_table_maintenance_job_status_response() :: %{String.t() => any()}
+  @type get_table_maintenance_job_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -326,11 +326,11 @@ defmodule AWS.S3Tables do
   ## Example:
 
       too_many_requests_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type too_many_requests_exception() :: %{String.t() => any()}
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -342,7 +342,7 @@ defmodule AWS.S3Tables do
       }
 
   """
-  @type table_maintenance_configuration_value() :: %{String.t() => any()}
+  @type table_maintenance_configuration_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -359,26 +359,26 @@ defmodule AWS.S3Tables do
 
       get_namespace_response() :: %{
         "createdAt" => [non_neg_integer()],
-        "createdBy" => String.t(),
-        "namespace" => list(String.t()),
-        "namespaceId" => String.t(),
-        "ownerAccountId" => String.t(),
-        "tableBucketId" => String.t()
+        "createdBy" => String.t() | atom(),
+        "namespace" => list(String.t() | atom()),
+        "namespaceId" => String.t() | atom(),
+        "ownerAccountId" => String.t() | atom(),
+        "tableBucketId" => String.t() | atom()
       }
 
   """
-  @type get_namespace_response() :: %{String.t() => any()}
+  @type get_namespace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_namespace_request() :: %{
-        required("namespace") => list(String.t())
+        required("namespace") => list(String.t() | atom())
       }
 
   """
-  @type create_namespace_request() :: %{String.t() => any()}
+  @type create_namespace_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -389,42 +389,42 @@ defmodule AWS.S3Tables do
       }
 
   """
-  @type iceberg_metadata() :: %{String.t() => any()}
+  @type iceberg_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tables_response() :: %{
-        "continuationToken" => String.t(),
+        "continuationToken" => String.t() | atom(),
         "tables" => list(table_summary())
       }
 
   """
-  @type list_tables_response() :: %{String.t() => any()}
+  @type list_tables_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_table_response() :: %{
-        "tableARN" => String.t(),
-        "versionToken" => String.t()
+        "tableARN" => String.t() | atom(),
+        "versionToken" => String.t() | atom()
       }
 
   """
-  @type create_table_response() :: %{String.t() => any()}
+  @type create_table_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -471,29 +471,29 @@ defmodule AWS.S3Tables do
       }
 
   """
-  @type put_table_bucket_maintenance_configuration_request() :: %{String.t() => any()}
+  @type put_table_bucket_maintenance_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type not_found_exception() :: %{String.t() => any()}
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_table_bucket_response() :: %{
-        "arn" => String.t()
+        "arn" => String.t() | atom()
       }
 
   """
-  @type create_table_bucket_response() :: %{String.t() => any()}
+  @type create_table_bucket_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -519,11 +519,11 @@ defmodule AWS.S3Tables do
 
       create_table_bucket_request() :: %{
         optional("encryptionConfiguration") => encryption_configuration(),
-        required("name") => String.t()
+        required("name") => String.t() | atom()
       }
 
   """
-  @type create_table_bucket_request() :: %{String.t() => any()}
+  @type create_table_bucket_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -544,79 +544,79 @@ defmodule AWS.S3Tables do
       }
 
   """
-  @type iceberg_unreferenced_file_removal_settings() :: %{String.t() => any()}
+  @type iceberg_unreferenced_file_removal_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       table_maintenance_job_status_value() :: %{
-        "failureMessage" => [String.t()],
+        "failureMessage" => [String.t() | atom()],
         "lastRunTimestamp" => [non_neg_integer()],
         "status" => list(any())
       }
 
   """
-  @type table_maintenance_job_status_value() :: %{String.t() => any()}
+  @type table_maintenance_job_status_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_table_policy_response() :: %{
-        "resourcePolicy" => String.t()
+        "resourcePolicy" => String.t() | atom()
       }
 
   """
-  @type get_table_policy_response() :: %{String.t() => any()}
+  @type get_table_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_table_buckets_response() :: %{
-        "continuationToken" => String.t(),
+        "continuationToken" => String.t() | atom(),
         "tableBuckets" => list(table_bucket_summary())
       }
 
   """
-  @type list_table_buckets_response() :: %{String.t() => any()}
+  @type list_table_buckets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       schema_field() :: %{
-        "name" => [String.t()],
+        "name" => [String.t() | atom()],
         "required" => [boolean()],
-        "type" => [String.t()]
+        "type" => [String.t() | atom()]
       }
 
   """
-  @type schema_field() :: %{String.t() => any()}
+  @type schema_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_namespace_response() :: %{
-        "namespace" => list(String.t()),
-        "tableBucketARN" => String.t()
+        "namespace" => list(String.t() | atom()),
+        "tableBucketARN" => String.t() | atom()
       }
 
   """
-  @type create_namespace_response() :: %{String.t() => any()}
+  @type create_namespace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -624,11 +624,11 @@ defmodule AWS.S3Tables do
 
       get_table_bucket_maintenance_configuration_response() :: %{
         "configuration" => map(),
-        "tableBucketARN" => String.t()
+        "tableBucketARN" => String.t() | atom()
       }
 
   """
-  @type get_table_bucket_maintenance_configuration_response() :: %{String.t() => any()}
+  @type get_table_bucket_maintenance_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -640,43 +640,43 @@ defmodule AWS.S3Tables do
       }
 
   """
-  @type iceberg_compaction_settings() :: %{String.t() => any()}
+  @type iceberg_compaction_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       rename_table_request() :: %{
-        optional("newName") => String.t(),
-        optional("newNamespaceName") => String.t(),
-        optional("versionToken") => String.t()
+        optional("newName") => String.t() | atom(),
+        optional("newNamespaceName") => String.t() | atom(),
+        optional("versionToken") => String.t() | atom()
       }
 
   """
-  @type rename_table_request() :: %{String.t() => any()}
+  @type rename_table_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_error_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_server_error_exception() :: %{String.t() => any()}
+  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_namespaces_response() :: %{
-        "continuationToken" => String.t(),
+        "continuationToken" => String.t() | atom(),
         "namespaces" => list(namespace_summary())
       }
 
   """
-  @type list_namespaces_response() :: %{String.t() => any()}
+  @type list_namespaces_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -692,13 +692,13 @@ defmodule AWS.S3Tables do
   ## Example:
 
       get_table_metadata_location_response() :: %{
-        "metadataLocation" => String.t(),
-        "versionToken" => String.t(),
-        "warehouseLocation" => String.t()
+        "metadataLocation" => String.t() | atom(),
+        "versionToken" => String.t() | atom(),
+        "warehouseLocation" => String.t() | atom()
       }
 
   """
-  @type get_table_metadata_location_response() :: %{String.t() => any()}
+  @type get_table_metadata_location_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -709,34 +709,34 @@ defmodule AWS.S3Tables do
       }
 
   """
-  @type iceberg_schema() :: %{String.t() => any()}
+  @type iceberg_schema() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_table_bucket_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
-        "name" => String.t(),
-        "ownerAccountId" => String.t(),
-        "tableBucketId" => String.t(),
+        "name" => String.t() | atom(),
+        "ownerAccountId" => String.t() | atom(),
+        "tableBucketId" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type get_table_bucket_response() :: %{String.t() => any()}
+  @type get_table_bucket_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -748,18 +748,18 @@ defmodule AWS.S3Tables do
       }
 
   """
-  @type table_bucket_maintenance_configuration_value() :: %{String.t() => any()}
+  @type table_bucket_maintenance_configuration_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_table_policy_request() :: %{
-        required("resourcePolicy") => String.t()
+        required("resourcePolicy") => String.t() | atom()
       }
 
   """
-  @type put_table_policy_request() :: %{String.t() => any()}
+  @type put_table_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -779,23 +779,23 @@ defmodule AWS.S3Tables do
       }
 
   """
-  @type put_table_bucket_encryption_request() :: %{String.t() => any()}
+  @type put_table_bucket_encryption_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       table_bucket_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
-        "name" => String.t(),
-        "ownerAccountId" => String.t(),
-        "tableBucketId" => String.t(),
+        "name" => String.t() | atom(),
+        "ownerAccountId" => String.t() | atom(),
+        "tableBucketId" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type table_bucket_summary() :: %{String.t() => any()}
+  @type table_bucket_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -811,14 +811,14 @@ defmodule AWS.S3Tables do
   ## Example:
 
       list_tables_request() :: %{
-        optional("continuationToken") => String.t(),
+        optional("continuationToken") => String.t() | atom(),
         optional("maxTables") => integer(),
-        optional("namespace") => String.t(),
-        optional("prefix") => [String.t()]
+        optional("namespace") => String.t() | atom(),
+        optional("prefix") => [String.t() | atom()]
       }
 
   """
-  @type list_tables_request() :: %{String.t() => any()}
+  @type list_tables_request() :: %{(String.t() | atom()) => any()}
 
   @type create_namespace_errors() ::
           bad_request_exception()
@@ -1094,7 +1094,7 @@ defmodule AWS.S3Tables do
 
   You must have the `s3tables:CreateNamespace` permission to use this operation.
   """
-  @spec create_namespace(map(), String.t(), create_namespace_request(), list()) ::
+  @spec create_namespace(map(), String.t() | atom(), create_namespace_request(), list()) ::
           {:ok, create_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1144,7 +1144,13 @@ defmodule AWS.S3Tables do
   maintenance principal access to your KMS key. For more information, see
   [Permissions requirements for S3 Tables SSE-KMS encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-kms-permissions.html).
   """
-  @spec create_table(map(), String.t(), String.t(), create_table_request(), list()) ::
+  @spec create_table(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          create_table_request(),
+          list()
+        ) ::
           {:ok, create_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1227,7 +1233,13 @@ defmodule AWS.S3Tables do
 
   You must have the `s3tables:DeleteNamespace` permission to use this operation.
   """
-  @spec delete_namespace(map(), String.t(), String.t(), delete_namespace_request(), list()) ::
+  @spec delete_namespace(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_namespace_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1267,7 +1279,14 @@ defmodule AWS.S3Tables do
 
   You must have the `s3tables:DeleteTable` permission to use this operation.
   """
-  @spec delete_table(map(), String.t(), String.t(), String.t(), delete_table_request(), list()) ::
+  @spec delete_table(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_table_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1312,7 +1331,7 @@ defmodule AWS.S3Tables do
 
   You must have the `s3tables:DeleteTableBucket` permission to use this operation.
   """
-  @spec delete_table_bucket(map(), String.t(), delete_table_bucket_request(), list()) ::
+  @spec delete_table_bucket(map(), String.t() | atom(), delete_table_bucket_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1350,7 +1369,7 @@ defmodule AWS.S3Tables do
   """
   @spec delete_table_bucket_encryption(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_table_bucket_encryption_request(),
           list()
         ) ::
@@ -1394,7 +1413,7 @@ defmodule AWS.S3Tables do
   """
   @spec delete_table_bucket_policy(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_table_bucket_policy_request(),
           list()
         ) ::
@@ -1437,9 +1456,9 @@ defmodule AWS.S3Tables do
   """
   @spec delete_table_policy(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_table_policy_request(),
           list()
         ) ::
@@ -1489,7 +1508,7 @@ defmodule AWS.S3Tables do
 
   You must have the `s3tables:GetNamespace` permission to use this operation.
   """
-  @spec get_namespace(map(), String.t(), String.t(), list()) ::
+  @spec get_namespace(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1520,10 +1539,10 @@ defmodule AWS.S3Tables do
   """
   @spec get_table(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_table_response(), any()}
@@ -1587,7 +1606,7 @@ defmodule AWS.S3Tables do
 
   You must have the `s3tables:GetTableBucket` permission to use this operation.
   """
-  @spec get_table_bucket(map(), String.t(), list()) ::
+  @spec get_table_bucket(map(), String.t() | atom(), list()) ::
           {:ok, get_table_bucket_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1612,7 +1631,7 @@ defmodule AWS.S3Tables do
   You must have the `s3tables:GetTableBucketEncryption` permission to use this
   operation.
   """
-  @spec get_table_bucket_encryption(map(), String.t(), list()) ::
+  @spec get_table_bucket_encryption(map(), String.t() | atom(), list()) ::
           {:ok, get_table_bucket_encryption_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1640,7 +1659,7 @@ defmodule AWS.S3Tables do
   You must have the `s3tables:GetTableBucketMaintenanceConfiguration` permission
   to use this operation.
   """
-  @spec get_table_bucket_maintenance_configuration(map(), String.t(), list()) ::
+  @spec get_table_bucket_maintenance_configuration(map(), String.t() | atom(), list()) ::
           {:ok, get_table_bucket_maintenance_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1672,7 +1691,7 @@ defmodule AWS.S3Tables do
   You must have the `s3tables:GetTableBucketPolicy` permission to use this
   operation.
   """
-  @spec get_table_bucket_policy(map(), String.t(), list()) ::
+  @spec get_table_bucket_policy(map(), String.t() | atom(), list()) ::
           {:ok, get_table_bucket_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1697,7 +1716,13 @@ defmodule AWS.S3Tables do
   You must have the `s3tables:GetTableEncryption` permission to use this
   operation.
   """
-  @spec get_table_encryption(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_table_encryption(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, get_table_encryption_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1730,7 +1755,13 @@ defmodule AWS.S3Tables do
      You must have the `s3tables:GetTableData` permission to use set the
   compaction strategy to `sort` or `zorder`.
   """
-  @spec get_table_maintenance_configuration(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_table_maintenance_configuration(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, get_table_maintenance_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1766,7 +1797,13 @@ defmodule AWS.S3Tables do
   You must have the `s3tables:GetTableMaintenanceJobStatus` permission to use this
   operation.
   """
-  @spec get_table_maintenance_job_status(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_table_maintenance_job_status(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, get_table_maintenance_job_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1799,7 +1836,13 @@ defmodule AWS.S3Tables do
   You must have the `s3tables:GetTableMetadataLocation` permission to use this
   operation.
   """
-  @spec get_table_metadata_location(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_table_metadata_location(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, get_table_metadata_location_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1834,7 +1877,13 @@ defmodule AWS.S3Tables do
 
   You must have the `s3tables:GetTablePolicy` permission to use this operation.
   """
-  @spec get_table_policy(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_table_policy(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, get_table_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1865,10 +1914,10 @@ defmodule AWS.S3Tables do
   """
   @spec list_namespaces(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_namespaces_response(), any()}
@@ -1927,10 +1976,10 @@ defmodule AWS.S3Tables do
   """
   @spec list_table_buckets(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_table_buckets_response(), any()}
@@ -1996,11 +2045,11 @@ defmodule AWS.S3Tables do
   """
   @spec list_tables(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_tables_response(), any()}
@@ -2070,7 +2119,7 @@ defmodule AWS.S3Tables do
   """
   @spec put_table_bucket_encryption(
           map(),
-          String.t(),
+          String.t() | atom(),
           put_table_bucket_encryption_request(),
           list()
         ) ::
@@ -2115,8 +2164,8 @@ defmodule AWS.S3Tables do
   """
   @spec put_table_bucket_maintenance_configuration(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           put_table_bucket_maintenance_configuration_request(),
           list()
         ) ::
@@ -2167,7 +2216,12 @@ defmodule AWS.S3Tables do
   You must have the `s3tables:PutTableBucketPolicy` permission to use this
   operation.
   """
-  @spec put_table_bucket_policy(map(), String.t(), put_table_bucket_policy_request(), list()) ::
+  @spec put_table_bucket_policy(
+          map(),
+          String.t() | atom(),
+          put_table_bucket_policy_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2209,10 +2263,10 @@ defmodule AWS.S3Tables do
   """
   @spec put_table_maintenance_configuration(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           put_table_maintenance_configuration_request(),
           list()
         ) ::
@@ -2266,9 +2320,9 @@ defmodule AWS.S3Tables do
   """
   @spec put_table_policy(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           put_table_policy_request(),
           list()
         ) ::
@@ -2318,7 +2372,14 @@ defmodule AWS.S3Tables do
 
   You must have the `s3tables:RenameTable` permission to use this operation.
   """
-  @spec rename_table(map(), String.t(), String.t(), String.t(), rename_table_request(), list()) ::
+  @spec rename_table(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          rename_table_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2363,9 +2424,9 @@ defmodule AWS.S3Tables do
   """
   @spec update_table_metadata_location(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_table_metadata_location_request(),
           list()
         ) ::

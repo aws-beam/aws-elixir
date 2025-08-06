@@ -24,12 +24,12 @@ defmodule AWS.Location do
   ## Example:
 
       list_geofence_collections_response() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("Entries") => list(list_geofence_collections_response_entry())
       }
 
   """
-  @type list_geofence_collections_response() :: %{String.t() => any()}
+  @type list_geofence_collections_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -38,12 +38,12 @@ defmodule AWS.Location do
       truck_dimensions() :: %{
         "Height" => [float()],
         "Length" => [float()],
-        "Unit" => String.t(),
+        "Unit" => String.t() | atom(),
         "Width" => [float()]
       }
 
   """
-  @type truck_dimensions() :: %{String.t() => any()}
+  @type truck_dimensions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -52,14 +52,14 @@ defmodule AWS.Location do
       get_geofence_response() :: %{
         optional("GeofenceProperties") => map(),
         required("CreateTime") => non_neg_integer(),
-        required("GeofenceId") => String.t(),
+        required("GeofenceId") => String.t() | atom(),
         required("Geometry") => geofence_geometry(),
-        required("Status") => [String.t()],
+        required("Status") => [String.t() | atom()],
         required("UpdateTime") => non_neg_integer()
       }
 
   """
-  @type get_geofence_response() :: %{String.t() => any()}
+  @type get_geofence_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -79,19 +79,19 @@ defmodule AWS.Location do
       }
 
   """
-  @type batch_update_device_position_response() :: %{String.t() => any()}
+  @type batch_update_device_position_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_device_positions_response() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("Entries") => list(list_device_positions_response_entry())
       }
 
   """
-  @type list_device_positions_response() :: %{String.t() => any()}
+  @type list_device_positions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -102,18 +102,18 @@ defmodule AWS.Location do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_tracker_consumer_request() :: %{
-        required("ConsumerArn") => String.t()
+        required("ConsumerArn") => String.t() | atom()
       }
 
   """
-  @type associate_tracker_consumer_request() :: %{String.t() => any()}
+  @type associate_tracker_consumer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -124,7 +124,7 @@ defmodule AWS.Location do
       }
 
   """
-  @type batch_put_geofence_request() :: %{String.t() => any()}
+  @type batch_put_geofence_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -136,7 +136,7 @@ defmodule AWS.Location do
       }
 
   """
-  @type calculate_route_car_mode_options() :: %{String.t() => any()}
+  @type calculate_route_car_mode_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -144,41 +144,41 @@ defmodule AWS.Location do
 
       batch_put_geofence_error() :: %{
         "Error" => batch_item_error(),
-        "GeofenceId" => String.t()
+        "GeofenceId" => String.t() | atom()
       }
 
   """
-  @type batch_put_geofence_error() :: %{String.t() => any()}
+  @type batch_put_geofence_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       forecasted_event() :: %{
-        "EventId" => String.t(),
-        "EventType" => String.t(),
+        "EventId" => String.t() | atom(),
+        "EventType" => String.t() | atom(),
         "ForecastedBreachTime" => non_neg_integer(),
-        "GeofenceId" => String.t(),
+        "GeofenceId" => String.t() | atom(),
         "GeofenceProperties" => map(),
         "IsDeviceInGeofence" => [boolean()],
         "NearestDistance" => float()
       }
 
   """
-  @type forecasted_event() :: %{String.t() => any()}
+  @type forecasted_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_update_device_position_error() :: %{
-        "DeviceId" => String.t(),
+        "DeviceId" => String.t() | atom(),
         "Error" => batch_item_error(),
         "SampleTime" => non_neg_integer()
       }
 
   """
-  @type batch_update_device_position_error() :: %{String.t() => any()}
+  @type batch_update_device_position_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -189,23 +189,23 @@ defmodule AWS.Location do
       }
 
   """
-  @type batch_delete_geofence_response() :: %{String.t() => any()}
+  @type batch_delete_geofence_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_key_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("ExpireTime") => non_neg_integer(),
         optional("NoExpiry") => [boolean()],
         optional("Tags") => map(),
-        required("KeyName") => String.t(),
+        required("KeyName") => String.t() | atom(),
         required("Restrictions") => api_key_restrictions()
       }
 
   """
-  @type create_key_request() :: %{String.t() => any()}
+  @type create_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -213,39 +213,39 @@ defmodule AWS.Location do
 
       create_place_index_request() :: %{
         optional("DataSourceConfiguration") => data_source_configuration(),
-        optional("Description") => String.t(),
-        optional("PricingPlan") => String.t(),
+        optional("Description") => String.t() | atom(),
+        optional("PricingPlan") => String.t() | atom(),
         optional("Tags") => map(),
-        required("DataSource") => [String.t()],
-        required("IndexName") => String.t()
+        required("DataSource") => [String.t() | atom()],
+        required("IndexName") => String.t() | atom()
       }
 
   """
-  @type create_place_index_request() :: %{String.t() => any()}
+  @type create_place_index_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_source_configuration() :: %{
-        "IntendedUse" => String.t()
+        "IntendedUse" => String.t() | atom()
       }
 
   """
-  @type data_source_configuration() :: %{String.t() => any()}
+  @type data_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_route_calculator_response() :: %{
-        required("CalculatorArn") => String.t(),
-        required("CalculatorName") => String.t(),
+        required("CalculatorArn") => String.t() | atom(),
+        required("CalculatorName") => String.t() | atom(),
         required("CreateTime") => non_neg_integer()
       }
 
   """
-  @type create_route_calculator_response() :: %{String.t() => any()}
+  @type create_route_calculator_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -262,12 +262,12 @@ defmodule AWS.Location do
 
       create_tracker_response() :: %{
         required("CreateTime") => non_neg_integer(),
-        required("TrackerArn") => String.t(),
-        required("TrackerName") => String.t()
+        required("TrackerArn") => String.t() | atom(),
+        required("TrackerName") => String.t() | atom()
       }
 
   """
-  @type create_tracker_response() :: %{String.t() => any()}
+  @type create_tracker_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -275,25 +275,25 @@ defmodule AWS.Location do
 
       get_map_tile_response() :: %{
         optional("Blob") => [binary()],
-        optional("CacheControl") => [String.t()],
-        optional("ContentType") => [String.t()]
+        optional("CacheControl") => [String.t() | atom()],
+        optional("ContentType") => [String.t() | atom()]
       }
 
   """
-  @type get_map_tile_response() :: %{String.t() => any()}
+  @type get_map_tile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_map_response() :: %{
-        required("MapArn") => String.t(),
-        required("MapName") => String.t(),
+        required("MapArn") => String.t() | atom(),
+        required("MapName") => String.t() | atom(),
         required("UpdateTime") => non_neg_integer()
       }
 
   """
-  @type update_map_response() :: %{String.t() => any()}
+  @type update_map_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -301,11 +301,11 @@ defmodule AWS.Location do
 
       list_maps_request() :: %{
         optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_maps_request() :: %{String.t() => any()}
+  @type list_maps_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -322,12 +322,12 @@ defmodule AWS.Location do
 
       get_map_glyphs_response() :: %{
         "Blob" => [binary()],
-        "CacheControl" => [String.t()],
-        "ContentType" => [String.t()]
+        "CacheControl" => [String.t() | atom()],
+        "ContentType" => [String.t() | atom()]
       }
 
   """
-  @type get_map_glyphs_response() :: %{String.t() => any()}
+  @type get_map_glyphs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -343,12 +343,12 @@ defmodule AWS.Location do
   ## Example:
 
       list_keys_response() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("Entries") => list(list_keys_response_entry())
       }
 
   """
-  @type list_keys_response() :: %{String.t() => any()}
+  @type list_keys_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -360,36 +360,36 @@ defmodule AWS.Location do
       }
 
   """
-  @type calculate_route_response() :: %{String.t() => any()}
+  @type calculate_route_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_route_calculators_response_entry() :: %{
-        "CalculatorName" => String.t(),
+        "CalculatorName" => String.t() | atom(),
         "CreateTime" => non_neg_integer(),
-        "DataSource" => [String.t()],
-        "Description" => String.t(),
-        "PricingPlan" => String.t(),
+        "DataSource" => [String.t() | atom()],
+        "Description" => String.t() | atom(),
+        "PricingPlan" => String.t() | atom(),
         "UpdateTime" => non_neg_integer()
       }
 
   """
-  @type list_route_calculators_response_entry() :: %{String.t() => any()}
+  @type list_route_calculators_response_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_key_response() :: %{
-        required("KeyArn") => String.t(),
-        required("KeyName") => String.t(),
+        required("KeyArn") => String.t() | atom(),
+        required("KeyName") => String.t() | atom(),
         required("UpdateTime") => non_neg_integer()
       }
 
   """
-  @type update_key_response() :: %{String.t() => any()}
+  @type update_key_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -401,7 +401,7 @@ defmodule AWS.Location do
       }
 
   """
-  @type search_place_index_for_position_response() :: %{String.t() => any()}
+  @type search_place_index_for_position_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -409,27 +409,27 @@ defmodule AWS.Location do
 
       list_maps_response_entry() :: %{
         "CreateTime" => non_neg_integer(),
-        "DataSource" => [String.t()],
-        "Description" => String.t(),
-        "MapName" => String.t(),
-        "PricingPlan" => String.t(),
+        "DataSource" => [String.t() | atom()],
+        "Description" => String.t() | atom(),
+        "MapName" => String.t() | atom(),
+        "PricingPlan" => String.t() | atom(),
         "UpdateTime" => non_neg_integer()
       }
 
   """
-  @type list_maps_response_entry() :: %{String.t() => any()}
+  @type list_maps_response_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_trackers_response() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("Entries") => list(list_trackers_response_entry())
       }
 
   """
-  @type list_trackers_response() :: %{String.t() => any()}
+  @type list_trackers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -449,19 +449,19 @@ defmodule AWS.Location do
       }
 
   """
-  @type delete_key_request() :: %{String.t() => any()}
+  @type delete_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_route_calculator_request() :: %{
-        optional("Description") => String.t(),
-        optional("PricingPlan") => String.t()
+        optional("Description") => String.t() | atom(),
+        optional("PricingPlan") => String.t() | atom()
       }
 
   """
-  @type update_route_calculator_request() :: %{String.t() => any()}
+  @type update_route_calculator_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -470,11 +470,11 @@ defmodule AWS.Location do
       search_for_position_result() :: %{
         "Distance" => [float()],
         "Place" => place(),
-        "PlaceId" => String.t()
+        "PlaceId" => String.t() | atom()
       }
 
   """
-  @type search_for_position_result() :: %{String.t() => any()}
+  @type search_for_position_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -486,7 +486,7 @@ defmodule AWS.Location do
       }
 
   """
-  @type put_geofence_request() :: %{String.t() => any()}
+  @type put_geofence_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -494,48 +494,48 @@ defmodule AWS.Location do
 
       batch_put_geofence_success() :: %{
         "CreateTime" => non_neg_integer(),
-        "GeofenceId" => String.t(),
+        "GeofenceId" => String.t() | atom(),
         "UpdateTime" => non_neg_integer()
       }
 
   """
-  @type batch_put_geofence_success() :: %{String.t() => any()}
+  @type batch_put_geofence_success() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       api_key_filter() :: %{
-        "KeyStatus" => String.t()
+        "KeyStatus" => String.t() | atom()
       }
 
   """
-  @type api_key_filter() :: %{String.t() => any()}
+  @type api_key_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list([String.t()]())
+        required("TagKeys") => list([String.t() | atom()]())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       search_for_suggestions_result() :: %{
-        "Categories" => list(String.t()),
-        "PlaceId" => String.t(),
-        "SupplementalCategories" => list(String.t()),
-        "Text" => [String.t()]
+        "Categories" => list(String.t() | atom()),
+        "PlaceId" => String.t() | atom(),
+        "SupplementalCategories" => list(String.t() | atom()),
+        "Text" => [String.t() | atom()]
       }
 
   """
-  @type search_for_suggestions_result() :: %{String.t() => any()}
+  @type search_for_suggestions_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -552,18 +552,18 @@ defmodule AWS.Location do
 
       search_place_index_for_text_summary() :: %{
         "BiasPosition" => list([float()]()),
-        "DataSource" => [String.t()],
+        "DataSource" => [String.t() | atom()],
         "FilterBBox" => list([float()]()),
-        "FilterCategories" => list(String.t()),
-        "FilterCountries" => list(String.t()),
-        "Language" => String.t(),
+        "FilterCategories" => list(String.t() | atom()),
+        "FilterCountries" => list(String.t() | atom()),
+        "Language" => String.t() | atom(),
         "MaxResults" => integer(),
         "ResultBBox" => list([float()]()),
-        "Text" => String.t()
+        "Text" => String.t() | atom()
       }
 
   """
-  @type search_place_index_for_text_summary() :: %{String.t() => any()}
+  @type search_place_index_for_text_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -571,11 +571,11 @@ defmodule AWS.Location do
 
       batch_delete_geofence_error() :: %{
         "Error" => batch_item_error(),
-        "GeofenceId" => String.t()
+        "GeofenceId" => String.t() | atom()
       }
 
   """
-  @type batch_delete_geofence_error() :: %{String.t() => any()}
+  @type batch_delete_geofence_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -586,31 +586,31 @@ defmodule AWS.Location do
       }
 
   """
-  @type batch_evaluate_geofences_request() :: %{String.t() => any()}
+  @type batch_evaluate_geofences_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_geofences_response() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("Entries") => list(list_geofence_response_entry())
       }
 
   """
-  @type list_geofences_response() :: %{String.t() => any()}
+  @type list_geofences_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_matrix_entry_error() :: %{
-        "Code" => String.t(),
-        "Message" => [String.t()]
+        "Code" => String.t() | atom(),
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type route_matrix_entry_error() :: %{String.t() => any()}
+  @type route_matrix_entry_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -626,11 +626,11 @@ defmodule AWS.Location do
   ## Example:
 
       get_map_sprites_request() :: %{
-        optional("Key") => String.t()
+        optional("Key") => String.t() | atom()
       }
 
   """
-  @type get_map_sprites_request() :: %{String.t() => any()}
+  @type get_map_sprites_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -647,11 +647,11 @@ defmodule AWS.Location do
 
       list_geofence_collections_request() :: %{
         optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_geofence_collections_request() :: %{String.t() => any()}
+  @type list_geofence_collections_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -659,12 +659,12 @@ defmodule AWS.Location do
 
       get_map_style_descriptor_response() :: %{
         optional("Blob") => [binary()],
-        optional("CacheControl") => [String.t()],
-        optional("ContentType") => [String.t()]
+        optional("CacheControl") => [String.t() | atom()],
+        optional("ContentType") => [String.t() | atom()]
       }
 
   """
-  @type get_map_style_descriptor_response() :: %{String.t() => any()}
+  @type get_map_style_descriptor_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -681,11 +681,11 @@ defmodule AWS.Location do
 
       list_tracker_consumers_request() :: %{
         optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_tracker_consumers_request() :: %{String.t() => any()}
+  @type list_tracker_consumers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -693,14 +693,14 @@ defmodule AWS.Location do
 
       list_device_positions_response_entry() :: %{
         "Accuracy" => positional_accuracy(),
-        "DeviceId" => String.t(),
+        "DeviceId" => String.t() | atom(),
         "Position" => list([float()]()),
         "PositionProperties" => map(),
         "SampleTime" => non_neg_integer()
       }
 
   """
-  @type list_device_positions_response_entry() :: %{String.t() => any()}
+  @type list_device_positions_response_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -709,25 +709,25 @@ defmodule AWS.Location do
       list_keys_request() :: %{
         optional("Filter") => api_key_filter(),
         optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_keys_request() :: %{String.t() => any()}
+  @type list_keys_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       search_place_index_for_position_summary() :: %{
-        "DataSource" => [String.t()],
-        "Language" => String.t(),
+        "DataSource" => [String.t() | atom()],
+        "Language" => String.t() | atom(),
         "MaxResults" => integer(),
         "Position" => list([float()]())
       }
 
   """
-  @type search_place_index_for_position_summary() :: %{String.t() => any()}
+  @type search_place_index_for_position_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -735,12 +735,12 @@ defmodule AWS.Location do
 
       create_place_index_response() :: %{
         required("CreateTime") => non_neg_integer(),
-        required("IndexArn") => String.t(),
-        required("IndexName") => String.t()
+        required("IndexArn") => String.t() | atom(),
+        required("IndexName") => String.t() | atom()
       }
 
   """
-  @type create_place_index_response() :: %{String.t() => any()}
+  @type create_place_index_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -756,13 +756,13 @@ defmodule AWS.Location do
   ## Example:
 
       update_geofence_collection_response() :: %{
-        required("CollectionArn") => String.t(),
-        required("CollectionName") => String.t(),
+        required("CollectionArn") => String.t() | atom(),
+        required("CollectionName") => String.t() | atom(),
         required("UpdateTime") => non_neg_integer()
       }
 
   """
-  @type update_geofence_collection_response() :: %{String.t() => any()}
+  @type update_geofence_collection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -778,11 +778,11 @@ defmodule AWS.Location do
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -790,23 +790,23 @@ defmodule AWS.Location do
 
       put_geofence_response() :: %{
         required("CreateTime") => non_neg_integer(),
-        required("GeofenceId") => String.t(),
+        required("GeofenceId") => String.t() | atom(),
         required("UpdateTime") => non_neg_integer()
       }
 
   """
-  @type put_geofence_response() :: %{String.t() => any()}
+  @type put_geofence_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -818,7 +818,7 @@ defmodule AWS.Location do
       }
 
   """
-  @type lte_local_id() :: %{String.t() => any()}
+  @type lte_local_id() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -826,15 +826,15 @@ defmodule AWS.Location do
 
       list_geofence_response_entry() :: %{
         "CreateTime" => non_neg_integer(),
-        "GeofenceId" => String.t(),
+        "GeofenceId" => String.t() | atom(),
         "GeofenceProperties" => map(),
         "Geometry" => geofence_geometry(),
-        "Status" => [String.t()],
+        "Status" => [String.t() | atom()],
         "UpdateTime" => non_neg_integer()
       }
 
   """
-  @type list_geofence_response_entry() :: %{String.t() => any()}
+  @type list_geofence_response_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -855,25 +855,25 @@ defmodule AWS.Location do
       }
 
   """
-  @type search_place_index_for_text_response() :: %{String.t() => any()}
+  @type search_place_index_for_text_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_map_tile_request() :: %{
-        optional("Key") => String.t()
+        optional("Key") => String.t() | atom()
       }
 
   """
-  @type get_map_tile_request() :: %{String.t() => any()}
+  @type get_map_tile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_key_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("ExpireTime") => non_neg_integer(),
         optional("ForceUpdate") => [boolean()],
         optional("NoExpiry") => [boolean()],
@@ -881,43 +881,43 @@ defmodule AWS.Location do
       }
 
   """
-  @type update_key_request() :: %{String.t() => any()}
+  @type update_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_geofence_collection_response() :: %{
-        required("CollectionArn") => String.t(),
-        required("CollectionName") => String.t(),
+        required("CollectionArn") => String.t() | atom(),
+        required("CollectionName") => String.t() | atom(),
         required("CreateTime") => non_neg_integer()
       }
 
   """
-  @type create_geofence_collection_response() :: %{String.t() => any()}
+  @type create_geofence_collection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       wi_fi_access_point() :: %{
-        "MacAddress" => [String.t()],
+        "MacAddress" => [String.t() | atom()],
         "Rss" => [integer()]
       }
 
   """
-  @type wi_fi_access_point() :: %{String.t() => any()}
+  @type wi_fi_access_point() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -926,15 +926,15 @@ defmodule AWS.Location do
       device_state() :: %{
         "Accuracy" => positional_accuracy(),
         "CellSignals" => cell_signals(),
-        "DeviceId" => String.t(),
-        "Ipv4Address" => [String.t()],
+        "DeviceId" => String.t() | atom(),
+        "Ipv4Address" => [String.t() | atom()],
         "Position" => list([float()]()),
         "SampleTime" => non_neg_integer(),
         "WiFiAccessPoints" => list(wi_fi_access_point())
       }
 
   """
-  @type device_state() :: %{String.t() => any()}
+  @type device_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -950,18 +950,18 @@ defmodule AWS.Location do
   ## Example:
 
       describe_route_calculator_response() :: %{
-        optional("PricingPlan") => String.t(),
+        optional("PricingPlan") => String.t() | atom(),
         optional("Tags") => map(),
-        required("CalculatorArn") => String.t(),
-        required("CalculatorName") => String.t(),
+        required("CalculatorArn") => String.t() | atom(),
+        required("CalculatorName") => String.t() | atom(),
         required("CreateTime") => non_neg_integer(),
-        required("DataSource") => [String.t()],
-        required("Description") => String.t(),
+        required("DataSource") => [String.t() | atom()],
+        required("Description") => String.t() | atom(),
         required("UpdateTime") => non_neg_integer()
       }
 
   """
-  @type describe_route_calculator_response() :: %{String.t() => any()}
+  @type describe_route_calculator_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -977,12 +977,12 @@ defmodule AWS.Location do
   ## Example:
 
       map_configuration_update() :: %{
-        "CustomLayers" => list(String.t()),
-        "PoliticalView" => String.t()
+        "CustomLayers" => list(String.t() | atom()),
+        "PoliticalView" => String.t() | atom()
       }
 
   """
-  @type map_configuration_update() :: %{String.t() => any()}
+  @type map_configuration_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -990,25 +990,25 @@ defmodule AWS.Location do
 
       update_map_request() :: %{
         optional("ConfigurationUpdate") => map_configuration_update(),
-        optional("Description") => String.t(),
-        optional("PricingPlan") => String.t()
+        optional("Description") => String.t() | atom(),
+        optional("PricingPlan") => String.t() | atom()
       }
 
   """
-  @type update_map_request() :: %{String.t() => any()}
+  @type update_map_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_route_calculator_response() :: %{
-        required("CalculatorArn") => String.t(),
-        required("CalculatorName") => String.t(),
+        required("CalculatorArn") => String.t() | atom(),
+        required("CalculatorName") => String.t() | atom(),
         required("UpdateTime") => non_neg_integer()
       }
 
   """
-  @type update_route_calculator_response() :: %{String.t() => any()}
+  @type update_route_calculator_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1019,18 +1019,18 @@ defmodule AWS.Location do
       }
 
   """
-  @type place_geometry() :: %{String.t() => any()}
+  @type place_geometry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_device_position_request() :: %{
-        required("DeviceIds") => list(String.t())
+        required("DeviceIds") => list(String.t() | atom())
       }
 
   """
-  @type batch_get_device_position_request() :: %{String.t() => any()}
+  @type batch_get_device_position_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1038,11 +1038,11 @@ defmodule AWS.Location do
 
       list_place_indexes_request() :: %{
         optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_place_indexes_request() :: %{String.t() => any()}
+  @type list_place_indexes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1054,22 +1054,22 @@ defmodule AWS.Location do
       }
 
   """
-  @type circle() :: %{String.t() => any()}
+  @type circle() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_map_request() :: %{
-        optional("Description") => String.t(),
-        optional("PricingPlan") => String.t(),
+        optional("Description") => String.t() | atom(),
+        optional("PricingPlan") => String.t() | atom(),
         optional("Tags") => map(),
         required("Configuration") => map_configuration(),
-        required("MapName") => String.t()
+        required("MapName") => String.t() | atom()
       }
 
   """
-  @type create_map_request() :: %{String.t() => any()}
+  @type create_map_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1080,7 +1080,7 @@ defmodule AWS.Location do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1092,31 +1092,31 @@ defmodule AWS.Location do
       }
 
   """
-  @type forecast_geofence_events_device_state() :: %{String.t() => any()}
+  @type forecast_geofence_events_device_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "Message" => [String.t()],
-        "Name" => [String.t()]
+        "Message" => [String.t() | atom()],
+        "Name" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       verify_device_position_request() :: %{
-        optional("DistanceUnit") => String.t(),
+        optional("DistanceUnit") => String.t() | atom(),
         required("DeviceState") => device_state()
       }
 
   """
-  @type verify_device_position_request() :: %{String.t() => any()}
+  @type verify_device_position_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1134,53 +1134,53 @@ defmodule AWS.Location do
       search_place_index_for_text_request() :: %{
         optional("BiasPosition") => list([float()]()),
         optional("FilterBBox") => list([float()]()),
-        optional("FilterCategories") => list(String.t()),
-        optional("FilterCountries") => list(String.t()),
-        optional("Key") => String.t(),
-        optional("Language") => String.t(),
+        optional("FilterCategories") => list(String.t() | atom()),
+        optional("FilterCountries") => list(String.t() | atom()),
+        optional("Key") => String.t() | atom(),
+        optional("Language") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        required("Text") => String.t()
+        required("Text") => String.t() | atom()
       }
 
   """
-  @type search_place_index_for_text_request() :: %{String.t() => any()}
+  @type search_place_index_for_text_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_place_request() :: %{
-        optional("Key") => String.t(),
-        optional("Language") => String.t()
+        optional("Key") => String.t() | atom(),
+        optional("Language") => String.t() | atom()
       }
 
   """
-  @type get_place_request() :: %{String.t() => any()}
+  @type get_place_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       time_zone() :: %{
-        "Name" => [String.t()],
+        "Name" => [String.t() | atom()],
         "Offset" => [integer()]
       }
 
   """
-  @type time_zone() :: %{String.t() => any()}
+  @type time_zone() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_geofence_collection_request() :: %{
-        optional("Description") => String.t(),
-        optional("PricingPlan") => String.t(),
-        optional("PricingPlanDataSource") => [String.t()]
+        optional("Description") => String.t() | atom(),
+        optional("PricingPlan") => String.t() | atom(),
+        optional("PricingPlanDataSource") => [String.t() | atom()]
       }
 
   """
-  @type update_geofence_collection_request() :: %{String.t() => any()}
+  @type update_geofence_collection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1196,31 +1196,31 @@ defmodule AWS.Location do
   ## Example:
 
       batch_item_error() :: %{
-        "Code" => String.t(),
-        "Message" => [String.t()]
+        "Code" => String.t() | atom(),
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type batch_item_error() :: %{String.t() => any()}
+  @type batch_item_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_map_response() :: %{
-        optional("PricingPlan") => String.t(),
+        optional("PricingPlan") => String.t() | atom(),
         optional("Tags") => map(),
         required("Configuration") => map_configuration(),
         required("CreateTime") => non_neg_integer(),
-        required("DataSource") => [String.t()],
-        required("Description") => String.t(),
-        required("MapArn") => String.t(),
-        required("MapName") => String.t(),
+        required("DataSource") => [String.t() | atom()],
+        required("Description") => String.t() | atom(),
+        required("MapArn") => String.t() | atom(),
+        required("MapName") => String.t() | atom(),
         required("UpdateTime") => non_neg_integer()
       }
 
   """
-  @type describe_map_response() :: %{String.t() => any()}
+  @type describe_map_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1228,45 +1228,45 @@ defmodule AWS.Location do
 
       search_place_index_for_suggestions_summary() :: %{
         "BiasPosition" => list([float()]()),
-        "DataSource" => [String.t()],
+        "DataSource" => [String.t() | atom()],
         "FilterBBox" => list([float()]()),
-        "FilterCategories" => list(String.t()),
-        "FilterCountries" => list(String.t()),
-        "Language" => String.t(),
+        "FilterCategories" => list(String.t() | atom()),
+        "FilterCountries" => list(String.t() | atom()),
+        "Language" => String.t() | atom(),
         "MaxResults" => [integer()],
-        "Text" => String.t()
+        "Text" => String.t() | atom()
       }
 
   """
-  @type search_place_index_for_suggestions_summary() :: %{String.t() => any()}
+  @type search_place_index_for_suggestions_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_place_index_response() :: %{
-        required("IndexArn") => String.t(),
-        required("IndexName") => String.t(),
+        required("IndexArn") => String.t() | atom(),
+        required("IndexName") => String.t() | atom(),
         required("UpdateTime") => non_neg_integer()
       }
 
   """
-  @type update_place_index_response() :: %{String.t() => any()}
+  @type update_place_index_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_route_calculator_request() :: %{
-        optional("Description") => String.t(),
-        optional("PricingPlan") => String.t(),
+        optional("Description") => String.t() | atom(),
+        optional("PricingPlan") => String.t() | atom(),
         optional("Tags") => map(),
-        required("CalculatorName") => String.t(),
-        required("DataSource") => [String.t()]
+        required("CalculatorName") => String.t() | atom(),
+        required("DataSource") => [String.t() | atom()]
       }
 
   """
-  @type create_route_calculator_request() :: %{String.t() => any()}
+  @type create_route_calculator_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1274,27 +1274,27 @@ defmodule AWS.Location do
 
       list_place_indexes_response_entry() :: %{
         "CreateTime" => non_neg_integer(),
-        "DataSource" => [String.t()],
-        "Description" => String.t(),
-        "IndexName" => String.t(),
-        "PricingPlan" => String.t(),
+        "DataSource" => [String.t() | atom()],
+        "Description" => String.t() | atom(),
+        "IndexName" => String.t() | atom(),
+        "PricingPlan" => String.t() | atom(),
         "UpdateTime" => non_neg_integer()
       }
 
   """
-  @type list_place_indexes_response_entry() :: %{String.t() => any()}
+  @type list_place_indexes_response_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_device_position_history_response() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("DevicePositions") => list(device_position())
       }
 
   """
-  @type get_device_position_history_response() :: %{String.t() => any()}
+  @type get_device_position_history_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1305,7 +1305,7 @@ defmodule AWS.Location do
       }
 
   """
-  @type batch_evaluate_geofences_response() :: %{String.t() => any()}
+  @type batch_evaluate_geofences_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1313,77 +1313,77 @@ defmodule AWS.Location do
 
       create_map_response() :: %{
         required("CreateTime") => non_neg_integer(),
-        required("MapArn") => String.t(),
-        required("MapName") => String.t()
+        required("MapArn") => String.t() | atom(),
+        required("MapName") => String.t() | atom()
       }
 
   """
-  @type create_map_response() :: %{String.t() => any()}
+  @type create_map_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       forecast_geofence_events_request() :: %{
-        optional("DistanceUnit") => String.t(),
+        optional("DistanceUnit") => String.t() | atom(),
         optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t(),
-        optional("SpeedUnit") => String.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SpeedUnit") => String.t() | atom(),
         optional("TimeHorizonMinutes") => [float()],
         required("DeviceState") => forecast_geofence_events_device_state()
       }
 
   """
-  @type forecast_geofence_events_request() :: %{String.t() => any()}
+  @type forecast_geofence_events_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       api_key_restrictions() :: %{
-        "AllowActions" => list(String.t()),
-        "AllowReferers" => list(String.t()),
-        "AllowResources" => list(String.t())
+        "AllowActions" => list(String.t() | atom()),
+        "AllowReferers" => list(String.t() | atom()),
+        "AllowResources" => list(String.t() | atom())
       }
 
   """
-  @type api_key_restrictions() :: %{String.t() => any()}
+  @type api_key_restrictions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_tracker_response() :: %{
-        required("TrackerArn") => String.t(),
-        required("TrackerName") => String.t(),
+        required("TrackerArn") => String.t() | atom(),
+        required("TrackerName") => String.t() | atom(),
         required("UpdateTime") => non_neg_integer()
       }
 
   """
-  @type update_tracker_response() :: %{String.t() => any()}
+  @type update_tracker_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_place_indexes_response() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("Entries") => list(list_place_indexes_response_entry())
       }
 
   """
-  @type list_place_indexes_response() :: %{String.t() => any()}
+  @type list_place_indexes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1391,36 +1391,36 @@ defmodule AWS.Location do
 
       list_route_calculators_request() :: %{
         optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_route_calculators_request() :: %{String.t() => any()}
+  @type list_route_calculators_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_maps_response() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("Entries") => list(list_maps_response_entry())
       }
 
   """
-  @type list_maps_response() :: %{String.t() => any()}
+  @type list_maps_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_put_geofence_request_entry() :: %{
-        "GeofenceId" => String.t(),
+        "GeofenceId" => String.t() | atom(),
         "GeofenceProperties" => map(),
         "Geometry" => geofence_geometry()
       }
 
   """
-  @type batch_put_geofence_request_entry() :: %{String.t() => any()}
+  @type batch_put_geofence_request_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1437,42 +1437,42 @@ defmodule AWS.Location do
 
       get_map_sprites_response() :: %{
         optional("Blob") => [binary()],
-        optional("CacheControl") => [String.t()],
-        optional("ContentType") => [String.t()]
+        optional("CacheControl") => [String.t() | atom()],
+        optional("ContentType") => [String.t() | atom()]
       }
 
   """
-  @type get_map_sprites_response() :: %{String.t() => any()}
+  @type get_map_sprites_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_place_index_response() :: %{
-        optional("PricingPlan") => String.t(),
+        optional("PricingPlan") => String.t() | atom(),
         optional("Tags") => map(),
         required("CreateTime") => non_neg_integer(),
-        required("DataSource") => [String.t()],
+        required("DataSource") => [String.t() | atom()],
         required("DataSourceConfiguration") => data_source_configuration(),
-        required("Description") => String.t(),
-        required("IndexArn") => String.t(),
-        required("IndexName") => String.t(),
+        required("Description") => String.t() | atom(),
+        required("IndexArn") => String.t() | atom(),
+        required("IndexName") => String.t() | atom(),
         required("UpdateTime") => non_neg_integer()
       }
 
   """
-  @type describe_place_index_response() :: %{String.t() => any()}
+  @type describe_place_index_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1486,7 +1486,7 @@ defmodule AWS.Location do
       }
 
   """
-  @type calculate_route_truck_mode_options() :: %{String.t() => any()}
+  @type calculate_route_truck_mode_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1495,20 +1495,20 @@ defmodule AWS.Location do
       describe_tracker_response() :: %{
         optional("EventBridgeEnabled") => [boolean()],
         optional("KmsKeyEnableGeospatialQueries") => [boolean()],
-        optional("KmsKeyId") => String.t(),
-        optional("PositionFiltering") => String.t(),
-        optional("PricingPlan") => String.t(),
-        optional("PricingPlanDataSource") => [String.t()],
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("PositionFiltering") => String.t() | atom(),
+        optional("PricingPlan") => String.t() | atom(),
+        optional("PricingPlanDataSource") => [String.t() | atom()],
         optional("Tags") => map(),
         required("CreateTime") => non_neg_integer(),
-        required("Description") => String.t(),
-        required("TrackerArn") => String.t(),
-        required("TrackerName") => String.t(),
+        required("Description") => String.t() | atom(),
+        required("TrackerArn") => String.t() | atom(),
+        required("TrackerName") => String.t() | atom(),
         required("UpdateTime") => non_neg_integer()
       }
 
   """
-  @type describe_tracker_response() :: %{String.t() => any()}
+  @type describe_tracker_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1524,19 +1524,19 @@ defmodule AWS.Location do
   ## Example:
 
       create_tracker_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("EventBridgeEnabled") => [boolean()],
         optional("KmsKeyEnableGeospatialQueries") => [boolean()],
-        optional("KmsKeyId") => String.t(),
-        optional("PositionFiltering") => String.t(),
-        optional("PricingPlan") => String.t(),
-        optional("PricingPlanDataSource") => [String.t()],
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("PositionFiltering") => String.t() | atom(),
+        optional("PricingPlan") => String.t() | atom(),
+        optional("PricingPlanDataSource") => [String.t() | atom()],
         optional("Tags") => map(),
-        required("TrackerName") => String.t()
+        required("TrackerName") => String.t() | atom()
       }
 
   """
-  @type create_tracker_request() :: %{String.t() => any()}
+  @type create_tracker_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1544,19 +1544,19 @@ defmodule AWS.Location do
 
       describe_geofence_collection_response() :: %{
         optional("GeofenceCount") => [integer()],
-        optional("KmsKeyId") => String.t(),
-        optional("PricingPlan") => String.t(),
-        optional("PricingPlanDataSource") => [String.t()],
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("PricingPlan") => String.t() | atom(),
+        optional("PricingPlanDataSource") => [String.t() | atom()],
         optional("Tags") => map(),
-        required("CollectionArn") => String.t(),
-        required("CollectionName") => String.t(),
+        required("CollectionArn") => String.t() | atom(),
+        required("CollectionName") => String.t() | atom(),
         required("CreateTime") => non_neg_integer(),
-        required("Description") => String.t(),
+        required("Description") => String.t() | atom(),
         required("UpdateTime") => non_neg_integer()
       }
 
   """
-  @type describe_geofence_collection_response() :: %{String.t() => any()}
+  @type describe_geofence_collection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1570,19 +1570,19 @@ defmodule AWS.Location do
       }
 
   """
-  @type calculate_route_matrix_response() :: %{String.t() => any()}
+  @type calculate_route_matrix_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_device_position_error() :: %{
-        "DeviceId" => String.t(),
+        "DeviceId" => String.t() | atom(),
         "Error" => batch_item_error()
       }
 
   """
-  @type batch_get_device_position_error() :: %{String.t() => any()}
+  @type batch_get_device_position_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1593,11 +1593,11 @@ defmodule AWS.Location do
         optional("CarModeOptions") => calculate_route_car_mode_options(),
         optional("DepartNow") => [boolean()],
         optional("DepartureTime") => non_neg_integer(),
-        optional("DistanceUnit") => String.t(),
+        optional("DistanceUnit") => String.t() | atom(),
         optional("IncludeLegGeometry") => [boolean()],
-        optional("Key") => String.t(),
-        optional("OptimizeFor") => String.t(),
-        optional("TravelMode") => String.t(),
+        optional("Key") => String.t() | atom(),
+        optional("OptimizeFor") => String.t() | atom(),
+        optional("TravelMode") => String.t() | atom(),
         optional("TruckModeOptions") => calculate_route_truck_mode_options(),
         optional("WaypointPositions") => list(list([float()]())()),
         required("DeparturePosition") => list([float()]()),
@@ -1605,7 +1605,7 @@ defmodule AWS.Location do
       }
 
   """
-  @type calculate_route_request() :: %{String.t() => any()}
+  @type calculate_route_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1613,12 +1613,12 @@ defmodule AWS.Location do
 
       validation_exception() :: %{
         "FieldList" => list(validation_exception_field()),
-        "Message" => [String.t()],
-        "Reason" => String.t()
+        "Message" => [String.t() | atom()],
+        "Reason" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1639,19 +1639,19 @@ defmodule AWS.Location do
       }
 
   """
-  @type batch_put_geofence_response() :: %{String.t() => any()}
+  @type batch_put_geofence_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_delete_device_position_history_error() :: %{
-        "DeviceId" => String.t(),
+        "DeviceId" => String.t() | atom(),
         "Error" => batch_item_error()
       }
 
   """
-  @type batch_delete_device_position_history_error() :: %{String.t() => any()}
+  @type batch_delete_device_position_history_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1662,7 +1662,7 @@ defmodule AWS.Location do
       }
 
   """
-  @type get_place_response() :: %{String.t() => any()}
+  @type get_place_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1674,18 +1674,18 @@ defmodule AWS.Location do
       }
 
   """
-  @type batch_get_device_position_response() :: %{String.t() => any()}
+  @type batch_get_device_position_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1702,30 +1702,30 @@ defmodule AWS.Location do
 
       truck_weight() :: %{
         "Total" => [float()],
-        "Unit" => String.t()
+        "Unit" => String.t() | atom()
       }
 
   """
-  @type truck_weight() :: %{String.t() => any()}
+  @type truck_weight() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_key_response() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => map(),
         required("CreateTime") => non_neg_integer(),
         required("ExpireTime") => non_neg_integer(),
-        required("Key") => String.t(),
-        required("KeyArn") => String.t(),
-        required("KeyName") => String.t(),
+        required("Key") => String.t() | atom(),
+        required("KeyArn") => String.t() | atom(),
+        required("KeyName") => String.t() | atom(),
         required("Restrictions") => api_key_restrictions(),
         required("UpdateTime") => non_neg_integer()
       }
 
   """
-  @type describe_key_response() :: %{String.t() => any()}
+  @type describe_key_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1736,7 +1736,7 @@ defmodule AWS.Location do
       }
 
   """
-  @type batch_update_device_position_request() :: %{String.t() => any()}
+  @type batch_update_device_position_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1744,14 +1744,14 @@ defmodule AWS.Location do
 
       device_position_update() :: %{
         "Accuracy" => positional_accuracy(),
-        "DeviceId" => String.t(),
+        "DeviceId" => String.t() | atom(),
         "Position" => list([float()]()),
         "PositionProperties" => map(),
         "SampleTime" => non_neg_integer()
       }
 
   """
-  @type device_position_update() :: %{String.t() => any()}
+  @type device_position_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1771,7 +1771,7 @@ defmodule AWS.Location do
       }
 
   """
-  @type lte_cell_details() :: %{String.t() => any()}
+  @type lte_cell_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1782,32 +1782,32 @@ defmodule AWS.Location do
       }
 
   """
-  @type cell_signals() :: %{String.t() => any()}
+  @type cell_signals() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       calculate_route_matrix_summary() :: %{
-        "DataSource" => [String.t()],
-        "DistanceUnit" => String.t(),
+        "DataSource" => [String.t() | atom()],
+        "DistanceUnit" => String.t() | atom(),
         "ErrorCount" => [integer()],
         "RouteCount" => [integer()]
       }
 
   """
-  @type calculate_route_matrix_summary() :: %{String.t() => any()}
+  @type calculate_route_matrix_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_delete_geofence_request() :: %{
-        required("GeofenceIds") => list(String.t())
+        required("GeofenceIds") => list(String.t() | atom())
       }
 
   """
-  @type batch_delete_geofence_request() :: %{String.t() => any()}
+  @type batch_delete_geofence_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1815,30 +1815,30 @@ defmodule AWS.Location do
 
       list_keys_response_entry() :: %{
         "CreateTime" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "ExpireTime" => non_neg_integer(),
-        "KeyName" => String.t(),
+        "KeyName" => String.t() | atom(),
         "Restrictions" => api_key_restrictions(),
         "UpdateTime" => non_neg_integer()
       }
 
   """
-  @type list_keys_response_entry() :: %{String.t() => any()}
+  @type list_keys_response_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       calculate_route_summary() :: %{
-        "DataSource" => [String.t()],
+        "DataSource" => [String.t() | atom()],
         "Distance" => [float()],
-        "DistanceUnit" => String.t(),
+        "DistanceUnit" => String.t() | atom(),
         "DurationSeconds" => [float()],
         "RouteBBox" => list([float()]())
       }
 
   """
-  @type calculate_route_summary() :: %{String.t() => any()}
+  @type calculate_route_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1853,20 +1853,20 @@ defmodule AWS.Location do
       }
 
   """
-  @type lte_network_measurements() :: %{String.t() => any()}
+  @type lte_network_measurements() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       map_configuration() :: %{
-        "CustomLayers" => list(String.t()),
-        "PoliticalView" => String.t(),
-        "Style" => String.t()
+        "CustomLayers" => list(String.t() | atom()),
+        "PoliticalView" => String.t() | atom(),
+        "Style" => String.t() | atom()
       }
 
   """
-  @type map_configuration() :: %{String.t() => any()}
+  @type map_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1877,7 +1877,7 @@ defmodule AWS.Location do
       }
 
   """
-  @type positional_accuracy() :: %{String.t() => any()}
+  @type positional_accuracy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1885,7 +1885,7 @@ defmodule AWS.Location do
 
       device_position() :: %{
         "Accuracy" => positional_accuracy(),
-        "DeviceId" => String.t(),
+        "DeviceId" => String.t() | atom(),
         "Position" => list([float()]()),
         "PositionProperties" => map(),
         "ReceivedTime" => non_neg_integer(),
@@ -1893,23 +1893,23 @@ defmodule AWS.Location do
       }
 
   """
-  @type device_position() :: %{String.t() => any()}
+  @type device_position() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_geofence_collection_request() :: %{
-        optional("Description") => String.t(),
-        optional("KmsKeyId") => String.t(),
-        optional("PricingPlan") => String.t(),
-        optional("PricingPlanDataSource") => [String.t()],
+        optional("Description") => String.t() | atom(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("PricingPlan") => String.t() | atom(),
+        optional("PricingPlanDataSource") => [String.t() | atom()],
         optional("Tags") => map(),
-        required("CollectionName") => String.t()
+        required("CollectionName") => String.t() | atom()
       }
 
   """
-  @type create_geofence_collection_request() :: %{String.t() => any()}
+  @type create_geofence_collection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1924,30 +1924,30 @@ defmodule AWS.Location do
       }
 
   """
-  @type step() :: %{String.t() => any()}
+  @type step() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tracker_consumers_response() :: %{
-        optional("NextToken") => String.t(),
-        required("ConsumerArns") => list(String.t())
+        optional("NextToken") => String.t() | atom(),
+        required("ConsumerArns") => list(String.t() | atom())
       }
 
   """
-  @type list_tracker_consumers_response() :: %{String.t() => any()}
+  @type list_tracker_consumers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_map_style_descriptor_request() :: %{
-        optional("Key") => String.t()
+        optional("Key") => String.t() | atom()
       }
 
   """
-  @type get_map_style_descriptor_request() :: %{String.t() => any()}
+  @type get_map_style_descriptor_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1958,7 +1958,7 @@ defmodule AWS.Location do
       }
 
   """
-  @type tracking_filter_geometry() :: %{String.t() => any()}
+  @type tracking_filter_geometry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1967,12 +1967,12 @@ defmodule AWS.Location do
       search_for_text_result() :: %{
         "Distance" => [float()],
         "Place" => place(),
-        "PlaceId" => String.t(),
+        "PlaceId" => String.t() | atom(),
         "Relevance" => [float()]
       }
 
   """
-  @type search_for_text_result() :: %{String.t() => any()}
+  @type search_for_text_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1980,26 +1980,26 @@ defmodule AWS.Location do
 
       list_trackers_request() :: %{
         optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_trackers_request() :: %{String.t() => any()}
+  @type list_trackers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       verify_device_position_response() :: %{
-        "DeviceId" => String.t(),
-        "DistanceUnit" => String.t(),
+        "DeviceId" => String.t() | atom(),
+        "DistanceUnit" => String.t() | atom(),
         "InferredState" => inferred_state(),
         "ReceivedTime" => non_neg_integer(),
         "SampleTime" => non_neg_integer()
       }
 
   """
-  @type verify_device_position_response() :: %{String.t() => any()}
+  @type verify_device_position_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2015,16 +2015,16 @@ defmodule AWS.Location do
   ## Example:
 
       update_tracker_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("EventBridgeEnabled") => [boolean()],
         optional("KmsKeyEnableGeospatialQueries") => [boolean()],
-        optional("PositionFiltering") => String.t(),
-        optional("PricingPlan") => String.t(),
-        optional("PricingPlanDataSource") => [String.t()]
+        optional("PositionFiltering") => String.t() | atom(),
+        optional("PricingPlan") => String.t() | atom(),
+        optional("PricingPlanDataSource") => [String.t() | atom()]
       }
 
   """
-  @type update_tracker_request() :: %{String.t() => any()}
+  @type update_tracker_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2033,11 +2033,11 @@ defmodule AWS.Location do
       list_device_positions_request() :: %{
         optional("FilterGeometry") => tracking_filter_geometry(),
         optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_device_positions_request() :: %{String.t() => any()}
+  @type list_device_positions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2048,7 +2048,7 @@ defmodule AWS.Location do
       }
 
   """
-  @type leg_geometry() :: %{String.t() => any()}
+  @type leg_geometry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2062,7 +2062,7 @@ defmodule AWS.Location do
       }
 
   """
-  @type geofence_geometry() :: %{String.t() => any()}
+  @type geofence_geometry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2078,12 +2078,12 @@ defmodule AWS.Location do
   ## Example:
 
       list_route_calculators_response() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("Entries") => list(list_route_calculators_response_entry())
       }
 
   """
-  @type list_route_calculators_response() :: %{String.t() => any()}
+  @type list_route_calculators_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2092,12 +2092,12 @@ defmodule AWS.Location do
       get_device_position_history_request() :: %{
         optional("EndTimeExclusive") => non_neg_integer(),
         optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("StartTimeInclusive") => non_neg_integer()
       }
 
   """
-  @type get_device_position_history_request() :: %{String.t() => any()}
+  @type get_device_position_history_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2110,7 +2110,7 @@ defmodule AWS.Location do
       }
 
   """
-  @type route_matrix_entry() :: %{String.t() => any()}
+  @type route_matrix_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2124,7 +2124,7 @@ defmodule AWS.Location do
       }
 
   """
-  @type inferred_state() :: %{String.t() => any()}
+  @type inferred_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2132,7 +2132,7 @@ defmodule AWS.Location do
 
       get_device_position_response() :: %{
         optional("Accuracy") => positional_accuracy(),
-        optional("DeviceId") => String.t(),
+        optional("DeviceId") => String.t() | atom(),
         optional("PositionProperties") => map(),
         required("Position") => list([float()]()),
         required("ReceivedTime") => non_neg_integer(),
@@ -2140,7 +2140,7 @@ defmodule AWS.Location do
       }
 
   """
-  @type get_device_position_response() :: %{String.t() => any()}
+  @type get_device_position_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2149,16 +2149,16 @@ defmodule AWS.Location do
       search_place_index_for_suggestions_request() :: %{
         optional("BiasPosition") => list([float()]()),
         optional("FilterBBox") => list([float()]()),
-        optional("FilterCategories") => list(String.t()),
-        optional("FilterCountries") => list(String.t()),
-        optional("Key") => String.t(),
-        optional("Language") => String.t(),
+        optional("FilterCategories") => list(String.t() | atom()),
+        optional("FilterCountries") => list(String.t() | atom()),
+        optional("Key") => String.t() | atom(),
+        optional("Language") => String.t() | atom(),
         optional("MaxResults") => [integer()],
-        required("Text") => String.t()
+        required("Text") => String.t() | atom()
       }
 
   """
-  @type search_place_index_for_suggestions_request() :: %{String.t() => any()}
+  @type search_place_index_for_suggestions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2169,7 +2169,7 @@ defmodule AWS.Location do
       }
 
   """
-  @type batch_delete_device_position_history_response() :: %{String.t() => any()}
+  @type batch_delete_device_position_history_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2190,18 +2190,18 @@ defmodule AWS.Location do
       }
 
   """
-  @type search_place_index_for_suggestions_response() :: %{String.t() => any()}
+  @type search_place_index_for_suggestions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_map_glyphs_request() :: %{
-        optional("Key") => String.t()
+        optional("Key") => String.t() | atom()
       }
 
   """
-  @type get_map_glyphs_request() :: %{String.t() => any()}
+  @type get_map_glyphs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2217,63 +2217,63 @@ defmodule AWS.Location do
       }
 
   """
-  @type leg() :: %{String.t() => any()}
+  @type leg() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       place() :: %{
-        "AddressNumber" => [String.t()],
-        "Categories" => list(String.t()),
-        "Country" => [String.t()],
+        "AddressNumber" => [String.t() | atom()],
+        "Categories" => list(String.t() | atom()),
+        "Country" => [String.t() | atom()],
         "Geometry" => place_geometry(),
         "Interpolated" => [boolean()],
-        "Label" => [String.t()],
-        "Municipality" => [String.t()],
-        "Neighborhood" => [String.t()],
-        "PostalCode" => [String.t()],
-        "Region" => [String.t()],
-        "Street" => [String.t()],
-        "SubMunicipality" => [String.t()],
-        "SubRegion" => [String.t()],
-        "SupplementalCategories" => list(String.t()),
+        "Label" => [String.t() | atom()],
+        "Municipality" => [String.t() | atom()],
+        "Neighborhood" => [String.t() | atom()],
+        "PostalCode" => [String.t() | atom()],
+        "Region" => [String.t() | atom()],
+        "Street" => [String.t() | atom()],
+        "SubMunicipality" => [String.t() | atom()],
+        "SubRegion" => [String.t() | atom()],
+        "SupplementalCategories" => list(String.t() | atom()),
         "TimeZone" => time_zone(),
-        "UnitNumber" => [String.t()],
-        "UnitType" => [String.t()]
+        "UnitNumber" => [String.t() | atom()],
+        "UnitType" => [String.t() | atom()]
       }
 
   """
-  @type place() :: %{String.t() => any()}
+  @type place() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_evaluate_geofences_error() :: %{
-        "DeviceId" => String.t(),
+        "DeviceId" => String.t() | atom(),
         "Error" => batch_item_error(),
         "SampleTime" => non_neg_integer()
       }
 
   """
-  @type batch_evaluate_geofences_error() :: %{String.t() => any()}
+  @type batch_evaluate_geofences_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_geofence_collections_response_entry() :: %{
-        "CollectionName" => String.t(),
+        "CollectionName" => String.t() | atom(),
         "CreateTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "PricingPlan" => String.t(),
-        "PricingPlanDataSource" => [String.t()],
+        "Description" => String.t() | atom(),
+        "PricingPlan" => String.t() | atom(),
+        "PricingPlanDataSource" => [String.t() | atom()],
         "UpdateTime" => non_neg_integer()
       }
 
   """
-  @type list_geofence_collections_response_entry() :: %{String.t() => any()}
+  @type list_geofence_collections_response_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2281,12 +2281,12 @@ defmodule AWS.Location do
 
       update_place_index_request() :: %{
         optional("DataSourceConfiguration") => data_source_configuration(),
-        optional("Description") => String.t(),
-        optional("PricingPlan") => String.t()
+        optional("Description") => String.t() | atom(),
+        optional("PricingPlan") => String.t() | atom()
       }
 
   """
-  @type update_place_index_request() :: %{String.t() => any()}
+  @type update_place_index_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2294,27 +2294,27 @@ defmodule AWS.Location do
 
       create_key_response() :: %{
         required("CreateTime") => non_neg_integer(),
-        required("Key") => String.t(),
-        required("KeyArn") => String.t(),
-        required("KeyName") => String.t()
+        required("Key") => String.t() | atom(),
+        required("KeyArn") => String.t() | atom(),
+        required("KeyName") => String.t() | atom()
       }
 
   """
-  @type create_key_response() :: %{String.t() => any()}
+  @type create_key_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       search_place_index_for_position_request() :: %{
-        optional("Key") => String.t(),
-        optional("Language") => String.t(),
+        optional("Key") => String.t() | atom(),
+        optional("Language") => String.t() | atom(),
         optional("MaxResults") => integer(),
         required("Position") => list([float()]())
       }
 
   """
-  @type search_place_index_for_position_request() :: %{String.t() => any()}
+  @type search_place_index_for_position_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2324,16 +2324,16 @@ defmodule AWS.Location do
         optional("CarModeOptions") => calculate_route_car_mode_options(),
         optional("DepartNow") => [boolean()],
         optional("DepartureTime") => non_neg_integer(),
-        optional("DistanceUnit") => String.t(),
-        optional("Key") => String.t(),
-        optional("TravelMode") => String.t(),
+        optional("DistanceUnit") => String.t() | atom(),
+        optional("Key") => String.t() | atom(),
+        optional("TravelMode") => String.t() | atom(),
         optional("TruckModeOptions") => calculate_route_truck_mode_options(),
         required("DeparturePositions") => list(list([float()]())()),
         required("DestinationPositions") => list(list([float()]())())
       }
 
   """
-  @type calculate_route_matrix_request() :: %{String.t() => any()}
+  @type calculate_route_matrix_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2350,11 +2350,11 @@ defmodule AWS.Location do
 
       list_geofences_request() :: %{
         optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_geofences_request() :: %{String.t() => any()}
+  @type list_geofences_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2362,40 +2362,40 @@ defmodule AWS.Location do
 
       list_trackers_response_entry() :: %{
         "CreateTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "PricingPlan" => String.t(),
-        "PricingPlanDataSource" => [String.t()],
-        "TrackerName" => String.t(),
+        "Description" => String.t() | atom(),
+        "PricingPlan" => String.t() | atom(),
+        "PricingPlanDataSource" => [String.t() | atom()],
+        "TrackerName" => String.t() | atom(),
         "UpdateTime" => non_neg_integer()
       }
 
   """
-  @type list_trackers_response_entry() :: %{String.t() => any()}
+  @type list_trackers_response_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       forecast_geofence_events_response() :: %{
-        "DistanceUnit" => String.t(),
+        "DistanceUnit" => String.t() | atom(),
         "ForecastedEvents" => list(forecasted_event()),
-        "NextToken" => String.t(),
-        "SpeedUnit" => String.t()
+        "NextToken" => String.t() | atom(),
+        "SpeedUnit" => String.t() | atom()
       }
 
   """
-  @type forecast_geofence_events_response() :: %{String.t() => any()}
+  @type forecast_geofence_events_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_delete_device_position_history_request() :: %{
-        required("DeviceIds") => list(String.t())
+        required("DeviceIds") => list(String.t() | atom())
       }
 
   """
-  @type batch_delete_device_position_history_request() :: %{String.t() => any()}
+  @type batch_delete_device_position_history_request() :: %{(String.t() | atom()) => any()}
 
   @type associate_tracker_consumer_errors() ::
           throttling_exception()
@@ -2850,7 +2850,7 @@ defmodule AWS.Location do
   """
   @spec associate_tracker_consumer(
           map(),
-          String.t(),
+          String.t() | atom(),
           associate_tracker_consumer_request(),
           list()
         ) ::
@@ -2884,7 +2884,7 @@ defmodule AWS.Location do
   """
   @spec batch_delete_device_position_history(
           map(),
-          String.t(),
+          String.t() | atom(),
           batch_delete_device_position_history_request(),
           list()
         ) ::
@@ -2918,7 +2918,7 @@ defmodule AWS.Location do
 
   This operation deletes the resource permanently.
   """
-  @spec batch_delete_geofence(map(), String.t(), batch_delete_geofence_request(), list()) ::
+  @spec batch_delete_geofence(map(), String.t() | atom(), batch_delete_geofence_request(), list()) ::
           {:ok, batch_delete_geofence_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2976,7 +2976,12 @@ defmodule AWS.Location do
   need to have a `Tracker` associated with the
   `DeviceID`.
   """
-  @spec batch_evaluate_geofences(map(), String.t(), batch_evaluate_geofences_request(), list()) ::
+  @spec batch_evaluate_geofences(
+          map(),
+          String.t() | atom(),
+          batch_evaluate_geofences_request(),
+          list()
+        ) ::
           {:ok, batch_evaluate_geofences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3005,7 +3010,12 @@ defmodule AWS.Location do
   @doc """
   Lists the latest device positions for requested devices.
   """
-  @spec batch_get_device_position(map(), String.t(), batch_get_device_position_request(), list()) ::
+  @spec batch_get_device_position(
+          map(),
+          String.t() | atom(),
+          batch_get_device_position_request(),
+          list()
+        ) ::
           {:ok, batch_get_device_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3037,7 +3047,7 @@ defmodule AWS.Location do
   updates the geometry of an existing geofence if a geofence ID is included in the
   request.
   """
-  @spec batch_put_geofence(map(), String.t(), batch_put_geofence_request(), list()) ::
+  @spec batch_put_geofence(map(), String.t() | atom(), batch_put_geofence_request(), list()) ::
           {:ok, batch_put_geofence_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3096,7 +3106,7 @@ defmodule AWS.Location do
   """
   @spec batch_update_device_position(
           map(),
-          String.t(),
+          String.t() | atom(),
           batch_update_device_position_request(),
           list()
         ) ::
@@ -3164,7 +3174,7 @@ defmodule AWS.Location do
   If you specify `walking` for the travel mode and your data
   provider is Esri, the start and destination must be within 40km.
   """
-  @spec calculate_route(map(), String.t(), calculate_route_request(), list()) ::
+  @spec calculate_route(map(), String.t() | atom(), calculate_route_request(), list()) ::
           {:ok, calculate_route_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3243,7 +3253,12 @@ defmodule AWS.Location do
   `CarModeOptions` if traveling by `Car`, or
   `TruckModeOptions` if traveling by `Truck`.
   """
-  @spec calculate_route_matrix(map(), String.t(), calculate_route_matrix_request(), list()) ::
+  @spec calculate_route_matrix(
+          map(),
+          String.t() | atom(),
+          calculate_route_matrix_request(),
+          list()
+        ) ::
           {:ok, calculate_route_matrix_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3490,7 +3505,7 @@ defmodule AWS.Location do
   """
   @spec delete_geofence_collection(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_geofence_collection_request(),
           list()
         ) ::
@@ -3525,7 +3540,7 @@ defmodule AWS.Location do
   The API key must have been deactivated more than
   90 days previously.
   """
-  @spec delete_key(map(), String.t(), delete_key_request(), list()) ::
+  @spec delete_key(map(), String.t() | atom(), delete_key_request(), list()) ::
           {:ok, delete_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3563,7 +3578,7 @@ defmodule AWS.Location do
   application,
   the map may not render.
   """
-  @spec delete_map(map(), String.t(), delete_map_request(), list()) ::
+  @spec delete_map(map(), String.t() | atom(), delete_map_request(), list()) ::
           {:ok, delete_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3594,7 +3609,7 @@ defmodule AWS.Location do
 
   This operation deletes the resource permanently.
   """
-  @spec delete_place_index(map(), String.t(), delete_place_index_request(), list()) ::
+  @spec delete_place_index(map(), String.t() | atom(), delete_place_index_request(), list()) ::
           {:ok, delete_place_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3625,7 +3640,12 @@ defmodule AWS.Location do
 
   This operation deletes the resource permanently.
   """
-  @spec delete_route_calculator(map(), String.t(), delete_route_calculator_request(), list()) ::
+  @spec delete_route_calculator(
+          map(),
+          String.t() | atom(),
+          delete_route_calculator_request(),
+          list()
+        ) ::
           {:ok, delete_route_calculator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3660,7 +3680,7 @@ defmodule AWS.Location do
   your
   applications.
   """
-  @spec delete_tracker(map(), String.t(), delete_tracker_request(), list()) ::
+  @spec delete_tracker(map(), String.t() | atom(), delete_tracker_request(), list()) ::
           {:ok, delete_tracker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3689,7 +3709,7 @@ defmodule AWS.Location do
   @doc """
   Retrieves the geofence collection details.
   """
-  @spec describe_geofence_collection(map(), String.t(), list()) ::
+  @spec describe_geofence_collection(map(), String.t() | atom(), list()) ::
           {:ok, describe_geofence_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3707,7 +3727,7 @@ defmodule AWS.Location do
   @doc """
   Retrieves the API key resource details.
   """
-  @spec describe_key(map(), String.t(), list()) ::
+  @spec describe_key(map(), String.t() | atom(), list()) ::
           {:ok, describe_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3725,7 +3745,7 @@ defmodule AWS.Location do
   @doc """
   Retrieves the map resource details.
   """
-  @spec describe_map(map(), String.t(), list()) ::
+  @spec describe_map(map(), String.t() | atom(), list()) ::
           {:ok, describe_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3743,7 +3763,7 @@ defmodule AWS.Location do
   @doc """
   Retrieves the place index resource details.
   """
-  @spec describe_place_index(map(), String.t(), list()) ::
+  @spec describe_place_index(map(), String.t() | atom(), list()) ::
           {:ok, describe_place_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3761,7 +3781,7 @@ defmodule AWS.Location do
   @doc """
   Retrieves the route calculator resource details.
   """
-  @spec describe_route_calculator(map(), String.t(), list()) ::
+  @spec describe_route_calculator(map(), String.t() | atom(), list()) ::
           {:ok, describe_route_calculator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3779,7 +3799,7 @@ defmodule AWS.Location do
   @doc """
   Retrieves the tracker resource details.
   """
-  @spec describe_tracker(map(), String.t(), list()) ::
+  @spec describe_tracker(map(), String.t() | atom(), list()) ::
           {:ok, describe_tracker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3802,8 +3822,8 @@ defmodule AWS.Location do
   """
   @spec disassociate_tracker_consumer(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           disassociate_tracker_consumer_request(),
           list()
         ) ::
@@ -3867,7 +3887,12 @@ defmodule AWS.Location do
   Heading direction is not considered in the current version. The API takes a
   conservative approach and includes events that can occur for any heading.
   """
-  @spec forecast_geofence_events(map(), String.t(), forecast_geofence_events_request(), list()) ::
+  @spec forecast_geofence_events(
+          map(),
+          String.t() | atom(),
+          forecast_geofence_events_request(),
+          list()
+        ) ::
           {:ok, forecast_geofence_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3900,7 +3925,7 @@ defmodule AWS.Location do
 
   Device positions are deleted after 30 days.
   """
-  @spec get_device_position(map(), String.t(), String.t(), list()) ::
+  @spec get_device_position(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_device_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3926,8 +3951,8 @@ defmodule AWS.Location do
   """
   @spec get_device_position_history(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           get_device_position_history_request(),
           list()
         ) ::
@@ -3971,7 +3996,7 @@ defmodule AWS.Location do
   geofence
   was created.
   """
-  @spec get_geofence(map(), String.t(), String.t(), list()) ::
+  @spec get_geofence(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_geofence_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3991,7 +4016,14 @@ defmodule AWS.Location do
   @doc """
   Retrieves glyphs used to display labels on a map.
   """
-  @spec get_map_glyphs(map(), String.t(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_map_glyphs(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_map_glyphs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4037,7 +4069,13 @@ defmodule AWS.Location do
   that will
   be displayed on a rendered map.
   """
-  @spec get_map_sprites(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_map_sprites(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_map_sprites_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4076,7 +4114,7 @@ defmodule AWS.Location do
   for the
   data. Style descriptors follow the Mapbox Style Specification.
   """
-  @spec get_map_style_descriptor(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_map_style_descriptor(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_map_style_descriptor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4120,11 +4158,11 @@ defmodule AWS.Location do
   """
   @spec get_map_tile(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_map_tile_response(), any()}
@@ -4179,7 +4217,14 @@ defmodule AWS.Location do
   provider and Storage as Intended use, the GetPlace operation is unavailable. For
   more information, see [AWS service terms](http://aws.amazon.com/service-terms).
   """
-  @spec get_place(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_place(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_place_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4220,7 +4265,7 @@ defmodule AWS.Location do
   @doc """
   A batch request to retrieve all device positions.
   """
-  @spec list_device_positions(map(), String.t(), list_device_positions_request(), list()) ::
+  @spec list_device_positions(map(), String.t() | atom(), list_device_positions_request(), list()) ::
           {:ok, list_device_positions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4278,7 +4323,7 @@ defmodule AWS.Location do
   @doc """
   Lists geofences stored in a given geofence collection.
   """
-  @spec list_geofences(map(), String.t(), list_geofences_request(), list()) ::
+  @spec list_geofences(map(), String.t() | atom(), list_geofences_request(), list()) ::
           {:ok, list_geofences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4424,7 +4469,7 @@ defmodule AWS.Location do
   Returns a list of tags that are applied to the specified Amazon Location
   resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4442,7 +4487,12 @@ defmodule AWS.Location do
   @doc """
   Lists geofence collections currently associated to the given tracker resource.
   """
-  @spec list_tracker_consumers(map(), String.t(), list_tracker_consumers_request(), list()) ::
+  @spec list_tracker_consumers(
+          map(),
+          String.t() | atom(),
+          list_tracker_consumers_request(),
+          list()
+        ) ::
           {:ok, list_tracker_consumers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4502,7 +4552,13 @@ defmodule AWS.Location do
   geometry of
   an existing geofence if a geofence ID is included in the request.
   """
-  @spec put_geofence(map(), String.t(), String.t(), put_geofence_request(), list()) ::
+  @spec put_geofence(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          put_geofence_request(),
+          list()
+        ) ::
           {:ok, put_geofence_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4538,7 +4594,7 @@ defmodule AWS.Location do
   """
   @spec search_place_index_for_position(
           map(),
-          String.t(),
+          String.t() | atom(),
           search_place_index_for_position_request(),
           list()
         ) ::
@@ -4591,7 +4647,7 @@ defmodule AWS.Location do
   """
   @spec search_place_index_for_suggestions(
           map(),
-          String.t(),
+          String.t() | atom(),
           search_place_index_for_suggestions_request(),
           list()
         ) ::
@@ -4642,7 +4698,7 @@ defmodule AWS.Location do
   """
   @spec search_place_index_for_text(
           map(),
-          String.t(),
+          String.t() | atom(),
           search_place_index_for_text_request(),
           list()
         ) ::
@@ -4698,7 +4754,7 @@ defmodule AWS.Location do
 
   You can associate up to 50 tags with a resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4727,7 +4783,7 @@ defmodule AWS.Location do
   @doc """
   Removes one or more tags from the specified Amazon Location resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4763,7 +4819,7 @@ defmodule AWS.Location do
   """
   @spec update_geofence_collection(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_geofence_collection_request(),
           list()
         ) ::
@@ -4795,7 +4851,7 @@ defmodule AWS.Location do
   @doc """
   Updates the specified properties of a given API key resource.
   """
-  @spec update_key(map(), String.t(), update_key_request(), list()) ::
+  @spec update_key(map(), String.t() | atom(), update_key_request(), list()) ::
           {:ok, update_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4824,7 +4880,7 @@ defmodule AWS.Location do
   @doc """
   Updates the specified properties of a given map resource.
   """
-  @spec update_map(map(), String.t(), update_map_request(), list()) ::
+  @spec update_map(map(), String.t() | atom(), update_map_request(), list()) ::
           {:ok, update_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4853,7 +4909,7 @@ defmodule AWS.Location do
   @doc """
   Updates the specified properties of a given place index resource.
   """
-  @spec update_place_index(map(), String.t(), update_place_index_request(), list()) ::
+  @spec update_place_index(map(), String.t() | atom(), update_place_index_request(), list()) ::
           {:ok, update_place_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4882,7 +4938,12 @@ defmodule AWS.Location do
   @doc """
   Updates the specified properties for a given route calculator resource.
   """
-  @spec update_route_calculator(map(), String.t(), update_route_calculator_request(), list()) ::
+  @spec update_route_calculator(
+          map(),
+          String.t() | atom(),
+          update_route_calculator_request(),
+          list()
+        ) ::
           {:ok, update_route_calculator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4911,7 +4972,7 @@ defmodule AWS.Location do
   @doc """
   Updates the specified properties of a given tracker resource.
   """
-  @spec update_tracker(map(), String.t(), update_tracker_request(), list()) ::
+  @spec update_tracker(map(), String.t() | atom(), update_tracker_request(), list()) ::
           {:ok, update_tracker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4946,7 +5007,12 @@ defmodule AWS.Location do
   features related to device verification, and it is available for use by request.
   To get access to the SDK, contact [Sales Support](https://aws.amazon.com/contact-us/sales-support/?pg=locationprice&cta=herobtn).
   """
-  @spec verify_device_position(map(), String.t(), verify_device_position_request(), list()) ::
+  @spec verify_device_position(
+          map(),
+          String.t() | atom(),
+          verify_device_position_request(),
+          list()
+        ) ::
           {:ok, verify_device_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

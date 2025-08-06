@@ -20,11 +20,11 @@ defmodule AWS.LaunchWizard do
   ## Example:
 
       resource_limit_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type resource_limit_exception() :: %{String.t() => any()}
+  @type resource_limit_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -35,24 +35,24 @@ defmodule AWS.LaunchWizard do
       }
 
   """
-  @type get_workload_output() :: %{String.t() => any()}
+  @type get_workload_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       workload_data() :: %{
-        "description" => [String.t()],
-        "displayName" => [String.t()],
-        "documentationUrl" => [String.t()],
-        "iconUrl" => [String.t()],
+        "description" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "documentationUrl" => [String.t() | atom()],
+        "iconUrl" => [String.t() | atom()],
         "status" => list(any()),
-        "statusMessage" => [String.t()],
-        "workloadName" => String.t()
+        "statusMessage" => [String.t() | atom()],
+        "workloadName" => String.t() | atom()
       }
 
   """
-  @type workload_data() :: %{String.t() => any()}
+  @type workload_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -60,23 +60,23 @@ defmodule AWS.LaunchWizard do
 
       list_workloads_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_workloads_input() :: %{String.t() => any()}
+  @type list_workloads_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       workload_data_summary() :: %{
-        "displayName" => [String.t()],
-        "workloadName" => String.t()
+        "displayName" => [String.t() | atom()],
+        "workloadName" => String.t() | atom()
       }
 
   """
-  @type workload_data_summary() :: %{String.t() => any()}
+  @type workload_data_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -87,7 +87,7 @@ defmodule AWS.LaunchWizard do
       }
 
   """
-  @type get_deployment_output() :: %{String.t() => any()}
+  @type get_deployment_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -96,25 +96,25 @@ defmodule AWS.LaunchWizard do
       create_deployment_input() :: %{
         optional("dryRun") => [boolean()],
         optional("tags") => map(),
-        required("deploymentPatternName") => String.t(),
-        required("name") => String.t(),
+        required("deploymentPatternName") => String.t() | atom(),
+        required("name") => String.t() | atom(),
         required("specifications") => map(),
-        required("workloadName") => String.t()
+        required("workloadName") => String.t() | atom()
       }
 
   """
-  @type create_deployment_input() :: %{String.t() => any()}
+  @type create_deployment_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_deployment_input() :: %{
-        required("deploymentId") => String.t()
+        required("deploymentId") => String.t() | atom()
       }
 
   """
-  @type get_deployment_input() :: %{String.t() => any()}
+  @type get_deployment_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -122,11 +122,11 @@ defmodule AWS.LaunchWizard do
 
       deployment_filter() :: %{
         "name" => list(any()),
-        "values" => list([String.t()]())
+        "values" => list([String.t() | atom()]())
       }
 
   """
-  @type deployment_filter() :: %{String.t() => any()}
+  @type deployment_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -137,33 +137,33 @@ defmodule AWS.LaunchWizard do
       }
 
   """
-  @type list_tags_for_resource_output() :: %{String.t() => any()}
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_workload_input() :: %{
-        required("workloadName") => String.t()
+        required("workloadName") => String.t() | atom()
       }
 
   """
-  @type get_workload_input() :: %{String.t() => any()}
+  @type get_workload_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       deployment_event_data_summary() :: %{
-        "description" => [String.t()],
-        "name" => [String.t()],
+        "description" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
         "status" => list(any()),
-        "statusReason" => [String.t()],
+        "statusReason" => [String.t() | atom()],
         "timestamp" => [non_neg_integer()]
       }
 
   """
-  @type deployment_event_data_summary() :: %{String.t() => any()}
+  @type deployment_event_data_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -171,45 +171,45 @@ defmodule AWS.LaunchWizard do
 
       list_deployment_events_output() :: %{
         "deploymentEvents" => list(deployment_event_data_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_deployment_events_output() :: %{String.t() => any()}
+  @type list_deployment_events_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_workload_deployment_patterns_output() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "workloadDeploymentPatterns" => list(workload_deployment_pattern_data_summary())
       }
 
   """
-  @type list_workload_deployment_patterns_output() :: %{String.t() => any()}
+  @type list_workload_deployment_patterns_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_deployment_input() :: %{
-        required("deploymentId") => String.t()
+        required("deploymentId") => String.t() | atom()
       }
 
   """
-  @type delete_deployment_input() :: %{String.t() => any()}
+  @type delete_deployment_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -220,7 +220,7 @@ defmodule AWS.LaunchWizard do
       }
 
   """
-  @type tag_resource_input() :: %{String.t() => any()}
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -236,39 +236,39 @@ defmodule AWS.LaunchWizard do
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       workload_deployment_pattern_data_summary() :: %{
-        "deploymentPatternName" => String.t(),
-        "description" => [String.t()],
-        "displayName" => [String.t()],
+        "deploymentPatternName" => String.t() | atom(),
+        "description" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
         "status" => list(any()),
-        "statusMessage" => [String.t()],
-        "workloadName" => String.t(),
-        "workloadVersionName" => String.t()
+        "statusMessage" => [String.t() | atom()],
+        "workloadName" => String.t() | atom(),
+        "workloadVersionName" => String.t() | atom()
       }
 
   """
-  @type workload_deployment_pattern_data_summary() :: %{String.t() => any()}
+  @type workload_deployment_pattern_data_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_input() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_input() :: %{String.t() => any()}
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -276,15 +276,15 @@ defmodule AWS.LaunchWizard do
 
       deployment_data_summary() :: %{
         "createdAt" => [non_neg_integer()],
-        "id" => String.t(),
-        "name" => [String.t()],
-        "patternName" => String.t(),
+        "id" => String.t() | atom(),
+        "name" => [String.t() | atom()],
+        "patternName" => String.t() | atom(),
         "status" => list(any()),
-        "workloadName" => String.t()
+        "workloadName" => String.t() | atom()
       }
 
   """
-  @type deployment_data_summary() :: %{String.t() => any()}
+  @type deployment_data_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -292,34 +292,34 @@ defmodule AWS.LaunchWizard do
 
       delete_deployment_output() :: %{
         "status" => list(any()),
-        "statusReason" => [String.t()]
+        "statusReason" => [String.t() | atom()]
       }
 
   """
-  @type delete_deployment_output() :: %{String.t() => any()}
+  @type delete_deployment_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_workloads_output() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "workloads" => list(workload_data_summary())
       }
 
   """
-  @type list_workloads_output() :: %{String.t() => any()}
+  @type list_workloads_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -336,12 +336,12 @@ defmodule AWS.LaunchWizard do
 
       list_workload_deployment_patterns_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("workloadName") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("workloadName") => String.t() | atom()
       }
 
   """
-  @type list_workload_deployment_patterns_input() :: %{String.t() => any()}
+  @type list_workload_deployment_patterns_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -357,27 +357,27 @@ defmodule AWS.LaunchWizard do
   ## Example:
 
       deployment_specifications_field() :: %{
-        "allowedValues" => list(String.t()),
+        "allowedValues" => list(String.t() | atom()),
         "conditionals" => list(deployment_conditional_field()),
-        "description" => [String.t()],
-        "name" => [String.t()],
-        "required" => [String.t()]
+        "description" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "required" => [String.t() | atom()]
       }
 
   """
-  @type deployment_specifications_field() :: %{String.t() => any()}
+  @type deployment_specifications_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_workload_deployment_pattern_input() :: %{
-        required("deploymentPatternName") => String.t(),
-        required("workloadName") => String.t()
+        required("deploymentPatternName") => String.t() | atom(),
+        required("workloadName") => String.t() | atom()
       }
 
   """
-  @type get_workload_deployment_pattern_input() :: %{String.t() => any()}
+  @type get_workload_deployment_pattern_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -385,25 +385,25 @@ defmodule AWS.LaunchWizard do
 
       list_deployment_events_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("deploymentId") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("deploymentId") => String.t() | atom()
       }
 
   """
-  @type list_deployment_events_input() :: %{String.t() => any()}
+  @type list_deployment_events_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       deployment_conditional_field() :: %{
-        "comparator" => [String.t()],
-        "name" => [String.t()],
-        "value" => [String.t()]
+        "comparator" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "value" => [String.t() | atom()]
       }
 
   """
-  @type deployment_conditional_field() :: %{String.t() => any()}
+  @type deployment_conditional_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -411,22 +411,22 @@ defmodule AWS.LaunchWizard do
 
       list_deployments_output() :: %{
         "deployments" => list(deployment_data_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_deployments_output() :: %{String.t() => any()}
+  @type list_deployments_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_deployment_output() :: %{
-        "deploymentId" => String.t()
+        "deploymentId" => String.t() | atom()
       }
 
   """
-  @type create_deployment_output() :: %{String.t() => any()}
+  @type create_deployment_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -435,11 +435,11 @@ defmodule AWS.LaunchWizard do
       list_deployments_input() :: %{
         optional("filters") => list(deployment_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_deployments_input() :: %{String.t() => any()}
+  @type list_deployments_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -448,37 +448,37 @@ defmodule AWS.LaunchWizard do
       deployment_data() :: %{
         "createdAt" => [non_neg_integer()],
         "deletedAt" => [non_neg_integer()],
-        "deploymentArn" => [String.t()],
-        "id" => String.t(),
-        "name" => [String.t()],
-        "patternName" => String.t(),
-        "resourceGroup" => [String.t()],
+        "deploymentArn" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "name" => [String.t() | atom()],
+        "patternName" => String.t() | atom(),
+        "resourceGroup" => [String.t() | atom()],
         "specifications" => map(),
         "status" => list(any()),
         "tags" => map(),
-        "workloadName" => String.t()
+        "workloadName" => String.t() | atom()
       }
 
   """
-  @type deployment_data() :: %{String.t() => any()}
+  @type deployment_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       workload_deployment_pattern_data() :: %{
-        "deploymentPatternName" => String.t(),
-        "description" => [String.t()],
-        "displayName" => [String.t()],
+        "deploymentPatternName" => String.t() | atom(),
+        "description" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
         "specifications" => list(deployment_specifications_field()),
         "status" => list(any()),
-        "statusMessage" => [String.t()],
-        "workloadName" => String.t(),
-        "workloadVersionName" => String.t()
+        "statusMessage" => [String.t() | atom()],
+        "workloadName" => String.t() | atom(),
+        "workloadVersionName" => String.t() | atom()
       }
 
   """
-  @type workload_deployment_pattern_data() :: %{String.t() => any()}
+  @type workload_deployment_pattern_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -489,7 +489,7 @@ defmodule AWS.LaunchWizard do
       }
 
   """
-  @type get_workload_deployment_pattern_output() :: %{String.t() => any()}
+  @type get_workload_deployment_pattern_output() :: %{(String.t() | atom()) => any()}
 
   @type create_deployment_errors() ::
           validation_exception()
@@ -765,7 +765,7 @@ defmodule AWS.LaunchWizard do
   @doc """
   Lists the tags associated with a specified resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -853,7 +853,7 @@ defmodule AWS.LaunchWizard do
   @doc """
   Adds the specified tags to the given resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -882,7 +882,7 @@ defmodule AWS.LaunchWizard do
   @doc """
   Removes the specified tags from the given resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

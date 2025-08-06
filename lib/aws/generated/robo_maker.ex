@@ -15,67 +15,67 @@ defmodule AWS.RoboMaker do
 
       list_deployment_jobs_response() :: %{
         "deploymentJobs" => list(deployment_job()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_deployment_jobs_response() :: %{String.t() => any()}
+  @type list_deployment_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_deployment_job_request() :: %{
-        required("job") => String.t()
+        required("job") => String.t() | atom()
       }
 
   """
-  @type describe_deployment_job_request() :: %{String.t() => any()}
+  @type describe_deployment_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       deployment_application_config() :: %{
-        "application" => String.t(),
-        "applicationVersion" => String.t(),
+        "application" => String.t() | atom(),
+        "applicationVersion" => String.t() | atom(),
         "launchConfig" => deployment_launch_config()
       }
 
   """
-  @type deployment_application_config() :: %{String.t() => any()}
+  @type deployment_application_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_deployment_job_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "deploymentApplicationConfigs" => list(deployment_application_config()),
         "deploymentConfig" => deployment_config(),
         "failureCode" => list(any()),
-        "failureReason" => String.t(),
-        "fleet" => String.t(),
+        "failureReason" => String.t() | atom(),
+        "fleet" => String.t() | atom(),
         "robotDeploymentSummary" => list(robot_deployment()),
         "status" => list(any()),
         "tags" => map()
       }
 
   """
-  @type describe_deployment_job_response() :: %{String.t() => any()}
+  @type describe_deployment_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_simulation_applications_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "simulationApplicationSummaries" => list(simulation_application_summary())
       }
 
   """
-  @type list_simulation_applications_response() :: %{String.t() => any()}
+  @type list_simulation_applications_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -84,26 +84,26 @@ defmodule AWS.RoboMaker do
       list_world_export_jobs_request() :: %{
         optional("filters") => list(filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_world_export_jobs_request() :: %{String.t() => any()}
+  @type list_world_export_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_world_generation_job_request() :: %{
-        optional("clientRequestToken") => String.t(),
+        optional("clientRequestToken") => String.t() | atom(),
         optional("tags") => map(),
         optional("worldTags") => map(),
-        required("template") => String.t(),
+        required("template") => String.t() | atom(),
         required("worldCount") => world_count()
       }
 
   """
-  @type create_world_generation_job_request() :: %{String.t() => any()}
+  @type create_world_generation_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -115,18 +115,18 @@ defmodule AWS.RoboMaker do
       }
 
   """
-  @type robot_software_suite() :: %{String.t() => any()}
+  @type robot_software_suite() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_simulation_job_batch_request() :: %{
-        required("batch") => String.t()
+        required("batch") => String.t() | atom()
       }
 
   """
-  @type describe_simulation_job_batch_request() :: %{String.t() => any()}
+  @type describe_simulation_job_batch_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -137,61 +137,61 @@ defmodule AWS.RoboMaker do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_fleet_request() :: %{
-        required("fleet") => String.t()
+        required("fleet") => String.t() | atom()
       }
 
   """
-  @type delete_fleet_request() :: %{String.t() => any()}
+  @type delete_fleet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_simulation_application_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "environment" => environment(),
-        "imageDigest" => String.t(),
+        "imageDigest" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "renderingEngine" => rendering_engine(),
-        "revisionId" => String.t(),
+        "revisionId" => String.t() | atom(),
         "robotSoftwareSuite" => robot_software_suite(),
         "simulationSoftwareSuite" => simulation_software_suite(),
         "sources" => list(source()),
         "tags" => map(),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type describe_simulation_application_response() :: %{String.t() => any()}
+  @type describe_simulation_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_simulation_job_batch_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "batchPolicy" => batch_policy(),
-        "clientRequestToken" => String.t(),
+        "clientRequestToken" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "createdRequests" => list(simulation_job_summary()),
         "failedRequests" => list(failed_create_simulation_job_request()),
         "failureCode" => list(any()),
-        "failureReason" => String.t(),
+        "failureReason" => String.t() | atom(),
         "pendingRequests" => list(simulation_job_request()),
         "status" => list(any()),
         "tags" => map()
       }
 
   """
-  @type start_simulation_job_batch_response() :: %{String.t() => any()}
+  @type start_simulation_job_batch_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -211,13 +211,13 @@ defmodule AWS.RoboMaker do
         optional("renderingEngine") => rendering_engine(),
         optional("sources") => list(source_config()),
         optional("tags") => map(),
-        required("name") => String.t(),
+        required("name") => String.t() | atom(),
         required("robotSoftwareSuite") => robot_software_suite(),
         required("simulationSoftwareSuite") => simulation_software_suite()
       }
 
   """
-  @type create_simulation_application_request() :: %{String.t() => any()}
+  @type create_simulation_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -234,18 +234,18 @@ defmodule AWS.RoboMaker do
 
       robot() :: %{
         "architecture" => list(any()),
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "fleetArn" => String.t(),
-        "greenGrassGroupId" => String.t(),
-        "lastDeploymentJob" => String.t(),
+        "fleetArn" => String.t() | atom(),
+        "greenGrassGroupId" => String.t() | atom(),
+        "lastDeploymentJob" => String.t() | atom(),
         "lastDeploymentTime" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type robot() :: %{String.t() => any()}
+  @type robot() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -261,17 +261,17 @@ defmodule AWS.RoboMaker do
   ## Example:
 
       world_generation_job_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "failedWorldCount" => integer(),
         "status" => list(any()),
         "succeededWorldCount" => integer(),
-        "template" => String.t(),
+        "template" => String.t() | atom(),
         "worldCount" => world_count()
       }
 
   """
-  @type world_generation_job_summary() :: %{String.t() => any()}
+  @type world_generation_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -279,11 +279,11 @@ defmodule AWS.RoboMaker do
 
       create_fleet_request() :: %{
         optional("tags") => map(),
-        required("name") => String.t()
+        required("name") => String.t() | atom()
       }
 
   """
-  @type create_fleet_request() :: %{String.t() => any()}
+  @type create_fleet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -296,51 +296,51 @@ defmodule AWS.RoboMaker do
       }
 
   """
-  @type compute_response() :: %{String.t() => any()}
+  @type compute_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_world_request() :: %{
-        required("world") => String.t()
+        required("world") => String.t() | atom()
       }
 
   """
-  @type describe_world_request() :: %{String.t() => any()}
+  @type describe_world_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_deployment_job_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "deploymentApplicationConfigs" => list(deployment_application_config()),
         "deploymentConfig" => deployment_config(),
         "failureCode" => list(any()),
-        "failureReason" => String.t(),
-        "fleet" => String.t(),
+        "failureReason" => String.t() | atom(),
+        "fleet" => String.t() | atom(),
         "status" => list(any()),
         "tags" => map()
       }
 
   """
-  @type create_deployment_job_response() :: %{String.t() => any()}
+  @type create_deployment_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_world_template_request() :: %{
-        optional("name") => String.t(),
-        optional("templateBody") => String.t(),
+        optional("name") => String.t() | atom(),
+        optional("templateBody") => String.t() | atom(),
         optional("templateLocation") => template_location(),
-        required("template") => String.t()
+        required("template") => String.t() | atom()
       }
 
   """
-  @type update_world_template_request() :: %{String.t() => any()}
+  @type update_world_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -354,7 +354,7 @@ defmodule AWS.RoboMaker do
       }
 
   """
-  @type deployment_config() :: %{String.t() => any()}
+  @type deployment_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -367,7 +367,7 @@ defmodule AWS.RoboMaker do
       }
 
   """
-  @type compute() :: %{String.t() => any()}
+  @type compute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -383,28 +383,28 @@ defmodule AWS.RoboMaker do
   ## Example:
 
       network_interface() :: %{
-        "networkInterfaceId" => String.t(),
-        "privateIpAddress" => String.t(),
-        "publicIpAddress" => String.t()
+        "networkInterfaceId" => String.t() | atom(),
+        "privateIpAddress" => String.t() | atom(),
+        "publicIpAddress" => String.t() | atom()
       }
 
   """
-  @type network_interface() :: %{String.t() => any()}
+  @type network_interface() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_robot_application_request() :: %{
-        optional("currentRevisionId") => String.t(),
+        optional("currentRevisionId") => String.t() | atom(),
         optional("environment") => environment(),
         optional("sources") => list(source_config()),
-        required("application") => String.t(),
+        required("application") => String.t() | atom(),
         required("robotSoftwareSuite") => robot_software_suite()
       }
 
   """
-  @type update_robot_application_request() :: %{String.t() => any()}
+  @type update_robot_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -414,7 +414,7 @@ defmodule AWS.RoboMaker do
         "compute" => compute(),
         "dataSources" => list(data_source_config()),
         "failureBehavior" => list(any()),
-        "iamRole" => String.t(),
+        "iamRole" => String.t() | atom(),
         "loggingConfig" => logging_config(),
         "maxJobDurationInSeconds" => float(),
         "outputLocation" => output_location(),
@@ -426,7 +426,7 @@ defmodule AWS.RoboMaker do
       }
 
   """
-  @type simulation_job_request() :: %{String.t() => any()}
+  @type simulation_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -435,11 +435,11 @@ defmodule AWS.RoboMaker do
       list_fleets_request() :: %{
         optional("filters") => list(filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_fleets_request() :: %{String.t() => any()}
+  @type list_fleets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -447,28 +447,28 @@ defmodule AWS.RoboMaker do
 
       create_robot_response() :: %{
         "architecture" => list(any()),
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "greengrassGroupId" => String.t(),
-        "name" => String.t(),
+        "greengrassGroupId" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type create_robot_response() :: %{String.t() => any()}
+  @type create_robot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_object() :: %{
-        "bucket" => String.t(),
-        "etag" => String.t(),
-        "key" => String.t()
+        "bucket" => String.t() | atom(),
+        "etag" => String.t() | atom(),
+        "key" => String.t() | atom()
       }
 
   """
-  @type s3_object() :: %{String.t() => any()}
+  @type s3_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -489,37 +489,37 @@ defmodule AWS.RoboMaker do
       }
 
   """
-  @type batch_policy() :: %{String.t() => any()}
+  @type batch_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       deregister_robot_response() :: %{
-        "fleet" => String.t(),
-        "robot" => String.t()
+        "fleet" => String.t() | atom(),
+        "robot" => String.t() | atom()
       }
 
   """
-  @type deregister_robot_response() :: %{String.t() => any()}
+  @type deregister_robot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       simulation_job_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "computeType" => list(any()),
-        "dataSourceNames" => list(String.t()),
+        "dataSourceNames" => list(String.t() | atom()),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
-        "robotApplicationNames" => list(String.t()),
-        "simulationApplicationNames" => list(String.t()),
+        "name" => String.t() | atom(),
+        "robotApplicationNames" => list(String.t() | atom()),
+        "simulationApplicationNames" => list(String.t() | atom()),
         "status" => list(any())
       }
 
   """
-  @type simulation_job_summary() :: %{String.t() => any()}
+  @type simulation_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -527,11 +527,11 @@ defmodule AWS.RoboMaker do
 
       list_fleets_response() :: %{
         "fleetDetails" => list(fleet()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_fleets_response() :: %{String.t() => any()}
+  @type list_fleets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -542,78 +542,78 @@ defmodule AWS.RoboMaker do
       }
 
   """
-  @type logging_config() :: %{String.t() => any()}
+  @type logging_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_robot_application_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "environment" => environment(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
-        "revisionId" => String.t(),
+        "name" => String.t() | atom(),
+        "revisionId" => String.t() | atom(),
         "robotSoftwareSuite" => robot_software_suite(),
         "sources" => list(source()),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type update_robot_application_response() :: %{String.t() => any()}
+  @type update_robot_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_simulation_application_request() :: %{
-        optional("currentRevisionId") => String.t(),
+        optional("currentRevisionId") => String.t() | atom(),
         optional("environment") => environment(),
         optional("renderingEngine") => rendering_engine(),
         optional("sources") => list(source_config()),
-        required("application") => String.t(),
+        required("application") => String.t() | atom(),
         required("robotSoftwareSuite") => robot_software_suite(),
         required("simulationSoftwareSuite") => simulation_software_suite()
       }
 
   """
-  @type update_simulation_application_request() :: %{String.t() => any()}
+  @type update_simulation_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_robot_application_version_request() :: %{
-        optional("currentRevisionId") => String.t(),
-        optional("imageDigest") => String.t(),
-        optional("s3Etags") => list(String.t()),
-        required("application") => String.t()
+        optional("currentRevisionId") => String.t() | atom(),
+        optional("imageDigest") => String.t() | atom(),
+        optional("s3Etags") => list(String.t() | atom()),
+        required("application") => String.t() | atom()
       }
 
   """
-  @type create_robot_application_version_request() :: %{String.t() => any()}
+  @type create_robot_application_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_world_generation_job_request() :: %{
-        required("job") => String.t()
+        required("job") => String.t() | atom()
       }
 
   """
-  @type cancel_world_generation_job_request() :: %{String.t() => any()}
+  @type cancel_world_generation_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -622,19 +622,19 @@ defmodule AWS.RoboMaker do
       create_robot_request() :: %{
         optional("tags") => map(),
         required("architecture") => list(any()),
-        required("greengrassGroupId") => String.t(),
-        required("name") => String.t()
+        required("greengrassGroupId") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
 
   """
-  @type create_robot_request() :: %{String.t() => any()}
+  @type create_robot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       simulation_job_batch_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "createdRequestCount" => integer(),
         "failedRequestCount" => integer(),
@@ -644,52 +644,52 @@ defmodule AWS.RoboMaker do
       }
 
   """
-  @type simulation_job_batch_summary() :: %{String.t() => any()}
+  @type simulation_job_batch_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       simulation_application_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "robotSoftwareSuite" => robot_software_suite(),
         "simulationSoftwareSuite" => simulation_software_suite(),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type simulation_application_summary() :: %{String.t() => any()}
+  @type simulation_application_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_robot_application_version_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "environment" => environment(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
-        "revisionId" => String.t(),
+        "name" => String.t() | atom(),
+        "revisionId" => String.t() | atom(),
         "robotSoftwareSuite" => robot_software_suite(),
         "sources" => list(source()),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type create_robot_application_version_response() :: %{String.t() => any()}
+  @type create_robot_application_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       world_config() :: %{
-        "world" => String.t()
+        "world" => String.t() | atom()
       }
 
   """
-  @type world_config() :: %{String.t() => any()}
+  @type world_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -698,118 +698,118 @@ defmodule AWS.RoboMaker do
       create_deployment_job_request() :: %{
         optional("deploymentConfig") => deployment_config(),
         optional("tags") => map(),
-        required("clientRequestToken") => String.t(),
+        required("clientRequestToken") => String.t() | atom(),
         required("deploymentApplicationConfigs") => list(deployment_application_config()),
-        required("fleet") => String.t()
+        required("fleet") => String.t() | atom()
       }
 
   """
-  @type create_deployment_job_request() :: %{String.t() => any()}
+  @type create_deployment_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_world_template_response() :: %{
-        "arn" => String.t(),
-        "clientRequestToken" => String.t(),
+        "arn" => String.t() | atom(),
+        "clientRequestToken" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "tags" => map(),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type describe_world_template_response() :: %{String.t() => any()}
+  @type describe_world_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       register_robot_response() :: %{
-        "fleet" => String.t(),
-        "robot" => String.t()
+        "fleet" => String.t() | atom(),
+        "robot" => String.t() | atom()
       }
 
   """
-  @type register_robot_response() :: %{String.t() => any()}
+  @type register_robot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       world_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "generationJob" => String.t(),
-        "template" => String.t()
+        "generationJob" => String.t() | atom(),
+        "template" => String.t() | atom()
       }
 
   """
-  @type world_summary() :: %{String.t() => any()}
+  @type world_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_world_export_job_response() :: %{
-        "arn" => String.t(),
-        "clientRequestToken" => String.t(),
+        "arn" => String.t() | atom(),
+        "clientRequestToken" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "failureCode" => list(any()),
-        "iamRole" => String.t(),
+        "iamRole" => String.t() | atom(),
         "outputLocation" => output_location(),
         "status" => list(any()),
         "tags" => map()
       }
 
   """
-  @type create_world_export_job_response() :: %{String.t() => any()}
+  @type create_world_export_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_world_generation_jobs_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "worldGenerationJobSummaries" => list(world_generation_job_summary())
       }
 
   """
-  @type list_world_generation_jobs_response() :: %{String.t() => any()}
+  @type list_world_generation_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_fleet_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "lastDeploymentJob" => String.t(),
+        "lastDeploymentJob" => String.t() | atom(),
         "lastDeploymentStatus" => list(any()),
         "lastDeploymentTime" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "robots" => list(robot()),
         "tags" => map()
       }
 
   """
-  @type describe_fleet_response() :: %{String.t() => any()}
+  @type describe_fleet_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_simulation_application_version_request() :: %{
-        optional("currentRevisionId") => String.t(),
-        optional("imageDigest") => String.t(),
-        optional("s3Etags") => list(String.t()),
-        required("application") => String.t()
+        optional("currentRevisionId") => String.t() | atom(),
+        optional("imageDigest") => String.t() | atom(),
+        optional("s3Etags") => list(String.t() | atom()),
+        required("application") => String.t() | atom()
       }
 
   """
-  @type create_simulation_application_version_request() :: %{String.t() => any()}
+  @type create_simulation_application_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -819,64 +819,64 @@ defmodule AWS.RoboMaker do
         "currentProgress" => list(any()),
         "estimatedTimeRemainingSeconds" => integer(),
         "percentDone" => float(),
-        "targetResource" => String.t()
+        "targetResource" => String.t() | atom()
       }
 
   """
-  @type progress_detail() :: %{String.t() => any()}
+  @type progress_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       concurrent_deployment_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type concurrent_deployment_exception() :: %{String.t() => any()}
+  @type concurrent_deployment_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_deployment_job_request() :: %{
-        required("job") => String.t()
+        required("job") => String.t() | atom()
       }
 
   """
-  @type cancel_deployment_job_request() :: %{String.t() => any()}
+  @type cancel_deployment_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_key_output() :: %{
-        "etag" => String.t(),
-        "s3Key" => String.t()
+        "etag" => String.t() | atom(),
+        "s3Key" => String.t() | atom()
       }
 
   """
-  @type s3_key_output() :: %{String.t() => any()}
+  @type s3_key_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_simulation_job_response() :: %{
-        "arn" => String.t(),
-        "clientRequestToken" => String.t(),
+        "arn" => String.t() | atom(),
+        "clientRequestToken" => String.t() | atom(),
         "compute" => compute_response(),
         "dataSources" => list(data_source()),
         "failureBehavior" => list(any()),
         "failureCode" => list(any()),
-        "failureReason" => String.t(),
-        "iamRole" => String.t(),
+        "failureReason" => String.t() | atom(),
+        "iamRole" => String.t() | atom(),
         "lastStartedAt" => non_neg_integer(),
         "lastUpdatedAt" => non_neg_integer(),
         "loggingConfig" => logging_config(),
         "maxJobDurationInSeconds" => float(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "networkInterface" => network_interface(),
         "outputLocation" => output_location(),
         "robotApplications" => list(robot_application_config()),
@@ -888,100 +888,100 @@ defmodule AWS.RoboMaker do
       }
 
   """
-  @type describe_simulation_job_response() :: %{String.t() => any()}
+  @type describe_simulation_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_world_template_response() :: %{
-        "arn" => String.t(),
-        "clientRequestToken" => String.t(),
+        "arn" => String.t() | atom(),
+        "clientRequestToken" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type create_world_template_response() :: %{String.t() => any()}
+  @type create_world_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_world_template_request() :: %{
-        required("template") => String.t()
+        required("template") => String.t() | atom()
       }
 
   """
-  @type delete_world_template_request() :: %{String.t() => any()}
+  @type delete_world_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       upload_configuration() :: %{
-        "name" => String.t(),
-        "path" => String.t(),
+        "name" => String.t() | atom(),
+        "path" => String.t() | atom(),
         "uploadBehavior" => list(any())
       }
 
   """
-  @type upload_configuration() :: %{String.t() => any()}
+  @type upload_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_world_templates_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "templateSummaries" => list(template_summary())
       }
 
   """
-  @type list_world_templates_response() :: %{String.t() => any()}
+  @type list_world_templates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       environment() :: %{
-        "uri" => String.t()
+        "uri" => String.t() | atom()
       }
 
   """
-  @type environment() :: %{String.t() => any()}
+  @type environment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_simulation_application_version_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "environment" => environment(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "renderingEngine" => rendering_engine(),
-        "revisionId" => String.t(),
+        "revisionId" => String.t() | atom(),
         "robotSoftwareSuite" => robot_software_suite(),
         "simulationSoftwareSuite" => simulation_software_suite(),
         "sources" => list(source()),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type create_simulation_application_version_response() :: %{String.t() => any()}
+  @type create_simulation_application_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -989,73 +989,73 @@ defmodule AWS.RoboMaker do
 
       simulation_software_suite() :: %{
         "name" => list(any()),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type simulation_software_suite() :: %{String.t() => any()}
+  @type simulation_software_suite() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sync_deployment_job_request() :: %{
-        required("clientRequestToken") => String.t(),
-        required("fleet") => String.t()
+        required("clientRequestToken") => String.t() | atom(),
+        required("fleet") => String.t() | atom()
       }
 
   """
-  @type sync_deployment_job_request() :: %{String.t() => any()}
+  @type sync_deployment_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       launch_config() :: %{
-        "command" => list(String.t()),
+        "command" => list(String.t() | atom()),
         "environmentVariables" => map(),
-        "launchFile" => String.t(),
-        "packageName" => String.t(),
+        "launchFile" => String.t() | atom(),
+        "packageName" => String.t() | atom(),
         "portForwardingConfig" => port_forwarding_config(),
         "streamUI" => boolean()
       }
 
   """
-  @type launch_config() :: %{String.t() => any()}
+  @type launch_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_world_generation_job_response() :: %{
-        "arn" => String.t(),
-        "clientRequestToken" => String.t(),
+        "arn" => String.t() | atom(),
+        "clientRequestToken" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "failureCode" => list(any()),
-        "failureReason" => String.t(),
+        "failureReason" => String.t() | atom(),
         "finishedWorldsSummary" => finished_worlds_summary(),
         "status" => list(any()),
         "tags" => map(),
-        "template" => String.t(),
+        "template" => String.t() | atom(),
         "worldCount" => world_count(),
         "worldTags" => map()
       }
 
   """
-  @type describe_world_generation_job_response() :: %{String.t() => any()}
+  @type describe_world_generation_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_simulation_job_response() :: %{
-        "arn" => String.t(),
-        "clientRequestToken" => String.t(),
+        "arn" => String.t() | atom(),
+        "clientRequestToken" => String.t() | atom(),
         "compute" => compute_response(),
         "dataSources" => list(data_source()),
         "failureBehavior" => list(any()),
         "failureCode" => list(any()),
-        "iamRole" => String.t(),
+        "iamRole" => String.t() | atom(),
         "lastStartedAt" => non_neg_integer(),
         "lastUpdatedAt" => non_neg_integer(),
         "loggingConfig" => logging_config(),
@@ -1070,7 +1070,7 @@ defmodule AWS.RoboMaker do
       }
 
   """
-  @type create_simulation_job_response() :: %{String.t() => any()}
+  @type create_simulation_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1081,93 +1081,93 @@ defmodule AWS.RoboMaker do
       }
 
   """
-  @type port_forwarding_config() :: %{String.t() => any()}
+  @type port_forwarding_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_world_export_job_request() :: %{
-        required("job") => String.t()
+        required("job") => String.t() | atom()
       }
 
   """
-  @type describe_world_export_job_request() :: %{String.t() => any()}
+  @type describe_world_export_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_world_template_request() :: %{
-        optional("clientRequestToken") => String.t(),
-        optional("name") => String.t(),
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
         optional("tags") => map(),
-        optional("templateBody") => String.t(),
+        optional("templateBody") => String.t() | atom(),
         optional("templateLocation") => template_location()
       }
 
   """
-  @type create_world_template_request() :: %{String.t() => any()}
+  @type create_world_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_source_config() :: %{
-        "destination" => String.t(),
-        "name" => String.t(),
-        "s3Bucket" => String.t(),
-        "s3Keys" => list(String.t()),
+        "destination" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "s3Bucket" => String.t() | atom(),
+        "s3Keys" => list(String.t() | atom()),
         "type" => list(any())
       }
 
   """
-  @type data_source_config() :: %{String.t() => any()}
+  @type data_source_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       idempotent_parameter_mismatch_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type idempotent_parameter_mismatch_exception() :: %{String.t() => any()}
+  @type idempotent_parameter_mismatch_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       template_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
-        "version" => String.t()
+        "name" => String.t() | atom(),
+        "version" => String.t() | atom()
       }
 
   """
-  @type template_summary() :: %{String.t() => any()}
+  @type template_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_world_generation_job_response() :: %{
-        "arn" => String.t(),
-        "clientRequestToken" => String.t(),
+        "arn" => String.t() | atom(),
+        "clientRequestToken" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "failureCode" => list(any()),
         "status" => list(any()),
         "tags" => map(),
-        "template" => String.t(),
+        "template" => String.t() | atom(),
         "worldCount" => world_count(),
         "worldTags" => map()
       }
 
   """
-  @type create_world_generation_job_response() :: %{String.t() => any()}
+  @type create_world_generation_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1193,12 +1193,12 @@ defmodule AWS.RoboMaker do
 
       vpc_config() :: %{
         "assignPublicIp" => boolean(),
-        "securityGroups" => list(String.t()),
-        "subnets" => list(String.t())
+        "securityGroups" => list(String.t() | atom()),
+        "subnets" => list(String.t() | atom())
       }
 
   """
-  @type vpc_config() :: %{String.t() => any()}
+  @type vpc_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1206,45 +1206,45 @@ defmodule AWS.RoboMaker do
 
       list_world_templates_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_world_templates_request() :: %{String.t() => any()}
+  @type list_world_templates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       world_export_job_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "outputLocation" => output_location(),
         "status" => list(any()),
-        "worlds" => list(String.t())
+        "worlds" => list(String.t() | atom())
       }
 
   """
-  @type world_export_job_summary() :: %{String.t() => any()}
+  @type world_export_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       simulation_job() :: %{
-        "arn" => String.t(),
-        "clientRequestToken" => String.t(),
+        "arn" => String.t() | atom(),
+        "clientRequestToken" => String.t() | atom(),
         "compute" => compute_response(),
         "dataSources" => list(data_source()),
         "failureBehavior" => list(any()),
         "failureCode" => list(any()),
-        "failureReason" => String.t(),
-        "iamRole" => String.t(),
+        "failureReason" => String.t() | atom(),
+        "iamRole" => String.t() | atom(),
         "lastStartedAt" => non_neg_integer(),
         "lastUpdatedAt" => non_neg_integer(),
         "loggingConfig" => logging_config(),
         "maxJobDurationInSeconds" => float(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "networkInterface" => network_interface(),
         "outputLocation" => output_location(),
         "robotApplications" => list(robot_application_config()),
@@ -1256,7 +1256,7 @@ defmodule AWS.RoboMaker do
       }
 
   """
-  @type simulation_job() :: %{String.t() => any()}
+  @type simulation_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1267,7 +1267,7 @@ defmodule AWS.RoboMaker do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1275,23 +1275,23 @@ defmodule AWS.RoboMaker do
 
       batch_describe_simulation_job_response() :: %{
         "jobs" => list(simulation_job()),
-        "unprocessedJobs" => list(String.t())
+        "unprocessedJobs" => list(String.t() | atom())
       }
 
   """
-  @type batch_describe_simulation_job_response() :: %{String.t() => any()}
+  @type batch_describe_simulation_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_world_export_jobs_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "worldExportJobSummaries" => list(world_export_job_summary())
       }
 
   """
-  @type list_world_export_jobs_response() :: %{String.t() => any()}
+  @type list_world_export_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1299,59 +1299,59 @@ defmodule AWS.RoboMaker do
 
       describe_robot_response() :: %{
         "architecture" => list(any()),
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "fleetArn" => String.t(),
-        "greengrassGroupId" => String.t(),
-        "lastDeploymentJob" => String.t(),
+        "fleetArn" => String.t() | atom(),
+        "greengrassGroupId" => String.t() | atom(),
+        "lastDeploymentJob" => String.t() | atom(),
         "lastDeploymentTime" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
         "tags" => map()
       }
 
   """
-  @type describe_robot_response() :: %{String.t() => any()}
+  @type describe_robot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       robot_deployment() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "deploymentFinishTime" => non_neg_integer(),
         "deploymentStartTime" => non_neg_integer(),
         "failureCode" => list(any()),
-        "failureReason" => String.t(),
+        "failureReason" => String.t() | atom(),
         "progressDetail" => progress_detail(),
         "status" => list(any())
       }
 
   """
-  @type robot_deployment() :: %{String.t() => any()}
+  @type robot_deployment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       output_location() :: %{
-        "s3Bucket" => String.t(),
-        "s3Prefix" => String.t()
+        "s3Bucket" => String.t() | atom(),
+        "s3Prefix" => String.t() | atom()
       }
 
   """
-  @type output_location() :: %{String.t() => any()}
+  @type output_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_unavailable_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type service_unavailable_exception() :: %{String.t() => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1359,14 +1359,14 @@ defmodule AWS.RoboMaker do
 
       deployment_launch_config() :: %{
         "environmentVariables" => map(),
-        "launchFile" => String.t(),
-        "packageName" => String.t(),
-        "postLaunchFile" => String.t(),
-        "preLaunchFile" => String.t()
+        "launchFile" => String.t() | atom(),
+        "packageName" => String.t() | atom(),
+        "postLaunchFile" => String.t() | atom(),
+        "preLaunchFile" => String.t() | atom()
       }
 
   """
-  @type deployment_launch_config() :: %{String.t() => any()}
+  @type deployment_launch_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1382,68 +1382,68 @@ defmodule AWS.RoboMaker do
   ## Example:
 
       describe_simulation_job_request() :: %{
-        required("job") => String.t()
+        required("job") => String.t() | atom()
       }
 
   """
-  @type describe_simulation_job_request() :: %{String.t() => any()}
+  @type describe_simulation_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_delete_worlds_request() :: %{
-        required("worlds") => list(String.t())
+        required("worlds") => list(String.t() | atom())
       }
 
   """
-  @type batch_delete_worlds_request() :: %{String.t() => any()}
+  @type batch_delete_worlds_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_robot_applications_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "robotApplicationSummaries" => list(robot_application_summary())
       }
 
   """
-  @type list_robot_applications_response() :: %{String.t() => any()}
+  @type list_robot_applications_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_world_template_body_response() :: %{
-        "templateBody" => String.t()
+        "templateBody" => String.t() | atom()
       }
 
   """
-  @type get_world_template_body_response() :: %{String.t() => any()}
+  @type get_world_template_body_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       filter() :: %{
-        "name" => String.t(),
-        "values" => list(String.t())
+        "name" => String.t() | atom(),
+        "values" => list(String.t() | atom())
       }
 
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_world_generation_job_request() :: %{
-        required("job") => String.t()
+        required("job") => String.t() | atom()
       }
 
   """
-  @type describe_world_generation_job_request() :: %{String.t() => any()}
+  @type describe_world_generation_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1452,55 +1452,55 @@ defmodule AWS.RoboMaker do
       list_world_generation_jobs_request() :: %{
         optional("filters") => list(filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_world_generation_jobs_request() :: %{String.t() => any()}
+  @type list_world_generation_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_simulation_job_batches_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "simulationJobBatchSummaries" => list(simulation_job_batch_summary())
       }
 
   """
-  @type list_simulation_job_batches_response() :: %{String.t() => any()}
+  @type list_simulation_job_batches_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_simulation_application_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "environment" => environment(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "renderingEngine" => rendering_engine(),
-        "revisionId" => String.t(),
+        "revisionId" => String.t() | atom(),
         "robotSoftwareSuite" => robot_software_suite(),
         "simulationSoftwareSuite" => simulation_software_suite(),
         "sources" => list(source()),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type update_simulation_application_response() :: %{String.t() => any()}
+  @type update_simulation_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_robots_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "robots" => list(robot())
       }
 
   """
-  @type list_robots_response() :: %{String.t() => any()}
+  @type list_robots_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1508,24 +1508,24 @@ defmodule AWS.RoboMaker do
 
       source() :: %{
         "architecture" => list(any()),
-        "etag" => String.t(),
-        "s3Bucket" => String.t(),
-        "s3Key" => String.t()
+        "etag" => String.t() | atom(),
+        "s3Bucket" => String.t() | atom(),
+        "s3Key" => String.t() | atom()
       }
 
   """
-  @type source() :: %{String.t() => any()}
+  @type source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1533,13 +1533,13 @@ defmodule AWS.RoboMaker do
 
       start_simulation_job_batch_request() :: %{
         optional("batchPolicy") => batch_policy(),
-        optional("clientRequestToken") => String.t(),
+        optional("clientRequestToken") => String.t() | atom(),
         optional("tags") => map(),
         required("createSimulationJobRequests") => list(simulation_job_request())
       }
 
   """
-  @type start_simulation_job_batch_request() :: %{String.t() => any()}
+  @type start_simulation_job_batch_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1551,19 +1551,19 @@ defmodule AWS.RoboMaker do
       }
 
   """
-  @type failure_summary() :: %{String.t() => any()}
+  @type failure_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_simulation_jobs_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "simulationJobSummaries" => list(simulation_job_summary())
       }
 
   """
-  @type list_simulation_jobs_response() :: %{String.t() => any()}
+  @type list_simulation_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1579,12 +1579,12 @@ defmodule AWS.RoboMaker do
   ## Example:
 
       template_location() :: %{
-        "s3Bucket" => String.t(),
-        "s3Key" => String.t()
+        "s3Bucket" => String.t() | atom(),
+        "s3Key" => String.t() | atom()
       }
 
   """
-  @type template_location() :: %{String.t() => any()}
+  @type template_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1593,22 +1593,22 @@ defmodule AWS.RoboMaker do
       list_worlds_request() :: %{
         optional("filters") => list(filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_worlds_request() :: %{String.t() => any()}
+  @type list_worlds_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_simulation_job_request() :: %{
-        required("job") => String.t()
+        required("job") => String.t() | atom()
       }
 
   """
-  @type cancel_simulation_job_request() :: %{String.t() => any()}
+  @type cancel_simulation_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1616,75 +1616,75 @@ defmodule AWS.RoboMaker do
 
       rendering_engine() :: %{
         "name" => list(any()),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type rendering_engine() :: %{String.t() => any()}
+  @type rendering_engine() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_parameter_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_parameter_exception() :: %{String.t() => any()}
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_robot_application_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "environment" => environment(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
-        "revisionId" => String.t(),
+        "name" => String.t() | atom(),
+        "revisionId" => String.t() | atom(),
         "robotSoftwareSuite" => robot_software_suite(),
         "sources" => list(source()),
         "tags" => map(),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type create_robot_application_response() :: %{String.t() => any()}
+  @type create_robot_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_world_template_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type update_world_template_response() :: %{String.t() => any()}
+  @type update_world_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_world_export_job_response() :: %{
-        "arn" => String.t(),
-        "clientRequestToken" => String.t(),
+        "arn" => String.t() | atom(),
+        "clientRequestToken" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "failureCode" => list(any()),
-        "failureReason" => String.t(),
-        "iamRole" => String.t(),
+        "failureReason" => String.t() | atom(),
+        "iamRole" => String.t() | atom(),
         "outputLocation" => output_location(),
         "status" => list(any()),
         "tags" => map(),
-        "worlds" => list(String.t())
+        "worlds" => list(String.t() | atom())
       }
 
   """
-  @type describe_world_export_job_response() :: %{String.t() => any()}
+  @type describe_world_export_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1700,12 +1700,12 @@ defmodule AWS.RoboMaker do
   ## Example:
 
       delete_simulation_application_request() :: %{
-        optional("applicationVersion") => String.t(),
-        required("application") => String.t()
+        optional("applicationVersion") => String.t() | atom(),
+        required("application") => String.t() | atom()
       }
 
   """
-  @type delete_simulation_application_request() :: %{String.t() => any()}
+  @type delete_simulation_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1718,18 +1718,18 @@ defmodule AWS.RoboMaker do
       }
 
   """
-  @type port_mapping() :: %{String.t() => any()}
+  @type port_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_robot_request() :: %{
-        required("robot") => String.t()
+        required("robot") => String.t() | atom()
       }
 
   """
-  @type describe_robot_request() :: %{String.t() => any()}
+  @type describe_robot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1756,11 +1756,11 @@ defmodule AWS.RoboMaker do
       list_simulation_jobs_request() :: %{
         optional("filters") => list(filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_simulation_jobs_request() :: %{String.t() => any()}
+  @type list_simulation_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1770,26 +1770,26 @@ defmodule AWS.RoboMaker do
         optional("environment") => environment(),
         optional("sources") => list(source_config()),
         optional("tags") => map(),
-        required("name") => String.t(),
+        required("name") => String.t() | atom(),
         required("robotSoftwareSuite") => robot_software_suite()
       }
 
   """
-  @type create_robot_application_request() :: %{String.t() => any()}
+  @type create_robot_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_simulation_job_batch_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "batchPolicy" => batch_policy(),
-        "clientRequestToken" => String.t(),
+        "clientRequestToken" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "createdRequests" => list(simulation_job_summary()),
         "failedRequests" => list(failed_create_simulation_job_request()),
         "failureCode" => list(any()),
-        "failureReason" => String.t(),
+        "failureReason" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
         "pendingRequests" => list(simulation_job_request()),
         "status" => list(any()),
@@ -1797,18 +1797,18 @@ defmodule AWS.RoboMaker do
       }
 
   """
-  @type describe_simulation_job_batch_response() :: %{String.t() => any()}
+  @type describe_simulation_job_batch_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_delete_worlds_response() :: %{
-        "unprocessedWorlds" => list(String.t())
+        "unprocessedWorlds" => list(String.t() | atom())
       }
 
   """
-  @type batch_delete_worlds_response() :: %{String.t() => any()}
+  @type batch_delete_worlds_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1817,12 +1817,12 @@ defmodule AWS.RoboMaker do
       list_robot_applications_request() :: %{
         optional("filters") => list(filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("versionQualifier") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("versionQualifier") => String.t() | atom()
       }
 
   """
-  @type list_robot_applications_request() :: %{String.t() => any()}
+  @type list_robot_applications_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1831,81 +1831,81 @@ defmodule AWS.RoboMaker do
       failed_create_simulation_job_request() :: %{
         "failedAt" => non_neg_integer(),
         "failureCode" => list(any()),
-        "failureReason" => String.t(),
+        "failureReason" => String.t() | atom(),
         "request" => simulation_job_request()
       }
 
   """
-  @type failed_create_simulation_job_request() :: %{String.t() => any()}
+  @type failed_create_simulation_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_world_template_request() :: %{
-        required("template") => String.t()
+        required("template") => String.t() | atom()
       }
 
   """
-  @type describe_world_template_request() :: %{String.t() => any()}
+  @type describe_world_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_robot_application_request() :: %{
-        optional("applicationVersion") => String.t(),
-        required("application") => String.t()
+        optional("applicationVersion") => String.t() | atom(),
+        required("application") => String.t() | atom()
       }
 
   """
-  @type describe_robot_application_request() :: %{String.t() => any()}
+  @type describe_robot_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       register_robot_request() :: %{
-        required("fleet") => String.t(),
-        required("robot") => String.t()
+        required("fleet") => String.t() | atom(),
+        required("robot") => String.t() | atom()
       }
 
   """
-  @type register_robot_request() :: %{String.t() => any()}
+  @type register_robot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_robot_application_request() :: %{
-        optional("applicationVersion") => String.t(),
-        required("application") => String.t()
+        optional("applicationVersion") => String.t() | atom(),
+        required("application") => String.t() | atom()
       }
 
   """
-  @type delete_robot_application_request() :: %{String.t() => any()}
+  @type delete_robot_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_describe_simulation_job_request() :: %{
-        required("jobs") => list(String.t())
+        required("jobs") => list(String.t() | atom())
       }
 
   """
-  @type batch_describe_simulation_job_request() :: %{String.t() => any()}
+  @type batch_describe_simulation_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1923,29 +1923,29 @@ defmodule AWS.RoboMaker do
       finished_worlds_summary() :: %{
         "failureSummary" => failure_summary(),
         "finishedCount" => integer(),
-        "succeededWorlds" => list(String.t())
+        "succeededWorlds" => list(String.t() | atom())
       }
 
   """
-  @type finished_worlds_summary() :: %{String.t() => any()}
+  @type finished_worlds_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_simulation_job_request() :: %{
-        optional("clientRequestToken") => String.t(),
+        optional("clientRequestToken") => String.t() | atom(),
         optional("compute") => compute(),
         optional("dataSources") => list(data_source_config()),
         optional("failureBehavior") => list(any()),
@@ -1955,12 +1955,12 @@ defmodule AWS.RoboMaker do
         optional("simulationApplications") => list(simulation_application_config()),
         optional("tags") => map(),
         optional("vpcConfig") => vpc_config(),
-        required("iamRole") => String.t(),
+        required("iamRole") => String.t() | atom(),
         required("maxJobDurationInSeconds") => float()
       }
 
   """
-  @type create_simulation_job_request() :: %{String.t() => any()}
+  @type create_simulation_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1969,11 +1969,11 @@ defmodule AWS.RoboMaker do
       world_failure() :: %{
         "failureCode" => list(any()),
         "failureCount" => integer(),
-        "sampleFailureReason" => String.t()
+        "sampleFailureReason" => String.t() | atom()
       }
 
   """
-  @type world_failure() :: %{String.t() => any()}
+  @type world_failure() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1981,23 +1981,23 @@ defmodule AWS.RoboMaker do
 
       source_config() :: %{
         "architecture" => list(any()),
-        "s3Bucket" => String.t(),
-        "s3Key" => String.t()
+        "s3Bucket" => String.t() | atom(),
+        "s3Key" => String.t() | atom()
       }
 
   """
-  @type source_config() :: %{String.t() => any()}
+  @type source_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_fleet_request() :: %{
-        required("fleet") => String.t()
+        required("fleet") => String.t() | atom()
       }
 
   """
-  @type describe_fleet_request() :: %{String.t() => any()}
+  @type describe_fleet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2005,21 +2005,21 @@ defmodule AWS.RoboMaker do
 
       vpc_config_response() :: %{
         "assignPublicIp" => boolean(),
-        "securityGroups" => list(String.t()),
-        "subnets" => list(String.t()),
-        "vpcId" => String.t()
+        "securityGroups" => list(String.t() | atom()),
+        "subnets" => list(String.t() | atom()),
+        "vpcId" => String.t() | atom()
       }
 
   """
-  @type vpc_config_response() :: %{String.t() => any()}
+  @type vpc_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       simulation_application_config() :: %{
-        "application" => String.t(),
-        "applicationVersion" => String.t(),
+        "application" => String.t() | atom(),
+        "applicationVersion" => String.t() | atom(),
         "launchConfig" => launch_config(),
         "tools" => list(tool()),
         "uploadConfigurations" => list(upload_configuration()),
@@ -2029,121 +2029,121 @@ defmodule AWS.RoboMaker do
       }
 
   """
-  @type simulation_application_config() :: %{String.t() => any()}
+  @type simulation_application_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       robot_application_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "robotSoftwareSuite" => robot_software_suite(),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type robot_application_summary() :: %{String.t() => any()}
+  @type robot_application_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sync_deployment_job_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "deploymentApplicationConfigs" => list(deployment_application_config()),
         "deploymentConfig" => deployment_config(),
         "failureCode" => list(any()),
-        "failureReason" => String.t(),
-        "fleet" => String.t(),
+        "failureReason" => String.t() | atom(),
+        "fleet" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type sync_deployment_job_response() :: %{String.t() => any()}
+  @type sync_deployment_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_world_export_job_request() :: %{
-        required("job") => String.t()
+        required("job") => String.t() | atom()
       }
 
   """
-  @type cancel_world_export_job_request() :: %{String.t() => any()}
+  @type cancel_world_export_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_robot_request() :: %{
-        required("robot") => String.t()
+        required("robot") => String.t() | atom()
       }
 
   """
-  @type delete_robot_request() :: %{String.t() => any()}
+  @type delete_robot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_simulation_application_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "environment" => environment(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "renderingEngine" => rendering_engine(),
-        "revisionId" => String.t(),
+        "revisionId" => String.t() | atom(),
         "robotSoftwareSuite" => robot_software_suite(),
         "simulationSoftwareSuite" => simulation_software_suite(),
         "sources" => list(source()),
         "tags" => map(),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type create_simulation_application_response() :: %{String.t() => any()}
+  @type create_simulation_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_world_template_body_request() :: %{
-        optional("generationJob") => String.t(),
-        optional("template") => String.t()
+        optional("generationJob") => String.t() | atom(),
+        optional("template") => String.t() | atom()
       }
 
   """
-  @type get_world_template_body_request() :: %{String.t() => any()}
+  @type get_world_template_body_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_already_exists_exception() :: %{String.t() => any()}
+  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_source() :: %{
-        "destination" => String.t(),
-        "name" => String.t(),
-        "s3Bucket" => String.t(),
+        "destination" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "s3Bucket" => String.t() | atom(),
         "s3Keys" => list(s3_key_output()),
         "type" => list(any())
       }
 
   """
-  @type data_source() :: %{String.t() => any()}
+  @type data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2152,43 +2152,43 @@ defmodule AWS.RoboMaker do
       list_robots_request() :: %{
         optional("filters") => list(filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_robots_request() :: %{String.t() => any()}
+  @type list_robots_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_simulation_application_request() :: %{
-        optional("applicationVersion") => String.t(),
-        required("application") => String.t()
+        optional("applicationVersion") => String.t() | atom(),
+        required("application") => String.t() | atom()
       }
 
   """
-  @type describe_simulation_application_request() :: %{String.t() => any()}
+  @type describe_simulation_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_robot_application_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "environment" => environment(),
-        "imageDigest" => String.t(),
+        "imageDigest" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
-        "revisionId" => String.t(),
+        "name" => String.t() | atom(),
+        "revisionId" => String.t() | atom(),
         "robotSoftwareSuite" => robot_software_suite(),
         "sources" => list(source()),
         "tags" => map(),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type describe_robot_application_response() :: %{String.t() => any()}
+  @type describe_robot_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2197,90 +2197,90 @@ defmodule AWS.RoboMaker do
       list_simulation_job_batches_request() :: %{
         optional("filters") => list(filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_simulation_job_batches_request() :: %{String.t() => any()}
+  @type list_simulation_job_batches_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_worlds_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "worldSummaries" => list(world_summary())
       }
 
   """
-  @type list_worlds_response() :: %{String.t() => any()}
+  @type list_worlds_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_fleet_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type create_fleet_response() :: %{String.t() => any()}
+  @type create_fleet_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       deregister_robot_request() :: %{
-        required("fleet") => String.t(),
-        required("robot") => String.t()
+        required("fleet") => String.t() | atom(),
+        required("robot") => String.t() | atom()
       }
 
   """
-  @type deregister_robot_request() :: %{String.t() => any()}
+  @type deregister_robot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_world_export_job_request() :: %{
-        optional("clientRequestToken") => String.t(),
+        optional("clientRequestToken") => String.t() | atom(),
         optional("tags") => map(),
-        required("iamRole") => String.t(),
+        required("iamRole") => String.t() | atom(),
         required("outputLocation") => output_location(),
-        required("worlds") => list(String.t())
+        required("worlds") => list(String.t() | atom())
       }
 
   """
-  @type create_world_export_job_request() :: %{String.t() => any()}
+  @type create_world_export_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tool() :: %{
-        "command" => String.t(),
+        "command" => String.t() | atom(),
         "exitBehavior" => list(any()),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "streamOutputToCloudWatch" => boolean(),
         "streamUI" => boolean()
       }
 
   """
-  @type tool() :: %{String.t() => any()}
+  @type tool() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_simulation_job_batch_request() :: %{
-        required("batch") => String.t()
+        required("batch") => String.t() | atom()
       }
 
   """
-  @type cancel_simulation_job_batch_request() :: %{String.t() => any()}
+  @type cancel_simulation_job_batch_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2289,12 +2289,12 @@ defmodule AWS.RoboMaker do
       list_simulation_applications_request() :: %{
         optional("filters") => list(filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("versionQualifier") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("versionQualifier") => String.t() | atom()
       }
 
   """
-  @type list_simulation_applications_request() :: %{String.t() => any()}
+  @type list_simulation_applications_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2315,49 +2315,49 @@ defmodule AWS.RoboMaker do
       }
 
   """
-  @type world_count() :: %{String.t() => any()}
+  @type world_count() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       fleet() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "lastDeploymentJob" => String.t(),
+        "lastDeploymentJob" => String.t() | atom(),
         "lastDeploymentStatus" => list(any()),
         "lastDeploymentTime" => non_neg_integer(),
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type fleet() :: %{String.t() => any()}
+  @type fleet() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       deployment_job() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "deploymentApplicationConfigs" => list(deployment_application_config()),
         "deploymentConfig" => deployment_config(),
         "failureCode" => list(any()),
-        "failureReason" => String.t(),
-        "fleet" => String.t(),
+        "failureReason" => String.t() | atom(),
+        "fleet" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type deployment_job() :: %{String.t() => any()}
+  @type deployment_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       robot_application_config() :: %{
-        "application" => String.t(),
-        "applicationVersion" => String.t(),
+        "application" => String.t() | atom(),
+        "applicationVersion" => String.t() | atom(),
         "launchConfig" => launch_config(),
         "tools" => list(tool()),
         "uploadConfigurations" => list(upload_configuration()),
@@ -2366,7 +2366,7 @@ defmodule AWS.RoboMaker do
       }
 
   """
-  @type robot_application_config() :: %{String.t() => any()}
+  @type robot_application_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2375,38 +2375,38 @@ defmodule AWS.RoboMaker do
       list_deployment_jobs_request() :: %{
         optional("filters") => list(filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_deployment_jobs_request() :: %{String.t() => any()}
+  @type list_deployment_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_world_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "generationJob" => String.t(),
+        "generationJob" => String.t() | atom(),
         "tags" => map(),
-        "template" => String.t(),
-        "worldDescriptionBody" => String.t()
+        "template" => String.t() | atom(),
+        "worldDescriptionBody" => String.t() | atom()
       }
 
   """
-  @type describe_world_response() :: %{String.t() => any()}
+  @type describe_world_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       restart_simulation_job_request() :: %{
-        required("job") => String.t()
+        required("job") => String.t() | atom()
       }
 
   """
-  @type restart_simulation_job_request() :: %{String.t() => any()}
+  @type restart_simulation_job_request() :: %{(String.t() | atom()) => any()}
 
   @type batch_delete_worlds_errors() ::
           throttling_exception() | invalid_parameter_exception() | internal_server_exception()
@@ -4576,7 +4576,7 @@ defmodule AWS.RoboMaker do
 
   Lists all tags on a AWS RoboMaker resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4946,7 +4946,7 @@ defmodule AWS.RoboMaker do
   in the *AWS Billing and Cost Management
   User Guide*.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4992,7 +4992,7 @@ defmodule AWS.RoboMaker do
   `TagResource`
   ](https://docs.aws.amazon.com/robomaker/latest/dg/API_TagResource.html).
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

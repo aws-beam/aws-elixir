@@ -5750,6 +5750,7 @@ defmodule AWS.RDS do
         "NetworkType" => String.t(),
         "ActivityStreamKmsKeyId" => String.t(),
         "MultiAZ" => boolean(),
+        "ServerlessV2PlatformVersion" => String.t(),
         "EarliestRestorableTime" => non_neg_integer(),
         "DatabaseName" => String.t(),
         "PreferredMaintenanceWindow" => String.t(),

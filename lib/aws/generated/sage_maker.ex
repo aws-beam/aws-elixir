@@ -80,6 +80,22 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      instance_group_metadata() :: %{
+        "AmiOverride" => [String.t()],
+        "AvailabilityZoneId" => [String.t()],
+        "CapacityReservation" => capacity_reservation(),
+        "FailureMessage" => [String.t()],
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetId" => [String.t()]
+      }
+      
+  """
+  @type instance_group_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       action_summary() :: %{
         "ActionArn" => String.t(),
         "ActionName" => String.t(),
@@ -756,6 +772,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      capacity_reservation() :: %{
+        "Arn" => [String.t()],
+        "Type" => list(any())
+      }
+      
+  """
+  @type capacity_reservation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       resource_limits() :: %{
         "MaxNumberOfTrainingJobs" => integer(),
         "MaxParallelTrainingJobs" => integer(),
@@ -924,6 +952,22 @@ defmodule AWS.SageMaker do
       
   """
   @type integer_parameter_range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_metadata() :: %{
+        "AdditionalEnis" => additional_enis(),
+        "CapacityReservation" => capacity_reservation(),
+        "CustomerEni" => [String.t()],
+        "FailureMessage" => [String.t()],
+        "LcsExecutionState" => [String.t()],
+        "NodeLogicalId" => String.t()
+      }
+      
+  """
+  @type instance_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1333,6 +1377,7 @@ defmodule AWS.SageMaker do
       list_cluster_nodes_request() :: %{
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
+        optional("IncludeNodeLogicalIds") => boolean(),
         optional("InstanceGroupNameContains") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -1653,6 +1698,7 @@ defmodule AWS.SageMaker do
         "CreationTime" => non_neg_integer(),
         "FailureMessage" => String.t(),
         "InstanceGroups" => list(cluster_instance_group_details()),
+        "NodeProvisioningMode" => list(any()),
         "NodeRecovery" => list(any()),
         "Orchestrator" => cluster_orchestrator(),
         "RestrictedInstanceGroups" => list(cluster_restricted_instance_group_details()),
@@ -1840,6 +1886,7 @@ defmodule AWS.SageMaker do
       
       update_cluster_software_request() :: %{
         optional("DeploymentConfig") => deployment_configuration(),
+        optional("ImageId") => String.t(),
         optional("InstanceGroups") => list(update_cluster_software_instance_group_specification()),
         required("ClusterName") => String.t()
       }
@@ -2125,6 +2172,7 @@ defmodule AWS.SageMaker do
       
       describe_cluster_node_request() :: %{
         optional("NodeId") => String.t(),
+        optional("NodeLogicalId") => String.t(),
         required("ClusterName") => String.t()
       }
       
@@ -2397,6 +2445,17 @@ defmodule AWS.SageMaker do
       
   """
   @type list_notebook_instances_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_details() :: %{
+        "EventMetadata" => list()
+      }
+      
+  """
+  @type event_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3091,6 +3150,19 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      batch_delete_cluster_node_logical_ids_error() :: %{
+        "Code" => list(any()),
+        "Message" => String.t(),
+        "NodeLogicalId" => String.t()
+      }
+      
+  """
+  @type batch_delete_cluster_node_logical_ids_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       deployment_config() :: %{
         "AutoRollbackConfiguration" => auto_rollback_config(),
         "BlueGreenUpdatePolicy" => blue_green_update_policy(),
@@ -3416,6 +3488,20 @@ defmodule AWS.SageMaker do
       
   """
   @type update_model_package_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_add_cluster_nodes_error() :: %{
+        "ErrorCode" => list(any()),
+        "FailedCount" => integer(),
+        "InstanceGroupName" => String.t(),
+        "Message" => String.t()
+      }
+      
+  """
+  @type batch_add_cluster_nodes_error() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3976,6 +4062,19 @@ defmodule AWS.SageMaker do
       
   """
   @type labeling_job_data_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_add_cluster_nodes_request() :: %{
+        optional("ClientToken") => String.t(),
+        required("ClusterName") => String.t(),
+        required("NodesToAdd") => list(add_cluster_node_specification())
+      }
+      
+  """
+  @type batch_add_cluster_nodes_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5228,6 +5327,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      additional_enis() :: %{
+        "EfaEnis" => list([String.t()]())
+      }
+      
+  """
+  @type additional_enis() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_cluster_software_response() :: %{
         "ClusterArn" => String.t()
       }
@@ -5683,6 +5793,19 @@ defmodule AWS.SageMaker do
       
   """
   @type update_cluster_software_instance_group_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_metadata() :: %{
+        "EksRoleAccessEntries" => list([String.t()]()),
+        "FailureMessage" => [String.t()],
+        "SlrAccessEntry" => [String.t()]
+      }
+      
+  """
+  @type cluster_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6598,6 +6721,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      describe_cluster_event_response() :: %{
+        "EventDetails" => cluster_event_detail()
+      }
+      
+  """
+  @type describe_cluster_event_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       deployment_configuration() :: %{
         "AutoRollbackConfiguration" => list(alarm_details()),
         "RollingUpdatePolicy" => rolling_deployment_policy(),
@@ -7066,6 +7200,7 @@ defmodule AWS.SageMaker do
       
       create_cluster_request() :: %{
         optional("InstanceGroups") => list(cluster_instance_group_specification()),
+        optional("NodeProvisioningMode") => list(any()),
         optional("NodeRecovery") => list(any()),
         optional("Orchestrator") => cluster_orchestrator(),
         optional("RestrictedInstanceGroups") => list(cluster_restricted_instance_group_specification()),
@@ -7772,6 +7907,18 @@ defmodule AWS.SageMaker do
       
   """
   @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_cluster_events_response() :: %{
+        "Events" => list(cluster_event_summary()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_cluster_events_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9075,6 +9222,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      batch_add_cluster_nodes_response() :: %{
+        "Failed" => list(batch_add_cluster_nodes_error()),
+        "Successful" => list(node_addition_result())
+      }
+      
+  """
+  @type batch_add_cluster_nodes_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       code_repository() :: %{
         "RepositoryUrl" => String.t()
       }
@@ -9725,6 +9884,25 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      cluster_event_detail() :: %{
+        "ClusterArn" => String.t(),
+        "ClusterName" => String.t(),
+        "Description" => [String.t()],
+        "EventDetails" => event_details(),
+        "EventId" => String.t(),
+        "EventTime" => non_neg_integer(),
+        "InstanceGroupName" => String.t(),
+        "InstanceId" => [String.t()],
+        "ResourceType" => list(any())
+      }
+      
+  """
+  @type cluster_event_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       drift_check_bias() :: %{
         "ConfigFile" => file_source(),
         "PostTrainingConstraints" => metrics_source(),
@@ -10220,7 +10398,8 @@ defmodule AWS.SageMaker do
         "InstanceStatus" => cluster_instance_status_details(),
         "InstanceType" => list(any()),
         "LastSoftwareUpdateTime" => non_neg_integer(),
-        "LaunchTime" => non_neg_integer()
+        "LaunchTime" => non_neg_integer(),
+        "NodeLogicalId" => [String.t()]
       }
       
   """
@@ -10681,6 +10860,24 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      cluster_event_summary() :: %{
+        "ClusterArn" => String.t(),
+        "ClusterName" => String.t(),
+        "Description" => [String.t()],
+        "EventId" => String.t(),
+        "EventTime" => non_neg_integer(),
+        "InstanceGroupName" => String.t(),
+        "InstanceId" => [String.t()],
+        "ResourceType" => list(any())
+      }
+      
+  """
+  @type cluster_event_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       ttl_duration() :: %{
         "Unit" => list(any()),
         "Value" => integer()
@@ -10787,6 +10984,18 @@ defmodule AWS.SageMaker do
       
   """
   @type create_model_package_group_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_cluster_node_specification() :: %{
+        "IncrementTargetCountBy" => integer(),
+        "InstanceGroupName" => String.t()
+      }
+      
+  """
+  @type add_cluster_node_specification() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -11046,6 +11255,19 @@ defmodule AWS.SageMaker do
       
   """
   @type list_training_jobs_for_hyper_parameter_tuning_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_group_scaling_metadata() :: %{
+        "FailureMessage" => [String.t()],
+        "InstanceCount" => integer(),
+        "TargetCount" => integer()
+      }
+      
+  """
+  @type instance_group_scaling_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -12196,6 +12418,26 @@ defmodule AWS.SageMaker do
       
   """
   @type create_app_image_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_cluster_events_request() :: %{
+        optional("EventTimeAfter") => non_neg_integer(),
+        optional("EventTimeBefore") => non_neg_integer(),
+        optional("InstanceGroupName") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("NodeId") => String.t(),
+        optional("ResourceType") => list(any()),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        required("ClusterName") => String.t()
+      }
+      
+  """
+  @type list_cluster_events_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -14112,6 +14354,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      describe_cluster_event_request() :: %{
+        required("ClusterName") => String.t(),
+        required("EventId") => String.t()
+      }
+      
+  """
+  @type describe_cluster_event_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_lineage_groups_request() :: %{
         optional("CreatedAfter") => non_neg_integer(),
         optional("CreatedBefore") => non_neg_integer(),
@@ -14899,7 +15153,9 @@ defmodule AWS.SageMaker do
       
       batch_delete_cluster_nodes_response() :: %{
         "Failed" => list(batch_delete_cluster_nodes_error()),
-        "Successful" => list(String.t())
+        "FailedNodeLogicalIds" => list(batch_delete_cluster_node_logical_ids_error()),
+        "Successful" => list(String.t()),
+        "SuccessfulNodeLogicalIds" => list(String.t())
       }
       
   """
@@ -14935,6 +15191,7 @@ defmodule AWS.SageMaker do
       
       batch_delete_cluster_nodes_request() :: %{
         optional("NodeIds") => list(String.t()),
+        optional("NodeLogicalIds") => list(String.t()),
         required("ClusterName") => String.t()
       }
       
@@ -15471,6 +15728,7 @@ defmodule AWS.SageMaker do
       
       cluster_instance_group_specification() :: %{
         "ExecutionRole" => String.t(),
+        "ImageId" => String.t(),
         "InstanceCount" => integer(),
         "InstanceGroupName" => String.t(),
         "InstanceStorageConfigs" => list(list()),
@@ -15485,6 +15743,19 @@ defmodule AWS.SageMaker do
       
   """
   @type cluster_instance_group_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      node_addition_result() :: %{
+        "InstanceGroupName" => String.t(),
+        "NodeLogicalId" => String.t(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type node_addition_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -17954,6 +18225,8 @@ defmodule AWS.SageMaker do
       
       cluster_instance_group_details() :: %{
         "CurrentCount" => integer(),
+        "CurrentImageId" => String.t(),
+        "DesiredImageId" => String.t(),
         "ExecutionRole" => String.t(),
         "InstanceGroupName" => String.t(),
         "InstanceStorageConfigs" => list(list()),
@@ -18367,6 +18640,8 @@ defmodule AWS.SageMaker do
   ## Example:
       
       cluster_node_details() :: %{
+        "CurrentImageId" => String.t(),
+        "DesiredImageId" => String.t(),
         "InstanceGroupName" => String.t(),
         "InstanceId" => [String.t()],
         "InstanceStatus" => cluster_instance_status_details(),
@@ -18375,6 +18650,7 @@ defmodule AWS.SageMaker do
         "LastSoftwareUpdateTime" => non_neg_integer(),
         "LaunchTime" => non_neg_integer(),
         "LifeCycleConfig" => cluster_life_cycle_config(),
+        "NodeLogicalId" => String.t(),
         "OverrideVpcConfig" => vpc_config(),
         "Placement" => cluster_instance_placement(),
         "PrivateDnsHostname" => String.t(),
@@ -18787,6 +19063,8 @@ defmodule AWS.SageMaker do
 
   @type attach_cluster_node_volume_errors() :: resource_not_found()
 
+  @type batch_add_cluster_nodes_errors() :: resource_limit_exceeded() | resource_not_found()
+
   @type batch_delete_cluster_nodes_errors() :: resource_not_found()
 
   @type create_action_errors() :: resource_limit_exceeded()
@@ -19027,6 +19305,8 @@ defmodule AWS.SageMaker do
 
   @type describe_cluster_errors() :: resource_not_found()
 
+  @type describe_cluster_event_errors() :: resource_not_found()
+
   @type describe_cluster_node_errors() :: resource_not_found()
 
   @type describe_cluster_scheduler_config_errors() :: resource_not_found()
@@ -19139,6 +19419,8 @@ defmodule AWS.SageMaker do
   @type list_associations_errors() :: resource_not_found()
 
   @type list_candidates_for_auto_ml_job_errors() :: resource_not_found()
+
+  @type list_cluster_events_errors() :: resource_not_found()
 
   @type list_cluster_nodes_errors() :: resource_not_found()
 
@@ -19438,6 +19720,29 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "AttachClusterNodeVolume", input, options)
+  end
+
+  @doc """
+  Adds nodes to a HyperPod cluster by incrementing the target count for one or
+  more instance groups.
+
+  This operation returns a unique `NodeLogicalId` for each node being added, which
+  can be used to track the provisioning status of the node. This API provides a
+  safer alternative to `UpdateCluster` for scaling operations by avoiding
+  unintended configuration changes.
+
+  This API is only supported for clusters using `Continuous` as the
+  `NodeProvisioningMode`.
+  """
+  @spec batch_add_cluster_nodes(map(), batch_add_cluster_nodes_request(), list()) ::
+          {:ok, batch_add_cluster_nodes_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_add_cluster_nodes_errors()}
+  def batch_add_cluster_nodes(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchAddClusterNodes", input, options)
   end
 
   @doc """
@@ -22319,6 +22624,24 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Retrieves detailed information about a specific event for a given HyperPod
+  cluster.
+
+  This functionality is only supported when the `NodeProvisioningMode` is set to
+  `Continuous`.
+  """
+  @spec describe_cluster_event(map(), describe_cluster_event_request(), list()) ::
+          {:ok, describe_cluster_event_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_cluster_event_errors()}
+  def describe_cluster_event(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeClusterEvent", input, options)
+  end
+
+  @doc """
   Retrieves information of a node (also called a *instance* interchangeably) of a
   SageMaker HyperPod cluster.
   """
@@ -23553,6 +23876,24 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "ListCandidatesForAutoMLJob", input, options)
+  end
+
+  @doc """
+  Retrieves a list of event summaries for a specified HyperPod cluster.
+
+  The operation supports filtering, sorting, and pagination of results. This
+  functionality is only supported when the `NodeProvisioningMode` is set to
+  `Continuous`.
+  """
+  @spec list_cluster_events(map(), list_cluster_events_request(), list()) ::
+          {:ok, list_cluster_events_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_cluster_events_errors()}
+  def list_cluster_events(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListClusterEvents", input, options)
   end
 
   @doc """

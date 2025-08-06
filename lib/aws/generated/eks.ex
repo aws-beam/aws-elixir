@@ -994,6 +994,7 @@ defmodule AWS.EKS do
         optional("bootstrapSelfManagedAddons") => boolean(),
         optional("clientRequestToken") => String.t(),
         optional("computeConfig") => compute_config_request(),
+        optional("deletionProtection") => boolean(),
         optional("encryptionConfig") => list(encryption_config()),
         optional("kubernetesNetworkConfig") => kubernetes_network_config_request(),
         optional("logging") => logging(),
@@ -1252,6 +1253,7 @@ defmodule AWS.EKS do
         "computeConfig" => compute_config_response(),
         "connectorConfig" => connector_config_response(),
         "createdAt" => non_neg_integer(),
+        "deletionProtection" => boolean(),
         "encryptionConfig" => list(encryption_config()),
         "endpoint" => String.t(),
         "health" => cluster_health(),
@@ -2505,6 +2507,7 @@ defmodule AWS.EKS do
         optional("accessConfig") => update_access_config_request(),
         optional("clientRequestToken") => String.t(),
         optional("computeConfig") => compute_config_request(),
+        optional("deletionProtection") => boolean(),
         optional("kubernetesNetworkConfig") => kubernetes_network_config_request(),
         optional("logging") => logging(),
         optional("remoteNetworkConfig") => remote_network_config_request(),
@@ -2921,6 +2924,7 @@ defmodule AWS.EKS do
   @type delete_cluster_errors() ::
           server_exception()
           | service_unavailable_exception()
+          | invalid_request_exception()
           | resource_not_found_exception()
           | client_exception()
           | resource_in_use_exception()

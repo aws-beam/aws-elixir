@@ -56,6 +56,30 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      list_automated_reasoning_policies_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("policyArn") => String.t()
+      }
+
+  """
+  @type list_automated_reasoning_policies_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_automated_reasoning_policy_version_response() :: %{
+        "policyDefinition" => automated_reasoning_policy_definition()
+      }
+
+  """
+  @type export_automated_reasoning_policy_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       marketplace_model_endpoint_summary() :: %{
         "createdAt" => non_neg_integer(),
         "endpointArn" => String.t(),
@@ -67,6 +91,27 @@ defmodule AWS.Bedrock do
 
   """
   @type marketplace_model_endpoint_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_automated_reasoning_policy_config() :: %{
+        "confidenceThreshold" => float(),
+        "policies" => list(String.t())
+      }
+
+  """
+  @type guardrail_automated_reasoning_policy_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_automated_reasoning_policy_next_scenario_request() :: %{}
+
+  """
+  @type get_automated_reasoning_policy_next_scenario_request() :: %{}
 
   @typedoc """
 
@@ -87,6 +132,15 @@ defmodule AWS.Bedrock do
 
   """
   @type create_model_import_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_automated_reasoning_policy_test_result_request() :: %{}
+
+  """
+  @type get_automated_reasoning_policy_test_result_request() :: %{}
 
   @typedoc """
 
@@ -204,6 +258,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_reasoning_policy_delete_type_annotation() :: %{
+        "name" => String.t()
+      }
+
+  """
+  @type automated_reasoning_policy_delete_type_annotation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_custom_model_response() :: %{}
 
   """
@@ -220,6 +285,18 @@ defmodule AWS.Bedrock do
 
   """
   @type evaluation_inference_config_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_automated_reasoning_policies_response() :: %{
+        "automatedReasoningPolicySummaries" => list(automated_reasoning_policy_summary()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_automated_reasoning_policies_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -244,6 +321,21 @@ defmodule AWS.Bedrock do
 
   """
   @type list_inference_profiles_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_automated_reasoning_policy_build_workflow_result_assets_response() :: %{
+        "buildWorkflowAssets" => list(),
+        "buildWorkflowId" => String.t(),
+        "policyArn" => String.t()
+      }
+
+  """
+  @type get_automated_reasoning_policy_build_workflow_result_assets_response() :: %{
+          String.t() => any()
+        }
 
   @typedoc """
 
@@ -311,6 +403,27 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_reasoning_policy_definition_type_value_pair() :: %{
+        "typeName" => String.t(),
+        "valueName" => String.t()
+      }
+
+  """
+  @type automated_reasoning_policy_definition_type_value_pair() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_planning() :: %{}
+
+  """
+  @type automated_reasoning_policy_planning() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       create_model_customization_job_response() :: %{
         "jobArn" => String.t()
       }
@@ -338,6 +451,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       get_guardrail_response() :: %{
+        "automatedReasoningPolicy" => guardrail_automated_reasoning_policy(),
         "blockedInputMessaging" => String.t(),
         "blockedOutputsMessaging" => String.t(),
         "contentPolicy" => guardrail_content_policy(),
@@ -416,7 +530,21 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_reasoning_policy_update_variable_annotation() :: %{
+        "description" => String.t(),
+        "name" => String.t(),
+        "newName" => String.t()
+      }
+
+  """
+  @type automated_reasoning_policy_update_variable_annotation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_guardrail_request() :: %{
+        optional("automatedReasoningPolicyConfig") => guardrail_automated_reasoning_policy_config(),
         optional("clientRequestToken") => String.t(),
         optional("contentPolicyConfig") => guardrail_content_policy_config(),
         optional("contextualGroundingPolicyConfig") => guardrail_contextual_grounding_policy_config(),
@@ -434,6 +562,19 @@ defmodule AWS.Bedrock do
 
   """
   @type create_guardrail_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_add_type_annotation() :: %{
+        "description" => String.t(),
+        "name" => String.t(),
+        "values" => list(automated_reasoning_policy_definition_type_value())
+      }
+
+  """
+  @type automated_reasoning_policy_add_type_annotation() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -525,6 +666,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      get_automated_reasoning_policy_test_case_response() :: %{
+        "policyArn" => String.t(),
+        "testCase" => automated_reasoning_policy_test_case()
+      }
+
+  """
+  @type get_automated_reasoning_policy_test_case_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_inference_profile_response() :: %{
         "inferenceProfileArn" => String.t(),
         "status" => list(any())
@@ -558,6 +711,17 @@ defmodule AWS.Bedrock do
 
   """
   @type automated_evaluation_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_in_use_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type resource_in_use_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -606,6 +770,20 @@ defmodule AWS.Bedrock do
 
   """
   @type guardrail_topics_tier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_update_type_annotation() :: %{
+        "description" => String.t(),
+        "name" => String.t(),
+        "newName" => String.t(),
+        "values" => list(list())
+      }
+
+  """
+  @type automated_reasoning_policy_update_type_annotation() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -666,6 +844,31 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      delete_automated_reasoning_policy_build_workflow_request() :: %{
+        required("lastUpdatedAt") => non_neg_integer()
+      }
+
+  """
+  @type delete_automated_reasoning_policy_build_workflow_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_check_satisfiable_finding() :: %{
+        "claimsFalseScenario" => automated_reasoning_check_scenario(),
+        "claimsTrueScenario" => automated_reasoning_check_scenario(),
+        "logicWarning" => automated_reasoning_check_logic_warning(),
+        "translation" => automated_reasoning_check_translation()
+      }
+
+  """
+  @type automated_reasoning_check_satisfiable_finding() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_model_import_jobs_request() :: %{
         optional("creationTimeAfter") => non_neg_integer(),
         optional("creationTimeBefore") => non_neg_integer(),
@@ -695,6 +898,30 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_reasoning_policy_build_workflow_repair_content() :: %{
+        "annotations" => list(list())
+      }
+
+  """
+  @type automated_reasoning_policy_build_workflow_repair_content() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_check_logic_warning() :: %{
+        "claims" => list(automated_reasoning_logic_statement()),
+        "premises" => list(automated_reasoning_logic_statement()),
+        "type" => list(any())
+      }
+
+  """
+  @type automated_reasoning_check_logic_warning() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_contextual_grounding_filter_config() :: %{
         "action" => list(any()),
         "enabled" => [boolean()],
@@ -719,6 +946,19 @@ defmodule AWS.Bedrock do
 
   """
   @type create_custom_model_deployment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_automated_reasoning_policy_build_workflow_result_assets_request() :: %{
+        required("assetType") => list(any())
+      }
+
+  """
+  @type get_automated_reasoning_policy_build_workflow_result_assets_request() :: %{
+          String.t() => any()
+        }
 
   @typedoc """
 
@@ -773,6 +1013,47 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_reasoning_check_rule() :: %{
+        "id" => String.t(),
+        "policyVersionArn" => String.t()
+      }
+
+  """
+  @type automated_reasoning_check_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_automated_reasoning_policy_annotations_response() :: %{
+        "annotationSetHash" => String.t(),
+        "annotations" => list(list()),
+        "buildWorkflowId" => String.t(),
+        "name" => String.t(),
+        "policyArn" => String.t(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_automated_reasoning_policy_annotations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_definition_rule() :: %{
+        "alternateExpression" => String.t(),
+        "expression" => String.t(),
+        "id" => String.t()
+      }
+
+  """
+  @type automated_reasoning_policy_definition_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       pricing_term() :: %{
         "rateCard" => list(dimensional_price_rate())
       }
@@ -788,6 +1069,24 @@ defmodule AWS.Bedrock do
 
   """
   @type delete_custom_model_deployment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_automated_reasoning_policy_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "definitionHash" => String.t(),
+        "description" => String.t(),
+        "name" => String.t(),
+        "policyArn" => String.t(),
+        "policyId" => String.t(),
+        "updatedAt" => non_neg_integer(),
+        "version" => String.t()
+      }
+
+  """
+  @type get_automated_reasoning_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -881,6 +1180,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      list_automated_reasoning_policy_build_workflows_response() :: %{
+        "automatedReasoningPolicyBuildWorkflowSummaries" => list(automated_reasoning_policy_build_workflow_summary()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_automated_reasoning_policy_build_workflows_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_prompt_router_request() :: %{}
 
   """
@@ -902,12 +1213,35 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_reasoning_policy_add_rule_annotation() :: %{
+        "expression" => String.t()
+      }
+
+  """
+  @type automated_reasoning_policy_add_rule_annotation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       support_term() :: %{
         "refundPolicyDescription" => [String.t()]
       }
 
   """
   @type support_term() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_automated_reasoning_policy_test_results_response() :: %{
+        "nextToken" => String.t(),
+        "testResults" => list(automated_reasoning_policy_test_result())
+      }
+
+  """
+  @type list_automated_reasoning_policy_test_results_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -920,6 +1254,17 @@ defmodule AWS.Bedrock do
 
   """
   @type list_inference_profiles_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_delete_rule_annotation() :: %{
+        "ruleId" => String.t()
+      }
+
+  """
+  @type automated_reasoning_policy_delete_rule_annotation() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -967,6 +1312,20 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_reasoning_policy_scenario() :: %{
+        "alternateExpression" => String.t(),
+        "expectedResult" => list(any()),
+        "expression" => String.t(),
+        "ruleIds" => list(String.t())
+      }
+
+  """
+  @type automated_reasoning_policy_scenario() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       logging_config() :: %{
         "cloudWatchConfig" => cloud_watch_config(),
         "embeddingDataDeliveryEnabled" => [boolean()],
@@ -1001,6 +1360,17 @@ defmodule AWS.Bedrock do
 
   """
   @type custom_metric_bedrock_evaluator_model() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_update_type_mutation() :: %{
+        "type" => automated_reasoning_policy_definition_type()
+      }
+
+  """
+  @type automated_reasoning_policy_update_type_mutation() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1081,6 +1451,31 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_reasoning_policy_update_variable_mutation() :: %{
+        "variable" => automated_reasoning_policy_definition_variable()
+      }
+
+  """
+  @type automated_reasoning_policy_update_variable_mutation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_build_workflow_document() :: %{
+        "document" => [binary()],
+        "documentContentType" => list(any()),
+        "documentDescription" => String.t(),
+        "documentName" => String.t()
+      }
+
+  """
+  @type automated_reasoning_policy_build_workflow_document() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_model_copy_job_request() :: %{
         optional("clientRequestToken") => String.t(),
         optional("modelKmsKeyId") => String.t(),
@@ -1111,6 +1506,23 @@ defmodule AWS.Bedrock do
 
   """
   @type prompt_router_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_automated_reasoning_policy_test_case_request() :: %{
+        optional("clientRequestToken") => String.t(),
+        optional("confidenceThreshold") => float(),
+        optional("kmsKeyArn") => String.t(),
+        optional("queryContent") => String.t(),
+        required("expectedAggregatedFindingsResult") => list(any()),
+        required("guardContent") => String.t(),
+        required("lastUpdatedAt") => non_neg_integer()
+      }
+
+  """
+  @type update_automated_reasoning_policy_test_case_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1183,12 +1595,67 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      create_automated_reasoning_policy_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "definitionHash" => String.t(),
+        "description" => String.t(),
+        "name" => String.t(),
+        "policyArn" => String.t(),
+        "updatedAt" => non_neg_integer(),
+        "version" => String.t()
+      }
+
+  """
+  @type create_automated_reasoning_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_update_from_rule_feedback_annotation() :: %{
+        "feedback" => String.t(),
+        "ruleIds" => list(String.t())
+      }
+
+  """
+  @type automated_reasoning_policy_update_from_rule_feedback_annotation() :: %{
+          String.t() => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_check_translation_option() :: %{
+        "translations" => list(automated_reasoning_check_translation())
+      }
+
+  """
+  @type automated_reasoning_check_translation_option() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       inference_profile_model() :: %{
         "modelArn" => String.t()
       }
 
   """
   @type inference_profile_model() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_update_type_value() :: %{
+        "description" => String.t(),
+        "newValue" => String.t(),
+        "value" => String.t()
+      }
+
+  """
+  @type automated_reasoning_policy_update_type_value() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1232,6 +1699,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      delete_automated_reasoning_policy_test_case_request() :: %{
+        required("lastUpdatedAt") => non_neg_integer()
+      }
+
+  """
+  @type delete_automated_reasoning_policy_test_case_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_provisioned_model_throughput_response() :: %{
         "commitmentDuration" => list(any()),
         "commitmentExpirationTime" => non_neg_integer(),
@@ -1268,12 +1746,53 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      create_automated_reasoning_policy_request() :: %{
+        optional("clientRequestToken") => String.t(),
+        optional("description") => String.t(),
+        optional("policyDefinition") => automated_reasoning_policy_definition(),
+        optional("tags") => list(tag()),
+        required("name") => String.t()
+      }
+
+  """
+  @type create_automated_reasoning_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_automated_reasoning_policy_request() :: %{
+        optional("description") => String.t(),
+        optional("name") => String.t(),
+        required("policyDefinition") => automated_reasoning_policy_definition()
+      }
+
+  """
+  @type update_automated_reasoning_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       bedrock_evaluator_model() :: %{
         "modelIdentifier" => String.t()
       }
 
   """
   @type bedrock_evaluator_model() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_definition_type() :: %{
+        "description" => String.t(),
+        "name" => String.t(),
+        "values" => list(automated_reasoning_policy_definition_type_value())
+      }
+
+  """
+  @type automated_reasoning_policy_definition_type() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1309,6 +1828,17 @@ defmodule AWS.Bedrock do
 
   """
   @type get_foundation_model_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_delete_variable_annotation() :: %{
+        "name" => String.t()
+      }
+
+  """
+  @type automated_reasoning_policy_delete_variable_annotation() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1354,6 +1884,31 @@ defmodule AWS.Bedrock do
 
   """
   @type get_imported_model_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_automated_reasoning_policy_build_workflow_request() :: %{}
+
+  """
+  @type get_automated_reasoning_policy_build_workflow_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_automated_reasoning_policy_version_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "definitionHash" => String.t(),
+        "description" => String.t(),
+        "name" => String.t(),
+        "policyArn" => String.t(),
+        "version" => String.t()
+      }
+
+  """
+  @type create_automated_reasoning_policy_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1413,6 +1968,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_reasoning_policy_disjoint_rule_set() :: %{
+        "rules" => list(String.t()),
+        "variables" => list(String.t())
+      }
+
+  """
+  @type automated_reasoning_policy_disjoint_rule_set() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_model_copy_job_request() :: %{}
 
   """
@@ -1441,6 +2008,33 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_reasoning_policy_build_log_entry() :: %{
+        "annotation" => list(),
+        "buildSteps" => list(automated_reasoning_policy_build_step()),
+        "status" => list(any())
+      }
+
+  """
+  @type automated_reasoning_policy_build_log_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_check_valid_finding() :: %{
+        "claimsTrueScenario" => automated_reasoning_check_scenario(),
+        "logicWarning" => automated_reasoning_check_logic_warning(),
+        "supportingRules" => list(automated_reasoning_check_rule()),
+        "translation" => automated_reasoning_check_translation()
+      }
+
+  """
+  @type automated_reasoning_check_valid_finding() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_processing_details() :: %{
         "creationTime" => non_neg_integer(),
         "lastModifiedTime" => non_neg_integer(),
@@ -1449,6 +2043,29 @@ defmodule AWS.Bedrock do
 
   """
   @type data_processing_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_automated_reasoning_policy_test_results_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_automated_reasoning_policy_test_results_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_automated_reasoning_policy_test_workflow_response() :: %{
+        "policyArn" => String.t()
+      }
+
+  """
+  @type start_automated_reasoning_policy_test_workflow_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1474,6 +2091,18 @@ defmodule AWS.Bedrock do
 
   """
   @type custom_metric_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_automated_reasoning_policy_build_workflows_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_automated_reasoning_policy_build_workflows_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1560,6 +2189,15 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      get_automated_reasoning_policy_annotations_request() :: %{}
+
+  """
+  @type get_automated_reasoning_policy_annotations_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_content_filter() :: %{
         "inputAction" => list(any()),
         "inputEnabled" => [boolean()],
@@ -1579,12 +2217,41 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_reasoning_policy_update_from_scenario_feedback_annotation() :: %{
+        "feedback" => String.t(),
+        "ruleIds" => list(String.t()),
+        "scenarioExpression" => String.t()
+      }
+
+  """
+  @type automated_reasoning_policy_update_from_scenario_feedback_annotation() :: %{
+          String.t() => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_content_filters_tier() :: %{
         "tierName" => list(any())
       }
 
   """
   @type guardrail_content_filters_tier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_automated_reasoning_policy_response() :: %{
+        "definitionHash" => String.t(),
+        "name" => String.t(),
+        "policyArn" => String.t(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type update_automated_reasoning_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1680,6 +2347,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_reasoning_policy_delete_variable_mutation() :: %{
+        "name" => String.t()
+      }
+
+  """
+  @type automated_reasoning_policy_delete_variable_mutation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       model_copy_job_summary() :: %{
         "creationTime" => non_neg_integer(),
         "failureMessage" => String.t(),
@@ -1696,6 +2374,17 @@ defmodule AWS.Bedrock do
 
   """
   @type model_copy_job_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_delete_type_mutation() :: %{
+        "name" => String.t()
+      }
+
+  """
+  @type automated_reasoning_policy_delete_type_mutation() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1722,6 +2411,25 @@ defmodule AWS.Bedrock do
 
   """
   @type update_provisioned_model_throughput_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_automated_reasoning_policy_build_workflow_response() :: %{
+        "buildWorkflowId" => String.t(),
+        "buildWorkflowType" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "documentContentType" => list(any()),
+        "documentDescription" => String.t(),
+        "documentName" => String.t(),
+        "policyArn" => String.t(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_automated_reasoning_policy_build_workflow_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1785,6 +2493,29 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_reasoning_policy_add_variable_mutation() :: %{
+        "variable" => automated_reasoning_policy_definition_variable()
+      }
+
+  """
+  @type automated_reasoning_policy_add_variable_mutation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_automated_reasoning_policy_test_cases_response() :: %{
+        "nextToken" => String.t(),
+        "testCases" => list(automated_reasoning_policy_test_case())
+      }
+
+  """
+  @type list_automated_reasoning_policy_test_cases_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       rating_scale_item() :: %{
         "definition" => String.t(),
         "value" => list()
@@ -1828,6 +2559,32 @@ defmodule AWS.Bedrock do
 
   """
   @type delete_foundation_model_agreement_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_ingest_content_annotation() :: %{
+        "content" => String.t()
+      }
+
+  """
+  @type automated_reasoning_policy_ingest_content_annotation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_automated_reasoning_policy_test_case_request() :: %{
+        optional("clientRequestToken") => String.t(),
+        optional("confidenceThreshold") => float(),
+        optional("queryContent") => String.t(),
+        required("expectedAggregatedFindingsResult") => list(any()),
+        required("guardContent") => String.t()
+      }
+
+  """
+  @type create_automated_reasoning_policy_test_case_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2032,6 +2789,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       update_guardrail_request() :: %{
+        optional("automatedReasoningPolicyConfig") => guardrail_automated_reasoning_policy_config(),
         optional("contentPolicyConfig") => guardrail_content_policy_config(),
         optional("contextualGroundingPolicyConfig") => guardrail_contextual_grounding_policy_config(),
         optional("crossRegionConfig") => guardrail_cross_region_config(),
@@ -2056,6 +2814,17 @@ defmodule AWS.Bedrock do
 
   """
   @type get_model_import_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_check_input_text_reference() :: %{
+        "text" => String.t()
+      }
+
+  """
+  @type automated_reasoning_check_input_text_reference() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2101,6 +2870,19 @@ defmodule AWS.Bedrock do
 
   """
   @type get_custom_model_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_add_variable_annotation() :: %{
+        "description" => String.t(),
+        "name" => String.t(),
+        "type" => String.t()
+      }
+
+  """
+  @type automated_reasoning_policy_add_variable_annotation() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2165,6 +2947,29 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_reasoning_policy_update_rule_mutation() :: %{
+        "rule" => automated_reasoning_policy_definition_rule()
+      }
+
+  """
+  @type automated_reasoning_policy_update_rule_mutation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_automated_reasoning_policy_next_scenario_response() :: %{
+        "policyArn" => String.t(),
+        "scenario" => automated_reasoning_policy_scenario()
+      }
+
+  """
+  @type get_automated_reasoning_policy_next_scenario_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       external_sources_generation_configuration() :: %{
         "additionalModelRequestFields" => map(),
         "guardrailConfiguration" => guardrail_configuration(),
@@ -2218,6 +3023,15 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      cancel_automated_reasoning_policy_build_workflow_response() :: %{}
+
+  """
+  @type cancel_automated_reasoning_policy_build_workflow_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       knowledge_base_vector_search_configuration() :: %{
         "filter" => list(),
         "implicitFilterConfiguration" => implicit_filter_configuration(),
@@ -2233,10 +3047,40 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      guardrail_automated_reasoning_policy() :: %{
+        "confidenceThreshold" => float(),
+        "policies" => list(String.t())
+      }
+
+  """
+  @type guardrail_automated_reasoning_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_automated_reasoning_policy_request() :: %{}
+
+  """
+  @type get_automated_reasoning_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_model_invocation_logging_configuration_request() :: %{}
 
   """
   @type get_model_invocation_logging_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_automated_reasoning_policy_request() :: %{}
+
+  """
+  @type delete_automated_reasoning_policy_request() :: %{}
 
   @typedoc """
 
@@ -2258,6 +3102,17 @@ defmodule AWS.Bedrock do
 
   """
   @type delete_marketplace_model_endpoint_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_automated_reasoning_policy_test_result_response() :: %{
+        "testResult" => automated_reasoning_policy_test_result()
+      }
+
+  """
+  @type get_automated_reasoning_policy_test_result_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2296,6 +3151,15 @@ defmodule AWS.Bedrock do
 
   """
   @type guardrail_word_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_automated_reasoning_policy_test_case_request() :: %{}
+
+  """
+  @type get_automated_reasoning_policy_test_case_request() :: %{}
 
   @typedoc """
 
@@ -2414,12 +3278,36 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      update_automated_reasoning_policy_annotations_request() :: %{
+        required("annotations") => list(list()),
+        required("lastUpdatedAnnotationSetHash") => String.t()
+      }
+
+  """
+  @type update_automated_reasoning_policy_annotations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_foundation_model_agreement_offers_request() :: %{
         optional("offerType") => list(any())
       }
 
   """
   @type list_foundation_model_agreement_offers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_build_step_message() :: %{
+        "message" => [String.t()],
+        "messageType" => list(any())
+      }
+
+  """
+  @type automated_reasoning_policy_build_step_message() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2443,6 +3331,37 @@ defmodule AWS.Bedrock do
 
   """
   @type list_model_copy_jobs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_build_log() :: %{
+        "entries" => list(automated_reasoning_policy_build_log_entry())
+      }
+
+  """
+  @type automated_reasoning_policy_build_log() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_add_type_mutation() :: %{
+        "type" => automated_reasoning_policy_definition_type()
+      }
+
+  """
+  @type automated_reasoning_policy_add_type_mutation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_automated_reasoning_policy_build_workflow_request() :: %{}
+
+  """
+  @type cancel_automated_reasoning_policy_build_workflow_request() :: %{}
 
   @typedoc """
 
@@ -2511,6 +3430,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      start_automated_reasoning_policy_test_workflow_request() :: %{
+        optional("clientRequestToken") => String.t(),
+        optional("testCaseIds") => list(String.t())
+      }
+
+  """
+  @type start_automated_reasoning_policy_test_workflow_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_regex_config() :: %{
         "action" => list(any()),
         "description" => [String.t()],
@@ -2535,6 +3466,17 @@ defmodule AWS.Bedrock do
 
   """
   @type put_model_invocation_logging_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_check_scenario() :: %{
+        "statements" => list(automated_reasoning_logic_statement())
+      }
+
+  """
+  @type automated_reasoning_check_scenario() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2681,6 +3623,24 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      delete_automated_reasoning_policy_response() :: %{}
+
+  """
+  @type delete_automated_reasoning_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_automated_reasoning_policy_build_workflow_response() :: %{}
+
+  """
+  @type delete_automated_reasoning_policy_build_workflow_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       create_model_customization_job_request() :: %{
         optional("clientRequestToken") => String.t(),
         optional("customModelKmsKeyId") => String.t(),
@@ -2769,6 +3729,15 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_reasoning_check_no_translations_finding() :: %{}
+
+  """
+  @type automated_reasoning_check_no_translations_finding() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_marketplace_model_endpoint_response() :: %{
         "marketplaceModelEndpoint" => marketplace_model_endpoint()
       }
@@ -2791,6 +3760,37 @@ defmodule AWS.Bedrock do
 
   """
   @type create_custom_model_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_definition_quality_report() :: %{
+        "conflictingRules" => list(String.t()),
+        "disjointRuleSets" => list(automated_reasoning_policy_disjoint_rule_set()),
+        "ruleCount" => [integer()],
+        "typeCount" => [integer()],
+        "unusedTypeValues" => list(automated_reasoning_policy_definition_type_value_pair()),
+        "unusedTypes" => list(String.t()),
+        "unusedVariables" => list(String.t()),
+        "variableCount" => [integer()]
+      }
+
+  """
+  @type automated_reasoning_policy_definition_quality_report() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_definition_variable() :: %{
+        "description" => String.t(),
+        "name" => String.t(),
+        "type" => String.t()
+      }
+
+  """
+  @type automated_reasoning_policy_definition_variable() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2821,12 +3821,48 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      export_automated_reasoning_policy_version_request() :: %{}
+
+  """
+  @type export_automated_reasoning_policy_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_check_translation() :: %{
+        "claims" => list(automated_reasoning_logic_statement()),
+        "confidence" => float(),
+        "premises" => list(automated_reasoning_logic_statement()),
+        "untranslatedClaims" => list(automated_reasoning_check_input_text_reference()),
+        "untranslatedPremises" => list(automated_reasoning_check_input_text_reference())
+      }
+
+  """
+  @type automated_reasoning_check_translation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validator_metric() :: %{
         "validationLoss" => float()
       }
 
   """
   @type validator_metric() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_automated_reasoning_policy_test_case_response() :: %{
+        "policyArn" => String.t(),
+        "testCaseId" => String.t()
+      }
+
+  """
+  @type create_automated_reasoning_policy_test_case_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2947,6 +3983,33 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      update_automated_reasoning_policy_annotations_response() :: %{
+        "annotationSetHash" => String.t(),
+        "buildWorkflowId" => String.t(),
+        "policyArn" => String.t(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type update_automated_reasoning_policy_annotations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_check_impossible_finding() :: %{
+        "contradictingRules" => list(automated_reasoning_check_rule()),
+        "logicWarning" => automated_reasoning_check_logic_warning(),
+        "translation" => automated_reasoning_check_translation()
+      }
+
+  """
+  @type automated_reasoning_check_impossible_finding() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       evaluation_dataset() :: %{
         "datasetLocation" => list(),
         "name" => String.t()
@@ -2954,6 +4017,66 @@ defmodule AWS.Bedrock do
 
   """
   @type evaluation_dataset() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_automated_reasoning_policy_version_request() :: %{
+        optional("clientRequestToken") => String.t(),
+        optional("tags") => list(tag()),
+        required("lastUpdatedDefinitionHash") => String.t()
+      }
+
+  """
+  @type create_automated_reasoning_policy_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_update_rule_annotation() :: %{
+        "expression" => String.t(),
+        "ruleId" => String.t()
+      }
+
+  """
+  @type automated_reasoning_policy_update_rule_annotation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_build_workflow_source() :: %{
+        "policyDefinition" => automated_reasoning_policy_definition(),
+        "workflowContent" => list()
+      }
+
+  """
+  @type automated_reasoning_policy_build_workflow_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_add_rule_mutation() :: %{
+        "rule" => automated_reasoning_policy_definition_rule()
+      }
+
+  """
+  @type automated_reasoning_policy_add_rule_mutation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_automated_reasoning_policy_test_cases_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_automated_reasoning_policy_test_cases_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2977,6 +4100,18 @@ defmodule AWS.Bedrock do
 
   """
   @type custom_model_units() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_automated_reasoning_policy_build_workflow_response() :: %{
+        "buildWorkflowId" => String.t(),
+        "policyArn" => String.t()
+      }
+
+  """
+  @type start_automated_reasoning_policy_build_workflow_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3036,6 +4171,23 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_reasoning_policy_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t(),
+        "name" => String.t(),
+        "policyArn" => String.t(),
+        "policyId" => String.t(),
+        "updatedAt" => non_neg_integer(),
+        "version" => String.t()
+      }
+
+  """
+  @type automated_reasoning_policy_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_marketplace_model_endpoint_request() :: %{
         optional("clientRequestToken") => String.t(),
         required("endpointConfig") => list()
@@ -3060,6 +4212,32 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_reasoning_policy_test_case() :: %{
+        "confidenceThreshold" => float(),
+        "createdAt" => non_neg_integer(),
+        "expectedAggregatedFindingsResult" => list(any()),
+        "guardContent" => String.t(),
+        "queryContent" => String.t(),
+        "testCaseId" => String.t(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type automated_reasoning_policy_test_case() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_check_too_complex_finding() :: %{}
+
+  """
+  @type automated_reasoning_check_too_complex_finding() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_prompt_routers_response() :: %{
         "nextToken" => String.t(),
         "promptRouterSummaries" => list(prompt_router_summary())
@@ -3072,6 +4250,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_reasoning_check_translation_ambiguous_finding() :: %{
+        "differenceScenarios" => list(automated_reasoning_check_scenario()),
+        "options" => list(automated_reasoning_check_translation_option())
+      }
+
+  """
+  @type automated_reasoning_check_translation_ambiguous_finding() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       vector_search_bedrock_reranking_model_configuration() :: %{
         "additionalModelRequestFields" => map(),
         "modelArn" => String.t()
@@ -3079,6 +4269,18 @@ defmodule AWS.Bedrock do
 
   """
   @type vector_search_bedrock_reranking_model_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_logic_statement() :: %{
+        "logic" => String.t(),
+        "naturalLanguage" => String.t()
+      }
+
+  """
+  @type automated_reasoning_logic_statement() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3113,6 +4315,42 @@ defmodule AWS.Bedrock do
 
   """
   @type get_model_invocation_logging_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_automated_reasoning_policy_test_case_response() :: %{
+        "policyArn" => String.t(),
+        "testCaseId" => String.t()
+      }
+
+  """
+  @type update_automated_reasoning_policy_test_case_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_delete_type_value() :: %{
+        "value" => String.t()
+      }
+
+  """
+  @type automated_reasoning_policy_delete_type_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_build_step() :: %{
+        "context" => list(),
+        "messages" => list(automated_reasoning_policy_build_step_message()),
+        "priorElement" => list()
+      }
+
+  """
+  @type automated_reasoning_policy_build_step() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3264,6 +4502,30 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_reasoning_policy_add_rule_from_natural_language_annotation() :: %{
+        "naturalLanguage" => String.t()
+      }
+
+  """
+  @type automated_reasoning_policy_add_rule_from_natural_language_annotation() :: %{
+          String.t() => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_delete_rule_mutation() :: %{
+        "id" => String.t()
+      }
+
+  """
+  @type automated_reasoning_policy_delete_rule_mutation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_foundation_model_agreement_response() :: %{
         "modelId" => String.t()
       }
@@ -3315,12 +4577,38 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_reasoning_policy_test_result() :: %{
+        "aggregatedTestFindingsResult" => list(any()),
+        "policyArn" => String.t(),
+        "testCase" => automated_reasoning_policy_test_case(),
+        "testFindings" => list(list()),
+        "testRunResult" => list(any()),
+        "testRunStatus" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type automated_reasoning_policy_test_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_delete_evaluation_job_request() :: %{
         required("jobIdentifiers") => list(String.t())
       }
 
   """
   @type batch_delete_evaluation_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_automated_reasoning_policy_test_case_response() :: %{}
+
+  """
+  @type delete_automated_reasoning_policy_test_case_response() :: %{}
 
   @typedoc """
 
@@ -3397,6 +4685,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_reasoning_policy_add_type_value() :: %{
+        "description" => String.t(),
+        "value" => String.t()
+      }
+
+  """
+  @type automated_reasoning_policy_add_type_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       register_marketplace_model_endpoint_response() :: %{
         "marketplaceModelEndpoint" => marketplace_model_endpoint()
       }
@@ -3441,6 +4741,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      start_automated_reasoning_policy_build_workflow_request() :: %{
+        optional("clientRequestToken") => String.t(),
+        required("sourceContent") => automated_reasoning_policy_build_workflow_source()
+      }
+
+  """
+  @type start_automated_reasoning_policy_build_workflow_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_custom_model_deployment_response() :: %{
         "customModelDeploymentArn" => String.t()
       }
@@ -3464,6 +4776,19 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_reasoning_check_invalid_finding() :: %{
+        "contradictingRules" => list(automated_reasoning_check_rule()),
+        "logicWarning" => automated_reasoning_check_logic_warning(),
+        "translation" => automated_reasoning_check_translation()
+      }
+
+  """
+  @type automated_reasoning_check_invalid_finding() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       evaluation_bedrock_model() :: %{
         "inferenceParams" => String.t(),
         "modelIdentifier" => String.t(),
@@ -3481,6 +4806,36 @@ defmodule AWS.Bedrock do
 
   """
   @type delete_model_invocation_logging_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_definition() :: %{
+        "rules" => list(automated_reasoning_policy_definition_rule()),
+        "types" => list(automated_reasoning_policy_definition_type()),
+        "variables" => list(automated_reasoning_policy_definition_variable()),
+        "version" => String.t()
+      }
+
+  """
+  @type automated_reasoning_policy_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_build_workflow_summary() :: %{
+        "buildWorkflowId" => String.t(),
+        "buildWorkflowType" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "policyArn" => String.t(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type automated_reasoning_policy_build_workflow_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3510,6 +4865,18 @@ defmodule AWS.Bedrock do
 
   """
   @type custom_model_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_definition_type_value() :: %{
+        "description" => String.t(),
+        "value" => String.t()
+      }
+
+  """
+  @type automated_reasoning_policy_definition_type_value() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3672,6 +5039,41 @@ defmodule AWS.Bedrock do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type cancel_automated_reasoning_policy_build_workflow_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type create_automated_reasoning_policy_errors() ::
+          too_many_tags_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_automated_reasoning_policy_test_case_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_automated_reasoning_policy_version_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_custom_model_errors() ::
           too_many_tags_exception()
           | throttling_exception()
@@ -3800,6 +5202,30 @@ defmodule AWS.Bedrock do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
 
+  @type delete_automated_reasoning_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_automated_reasoning_policy_build_workflow_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_automated_reasoning_policy_test_case_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | resource_in_use_exception()
+
   @type delete_custom_model_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3879,6 +5305,62 @@ defmodule AWS.Bedrock do
           | access_denied_exception()
           | internal_server_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type export_automated_reasoning_policy_version_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_automated_reasoning_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_automated_reasoning_policy_annotations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_automated_reasoning_policy_build_workflow_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_automated_reasoning_policy_build_workflow_result_assets_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_automated_reasoning_policy_next_scenario_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_automated_reasoning_policy_test_case_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_automated_reasoning_policy_test_result_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
 
   @type get_custom_model_errors() ::
@@ -3993,6 +5475,35 @@ defmodule AWS.Bedrock do
           throttling_exception()
           | validation_exception()
           | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_automated_reasoning_policies_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_automated_reasoning_policy_build_workflows_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_automated_reasoning_policy_test_cases_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_automated_reasoning_policy_test_results_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
 
   @type list_custom_model_deployments_errors() ::
@@ -4116,6 +5627,24 @@ defmodule AWS.Bedrock do
           | service_unavailable_exception()
           | resource_not_found_exception()
 
+  @type start_automated_reasoning_policy_build_workflow_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | resource_in_use_exception()
+
+  @type start_automated_reasoning_policy_test_workflow_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
   @type stop_evaluation_job_errors() ::
           throttling_exception()
           | validation_exception()
@@ -4154,6 +5683,32 @@ defmodule AWS.Bedrock do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type update_automated_reasoning_policy_errors() ::
+          too_many_tags_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_automated_reasoning_policy_annotations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_automated_reasoning_policy_test_case_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | resource_in_use_exception()
 
   @type update_guardrail_errors() ::
           throttling_exception()
@@ -4226,6 +5781,178 @@ defmodule AWS.Bedrock do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Cancels a running Automated Reasoning policy build workflow.
+
+  This stops the policy generation process and prevents further processing of the
+  source documents.
+  """
+  @spec cancel_automated_reasoning_policy_build_workflow(
+          map(),
+          String.t(),
+          String.t(),
+          cancel_automated_reasoning_policy_build_workflow_request(),
+          list()
+        ) ::
+          {:ok, cancel_automated_reasoning_policy_build_workflow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, cancel_automated_reasoning_policy_build_workflow_errors()}
+  def cancel_automated_reasoning_policy_build_workflow(
+        %Client{} = client,
+        build_workflow_id,
+        policy_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/automated-reasoning-policies/#{AWS.Util.encode_uri(policy_arn)}/build-workflows/#{AWS.Util.encode_uri(build_workflow_id)}/cancel"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Creates an Automated Reasoning policy for Amazon Bedrock Guardrails.
+
+  Automated Reasoning policies use mathematical techniques to detect
+  hallucinations, suggest corrections, and highlight unstated assumptions in the
+  responses of your GenAI application.
+
+  To create a policy, you upload a source document that describes the rules that
+  you're encoding. Automated Reasoning extracts important concepts from the source
+  document that will become variables in the policy and infers policy rules.
+  """
+  @spec create_automated_reasoning_policy(
+          map(),
+          create_automated_reasoning_policy_request(),
+          list()
+        ) ::
+          {:ok, create_automated_reasoning_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_automated_reasoning_policy_errors()}
+  def create_automated_reasoning_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/automated-reasoning-policies"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a test for an Automated Reasoning policy.
+
+  Tests validate that your policy works as expected by providing sample inputs and
+  expected outcomes. Use tests to verify policy behavior before deploying to
+  production.
+  """
+  @spec create_automated_reasoning_policy_test_case(
+          map(),
+          String.t(),
+          create_automated_reasoning_policy_test_case_request(),
+          list()
+        ) ::
+          {:ok, create_automated_reasoning_policy_test_case_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_automated_reasoning_policy_test_case_errors()}
+  def create_automated_reasoning_policy_test_case(
+        %Client{} = client,
+        policy_arn,
+        input,
+        options \\ []
+      ) do
+    url_path = "/automated-reasoning-policies/#{AWS.Util.encode_uri(policy_arn)}/test-cases"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a new version of an existing Automated Reasoning policy.
+
+  This allows you to iterate on your policy rules while maintaining previous
+  versions for rollback or comparison purposes.
+  """
+  @spec create_automated_reasoning_policy_version(
+          map(),
+          String.t(),
+          create_automated_reasoning_policy_version_request(),
+          list()
+        ) ::
+          {:ok, create_automated_reasoning_policy_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_automated_reasoning_policy_version_errors()}
+  def create_automated_reasoning_policy_version(
+        %Client{} = client,
+        policy_arn,
+        input,
+        options \\ []
+      ) do
+    url_path = "/automated-reasoning-policies/#{AWS.Util.encode_uri(policy_arn)}/versions"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -4764,6 +6491,145 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Deletes an Automated Reasoning policy or policy version.
+
+  This operation is idempotent. If you delete a policy more than once, each call
+  succeeds. Deleting a policy removes it permanently and cannot be undone.
+  """
+  @spec delete_automated_reasoning_policy(
+          map(),
+          String.t(),
+          delete_automated_reasoning_policy_request(),
+          list()
+        ) ::
+          {:ok, delete_automated_reasoning_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_automated_reasoning_policy_errors()}
+  def delete_automated_reasoning_policy(%Client{} = client, policy_arn, input, options \\ []) do
+    url_path = "/automated-reasoning-policies/#{AWS.Util.encode_uri(policy_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Deletes an Automated Reasoning policy build workflow and its associated
+  artifacts.
+
+  This permanently removes the workflow history and any generated assets.
+  """
+  @spec delete_automated_reasoning_policy_build_workflow(
+          map(),
+          String.t(),
+          String.t(),
+          delete_automated_reasoning_policy_build_workflow_request(),
+          list()
+        ) ::
+          {:ok, delete_automated_reasoning_policy_build_workflow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_automated_reasoning_policy_build_workflow_errors()}
+  def delete_automated_reasoning_policy_build_workflow(
+        %Client{} = client,
+        build_workflow_id,
+        policy_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/automated-reasoning-policies/#{AWS.Util.encode_uri(policy_arn)}/build-workflows/#{AWS.Util.encode_uri(build_workflow_id)}"
+
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"lastUpdatedAt", "updatedAt"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Deletes an Automated Reasoning policy test.
+
+  This operation is idempotent; if you delete a test more than once, each call
+  succeeds.
+  """
+  @spec delete_automated_reasoning_policy_test_case(
+          map(),
+          String.t(),
+          String.t(),
+          delete_automated_reasoning_policy_test_case_request(),
+          list()
+        ) ::
+          {:ok, delete_automated_reasoning_policy_test_case_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_automated_reasoning_policy_test_case_errors()}
+  def delete_automated_reasoning_policy_test_case(
+        %Client{} = client,
+        policy_arn,
+        test_case_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/automated-reasoning-policies/#{AWS.Util.encode_uri(policy_arn)}/test-cases/#{AWS.Util.encode_uri(test_case_id)}"
+
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"lastUpdatedAt", "updatedAt"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Deletes a custom model that you created earlier.
 
   For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
@@ -5178,6 +7044,229 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Exports the policy definition for an Automated Reasoning policy version.
+
+  Returns the complete policy definition including rules, variables, and custom
+  variable types in a structured format.
+  """
+  @spec export_automated_reasoning_policy_version(map(), String.t(), list()) ::
+          {:ok, export_automated_reasoning_policy_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, export_automated_reasoning_policy_version_errors()}
+  def export_automated_reasoning_policy_version(%Client{} = client, policy_arn, options \\ []) do
+    url_path = "/automated-reasoning-policies/#{AWS.Util.encode_uri(policy_arn)}/export"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves details about an Automated Reasoning policy or policy version.
+
+  Returns information including the policy definition, metadata, and timestamps.
+  """
+  @spec get_automated_reasoning_policy(map(), String.t(), list()) ::
+          {:ok, get_automated_reasoning_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_automated_reasoning_policy_errors()}
+  def get_automated_reasoning_policy(%Client{} = client, policy_arn, options \\ []) do
+    url_path = "/automated-reasoning-policies/#{AWS.Util.encode_uri(policy_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the current annotations for an Automated Reasoning policy build
+  workflow.
+
+  Annotations contain corrections to the rules, variables and types to be applied
+  to the policy.
+  """
+  @spec get_automated_reasoning_policy_annotations(map(), String.t(), String.t(), list()) ::
+          {:ok, get_automated_reasoning_policy_annotations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_automated_reasoning_policy_annotations_errors()}
+  def get_automated_reasoning_policy_annotations(
+        %Client{} = client,
+        build_workflow_id,
+        policy_arn,
+        options \\ []
+      ) do
+    url_path =
+      "/automated-reasoning-policies/#{AWS.Util.encode_uri(policy_arn)}/build-workflows/#{AWS.Util.encode_uri(build_workflow_id)}/annotations"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves detailed information about an Automated Reasoning policy build
+  workflow, including its status, configuration, and metadata.
+  """
+  @spec get_automated_reasoning_policy_build_workflow(map(), String.t(), String.t(), list()) ::
+          {:ok, get_automated_reasoning_policy_build_workflow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_automated_reasoning_policy_build_workflow_errors()}
+  def get_automated_reasoning_policy_build_workflow(
+        %Client{} = client,
+        build_workflow_id,
+        policy_arn,
+        options \\ []
+      ) do
+    url_path =
+      "/automated-reasoning-policies/#{AWS.Util.encode_uri(policy_arn)}/build-workflows/#{AWS.Util.encode_uri(build_workflow_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the resulting assets from a completed Automated Reasoning policy build
+  workflow, including build logs, quality reports, and generated policy artifacts.
+  """
+  @spec get_automated_reasoning_policy_build_workflow_result_assets(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          list()
+        ) ::
+          {:ok, get_automated_reasoning_policy_build_workflow_result_assets_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_automated_reasoning_policy_build_workflow_result_assets_errors()}
+  def get_automated_reasoning_policy_build_workflow_result_assets(
+        %Client{} = client,
+        build_workflow_id,
+        policy_arn,
+        asset_type,
+        options \\ []
+      ) do
+    url_path =
+      "/automated-reasoning-policies/#{AWS.Util.encode_uri(policy_arn)}/build-workflows/#{AWS.Util.encode_uri(build_workflow_id)}/result-assets"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(asset_type) do
+        [{"assetType", asset_type} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the next test scenario for validating an Automated Reasoning policy.
+
+  This is used during the interactive policy refinement process to test policy
+  behavior.
+  """
+  @spec get_automated_reasoning_policy_next_scenario(map(), String.t(), String.t(), list()) ::
+          {:ok, get_automated_reasoning_policy_next_scenario_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_automated_reasoning_policy_next_scenario_errors()}
+  def get_automated_reasoning_policy_next_scenario(
+        %Client{} = client,
+        build_workflow_id,
+        policy_arn,
+        options \\ []
+      ) do
+    url_path =
+      "/automated-reasoning-policies/#{AWS.Util.encode_uri(policy_arn)}/build-workflows/#{AWS.Util.encode_uri(build_workflow_id)}/scenarios"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves details about a specific Automated Reasoning policy test.
+  """
+  @spec get_automated_reasoning_policy_test_case(map(), String.t(), String.t(), list()) ::
+          {:ok, get_automated_reasoning_policy_test_case_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_automated_reasoning_policy_test_case_errors()}
+  def get_automated_reasoning_policy_test_case(
+        %Client{} = client,
+        policy_arn,
+        test_case_id,
+        options \\ []
+      ) do
+    url_path =
+      "/automated-reasoning-policies/#{AWS.Util.encode_uri(policy_arn)}/test-cases/#{AWS.Util.encode_uri(test_case_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the test result for a specific Automated Reasoning policy test.
+
+  Returns detailed validation findings and execution status.
+  """
+  @spec get_automated_reasoning_policy_test_result(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          list()
+        ) ::
+          {:ok, get_automated_reasoning_policy_test_result_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_automated_reasoning_policy_test_result_errors()}
+  def get_automated_reasoning_policy_test_result(
+        %Client{} = client,
+        build_workflow_id,
+        policy_arn,
+        test_case_id,
+        options \\ []
+      ) do
+    url_path =
+      "/automated-reasoning-policies/#{AWS.Util.encode_uri(policy_arn)}/build-workflows/#{AWS.Util.encode_uri(build_workflow_id)}/test-cases/#{AWS.Util.encode_uri(test_case_id)}/test-results"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Get the properties associated with a Amazon Bedrock custom model that you have
   created.
 
@@ -5536,6 +7625,201 @@ defmodule AWS.Bedrock do
     url_path = "/use-case-for-model-access"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all Automated Reasoning policies in your account, with optional filtering
+  by policy ARN.
+
+  This helps you manage and discover existing policies.
+  """
+  @spec list_automated_reasoning_policies(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_automated_reasoning_policies_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_automated_reasoning_policies_errors()}
+  def list_automated_reasoning_policies(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        policy_arn \\ nil,
+        options \\ []
+      ) do
+    url_path = "/automated-reasoning-policies"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(policy_arn) do
+        [{"policyArn", policy_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all build workflows for an Automated Reasoning policy, showing the history
+  of policy creation and modification attempts.
+  """
+  @spec list_automated_reasoning_policy_build_workflows(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_automated_reasoning_policy_build_workflows_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_automated_reasoning_policy_build_workflows_errors()}
+  def list_automated_reasoning_policy_build_workflows(
+        %Client{} = client,
+        policy_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/automated-reasoning-policies/#{AWS.Util.encode_uri(policy_arn)}/build-workflows"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists tests for an Automated Reasoning policy.
+
+  We recommend using pagination to ensure that the operation returns quickly and
+  successfully.
+  """
+  @spec list_automated_reasoning_policy_test_cases(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_automated_reasoning_policy_test_cases_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_automated_reasoning_policy_test_cases_errors()}
+  def list_automated_reasoning_policy_test_cases(
+        %Client{} = client,
+        policy_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/automated-reasoning-policies/#{AWS.Util.encode_uri(policy_arn)}/test-cases"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists test results for an Automated Reasoning policy, showing how the policy
+  performed against various test scenarios and validation checks.
+  """
+  @spec list_automated_reasoning_policy_test_results(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_automated_reasoning_policy_test_results_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_automated_reasoning_policy_test_results_errors()}
+  def list_automated_reasoning_policy_test_results(
+        %Client{} = client,
+        build_workflow_id,
+        policy_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/automated-reasoning-policies/#{AWS.Util.encode_uri(policy_arn)}/build-workflows/#{AWS.Util.encode_uri(build_workflow_id)}/test-results"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -6947,6 +9231,103 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Starts a new build workflow for an Automated Reasoning policy.
+
+  This initiates the process of analyzing source documents and generating policy
+  rules, variables, and types.
+  """
+  @spec start_automated_reasoning_policy_build_workflow(
+          map(),
+          String.t(),
+          String.t(),
+          start_automated_reasoning_policy_build_workflow_request(),
+          list()
+        ) ::
+          {:ok, start_automated_reasoning_policy_build_workflow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_automated_reasoning_policy_build_workflow_errors()}
+  def start_automated_reasoning_policy_build_workflow(
+        %Client{} = client,
+        build_workflow_type,
+        policy_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/automated-reasoning-policies/#{AWS.Util.encode_uri(policy_arn)}/build-workflows/#{AWS.Util.encode_uri(build_workflow_type)}/start"
+
+    {headers, input} =
+      [
+        {"clientRequestToken", "x-amz-client-token"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Initiates a test workflow to validate Automated Reasoning policy tests.
+
+  The workflow executes the specified tests against the policy and generates
+  validation results.
+  """
+  @spec start_automated_reasoning_policy_test_workflow(
+          map(),
+          String.t(),
+          String.t(),
+          start_automated_reasoning_policy_test_workflow_request(),
+          list()
+        ) ::
+          {:ok, start_automated_reasoning_policy_test_workflow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_automated_reasoning_policy_test_workflow_errors()}
+  def start_automated_reasoning_policy_test_workflow(
+        %Client{} = client,
+        build_workflow_id,
+        policy_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/automated-reasoning-policies/#{AWS.Util.encode_uri(policy_arn)}/build-workflows/#{AWS.Util.encode_uri(build_workflow_id)}/test-workflows"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Stops an evaluation job that is current being created or running.
   """
   @spec stop_evaluation_job(map(), String.t(), stop_evaluation_job_request(), list()) ::
@@ -7099,6 +9480,134 @@ defmodule AWS.Bedrock do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an existing Automated Reasoning policy with new rules, variables, or
+  configuration.
+
+  This creates a new version of the policy while preserving the previous version.
+  """
+  @spec update_automated_reasoning_policy(
+          map(),
+          String.t(),
+          update_automated_reasoning_policy_request(),
+          list()
+        ) ::
+          {:ok, update_automated_reasoning_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_automated_reasoning_policy_errors()}
+  def update_automated_reasoning_policy(%Client{} = client, policy_arn, input, options \\ []) do
+    url_path = "/automated-reasoning-policies/#{AWS.Util.encode_uri(policy_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the annotations for an Automated Reasoning policy build workflow.
+
+  This allows you to modify extracted rules, variables, and types before
+  finalizing the policy.
+  """
+  @spec update_automated_reasoning_policy_annotations(
+          map(),
+          String.t(),
+          String.t(),
+          update_automated_reasoning_policy_annotations_request(),
+          list()
+        ) ::
+          {:ok, update_automated_reasoning_policy_annotations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_automated_reasoning_policy_annotations_errors()}
+  def update_automated_reasoning_policy_annotations(
+        %Client{} = client,
+        build_workflow_id,
+        policy_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/automated-reasoning-policies/#{AWS.Util.encode_uri(policy_arn)}/build-workflows/#{AWS.Util.encode_uri(build_workflow_id)}/annotations"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an existing Automated Reasoning policy test.
+
+  You can modify the content, query, expected result, and confidence threshold.
+  """
+  @spec update_automated_reasoning_policy_test_case(
+          map(),
+          String.t(),
+          String.t(),
+          update_automated_reasoning_policy_test_case_request(),
+          list()
+        ) ::
+          {:ok, update_automated_reasoning_policy_test_case_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_automated_reasoning_policy_test_case_errors()}
+  def update_automated_reasoning_policy_test_case(
+        %Client{} = client,
+        policy_arn,
+        test_case_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/automated-reasoning-policies/#{AWS.Util.encode_uri(policy_arn)}/test-cases/#{AWS.Util.encode_uri(test_case_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
       url_path,
       query_params,
       custom_headers ++ headers,

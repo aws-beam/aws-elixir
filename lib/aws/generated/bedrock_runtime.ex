@@ -13,6 +13,18 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      guardrail_automated_reasoning_rule() :: %{
+        "identifier" => String.t(),
+        "policyVersionArn" => String.t()
+      }
+
+  """
+  @type guardrail_automated_reasoning_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invoke_model_with_bidirectional_stream_response() :: %{
         "body" => list()
       }
@@ -66,6 +78,39 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type guardrail_content_policy_assessment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_automated_reasoning_impossible_finding() :: %{
+        "contradictingRules" => list(guardrail_automated_reasoning_rule()),
+        "logicWarning" => guardrail_automated_reasoning_logic_warning(),
+        "translation" => guardrail_automated_reasoning_translation()
+      }
+
+  """
+  @type guardrail_automated_reasoning_impossible_finding() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_automated_reasoning_policy_assessment() :: %{
+        "findings" => list(list())
+      }
+
+  """
+  @type guardrail_automated_reasoning_policy_assessment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_automated_reasoning_no_translations_finding() :: %{}
+
+  """
+  @type guardrail_automated_reasoning_no_translations_finding() :: %{}
 
   @typedoc """
 
@@ -198,6 +243,21 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      guardrail_automated_reasoning_translation() :: %{
+        "claims" => list(guardrail_automated_reasoning_statement()),
+        "confidence" => float(),
+        "premises" => list(guardrail_automated_reasoning_statement()),
+        "untranslatedClaims" => list(guardrail_automated_reasoning_input_text_reference()),
+        "untranslatedPremises" => list(guardrail_automated_reasoning_input_text_reference())
+      }
+
+  """
+  @type guardrail_automated_reasoning_translation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_trace_assessment() :: %{
         "actionReason" => [String.t()],
         "inputAssessment" => map(),
@@ -318,6 +378,19 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type guardrail_converse_image_block() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_automated_reasoning_invalid_finding() :: %{
+        "contradictingRules" => list(guardrail_automated_reasoning_rule()),
+        "logicWarning" => guardrail_automated_reasoning_logic_warning(),
+        "translation" => guardrail_automated_reasoning_translation()
+      }
+
+  """
+  @type guardrail_automated_reasoning_invalid_finding() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -463,6 +536,18 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type start_async_invoke_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_automated_reasoning_translation_ambiguous_finding() :: %{
+        "differenceScenarios" => list(guardrail_automated_reasoning_scenario()),
+        "options" => list(guardrail_automated_reasoning_translation_option())
+      }
+
+  """
+  @type guardrail_automated_reasoning_translation_ambiguous_finding() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -678,6 +763,18 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      guardrail_automated_reasoning_statement() :: %{
+        "logic" => String.t(),
+        "naturalLanguage" => String.t()
+      }
+
+  """
+  @type guardrail_automated_reasoning_statement() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tool_specification() :: %{
         "description" => String.t(),
         "inputSchema" => list(),
@@ -698,6 +795,17 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type guardrail_image_block() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_automated_reasoning_translation_option() :: %{
+        "translations" => list(guardrail_automated_reasoning_translation())
+      }
+
+  """
+  @type guardrail_automated_reasoning_translation_option() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -733,6 +841,19 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type document_page_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_automated_reasoning_logic_warning() :: %{
+        "claims" => list(guardrail_automated_reasoning_statement()),
+        "premises" => list(guardrail_automated_reasoning_statement()),
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_automated_reasoning_logic_warning() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -818,6 +939,20 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      guardrail_automated_reasoning_valid_finding() :: %{
+        "claimsTrueScenario" => guardrail_automated_reasoning_scenario(),
+        "logicWarning" => guardrail_automated_reasoning_logic_warning(),
+        "supportingRules" => list(guardrail_automated_reasoning_rule()),
+        "translation" => guardrail_automated_reasoning_translation()
+      }
+
+  """
+  @type guardrail_automated_reasoning_valid_finding() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_stream_configuration() :: %{
         "guardrailIdentifier" => String.t(),
         "guardrailVersion" => String.t(),
@@ -844,6 +979,7 @@ defmodule AWS.BedrockRuntime do
   ## Example:
 
       guardrail_assessment() :: %{
+        "automatedReasoningPolicy" => guardrail_automated_reasoning_policy_assessment(),
         "contentPolicy" => guardrail_content_policy_assessment(),
         "contextualGroundingPolicy" => guardrail_contextual_grounding_policy_assessment(),
         "invocationMetrics" => guardrail_invocation_metrics(),
@@ -992,6 +1128,8 @@ defmodule AWS.BedrockRuntime do
   ## Example:
 
       guardrail_usage() :: %{
+        "automatedReasoningPolicies" => integer(),
+        "automatedReasoningPolicyUnits" => integer(),
         "contentPolicyImageUnits" => integer(),
         "contentPolicyUnits" => integer(),
         "contextualGroundingPolicyUnits" => integer(),
@@ -1084,6 +1222,17 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      guardrail_automated_reasoning_scenario() :: %{
+        "statements" => list(guardrail_automated_reasoning_statement())
+      }
+
+  """
+  @type guardrail_automated_reasoning_scenario() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       bidirectional_output_payload_part() :: %{
         "bytes" => binary()
       }
@@ -1123,6 +1272,15 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      guardrail_automated_reasoning_too_complex_finding() :: %{}
+
+  """
+  @type guardrail_automated_reasoning_too_complex_finding() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       video_block() :: %{
         "format" => list(any()),
         "source" => list()
@@ -1152,6 +1310,20 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type citations_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_automated_reasoning_satisfiable_finding() :: %{
+        "claimsFalseScenario" => guardrail_automated_reasoning_scenario(),
+        "claimsTrueScenario" => guardrail_automated_reasoning_scenario(),
+        "logicWarning" => guardrail_automated_reasoning_logic_warning(),
+        "translation" => guardrail_automated_reasoning_translation()
+      }
+
+  """
+  @type guardrail_automated_reasoning_satisfiable_finding() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1237,6 +1409,17 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type performance_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_automated_reasoning_input_text_reference() :: %{
+        "text" => String.t()
+      }
+
+  """
+  @type guardrail_automated_reasoning_input_text_reference() :: %{String.t() => any()}
 
   @typedoc """
 

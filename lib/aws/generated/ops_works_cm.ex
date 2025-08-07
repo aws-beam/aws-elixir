@@ -869,8 +869,7 @@ defmodule AWS.OpsWorksCM do
           | {:error, term()}
           | {:error, associate_node_errors()}
   def associate_node(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateNode", input, options)
   end
@@ -903,8 +902,7 @@ defmodule AWS.OpsWorksCM do
           | {:error, term()}
           | {:error, create_backup_errors()}
   def create_backup(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateBackup", input, options)
   end
@@ -959,8 +957,7 @@ defmodule AWS.OpsWorksCM do
           | {:error, term()}
           | {:error, create_server_errors()}
   def create_server(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateServer", input, options)
   end
@@ -983,8 +980,7 @@ defmodule AWS.OpsWorksCM do
           | {:error, term()}
           | {:error, delete_backup_errors()}
   def delete_backup(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteBackup", input, options)
   end
@@ -1012,8 +1008,7 @@ defmodule AWS.OpsWorksCM do
           | {:error, term()}
           | {:error, delete_server_errors()}
   def delete_server(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteServer", input, options)
   end
@@ -1029,8 +1024,7 @@ defmodule AWS.OpsWorksCM do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAccountAttributes", input, options)
   end
@@ -1053,8 +1047,7 @@ defmodule AWS.OpsWorksCM do
           | {:error, term()}
           | {:error, describe_backups_errors()}
   def describe_backups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeBackups", input, options)
   end
@@ -1076,8 +1069,7 @@ defmodule AWS.OpsWorksCM do
           | {:error, term()}
           | {:error, describe_events_errors()}
   def describe_events(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEvents", input, options)
   end
@@ -1101,8 +1093,7 @@ defmodule AWS.OpsWorksCM do
           | {:error, term()}
           | {:error, describe_node_association_status_errors()}
   def describe_node_association_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeNodeAssociationStatus", input, options)
   end
@@ -1126,8 +1117,7 @@ defmodule AWS.OpsWorksCM do
           | {:error, term()}
           | {:error, describe_servers_errors()}
   def describe_servers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeServers", input, options)
   end
@@ -1152,8 +1142,7 @@ defmodule AWS.OpsWorksCM do
           | {:error, term()}
           | {:error, disassociate_node_errors()}
   def disassociate_node(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateNode", input, options)
   end
@@ -1179,8 +1168,7 @@ defmodule AWS.OpsWorksCM do
           | {:error, term()}
           | {:error, export_server_engine_attribute_errors()}
   def export_server_engine_attribute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExportServerEngineAttribute", input, options)
   end
@@ -1196,8 +1184,7 @@ defmodule AWS.OpsWorksCM do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1231,8 +1218,7 @@ defmodule AWS.OpsWorksCM do
           | {:error, term()}
           | {:error, restore_server_errors()}
   def restore_server(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RestoreServer", input, options)
   end
@@ -1257,8 +1243,7 @@ defmodule AWS.OpsWorksCM do
           | {:error, term()}
           | {:error, start_maintenance_errors()}
   def start_maintenance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartMaintenance", input, options)
   end
@@ -1273,8 +1258,7 @@ defmodule AWS.OpsWorksCM do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1288,8 +1272,7 @@ defmodule AWS.OpsWorksCM do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1306,8 +1289,7 @@ defmodule AWS.OpsWorksCM do
           | {:error, term()}
           | {:error, update_server_errors()}
   def update_server(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateServer", input, options)
   end
@@ -1338,8 +1320,7 @@ defmodule AWS.OpsWorksCM do
           | {:error, term()}
           | {:error, update_server_engine_attributes_errors()}
   def update_server_engine_attributes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateServerEngineAttributes", input, options)
   end

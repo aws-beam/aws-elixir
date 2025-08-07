@@ -1657,8 +1657,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, add_attributes_to_findings_errors()}
   def add_attributes_to_findings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddAttributesToFindings", input, options)
   end
@@ -1688,8 +1687,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, create_assessment_target_errors()}
   def create_assessment_target(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAssessmentTarget", input, options)
   end
@@ -1711,8 +1709,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, create_assessment_template_errors()}
   def create_assessment_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAssessmentTemplate", input, options)
   end
@@ -1731,8 +1728,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, create_exclusions_preview_errors()}
   def create_exclusions_preview(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateExclusionsPreview", input, options)
   end
@@ -1753,8 +1749,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, create_resource_group_errors()}
   def create_resource_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateResourceGroup", input, options)
   end
@@ -1769,8 +1764,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, delete_assessment_run_errors()}
   def delete_assessment_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAssessmentRun", input, options)
   end
@@ -1785,8 +1779,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, delete_assessment_target_errors()}
   def delete_assessment_target(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAssessmentTarget", input, options)
   end
@@ -1801,8 +1794,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, delete_assessment_template_errors()}
   def delete_assessment_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAssessmentTemplate", input, options)
   end
@@ -1817,8 +1809,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, describe_assessment_runs_errors()}
   def describe_assessment_runs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAssessmentRuns", input, options)
   end
@@ -1834,8 +1825,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, describe_assessment_targets_errors()}
   def describe_assessment_targets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAssessmentTargets", input, options)
   end
@@ -1851,8 +1841,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, describe_assessment_templates_errors()}
   def describe_assessment_templates(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAssessmentTemplates", input, options)
   end
@@ -1867,8 +1856,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, describe_cross_account_access_role_errors()}
   def describe_cross_account_access_role(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCrossAccountAccessRole", input, options)
   end
@@ -1882,8 +1870,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, describe_exclusions_errors()}
   def describe_exclusions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeExclusions", input, options)
   end
@@ -1897,8 +1884,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, describe_findings_errors()}
   def describe_findings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFindings", input, options)
   end
@@ -1913,8 +1899,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, describe_resource_groups_errors()}
   def describe_resource_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeResourceGroups", input, options)
   end
@@ -1929,8 +1914,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, describe_rules_packages_errors()}
   def describe_rules_packages(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeRulesPackages", input, options)
   end
@@ -1946,8 +1930,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, get_assessment_report_errors()}
   def get_assessment_report(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAssessmentReport", input, options)
   end
@@ -1966,8 +1949,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, get_exclusions_preview_errors()}
   def get_exclusions_preview(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetExclusionsPreview", input, options)
   end
@@ -1982,8 +1964,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, get_telemetry_metadata_errors()}
   def get_telemetry_metadata(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTelemetryMetadata", input, options)
   end
@@ -1998,8 +1979,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, list_assessment_run_agents_errors()}
   def list_assessment_run_agents(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAssessmentRunAgents", input, options)
   end
@@ -2014,8 +1994,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, list_assessment_runs_errors()}
   def list_assessment_runs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAssessmentRuns", input, options)
   end
@@ -2032,8 +2011,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, list_assessment_targets_errors()}
   def list_assessment_targets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAssessmentTargets", input, options)
   end
@@ -2049,8 +2027,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, list_assessment_templates_errors()}
   def list_assessment_templates(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAssessmentTemplates", input, options)
   end
@@ -2068,8 +2045,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, list_event_subscriptions_errors()}
   def list_event_subscriptions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListEventSubscriptions", input, options)
   end
@@ -2083,8 +2059,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, list_exclusions_errors()}
   def list_exclusions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListExclusions", input, options)
   end
@@ -2100,8 +2075,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, list_findings_errors()}
   def list_findings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListFindings", input, options)
   end
@@ -2115,8 +2089,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, list_rules_packages_errors()}
   def list_rules_packages(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRulesPackages", input, options)
   end
@@ -2130,8 +2103,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2147,8 +2119,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, preview_agents_errors()}
   def preview_agents(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PreviewAgents", input, options)
   end
@@ -2168,8 +2139,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, register_cross_account_access_role_errors()}
   def register_cross_account_access_role(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterCrossAccountAccessRole", input, options)
   end
@@ -2185,8 +2155,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, remove_attributes_from_findings_errors()}
   def remove_attributes_from_findings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveAttributesFromFindings", input, options)
   end
@@ -2202,8 +2171,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, set_tags_for_resource_errors()}
   def set_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetTagsForResource", input, options)
   end
@@ -2222,8 +2190,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, start_assessment_run_errors()}
   def start_assessment_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartAssessmentRun", input, options)
   end
@@ -2238,8 +2205,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, stop_assessment_run_errors()}
   def stop_assessment_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopAssessmentRun", input, options)
   end
@@ -2255,8 +2221,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, subscribe_to_event_errors()}
   def subscribe_to_event(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SubscribeToEvent", input, options)
   end
@@ -2271,8 +2236,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, unsubscribe_from_event_errors()}
   def unsubscribe_from_event(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UnsubscribeFromEvent", input, options)
   end
@@ -2291,8 +2255,7 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, update_assessment_target_errors()}
   def update_assessment_target(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateAssessmentTarget", input, options)
   end

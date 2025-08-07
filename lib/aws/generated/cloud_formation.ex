@@ -4085,8 +4085,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, activate_organizations_access_errors()}
   def activate_organizations_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ActivateOrganizationsAccess", input, options)
   end
@@ -4108,8 +4107,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, activate_type_errors()}
   def activate_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ActivateType", input, options)
   end
@@ -4134,8 +4132,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, batch_describe_type_configurations_errors()}
   def batch_describe_type_configurations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchDescribeTypeConfigurations", input, options)
   end
@@ -4154,8 +4151,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, cancel_update_stack_errors()}
   def cancel_update_stack(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelUpdateStack", input, options)
   end
@@ -4187,8 +4183,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, continue_update_rollback_errors()}
   def continue_update_rollback(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ContinueUpdateRollback", input, options)
   end
@@ -4236,8 +4231,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, create_change_set_errors()}
   def create_change_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateChangeSet", input, options)
   end
@@ -4255,8 +4249,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, create_generated_template_errors()}
   def create_generated_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateGeneratedTemplate", input, options)
   end
@@ -4280,8 +4273,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, create_stack_errors()}
   def create_stack(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateStack", input, options)
   end
@@ -4318,8 +4310,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, create_stack_instances_errors()}
   def create_stack_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateStackInstances", input, options)
   end
@@ -4334,8 +4325,7 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_stack_refactor(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateStackRefactor", input, options)
   end
@@ -4349,8 +4339,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, create_stack_set_errors()}
   def create_stack_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateStackSet", input, options)
   end
@@ -4368,8 +4357,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, deactivate_organizations_access_errors()}
   def deactivate_organizations_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeactivateOrganizationsAccess", input, options)
   end
@@ -4392,8 +4380,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, deactivate_type_errors()}
   def deactivate_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeactivateType", input, options)
   end
@@ -4420,8 +4407,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, delete_change_set_errors()}
   def delete_change_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteChangeSet", input, options)
   end
@@ -4435,8 +4421,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, delete_generated_template_errors()}
   def delete_generated_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteGeneratedTemplate", input, options)
   end
@@ -4458,8 +4443,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, delete_stack_errors()}
   def delete_stack(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteStack", input, options)
   end
@@ -4490,8 +4474,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, delete_stack_instances_errors()}
   def delete_stack_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteStackInstances", input, options)
   end
@@ -4509,8 +4492,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, delete_stack_set_errors()}
   def delete_stack_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteStackSet", input, options)
   end
@@ -4545,8 +4527,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, deregister_type_errors()}
   def deregister_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeregisterType", input, options)
   end
@@ -4564,8 +4545,7 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_account_limits(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAccountLimits", input, options)
   end
@@ -4586,8 +4566,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, describe_change_set_errors()}
   def describe_change_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeChangeSet", input, options)
   end
@@ -4603,8 +4582,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, describe_change_set_hooks_errors()}
   def describe_change_set_hooks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeChangeSetHooks", input, options)
   end
@@ -4625,8 +4603,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, describe_generated_template_errors()}
   def describe_generated_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeGeneratedTemplate", input, options)
   end
@@ -4646,8 +4623,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, describe_organizations_access_errors()}
   def describe_organizations_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeOrganizationsAccess", input, options)
   end
@@ -4679,8 +4655,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, describe_publisher_errors()}
   def describe_publisher(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePublisher", input, options)
   end
@@ -4694,8 +4669,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, describe_resource_scan_errors()}
   def describe_resource_scan(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeResourceScan", input, options)
   end
@@ -4730,8 +4704,7 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_stack_drift_detection_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeStackDriftDetectionStatus", input, options)
   end
@@ -4755,8 +4728,7 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_stack_events(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeStackEvents", input, options)
   end
@@ -4775,8 +4747,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, describe_stack_instance_errors()}
   def describe_stack_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeStackInstance", input, options)
   end
@@ -4790,8 +4761,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, describe_stack_refactor_errors()}
   def describe_stack_refactor(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeStackRefactor", input, options)
   end
@@ -4808,8 +4778,7 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_stack_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeStackResource", input, options)
   end
@@ -4840,8 +4809,7 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_stack_resource_drifts(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeStackResourceDrifts", input, options)
   end
@@ -4877,8 +4845,7 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_stack_resources(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeStackResources", input, options)
   end
@@ -4895,8 +4862,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, describe_stack_set_errors()}
   def describe_stack_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeStackSet", input, options)
   end
@@ -4913,8 +4879,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, describe_stack_set_operation_errors()}
   def describe_stack_set_operation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeStackSetOperation", input, options)
   end
@@ -4936,8 +4901,7 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_stacks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeStacks", input, options)
   end
@@ -4956,8 +4920,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, describe_type_errors()}
   def describe_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeType", input, options)
   end
@@ -4980,8 +4943,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, describe_type_registration_errors()}
   def describe_type_registration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTypeRegistration", input, options)
   end
@@ -5027,8 +4989,7 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def detect_stack_drift(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetectStackDrift", input, options)
   end
@@ -5061,8 +5022,7 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def detect_stack_resource_drift(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetectStackResourceDrift", input, options)
   end
@@ -5115,8 +5075,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, detect_stack_set_drift_errors()}
   def detect_stack_set_drift(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetectStackSetDrift", input, options)
   end
@@ -5134,8 +5093,7 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def estimate_template_cost(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EstimateTemplateCost", input, options)
   end
@@ -5166,8 +5124,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, execute_change_set_errors()}
   def execute_change_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExecuteChangeSet", input, options)
   end
@@ -5180,8 +5137,7 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def execute_stack_refactor(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExecuteStackRefactor", input, options)
   end
@@ -5200,8 +5156,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, get_generated_template_errors()}
   def get_generated_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetGeneratedTemplate", input, options)
   end
@@ -5217,8 +5172,7 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_stack_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetStackPolicy", input, options)
   end
@@ -5240,8 +5194,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, get_template_errors()}
   def get_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTemplate", input, options)
   end
@@ -5267,8 +5220,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, get_template_summary_errors()}
   def get_template_summary(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTemplateSummary", input, options)
   end
@@ -5289,8 +5241,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, import_stacks_to_stack_set_errors()}
   def import_stacks_to_stack_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ImportStacksToStackSet", input, options)
   end
@@ -5307,8 +5258,7 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_change_sets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListChangeSets", input, options)
   end
@@ -5331,8 +5281,7 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_exports(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListExports", input, options)
   end
@@ -5345,8 +5294,7 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_generated_templates(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListGeneratedTemplates", input, options)
   end
@@ -5362,8 +5310,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, list_hook_results_errors()}
   def list_hook_results(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListHookResults", input, options)
   end
@@ -5385,8 +5332,7 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_imports(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListImports", input, options)
   end
@@ -5407,8 +5353,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, list_resource_scan_related_resources_errors()}
   def list_resource_scan_related_resources(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListResourceScanRelatedResources", input, options)
   end
@@ -5429,8 +5374,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, list_resource_scan_resources_errors()}
   def list_resource_scan_resources(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListResourceScanResources", input, options)
   end
@@ -5446,8 +5390,7 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_resource_scans(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListResourceScans", input, options)
   end
@@ -5470,8 +5413,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, list_stack_instance_resource_drifts_errors()}
   def list_stack_instance_resource_drifts(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListStackInstanceResourceDrifts", input, options)
   end
@@ -5490,8 +5432,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, list_stack_instances_errors()}
   def list_stack_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListStackInstances", input, options)
   end
@@ -5505,8 +5446,7 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_stack_refactor_actions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListStackRefactorActions", input, options)
   end
@@ -5519,8 +5459,7 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_stack_refactors(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListStackRefactors", input, options)
   end
@@ -5537,8 +5476,7 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_stack_resources(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListStackResources", input, options)
   end
@@ -5556,8 +5494,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, list_stack_set_auto_deployment_targets_errors()}
   def list_stack_set_auto_deployment_targets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListStackSetAutoDeploymentTargets", input, options)
   end
@@ -5574,8 +5511,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, list_stack_set_operation_results_errors()}
   def list_stack_set_operation_results(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListStackSetOperationResults", input, options)
   end
@@ -5592,8 +5528,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, list_stack_set_operations_errors()}
   def list_stack_set_operations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListStackSetOperations", input, options)
   end
@@ -5624,8 +5559,7 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_stack_sets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListStackSets", input, options)
   end
@@ -5645,8 +5579,7 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_stacks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListStacks", input, options)
   end
@@ -5660,8 +5593,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, list_type_registrations_errors()}
   def list_type_registrations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTypeRegistrations", input, options)
   end
@@ -5675,8 +5607,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, list_type_versions_errors()}
   def list_type_versions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTypeVersions", input, options)
   end
@@ -5691,8 +5622,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, list_types_errors()}
   def list_types(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTypes", input, options)
   end
@@ -5720,8 +5650,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, publish_type_errors()}
   def publish_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PublishType", input, options)
   end
@@ -5738,8 +5667,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, record_handler_progress_errors()}
   def record_handler_progress(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RecordHandlerProgress", input, options)
   end
@@ -5764,8 +5692,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, register_publisher_errors()}
   def register_publisher(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterPublisher", input, options)
   end
@@ -5815,8 +5742,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, register_type_errors()}
   def register_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterType", input, options)
   end
@@ -5862,8 +5788,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, rollback_stack_errors()}
   def rollback_stack(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RollbackStack", input, options)
   end
@@ -5876,8 +5801,7 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def set_stack_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetStackPolicy", input, options)
   end
@@ -5910,8 +5834,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, set_type_configuration_errors()}
   def set_type_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetTypeConfiguration", input, options)
   end
@@ -5928,8 +5851,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, set_type_default_version_errors()}
   def set_type_default_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetTypeDefaultVersion", input, options)
   end
@@ -5952,8 +5874,7 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def signal_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SignalResource", input, options)
   end
@@ -5970,8 +5891,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, start_resource_scan_errors()}
   def start_resource_scan(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartResourceScan", input, options)
   end
@@ -5991,8 +5911,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, stop_stack_set_operation_errors()}
   def stop_stack_set_operation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopStackSetOperation", input, options)
   end
@@ -6039,8 +5958,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, test_type_errors()}
   def test_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TestType", input, options)
   end
@@ -6059,8 +5977,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, update_generated_template_errors()}
   def update_generated_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateGeneratedTemplate", input, options)
   end
@@ -6088,8 +6005,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, update_stack_errors()}
   def update_stack(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateStack", input, options)
   end
@@ -6144,8 +6060,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, update_stack_instances_errors()}
   def update_stack_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateStackInstances", input, options)
   end
@@ -6184,8 +6099,7 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, update_stack_set_errors()}
   def update_stack_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateStackSet", input, options)
   end
@@ -6210,8 +6124,7 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def update_termination_protection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateTerminationProtection", input, options)
   end
@@ -6229,8 +6142,7 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def validate_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ValidateTemplate", input, options)
   end

@@ -7396,8 +7396,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, allocate_static_ip_errors()}
   def allocate_static_ip(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AllocateStaticIp", input, options)
   end
@@ -7432,8 +7431,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, attach_certificate_to_distribution_errors()}
   def attach_certificate_to_distribution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AttachCertificateToDistribution", input, options)
   end
@@ -7453,8 +7451,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, attach_disk_errors()}
   def attach_disk(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AttachDisk", input, options)
   end
@@ -7486,8 +7483,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, attach_instances_to_load_balancer_errors()}
   def attach_instances_to_load_balancer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AttachInstancesToLoadBalancer", input, options)
   end
@@ -7524,8 +7520,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, attach_load_balancer_tls_certificate_errors()}
   def attach_load_balancer_tls_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AttachLoadBalancerTlsCertificate", input, options)
   end
@@ -7539,8 +7534,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, attach_static_ip_errors()}
   def attach_static_ip(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AttachStaticIp", input, options)
   end
@@ -7558,8 +7552,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, close_instance_public_ports_errors()}
   def close_instance_public_ports(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CloseInstancePublicPorts", input, options)
   end
@@ -7606,8 +7599,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, copy_snapshot_errors()}
   def copy_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CopySnapshot", input, options)
   end
@@ -7629,8 +7621,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_bucket_errors()}
   def create_bucket(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateBucket", input, options)
   end
@@ -7662,8 +7653,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_bucket_access_key_errors()}
   def create_bucket_access_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateBucketAccessKey", input, options)
   end
@@ -7692,8 +7682,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_certificate_errors()}
   def create_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCertificate", input, options)
   end
@@ -7728,8 +7717,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_cloud_formation_stack_errors()}
   def create_cloud_formation_stack(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCloudFormationStack", input, options)
   end
@@ -7752,8 +7740,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_contact_method_errors()}
   def create_contact_method(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateContactMethod", input, options)
   end
@@ -7773,8 +7760,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_container_service_errors()}
   def create_container_service(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateContainerService", input, options)
   end
@@ -7810,8 +7796,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_container_service_deployment_errors()}
   def create_container_service_deployment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateContainerServiceDeployment", input, options)
   end
@@ -7859,8 +7844,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_container_service_registry_login_errors()}
   def create_container_service_registry_login(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateContainerServiceRegistryLogin", input, options)
   end
@@ -7879,8 +7863,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_disk_errors()}
   def create_disk(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDisk", input, options)
   end
@@ -7909,8 +7892,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_disk_from_snapshot_errors()}
   def create_disk_from_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDiskFromSnapshot", input, options)
   end
@@ -7960,8 +7942,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_disk_snapshot_errors()}
   def create_disk_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDiskSnapshot", input, options)
   end
@@ -7981,8 +7962,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_distribution_errors()}
   def create_distribution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDistribution", input, options)
   end
@@ -7999,8 +7979,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_domain_errors()}
   def create_domain(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDomain", input, options)
   end
@@ -8022,8 +8001,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_domain_entry_errors()}
   def create_domain_entry(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDomainEntry", input, options)
   end
@@ -8050,8 +8028,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_g_ui_session_access_details_errors()}
   def create_g_ui_session_access_details(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateGUISessionAccessDetails", input, options)
   end
@@ -8070,8 +8047,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_instance_snapshot_errors()}
   def create_instance_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateInstanceSnapshot", input, options)
   end
@@ -8088,8 +8064,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_instances_errors()}
   def create_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateInstances", input, options)
   end
@@ -8109,8 +8084,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_instances_from_snapshot_errors()}
   def create_instances_from_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateInstancesFromSnapshot", input, options)
   end
@@ -8135,8 +8109,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_key_pair_errors()}
   def create_key_pair(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateKeyPair", input, options)
   end
@@ -8163,8 +8136,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_load_balancer_errors()}
   def create_load_balancer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLoadBalancer", input, options)
   end
@@ -8194,8 +8166,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_load_balancer_tls_certificate_errors()}
   def create_load_balancer_tls_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLoadBalancerTlsCertificate", input, options)
   end
@@ -8212,8 +8183,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_relational_database_errors()}
   def create_relational_database(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRelationalDatabase", input, options)
   end
@@ -8243,8 +8213,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_relational_database_from_snapshot_errors()}
   def create_relational_database_from_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRelationalDatabaseFromSnapshot", input, options)
   end
@@ -8269,8 +8238,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, create_relational_database_snapshot_errors()}
   def create_relational_database_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRelationalDatabaseSnapshot", input, options)
   end
@@ -8291,8 +8259,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_alarm_errors()}
   def delete_alarm(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAlarm", input, options)
   end
@@ -8308,8 +8275,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_auto_snapshot_errors()}
   def delete_auto_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAutoSnapshot", input, options)
   end
@@ -8327,8 +8293,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_bucket_errors()}
   def delete_bucket(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteBucket", input, options)
   end
@@ -8350,8 +8315,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_bucket_access_key_errors()}
   def delete_bucket_access_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteBucketAccessKey", input, options)
   end
@@ -8372,8 +8336,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_certificate_errors()}
   def delete_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCertificate", input, options)
   end
@@ -8396,8 +8359,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_contact_method_errors()}
   def delete_contact_method(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteContactMethod", input, options)
   end
@@ -8412,8 +8374,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_container_image_errors()}
   def delete_container_image(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteContainerImage", input, options)
   end
@@ -8427,8 +8388,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_container_service_errors()}
   def delete_container_service(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteContainerService", input, options)
   end
@@ -8451,8 +8411,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_disk_errors()}
   def delete_disk(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDisk", input, options)
   end
@@ -8481,8 +8440,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_disk_snapshot_errors()}
   def delete_disk_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDiskSnapshot", input, options)
   end
@@ -8496,8 +8454,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_distribution_errors()}
   def delete_distribution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDistribution", input, options)
   end
@@ -8516,8 +8473,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDomain", input, options)
   end
@@ -8535,8 +8491,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_domain_entry_errors()}
   def delete_domain_entry(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDomainEntry", input, options)
   end
@@ -8555,8 +8510,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_instance_errors()}
   def delete_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteInstance", input, options)
   end
@@ -8576,8 +8530,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_instance_snapshot_errors()}
   def delete_instance_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteInstanceSnapshot", input, options)
   end
@@ -8606,8 +8559,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_key_pair_errors()}
   def delete_key_pair(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteKeyPair", input, options)
   end
@@ -8633,8 +8585,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_known_host_keys_errors()}
   def delete_known_host_keys(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteKnownHostKeys", input, options)
   end
@@ -8658,8 +8609,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_load_balancer_errors()}
   def delete_load_balancer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLoadBalancer", input, options)
   end
@@ -8687,8 +8637,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_load_balancer_tls_certificate_errors()}
   def delete_load_balancer_tls_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLoadBalancerTlsCertificate", input, options)
   end
@@ -8707,8 +8656,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_relational_database_errors()}
   def delete_relational_database(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRelationalDatabase", input, options)
   end
@@ -8731,8 +8679,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, delete_relational_database_snapshot_errors()}
   def delete_relational_database_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRelationalDatabaseSnapshot", input, options)
   end
@@ -8756,8 +8703,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, detach_certificate_from_distribution_errors()}
   def detach_certificate_from_distribution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetachCertificateFromDistribution", input, options)
   end
@@ -8780,8 +8726,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, detach_disk_errors()}
   def detach_disk(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetachDisk", input, options)
   end
@@ -8813,8 +8758,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, detach_instances_from_load_balancer_errors()}
   def detach_instances_from_load_balancer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetachInstancesFromLoadBalancer", input, options)
   end
@@ -8828,8 +8772,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, detach_static_ip_errors()}
   def detach_static_ip(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetachStaticIp", input, options)
   end
@@ -8845,8 +8788,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, disable_add_on_errors()}
   def disable_add_on(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableAddOn", input, options)
   end
@@ -8863,8 +8805,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, download_default_key_pair_errors()}
   def download_default_key_pair(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DownloadDefaultKeyPair", input, options)
   end
@@ -8881,8 +8822,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, enable_add_on_errors()}
   def enable_add_on(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableAddOn", input, options)
   end
@@ -8921,8 +8861,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, export_snapshot_errors()}
   def export_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExportSnapshot", input, options)
   end
@@ -8936,8 +8875,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_active_names_errors()}
   def get_active_names(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetActiveNames", input, options)
   end
@@ -8963,8 +8901,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_alarms_errors()}
   def get_alarms(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAlarms", input, options)
   end
@@ -8981,8 +8918,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_auto_snapshots_errors()}
   def get_auto_snapshots(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAutoSnapshots", input, options)
   end
@@ -9011,8 +8947,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_blueprints_errors()}
   def get_blueprints(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetBlueprints", input, options)
   end
@@ -9033,8 +8968,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_bucket_access_keys_errors()}
   def get_bucket_access_keys(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetBucketAccessKeys", input, options)
   end
@@ -9057,8 +8991,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_bucket_bundles_errors()}
   def get_bucket_bundles(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetBucketBundles", input, options)
   end
@@ -9078,8 +9011,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_bucket_metric_data_errors()}
   def get_bucket_metric_data(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetBucketMetricData", input, options)
   end
@@ -9102,8 +9034,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_buckets_errors()}
   def get_buckets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetBuckets", input, options)
   end
@@ -9128,8 +9059,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_bundles_errors()}
   def get_bundles(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetBundles", input, options)
   end
@@ -9148,8 +9078,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_certificates_errors()}
   def get_certificates(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCertificates", input, options)
   end
@@ -9178,8 +9107,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_cloud_formation_stack_records_errors()}
   def get_cloud_formation_stack_records(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCloudFormationStackRecords", input, options)
   end
@@ -9205,8 +9133,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_contact_methods_errors()}
   def get_contact_methods(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetContactMethods", input, options)
   end
@@ -9222,8 +9149,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_container_api_metadata_errors()}
   def get_container_api_metadata(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetContainerAPIMetadata", input, options)
   end
@@ -9245,8 +9171,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_container_images_errors()}
   def get_container_images(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetContainerImages", input, options)
   end
@@ -9274,8 +9199,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_container_log_errors()}
   def get_container_log(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetContainerLog", input, options)
   end
@@ -9308,8 +9232,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_container_service_deployments_errors()}
   def get_container_service_deployments(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetContainerServiceDeployments", input, options)
   end
@@ -9333,8 +9256,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_container_service_metric_data_errors()}
   def get_container_service_metric_data(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetContainerServiceMetricData", input, options)
   end
@@ -9354,8 +9276,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_container_service_powers_errors()}
   def get_container_service_powers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetContainerServicePowers", input, options)
   end
@@ -9370,8 +9291,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_container_services_errors()}
   def get_container_services(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetContainerServices", input, options)
   end
@@ -9388,8 +9308,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_cost_estimate_errors()}
   def get_cost_estimate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCostEstimate", input, options)
   end
@@ -9403,8 +9322,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_disk_errors()}
   def get_disk(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDisk", input, options)
   end
@@ -9418,8 +9336,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_disk_snapshot_errors()}
   def get_disk_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDiskSnapshot", input, options)
   end
@@ -9435,8 +9352,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_disk_snapshots_errors()}
   def get_disk_snapshots(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDiskSnapshots", input, options)
   end
@@ -9451,8 +9367,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_disks_errors()}
   def get_disks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDisks", input, options)
   end
@@ -9472,8 +9387,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_distribution_bundles_errors()}
   def get_distribution_bundles(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDistributionBundles", input, options)
   end
@@ -9493,8 +9407,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_distribution_latest_cache_reset_errors()}
   def get_distribution_latest_cache_reset(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDistributionLatestCacheReset", input, options)
   end
@@ -9516,8 +9429,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_distribution_metric_data_errors()}
   def get_distribution_metric_data(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDistributionMetricData", input, options)
   end
@@ -9533,8 +9445,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_distributions_errors()}
   def get_distributions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDistributions", input, options)
   end
@@ -9548,8 +9459,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_domain_errors()}
   def get_domain(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDomain", input, options)
   end
@@ -9563,8 +9473,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_domains_errors()}
   def get_domains(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDomains", input, options)
   end
@@ -9591,8 +9500,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_export_snapshot_records_errors()}
   def get_export_snapshot_records(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetExportSnapshotRecords", input, options)
   end
@@ -9608,8 +9516,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_instance_errors()}
   def get_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetInstance", input, options)
   end
@@ -9630,8 +9537,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_instance_access_details_errors()}
   def get_instance_access_details(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetInstanceAccessDetails", input, options)
   end
@@ -9653,8 +9559,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_instance_metric_data_errors()}
   def get_instance_metric_data(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetInstanceMetricData", input, options)
   end
@@ -9670,8 +9575,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_instance_port_states_errors()}
   def get_instance_port_states(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetInstancePortStates", input, options)
   end
@@ -9685,8 +9589,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_instance_snapshot_errors()}
   def get_instance_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetInstanceSnapshot", input, options)
   end
@@ -9700,8 +9603,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_instance_snapshots_errors()}
   def get_instance_snapshots(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetInstanceSnapshots", input, options)
   end
@@ -9717,8 +9619,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_instance_state_errors()}
   def get_instance_state(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetInstanceState", input, options)
   end
@@ -9733,8 +9634,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_instances_errors()}
   def get_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetInstances", input, options)
   end
@@ -9748,8 +9648,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_key_pair_errors()}
   def get_key_pair(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetKeyPair", input, options)
   end
@@ -9763,8 +9662,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_key_pairs_errors()}
   def get_key_pairs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetKeyPairs", input, options)
   end
@@ -9778,8 +9676,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_load_balancer_errors()}
   def get_load_balancer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetLoadBalancer", input, options)
   end
@@ -9799,8 +9696,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_load_balancer_metric_data_errors()}
   def get_load_balancer_metric_data(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetLoadBalancerMetricData", input, options)
   end
@@ -9826,8 +9722,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_load_balancer_tls_certificates_errors()}
   def get_load_balancer_tls_certificates(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetLoadBalancerTlsCertificates", input, options)
   end
@@ -9846,8 +9741,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_load_balancer_tls_policies_errors()}
   def get_load_balancer_tls_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetLoadBalancerTlsPolicies", input, options)
   end
@@ -9861,8 +9755,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_load_balancers_errors()}
   def get_load_balancers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetLoadBalancers", input, options)
   end
@@ -9879,8 +9772,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_operation_errors()}
   def get_operation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetOperation", input, options)
   end
@@ -9899,8 +9791,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_operations_errors()}
   def get_operations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetOperations", input, options)
   end
@@ -9914,8 +9805,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_operations_for_resource_errors()}
   def get_operations_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetOperationsForResource", input, options)
   end
@@ -9939,8 +9829,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_regions_errors()}
   def get_regions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRegions", input, options)
   end
@@ -9954,8 +9843,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_relational_database_errors()}
   def get_relational_database(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRelationalDatabase", input, options)
   end
@@ -9980,8 +9868,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_relational_database_blueprints_errors()}
   def get_relational_database_blueprints(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRelationalDatabaseBlueprints", input, options)
   end
@@ -10001,8 +9888,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_relational_database_bundles_errors()}
   def get_relational_database_bundles(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRelationalDatabaseBundles", input, options)
   end
@@ -10016,8 +9902,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_relational_database_events_errors()}
   def get_relational_database_events(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRelationalDatabaseEvents", input, options)
   end
@@ -10035,8 +9920,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_relational_database_log_events_errors()}
   def get_relational_database_log_events(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRelationalDatabaseLogEvents", input, options)
   end
@@ -10055,8 +9939,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_relational_database_log_streams_errors()}
   def get_relational_database_log_streams(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRelationalDatabaseLogStreams", input, options)
   end
@@ -10080,8 +9963,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_relational_database_master_user_password_errors()}
   def get_relational_database_master_user_password(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRelationalDatabaseMasterUserPassword", input, options)
   end
@@ -10106,8 +9988,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_relational_database_metric_data_errors()}
   def get_relational_database_metric_data(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRelationalDatabaseMetricData", input, options)
   end
@@ -10133,8 +10014,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_relational_database_parameters_errors()}
   def get_relational_database_parameters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRelationalDatabaseParameters", input, options)
   end
@@ -10152,8 +10032,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_relational_database_snapshot_errors()}
   def get_relational_database_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRelationalDatabaseSnapshot", input, options)
   end
@@ -10171,8 +10050,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_relational_database_snapshots_errors()}
   def get_relational_database_snapshots(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRelationalDatabaseSnapshots", input, options)
   end
@@ -10186,8 +10064,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_relational_databases_errors()}
   def get_relational_databases(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRelationalDatabases", input, options)
   end
@@ -10202,8 +10079,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_setup_history_errors()}
   def get_setup_history(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSetupHistory", input, options)
   end
@@ -10217,8 +10093,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_static_ip_errors()}
   def get_static_ip(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetStaticIp", input, options)
   end
@@ -10232,8 +10107,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, get_static_ips_errors()}
   def get_static_ips(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetStaticIps", input, options)
   end
@@ -10247,8 +10121,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, import_key_pair_errors()}
   def import_key_pair(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ImportKeyPair", input, options)
   end
@@ -10262,8 +10135,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, is_vpc_peered_errors()}
   def is_vpc_peered(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "IsVpcPeered", input, options)
   end
@@ -10283,8 +10155,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, open_instance_public_ports_errors()}
   def open_instance_public_ports(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "OpenInstancePublicPorts", input, options)
   end
@@ -10298,8 +10169,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, peer_vpc_errors()}
   def peer_vpc(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PeerVpc", input, options)
   end
@@ -10330,8 +10200,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, put_alarm_errors()}
   def put_alarm(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutAlarm", input, options)
   end
@@ -10360,8 +10229,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, put_instance_public_ports_errors()}
   def put_instance_public_ports(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutInstancePublicPorts", input, options)
   end
@@ -10380,8 +10248,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, reboot_instance_errors()}
   def reboot_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RebootInstance", input, options)
   end
@@ -10400,8 +10267,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, reboot_relational_database_errors()}
   def reboot_relational_database(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RebootRelationalDatabase", input, options)
   end
@@ -10422,8 +10288,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, register_container_image_errors()}
   def register_container_image(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterContainerImage", input, options)
   end
@@ -10437,8 +10302,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, release_static_ip_errors()}
   def release_static_ip(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ReleaseStaticIp", input, options)
   end
@@ -10458,8 +10322,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, reset_distribution_cache_errors()}
   def reset_distribution_cache(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResetDistributionCache", input, options)
   end
@@ -10500,8 +10363,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, send_contact_method_verification_errors()}
   def send_contact_method_verification(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SendContactMethodVerification", input, options)
   end
@@ -10521,8 +10383,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, set_ip_address_type_errors()}
   def set_ip_address_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetIpAddressType", input, options)
   end
@@ -10541,8 +10402,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, set_resource_access_for_bucket_errors()}
   def set_resource_access_for_bucket(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetResourceAccessForBucket", input, options)
   end
@@ -10563,8 +10423,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, setup_instance_https_errors()}
   def setup_instance_https(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetupInstanceHttps", input, options)
   end
@@ -10583,8 +10442,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, start_g_ui_session_errors()}
   def start_g_ui_session(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartGUISession", input, options)
   end
@@ -10613,8 +10471,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, start_instance_errors()}
   def start_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartInstance", input, options)
   end
@@ -10636,8 +10493,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, start_relational_database_errors()}
   def start_relational_database(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartRelationalDatabase", input, options)
   end
@@ -10656,8 +10512,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, stop_g_ui_session_errors()}
   def stop_g_ui_session(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopGUISession", input, options)
   end
@@ -10683,8 +10538,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, stop_instance_errors()}
   def stop_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopInstance", input, options)
   end
@@ -10710,8 +10564,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, stop_relational_database_errors()}
   def stop_relational_database(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopRelationalDatabase", input, options)
   end
@@ -10736,8 +10589,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -10764,8 +10616,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, test_alarm_errors()}
   def test_alarm(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TestAlarm", input, options)
   end
@@ -10779,8 +10630,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, unpeer_vpc_errors()}
   def unpeer_vpc(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UnpeerVpc", input, options)
   end
@@ -10801,8 +10651,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -10821,8 +10670,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, update_bucket_errors()}
   def update_bucket(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateBucket", input, options)
   end
@@ -10860,8 +10708,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, update_bucket_bundle_errors()}
   def update_bucket_bundle(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateBucketBundle", input, options)
   end
@@ -10877,8 +10724,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, update_container_service_errors()}
   def update_container_service(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateContainerService", input, options)
   end
@@ -10895,8 +10741,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, update_distribution_errors()}
   def update_distribution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDistribution", input, options)
   end
@@ -10926,8 +10771,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, update_distribution_bundle_errors()}
   def update_distribution_bundle(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDistributionBundle", input, options)
   end
@@ -10945,8 +10789,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, update_domain_entry_errors()}
   def update_domain_entry(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDomainEntry", input, options)
   end
@@ -10974,8 +10817,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, update_instance_metadata_options_errors()}
   def update_instance_metadata_options(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateInstanceMetadataOptions", input, options)
   end
@@ -11002,8 +10844,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, update_load_balancer_attribute_errors()}
   def update_load_balancer_attribute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateLoadBalancerAttribute", input, options)
   end
@@ -11026,8 +10867,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, update_relational_database_errors()}
   def update_relational_database(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateRelationalDatabase", input, options)
   end
@@ -11060,8 +10900,7 @@ defmodule AWS.Lightsail do
           | {:error, term()}
           | {:error, update_relational_database_parameters_errors()}
   def update_relational_database_parameters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateRelationalDatabaseParameters", input, options)
   end

@@ -3318,8 +3318,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, create_byte_match_set_errors()}
   def create_byte_match_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateByteMatchSet", input, options)
   end
@@ -3374,8 +3373,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, create_geo_match_set_errors()}
   def create_geo_match_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateGeoMatchSet", input, options)
   end
@@ -3433,8 +3431,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, create_ip_set_errors()}
   def create_ip_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateIPSet", input, options)
   end
@@ -3546,8 +3543,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, create_rate_based_rule_errors()}
   def create_rate_based_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRateBasedRule", input, options)
   end
@@ -3606,8 +3602,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, create_regex_match_set_errors()}
   def create_regex_match_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRegexMatchSet", input, options)
   end
@@ -3658,8 +3653,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, create_regex_pattern_set_errors()}
   def create_regex_pattern_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRegexPatternSet", input, options)
   end
@@ -3736,8 +3730,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, create_rule_errors()}
   def create_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRule", input, options)
   end
@@ -3781,8 +3774,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, create_rule_group_errors()}
   def create_rule_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRuleGroup", input, options)
   end
@@ -3840,8 +3832,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, create_size_constraint_set_errors()}
   def create_size_constraint_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSizeConstraintSet", input, options)
   end
@@ -3895,8 +3886,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, create_sql_injection_match_set_errors()}
   def create_sql_injection_match_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSqlInjectionMatchSet", input, options)
   end
@@ -3966,8 +3956,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, create_web_acl_errors()}
   def create_web_acl(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateWebACL", input, options)
   end
@@ -3995,8 +3984,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, create_web_acl_migration_stack_errors()}
   def create_web_acl_migration_stack(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateWebACLMigrationStack", input, options)
   end
@@ -4050,8 +4038,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, create_xss_match_set_errors()}
   def create_xss_match_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateXssMatchSet", input, options)
   end
@@ -4096,8 +4083,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, delete_byte_match_set_errors()}
   def delete_byte_match_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteByteMatchSet", input, options)
   end
@@ -4142,8 +4128,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, delete_geo_match_set_errors()}
   def delete_geo_match_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteGeoMatchSet", input, options)
   end
@@ -4188,8 +4173,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, delete_ip_set_errors()}
   def delete_ip_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteIPSet", input, options)
   end
@@ -4217,8 +4201,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, delete_logging_configuration_errors()}
   def delete_logging_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLoggingConfiguration", input, options)
   end
@@ -4247,8 +4230,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, delete_permission_policy_errors()}
   def delete_permission_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePermissionPolicy", input, options)
   end
@@ -4294,8 +4276,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, delete_rate_based_rule_errors()}
   def delete_rate_based_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRateBasedRule", input, options)
   end
@@ -4340,8 +4321,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, delete_regex_match_set_errors()}
   def delete_regex_match_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRegexMatchSet", input, options)
   end
@@ -4370,8 +4350,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, delete_regex_pattern_set_errors()}
   def delete_regex_pattern_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRegexPatternSet", input, options)
   end
@@ -4416,8 +4395,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, delete_rule_errors()}
   def delete_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRule", input, options)
   end
@@ -4462,8 +4440,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, delete_rule_group_errors()}
   def delete_rule_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRuleGroup", input, options)
   end
@@ -4509,8 +4486,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, delete_size_constraint_set_errors()}
   def delete_size_constraint_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSizeConstraintSet", input, options)
   end
@@ -4559,8 +4535,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, delete_sql_injection_match_set_errors()}
   def delete_sql_injection_match_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSqlInjectionMatchSet", input, options)
   end
@@ -4602,8 +4577,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, delete_web_acl_errors()}
   def delete_web_acl(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteWebACL", input, options)
   end
@@ -4648,8 +4622,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, delete_xss_match_set_errors()}
   def delete_xss_match_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteXssMatchSet", input, options)
   end
@@ -4676,8 +4649,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_byte_match_set_errors()}
   def get_byte_match_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetByteMatchSet", input, options)
   end
@@ -4720,8 +4692,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_change_token_errors()}
   def get_change_token(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetChangeToken", input, options)
   end
@@ -4765,8 +4736,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_change_token_status_errors()}
   def get_change_token_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetChangeTokenStatus", input, options)
   end
@@ -4793,8 +4763,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_geo_match_set_errors()}
   def get_geo_match_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetGeoMatchSet", input, options)
   end
@@ -4821,8 +4790,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_ip_set_errors()}
   def get_ip_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetIPSet", input, options)
   end
@@ -4849,8 +4817,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_logging_configuration_errors()}
   def get_logging_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetLoggingConfiguration", input, options)
   end
@@ -4877,8 +4844,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_permission_policy_errors()}
   def get_permission_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPermissionPolicy", input, options)
   end
@@ -4907,8 +4873,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_rate_based_rule_errors()}
   def get_rate_based_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRateBasedRule", input, options)
   end
@@ -4943,8 +4908,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_rate_based_rule_managed_keys_errors()}
   def get_rate_based_rule_managed_keys(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRateBasedRuleManagedKeys", input, options)
   end
@@ -4971,8 +4935,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_regex_match_set_errors()}
   def get_regex_match_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRegexMatchSet", input, options)
   end
@@ -4999,8 +4962,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_regex_pattern_set_errors()}
   def get_regex_pattern_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRegexPatternSet", input, options)
   end
@@ -5028,8 +4990,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_rule_errors()}
   def get_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRule", input, options)
   end
@@ -5059,8 +5020,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_rule_group_errors()}
   def get_rule_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRuleGroup", input, options)
   end
@@ -5098,8 +5058,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_sampled_requests_errors()}
   def get_sampled_requests(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSampledRequests", input, options)
   end
@@ -5126,8 +5085,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_size_constraint_set_errors()}
   def get_size_constraint_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSizeConstraintSet", input, options)
   end
@@ -5155,8 +5113,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_sql_injection_match_set_errors()}
   def get_sql_injection_match_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSqlInjectionMatchSet", input, options)
   end
@@ -5183,8 +5140,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_web_acl_errors()}
   def get_web_acl(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetWebACL", input, options)
   end
@@ -5211,8 +5167,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_xss_match_set_errors()}
   def get_xss_match_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetXssMatchSet", input, options)
   end
@@ -5243,8 +5198,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_activated_rules_in_rule_group_errors()}
   def list_activated_rules_in_rule_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListActivatedRulesInRuleGroup", input, options)
   end
@@ -5271,8 +5225,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_byte_match_sets_errors()}
   def list_byte_match_sets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListByteMatchSets", input, options)
   end
@@ -5299,8 +5252,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_geo_match_sets_errors()}
   def list_geo_match_sets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListGeoMatchSets", input, options)
   end
@@ -5327,8 +5279,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_ip_sets_errors()}
   def list_ip_sets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListIPSets", input, options)
   end
@@ -5355,8 +5306,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_logging_configurations_errors()}
   def list_logging_configurations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListLoggingConfigurations", input, options)
   end
@@ -5383,8 +5333,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_rate_based_rules_errors()}
   def list_rate_based_rules(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRateBasedRules", input, options)
   end
@@ -5411,8 +5360,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_regex_match_sets_errors()}
   def list_regex_match_sets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRegexMatchSets", input, options)
   end
@@ -5439,8 +5387,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_regex_pattern_sets_errors()}
   def list_regex_pattern_sets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRegexPatternSets", input, options)
   end
@@ -5467,8 +5414,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_rule_groups_errors()}
   def list_rule_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRuleGroups", input, options)
   end
@@ -5495,8 +5441,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_rules_errors()}
   def list_rules(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRules", input, options)
   end
@@ -5523,8 +5468,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_size_constraint_sets_errors()}
   def list_size_constraint_sets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSizeConstraintSets", input, options)
   end
@@ -5551,8 +5495,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_sql_injection_match_sets_errors()}
   def list_sql_injection_match_sets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSqlInjectionMatchSets", input, options)
   end
@@ -5579,8 +5522,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_subscribed_rule_groups_errors()}
   def list_subscribed_rule_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSubscribedRuleGroups", input, options)
   end
@@ -5615,8 +5557,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -5643,8 +5584,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_web_acls_errors()}
   def list_web_acls(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListWebACLs", input, options)
   end
@@ -5671,8 +5611,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_xss_match_sets_errors()}
   def list_xss_match_sets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListXssMatchSets", input, options)
   end
@@ -5723,8 +5662,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, put_logging_configuration_errors()}
   def put_logging_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutLoggingConfiguration", input, options)
   end
@@ -5786,8 +5724,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, put_permission_policy_errors()}
   def put_permission_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutPermissionPolicy", input, options)
   end
@@ -5823,8 +5760,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -5849,8 +5785,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -5925,8 +5860,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, update_byte_match_set_errors()}
   def update_byte_match_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateByteMatchSet", input, options)
   end
@@ -5990,8 +5924,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, update_geo_match_set_errors()}
   def update_geo_match_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateGeoMatchSet", input, options)
   end
@@ -6087,8 +6020,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, update_ip_set_errors()}
   def update_ip_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateIPSet", input, options)
   end
@@ -6162,8 +6094,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, update_rate_based_rule_errors()}
   def update_rate_based_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateRateBasedRule", input, options)
   end
@@ -6234,8 +6165,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, update_regex_match_set_errors()}
   def update_regex_match_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateRegexMatchSet", input, options)
   end
@@ -6304,8 +6234,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, update_regex_pattern_set_errors()}
   def update_regex_pattern_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateRegexPatternSet", input, options)
   end
@@ -6378,8 +6307,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, update_rule_errors()}
   def update_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateRule", input, options)
   end
@@ -6434,8 +6362,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, update_rule_group_errors()}
   def update_rule_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateRuleGroup", input, options)
   end
@@ -6518,8 +6445,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, update_size_constraint_set_errors()}
   def update_size_constraint_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateSizeConstraintSet", input, options)
   end
@@ -6595,8 +6521,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, update_sql_injection_match_set_errors()}
   def update_sql_injection_match_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateSqlInjectionMatchSet", input, options)
   end
@@ -6703,8 +6628,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, update_web_acl_errors()}
   def update_web_acl(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateWebACL", input, options)
   end
@@ -6780,8 +6704,7 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, update_xss_match_set_errors()}
   def update_xss_match_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateXssMatchSet", input, options)
   end

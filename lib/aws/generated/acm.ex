@@ -828,8 +828,7 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, add_tags_to_certificate_errors()}
   def add_tags_to_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddTagsToCertificate", input, options)
   end
@@ -852,8 +851,7 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, delete_certificate_errors()}
   def delete_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCertificate", input, options)
   end
@@ -871,8 +869,7 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, describe_certificate_errors()}
   def describe_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCertificate", input, options)
   end
@@ -896,8 +893,7 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, export_certificate_errors()}
   def export_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExportCertificate", input, options)
   end
@@ -912,8 +908,7 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, get_account_configuration_errors()}
   def get_account_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAccountConfiguration", input, options)
   end
@@ -935,8 +930,7 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, get_certificate_errors()}
   def get_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCertificate", input, options)
   end
@@ -1004,8 +998,7 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, import_certificate_errors()}
   def import_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ImportCertificate", input, options)
   end
@@ -1023,8 +1016,7 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, list_certificates_errors()}
   def list_certificates(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCertificates", input, options)
   end
@@ -1042,8 +1034,7 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, list_tags_for_certificate_errors()}
   def list_tags_for_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForCertificate", input, options)
   end
@@ -1063,8 +1054,7 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, put_account_configuration_errors()}
   def put_account_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutAccountConfiguration", input, options)
   end
@@ -1087,8 +1077,7 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, remove_tags_from_certificate_errors()}
   def remove_tags_from_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromCertificate", input, options)
   end
@@ -1107,8 +1096,7 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, renew_certificate_errors()}
   def renew_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RenewCertificate", input, options)
   end
@@ -1140,8 +1128,7 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, request_certificate_errors()}
   def request_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RequestCertificate", input, options)
   end
@@ -1166,8 +1153,7 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, resend_validation_email_errors()}
   def resend_validation_email(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResendValidationEmail", input, options)
   end
@@ -1183,8 +1169,7 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, revoke_certificate_errors()}
   def revoke_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RevokeCertificate", input, options)
   end
@@ -1203,8 +1188,7 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, update_certificate_options_errors()}
   def update_certificate_options(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateCertificateOptions", input, options)
   end

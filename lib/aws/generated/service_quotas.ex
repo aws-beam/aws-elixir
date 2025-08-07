@@ -1053,8 +1053,7 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, associate_service_quota_template_errors()}
   def associate_service_quota_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateServiceQuotaTemplate", input, options)
   end
@@ -1071,8 +1070,7 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, create_support_case_errors()}
   def create_support_case(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSupportCase", input, options)
   end
@@ -1096,8 +1094,7 @@ defmodule AWS.ServiceQuotas do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -1126,8 +1123,7 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, disassociate_service_quota_template_errors()}
   def disassociate_service_quota_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateServiceQuotaTemplate", input, options)
   end
@@ -1145,8 +1141,7 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, get_association_for_service_quota_template_errors()}
   def get_association_for_service_quota_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAssociationForServiceQuotaTemplate", input, options)
   end
@@ -1163,8 +1158,7 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, get_aws_default_service_quota_errors()}
   def get_aws_default_service_quota(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAWSDefaultServiceQuota", input, options)
   end
@@ -1182,8 +1176,7 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, get_requested_service_quota_change_errors()}
   def get_requested_service_quota_change(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRequestedServiceQuotaChange", input, options)
   end
@@ -1203,8 +1196,7 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, get_service_quota_errors()}
   def get_service_quota(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetServiceQuota", input, options)
   end
@@ -1224,8 +1216,7 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, get_service_quota_increase_request_from_template_errors()}
   def get_service_quota_increase_request_from_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -1249,8 +1240,7 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, list_aws_default_service_quotas_errors()}
   def list_aws_default_service_quotas(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAWSDefaultServiceQuotas", input, options)
   end
@@ -1273,8 +1263,7 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, list_requested_service_quota_change_history_errors()}
   def list_requested_service_quota_change_history(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRequestedServiceQuotaChangeHistory", input, options)
   end
@@ -1299,8 +1288,7 @@ defmodule AWS.ServiceQuotas do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -1324,8 +1312,7 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, list_service_quota_increase_requests_in_template_errors()}
   def list_service_quota_increase_requests_in_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -1352,8 +1339,7 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, list_service_quotas_errors()}
   def list_service_quotas(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListServiceQuotas", input, options)
   end
@@ -1368,8 +1354,7 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, list_services_errors()}
   def list_services(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListServices", input, options)
   end
@@ -1383,8 +1368,7 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1402,8 +1386,7 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, put_service_quota_increase_request_into_template_errors()}
   def put_service_quota_increase_request_into_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -1424,8 +1407,7 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, request_service_quota_increase_errors()}
   def request_service_quota_increase(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RequestServiceQuotaIncrease", input, options)
   end
@@ -1442,8 +1424,7 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1460,8 +1441,7 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

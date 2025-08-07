@@ -1378,8 +1378,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, accept_qualification_request_errors()}
   def accept_qualification_request(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AcceptQualificationRequest", input, options)
   end
@@ -1418,8 +1417,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, approve_assignment_errors()}
   def approve_assignment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ApproveAssignment", input, options)
   end
@@ -1457,8 +1455,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, associate_qualification_with_worker_errors()}
   def associate_qualification_with_worker(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateQualificationWithWorker", input, options)
   end
@@ -1496,8 +1493,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, create_additional_assignments_for_hit_errors()}
   def create_additional_assignments_for_hit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAdditionalAssignmentsForHIT", input, options)
   end
@@ -1537,8 +1533,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, create_hit_errors()}
   def create_hit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateHIT", input, options)
   end
@@ -1559,8 +1554,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, create_hit_type_errors()}
   def create_hit_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateHITType", input, options)
   end
@@ -1589,8 +1583,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, create_hit_with_hit_type_errors()}
   def create_hit_with_hit_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateHITWithHITType", input, options)
   end
@@ -1609,8 +1602,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, create_qualification_type_errors()}
   def create_qualification_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateQualificationType", input, options)
   end
@@ -1628,8 +1620,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, create_worker_block_errors()}
   def create_worker_block(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateWorkerBlock", input, options)
   end
@@ -1672,8 +1663,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, delete_hit_errors()}
   def delete_hit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteHIT", input, options)
   end
@@ -1704,8 +1694,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, delete_qualification_type_errors()}
   def delete_qualification_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteQualificationType", input, options)
   end
@@ -1725,8 +1714,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, delete_worker_block_errors()}
   def delete_worker_block(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteWorkerBlock", input, options)
   end
@@ -1749,8 +1737,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, disassociate_qualification_from_worker_errors()}
   def disassociate_qualification_from_worker(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateQualificationFromWorker", input, options)
   end
@@ -1771,8 +1758,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, get_account_balance_errors()}
   def get_account_balance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAccountBalance", input, options)
   end
@@ -1787,8 +1773,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, get_assignment_errors()}
   def get_assignment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAssignment", input, options)
   end
@@ -1819,8 +1804,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, get_file_upload_url_errors()}
   def get_file_upload_url(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetFileUploadURL", input, options)
   end
@@ -1835,8 +1819,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, get_hit_errors()}
   def get_hit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetHIT", input, options)
   end
@@ -1862,8 +1845,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, get_qualification_score_errors()}
   def get_qualification_score(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetQualificationScore", input, options)
   end
@@ -1879,8 +1861,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, get_qualification_type_errors()}
   def get_qualification_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetQualificationType", input, options)
   end
@@ -1921,8 +1902,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, list_assignments_for_hit_errors()}
   def list_assignments_for_hit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAssignmentsForHIT", input, options)
   end
@@ -1940,8 +1920,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, list_bonus_payments_errors()}
   def list_bonus_payments(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListBonusPayments", input, options)
   end
@@ -1962,8 +1941,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, list_hits_errors()}
   def list_hits(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListHITs", input, options)
   end
@@ -1986,8 +1964,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, list_hits_for_qualification_type_errors()}
   def list_hits_for_qualification_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListHITsForQualificationType", input, options)
   end
@@ -2009,8 +1986,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, list_qualification_requests_errors()}
   def list_qualification_requests(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListQualificationRequests", input, options)
   end
@@ -2028,8 +2004,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, list_qualification_types_errors()}
   def list_qualification_types(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListQualificationTypes", input, options)
   end
@@ -2055,8 +2030,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, list_review_policy_results_for_hit_errors()}
   def list_review_policy_results_for_hit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListReviewPolicyResultsForHIT", input, options)
   end
@@ -2073,8 +2047,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, list_reviewable_hits_errors()}
   def list_reviewable_hits(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListReviewableHITs", input, options)
   end
@@ -2089,8 +2062,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, list_worker_blocks_errors()}
   def list_worker_blocks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListWorkerBlocks", input, options)
   end
@@ -2110,8 +2082,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, list_workers_with_qualification_type_errors()}
   def list_workers_with_qualification_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListWorkersWithQualificationType", input, options)
   end
@@ -2135,8 +2106,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, notify_workers_errors()}
   def notify_workers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "NotifyWorkers", input, options)
   end
@@ -2159,8 +2129,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, reject_assignment_errors()}
   def reject_assignment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RejectAssignment", input, options)
   end
@@ -2180,8 +2149,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, reject_qualification_request_errors()}
   def reject_qualification_request(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RejectQualificationRequest", input, options)
   end
@@ -2208,8 +2176,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, send_bonus_errors()}
   def send_bonus(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SendBonus", input, options)
   end
@@ -2232,8 +2199,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, send_test_event_notification_errors()}
   def send_test_event_notification(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SendTestEventNotification", input, options)
   end
@@ -2251,8 +2217,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, update_expiration_for_hit_errors()}
   def update_expiration_for_hit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateExpirationForHIT", input, options)
   end
@@ -2270,8 +2235,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, update_hit_review_status_errors()}
   def update_hit_review_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateHITReviewStatus", input, options)
   end
@@ -2293,8 +2257,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, update_hit_type_of_hit_errors()}
   def update_hit_type_of_hit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateHITTypeOfHIT", input, options)
   end
@@ -2324,8 +2287,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, update_notification_settings_errors()}
   def update_notification_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateNotificationSettings", input, options)
   end
@@ -2378,8 +2340,7 @@ defmodule AWS.MTurk do
           | {:error, term()}
           | {:error, update_qualification_type_errors()}
   def update_qualification_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateQualificationType", input, options)
   end

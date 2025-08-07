@@ -1125,8 +1125,7 @@ defmodule AWS.PaymentCryptography do
           | {:error, term()}
           | {:error, create_alias_errors()}
   def create_alias(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAlias", input, options)
   end
@@ -1192,8 +1191,7 @@ defmodule AWS.PaymentCryptography do
           | {:error, term()}
           | {:error, create_key_errors()}
   def create_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateKey", input, options)
   end
@@ -1227,8 +1225,7 @@ defmodule AWS.PaymentCryptography do
           | {:error, term()}
           | {:error, delete_alias_errors()}
   def delete_alias(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAlias", input, options)
   end
@@ -1269,8 +1266,7 @@ defmodule AWS.PaymentCryptography do
           | {:error, term()}
           | {:error, delete_key_errors()}
   def delete_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteKey", input, options)
   end
@@ -1470,8 +1466,7 @@ defmodule AWS.PaymentCryptography do
           | {:error, term()}
           | {:error, export_key_errors()}
   def export_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExportKey", input, options)
   end
@@ -1498,8 +1493,7 @@ defmodule AWS.PaymentCryptography do
           | {:error, term()}
           | {:error, get_alias_errors()}
   def get_alias(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAlias", input, options)
   end
@@ -1526,8 +1520,7 @@ defmodule AWS.PaymentCryptography do
           | {:error, term()}
           | {:error, get_key_errors()}
   def get_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetKey", input, options)
   end
@@ -1559,8 +1552,7 @@ defmodule AWS.PaymentCryptography do
           | {:error, term()}
           | {:error, get_parameters_for_export_errors()}
   def get_parameters_for_export(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetParametersForExport", input, options)
   end
@@ -1592,8 +1584,7 @@ defmodule AWS.PaymentCryptography do
           | {:error, term()}
           | {:error, get_parameters_for_import_errors()}
   def get_parameters_for_import(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetParametersForImport", input, options)
   end
@@ -1618,8 +1609,7 @@ defmodule AWS.PaymentCryptography do
           | {:error, term()}
           | {:error, get_public_key_certificate_errors()}
   def get_public_key_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPublicKeyCertificate", input, options)
   end
@@ -1817,8 +1807,7 @@ defmodule AWS.PaymentCryptography do
           | {:error, term()}
           | {:error, import_key_errors()}
   def import_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ImportKey", input, options)
   end
@@ -1856,8 +1845,7 @@ defmodule AWS.PaymentCryptography do
           | {:error, term()}
           | {:error, list_aliases_errors()}
   def list_aliases(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAliases", input, options)
   end
@@ -1892,8 +1880,7 @@ defmodule AWS.PaymentCryptography do
           | {:error, term()}
           | {:error, list_keys_errors()}
   def list_keys(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListKeys", input, options)
   end
@@ -1923,8 +1910,7 @@ defmodule AWS.PaymentCryptography do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1957,8 +1943,7 @@ defmodule AWS.PaymentCryptography do
           | {:error, term()}
           | {:error, restore_key_errors()}
   def restore_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RestoreKey", input, options)
   end
@@ -1981,8 +1966,7 @@ defmodule AWS.PaymentCryptography do
           | {:error, term()}
           | {:error, start_key_usage_errors()}
   def start_key_usage(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartKeyUsage", input, options)
   end
@@ -2010,8 +1994,7 @@ defmodule AWS.PaymentCryptography do
           | {:error, term()}
           | {:error, stop_key_usage_errors()}
   def stop_key_usage(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopKeyUsage", input, options)
   end
@@ -2044,8 +2027,7 @@ defmodule AWS.PaymentCryptography do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2071,8 +2053,7 @@ defmodule AWS.PaymentCryptography do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2105,8 +2086,7 @@ defmodule AWS.PaymentCryptography do
           | {:error, term()}
           | {:error, update_alias_errors()}
   def update_alias(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateAlias", input, options)
   end

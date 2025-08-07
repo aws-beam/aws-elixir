@@ -6854,8 +6854,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, accept_reserved_node_exchange_errors()}
   def accept_reserved_node_exchange(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AcceptReservedNodeExchange", input, options)
   end
@@ -6874,8 +6873,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, add_partner_errors()}
   def add_partner(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddPartner", input, options)
   end
@@ -6893,8 +6891,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, associate_data_share_consumer_errors()}
   def associate_data_share_consumer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateDataShareConsumer", input, options)
   end
@@ -6937,8 +6934,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, authorize_cluster_security_group_ingress_errors()}
   def authorize_cluster_security_group_ingress(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AuthorizeClusterSecurityGroupIngress", input, options)
   end
@@ -6957,8 +6953,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, authorize_data_share_errors()}
   def authorize_data_share(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AuthorizeDataShare", input, options)
   end
@@ -6972,8 +6967,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, authorize_endpoint_access_errors()}
   def authorize_endpoint_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AuthorizeEndpointAccess", input, options)
   end
@@ -6992,8 +6986,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, authorize_snapshot_access_errors()}
   def authorize_snapshot_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AuthorizeSnapshotAccess", input, options)
   end
@@ -7007,8 +7000,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, batch_delete_cluster_snapshots_errors()}
   def batch_delete_cluster_snapshots(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchDeleteClusterSnapshots", input, options)
   end
@@ -7022,8 +7014,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, batch_modify_cluster_snapshots_errors()}
   def batch_modify_cluster_snapshots(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchModifyClusterSnapshots", input, options)
   end
@@ -7037,8 +7028,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, cancel_resize_errors()}
   def cancel_resize(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelResize", input, options)
   end
@@ -7070,8 +7060,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, copy_cluster_snapshot_errors()}
   def copy_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CopyClusterSnapshot", input, options)
   end
@@ -7085,8 +7074,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_authentication_profile_errors()}
   def create_authentication_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAuthenticationProfile", input, options)
   end
@@ -7133,8 +7121,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCluster", input, options)
   end
@@ -7161,8 +7148,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_cluster_parameter_group_errors()}
   def create_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateClusterParameterGroup", input, options)
   end
@@ -7184,8 +7170,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_cluster_security_group_errors()}
   def create_cluster_security_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateClusterSecurityGroup", input, options)
   end
@@ -7206,8 +7191,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_cluster_snapshot_errors()}
   def create_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateClusterSnapshot", input, options)
   end
@@ -7230,8 +7214,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_cluster_subnet_group_errors()}
   def create_cluster_subnet_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateClusterSubnetGroup", input, options)
   end
@@ -7253,8 +7236,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_custom_domain_association_errors()}
   def create_custom_domain_association(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCustomDomainAssociation", input, options)
   end
@@ -7268,8 +7250,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_endpoint_access_errors()}
   def create_endpoint_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateEndpointAccess", input, options)
   end
@@ -7317,8 +7298,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_event_subscription_errors()}
   def create_event_subscription(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateEventSubscription", input, options)
   end
@@ -7345,8 +7325,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_hsm_client_certificate_errors()}
   def create_hsm_client_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateHsmClientCertificate", input, options)
   end
@@ -7371,8 +7350,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_hsm_configuration_errors()}
   def create_hsm_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateHsmConfiguration", input, options)
   end
@@ -7386,8 +7364,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_integration_errors()}
   def create_integration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateIntegration", input, options)
   end
@@ -7401,8 +7378,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_redshift_idc_application_errors()}
   def create_redshift_idc_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRedshiftIdcApplication", input, options)
   end
@@ -7420,8 +7396,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_scheduled_action_errors()}
   def create_scheduled_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateScheduledAction", input, options)
   end
@@ -7442,8 +7417,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_snapshot_copy_grant_errors()}
   def create_snapshot_copy_grant(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSnapshotCopyGrant", input, options)
   end
@@ -7458,8 +7432,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_snapshot_schedule_errors()}
   def create_snapshot_schedule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSnapshotSchedule", input, options)
   end
@@ -7480,8 +7453,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_tags_errors()}
   def create_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTags", input, options)
   end
@@ -7497,8 +7469,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_usage_limit_errors()}
   def create_usage_limit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateUsageLimit", input, options)
   end
@@ -7513,8 +7484,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, deauthorize_data_share_errors()}
   def deauthorize_data_share(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeauthorizeDataShare", input, options)
   end
@@ -7528,8 +7498,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_authentication_profile_errors()}
   def delete_authentication_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAuthenticationProfile", input, options)
   end
@@ -7565,8 +7534,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCluster", input, options)
   end
@@ -7583,8 +7551,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_cluster_parameter_group_errors()}
   def delete_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteClusterParameterGroup", input, options)
   end
@@ -7606,8 +7573,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_cluster_security_group_errors()}
   def delete_cluster_security_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteClusterSecurityGroup", input, options)
   end
@@ -7633,8 +7599,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_cluster_snapshot_errors()}
   def delete_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteClusterSnapshot", input, options)
   end
@@ -7648,8 +7613,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_cluster_subnet_group_errors()}
   def delete_cluster_subnet_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteClusterSubnetGroup", input, options)
   end
@@ -7667,8 +7631,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_custom_domain_association_errors()}
   def delete_custom_domain_association(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCustomDomainAssociation", input, options)
   end
@@ -7682,8 +7645,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_endpoint_access_errors()}
   def delete_endpoint_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteEndpointAccess", input, options)
   end
@@ -7697,8 +7659,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_event_subscription_errors()}
   def delete_event_subscription(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteEventSubscription", input, options)
   end
@@ -7712,8 +7673,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_hsm_client_certificate_errors()}
   def delete_hsm_client_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteHsmClientCertificate", input, options)
   end
@@ -7727,8 +7687,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_hsm_configuration_errors()}
   def delete_hsm_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteHsmConfiguration", input, options)
   end
@@ -7742,8 +7701,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_integration_errors()}
   def delete_integration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteIntegration", input, options)
   end
@@ -7760,8 +7718,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_partner_errors()}
   def delete_partner(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePartner", input, options)
   end
@@ -7775,8 +7732,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_redshift_idc_application_errors()}
   def delete_redshift_idc_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRedshiftIdcApplication", input, options)
   end
@@ -7790,8 +7746,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -7805,8 +7760,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_scheduled_action_errors()}
   def delete_scheduled_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteScheduledAction", input, options)
   end
@@ -7820,8 +7774,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_snapshot_copy_grant_errors()}
   def delete_snapshot_copy_grant(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSnapshotCopyGrant", input, options)
   end
@@ -7835,8 +7788,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_snapshot_schedule_errors()}
   def delete_snapshot_schedule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSnapshotSchedule", input, options)
   end
@@ -7853,8 +7805,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_tags_errors()}
   def delete_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTags", input, options)
   end
@@ -7868,8 +7819,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_usage_limit_errors()}
   def delete_usage_limit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteUsageLimit", input, options)
   end
@@ -7884,8 +7834,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, deregister_namespace_errors()}
   def deregister_namespace(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeregisterNamespace", input, options)
   end
@@ -7898,8 +7847,7 @@ defmodule AWS.Redshift do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAccountAttributes", input, options)
   end
@@ -7917,8 +7865,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_authentication_profiles_errors()}
   def describe_authentication_profiles(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAuthenticationProfiles", input, options)
   end
@@ -7932,8 +7879,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_cluster_db_revisions_errors()}
   def describe_cluster_db_revisions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeClusterDbRevisions", input, options)
   end
@@ -7974,8 +7920,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_cluster_parameter_groups_errors()}
   def describe_cluster_parameter_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeClusterParameterGroups", input, options)
   end
@@ -8006,8 +7951,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_cluster_parameters_errors()}
   def describe_cluster_parameters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeClusterParameters", input, options)
   end
@@ -8047,8 +7991,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_cluster_security_groups_errors()}
   def describe_cluster_security_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeClusterSecurityGroups", input, options)
   end
@@ -8083,8 +8026,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_cluster_snapshots_errors()}
   def describe_cluster_snapshots(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeClusterSnapshots", input, options)
   end
@@ -8115,8 +8057,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_cluster_subnet_groups_errors()}
   def describe_cluster_subnet_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeClusterSubnetGroups", input, options)
   end
@@ -8130,8 +8071,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_cluster_tracks_errors()}
   def describe_cluster_tracks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeClusterTracks", input, options)
   end
@@ -8152,8 +8092,7 @@ defmodule AWS.Redshift do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_cluster_versions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeClusterVersions", input, options)
   end
@@ -8186,8 +8125,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_clusters_errors()}
   def describe_clusters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeClusters", input, options)
   end
@@ -8205,8 +8143,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_custom_domain_associations_errors()}
   def describe_custom_domain_associations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCustomDomainAssociations", input, options)
   end
@@ -8222,8 +8159,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_data_shares_errors()}
   def describe_data_shares(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDataShares", input, options)
   end
@@ -8242,8 +8178,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_data_shares_for_consumer_errors()}
   def describe_data_shares_for_consumer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDataSharesForConsumer", input, options)
   end
@@ -8262,8 +8197,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_data_shares_for_producer_errors()}
   def describe_data_shares_for_producer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDataSharesForProducer", input, options)
   end
@@ -8285,8 +8219,7 @@ defmodule AWS.Redshift do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_default_cluster_parameters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDefaultClusterParameters", input, options)
   end
@@ -8300,8 +8233,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_endpoint_access_errors()}
   def describe_endpoint_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEndpointAccess", input, options)
   end
@@ -8315,8 +8247,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_endpoint_authorization_errors()}
   def describe_endpoint_authorization(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEndpointAuthorization", input, options)
   end
@@ -8334,8 +8265,7 @@ defmodule AWS.Redshift do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_event_categories(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEventCategories", input, options)
   end
@@ -8366,8 +8296,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_event_subscriptions_errors()}
   def describe_event_subscriptions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEventSubscriptions", input, options)
   end
@@ -8386,8 +8315,7 @@ defmodule AWS.Redshift do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_events(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEvents", input, options)
   end
@@ -8422,8 +8350,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_hsm_client_certificates_errors()}
   def describe_hsm_client_certificates(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeHsmClientCertificates", input, options)
   end
@@ -8454,8 +8381,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_hsm_configurations_errors()}
   def describe_hsm_configurations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeHsmConfigurations", input, options)
   end
@@ -8469,8 +8395,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_inbound_integrations_errors()}
   def describe_inbound_integrations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeInboundIntegrations", input, options)
   end
@@ -8484,8 +8409,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_integrations_errors()}
   def describe_integrations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeIntegrations", input, options)
   end
@@ -8500,8 +8424,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_logging_status_errors()}
   def describe_logging_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLoggingStatus", input, options)
   end
@@ -8521,8 +8444,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_node_configuration_options_errors()}
   def describe_node_configuration_options(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeNodeConfigurationOptions", input, options)
   end
@@ -8553,8 +8475,7 @@ defmodule AWS.Redshift do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_orderable_cluster_options(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeOrderableClusterOptions", input, options)
   end
@@ -8568,8 +8489,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_partners_errors()}
   def describe_partners(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePartners", input, options)
   end
@@ -8587,8 +8507,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_redshift_idc_applications_errors()}
   def describe_redshift_idc_applications(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeRedshiftIdcApplications", input, options)
   end
@@ -8609,8 +8528,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_reserved_node_exchange_status_errors()}
   def describe_reserved_node_exchange_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeReservedNodeExchangeStatus", input, options)
   end
@@ -8642,8 +8560,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_reserved_node_offerings_errors()}
   def describe_reserved_node_offerings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeReservedNodeOfferings", input, options)
   end
@@ -8657,8 +8574,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_reserved_nodes_errors()}
   def describe_reserved_nodes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeReservedNodes", input, options)
   end
@@ -8686,8 +8602,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_resize_errors()}
   def describe_resize(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeResize", input, options)
   end
@@ -8701,8 +8616,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_scheduled_actions_errors()}
   def describe_scheduled_actions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeScheduledActions", input, options)
   end
@@ -8722,8 +8636,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_snapshot_copy_grants_errors()}
   def describe_snapshot_copy_grants(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSnapshotCopyGrants", input, options)
   end
@@ -8736,8 +8649,7 @@ defmodule AWS.Redshift do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_snapshot_schedules(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSnapshotSchedules", input, options)
   end
@@ -8750,8 +8662,7 @@ defmodule AWS.Redshift do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_storage(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeStorage", input, options)
   end
@@ -8774,8 +8685,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_table_restore_status_errors()}
   def describe_table_restore_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTableRestoreStatus", input, options)
   end
@@ -8819,8 +8729,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTags", input, options)
   end
@@ -8856,8 +8765,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_usage_limits_errors()}
   def describe_usage_limits(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeUsageLimits", input, options)
   end
@@ -8872,8 +8780,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, disable_logging_errors()}
   def disable_logging(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableLogging", input, options)
   end
@@ -8894,8 +8801,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, disable_snapshot_copy_errors()}
   def disable_snapshot_copy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableSnapshotCopy", input, options)
   end
@@ -8914,8 +8820,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, disassociate_data_share_consumer_errors()}
   def disassociate_data_share_consumer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateDataShareConsumer", input, options)
   end
@@ -8930,8 +8835,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, enable_logging_errors()}
   def enable_logging(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableLogging", input, options)
   end
@@ -8946,8 +8850,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, enable_snapshot_copy_errors()}
   def enable_snapshot_copy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableSnapshotCopy", input, options)
   end
@@ -8962,8 +8865,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, failover_primary_compute_errors()}
   def failover_primary_compute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "FailoverPrimaryCompute", input, options)
   end
@@ -9010,8 +8912,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, get_cluster_credentials_errors()}
   def get_cluster_credentials(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetClusterCredentials", input, options)
   end
@@ -9044,8 +8945,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, get_cluster_credentials_with_iam_errors()}
   def get_cluster_credentials_with_iam(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetClusterCredentialsWithIAM", input, options)
   end
@@ -9068,8 +8968,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, get_reserved_node_exchange_configuration_options_errors()}
   def get_reserved_node_exchange_configuration_options(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -9095,8 +8994,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, get_reserved_node_exchange_offerings_errors()}
   def get_reserved_node_exchange_offerings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetReservedNodeExchangeOfferings", input, options)
   end
@@ -9110,8 +9008,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
@@ -9126,8 +9023,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, list_recommendations_errors()}
   def list_recommendations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRecommendations", input, options)
   end
@@ -9144,8 +9040,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_aqua_configuration_errors()}
   def modify_aqua_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyAquaConfiguration", input, options)
   end
@@ -9159,8 +9054,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_authentication_profile_errors()}
   def modify_authentication_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyAuthenticationProfile", input, options)
   end
@@ -9213,8 +9107,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_cluster_errors()}
   def modify_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyCluster", input, options)
   end
@@ -9231,8 +9124,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_cluster_db_revision_errors()}
   def modify_cluster_db_revision(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyClusterDbRevision", input, options)
   end
@@ -9251,8 +9143,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_cluster_iam_roles_errors()}
   def modify_cluster_iam_roles(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyClusterIamRoles", input, options)
   end
@@ -9266,8 +9157,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_cluster_maintenance_errors()}
   def modify_cluster_maintenance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyClusterMaintenance", input, options)
   end
@@ -9287,8 +9177,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_cluster_parameter_group_errors()}
   def modify_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyClusterParameterGroup", input, options)
   end
@@ -9305,8 +9194,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_cluster_snapshot_errors()}
   def modify_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyClusterSnapshot", input, options)
   end
@@ -9324,8 +9212,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_cluster_snapshot_schedule_errors()}
   def modify_cluster_snapshot_schedule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyClusterSnapshotSchedule", input, options)
   end
@@ -9367,8 +9254,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_cluster_subnet_group_errors()}
   def modify_cluster_subnet_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyClusterSubnetGroup", input, options)
   end
@@ -9386,8 +9272,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_custom_domain_association_errors()}
   def modify_custom_domain_association(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyCustomDomainAssociation", input, options)
   end
@@ -9401,8 +9286,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_endpoint_access_errors()}
   def modify_endpoint_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyEndpointAccess", input, options)
   end
@@ -9416,8 +9300,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_event_subscription_errors()}
   def modify_event_subscription(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyEventSubscription", input, options)
   end
@@ -9431,8 +9314,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_integration_errors()}
   def modify_integration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyIntegration", input, options)
   end
@@ -9446,8 +9328,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_redshift_idc_application_errors()}
   def modify_redshift_idc_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyRedshiftIdcApplication", input, options)
   end
@@ -9461,8 +9342,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_scheduled_action_errors()}
   def modify_scheduled_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyScheduledAction", input, options)
   end
@@ -9493,8 +9373,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_snapshot_copy_retention_period_errors()}
   def modify_snapshot_copy_retention_period(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifySnapshotCopyRetentionPeriod", input, options)
   end
@@ -9511,8 +9390,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_snapshot_schedule_errors()}
   def modify_snapshot_schedule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifySnapshotSchedule", input, options)
   end
@@ -9528,8 +9406,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_usage_limit_errors()}
   def modify_usage_limit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyUsageLimit", input, options)
   end
@@ -9543,8 +9420,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, pause_cluster_errors()}
   def pause_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PauseCluster", input, options)
   end
@@ -9570,8 +9446,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, purchase_reserved_node_offering_errors()}
   def purchase_reserved_node_offering(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PurchaseReservedNodeOffering", input, options)
   end
@@ -9585,8 +9460,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -9609,8 +9483,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, reboot_cluster_errors()}
   def reboot_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RebootCluster", input, options)
   end
@@ -9625,8 +9498,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, register_namespace_errors()}
   def register_namespace(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterNamespace", input, options)
   end
@@ -9640,8 +9512,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, reject_data_share_errors()}
   def reject_data_share(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RejectDataShare", input, options)
   end
@@ -9660,8 +9531,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, reset_cluster_parameter_group_errors()}
   def reset_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResetClusterParameterGroup", input, options)
   end
@@ -9709,8 +9579,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, resize_cluster_errors()}
   def resize_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResizeCluster", input, options)
   end
@@ -9768,8 +9637,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, restore_from_cluster_snapshot_errors()}
   def restore_from_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RestoreFromClusterSnapshot", input, options)
   end
@@ -9808,8 +9676,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, restore_table_from_cluster_snapshot_errors()}
   def restore_table_from_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RestoreTableFromClusterSnapshot", input, options)
   end
@@ -9823,8 +9690,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, resume_cluster_errors()}
   def resume_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResumeCluster", input, options)
   end
@@ -9850,8 +9716,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, revoke_cluster_security_group_ingress_errors()}
   def revoke_cluster_security_group_ingress(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RevokeClusterSecurityGroupIngress", input, options)
   end
@@ -9865,8 +9730,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, revoke_endpoint_access_errors()}
   def revoke_endpoint_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RevokeEndpointAccess", input, options)
   end
@@ -9889,8 +9753,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, revoke_snapshot_access_errors()}
   def revoke_snapshot_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RevokeSnapshotAccess", input, options)
   end
@@ -9904,8 +9767,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, rotate_encryption_key_errors()}
   def rotate_encryption_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RotateEncryptionKey", input, options)
   end
@@ -9919,8 +9781,7 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, update_partner_status_errors()}
   def update_partner_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdatePartnerStatus", input, options)
   end

@@ -2160,8 +2160,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, cancel_task_execution_errors()}
   def cancel_task_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelTaskExecution", input, options)
   end
@@ -2180,8 +2179,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, create_agent_errors()}
   def create_agent(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAgent", input, options)
   end
@@ -2205,8 +2203,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, create_location_azure_blob_errors()}
   def create_location_azure_blob(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLocationAzureBlob", input, options)
   end
@@ -2227,8 +2224,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, create_location_efs_errors()}
   def create_location_efs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLocationEfs", input, options)
   end
@@ -2249,8 +2245,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, create_location_fsx_lustre_errors()}
   def create_location_fsx_lustre(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLocationFsxLustre", input, options)
   end
@@ -2271,8 +2266,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, create_location_fsx_ontap_errors()}
   def create_location_fsx_ontap(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLocationFsxOntap", input, options)
   end
@@ -2297,8 +2291,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, create_location_fsx_open_zfs_errors()}
   def create_location_fsx_open_zfs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLocationFsxOpenZfs", input, options)
   end
@@ -2320,8 +2313,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, create_location_fsx_windows_errors()}
   def create_location_fsx_windows(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLocationFsxWindows", input, options)
   end
@@ -2342,8 +2334,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, create_location_hdfs_errors()}
   def create_location_hdfs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLocationHdfs", input, options)
   end
@@ -2364,8 +2355,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, create_location_nfs_errors()}
   def create_location_nfs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLocationNfs", input, options)
   end
@@ -2387,8 +2377,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, create_location_object_storage_errors()}
   def create_location_object_storage(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLocationObjectStorage", input, options)
   end
@@ -2419,8 +2408,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, create_location_s3_errors()}
   def create_location_s3(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLocationS3", input, options)
   end
@@ -2441,8 +2429,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, create_location_smb_errors()}
   def create_location_smb(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLocationSmb", input, options)
   end
@@ -2467,8 +2454,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, create_task_errors()}
   def create_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTask", input, options)
   end
@@ -2489,8 +2475,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, delete_agent_errors()}
   def delete_agent(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAgent", input, options)
   end
@@ -2504,8 +2489,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, delete_location_errors()}
   def delete_location(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLocation", input, options)
   end
@@ -2519,8 +2503,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, delete_task_errors()}
   def delete_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTask", input, options)
   end
@@ -2535,8 +2518,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, describe_agent_errors()}
   def describe_agent(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAgent", input, options)
   end
@@ -2551,8 +2533,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, describe_location_azure_blob_errors()}
   def describe_location_azure_blob(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLocationAzureBlob", input, options)
   end
@@ -2567,8 +2548,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, describe_location_efs_errors()}
   def describe_location_efs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLocationEfs", input, options)
   end
@@ -2583,8 +2563,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, describe_location_fsx_lustre_errors()}
   def describe_location_fsx_lustre(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLocationFsxLustre", input, options)
   end
@@ -2602,8 +2581,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, describe_location_fsx_ontap_errors()}
   def describe_location_fsx_ontap(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLocationFsxOntap", input, options)
   end
@@ -2621,8 +2599,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, describe_location_fsx_open_zfs_errors()}
   def describe_location_fsx_open_zfs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLocationFsxOpenZfs", input, options)
   end
@@ -2637,8 +2614,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, describe_location_fsx_windows_errors()}
   def describe_location_fsx_windows(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLocationFsxWindows", input, options)
   end
@@ -2653,8 +2629,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, describe_location_hdfs_errors()}
   def describe_location_hdfs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLocationHdfs", input, options)
   end
@@ -2669,8 +2644,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, describe_location_nfs_errors()}
   def describe_location_nfs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLocationNfs", input, options)
   end
@@ -2689,8 +2663,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, describe_location_object_storage_errors()}
   def describe_location_object_storage(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLocationObjectStorage", input, options)
   end
@@ -2705,8 +2678,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, describe_location_s3_errors()}
   def describe_location_s3(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLocationS3", input, options)
   end
@@ -2721,8 +2693,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, describe_location_smb_errors()}
   def describe_location_smb(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLocationSmb", input, options)
   end
@@ -2737,8 +2708,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, describe_task_errors()}
   def describe_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTask", input, options)
   end
@@ -2762,8 +2732,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, describe_task_execution_errors()}
   def describe_task_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTaskExecution", input, options)
   end
@@ -2796,8 +2765,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, list_agents_errors()}
   def list_agents(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAgents", input, options)
   end
@@ -2817,8 +2785,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, list_locations_errors()}
   def list_locations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListLocations", input, options)
   end
@@ -2832,8 +2799,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2847,8 +2813,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, list_task_executions_errors()}
   def list_task_executions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTaskExecutions", input, options)
   end
@@ -2862,8 +2827,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, list_tasks_errors()}
   def list_tasks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTasks", input, options)
   end
@@ -2889,8 +2853,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, start_task_execution_errors()}
   def start_task_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartTaskExecution", input, options)
   end
@@ -2910,8 +2873,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2925,8 +2887,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2940,8 +2901,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, update_agent_errors()}
   def update_agent(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateAgent", input, options)
   end
@@ -2959,8 +2919,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, update_location_azure_blob_errors()}
   def update_location_azure_blob(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateLocationAzureBlob", input, options)
   end
@@ -2978,8 +2937,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, update_location_efs_errors()}
   def update_location_efs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateLocationEfs", input, options)
   end
@@ -2997,8 +2955,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, update_location_fsx_lustre_errors()}
   def update_location_fsx_lustre(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateLocationFsxLustre", input, options)
   end
@@ -3017,8 +2974,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, update_location_fsx_ontap_errors()}
   def update_location_fsx_ontap(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateLocationFsxOntap", input, options)
   end
@@ -3039,8 +2995,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, update_location_fsx_open_zfs_errors()}
   def update_location_fsx_open_zfs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateLocationFsxOpenZfs", input, options)
   end
@@ -3059,8 +3014,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, update_location_fsx_windows_errors()}
   def update_location_fsx_windows(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateLocationFsxWindows", input, options)
   end
@@ -3079,8 +3033,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, update_location_hdfs_errors()}
   def update_location_hdfs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateLocationHdfs", input, options)
   end
@@ -3099,8 +3052,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, update_location_nfs_errors()}
   def update_location_nfs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateLocationNfs", input, options)
   end
@@ -3119,8 +3071,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, update_location_object_storage_errors()}
   def update_location_object_storage(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateLocationObjectStorage", input, options)
   end
@@ -3147,8 +3098,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, update_location_s3_errors()}
   def update_location_s3(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateLocationS3", input, options)
   end
@@ -3167,8 +3117,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, update_location_smb_errors()}
   def update_location_smb(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateLocationSmb", input, options)
   end
@@ -3183,8 +3132,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, update_task_errors()}
   def update_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateTask", input, options)
   end
@@ -3210,8 +3158,7 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, update_task_execution_errors()}
   def update_task_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateTaskExecution", input, options)
   end

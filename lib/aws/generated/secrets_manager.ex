@@ -1123,8 +1123,7 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, batch_get_secret_value_errors()}
   def batch_get_secret_value(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetSecretValue", input, options)
   end
@@ -1166,8 +1165,7 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, cancel_rotate_secret_errors()}
   def cancel_rotate_secret(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelRotateSecret", input, options)
   end
@@ -1250,8 +1248,7 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, create_secret_errors()}
   def create_secret(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSecret", input, options)
   end
@@ -1280,8 +1277,7 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -1349,8 +1345,7 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, delete_secret_errors()}
   def delete_secret(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSecret", input, options)
   end
@@ -1379,8 +1374,7 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, describe_secret_errors()}
   def describe_secret(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSecret", input, options)
   end
@@ -1410,8 +1404,7 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, get_random_password_errors()}
   def get_random_password(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRandomPassword", input, options)
   end
@@ -1442,8 +1435,7 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
@@ -1484,8 +1476,7 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, get_secret_value_errors()}
   def get_secret_value(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSecretValue", input, options)
   end
@@ -1518,8 +1509,7 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, list_secret_version_ids_errors()}
   def list_secret_version_ids(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSecretVersionIds", input, options)
   end
@@ -1561,8 +1551,7 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, list_secrets_errors()}
   def list_secrets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSecrets", input, options)
   end
@@ -1595,8 +1584,7 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -1664,8 +1652,7 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, put_secret_value_errors()}
   def put_secret_value(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutSecretValue", input, options)
   end
@@ -1692,8 +1679,7 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, remove_regions_from_replication_errors()}
   def remove_regions_from_replication(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveRegionsFromReplication", input, options)
   end
@@ -1725,8 +1711,7 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, replicate_secret_to_regions_errors()}
   def replicate_secret_to_regions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ReplicateSecretToRegions", input, options)
   end
@@ -1755,8 +1740,7 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, restore_secret_errors()}
   def restore_secret(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RestoreSecret", input, options)
   end
@@ -1804,8 +1788,7 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, rotate_secret_errors()}
   def rotate_secret(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RotateSecret", input, options)
   end
@@ -1835,8 +1818,7 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, stop_replication_to_replica_errors()}
   def stop_replication_to_replica(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopReplicationToReplica", input, options)
   end
@@ -1878,8 +1860,7 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1917,8 +1898,7 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1990,8 +1970,7 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, update_secret_errors()}
   def update_secret(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateSecret", input, options)
   end
@@ -2042,8 +2021,7 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, update_secret_version_stage_errors()}
   def update_secret_version_stage(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateSecretVersionStage", input, options)
   end
@@ -2088,8 +2066,7 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, validate_resource_policy_errors()}
   def validate_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ValidateResourcePolicy", input, options)
   end

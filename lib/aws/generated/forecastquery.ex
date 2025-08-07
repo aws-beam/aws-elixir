@@ -195,8 +195,7 @@ defmodule AWS.Forecastquery do
           | {:error, term()}
           | {:error, query_forecast_errors()}
   def query_forecast(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "QueryForecast", input, options)
   end
@@ -210,8 +209,7 @@ defmodule AWS.Forecastquery do
           | {:error, term()}
           | {:error, query_what_if_forecast_errors()}
   def query_what_if_forecast(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "QueryWhatIfForecast", input, options)
   end

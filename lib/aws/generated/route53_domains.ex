@@ -1324,8 +1324,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, accept_domain_transfer_from_another_aws_account_errors()}
   def accept_domain_transfer_from_another_aws_account(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -1360,8 +1359,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, associate_delegation_signer_to_domain_errors()}
   def associate_delegation_signer_to_domain(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateDelegationSignerToDomain", input, options)
   end
@@ -1395,8 +1393,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, cancel_domain_transfer_to_another_aws_account_errors()}
   def cancel_domain_transfer_to_another_aws_account(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelDomainTransferToAnotherAwsAccount", input, options)
   end
@@ -1415,8 +1412,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, check_domain_availability_errors()}
   def check_domain_availability(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CheckDomainAvailability", input, options)
   end
@@ -1430,8 +1426,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, check_domain_transferability_errors()}
   def check_domain_transferability(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CheckDomainTransferability", input, options)
   end
@@ -1466,8 +1461,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDomain", input, options)
   end
@@ -1484,8 +1478,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, delete_tags_for_domain_errors()}
   def delete_tags_for_domain(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTagsForDomain", input, options)
   end
@@ -1501,8 +1494,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, disable_domain_auto_renew_errors()}
   def disable_domain_auto_renew(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableDomainAutoRenew", input, options)
   end
@@ -1526,8 +1518,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, disable_domain_transfer_lock_errors()}
   def disable_domain_transfer_lock(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableDomainTransferLock", input, options)
   end
@@ -1546,8 +1537,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, disassociate_delegation_signer_from_domain_errors()}
   def disassociate_delegation_signer_from_domain(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateDelegationSignerFromDomain", input, options)
   end
@@ -1574,8 +1564,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, enable_domain_auto_renew_errors()}
   def enable_domain_auto_renew(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableDomainAutoRenew", input, options)
   end
@@ -1596,8 +1585,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, enable_domain_transfer_lock_errors()}
   def enable_domain_transfer_lock(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableDomainTransferLock", input, options)
   end
@@ -1618,8 +1606,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, get_contact_reachability_status_errors()}
   def get_contact_reachability_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetContactReachabilityStatus", input, options)
   end
@@ -1637,8 +1624,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, get_domain_detail_errors()}
   def get_domain_detail(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDomainDetail", input, options)
   end
@@ -1652,8 +1638,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, get_domain_suggestions_errors()}
   def get_domain_suggestions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDomainSuggestions", input, options)
   end
@@ -1668,8 +1653,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, get_operation_detail_errors()}
   def get_operation_detail(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetOperationDetail", input, options)
   end
@@ -1685,8 +1669,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, list_domains_errors()}
   def list_domains(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDomains", input, options)
   end
@@ -1704,8 +1687,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, list_operations_errors()}
   def list_operations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListOperations", input, options)
   end
@@ -1735,8 +1717,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, list_prices_errors()}
   def list_prices(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPrices", input, options)
   end
@@ -1754,8 +1735,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, list_tags_for_domain_errors()}
   def list_tags_for_domain(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForDomain", input, options)
   end
@@ -1775,8 +1755,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, push_domain_errors()}
   def push_domain(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PushDomain", input, options)
   end
@@ -1826,8 +1805,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, register_domain_errors()}
   def register_domain(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterDomain", input, options)
   end
@@ -1855,8 +1833,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, reject_domain_transfer_from_another_aws_account_errors()}
   def reject_domain_transfer_from_another_aws_account(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -1889,8 +1866,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, renew_domain_errors()}
   def renew_domain(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RenewDomain", input, options)
   end
@@ -1911,8 +1887,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, resend_contact_reachability_email_errors()}
   def resend_contact_reachability_email(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResendContactReachabilityEmail", input, options)
   end
@@ -1926,8 +1901,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, resend_operation_authorization_errors()}
   def resend_operation_authorization(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResendOperationAuthorization", input, options)
   end
@@ -1944,8 +1918,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, retrieve_domain_auth_code_errors()}
   def retrieve_domain_auth_code(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RetrieveDomainAuthCode", input, options)
   end
@@ -2012,8 +1985,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, transfer_domain_errors()}
   def transfer_domain(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TransferDomain", input, options)
   end
@@ -2069,8 +2041,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, transfer_domain_to_another_aws_account_errors()}
   def transfer_domain_to_another_aws_account(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TransferDomainToAnotherAwsAccount", input, options)
   end
@@ -2094,8 +2065,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, update_domain_contact_errors()}
   def update_domain_contact(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDomainContact", input, options)
   end
@@ -2142,8 +2112,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, update_domain_contact_privacy_errors()}
   def update_domain_contact_privacy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDomainContactPrivacy", input, options)
   end
@@ -2167,8 +2136,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, update_domain_nameservers_errors()}
   def update_domain_nameservers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDomainNameservers", input, options)
   end
@@ -2185,8 +2153,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, update_tags_for_domain_errors()}
   def update_tags_for_domain(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateTagsForDomain", input, options)
   end
@@ -2201,8 +2168,7 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, view_billing_errors()}
   def view_billing(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ViewBilling", input, options)
   end

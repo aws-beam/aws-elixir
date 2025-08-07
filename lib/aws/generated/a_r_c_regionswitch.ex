@@ -1180,8 +1180,7 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, approve_plan_execution_step_errors()}
   def approve_plan_execution_step(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ApprovePlanExecutionStep", input, options)
   end
@@ -1201,8 +1200,7 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, cancel_plan_execution_errors()}
   def cancel_plan_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelPlanExecution", input, options)
   end
@@ -1223,8 +1221,7 @@ defmodule AWS.ARCRegionswitch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_plan(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePlan", input, options)
   end
@@ -1242,8 +1239,7 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, delete_plan_errors()}
   def delete_plan(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePlan", input, options)
   end
@@ -1259,8 +1255,7 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, get_plan_errors()}
   def get_plan(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPlan", input, options)
   end
@@ -1277,8 +1272,7 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, get_plan_evaluation_status_errors()}
   def get_plan_evaluation_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPlanEvaluationStatus", input, options)
   end
@@ -1294,8 +1288,7 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, get_plan_execution_errors()}
   def get_plan_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPlanExecution", input, options)
   end
@@ -1312,8 +1305,7 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, get_plan_in_region_errors()}
   def get_plan_in_region(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPlanInRegion", input, options)
   end
@@ -1329,8 +1321,7 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, list_plan_execution_events_errors()}
   def list_plan_execution_events(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPlanExecutionEvents", input, options)
   end
@@ -1346,8 +1337,7 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, list_plan_executions_errors()}
   def list_plan_executions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPlanExecutions", input, options)
   end
@@ -1360,8 +1350,7 @@ defmodule AWS.ARCRegionswitch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_plans(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPlans", input, options)
   end
@@ -1376,8 +1365,7 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, list_plans_in_region_errors()}
   def list_plans_in_region(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPlansInRegion", input, options)
   end
@@ -1391,8 +1379,7 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, list_route53_health_checks_errors()}
   def list_route53_health_checks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRoute53HealthChecks", input, options)
   end
@@ -1406,8 +1393,7 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1427,8 +1413,7 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, start_plan_execution_errors()}
   def start_plan_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartPlanExecution", input, options)
   end
@@ -1445,8 +1430,7 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1460,8 +1444,7 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1478,8 +1461,7 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, update_plan_errors()}
   def update_plan(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdatePlan", input, options)
   end
@@ -1496,8 +1478,7 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, update_plan_execution_errors()}
   def update_plan_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdatePlanExecution", input, options)
   end
@@ -1513,8 +1494,7 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, update_plan_execution_step_errors()}
   def update_plan_execution_step(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdatePlanExecutionStep", input, options)
   end

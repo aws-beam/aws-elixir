@@ -3265,8 +3265,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, associate_app_block_builder_app_block_errors()}
   def associate_app_block_builder_app_block(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateAppBlockBuilderAppBlock", input, options)
   end
@@ -3282,8 +3281,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, associate_application_fleet_errors()}
   def associate_application_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateApplicationFleet", input, options)
   end
@@ -3301,8 +3299,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, associate_application_to_entitlement_errors()}
   def associate_application_to_entitlement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateApplicationToEntitlement", input, options)
   end
@@ -3316,8 +3313,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, associate_fleet_errors()}
   def associate_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateFleet", input, options)
   end
@@ -3334,8 +3330,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, batch_associate_user_stack_errors()}
   def batch_associate_user_stack(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchAssociateUserStack", input, options)
   end
@@ -3349,8 +3344,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, batch_disassociate_user_stack_errors()}
   def batch_disassociate_user_stack(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchDisassociateUserStack", input, options)
   end
@@ -3367,8 +3361,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, copy_image_errors()}
   def copy_image(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CopyImage", input, options)
   end
@@ -3394,8 +3387,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, create_app_block_errors()}
   def create_app_block(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAppBlock", input, options)
   end
@@ -3409,8 +3401,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, create_app_block_builder_errors()}
   def create_app_block_builder(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAppBlockBuilder", input, options)
   end
@@ -3428,8 +3419,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, create_app_block_builder_streaming_url_errors()}
   def create_app_block_builder_streaming_url(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAppBlockBuilderStreamingURL", input, options)
   end
@@ -3455,8 +3445,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateApplication", input, options)
   end
@@ -3473,8 +3462,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, create_directory_config_errors()}
   def create_directory_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDirectoryConfig", input, options)
   end
@@ -3497,8 +3485,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, create_entitlement_errors()}
   def create_entitlement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateEntitlement", input, options)
   end
@@ -3515,8 +3502,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, create_fleet_errors()}
   def create_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateFleet", input, options)
   end
@@ -3535,8 +3521,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, create_image_builder_errors()}
   def create_image_builder(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateImageBuilder", input, options)
   end
@@ -3554,8 +3539,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, create_image_builder_streaming_url_errors()}
   def create_image_builder_streaming_url(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateImageBuilderStreamingURL", input, options)
   end
@@ -3572,8 +3556,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, create_stack_errors()}
   def create_stack(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateStack", input, options)
   end
@@ -3590,8 +3573,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, create_streaming_url_errors()}
   def create_streaming_url(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateStreamingURL", input, options)
   end
@@ -3606,8 +3588,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, create_theme_for_stack_errors()}
   def create_theme_for_stack(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateThemeForStack", input, options)
   end
@@ -3626,8 +3607,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, create_updated_image_errors()}
   def create_updated_image(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateUpdatedImage", input, options)
   end
@@ -3647,8 +3627,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, create_usage_report_subscription_errors()}
   def create_usage_report_subscription(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateUsageReportSubscription", input, options)
   end
@@ -3662,8 +3641,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateUser", input, options)
   end
@@ -3677,8 +3655,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, delete_app_block_errors()}
   def delete_app_block(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAppBlock", input, options)
   end
@@ -3695,8 +3672,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, delete_app_block_builder_errors()}
   def delete_app_block_builder(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAppBlockBuilder", input, options)
   end
@@ -3710,8 +3686,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteApplication", input, options)
   end
@@ -3728,8 +3703,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, delete_directory_config_errors()}
   def delete_directory_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDirectoryConfig", input, options)
   end
@@ -3743,8 +3717,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, delete_entitlement_errors()}
   def delete_entitlement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteEntitlement", input, options)
   end
@@ -3758,8 +3731,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, delete_fleet_errors()}
   def delete_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteFleet", input, options)
   end
@@ -3776,8 +3748,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, delete_image_errors()}
   def delete_image(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteImage", input, options)
   end
@@ -3791,8 +3762,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, delete_image_builder_errors()}
   def delete_image_builder(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteImageBuilder", input, options)
   end
@@ -3809,8 +3779,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, delete_image_permissions_errors()}
   def delete_image_permissions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteImagePermissions", input, options)
   end
@@ -3828,8 +3797,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, delete_stack_errors()}
   def delete_stack(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteStack", input, options)
   end
@@ -3844,8 +3812,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, delete_theme_for_stack_errors()}
   def delete_theme_for_stack(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteThemeForStack", input, options)
   end
@@ -3863,8 +3830,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, delete_usage_report_subscription_errors()}
   def delete_usage_report_subscription(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteUsageReportSubscription", input, options)
   end
@@ -3878,8 +3844,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteUser", input, options)
   end
@@ -3897,8 +3862,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, describe_app_block_builder_app_block_associations_errors()}
   def describe_app_block_builder_app_block_associations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -3918,8 +3882,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, describe_app_block_builders_errors()}
   def describe_app_block_builders(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAppBlockBuilders", input, options)
   end
@@ -3933,8 +3896,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, describe_app_blocks_errors()}
   def describe_app_blocks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAppBlocks", input, options)
   end
@@ -3954,8 +3916,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, describe_application_fleet_associations_errors()}
   def describe_application_fleet_associations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeApplicationFleetAssociations", input, options)
   end
@@ -3969,8 +3930,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, describe_applications_errors()}
   def describe_applications(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeApplications", input, options)
   end
@@ -3992,8 +3952,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, describe_directory_configs_errors()}
   def describe_directory_configs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDirectoryConfigs", input, options)
   end
@@ -4007,8 +3966,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, describe_entitlements_errors()}
   def describe_entitlements(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEntitlements", input, options)
   end
@@ -4025,8 +3983,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, describe_fleets_errors()}
   def describe_fleets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFleets", input, options)
   end
@@ -4043,8 +4000,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, describe_image_builders_errors()}
   def describe_image_builders(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeImageBuilders", input, options)
   end
@@ -4059,8 +4015,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, describe_image_permissions_errors()}
   def describe_image_permissions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeImagePermissions", input, options)
   end
@@ -4077,8 +4032,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, describe_images_errors()}
   def describe_images(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeImages", input, options)
   end
@@ -4098,8 +4052,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, describe_sessions_errors()}
   def describe_sessions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSessions", input, options)
   end
@@ -4116,8 +4069,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, describe_stacks_errors()}
   def describe_stacks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeStacks", input, options)
   end
@@ -4134,8 +4086,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, describe_theme_for_stack_errors()}
   def describe_theme_for_stack(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeThemeForStack", input, options)
   end
@@ -4153,8 +4104,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, describe_usage_report_subscriptions_errors()}
   def describe_usage_report_subscriptions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeUsageReportSubscriptions", input, options)
   end
@@ -4181,8 +4131,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, describe_user_stack_associations_errors()}
   def describe_user_stack_associations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeUserStackAssociations", input, options)
   end
@@ -4196,8 +4145,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, describe_users_errors()}
   def describe_users(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeUsers", input, options)
   end
@@ -4214,8 +4162,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, disable_user_errors()}
   def disable_user(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableUser", input, options)
   end
@@ -4233,8 +4180,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, disassociate_app_block_builder_app_block_errors()}
   def disassociate_app_block_builder_app_block(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateAppBlockBuilderAppBlock", input, options)
   end
@@ -4248,8 +4194,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, disassociate_application_fleet_errors()}
   def disassociate_application_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateApplicationFleet", input, options)
   end
@@ -4267,8 +4212,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, disassociate_application_from_entitlement_errors()}
   def disassociate_application_from_entitlement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateApplicationFromEntitlement", input, options)
   end
@@ -4282,8 +4226,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, disassociate_fleet_errors()}
   def disassociate_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateFleet", input, options)
   end
@@ -4300,8 +4243,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, enable_user_errors()}
   def enable_user(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableUser", input, options)
   end
@@ -4314,8 +4256,7 @@ defmodule AWS.AppStream do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def expire_session(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExpireSession", input, options)
   end
@@ -4328,8 +4269,7 @@ defmodule AWS.AppStream do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_associated_fleets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAssociatedFleets", input, options)
   end
@@ -4342,8 +4282,7 @@ defmodule AWS.AppStream do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_associated_stacks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAssociatedStacks", input, options)
   end
@@ -4357,8 +4296,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, list_entitled_applications_errors()}
   def list_entitled_applications(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListEntitledApplications", input, options)
   end
@@ -4377,8 +4315,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -4399,8 +4336,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, start_app_block_builder_errors()}
   def start_app_block_builder(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartAppBlockBuilder", input, options)
   end
@@ -4414,8 +4350,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, start_fleet_errors()}
   def start_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartFleet", input, options)
   end
@@ -4429,8 +4364,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, start_image_builder_errors()}
   def start_image_builder(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartImageBuilder", input, options)
   end
@@ -4448,8 +4382,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, stop_app_block_builder_errors()}
   def stop_app_block_builder(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopAppBlockBuilder", input, options)
   end
@@ -4463,8 +4396,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, stop_fleet_errors()}
   def stop_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopFleet", input, options)
   end
@@ -4478,8 +4410,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, stop_image_builder_errors()}
   def stop_image_builder(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopImageBuilder", input, options)
   end
@@ -4505,8 +4436,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -4526,8 +4456,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -4547,8 +4476,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, update_app_block_builder_errors()}
   def update_app_block_builder(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateAppBlockBuilder", input, options)
   end
@@ -4562,8 +4490,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateApplication", input, options)
   end
@@ -4580,8 +4507,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, update_directory_config_errors()}
   def update_directory_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDirectoryConfig", input, options)
   end
@@ -4595,8 +4521,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, update_entitlement_errors()}
   def update_entitlement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateEntitlement", input, options)
   end
@@ -4634,8 +4559,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, update_fleet_errors()}
   def update_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateFleet", input, options)
   end
@@ -4649,8 +4573,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, update_image_permissions_errors()}
   def update_image_permissions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateImagePermissions", input, options)
   end
@@ -4664,8 +4587,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, update_stack_errors()}
   def update_stack(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateStack", input, options)
   end
@@ -4680,8 +4602,7 @@ defmodule AWS.AppStream do
           | {:error, term()}
           | {:error, update_theme_for_stack_errors()}
   def update_theme_for_stack(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateThemeForStack", input, options)
   end

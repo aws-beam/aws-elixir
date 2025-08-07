@@ -3401,8 +3401,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, acknowledge_job_errors()}
   def acknowledge_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AcknowledgeJob", input, options)
   end
@@ -3419,8 +3418,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, acknowledge_third_party_job_errors()}
   def acknowledge_third_party_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AcknowledgeThirdPartyJob", input, options)
   end
@@ -3438,8 +3436,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, create_custom_action_type_errors()}
   def create_custom_action_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCustomActionType", input, options)
   end
@@ -3458,8 +3455,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, create_pipeline_errors()}
   def create_pipeline(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePipeline", input, options)
   end
@@ -3483,8 +3479,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, delete_custom_action_type_errors()}
   def delete_custom_action_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCustomActionType", input, options)
   end
@@ -3498,8 +3493,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, delete_pipeline_errors()}
   def delete_pipeline(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePipeline", input, options)
   end
@@ -3521,8 +3515,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, delete_webhook_errors()}
   def delete_webhook(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteWebhook", input, options)
   end
@@ -3544,8 +3537,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, deregister_webhook_with_third_party_errors()}
   def deregister_webhook_with_third_party(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeregisterWebhookWithThirdParty", input, options)
   end
@@ -3560,8 +3552,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, disable_stage_transition_errors()}
   def disable_stage_transition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableStageTransition", input, options)
   end
@@ -3575,8 +3566,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, enable_stage_transition_errors()}
   def enable_stage_transition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableStageTransition", input, options)
   end
@@ -3595,8 +3585,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, get_action_type_errors()}
   def get_action_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetActionType", input, options)
   end
@@ -3618,8 +3607,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, get_job_details_errors()}
   def get_job_details(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetJobDetails", input, options)
   end
@@ -3638,8 +3626,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, get_pipeline_errors()}
   def get_pipeline(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPipeline", input, options)
   end
@@ -3655,8 +3642,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, get_pipeline_execution_errors()}
   def get_pipeline_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPipelineExecution", input, options)
   end
@@ -3675,8 +3661,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, get_pipeline_state_errors()}
   def get_pipeline_state(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPipelineState", input, options)
   end
@@ -3699,8 +3684,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, get_third_party_job_details_errors()}
   def get_third_party_job_details(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetThirdPartyJobDetails", input, options)
   end
@@ -3714,8 +3698,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, list_action_executions_errors()}
   def list_action_executions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListActionExecutions", input, options)
   end
@@ -3730,8 +3713,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, list_action_types_errors()}
   def list_action_types(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListActionTypes", input, options)
   end
@@ -3749,8 +3731,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, list_deploy_action_execution_targets_errors()}
   def list_deploy_action_execution_targets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDeployActionExecutionTargets", input, options)
   end
@@ -3770,8 +3751,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, list_pipeline_executions_errors()}
   def list_pipeline_executions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPipelineExecutions", input, options)
   end
@@ -3785,8 +3765,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, list_pipelines_errors()}
   def list_pipelines(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPipelines", input, options)
   end
@@ -3802,8 +3781,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, list_rule_executions_errors()}
   def list_rule_executions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRuleExecutions", input, options)
   end
@@ -3822,8 +3800,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, list_rule_types_errors()}
   def list_rule_types(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRuleTypes", input, options)
   end
@@ -3838,8 +3815,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3859,8 +3835,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, list_webhooks_errors()}
   def list_webhooks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListWebhooks", input, options)
   end
@@ -3878,8 +3853,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, override_stage_condition_errors()}
   def override_stage_condition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "OverrideStageCondition", input, options)
   end
@@ -3903,8 +3877,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, poll_for_jobs_errors()}
   def poll_for_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PollForJobs", input, options)
   end
@@ -3925,8 +3898,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, poll_for_third_party_jobs_errors()}
   def poll_for_third_party_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PollForThirdPartyJobs", input, options)
   end
@@ -3941,8 +3913,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, put_action_revision_errors()}
   def put_action_revision(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutActionRevision", input, options)
   end
@@ -3959,8 +3930,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, put_approval_result_errors()}
   def put_approval_result(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutApprovalResult", input, options)
   end
@@ -3977,8 +3947,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, put_job_failure_result_errors()}
   def put_job_failure_result(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutJobFailureResult", input, options)
   end
@@ -3995,8 +3964,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, put_job_success_result_errors()}
   def put_job_success_result(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutJobSuccessResult", input, options)
   end
@@ -4017,8 +3985,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, put_third_party_job_failure_result_errors()}
   def put_third_party_job_failure_result(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutThirdPartyJobFailureResult", input, options)
   end
@@ -4039,8 +4006,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, put_third_party_job_success_result_errors()}
   def put_third_party_job_success_result(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutThirdPartyJobSuccessResult", input, options)
   end
@@ -4079,8 +4045,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, put_webhook_errors()}
   def put_webhook(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutWebhook", input, options)
   end
@@ -4100,8 +4065,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, register_webhook_with_third_party_errors()}
   def register_webhook_with_third_party(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterWebhookWithThirdParty", input, options)
   end
@@ -4130,8 +4094,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, retry_stage_execution_errors()}
   def retry_stage_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RetryStageExecution", input, options)
   end
@@ -4145,8 +4108,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, rollback_stage_errors()}
   def rollback_stage(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RollbackStage", input, options)
   end
@@ -4163,8 +4125,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, start_pipeline_execution_errors()}
   def start_pipeline_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartPipelineExecution", input, options)
   end
@@ -4187,8 +4148,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, stop_pipeline_execution_errors()}
   def stop_pipeline_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopPipelineExecution", input, options)
   end
@@ -4205,8 +4165,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -4220,8 +4179,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -4241,8 +4199,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, update_action_type_errors()}
   def update_action_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateActionType", input, options)
   end
@@ -4262,8 +4219,7 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, update_pipeline_errors()}
   def update_pipeline(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdatePipeline", input, options)
   end

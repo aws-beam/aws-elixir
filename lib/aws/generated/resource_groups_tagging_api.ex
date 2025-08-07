@@ -420,8 +420,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
           | {:error, term()}
           | {:error, describe_report_creation_errors()}
   def describe_report_creation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeReportCreation", input, options)
   end
@@ -454,8 +453,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
           | {:error, term()}
           | {:error, get_compliance_summary_errors()}
   def get_compliance_summary(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetComplianceSummary", input, options)
   end
@@ -494,8 +492,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
           | {:error, term()}
           | {:error, get_resources_errors()}
   def get_resources(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResources", input, options)
   end
@@ -521,8 +518,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
           | {:error, term()}
           | {:error, get_tag_keys_errors()}
   def get_tag_keys(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTagKeys", input, options)
   end
@@ -548,8 +544,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
           | {:error, term()}
           | {:error, get_tag_values_errors()}
   def get_tag_values(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTagValues", input, options)
   end
@@ -574,8 +569,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
           | {:error, term()}
           | {:error, start_report_creation_errors()}
   def start_report_creation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartReportCreation", input, options)
   end
@@ -639,8 +633,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
           | {:error, term()}
           | {:error, tag_resources_errors()}
   def tag_resources(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResources", input, options)
   end
@@ -690,8 +683,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
           | {:error, term()}
           | {:error, untag_resources_errors()}
   def untag_resources(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResources", input, options)
   end

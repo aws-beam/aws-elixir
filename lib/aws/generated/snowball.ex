@@ -1387,8 +1387,7 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, cancel_cluster_errors()}
   def cancel_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelCluster", input, options)
   end
@@ -1407,8 +1406,7 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, cancel_job_errors()}
   def cancel_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelJob", input, options)
   end
@@ -1431,8 +1429,7 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, create_address_errors()}
   def create_address(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAddress", input, options)
   end
@@ -1450,8 +1447,7 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCluster", input, options)
   end
@@ -1583,8 +1579,7 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, create_job_errors()}
   def create_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateJob", input, options)
   end
@@ -1602,8 +1597,7 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, create_long_term_pricing_errors()}
   def create_long_term_pricing(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLongTermPricing", input, options)
   end
@@ -1618,8 +1612,7 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, create_return_shipping_label_errors()}
   def create_return_shipping_label(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateReturnShippingLabel", input, options)
   end
@@ -1634,8 +1627,7 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, describe_address_errors()}
   def describe_address(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAddress", input, options)
   end
@@ -1654,8 +1646,7 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, describe_addresses_errors()}
   def describe_addresses(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAddresses", input, options)
   end
@@ -1671,8 +1662,7 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, describe_cluster_errors()}
   def describe_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCluster", input, options)
   end
@@ -1688,8 +1678,7 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, describe_job_errors()}
   def describe_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeJob", input, options)
   end
@@ -1704,8 +1693,7 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, describe_return_shipping_label_errors()}
   def describe_return_shipping_label(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeReturnShippingLabel", input, options)
   end
@@ -1747,8 +1735,7 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, get_job_manifest_errors()}
   def get_job_manifest(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetJobManifest", input, options)
   end
@@ -1782,8 +1769,7 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, get_job_unlock_code_errors()}
   def get_job_unlock_code(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetJobUnlockCode", input, options)
   end
@@ -1803,8 +1789,7 @@ defmodule AWS.Snowball do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_snowball_usage(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSnowballUsage", input, options)
   end
@@ -1820,8 +1805,7 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, get_software_updates_errors()}
   def get_software_updates(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSoftwareUpdates", input, options)
   end
@@ -1839,8 +1823,7 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, list_cluster_jobs_errors()}
   def list_cluster_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListClusterJobs", input, options)
   end
@@ -1858,8 +1841,7 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, list_clusters_errors()}
   def list_clusters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListClusters", input, options)
   end
@@ -1883,8 +1865,7 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, list_compatible_images_errors()}
   def list_compatible_images(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCompatibleImages", input, options)
   end
@@ -1906,8 +1887,7 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, list_jobs_errors()}
   def list_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListJobs", input, options)
   end
@@ -1921,8 +1901,7 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, list_long_term_pricing_errors()}
   def list_long_term_pricing(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListLongTermPricing", input, options)
   end
@@ -1936,8 +1915,7 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, list_pickup_locations_errors()}
   def list_pickup_locations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPickupLocations", input, options)
   end
@@ -1955,8 +1933,7 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, list_service_versions_errors()}
   def list_service_versions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListServiceVersions", input, options)
   end
@@ -1976,8 +1953,7 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, update_cluster_errors()}
   def update_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateCluster", input, options)
   end
@@ -1995,8 +1971,7 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, update_job_errors()}
   def update_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateJob", input, options)
   end
@@ -2010,8 +1985,7 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, update_job_shipment_state_errors()}
   def update_job_shipment_state(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateJobShipmentState", input, options)
   end
@@ -2025,8 +1999,7 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, update_long_term_pricing_errors()}
   def update_long_term_pricing(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateLongTermPricing", input, options)
   end

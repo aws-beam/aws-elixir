@@ -1082,8 +1082,7 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, create_parallel_data_errors()}
   def create_parallel_data(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateParallelData", input, options)
   end
@@ -1097,8 +1096,7 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, delete_parallel_data_errors()}
   def delete_parallel_data(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteParallelData", input, options)
   end
@@ -1112,8 +1110,7 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, delete_terminology_errors()}
   def delete_terminology(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTerminology", input, options)
   end
@@ -1129,8 +1126,7 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, describe_text_translation_job_errors()}
   def describe_text_translation_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTextTranslationJob", input, options)
   end
@@ -1144,8 +1140,7 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, get_parallel_data_errors()}
   def get_parallel_data(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetParallelData", input, options)
   end
@@ -1159,8 +1154,7 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, get_terminology_errors()}
   def get_terminology(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTerminology", input, options)
   end
@@ -1189,8 +1183,7 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, import_terminology_errors()}
   def import_terminology(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ImportTerminology", input, options)
   end
@@ -1205,8 +1198,7 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, list_languages_errors()}
   def list_languages(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListLanguages", input, options)
   end
@@ -1220,8 +1212,7 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, list_parallel_data_errors()}
   def list_parallel_data(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListParallelData", input, options)
   end
@@ -1239,8 +1230,7 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1254,8 +1244,7 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, list_terminologies_errors()}
   def list_terminologies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTerminologies", input, options)
   end
@@ -1269,8 +1258,7 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, list_text_translation_jobs_errors()}
   def list_text_translation_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTextTranslationJobs", input, options)
   end
@@ -1298,8 +1286,7 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, start_text_translation_job_errors()}
   def start_text_translation_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartTextTranslationJob", input, options)
   end
@@ -1324,8 +1311,7 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, stop_text_translation_job_errors()}
   def stop_text_translation_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopTextTranslationJob", input, options)
   end
@@ -1345,8 +1331,7 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1375,8 +1360,7 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, translate_document_errors()}
   def translate_document(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TranslateDocument", input, options)
   end
@@ -1393,8 +1377,7 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, translate_text_errors()}
   def translate_text(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TranslateText", input, options)
   end
@@ -1412,8 +1395,7 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1429,8 +1411,7 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, update_parallel_data_errors()}
   def update_parallel_data(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateParallelData", input, options)
   end

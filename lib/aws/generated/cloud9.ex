@@ -684,8 +684,7 @@ defmodule AWS.Cloud9 do
           | {:error, term()}
           | {:error, create_environment_ec2_errors()}
   def create_environment_ec2(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateEnvironmentEC2", input, options)
   end
@@ -703,8 +702,7 @@ defmodule AWS.Cloud9 do
           | {:error, term()}
           | {:error, create_environment_membership_errors()}
   def create_environment_membership(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateEnvironmentMembership", input, options)
   end
@@ -725,8 +723,7 @@ defmodule AWS.Cloud9 do
           | {:error, term()}
           | {:error, delete_environment_errors()}
   def delete_environment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteEnvironment", input, options)
   end
@@ -744,8 +741,7 @@ defmodule AWS.Cloud9 do
           | {:error, term()}
           | {:error, delete_environment_membership_errors()}
   def delete_environment_membership(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteEnvironmentMembership", input, options)
   end
@@ -768,8 +764,7 @@ defmodule AWS.Cloud9 do
           | {:error, term()}
           | {:error, describe_environment_memberships_errors()}
   def describe_environment_memberships(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEnvironmentMemberships", input, options)
   end
@@ -787,8 +782,7 @@ defmodule AWS.Cloud9 do
           | {:error, term()}
           | {:error, describe_environment_status_errors()}
   def describe_environment_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEnvironmentStatus", input, options)
   end
@@ -806,8 +800,7 @@ defmodule AWS.Cloud9 do
           | {:error, term()}
           | {:error, describe_environments_errors()}
   def describe_environments(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEnvironments", input, options)
   end
@@ -829,8 +822,7 @@ defmodule AWS.Cloud9 do
           | {:error, term()}
           | {:error, list_environments_errors()}
   def list_environments(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListEnvironments", input, options)
   end
@@ -848,8 +840,7 @@ defmodule AWS.Cloud9 do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -870,8 +861,7 @@ defmodule AWS.Cloud9 do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -889,8 +879,7 @@ defmodule AWS.Cloud9 do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -908,8 +897,7 @@ defmodule AWS.Cloud9 do
           | {:error, term()}
           | {:error, update_environment_errors()}
   def update_environment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateEnvironment", input, options)
   end
@@ -928,8 +916,7 @@ defmodule AWS.Cloud9 do
           | {:error, term()}
           | {:error, update_environment_membership_errors()}
   def update_environment_membership(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateEnvironmentMembership", input, options)
   end

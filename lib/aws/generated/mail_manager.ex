@@ -2551,8 +2551,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, create_addon_instance_errors()}
   def create_addon_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAddonInstance", input, options)
   end
@@ -2570,8 +2569,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, create_addon_subscription_errors()}
   def create_addon_subscription(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAddonSubscription", input, options)
   end
@@ -2585,8 +2583,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, create_address_list_errors()}
   def create_address_list(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAddressList", input, options)
   end
@@ -2600,8 +2597,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, create_address_list_import_job_errors()}
   def create_address_list_import_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAddressListImportJob", input, options)
   end
@@ -2615,8 +2611,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, create_archive_errors()}
   def create_archive(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateArchive", input, options)
   end
@@ -2630,8 +2625,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, create_ingress_point_errors()}
   def create_ingress_point(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateIngressPoint", input, options)
   end
@@ -2646,8 +2640,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, create_relay_errors()}
   def create_relay(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRelay", input, options)
   end
@@ -2661,8 +2654,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, create_rule_set_errors()}
   def create_rule_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRuleSet", input, options)
   end
@@ -2676,8 +2668,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, create_traffic_policy_errors()}
   def create_traffic_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTrafficPolicy", input, options)
   end
@@ -2691,8 +2682,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, delete_addon_instance_errors()}
   def delete_addon_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAddonInstance", input, options)
   end
@@ -2706,8 +2696,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, delete_addon_subscription_errors()}
   def delete_addon_subscription(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAddonSubscription", input, options)
   end
@@ -2721,8 +2710,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, delete_address_list_errors()}
   def delete_address_list(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAddressList", input, options)
   end
@@ -2742,8 +2730,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, delete_archive_errors()}
   def delete_archive(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteArchive", input, options)
   end
@@ -2757,8 +2744,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, delete_ingress_point_errors()}
   def delete_ingress_point(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteIngressPoint", input, options)
   end
@@ -2772,8 +2758,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, delete_relay_errors()}
   def delete_relay(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRelay", input, options)
   end
@@ -2787,8 +2772,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, delete_rule_set_errors()}
   def delete_rule_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRuleSet", input, options)
   end
@@ -2802,8 +2786,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, delete_traffic_policy_errors()}
   def delete_traffic_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTrafficPolicy", input, options)
   end
@@ -2821,8 +2804,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, deregister_member_from_address_list_errors()}
   def deregister_member_from_address_list(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeregisterMemberFromAddressList", input, options)
   end
@@ -2836,8 +2818,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_addon_instance_errors()}
   def get_addon_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAddonInstance", input, options)
   end
@@ -2851,8 +2832,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_addon_subscription_errors()}
   def get_addon_subscription(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAddonSubscription", input, options)
   end
@@ -2866,8 +2846,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_address_list_errors()}
   def get_address_list(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAddressList", input, options)
   end
@@ -2881,8 +2860,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_address_list_import_job_errors()}
   def get_address_list_import_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAddressListImportJob", input, options)
   end
@@ -2896,8 +2874,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_archive_errors()}
   def get_archive(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetArchive", input, options)
   end
@@ -2911,8 +2888,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_archive_export_errors()}
   def get_archive_export(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetArchiveExport", input, options)
   end
@@ -2927,8 +2903,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_archive_message_errors()}
   def get_archive_message(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetArchiveMessage", input, options)
   end
@@ -2944,8 +2919,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_archive_message_content_errors()}
   def get_archive_message_content(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetArchiveMessageContent", input, options)
   end
@@ -2959,8 +2933,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_archive_search_errors()}
   def get_archive_search(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetArchiveSearch", input, options)
   end
@@ -2974,8 +2947,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_archive_search_results_errors()}
   def get_archive_search_results(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetArchiveSearchResults", input, options)
   end
@@ -2989,8 +2961,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_ingress_point_errors()}
   def get_ingress_point(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetIngressPoint", input, options)
   end
@@ -3004,8 +2975,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_member_of_address_list_errors()}
   def get_member_of_address_list(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetMemberOfAddressList", input, options)
   end
@@ -3019,8 +2989,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_relay_errors()}
   def get_relay(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRelay", input, options)
   end
@@ -3034,8 +3003,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_rule_set_errors()}
   def get_rule_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRuleSet", input, options)
   end
@@ -3049,8 +3017,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_traffic_policy_errors()}
   def get_traffic_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTrafficPolicy", input, options)
   end
@@ -3064,8 +3031,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, list_addon_instances_errors()}
   def list_addon_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAddonInstances", input, options)
   end
@@ -3079,8 +3045,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, list_addon_subscriptions_errors()}
   def list_addon_subscriptions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAddonSubscriptions", input, options)
   end
@@ -3094,8 +3059,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, list_address_list_import_jobs_errors()}
   def list_address_list_import_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAddressListImportJobs", input, options)
   end
@@ -3109,8 +3073,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, list_address_lists_errors()}
   def list_address_lists(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAddressLists", input, options)
   end
@@ -3124,8 +3087,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, list_archive_exports_errors()}
   def list_archive_exports(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListArchiveExports", input, options)
   end
@@ -3139,8 +3101,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, list_archive_searches_errors()}
   def list_archive_searches(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListArchiveSearches", input, options)
   end
@@ -3154,8 +3115,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, list_archives_errors()}
   def list_archives(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListArchives", input, options)
   end
@@ -3169,8 +3129,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, list_ingress_points_errors()}
   def list_ingress_points(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListIngressPoints", input, options)
   end
@@ -3184,8 +3143,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, list_members_of_address_list_errors()}
   def list_members_of_address_list(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListMembersOfAddressList", input, options)
   end
@@ -3199,8 +3157,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, list_relays_errors()}
   def list_relays(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRelays", input, options)
   end
@@ -3214,8 +3171,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, list_rule_sets_errors()}
   def list_rule_sets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRuleSets", input, options)
   end
@@ -3229,8 +3185,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3244,8 +3199,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, list_traffic_policies_errors()}
   def list_traffic_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTrafficPolicies", input, options)
   end
@@ -3259,8 +3213,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, register_member_to_address_list_errors()}
   def register_member_to_address_list(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterMemberToAddressList", input, options)
   end
@@ -3274,8 +3227,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, start_address_list_import_job_errors()}
   def start_address_list_import_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartAddressListImportJob", input, options)
   end
@@ -3289,8 +3241,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, start_archive_export_errors()}
   def start_archive_export(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartArchiveExport", input, options)
   end
@@ -3304,8 +3255,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, start_archive_search_errors()}
   def start_archive_search(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartArchiveSearch", input, options)
   end
@@ -3319,8 +3269,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, stop_address_list_import_job_errors()}
   def stop_address_list_import_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopAddressListImportJob", input, options)
   end
@@ -3334,8 +3283,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, stop_archive_export_errors()}
   def stop_archive_export(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopArchiveExport", input, options)
   end
@@ -3349,8 +3297,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, stop_archive_search_errors()}
   def stop_archive_search(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopArchiveSearch", input, options)
   end
@@ -3364,8 +3311,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3379,8 +3325,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -3394,8 +3339,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, update_archive_errors()}
   def update_archive(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateArchive", input, options)
   end
@@ -3409,8 +3353,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, update_ingress_point_errors()}
   def update_ingress_point(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateIngressPoint", input, options)
   end
@@ -3424,8 +3367,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, update_relay_errors()}
   def update_relay(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateRelay", input, options)
   end
@@ -3439,8 +3381,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, update_rule_set_errors()}
   def update_rule_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateRuleSet", input, options)
   end
@@ -3454,8 +3395,7 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, update_traffic_policy_errors()}
   def update_traffic_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateTrafficPolicy", input, options)
   end

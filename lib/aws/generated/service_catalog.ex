@@ -3669,8 +3669,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, accept_portfolio_share_errors()}
   def accept_portfolio_share(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AcceptPortfolioShare", input, options)
   end
@@ -3684,8 +3683,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, associate_budget_with_resource_errors()}
   def associate_budget_with_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateBudgetWithResource", input, options)
   end
@@ -3728,8 +3726,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, associate_principal_with_portfolio_errors()}
   def associate_principal_with_portfolio(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociatePrincipalWithPortfolio", input, options)
   end
@@ -3745,8 +3742,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, associate_product_with_portfolio_errors()}
   def associate_product_with_portfolio(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateProductWithPortfolio", input, options)
   end
@@ -3768,8 +3764,7 @@ defmodule AWS.ServiceCatalog do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -3793,8 +3788,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, associate_tag_option_with_resource_errors()}
   def associate_tag_option_with_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateTagOptionWithResource", input, options)
   end
@@ -3816,8 +3810,7 @@ defmodule AWS.ServiceCatalog do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -3846,8 +3839,7 @@ defmodule AWS.ServiceCatalog do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -3877,8 +3869,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, copy_product_errors()}
   def copy_product(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CopyProduct", input, options)
   end
@@ -3894,8 +3885,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, create_constraint_errors()}
   def create_constraint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateConstraint", input, options)
   end
@@ -3911,8 +3901,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, create_portfolio_errors()}
   def create_portfolio(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePortfolio", input, options)
   end
@@ -3961,8 +3950,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, create_portfolio_share_errors()}
   def create_portfolio_share(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePortfolioShare", input, options)
   end
@@ -3983,8 +3971,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, create_product_errors()}
   def create_product(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateProduct", input, options)
   end
@@ -4012,8 +3999,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, create_provisioned_product_plan_errors()}
   def create_provisioned_product_plan(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateProvisionedProductPlan", input, options)
   end
@@ -4036,8 +4022,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, create_provisioning_artifact_errors()}
   def create_provisioning_artifact(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateProvisioningArtifact", input, options)
   end
@@ -4051,8 +4036,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, create_service_action_errors()}
   def create_service_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateServiceAction", input, options)
   end
@@ -4066,8 +4050,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, create_tag_option_errors()}
   def create_tag_option(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTagOption", input, options)
   end
@@ -4083,8 +4066,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, delete_constraint_errors()}
   def delete_constraint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteConstraint", input, options)
   end
@@ -4103,8 +4085,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, delete_portfolio_errors()}
   def delete_portfolio(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePortfolio", input, options)
   end
@@ -4126,8 +4107,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, delete_portfolio_share_errors()}
   def delete_portfolio_share(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePortfolioShare", input, options)
   end
@@ -4146,8 +4126,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, delete_product_errors()}
   def delete_product(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteProduct", input, options)
   end
@@ -4161,8 +4140,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, delete_provisioned_product_plan_errors()}
   def delete_provisioned_product_plan(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteProvisionedProductPlan", input, options)
   end
@@ -4183,8 +4161,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, delete_provisioning_artifact_errors()}
   def delete_provisioning_artifact(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteProvisioningArtifact", input, options)
   end
@@ -4198,8 +4175,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, delete_service_action_errors()}
   def delete_service_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteServiceAction", input, options)
   end
@@ -4215,8 +4191,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, delete_tag_option_errors()}
   def delete_tag_option(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTagOption", input, options)
   end
@@ -4230,8 +4205,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_constraint_errors()}
   def describe_constraint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeConstraint", input, options)
   end
@@ -4245,8 +4219,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_copy_product_status_errors()}
   def describe_copy_product_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCopyProductStatus", input, options)
   end
@@ -4262,8 +4235,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_portfolio_errors()}
   def describe_portfolio(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePortfolio", input, options)
   end
@@ -4280,8 +4252,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_portfolio_share_status_errors()}
   def describe_portfolio_share_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePortfolioShareStatus", input, options)
   end
@@ -4303,8 +4274,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_portfolio_shares_errors()}
   def describe_portfolio_shares(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePortfolioShares", input, options)
   end
@@ -4324,8 +4294,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_product_errors()}
   def describe_product(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeProduct", input, options)
   end
@@ -4341,8 +4310,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_product_as_admin_errors()}
   def describe_product_as_admin(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeProductAsAdmin", input, options)
   end
@@ -4356,8 +4324,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_product_view_errors()}
   def describe_product_view(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeProductView", input, options)
   end
@@ -4371,8 +4338,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_provisioned_product_errors()}
   def describe_provisioned_product(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeProvisionedProduct", input, options)
   end
@@ -4390,8 +4356,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_provisioned_product_plan_errors()}
   def describe_provisioned_product_plan(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeProvisionedProductPlan", input, options)
   end
@@ -4406,8 +4371,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_provisioning_artifact_errors()}
   def describe_provisioning_artifact(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeProvisioningArtifact", input, options)
   end
@@ -4432,8 +4396,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_provisioning_parameters_errors()}
   def describe_provisioning_parameters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeProvisioningParameters", input, options)
   end
@@ -4457,8 +4420,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_record_errors()}
   def describe_record(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeRecord", input, options)
   end
@@ -4472,8 +4434,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_service_action_errors()}
   def describe_service_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeServiceAction", input, options)
   end
@@ -4492,8 +4453,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_service_action_execution_parameters_errors()}
   def describe_service_action_execution_parameters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeServiceActionExecutionParameters", input, options)
   end
@@ -4507,8 +4467,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_tag_option_errors()}
   def describe_tag_option(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTagOption", input, options)
   end
@@ -4544,8 +4503,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, disable_aws_organizations_access_errors()}
   def disable_aws_organizations_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableAWSOrganizationsAccess", input, options)
   end
@@ -4563,8 +4521,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, disassociate_budget_from_resource_errors()}
   def disassociate_budget_from_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateBudgetFromResource", input, options)
   end
@@ -4609,8 +4566,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, disassociate_principal_from_portfolio_errors()}
   def disassociate_principal_from_portfolio(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociatePrincipalFromPortfolio", input, options)
   end
@@ -4630,8 +4586,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, disassociate_product_from_portfolio_errors()}
   def disassociate_product_from_portfolio(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateProductFromPortfolio", input, options)
   end
@@ -4654,8 +4609,7 @@ defmodule AWS.ServiceCatalog do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -4679,8 +4633,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, disassociate_tag_option_from_resource_errors()}
   def disassociate_tag_option_from_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateTagOptionFromResource", input, options)
   end
@@ -4720,8 +4673,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, enable_aws_organizations_access_errors()}
   def enable_aws_organizations_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableAWSOrganizationsAccess", input, options)
   end
@@ -4736,8 +4688,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, execute_provisioned_product_plan_errors()}
   def execute_provisioned_product_plan(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExecuteProvisionedProductPlan", input, options)
   end
@@ -4755,8 +4706,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, execute_provisioned_product_service_action_errors()}
   def execute_provisioned_product_service_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExecuteProvisionedProductServiceAction", input, options)
   end
@@ -4777,8 +4727,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, get_aws_organizations_access_status_errors()}
   def get_aws_organizations_access_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAWSOrganizationsAccessStatus", input, options)
   end
@@ -4794,8 +4743,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, get_provisioned_product_outputs_errors()}
   def get_provisioned_product_outputs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetProvisionedProductOutputs", input, options)
   end
@@ -4841,8 +4789,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, import_as_provisioned_product_errors()}
   def import_as_provisioned_product(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ImportAsProvisionedProduct", input, options)
   end
@@ -4861,8 +4808,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_accepted_portfolio_shares_errors()}
   def list_accepted_portfolio_shares(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAcceptedPortfolioShares", input, options)
   end
@@ -4876,8 +4822,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_budgets_for_resource_errors()}
   def list_budgets_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListBudgetsForResource", input, options)
   end
@@ -4891,8 +4836,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_constraints_for_portfolio_errors()}
   def list_constraints_for_portfolio(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListConstraintsForPortfolio", input, options)
   end
@@ -4928,8 +4872,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_launch_paths_errors()}
   def list_launch_paths(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListLaunchPaths", input, options)
   end
@@ -4954,8 +4897,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_organization_portfolio_access_errors()}
   def list_organization_portfolio_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListOrganizationPortfolioAccess", input, options)
   end
@@ -4973,8 +4915,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_portfolio_access_errors()}
   def list_portfolio_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPortfolioAccess", input, options)
   end
@@ -4988,8 +4929,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_portfolios_errors()}
   def list_portfolios(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPortfolios", input, options)
   end
@@ -5003,8 +4943,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_portfolios_for_product_errors()}
   def list_portfolios_for_product(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPortfoliosForProduct", input, options)
   end
@@ -5019,8 +4958,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_principals_for_portfolio_errors()}
   def list_principals_for_portfolio(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPrincipalsForPortfolio", input, options)
   end
@@ -5035,8 +4973,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_provisioned_product_plans_errors()}
   def list_provisioned_product_plans(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListProvisionedProductPlans", input, options)
   end
@@ -5051,8 +4988,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_provisioning_artifacts_errors()}
   def list_provisioning_artifacts(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListProvisioningArtifacts", input, options)
   end
@@ -5071,8 +5007,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_provisioning_artifacts_for_service_action_errors()}
   def list_provisioning_artifacts_for_service_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -5092,8 +5027,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_record_history_errors()}
   def list_record_history(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRecordHistory", input, options)
   end
@@ -5107,8 +5041,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_resources_for_tag_option_errors()}
   def list_resources_for_tag_option(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListResourcesForTagOption", input, options)
   end
@@ -5122,8 +5055,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_service_actions_errors()}
   def list_service_actions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListServiceActions", input, options)
   end
@@ -5142,8 +5074,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_service_actions_for_provisioning_artifact_errors()}
   def list_service_actions_for_provisioning_artifact(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -5171,8 +5102,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_stack_instances_for_provisioned_product_errors()}
   def list_stack_instances_for_provisioned_product(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListStackInstancesForProvisionedProduct", input, options)
   end
@@ -5186,8 +5116,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_tag_options_errors()}
   def list_tag_options(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagOptions", input, options)
   end
@@ -5207,8 +5136,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, notify_provision_product_engine_workflow_result_errors()}
   def notify_provision_product_engine_workflow_result(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -5238,8 +5166,7 @@ defmodule AWS.ServiceCatalog do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -5269,8 +5196,7 @@ defmodule AWS.ServiceCatalog do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -5322,8 +5248,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, provision_product_errors()}
   def provision_product(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ProvisionProduct", input, options)
   end
@@ -5337,8 +5262,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, reject_portfolio_share_errors()}
   def reject_portfolio_share(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RejectPortfolioShare", input, options)
   end
@@ -5354,8 +5278,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, scan_provisioned_products_errors()}
   def scan_provisioned_products(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ScanProvisionedProducts", input, options)
   end
@@ -5369,8 +5292,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, search_products_errors()}
   def search_products(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SearchProducts", input, options)
   end
@@ -5384,8 +5306,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, search_products_as_admin_errors()}
   def search_products_as_admin(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SearchProductsAsAdmin", input, options)
   end
@@ -5400,8 +5321,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, search_provisioned_products_errors()}
   def search_provisioned_products(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SearchProvisionedProducts", input, options)
   end
@@ -5420,8 +5340,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, terminate_provisioned_product_errors()}
   def terminate_provisioned_product(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TerminateProvisionedProduct", input, options)
   end
@@ -5435,8 +5354,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, update_constraint_errors()}
   def update_constraint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateConstraint", input, options)
   end
@@ -5452,8 +5370,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, update_portfolio_errors()}
   def update_portfolio(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdatePortfolio", input, options)
   end
@@ -5499,8 +5416,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, update_portfolio_share_errors()}
   def update_portfolio_share(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdatePortfolioShare", input, options)
   end
@@ -5514,8 +5430,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, update_product_errors()}
   def update_product(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateProduct", input, options)
   end
@@ -5536,8 +5451,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, update_provisioned_product_errors()}
   def update_provisioned_product(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateProvisionedProduct", input, options)
   end
@@ -5555,8 +5469,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, update_provisioned_product_properties_errors()}
   def update_provisioned_product_properties(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateProvisionedProductProperties", input, options)
   end
@@ -5574,8 +5487,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, update_provisioning_artifact_errors()}
   def update_provisioning_artifact(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateProvisioningArtifact", input, options)
   end
@@ -5589,8 +5501,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, update_service_action_errors()}
   def update_service_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateServiceAction", input, options)
   end
@@ -5604,8 +5515,7 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, update_tag_option_errors()}
   def update_tag_option(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateTagOption", input, options)
   end

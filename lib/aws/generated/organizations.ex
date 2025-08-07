@@ -2590,8 +2590,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, accept_handshake_errors()}
   def accept_handshake(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AcceptHandshake", input, options)
   end
@@ -2644,8 +2643,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, attach_policy_errors()}
   def attach_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AttachPolicy", input, options)
   end
@@ -2671,8 +2669,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, cancel_handshake_errors()}
   def cancel_handshake(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelHandshake", input, options)
   end
@@ -2740,8 +2737,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, close_account_errors()}
   def close_account(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CloseAccount", input, options)
   end
@@ -2841,8 +2837,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, create_account_errors()}
   def create_account(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAccount", input, options)
   end
@@ -3010,8 +3005,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, create_gov_cloud_account_errors()}
   def create_gov_cloud_account(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateGovCloudAccount", input, options)
   end
@@ -3044,8 +3038,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, create_organization_errors()}
   def create_organization(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateOrganization", input, options)
   end
@@ -3077,8 +3070,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, create_organizational_unit_errors()}
   def create_organizational_unit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateOrganizationalUnit", input, options)
   end
@@ -3103,8 +3095,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, create_policy_errors()}
   def create_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePolicy", input, options)
   end
@@ -3131,8 +3122,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, decline_handshake_errors()}
   def decline_handshake(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeclineHandshake", input, options)
   end
@@ -3149,8 +3139,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, delete_organization_errors()}
   def delete_organization(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteOrganization", input, options)
   end
@@ -3169,8 +3158,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, delete_organizational_unit_errors()}
   def delete_organizational_unit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteOrganizationalUnit", input, options)
   end
@@ -3192,8 +3180,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, delete_policy_errors()}
   def delete_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePolicy", input, options)
   end
@@ -3209,8 +3196,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -3246,8 +3232,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, deregister_delegated_administrator_errors()}
   def deregister_delegated_administrator(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeregisterDelegatedAdministrator", input, options)
   end
@@ -3264,8 +3249,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, describe_account_errors()}
   def describe_account(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAccount", input, options)
   end
@@ -3282,8 +3266,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, describe_create_account_status_errors()}
   def describe_create_account_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCreateAccountStatus", input, options)
   end
@@ -3314,8 +3297,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, describe_effective_policy_errors()}
   def describe_effective_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEffectivePolicy", input, options)
   end
@@ -3339,8 +3321,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, describe_handshake_errors()}
   def describe_handshake(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeHandshake", input, options)
   end
@@ -3362,8 +3343,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, describe_organization_errors()}
   def describe_organization(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeOrganization", input, options)
   end
@@ -3380,8 +3360,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, describe_organizational_unit_errors()}
   def describe_organizational_unit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeOrganizationalUnit", input, options)
   end
@@ -3398,8 +3377,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, describe_policy_errors()}
   def describe_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePolicy", input, options)
   end
@@ -3416,8 +3394,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, describe_resource_policy_errors()}
   def describe_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeResourcePolicy", input, options)
   end
@@ -3456,8 +3433,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, detach_policy_errors()}
   def detach_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetachPolicy", input, options)
   end
@@ -3542,8 +3518,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, disable_aws_service_access_errors()}
   def disable_aws_service_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableAWSServiceAccess", input, options)
   end
@@ -3579,8 +3554,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, disable_policy_type_errors()}
   def disable_policy_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisablePolicyType", input, options)
   end
@@ -3643,8 +3617,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, enable_all_features_errors()}
   def enable_all_features(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableAllFeatures", input, options)
   end
@@ -3685,8 +3658,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, enable_aws_service_access_errors()}
   def enable_aws_service_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableAWSServiceAccess", input, options)
   end
@@ -3720,8 +3692,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, enable_policy_type_errors()}
   def enable_policy_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnablePolicyType", input, options)
   end
@@ -3751,8 +3722,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, invite_account_to_organization_errors()}
   def invite_account_to_organization(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "InviteAccountToOrganization", input, options)
   end
@@ -3831,8 +3801,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, leave_organization_errors()}
   def leave_organization(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "LeaveOrganization", input, options)
   end
@@ -3861,8 +3830,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_accounts_errors()}
   def list_accounts(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAccounts", input, options)
   end
@@ -3896,8 +3864,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_accounts_for_parent_errors()}
   def list_accounts_for_parent(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAccountsForParent", input, options)
   end
@@ -3930,8 +3897,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_aws_service_access_for_organization_errors()}
   def list_aws_service_access_for_organization(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAWSServiceAccessForOrganization", input, options)
   end
@@ -3961,8 +3927,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_children_errors()}
   def list_children(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListChildren", input, options)
   end
@@ -3989,8 +3954,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_create_account_status_errors()}
   def list_create_account_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCreateAccountStatus", input, options)
   end
@@ -4009,8 +3973,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_delegated_administrators_errors()}
   def list_delegated_administrators(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDelegatedAdministrators", input, options)
   end
@@ -4033,8 +3996,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_delegated_services_for_account_errors()}
   def list_delegated_services_for_account(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDelegatedServicesForAccount", input, options)
   end
@@ -4066,8 +4028,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_handshakes_for_account_errors()}
   def list_handshakes_for_account(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListHandshakesForAccount", input, options)
   end
@@ -4108,8 +4069,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_handshakes_for_organization_errors()}
   def list_handshakes_for_organization(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListHandshakesForOrganization", input, options)
   end
@@ -4138,8 +4098,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_organizational_units_for_parent_errors()}
   def list_organizational_units_for_parent(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListOrganizationalUnitsForParent", input, options)
   end
@@ -4171,8 +4130,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_parents_errors()}
   def list_parents(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListParents", input, options)
   end
@@ -4197,8 +4155,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_policies_errors()}
   def list_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPolicies", input, options)
   end
@@ -4227,8 +4184,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_policies_for_target_errors()}
   def list_policies_for_target(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPoliciesForTarget", input, options)
   end
@@ -4261,8 +4217,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_roots_errors()}
   def list_roots(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRoots", input, options)
   end
@@ -4293,8 +4248,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -4320,8 +4274,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_targets_for_policy_errors()}
   def list_targets_for_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTargetsForPolicy", input, options)
   end
@@ -4339,8 +4292,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, move_account_errors()}
   def move_account(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "MoveAccount", input, options)
   end
@@ -4356,8 +4308,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -4390,8 +4341,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, register_delegated_administrator_errors()}
   def register_delegated_administrator(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterDelegatedAdministrator", input, options)
   end
@@ -4442,8 +4392,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, remove_account_from_organization_errors()}
   def remove_account_from_organization(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveAccountFromOrganization", input, options)
   end
@@ -4474,8 +4423,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -4506,8 +4454,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -4527,8 +4474,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, update_organizational_unit_errors()}
   def update_organizational_unit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateOrganizationalUnit", input, options)
   end
@@ -4549,8 +4495,7 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, update_policy_errors()}
   def update_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdatePolicy", input, options)
   end

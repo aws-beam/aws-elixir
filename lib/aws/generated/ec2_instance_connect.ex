@@ -266,8 +266,7 @@ defmodule AWS.EC2InstanceConnect do
           | {:error, term()}
           | {:error, send_serial_console_ssh_public_key_errors()}
   def send_serial_console_ssh_public_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SendSerialConsoleSSHPublicKey", input, options)
   end
@@ -287,8 +286,7 @@ defmodule AWS.EC2InstanceConnect do
           | {:error, term()}
           | {:error, send_ssh_public_key_errors()}
   def send_ssh_public_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SendSSHPublicKey", input, options)
   end

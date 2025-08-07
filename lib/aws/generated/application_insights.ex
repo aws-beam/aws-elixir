@@ -1304,8 +1304,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, add_workload_errors()}
   def add_workload(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddWorkload", input, options)
   end
@@ -1319,8 +1318,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateApplication", input, options)
   end
@@ -1334,8 +1332,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, create_component_errors()}
   def create_component(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateComponent", input, options)
   end
@@ -1349,8 +1346,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, create_log_pattern_errors()}
   def create_log_pattern(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLogPattern", input, options)
   end
@@ -1367,8 +1363,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteApplication", input, options)
   end
@@ -1387,8 +1382,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, delete_component_errors()}
   def delete_component(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteComponent", input, options)
   end
@@ -1402,8 +1396,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, delete_log_pattern_errors()}
   def delete_log_pattern(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLogPattern", input, options)
   end
@@ -1417,8 +1410,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, describe_application_errors()}
   def describe_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeApplication", input, options)
   end
@@ -1433,8 +1425,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, describe_component_errors()}
   def describe_component(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeComponent", input, options)
   end
@@ -1452,8 +1443,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, describe_component_configuration_errors()}
   def describe_component_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeComponentConfiguration", input, options)
   end
@@ -1471,8 +1461,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, describe_component_configuration_recommendation_errors()}
   def describe_component_configuration_recommendation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -1492,8 +1481,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, describe_log_pattern_errors()}
   def describe_log_pattern(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLogPattern", input, options)
   end
@@ -1507,8 +1495,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, describe_observation_errors()}
   def describe_observation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeObservation", input, options)
   end
@@ -1522,8 +1509,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, describe_problem_errors()}
   def describe_problem(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeProblem", input, options)
   end
@@ -1537,8 +1523,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, describe_problem_observations_errors()}
   def describe_problem_observations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeProblemObservations", input, options)
   end
@@ -1552,8 +1537,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, describe_workload_errors()}
   def describe_workload(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeWorkload", input, options)
   end
@@ -1567,8 +1551,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, list_applications_errors()}
   def list_applications(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListApplications", input, options)
   end
@@ -1582,8 +1565,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, list_components_errors()}
   def list_components(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListComponents", input, options)
   end
@@ -1611,8 +1593,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, list_configuration_history_errors()}
   def list_configuration_history(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListConfigurationHistory", input, options)
   end
@@ -1626,8 +1607,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, list_log_pattern_sets_errors()}
   def list_log_pattern_sets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListLogPatternSets", input, options)
   end
@@ -1641,8 +1621,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, list_log_patterns_errors()}
   def list_log_patterns(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListLogPatterns", input, options)
   end
@@ -1656,8 +1635,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, list_problems_errors()}
   def list_problems(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListProblems", input, options)
   end
@@ -1680,8 +1658,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1695,8 +1672,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, list_workloads_errors()}
   def list_workloads(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListWorkloads", input, options)
   end
@@ -1710,8 +1686,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, remove_workload_errors()}
   def remove_workload(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveWorkload", input, options)
   end
@@ -1737,8 +1712,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1752,8 +1726,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1767,8 +1740,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateApplication", input, options)
   end
@@ -1783,8 +1755,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, update_component_errors()}
   def update_component(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateComponent", input, options)
   end
@@ -1803,8 +1774,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, update_component_configuration_errors()}
   def update_component_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateComponentConfiguration", input, options)
   end
@@ -1818,8 +1788,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, update_log_pattern_errors()}
   def update_log_pattern(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateLogPattern", input, options)
   end
@@ -1834,8 +1803,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, update_problem_errors()}
   def update_problem(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateProblem", input, options)
   end
@@ -1851,8 +1819,7 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, update_workload_errors()}
   def update_workload(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateWorkload", input, options)
   end

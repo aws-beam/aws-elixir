@@ -1833,8 +1833,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, delete_alarms_errors()}
   def delete_alarms(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAlarms", input, options)
   end
@@ -1854,8 +1853,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, delete_anomaly_detector_errors()}
   def delete_anomaly_detector(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAnomalyDetector", input, options)
   end
@@ -1872,8 +1870,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, delete_dashboards_errors()}
   def delete_dashboards(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDashboards", input, options)
   end
@@ -1891,8 +1888,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, delete_insight_rules_errors()}
   def delete_insight_rules(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteInsightRules", input, options)
   end
@@ -1906,8 +1902,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, delete_metric_stream_errors()}
   def delete_metric_stream(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteMetricStream", input, options)
   end
@@ -1934,8 +1929,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, describe_alarm_history_errors()}
   def describe_alarm_history(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAlarmHistory", input, options)
   end
@@ -1957,8 +1951,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, describe_alarms_errors()}
   def describe_alarms(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAlarms", input, options)
   end
@@ -1979,8 +1972,7 @@ defmodule AWS.CloudWatch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_alarms_for_metric(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAlarmsForMetric", input, options)
   end
@@ -2003,8 +1995,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, describe_anomaly_detectors_errors()}
   def describe_anomaly_detectors(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAnomalyDetectors", input, options)
   end
@@ -2021,8 +2012,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, describe_insight_rules_errors()}
   def describe_insight_rules(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeInsightRules", input, options)
   end
@@ -2038,8 +2028,7 @@ defmodule AWS.CloudWatch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_alarm_actions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableAlarmActions", input, options)
   end
@@ -2056,8 +2045,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, disable_insight_rules_errors()}
   def disable_insight_rules(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableInsightRules", input, options)
   end
@@ -2070,8 +2058,7 @@ defmodule AWS.CloudWatch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_alarm_actions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableAlarmActions", input, options)
   end
@@ -2088,8 +2075,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, enable_insight_rules_errors()}
   def enable_insight_rules(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableInsightRules", input, options)
   end
@@ -2107,8 +2093,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, get_dashboard_errors()}
   def get_dashboard(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDashboard", input, options)
   end
@@ -2170,8 +2155,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, get_insight_rule_report_errors()}
   def get_insight_rule_report(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetInsightRuleReport", input, options)
   end
@@ -2273,8 +2257,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, get_metric_data_errors()}
   def get_metric_data(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetMetricData", input, options)
   end
@@ -2362,8 +2345,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, get_metric_statistics_errors()}
   def get_metric_statistics(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetMetricStatistics", input, options)
   end
@@ -2377,8 +2359,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, get_metric_stream_errors()}
   def get_metric_stream(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetMetricStream", input, options)
   end
@@ -2412,8 +2393,7 @@ defmodule AWS.CloudWatch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_metric_widget_image(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetMetricWidgetImage", input, options)
   end
@@ -2436,8 +2416,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, list_dashboards_errors()}
   def list_dashboards(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDashboards", input, options)
   end
@@ -2453,8 +2432,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, list_managed_insight_rules_errors()}
   def list_managed_insight_rules(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListManagedInsightRules", input, options)
   end
@@ -2468,8 +2446,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, list_metric_streams_errors()}
   def list_metric_streams(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListMetricStreams", input, options)
   end
@@ -2507,8 +2484,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, list_metrics_errors()}
   def list_metrics(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListMetrics", input, options)
   end
@@ -2525,8 +2501,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2551,8 +2526,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, put_anomaly_detector_errors()}
   def put_anomaly_detector(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutAnomalyDetector", input, options)
   end
@@ -2639,8 +2613,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, put_composite_alarm_errors()}
   def put_composite_alarm(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutCompositeAlarm", input, options)
   end
@@ -2679,8 +2652,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, put_dashboard_errors()}
   def put_dashboard(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutDashboard", input, options)
   end
@@ -2704,8 +2676,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, put_insight_rule_errors()}
   def put_insight_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutInsightRule", input, options)
   end
@@ -2729,8 +2700,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, put_managed_insight_rules_errors()}
   def put_managed_insight_rules(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutManagedInsightRules", input, options)
   end
@@ -2806,8 +2776,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, put_metric_alarm_errors()}
   def put_metric_alarm(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutMetricAlarm", input, options)
   end
@@ -2897,8 +2866,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, put_metric_data_errors()}
   def put_metric_data(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutMetricData", input, options)
   end
@@ -2954,8 +2922,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, put_metric_stream_errors()}
   def put_metric_stream(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutMetricStream", input, options)
   end
@@ -2996,8 +2963,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, set_alarm_state_errors()}
   def set_alarm_state(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetAlarmState", input, options)
   end
@@ -3011,8 +2977,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, start_metric_streams_errors()}
   def start_metric_streams(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartMetricStreams", input, options)
   end
@@ -3026,8 +2991,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, stop_metric_streams_errors()}
   def stop_metric_streams(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopMetricStreams", input, options)
   end
@@ -3064,8 +3028,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3079,8 +3042,7 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

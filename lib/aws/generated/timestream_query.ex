@@ -1139,8 +1139,7 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, cancel_query_errors()}
   def cancel_query(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelQuery", input, options)
   end
@@ -1160,8 +1159,7 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, create_scheduled_query_errors()}
   def create_scheduled_query(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateScheduledQuery", input, options)
   end
@@ -1177,8 +1175,7 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, delete_scheduled_query_errors()}
   def delete_scheduled_query(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteScheduledQuery", input, options)
   end
@@ -1195,8 +1192,7 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, describe_account_settings_errors()}
   def describe_account_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAccountSettings", input, options)
   end
@@ -1233,8 +1229,7 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, describe_endpoints_errors()}
   def describe_endpoints(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEndpoints", input, options)
   end
@@ -1248,8 +1243,7 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, describe_scheduled_query_errors()}
   def describe_scheduled_query(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeScheduledQuery", input, options)
   end
@@ -1269,8 +1263,7 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, execute_scheduled_query_errors()}
   def execute_scheduled_query(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExecuteScheduledQuery", input, options)
   end
@@ -1286,8 +1279,7 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, list_scheduled_queries_errors()}
   def list_scheduled_queries(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListScheduledQueries", input, options)
   end
@@ -1301,8 +1293,7 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1321,8 +1312,7 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, prepare_query_errors()}
   def prepare_query(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PrepareQuery", input, options)
   end
@@ -1384,8 +1374,7 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, query_errors()}
   def query(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "Query", input, options)
   end
@@ -1404,8 +1393,7 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1419,8 +1407,7 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1441,8 +1428,7 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, update_account_settings_errors()}
   def update_account_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateAccountSettings", input, options)
   end
@@ -1456,8 +1442,7 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, update_scheduled_query_errors()}
   def update_scheduled_query(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateScheduledQuery", input, options)
   end

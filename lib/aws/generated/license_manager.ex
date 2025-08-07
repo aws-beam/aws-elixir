@@ -2514,8 +2514,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, accept_grant_errors()}
   def accept_grant(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AcceptGrant", input, options)
   end
@@ -2531,8 +2530,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, check_in_license_errors()}
   def check_in_license(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CheckInLicense", input, options)
   end
@@ -2546,8 +2544,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, checkout_borrow_license_errors()}
   def checkout_borrow_license(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CheckoutBorrowLicense", input, options)
   end
@@ -2565,8 +2562,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, checkout_license_errors()}
   def checkout_license(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CheckoutLicense", input, options)
   end
@@ -2585,8 +2581,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, create_grant_errors()}
   def create_grant(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateGrant", input, options)
   end
@@ -2604,8 +2599,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, create_grant_version_errors()}
   def create_grant_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateGrantVersion", input, options)
   end
@@ -2619,8 +2613,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, create_license_errors()}
   def create_license(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLicense", input, options)
   end
@@ -2645,8 +2638,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, create_license_configuration_errors()}
   def create_license_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLicenseConfiguration", input, options)
   end
@@ -2664,8 +2656,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, create_license_conversion_task_for_resource_errors()}
   def create_license_conversion_task_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLicenseConversionTaskForResource", input, options)
   end
@@ -2683,8 +2674,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, create_license_manager_report_generator_errors()}
   def create_license_manager_report_generator(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLicenseManagerReportGenerator", input, options)
   end
@@ -2698,8 +2688,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, create_license_version_errors()}
   def create_license_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLicenseVersion", input, options)
   end
@@ -2719,8 +2708,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, create_token_errors()}
   def create_token(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateToken", input, options)
   end
@@ -2734,8 +2722,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, delete_grant_errors()}
   def delete_grant(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteGrant", input, options)
   end
@@ -2749,8 +2736,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, delete_license_errors()}
   def delete_license(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLicense", input, options)
   end
@@ -2766,8 +2752,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, delete_license_configuration_errors()}
   def delete_license_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLicenseConfiguration", input, options)
   end
@@ -2790,8 +2775,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, delete_license_manager_report_generator_errors()}
   def delete_license_manager_report_generator(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLicenseManagerReportGenerator", input, options)
   end
@@ -2807,8 +2791,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, delete_token_errors()}
   def delete_token(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteToken", input, options)
   end
@@ -2822,8 +2805,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, extend_license_consumption_errors()}
   def extend_license_consumption(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExtendLicenseConsumption", input, options)
   end
@@ -2840,8 +2822,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, get_access_token_errors()}
   def get_access_token(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAccessToken", input, options)
   end
@@ -2855,8 +2836,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, get_grant_errors()}
   def get_grant(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetGrant", input, options)
   end
@@ -2870,8 +2850,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, get_license_errors()}
   def get_license(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetLicense", input, options)
   end
@@ -2885,8 +2864,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, get_license_configuration_errors()}
   def get_license_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetLicenseConfiguration", input, options)
   end
@@ -2900,8 +2878,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, get_license_conversion_task_errors()}
   def get_license_conversion_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetLicenseConversionTask", input, options)
   end
@@ -2919,8 +2896,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, get_license_manager_report_generator_errors()}
   def get_license_manager_report_generator(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetLicenseManagerReportGenerator", input, options)
   end
@@ -2934,8 +2910,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, get_license_usage_errors()}
   def get_license_usage(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetLicenseUsage", input, options)
   end
@@ -2949,8 +2924,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, get_service_settings_errors()}
   def get_service_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetServiceSettings", input, options)
   end
@@ -2973,8 +2947,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_associations_for_license_configuration_errors()}
   def list_associations_for_license_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAssociationsForLicenseConfiguration", input, options)
   end
@@ -2988,8 +2961,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_distributed_grants_errors()}
   def list_distributed_grants(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDistributedGrants", input, options)
   end
@@ -3007,8 +2979,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_failures_for_license_configuration_operations_errors()}
   def list_failures_for_license_configuration_operations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -3028,8 +2999,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_license_configurations_errors()}
   def list_license_configurations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListLicenseConfigurations", input, options)
   end
@@ -3043,8 +3013,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_license_conversion_tasks_errors()}
   def list_license_conversion_tasks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListLicenseConversionTasks", input, options)
   end
@@ -3062,8 +3031,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_license_manager_report_generators_errors()}
   def list_license_manager_report_generators(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListLicenseManagerReportGenerators", input, options)
   end
@@ -3081,8 +3049,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_license_specifications_for_resource_errors()}
   def list_license_specifications_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListLicenseSpecificationsForResource", input, options)
   end
@@ -3096,8 +3063,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_license_versions_errors()}
   def list_license_versions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListLicenseVersions", input, options)
   end
@@ -3111,8 +3077,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_licenses_errors()}
   def list_licenses(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListLicenses", input, options)
   end
@@ -3131,8 +3096,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_received_grants_errors()}
   def list_received_grants(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListReceivedGrants", input, options)
   end
@@ -3150,8 +3114,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_received_grants_for_organization_errors()}
   def list_received_grants_for_organization(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListReceivedGrantsForOrganization", input, options)
   end
@@ -3165,8 +3128,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_received_licenses_errors()}
   def list_received_licenses(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListReceivedLicenses", input, options)
   end
@@ -3184,8 +3146,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_received_licenses_for_organization_errors()}
   def list_received_licenses_for_organization(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListReceivedLicensesForOrganization", input, options)
   end
@@ -3199,8 +3160,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_resource_inventory_errors()}
   def list_resource_inventory(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListResourceInventory", input, options)
   end
@@ -3219,8 +3179,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3234,8 +3193,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_tokens_errors()}
   def list_tokens(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTokens", input, options)
   end
@@ -3257,8 +3215,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_usage_for_license_configuration_errors()}
   def list_usage_for_license_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListUsageForLicenseConfiguration", input, options)
   end
@@ -3272,8 +3229,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, reject_grant_errors()}
   def reject_grant(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RejectGrant", input, options)
   end
@@ -3302,8 +3258,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3317,8 +3272,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -3332,8 +3286,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, update_license_configuration_errors()}
   def update_license_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateLicenseConfiguration", input, options)
   end
@@ -3354,8 +3307,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, update_license_manager_report_generator_errors()}
   def update_license_manager_report_generator(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateLicenseManagerReportGenerator", input, options)
   end
@@ -3379,8 +3331,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, update_license_specifications_for_resource_errors()}
   def update_license_specifications_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateLicenseSpecificationsForResource", input, options)
   end
@@ -3394,8 +3345,7 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, update_service_settings_errors()}
   def update_service_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateServiceSettings", input, options)
   end

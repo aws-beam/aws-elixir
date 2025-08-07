@@ -2901,8 +2901,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, add_listener_certificates_errors()}
   def add_listener_certificates(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddListenerCertificates", input, options)
   end
@@ -2925,8 +2924,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, add_tags_errors()}
   def add_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddTags", input, options)
   end
@@ -2940,8 +2938,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, add_trust_store_revocations_errors()}
   def add_trust_store_revocations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddTrustStoreRevocations", input, options)
   end
@@ -2978,8 +2975,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, create_listener_errors()}
   def create_listener(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateListener", input, options)
   end
@@ -3013,8 +3009,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, create_load_balancer_errors()}
   def create_load_balancer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLoadBalancer", input, options)
   end
@@ -3041,8 +3036,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, create_rule_errors()}
   def create_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRule", input, options)
   end
@@ -3078,8 +3072,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, create_target_group_errors()}
   def create_target_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTargetGroup", input, options)
   end
@@ -3095,8 +3088,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, create_trust_store_errors()}
   def create_trust_store(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTrustStore", input, options)
   end
@@ -3114,8 +3106,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, delete_listener_errors()}
   def delete_listener(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteListener", input, options)
   end
@@ -3143,8 +3134,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, delete_load_balancer_errors()}
   def delete_load_balancer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLoadBalancer", input, options)
   end
@@ -3160,8 +3150,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, delete_rule_errors()}
   def delete_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRule", input, options)
   end
@@ -3179,8 +3168,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, delete_shared_trust_store_association_errors()}
   def delete_shared_trust_store_association(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSharedTrustStoreAssociation", input, options)
   end
@@ -3202,8 +3190,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, delete_target_group_errors()}
   def delete_target_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTargetGroup", input, options)
   end
@@ -3217,8 +3204,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, delete_trust_store_errors()}
   def delete_trust_store(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTrustStore", input, options)
   end
@@ -3267,8 +3253,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, deregister_targets_errors()}
   def deregister_targets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeregisterTargets", input, options)
   end
@@ -3300,8 +3285,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_account_limits(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAccountLimits", input, options)
   end
@@ -3315,8 +3299,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_capacity_reservation_errors()}
   def describe_capacity_reservation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCapacityReservation", input, options)
   end
@@ -3330,8 +3313,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_listener_attributes_errors()}
   def describe_listener_attributes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeListenerAttributes", input, options)
   end
@@ -3358,8 +3340,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_listener_certificates_errors()}
   def describe_listener_certificates(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeListenerCertificates", input, options)
   end
@@ -3378,8 +3359,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_listeners_errors()}
   def describe_listeners(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeListeners", input, options)
   end
@@ -3419,8 +3399,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_load_balancer_attributes_errors()}
   def describe_load_balancer_attributes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLoadBalancerAttributes", input, options)
   end
@@ -3434,8 +3413,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_load_balancers_errors()}
   def describe_load_balancers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLoadBalancers", input, options)
   end
@@ -3452,8 +3430,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_rules_errors()}
   def describe_rules(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeRules", input, options)
   end
@@ -3472,8 +3449,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_ssl_policies_errors()}
   def describe_ssl_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSSLPolicies", input, options)
   end
@@ -3492,8 +3468,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTags", input, options)
   end
@@ -3527,8 +3502,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_target_group_attributes_errors()}
   def describe_target_group_attributes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTargetGroupAttributes", input, options)
   end
@@ -3549,8 +3523,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_target_groups_errors()}
   def describe_target_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTargetGroups", input, options)
   end
@@ -3564,8 +3537,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_target_health_errors()}
   def describe_target_health(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTargetHealth", input, options)
   end
@@ -3583,8 +3555,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_trust_store_associations_errors()}
   def describe_trust_store_associations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTrustStoreAssociations", input, options)
   end
@@ -3599,8 +3570,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_trust_store_revocations_errors()}
   def describe_trust_store_revocations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTrustStoreRevocations", input, options)
   end
@@ -3614,8 +3584,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_trust_stores_errors()}
   def describe_trust_stores(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTrustStores", input, options)
   end
@@ -3629,8 +3598,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
@@ -3651,8 +3619,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, get_trust_store_ca_certificates_bundle_errors()}
   def get_trust_store_ca_certificates_bundle(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTrustStoreCaCertificatesBundle", input, options)
   end
@@ -3673,8 +3640,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, get_trust_store_revocation_content_errors()}
   def get_trust_store_revocation_content(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTrustStoreRevocationContent", input, options)
   end
@@ -3692,8 +3658,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, modify_capacity_reservation_errors()}
   def modify_capacity_reservation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyCapacityReservation", input, options)
   end
@@ -3707,8 +3672,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, modify_ip_pools_errors()}
   def modify_ip_pools(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyIpPools", input, options)
   end
@@ -3737,8 +3701,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, modify_listener_errors()}
   def modify_listener(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyListener", input, options)
   end
@@ -3752,8 +3715,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, modify_listener_attributes_errors()}
   def modify_listener_attributes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyListenerAttributes", input, options)
   end
@@ -3773,8 +3735,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, modify_load_balancer_attributes_errors()}
   def modify_load_balancer_attributes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyLoadBalancerAttributes", input, options)
   end
@@ -3797,8 +3758,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, modify_rule_errors()}
   def modify_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyRule", input, options)
   end
@@ -3814,8 +3774,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, modify_target_group_errors()}
   def modify_target_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyTargetGroup", input, options)
   end
@@ -3829,8 +3788,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, modify_target_group_attributes_errors()}
   def modify_target_group_attributes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyTargetGroupAttributes", input, options)
   end
@@ -3844,8 +3802,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, modify_trust_store_errors()}
   def modify_trust_store(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyTrustStore", input, options)
   end
@@ -3887,8 +3844,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, register_targets_errors()}
   def register_targets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterTargets", input, options)
   end
@@ -3904,8 +3860,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, remove_listener_certificates_errors()}
   def remove_listener_certificates(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveListenerCertificates", input, options)
   end
@@ -3924,8 +3879,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, remove_tags_errors()}
   def remove_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveTags", input, options)
   end
@@ -3939,8 +3893,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, remove_trust_store_revocations_errors()}
   def remove_trust_store_revocations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveTrustStoreRevocations", input, options)
   end
@@ -3955,8 +3908,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, set_ip_address_type_errors()}
   def set_ip_address_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetIpAddressType", input, options)
   end
@@ -3974,8 +3926,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, set_rule_priorities_errors()}
   def set_rule_priorities(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetRulePriorities", input, options)
   end
@@ -4000,8 +3951,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, set_security_groups_errors()}
   def set_security_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetSecurityGroups", input, options)
   end
@@ -4025,8 +3975,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, set_subnets_errors()}
   def set_subnets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetSubnets", input, options)
   end

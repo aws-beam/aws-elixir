@@ -391,8 +391,7 @@ defmodule AWS.QLDBSession do
           | {:error, term()}
           | {:error, send_command_errors()}
   def send_command(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SendCommand", input, options)
   end

@@ -42,6 +42,9 @@ defmodule AWS.QBusiness do
 
       source_attribution() :: %{
         "citationNumber" => integer(),
+        "datasourceId" => String.t() | atom(),
+        "documentId" => String.t() | atom(),
+        "indexId" => String.t() | atom(),
         "snippet" => String.t() | atom(),
         "textMessageSegments" => list(text_segment()),
         "title" => String.t() | atom(),
@@ -2197,6 +2200,18 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      get_document_content_request() :: %{
+        optional("dataSourceId") => String.t() | atom(),
+        optional("outputFormat") => list(any())
+      }
+
+  """
+  @type get_document_content_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       message_usefulness_feedback() :: %{
         "comment" => String.t() | atom(),
         "reason" => list(any()),
@@ -3530,6 +3545,18 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      get_document_content_response() :: %{
+        "mimeType" => String.t() | atom(),
+        "presignedUrl" => String.t() | atom()
+      }
+
+  """
+  @type get_document_content_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_retriever_request() :: %{}
 
   """
@@ -4188,6 +4215,13 @@ defmodule AWS.QBusiness do
           | resource_not_found_exception()
 
   @type get_data_source_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_document_content_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -5157,6 +5191,9 @@ defmodule AWS.QBusiness do
   Amazon Q Business offers two subscription tiers: `Q_LITE` and `Q_BUSINESS`.
   Subscription tier determines feature access for the user. For more information
   on subscriptions and pricing tiers, see [Amazon Q Business pricing](https://aws.amazon.com/q/business/pricing/).
+
+  For an example IAM role policy for assigning subscriptions, see [Set up required permissions](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/setting-up.html#permissions)
+  in the Amazon Q Business User Guide.
   """
   @spec create_subscription(map(), String.t() | atom(), create_subscription_request(), list()) ::
           {:ok, create_subscription_response(), any()}
@@ -5971,6 +6008,60 @@ defmodule AWS.QBusiness do
 
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the content of a document that was ingested into Amazon Q Business.
+
+  This API validates user authorization against document ACLs before returning a
+  pre-signed URL for secure document access. You can download or view source
+  documents referenced in chat responses through the URL.
+  """
+  @spec get_document_content(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, get_document_content_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_document_content_errors()}
+  def get_document_content(
+        %Client{} = client,
+        application_id,
+        document_id,
+        index_id,
+        data_source_id \\ nil,
+        output_format \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{AWS.Util.encode_uri(application_id)}/index/#{AWS.Util.encode_uri(index_id)}/documents/#{AWS.Util.encode_uri(document_id)}/content"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(output_format) do
+        [{"outputFormat", output_format} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(data_source_id) do
+        [{"dataSourceId", data_source_id} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 

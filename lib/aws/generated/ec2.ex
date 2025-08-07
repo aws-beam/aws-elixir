@@ -30286,8 +30286,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def accept_address_transfer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AcceptAddressTransfer", input, options)
   end
@@ -30309,8 +30308,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def accept_capacity_reservation_billing_ownership(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -30334,8 +30332,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def accept_reserved_instances_exchange_quote(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AcceptReservedInstancesExchangeQuote", input, options)
   end
@@ -30356,8 +30353,7 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -30383,8 +30379,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def accept_transit_gateway_peering_attachment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AcceptTransitGatewayPeeringAttachment", input, options)
   end
@@ -30406,8 +30401,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def accept_transit_gateway_vpc_attachment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AcceptTransitGatewayVpcAttachment", input, options)
   end
@@ -30420,8 +30414,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def accept_vpc_endpoint_connections(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AcceptVpcEndpointConnections", input, options)
   end
@@ -30443,8 +30436,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def accept_vpc_peering_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AcceptVpcPeeringConnection", input, options)
   end
@@ -30475,8 +30467,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def advertise_byoip_cidr(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AdvertiseByoipCidr", input, options)
   end
@@ -30516,8 +30507,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def allocate_address(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AllocateAddress", input, options)
   end
@@ -30535,8 +30525,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def allocate_hosts(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AllocateHosts", input, options)
   end
@@ -30559,8 +30548,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def allocate_ipam_pool_cidr(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AllocateIpamPoolCidr", input, options)
   end
@@ -30581,8 +30569,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def apply_security_groups_to_client_vpn_target_network(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -30620,8 +30607,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def assign_ipv6_addresses(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssignIpv6Addresses", input, options)
   end
@@ -30664,8 +30650,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def assign_private_ip_addresses(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssignPrivateIpAddresses", input, options)
   end
@@ -30686,8 +30671,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def assign_private_nat_gateway_address(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssignPrivateNatGatewayAddress", input, options)
   end
@@ -30728,8 +30712,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_address(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateAddress", input, options)
   end
@@ -30753,8 +30736,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_capacity_reservation_billing_owner(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateCapacityReservationBillingOwner", input, options)
   end
@@ -30782,8 +30764,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_client_vpn_target_network(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateClientVpnTargetNetwork", input, options)
   end
@@ -30806,8 +30787,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_dhcp_options(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateDhcpOptions", input, options)
   end
@@ -30850,8 +30830,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_enclave_certificate_iam_role(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateEnclaveCertificateIamRole", input, options)
   end
@@ -30867,8 +30846,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_iam_instance_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateIamInstanceProfile", input, options)
   end
@@ -30887,8 +30865,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_instance_event_window(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateInstanceEventWindow", input, options)
   end
@@ -30910,8 +30887,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_ipam_byoasn(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateIpamByoasn", input, options)
   end
@@ -30931,8 +30907,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_ipam_resource_discovery(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateIpamResourceDiscovery", input, options)
   end
@@ -30966,8 +30941,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_nat_gateway_address(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateNatGatewayAddress", input, options)
   end
@@ -30986,8 +30960,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_route_server(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateRouteServer", input, options)
   end
@@ -31013,8 +30986,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_route_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateRouteTable", input, options)
   end
@@ -31047,8 +31019,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_security_group_vpc(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateSecurityGroupVpc", input, options)
   end
@@ -31064,8 +31035,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_subnet_cidr_block(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateSubnetCidrBlock", input, options)
   end
@@ -31088,8 +31058,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_transit_gateway_multicast_domain(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateTransitGatewayMulticastDomain", input, options)
   end
@@ -31107,8 +31076,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_transit_gateway_policy_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateTransitGatewayPolicyTable", input, options)
   end
@@ -31129,8 +31097,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_transit_gateway_route_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateTransitGatewayRouteTable", input, options)
   end
@@ -31150,8 +31117,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_trunk_interface(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateTrunkInterface", input, options)
   end
@@ -31177,8 +31143,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_vpc_cidr_block(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateVpcCidrBlock", input, options)
   end
@@ -31208,8 +31173,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def attach_classic_link_vpc(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AttachClassicLinkVpc", input, options)
   end
@@ -31228,8 +31192,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def attach_internet_gateway(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AttachInternetGateway", input, options)
   end
@@ -31242,8 +31205,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def attach_network_interface(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AttachNetworkInterface", input, options)
   end
@@ -31261,8 +31223,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def attach_verified_access_trust_provider(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AttachVerifiedAccessTrustProvider", input, options)
   end
@@ -31312,8 +31273,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def attach_volume(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AttachVolume", input, options)
   end
@@ -31333,8 +31293,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def attach_vpn_gateway(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AttachVpnGateway", input, options)
   end
@@ -31353,8 +31312,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def authorize_client_vpn_ingress(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AuthorizeClientVpnIngress", input, options)
   end
@@ -31393,8 +31351,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def authorize_security_group_egress(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AuthorizeSecurityGroupEgress", input, options)
   end
@@ -31438,8 +31395,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def authorize_security_group_ingress(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AuthorizeSecurityGroupIngress", input, options)
   end
@@ -31460,8 +31416,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def bundle_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BundleInstance", input, options)
   end
@@ -31474,8 +31429,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def cancel_bundle_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelBundleTask", input, options)
   end
@@ -31517,8 +31471,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def cancel_capacity_reservation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelCapacityReservation", input, options)
   end
@@ -31550,8 +31503,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def cancel_capacity_reservation_fleets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelCapacityReservationFleets", input, options)
   end
@@ -31570,8 +31522,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def cancel_conversion_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelConversionTask", input, options)
   end
@@ -31596,8 +31547,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def cancel_declarative_policies_report(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelDeclarativePoliciesReport", input, options)
   end
@@ -31615,8 +31565,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def cancel_export_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelExportTask", input, options)
   end
@@ -31634,8 +31583,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def cancel_image_launch_permission(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelImageLaunchPermission", input, options)
   end
@@ -31648,8 +31596,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def cancel_import_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelImportTask", input, options)
   end
@@ -31670,8 +31617,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def cancel_reserved_instances_listing(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelReservedInstancesListing", input, options)
   end
@@ -31699,8 +31645,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def cancel_spot_fleet_requests(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelSpotFleetRequests", input, options)
   end
@@ -31716,8 +31661,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def cancel_spot_instance_requests(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelSpotInstanceRequests", input, options)
   end
@@ -31735,8 +31679,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def confirm_product_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ConfirmProductInstance", input, options)
   end
@@ -31749,8 +31692,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def copy_fpga_image(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CopyFpgaImage", input, options)
   end
@@ -31784,8 +31726,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def copy_image(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CopyImage", input, options)
   end
@@ -31835,8 +31776,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def copy_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CopySnapshot", input, options)
   end
@@ -31882,8 +31822,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_capacity_reservation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCapacityReservation", input, options)
   end
@@ -31906,8 +31845,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_capacity_reservation_by_splitting(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCapacityReservationBySplitting", input, options)
   end
@@ -31929,8 +31867,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_capacity_reservation_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCapacityReservationFleet", input, options)
   end
@@ -31946,8 +31883,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_carrier_gateway(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCarrierGateway", input, options)
   end
@@ -31965,8 +31901,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_client_vpn_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateClientVpnEndpoint", input, options)
   end
@@ -31983,8 +31918,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_client_vpn_route(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateClientVpnRoute", input, options)
   end
@@ -31998,8 +31932,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_coip_cidr(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCoipCidr", input, options)
   end
@@ -32012,8 +31945,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_coip_pool(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCoipPool", input, options)
   end
@@ -32050,8 +31982,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_customer_gateway(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCustomerGateway", input, options)
   end
@@ -32069,8 +32000,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_default_subnet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDefaultSubnet", input, options)
   end
@@ -32093,8 +32023,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_default_vpc(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDefaultVpc", input, options)
   end
@@ -32112,8 +32041,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_delegate_mac_volume_ownership_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDelegateMacVolumeOwnershipTask", input, options)
   end
@@ -32188,8 +32116,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_dhcp_options(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDhcpOptions", input, options)
   end
@@ -32213,8 +32140,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_egress_only_internet_gateway(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateEgressOnlyInternetGateway", input, options)
   end
@@ -32237,8 +32163,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateFleet", input, options)
   end
@@ -32270,8 +32195,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_flow_logs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateFlowLogs", input, options)
   end
@@ -32291,8 +32215,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_fpga_image(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateFpgaImage", input, options)
   end
@@ -32332,8 +32255,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_image(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateImage", input, options)
   end
@@ -32356,8 +32278,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_instance_connect_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateInstanceConnectEndpoint", input, options)
   end
@@ -32399,8 +32320,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_instance_event_window(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateInstanceEventWindow", input, options)
   end
@@ -32419,8 +32339,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_instance_export_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateInstanceExportTask", input, options)
   end
@@ -32440,8 +32359,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_internet_gateway(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateInternetGateway", input, options)
   end
@@ -32463,8 +32381,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_ipam(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateIpam", input, options)
   end
@@ -32486,8 +32403,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_ipam_external_resource_verification_token(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -32514,8 +32430,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_ipam_pool(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateIpamPool", input, options)
   end
@@ -32531,8 +32446,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_ipam_resource_discovery(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateIpamResourceDiscovery", input, options)
   end
@@ -32555,8 +32469,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_ipam_scope(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateIpamScope", input, options)
   end
@@ -32589,8 +32502,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_key_pair(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateKeyPair", input, options)
   end
@@ -32620,8 +32532,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_launch_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLaunchTemplate", input, options)
   end
@@ -32654,8 +32565,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_launch_template_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLaunchTemplateVersion", input, options)
   end
@@ -32679,8 +32589,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_local_gateway_route(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLocalGatewayRoute", input, options)
   end
@@ -32698,8 +32607,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_local_gateway_route_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLocalGatewayRouteTable", input, options)
   end
@@ -32722,8 +32630,7 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -32746,8 +32653,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_local_gateway_route_table_vpc_association(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -32770,8 +32676,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_local_gateway_virtual_interface(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLocalGatewayVirtualInterface", input, options)
   end
@@ -32788,8 +32693,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_local_gateway_virtual_interface_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLocalGatewayVirtualInterfaceGroup", input, options)
   end
@@ -32860,8 +32764,7 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -32883,8 +32786,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_managed_prefix_list(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateManagedPrefixList", input, options)
   end
@@ -32931,8 +32833,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_nat_gateway(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateNatGateway", input, options)
   end
@@ -32952,8 +32853,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_network_acl(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateNetworkAcl", input, options)
   end
@@ -32984,8 +32884,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_network_acl_entry(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateNetworkAclEntry", input, options)
   end
@@ -33009,8 +32908,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_network_insights_access_scope(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateNetworkInsightsAccessScope", input, options)
   end
@@ -33028,8 +32926,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_network_insights_path(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateNetworkInsightsPath", input, options)
   end
@@ -33050,8 +32947,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_network_interface(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateNetworkInterface", input, options)
   end
@@ -33074,8 +32970,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_network_interface_permission(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateNetworkInterfacePermission", input, options)
   end
@@ -33103,8 +32998,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_placement_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePlacementGroup", input, options)
   end
@@ -33123,8 +33017,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_public_ipv4_pool(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePublicIpv4Pool", input, options)
   end
@@ -33145,8 +33038,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_replace_root_volume_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateReplaceRootVolumeTask", input, options)
   end
@@ -33196,8 +33088,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_reserved_instances_listing(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateReservedInstancesListing", input, options)
   end
@@ -33221,8 +33112,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_restore_image_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRestoreImageTask", input, options)
   end
@@ -33262,8 +33152,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_route(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRoute", input, options)
   end
@@ -33301,8 +33190,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_route_server(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRouteServer", input, options)
   end
@@ -33322,8 +33210,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_route_server_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRouteServerEndpoint", input, options)
   end
@@ -33353,8 +33240,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_route_server_peer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRouteServerPeer", input, options)
   end
@@ -33374,8 +33260,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_route_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRouteTable", input, options)
   end
@@ -33417,8 +33302,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_security_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSecurityGroup", input, options)
   end
@@ -33483,8 +33367,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSnapshot", input, options)
   end
@@ -33523,8 +33406,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_snapshots(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSnapshots", input, options)
   end
@@ -33547,8 +33429,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_spot_datafeed_subscription(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSpotDatafeedSubscription", input, options)
   end
@@ -33569,8 +33450,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_store_image_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateStoreImageTask", input, options)
   end
@@ -33618,8 +33498,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_subnet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSubnet", input, options)
   end
@@ -33637,8 +33516,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_subnet_cidr_reservation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSubnetCidrReservation", input, options)
   end
@@ -33667,8 +33545,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTags", input, options)
   end
@@ -33690,8 +33567,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_traffic_mirror_filter(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTrafficMirrorFilter", input, options)
   end
@@ -33712,8 +33588,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_traffic_mirror_filter_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTrafficMirrorFilterRule", input, options)
   end
@@ -33740,8 +33615,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_traffic_mirror_session(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTrafficMirrorSession", input, options)
   end
@@ -33765,8 +33639,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_traffic_mirror_target(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTrafficMirrorTarget", input, options)
   end
@@ -33804,8 +33677,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_transit_gateway(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTransitGateway", input, options)
   end
@@ -33824,8 +33696,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_transit_gateway_connect(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTransitGatewayConnect", input, options)
   end
@@ -33850,8 +33721,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_transit_gateway_connect_peer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTransitGatewayConnectPeer", input, options)
   end
@@ -33873,8 +33743,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_transit_gateway_multicast_domain(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTransitGatewayMulticastDomain", input, options)
   end
@@ -33900,8 +33769,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_transit_gateway_peering_attachment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTransitGatewayPeeringAttachment", input, options)
   end
@@ -33918,8 +33786,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_transit_gateway_policy_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTransitGatewayPolicyTable", input, options)
   end
@@ -33937,8 +33804,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_transit_gateway_prefix_list_reference(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTransitGatewayPrefixListReference", input, options)
   end
@@ -33951,8 +33817,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_transit_gateway_route(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTransitGatewayRoute", input, options)
   end
@@ -33969,8 +33834,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_transit_gateway_route_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTransitGatewayRouteTable", input, options)
   end
@@ -33987,8 +33851,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_transit_gateway_route_table_announcement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -34018,8 +33881,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_transit_gateway_vpc_attachment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTransitGatewayVpcAttachment", input, options)
   end
@@ -34033,8 +33895,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_verified_access_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateVerifiedAccessEndpoint", input, options)
   end
@@ -34055,8 +33916,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_verified_access_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateVerifiedAccessGroup", input, options)
   end
@@ -34071,8 +33931,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_verified_access_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateVerifiedAccessInstance", input, options)
   end
@@ -34096,8 +33955,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_verified_access_trust_provider(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateVerifiedAccessTrustProvider", input, options)
   end
@@ -34130,8 +33988,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_volume(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateVolume", input, options)
   end
@@ -34166,8 +34023,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_vpc(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateVpc", input, options)
   end
@@ -34192,8 +34048,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_vpc_block_public_access_exclusion(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateVpcBlockPublicAccessExclusion", input, options)
   end
@@ -34213,8 +34068,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_vpc_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateVpcEndpoint", input, options)
   end
@@ -34239,8 +34093,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_vpc_endpoint_connection_notification(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateVpcEndpointConnectionNotification", input, options)
   end
@@ -34277,8 +34130,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_vpc_endpoint_service_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateVpcEndpointServiceConfiguration", input, options)
   end
@@ -34313,8 +34165,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_vpc_peering_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateVpcPeeringConnection", input, options)
   end
@@ -34354,8 +34205,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_vpn_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateVpnConnection", input, options)
   end
@@ -34377,8 +34227,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_vpn_connection_route(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateVpnConnectionRoute", input, options)
   end
@@ -34399,8 +34248,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_vpn_gateway(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateVpnGateway", input, options)
   end
@@ -34418,8 +34266,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_carrier_gateway(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCarrierGateway", input, options)
   end
@@ -34435,8 +34282,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_client_vpn_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteClientVpnEndpoint", input, options)
   end
@@ -34455,8 +34301,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_client_vpn_route(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteClientVpnRoute", input, options)
   end
@@ -34470,8 +34315,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_coip_cidr(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCoipCidr", input, options)
   end
@@ -34484,8 +34328,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_coip_pool(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCoipPool", input, options)
   end
@@ -34501,8 +34344,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_customer_gateway(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCustomerGateway", input, options)
   end
@@ -34519,8 +34361,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_dhcp_options(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDhcpOptions", input, options)
   end
@@ -34537,8 +34378,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_egress_only_internet_gateway(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteEgressOnlyInternetGateway", input, options)
   end
@@ -34592,8 +34432,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_fleets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteFleets", input, options)
   end
@@ -34606,8 +34445,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_flow_logs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteFlowLogs", input, options)
   end
@@ -34620,8 +34458,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_fpga_image(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteFpgaImage", input, options)
   end
@@ -34638,8 +34475,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_instance_connect_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteInstanceConnectEndpoint", input, options)
   end
@@ -34655,8 +34491,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_instance_event_window(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteInstanceEventWindow", input, options)
   end
@@ -34672,8 +34507,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_internet_gateway(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteInternetGateway", input, options)
   end
@@ -34692,8 +34526,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_ipam(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteIpam", input, options)
   end
@@ -34715,8 +34548,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_ipam_external_resource_verification_token(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -34745,8 +34577,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_ipam_pool(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteIpamPool", input, options)
   end
@@ -34762,8 +34593,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_ipam_resource_discovery(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteIpamResourceDiscovery", input, options)
   end
@@ -34781,8 +34611,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_ipam_scope(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteIpamScope", input, options)
   end
@@ -34795,8 +34624,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_key_pair(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteKeyPair", input, options)
   end
@@ -34812,8 +34640,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_launch_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLaunchTemplate", input, options)
   end
@@ -34842,8 +34669,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_launch_template_versions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLaunchTemplateVersions", input, options)
   end
@@ -34856,8 +34682,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_local_gateway_route(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLocalGatewayRoute", input, options)
   end
@@ -34875,8 +34700,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_local_gateway_route_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLocalGatewayRouteTable", input, options)
   end
@@ -34899,8 +34723,7 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -34923,8 +34746,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_local_gateway_route_table_vpc_association(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -34947,8 +34769,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_local_gateway_virtual_interface(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLocalGatewayVirtualInterface", input, options)
   end
@@ -34965,8 +34786,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_local_gateway_virtual_interface_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLocalGatewayVirtualInterfaceGroup", input, options)
   end
@@ -34981,8 +34801,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_managed_prefix_list(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteManagedPrefixList", input, options)
   end
@@ -35000,8 +34819,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_nat_gateway(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteNatGateway", input, options)
   end
@@ -35017,8 +34835,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_network_acl(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteNetworkAcl", input, options)
   end
@@ -35032,8 +34849,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_network_acl_entry(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteNetworkAclEntry", input, options)
   end
@@ -35050,8 +34866,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_network_insights_access_scope(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteNetworkInsightsAccessScope", input, options)
   end
@@ -35068,8 +34883,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_network_insights_access_scope_analysis(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteNetworkInsightsAccessScopeAnalysis", input, options)
   end
@@ -35086,8 +34900,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_network_insights_analysis(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteNetworkInsightsAnalysis", input, options)
   end
@@ -35100,8 +34913,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_network_insights_path(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteNetworkInsightsPath", input, options)
   end
@@ -35117,8 +34929,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_network_interface(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteNetworkInterface", input, options)
   end
@@ -35141,8 +34952,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_network_interface_permission(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteNetworkInterfacePermission", input, options)
   end
@@ -35161,8 +34971,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_placement_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePlacementGroup", input, options)
   end
@@ -35179,8 +34988,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_public_ipv4_pool(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePublicIpv4Pool", input, options)
   end
@@ -35197,8 +35005,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_queued_reserved_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteQueuedReservedInstances", input, options)
   end
@@ -35211,8 +35018,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_route(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRoute", input, options)
   end
@@ -35250,8 +35056,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_route_server(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRouteServer", input, options)
   end
@@ -35268,8 +35073,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_route_server_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRouteServerEndpoint", input, options)
   end
@@ -35296,8 +35100,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_route_server_peer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRouteServerPeer", input, options)
   end
@@ -35313,8 +35116,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_route_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRouteTable", input, options)
   end
@@ -35333,8 +35135,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_security_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSecurityGroup", input, options)
   end
@@ -35365,8 +35166,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSnapshot", input, options)
   end
@@ -35383,8 +35183,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_spot_datafeed_subscription(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSpotDatafeedSubscription", input, options)
   end
@@ -35400,8 +35199,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_subnet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSubnet", input, options)
   end
@@ -35414,8 +35212,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_subnet_cidr_reservation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSubnetCidrReservation", input, options)
   end
@@ -35434,8 +35231,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTags", input, options)
   end
@@ -35451,8 +35247,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_traffic_mirror_filter(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTrafficMirrorFilter", input, options)
   end
@@ -35469,8 +35264,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_traffic_mirror_filter_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTrafficMirrorFilterRule", input, options)
   end
@@ -35483,8 +35277,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_traffic_mirror_session(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTrafficMirrorSession", input, options)
   end
@@ -35500,8 +35293,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_traffic_mirror_target(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTrafficMirrorTarget", input, options)
   end
@@ -35514,8 +35306,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_transit_gateway(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTransitGateway", input, options)
   end
@@ -35531,8 +35322,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_transit_gateway_connect(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTransitGatewayConnect", input, options)
   end
@@ -35549,8 +35339,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_transit_gateway_connect_peer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTransitGatewayConnectPeer", input, options)
   end
@@ -35567,8 +35356,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_transit_gateway_multicast_domain(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTransitGatewayMulticastDomain", input, options)
   end
@@ -35585,8 +35373,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_transit_gateway_peering_attachment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTransitGatewayPeeringAttachment", input, options)
   end
@@ -35603,8 +35390,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_transit_gateway_policy_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTransitGatewayPolicyTable", input, options)
   end
@@ -35622,8 +35408,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_transit_gateway_prefix_list_reference(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTransitGatewayPrefixListReference", input, options)
   end
@@ -35636,8 +35421,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_transit_gateway_route(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTransitGatewayRoute", input, options)
   end
@@ -35659,8 +35443,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_transit_gateway_route_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTransitGatewayRouteTable", input, options)
   end
@@ -35677,8 +35460,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_transit_gateway_route_table_announcement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -35701,8 +35483,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_transit_gateway_vpc_attachment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTransitGatewayVpcAttachment", input, options)
   end
@@ -35715,8 +35496,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_verified_access_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteVerifiedAccessEndpoint", input, options)
   end
@@ -35729,8 +35509,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_verified_access_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteVerifiedAccessGroup", input, options)
   end
@@ -35743,8 +35522,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_verified_access_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteVerifiedAccessInstance", input, options)
   end
@@ -35761,8 +35539,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_verified_access_trust_provider(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteVerifiedAccessTrustProvider", input, options)
   end
@@ -35784,8 +35561,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_volume(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteVolume", input, options)
   end
@@ -35811,8 +35587,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_vpc(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteVpc", input, options)
   end
@@ -35837,8 +35612,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_vpc_block_public_access_exclusion(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteVpcBlockPublicAccessExclusion", input, options)
   end
@@ -35855,8 +35629,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_vpc_endpoint_connection_notifications(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteVpcEndpointConnectionNotifications", input, options)
   end
@@ -35878,8 +35651,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_vpc_endpoint_service_configurations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteVpcEndpointServiceConfigurations", input, options)
   end
@@ -35903,8 +35675,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_vpc_endpoints(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteVpcEndpoints", input, options)
   end
@@ -35923,8 +35694,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_vpc_peering_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteVpcPeeringConnection", input, options)
   end
@@ -35956,8 +35726,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_vpn_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteVpnConnection", input, options)
   end
@@ -35975,8 +35744,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_vpn_connection_route(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteVpnConnectionRoute", input, options)
   end
@@ -35996,8 +35764,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_vpn_gateway(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteVpnGateway", input, options)
   end
@@ -36017,8 +35784,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def deprovision_byoip_cidr(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeprovisionByoipCidr", input, options)
   end
@@ -36038,8 +35804,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def deprovision_ipam_byoasn(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeprovisionIpamByoasn", input, options)
   end
@@ -36056,8 +35821,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def deprovision_ipam_pool_cidr(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeprovisionIpamPoolCidr", input, options)
   end
@@ -36074,8 +35838,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def deprovision_public_ipv4_pool_cidr(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeprovisionPublicIpv4PoolCidr", input, options)
   end
@@ -36130,8 +35893,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def deregister_image(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeregisterImage", input, options)
   end
@@ -36149,8 +35911,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def deregister_instance_event_notification_attributes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -36174,8 +35935,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def deregister_transit_gateway_multicast_group_members(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -36199,8 +35959,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def deregister_transit_gateway_multicast_group_sources(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -36256,8 +36015,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAccountAttributes", input, options)
   end
@@ -36284,8 +36042,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_address_transfers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAddressTransfers", input, options)
   end
@@ -36299,8 +36056,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_addresses(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAddresses", input, options)
   end
@@ -36315,8 +36071,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_addresses_attribute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAddressesAttribute", input, options)
   end
@@ -36350,8 +36105,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_aggregate_id_format(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAggregateIdFormat", input, options)
   end
@@ -36375,8 +36129,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_availability_zones(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAvailabilityZones", input, options)
   end
@@ -36397,8 +36150,7 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -36429,8 +36181,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_bundle_tasks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeBundleTasks", input, options)
   end
@@ -36445,8 +36196,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_byoip_cidrs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeByoipCidrs", input, options)
   end
@@ -36465,8 +36215,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_capacity_block_extension_history(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCapacityBlockExtensionHistory", input, options)
   end
@@ -36485,8 +36234,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_capacity_block_extension_offerings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCapacityBlockExtensionOfferings", input, options)
   end
@@ -36511,8 +36259,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_capacity_block_offerings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCapacityBlockOfferings", input, options)
   end
@@ -36526,8 +36273,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_capacity_block_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCapacityBlockStatus", input, options)
   end
@@ -36541,8 +36287,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_capacity_blocks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCapacityBlocks", input, options)
   end
@@ -36563,8 +36308,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_capacity_reservation_billing_requests(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -36587,8 +36331,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_capacity_reservation_fleets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCapacityReservationFleets", input, options)
   end
@@ -36605,8 +36348,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_capacity_reservations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCapacityReservations", input, options)
   end
@@ -36619,8 +36361,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_carrier_gateways(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCarrierGateways", input, options)
   end
@@ -36639,8 +36380,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_classic_link_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeClassicLinkInstances", input, options)
   end
@@ -36657,8 +36397,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_client_vpn_authorization_rules(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeClientVpnAuthorizationRules", input, options)
   end
@@ -36673,8 +36412,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_client_vpn_connections(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeClientVpnConnections", input, options)
   end
@@ -36687,8 +36425,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_client_vpn_endpoints(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeClientVpnEndpoints", input, options)
   end
@@ -36701,8 +36438,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_client_vpn_routes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeClientVpnRoutes", input, options)
   end
@@ -36719,8 +36455,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_client_vpn_target_networks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeClientVpnTargetNetworks", input, options)
   end
@@ -36734,8 +36469,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_coip_pools(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCoipPools", input, options)
   end
@@ -36754,8 +36488,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_conversion_tasks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeConversionTasks", input, options)
   end
@@ -36772,8 +36505,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_customer_gateways(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCustomerGateways", input, options)
   end
@@ -36804,8 +36536,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_declarative_policies_reports(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDeclarativePoliciesReports", input, options)
   end
@@ -36827,8 +36558,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_dhcp_options(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDhcpOptions", input, options)
   end
@@ -36850,8 +36580,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_egress_only_internet_gateways(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEgressOnlyInternetGateways", input, options)
   end
@@ -36867,8 +36596,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_elastic_gpus(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeElasticGpus", input, options)
   end
@@ -36881,8 +36609,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_export_image_tasks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeExportImageTasks", input, options)
   end
@@ -36896,8 +36623,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_export_tasks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeExportTasks", input, options)
   end
@@ -36910,8 +36636,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_fast_launch_images(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFastLaunchImages", input, options)
   end
@@ -36924,8 +36649,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_fast_snapshot_restores(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFastSnapshotRestores", input, options)
   end
@@ -36948,8 +36672,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_fleet_history(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFleetHistory", input, options)
   end
@@ -36970,8 +36693,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_fleet_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFleetInstances", input, options)
   end
@@ -36991,8 +36713,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_fleets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFleets", input, options)
   end
@@ -37010,8 +36731,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_flow_logs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFlowLogs", input, options)
   end
@@ -37024,8 +36744,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_fpga_image_attribute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFpgaImageAttribute", input, options)
   end
@@ -37043,8 +36762,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_fpga_images(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFpgaImages", input, options)
   end
@@ -37070,8 +36788,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_host_reservation_offerings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeHostReservationOfferings", input, options)
   end
@@ -37085,8 +36802,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_host_reservations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeHostReservations", input, options)
   end
@@ -37105,8 +36821,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_hosts(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeHosts", input, options)
   end
@@ -37123,8 +36838,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_iam_instance_profile_associations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeIamInstanceProfileAssociations", input, options)
   end
@@ -37167,8 +36881,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_id_format(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeIdFormat", input, options)
   end
@@ -37208,8 +36921,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_identity_id_format(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeIdentityIdFormat", input, options)
   end
@@ -37230,8 +36942,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_image_attribute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeImageAttribute", input, options)
   end
@@ -37285,8 +36996,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_images(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeImages", input, options)
   end
@@ -37300,8 +37010,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_import_image_tasks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeImportImageTasks", input, options)
   end
@@ -37314,8 +37023,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_import_snapshot_tasks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeImportSnapshotTasks", input, options)
   end
@@ -37331,8 +37039,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_instance_attribute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeInstanceAttribute", input, options)
   end
@@ -37350,8 +37057,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_instance_connect_endpoints(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeInstanceConnectEndpoints", input, options)
   end
@@ -37398,8 +37104,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_instance_credit_specifications(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeInstanceCreditSpecifications", input, options)
   end
@@ -37418,8 +37123,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_instance_event_notification_attributes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -37453,8 +37157,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_instance_event_windows(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeInstanceEventWindows", input, options)
   end
@@ -37505,8 +37208,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_instance_image_metadata(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeInstanceImageMetadata", input, options)
   end
@@ -37566,8 +37268,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_instance_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeInstanceStatus", input, options)
   end
@@ -37607,8 +37308,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_instance_topology(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeInstanceTopology", input, options)
   end
@@ -37630,8 +37330,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_instance_type_offerings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeInstanceTypeOfferings", input, options)
   end
@@ -37647,8 +37346,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_instance_types(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeInstanceTypes", input, options)
   end
@@ -37707,8 +37405,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeInstances", input, options)
   end
@@ -37726,8 +37423,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_internet_gateways(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeInternetGateways", input, options)
   end
@@ -37744,8 +37440,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_ipam_byoasn(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeIpamByoasn", input, options)
   end
@@ -37771,8 +37466,7 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -37791,8 +37485,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_ipam_pools(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeIpamPools", input, options)
   end
@@ -37812,8 +37505,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_ipam_resource_discoveries(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeIpamResourceDiscoveries", input, options)
   end
@@ -37833,8 +37525,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_ipam_resource_discovery_associations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -37853,8 +37544,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_ipam_scopes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeIpamScopes", input, options)
   end
@@ -37870,8 +37560,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_ipams(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeIpams", input, options)
   end
@@ -37884,8 +37573,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_ipv6_pools(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeIpv6Pools", input, options)
   end
@@ -37901,8 +37589,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_key_pairs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeKeyPairs", input, options)
   end
@@ -37925,8 +37612,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_launch_template_versions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLaunchTemplateVersions", input, options)
   end
@@ -37939,8 +37625,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_launch_templates(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLaunchTemplates", input, options)
   end
@@ -37963,8 +37648,7 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -37992,8 +37676,7 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -38019,8 +37702,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_local_gateway_route_tables(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLocalGatewayRouteTables", input, options)
   end
@@ -38037,8 +37719,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_local_gateway_virtual_interface_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -38061,8 +37742,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_local_gateway_virtual_interfaces(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLocalGatewayVirtualInterfaces", input, options)
   end
@@ -38078,8 +37758,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_local_gateways(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLocalGateways", input, options)
   end
@@ -38092,8 +37771,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_locked_snapshots(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLockedSnapshots", input, options)
   end
@@ -38107,8 +37785,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_mac_hosts(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeMacHosts", input, options)
   end
@@ -38127,8 +37804,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_mac_modification_tasks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeMacModificationTasks", input, options)
   end
@@ -38142,8 +37818,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_managed_prefix_lists(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeManagedPrefixLists", input, options)
   end
@@ -38162,8 +37837,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_moving_addresses(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeMovingAddresses", input, options)
   end
@@ -38180,8 +37854,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_nat_gateways(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeNatGateways", input, options)
   end
@@ -38202,8 +37875,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_network_acls(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeNetworkAcls", input, options)
   end
@@ -38220,8 +37892,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_network_insights_access_scope_analyses(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -38244,8 +37915,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_network_insights_access_scopes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeNetworkInsightsAccessScopes", input, options)
   end
@@ -38262,8 +37932,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_network_insights_analyses(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeNetworkInsightsAnalyses", input, options)
   end
@@ -38276,8 +37945,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_network_insights_paths(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeNetworkInsightsPaths", input, options)
   end
@@ -38297,8 +37965,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_network_interface_attribute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeNetworkInterfaceAttribute", input, options)
   end
@@ -38315,8 +37982,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_network_interface_permissions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeNetworkInterfacePermissions", input, options)
   end
@@ -38339,8 +38005,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_network_interfaces(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeNetworkInterfaces", input, options)
   end
@@ -38355,8 +38020,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_outpost_lags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeOutpostLags", input, options)
   end
@@ -38379,8 +38043,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_placement_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePlacementGroups", input, options)
   end
@@ -38395,8 +38058,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_prefix_lists(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePrefixLists", input, options)
   end
@@ -38431,8 +38093,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_principal_id_format(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePrincipalIdFormat", input, options)
   end
@@ -38445,8 +38106,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_public_ipv4_pools(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePublicIpv4Pools", input, options)
   end
@@ -38471,8 +38131,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_regions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeRegions", input, options)
   end
@@ -38493,8 +38152,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_replace_root_volume_tasks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeReplaceRootVolumeTasks", input, options)
   end
@@ -38515,8 +38173,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_reserved_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeReservedInstances", input, options)
   end
@@ -38566,8 +38223,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_reserved_instances_listings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeReservedInstancesListings", input, options)
   end
@@ -38600,8 +38256,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_reserved_instances_modifications(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeReservedInstancesModifications", input, options)
   end
@@ -38638,8 +38293,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_reserved_instances_offerings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeReservedInstancesOfferings", input, options)
   end
@@ -38659,8 +38313,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_route_server_endpoints(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeRouteServerEndpoints", input, options)
   end
@@ -38690,8 +38343,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_route_server_peers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeRouteServerPeers", input, options)
   end
@@ -38729,8 +38381,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_route_servers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeRouteServers", input, options)
   end
@@ -38756,8 +38407,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_route_tables(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeRouteTables", input, options)
   end
@@ -38783,8 +38433,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_scheduled_instance_availability(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeScheduledInstanceAvailability", input, options)
   end
@@ -38797,8 +38446,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_scheduled_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeScheduledInstances", input, options)
   end
@@ -38817,8 +38465,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_security_group_references(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSecurityGroupReferences", input, options)
   end
@@ -38831,8 +38478,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_security_group_rules(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSecurityGroupRules", input, options)
   end
@@ -38850,8 +38496,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_security_group_vpc_associations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSecurityGroupVpcAssociations", input, options)
   end
@@ -38864,8 +38509,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_security_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSecurityGroups", input, options)
   end
@@ -38882,8 +38526,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_service_link_virtual_interfaces(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeServiceLinkVirtualInterfaces", input, options)
   end
@@ -38902,8 +38545,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_snapshot_attribute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSnapshotAttribute", input, options)
   end
@@ -38916,8 +38558,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_snapshot_tier_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSnapshotTierStatus", input, options)
   end
@@ -38995,8 +38636,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_snapshots(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSnapshots", input, options)
   end
@@ -39017,8 +38657,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_spot_datafeed_subscription(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSpotDatafeedSubscription", input, options)
   end
@@ -39031,8 +38670,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_spot_fleet_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSpotFleetInstances", input, options)
   end
@@ -39059,8 +38697,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_spot_fleet_request_history(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSpotFleetRequestHistory", input, options)
   end
@@ -39077,8 +38714,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_spot_fleet_requests(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSpotFleetRequests", input, options)
   end
@@ -39112,8 +38748,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_spot_instance_requests(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSpotInstanceRequests", input, options)
   end
@@ -39135,8 +38770,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_spot_price_history(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSpotPriceHistory", input, options)
   end
@@ -39162,8 +38796,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_stale_security_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeStaleSecurityGroups", input, options)
   end
@@ -39197,8 +38830,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_store_image_tasks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeStoreImageTasks", input, options)
   end
@@ -39220,8 +38852,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_subnets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSubnets", input, options)
   end
@@ -39245,8 +38876,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTags", input, options)
   end
@@ -39263,8 +38893,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_traffic_mirror_filter_rules(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTrafficMirrorFilterRules", input, options)
   end
@@ -39277,8 +38906,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_traffic_mirror_filters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTrafficMirrorFilters", input, options)
   end
@@ -39298,8 +38926,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_traffic_mirror_sessions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTrafficMirrorSessions", input, options)
   end
@@ -39312,8 +38939,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_traffic_mirror_targets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTrafficMirrorTargets", input, options)
   end
@@ -39334,8 +38960,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_transit_gateway_attachments(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTransitGatewayAttachments", input, options)
   end
@@ -39352,8 +38977,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_transit_gateway_connect_peers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTransitGatewayConnectPeers", input, options)
   end
@@ -39370,8 +38994,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_transit_gateway_connects(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTransitGatewayConnects", input, options)
   end
@@ -39388,8 +39011,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_transit_gateway_multicast_domains(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTransitGatewayMulticastDomains", input, options)
   end
@@ -39406,8 +39028,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_transit_gateway_peering_attachments(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTransitGatewayPeeringAttachments", input, options)
   end
@@ -39424,8 +39045,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_transit_gateway_policy_tables(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTransitGatewayPolicyTables", input, options)
   end
@@ -39442,8 +39062,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_transit_gateway_route_table_announcements(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -39469,8 +39088,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_transit_gateway_route_tables(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTransitGatewayRouteTables", input, options)
   end
@@ -39490,8 +39108,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_transit_gateway_vpc_attachments(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTransitGatewayVpcAttachments", input, options)
   end
@@ -39507,8 +39124,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_transit_gateways(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTransitGateways", input, options)
   end
@@ -39525,8 +39141,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_trunk_interface_associations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTrunkInterfaceAssociations", input, options)
   end
@@ -39543,8 +39158,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_verified_access_endpoints(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeVerifiedAccessEndpoints", input, options)
   end
@@ -39557,8 +39171,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_verified_access_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeVerifiedAccessGroups", input, options)
   end
@@ -39579,8 +39192,7 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -39603,8 +39215,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_verified_access_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeVerifiedAccessInstances", input, options)
   end
@@ -39621,8 +39232,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_verified_access_trust_providers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeVerifiedAccessTrustProviders", input, options)
   end
@@ -39641,8 +39251,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_volume_attribute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeVolumeAttribute", input, options)
   end
@@ -39710,8 +39319,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_volume_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeVolumeStatus", input, options)
   end
@@ -39738,8 +39346,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_volumes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeVolumes", input, options)
   end
@@ -39758,8 +39365,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_volumes_modifications(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeVolumesModifications", input, options)
   end
@@ -39774,8 +39380,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpc_attribute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeVpcAttribute", input, options)
   end
@@ -39800,8 +39405,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpc_block_public_access_exclusions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeVpcBlockPublicAccessExclusions", input, options)
   end
@@ -39824,8 +39428,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpc_block_public_access_options(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeVpcBlockPublicAccessOptions", input, options)
   end
@@ -39841,8 +39444,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpc_classic_link(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeVpcClassicLink", input, options)
   end
@@ -39870,8 +39472,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpc_classic_link_dns_support(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeVpcClassicLinkDnsSupport", input, options)
   end
@@ -39890,8 +39491,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpc_endpoint_associations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeVpcEndpointAssociations", input, options)
   end
@@ -39909,8 +39509,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpc_endpoint_connection_notifications(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -39935,8 +39534,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpc_endpoint_connections(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeVpcEndpointConnections", input, options)
   end
@@ -39954,8 +39552,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpc_endpoint_service_configurations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeVpcEndpointServiceConfigurations", input, options)
   end
@@ -39976,8 +39573,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpc_endpoint_service_permissions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeVpcEndpointServicePermissions", input, options)
   end
@@ -40000,8 +39596,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpc_endpoint_services(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeVpcEndpointServices", input, options)
   end
@@ -40019,8 +39614,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpc_endpoints(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeVpcEndpoints", input, options)
   end
@@ -40042,8 +39636,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpc_peering_connections(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeVpcPeeringConnections", input, options)
   end
@@ -40060,8 +39653,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpcs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeVpcs", input, options)
   end
@@ -40078,8 +39670,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpn_connections(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeVpnConnections", input, options)
   end
@@ -40096,8 +39687,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpn_gateways(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeVpnGateways", input, options)
   end
@@ -40117,8 +39707,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def detach_classic_link_vpc(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetachClassicLinkVpc", input, options)
   end
@@ -40136,8 +39725,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def detach_internet_gateway(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetachInternetGateway", input, options)
   end
@@ -40150,8 +39738,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def detach_network_interface(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetachNetworkInterface", input, options)
   end
@@ -40169,8 +39756,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def detach_verified_access_trust_provider(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetachVerifiedAccessTrustProvider", input, options)
   end
@@ -40209,8 +39795,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def detach_volume(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetachVolume", input, options)
   end
@@ -40232,8 +39817,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def detach_vpn_gateway(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetachVpnGateway", input, options)
   end
@@ -40249,8 +39833,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_address_transfer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableAddressTransfer", input, options)
   end
@@ -40282,8 +39865,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_allowed_images_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableAllowedImagesSettings", input, options)
   end
@@ -40304,8 +39886,7 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -40339,8 +39920,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_ebs_encryption_by_default(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableEbsEncryptionByDefault", input, options)
   end
@@ -40365,8 +39945,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_fast_launch(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableFastLaunch", input, options)
   end
@@ -40380,8 +39959,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_fast_snapshot_restores(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableFastSnapshotRestores", input, options)
   end
@@ -40416,8 +39994,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_image(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableImage", input, options)
   end
@@ -40451,8 +40028,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_image_block_public_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableImageBlockPublicAccess", input, options)
   end
@@ -40469,8 +40045,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_image_deprecation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableImageDeprecation", input, options)
   end
@@ -40499,8 +40074,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_image_deregistration_protection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableImageDeregistrationProtection", input, options)
   end
@@ -40520,8 +40094,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_ipam_organization_admin_account(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableIpamOrganizationAdminAccount", input, options)
   end
@@ -40567,8 +40140,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_route_server_propagation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableRouteServerPropagation", input, options)
   end
@@ -40588,8 +40160,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_serial_console_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableSerialConsoleAccess", input, options)
   end
@@ -40629,8 +40200,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_snapshot_block_public_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableSnapshotBlockPublicAccess", input, options)
   end
@@ -40649,8 +40219,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_transit_gateway_route_table_propagation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -40671,8 +40240,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_vgw_route_propagation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableVgwRoutePropagation", input, options)
   end
@@ -40690,8 +40258,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_vpc_classic_link(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableVpcClassicLink", input, options)
   end
@@ -40717,8 +40284,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_vpc_classic_link_dns_support(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableVpcClassicLinkDnsSupport", input, options)
   end
@@ -40747,8 +40313,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_address(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateAddress", input, options)
   end
@@ -40770,8 +40335,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_capacity_reservation_billing_owner(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -40809,8 +40373,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_client_vpn_target_network(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateClientVpnTargetNetwork", input, options)
   end
@@ -40836,8 +40399,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_enclave_certificate_iam_role(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateEnclaveCertificateIamRole", input, options)
   end
@@ -40857,8 +40419,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_iam_instance_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateIamInstanceProfile", input, options)
   end
@@ -40878,8 +40439,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_instance_event_window(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateInstanceEventWindow", input, options)
   end
@@ -40898,8 +40458,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_ipam_byoasn(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateIpamByoasn", input, options)
   end
@@ -40919,8 +40478,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_ipam_resource_discovery(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateIpamResourceDiscovery", input, options)
   end
@@ -40954,8 +40512,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_nat_gateway_address(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateNatGatewayAddress", input, options)
   end
@@ -40974,8 +40531,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_route_server(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateRouteServer", input, options)
   end
@@ -40994,8 +40550,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_route_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateRouteTable", input, options)
   end
@@ -41015,8 +40570,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_security_group_vpc(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateSecurityGroupVpc", input, options)
   end
@@ -41033,8 +40587,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_subnet_cidr_block(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateSubnetCidrBlock", input, options)
   end
@@ -41051,8 +40604,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_transit_gateway_multicast_domain(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -41075,8 +40627,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_transit_gateway_policy_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateTransitGatewayPolicyTable", input, options)
   end
@@ -41093,8 +40644,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_transit_gateway_route_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateTransitGatewayRouteTable", input, options)
   end
@@ -41108,8 +40658,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_trunk_interface(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateTrunkInterface", input, options)
   end
@@ -41131,8 +40680,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_vpc_cidr_block(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateVpcCidrBlock", input, options)
   end
@@ -41148,8 +40696,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_address_transfer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableAddressTransfer", input, options)
   end
@@ -41198,8 +40745,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_allowed_images_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableAllowedImagesSettings", input, options)
   end
@@ -41216,8 +40762,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_aws_network_performance_metric_subscription(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -41255,8 +40800,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_ebs_encryption_by_default(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableEbsEncryptionByDefault", input, options)
   end
@@ -41284,8 +40828,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_fast_launch(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableFastLaunch", input, options)
   end
@@ -41305,8 +40848,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_fast_snapshot_restores(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableFastSnapshotRestores", input, options)
   end
@@ -41333,8 +40875,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_image(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableImage", input, options)
   end
@@ -41366,8 +40907,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_image_block_public_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableImageBlockPublicAccess", input, options)
   end
@@ -41384,8 +40924,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_image_deprecation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableImageDeprecation", input, options)
   end
@@ -41412,8 +40951,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_image_deregistration_protection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableImageDeregistrationProtection", input, options)
   end
@@ -41434,8 +40972,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_ipam_organization_admin_account(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableIpamOrganizationAdminAccount", input, options)
   end
@@ -41460,8 +40997,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_reachability_analyzer_organization_sharing(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -41487,8 +41023,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_route_server_propagation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableRouteServerPropagation", input, options)
   end
@@ -41506,8 +41041,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_serial_console_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableSerialConsoleAccess", input, options)
   end
@@ -41550,8 +41084,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_snapshot_block_public_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableSnapshotBlockPublicAccess", input, options)
   end
@@ -41569,8 +41102,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_transit_gateway_route_table_propagation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -41591,8 +41123,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_vgw_route_propagation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableVgwRoutePropagation", input, options)
   end
@@ -41607,8 +41138,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_volume_i_o(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableVolumeIO", input, options)
   end
@@ -41631,8 +41161,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_vpc_classic_link(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableVpcClassicLink", input, options)
   end
@@ -41662,8 +41191,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_vpc_classic_link_dns_support(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableVpcClassicLinkDnsSupport", input, options)
   end
@@ -41685,8 +41213,7 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -41715,8 +41242,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def export_client_vpn_client_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExportClientVpnClientConfiguration", input, options)
   end
@@ -41734,8 +41260,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def export_image(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExportImage", input, options)
   end
@@ -41758,8 +41283,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def export_transit_gateway_routes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExportTransitGatewayRoutes", input, options)
   end
@@ -41780,8 +41304,7 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -41802,8 +41325,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_active_vpn_tunnel_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetActiveVpnTunnelStatus", input, options)
   end
@@ -41829,8 +41351,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_allowed_images_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAllowedImagesSettings", input, options)
   end
@@ -41854,8 +41375,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_associated_enclave_certificate_iam_roles(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAssociatedEnclaveCertificateIamRoles", input, options)
   end
@@ -41869,8 +41389,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_associated_ipv6_pool_cidrs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAssociatedIpv6PoolCidrs", input, options)
   end
@@ -41887,8 +41406,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_aws_network_performance_data(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAwsNetworkPerformanceData", input, options)
   end
@@ -41907,8 +41425,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_capacity_reservation_usage(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCapacityReservationUsage", input, options)
   end
@@ -41921,8 +41438,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_coip_pool_usage(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCoipPoolUsage", input, options)
   end
@@ -41946,8 +41462,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_console_output(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetConsoleOutput", input, options)
   end
@@ -41966,8 +41481,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_console_screenshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetConsoleScreenshot", input, options)
   end
@@ -41997,8 +41511,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_declarative_policies_report_summary(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDeclarativePoliciesReportSummary", input, options)
   end
@@ -42021,8 +41534,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_default_credit_specification(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDefaultCreditSpecification", input, options)
   end
@@ -42039,8 +41551,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_ebs_default_kms_key_id(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetEbsDefaultKmsKeyId", input, options)
   end
@@ -42058,8 +41569,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_ebs_encryption_by_default(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetEbsEncryptionByDefault", input, options)
   end
@@ -42099,8 +41609,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_flow_logs_integration_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetFlowLogsIntegrationTemplate", input, options)
   end
@@ -42117,8 +41626,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_groups_for_capacity_reservation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetGroupsForCapacityReservation", input, options)
   end
@@ -42143,8 +41651,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_host_reservation_purchase_preview(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetHostReservationPurchasePreview", input, options)
   end
@@ -42166,8 +41673,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_image_block_public_access_state(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetImageBlockPublicAccessState", input, options)
   end
@@ -42186,8 +41692,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_instance_metadata_defaults(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetInstanceMetadataDefaults", input, options)
   end
@@ -42201,8 +41706,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_instance_tpm_ek_pub(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetInstanceTpmEkPub", input, options)
   end
@@ -42238,8 +41742,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_instance_types_from_instance_requirements(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetInstanceTypesFromInstanceRequirements", input, options)
   end
@@ -42273,8 +41776,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_instance_uefi_data(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetInstanceUefiData", input, options)
   end
@@ -42290,8 +41792,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_ipam_address_history(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetIpamAddressHistory", input, options)
   end
@@ -42309,8 +41810,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_ipam_discovered_accounts(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetIpamDiscoveredAccounts", input, options)
   end
@@ -42327,8 +41827,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_ipam_discovered_public_addresses(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetIpamDiscoveredPublicAddresses", input, options)
   end
@@ -42349,8 +41848,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_ipam_discovered_resource_cidrs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetIpamDiscoveredResourceCidrs", input, options)
   end
@@ -42372,8 +41870,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_ipam_pool_allocations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetIpamPoolAllocations", input, options)
   end
@@ -42386,8 +41883,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_ipam_pool_cidrs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetIpamPoolCidrs", input, options)
   end
@@ -42405,8 +41901,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_ipam_resource_cidrs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetIpamResourceCidrs", input, options)
   end
@@ -42431,8 +41926,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_launch_template_data(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetLaunchTemplateData", input, options)
   end
@@ -42450,8 +41944,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_managed_prefix_list_associations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetManagedPrefixListAssociations", input, options)
   end
@@ -42464,8 +41957,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_managed_prefix_list_entries(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetManagedPrefixListEntries", input, options)
   end
@@ -42486,8 +41978,7 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -42510,8 +42001,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_network_insights_access_scope_content(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetNetworkInsightsAccessScopeContent", input, options)
   end
@@ -42546,8 +42036,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_password_data(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPasswordData", input, options)
   end
@@ -42570,8 +42059,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_reserved_instances_exchange_quote(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetReservedInstancesExchangeQuote", input, options)
   end
@@ -42590,8 +42078,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_route_server_associations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRouteServerAssociations", input, options)
   end
@@ -42630,8 +42117,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_route_server_propagations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRouteServerPropagations", input, options)
   end
@@ -42677,8 +42163,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_route_server_routing_database(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRouteServerRoutingDatabase", input, options)
   end
@@ -42692,8 +42177,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_security_groups_for_vpc(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSecurityGroupsForVpc", input, options)
   end
@@ -42717,8 +42201,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_serial_console_access_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSerialConsoleAccessStatus", input, options)
   end
@@ -42741,8 +42224,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_snapshot_block_public_access_state(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSnapshotBlockPublicAccessState", input, options)
   end
@@ -42767,8 +42249,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_spot_placement_scores(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSpotPlacementScores", input, options)
   end
@@ -42781,8 +42262,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_subnet_cidr_reservations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSubnetCidrReservations", input, options)
   end
@@ -42800,8 +42280,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_transit_gateway_attachment_propagations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTransitGatewayAttachmentPropagations", input, options)
   end
@@ -42819,8 +42298,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_transit_gateway_multicast_domain_associations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -42843,8 +42321,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_transit_gateway_policy_table_associations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTransitGatewayPolicyTableAssociations", input, options)
   end
@@ -42861,8 +42338,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_transit_gateway_policy_table_entries(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTransitGatewayPolicyTableEntries", input, options)
   end
@@ -42880,8 +42356,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_transit_gateway_prefix_list_references(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTransitGatewayPrefixListReferences", input, options)
   end
@@ -42899,8 +42374,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_transit_gateway_route_table_associations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTransitGatewayRouteTableAssociations", input, options)
   end
@@ -42918,8 +42392,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_transit_gateway_route_table_propagations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTransitGatewayRouteTablePropagations", input, options)
   end
@@ -42936,8 +42409,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_verified_access_endpoint_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetVerifiedAccessEndpointPolicy", input, options)
   end
@@ -42954,8 +42426,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_verified_access_endpoint_targets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetVerifiedAccessEndpointTargets", input, options)
   end
@@ -42972,8 +42443,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_verified_access_group_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetVerifiedAccessGroupPolicy", input, options)
   end
@@ -42992,8 +42462,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_vpn_connection_device_sample_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -43018,8 +42487,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_vpn_connection_device_types(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetVpnConnectionDeviceTypes", input, options)
   end
@@ -43036,8 +42504,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_vpn_tunnel_replacement_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetVpnTunnelReplacementStatus", input, options)
   end
@@ -43065,8 +42532,7 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -43108,8 +42574,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def import_image(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ImportImage", input, options)
   end
@@ -43140,8 +42605,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def import_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ImportInstance", input, options)
   end
@@ -43162,8 +42626,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def import_key_pair(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ImportKeyPair", input, options)
   end
@@ -43180,8 +42643,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def import_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ImportSnapshot", input, options)
   end
@@ -43206,8 +42668,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def import_volume(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ImportVolume", input, options)
   end
@@ -43224,8 +42685,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_images_in_recycle_bin(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListImagesInRecycleBin", input, options)
   end
@@ -43238,8 +42698,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_snapshots_in_recycle_bin(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSnapshotsInRecycleBin", input, options)
   end
@@ -43276,8 +42735,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def lock_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "LockSnapshot", input, options)
   end
@@ -43292,8 +42750,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_address_attribute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyAddressAttribute", input, options)
   end
@@ -43306,8 +42763,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_availability_zone_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyAvailabilityZoneGroup", input, options)
   end
@@ -43360,8 +42816,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_capacity_reservation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyCapacityReservation", input, options)
   end
@@ -43387,8 +42842,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_capacity_reservation_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyCapacityReservationFleet", input, options)
   end
@@ -43403,8 +42857,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_client_vpn_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyClientVpnEndpoint", input, options)
   end
@@ -43443,8 +42896,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_default_credit_specification(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyDefaultCreditSpecification", input, options)
   end
@@ -43471,8 +42923,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_ebs_default_kms_key_id(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyEbsDefaultKmsKeyId", input, options)
   end
@@ -43525,8 +42976,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyFleet", input, options)
   end
@@ -43539,8 +42989,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_fpga_image_attribute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyFpgaImageAttribute", input, options)
   end
@@ -43566,8 +43015,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_hosts(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyHosts", input, options)
   end
@@ -43617,8 +43065,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_id_format(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyIdFormat", input, options)
   end
@@ -43666,8 +43113,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_identity_id_format(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyIdentityIdFormat", input, options)
   end
@@ -43693,8 +43139,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_image_attribute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyImageAttribute", input, options)
   end
@@ -43724,8 +43169,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_instance_attribute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyInstanceAttribute", input, options)
   end
@@ -43747,8 +43191,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_instance_capacity_reservation_attributes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -43782,8 +43225,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_instance_cpu_options(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyInstanceCpuOptions", input, options)
   end
@@ -43809,8 +43251,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_instance_credit_specification(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyInstanceCreditSpecification", input, options)
   end
@@ -43827,8 +43268,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_instance_event_start_time(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyInstanceEventStartTime", input, options)
   end
@@ -43855,8 +43295,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_instance_event_window(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyInstanceEventWindow", input, options)
   end
@@ -43883,8 +43322,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_instance_maintenance_options(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyInstanceMaintenanceOptions", input, options)
   end
@@ -43911,8 +43349,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_instance_metadata_defaults(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyInstanceMetadataDefaults", input, options)
   end
@@ -43942,8 +43379,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_instance_metadata_options(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyInstanceMetadataOptions", input, options)
   end
@@ -43961,8 +43397,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_instance_network_performance_options(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyInstanceNetworkPerformanceOptions", input, options)
   end
@@ -44003,8 +43438,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_instance_placement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyInstancePlacement", input, options)
   end
@@ -44017,8 +43451,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_ipam(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyIpam", input, options)
   end
@@ -44034,8 +43467,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_ipam_pool(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyIpamPool", input, options)
   end
@@ -44057,8 +43489,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_ipam_resource_cidr(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyIpamResourceCidr", input, options)
   end
@@ -44074,8 +43505,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_ipam_resource_discovery(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyIpamResourceDiscovery", input, options)
   end
@@ -44088,8 +43518,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_ipam_scope(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyIpamScope", input, options)
   end
@@ -44107,8 +43536,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_launch_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyLaunchTemplate", input, options)
   end
@@ -44121,8 +43549,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_local_gateway_route(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyLocalGatewayRoute", input, options)
   end
@@ -44143,8 +43570,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_managed_prefix_list(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyManagedPrefixList", input, options)
   end
@@ -44166,8 +43592,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_network_interface_attribute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyNetworkInterfaceAttribute", input, options)
   end
@@ -44180,8 +43605,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_private_dns_name_options(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyPrivateDnsNameOptions", input, options)
   end
@@ -44201,8 +43625,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_public_ip_dns_name_options(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyPublicIpDnsNameOptions", input, options)
   end
@@ -44224,8 +43647,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_reserved_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyReservedInstances", input, options)
   end
@@ -44263,8 +43685,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_route_server(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyRouteServer", input, options)
   end
@@ -44277,8 +43698,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_security_group_rules(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifySecurityGroupRules", input, options)
   end
@@ -44308,8 +43728,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_snapshot_attribute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifySnapshotAttribute", input, options)
   end
@@ -44329,8 +43748,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_snapshot_tier(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifySnapshotTier", input, options)
   end
@@ -44384,8 +43802,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_spot_fleet_request(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifySpotFleetRequest", input, options)
   end
@@ -44423,8 +43840,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_subnet_attribute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifySubnetAttribute", input, options)
   end
@@ -44448,8 +43864,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_traffic_mirror_filter_network_services(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyTrafficMirrorFilterNetworkServices", input, options)
   end
@@ -44469,8 +43884,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_traffic_mirror_filter_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyTrafficMirrorFilterRule", input, options)
   end
@@ -44483,8 +43897,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_traffic_mirror_session(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyTrafficMirrorSession", input, options)
   end
@@ -44501,8 +43914,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_transit_gateway(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyTransitGateway", input, options)
   end
@@ -44520,8 +43932,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_transit_gateway_prefix_list_reference(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyTransitGatewayPrefixListReference", input, options)
   end
@@ -44538,8 +43949,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_transit_gateway_vpc_attachment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyTransitGatewayVpcAttachment", input, options)
   end
@@ -44553,8 +43963,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_verified_access_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyVerifiedAccessEndpoint", input, options)
   end
@@ -44571,8 +43980,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_verified_access_endpoint_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyVerifiedAccessEndpointPolicy", input, options)
   end
@@ -44585,8 +43993,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_verified_access_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyVerifiedAccessGroup", input, options)
   end
@@ -44603,8 +44010,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_verified_access_group_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyVerifiedAccessGroupPolicy", input, options)
   end
@@ -44618,8 +44024,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_verified_access_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyVerifiedAccessInstance", input, options)
   end
@@ -44641,8 +44046,7 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -44666,8 +44070,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_verified_access_trust_provider(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyVerifiedAccessTrustProvider", input, options)
   end
@@ -44706,8 +44109,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_volume(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyVolume", input, options)
   end
@@ -44732,8 +44134,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_volume_attribute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyVolumeAttribute", input, options)
   end
@@ -44746,8 +44147,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_vpc_attribute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyVpcAttribute", input, options)
   end
@@ -44770,8 +44170,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_vpc_block_public_access_exclusion(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyVpcBlockPublicAccessExclusion", input, options)
   end
@@ -44794,8 +44193,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_vpc_block_public_access_options(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyVpcBlockPublicAccessOptions", input, options)
   end
@@ -44813,8 +44211,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_vpc_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyVpcEndpoint", input, options)
   end
@@ -44835,8 +44232,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_vpc_endpoint_connection_notification(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyVpcEndpointConnectionNotification", input, options)
   end
@@ -44857,8 +44253,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_vpc_endpoint_service_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyVpcEndpointServiceConfiguration", input, options)
   end
@@ -44875,8 +44270,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_vpc_endpoint_service_payer_responsibility(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -44910,8 +44304,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_vpc_endpoint_service_permissions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyVpcEndpointServicePermissions", input, options)
   end
@@ -44949,8 +44342,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_vpc_peering_connection_options(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyVpcPeeringConnectionOptions", input, options)
   end
@@ -44976,8 +44368,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_vpc_tenancy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyVpcTenancy", input, options)
   end
@@ -45041,8 +44432,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_vpn_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyVpnConnection", input, options)
   end
@@ -45061,8 +44451,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_vpn_connection_options(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyVpnConnectionOptions", input, options)
   end
@@ -45075,8 +44464,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_vpn_tunnel_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyVpnTunnelCertificate", input, options)
   end
@@ -45097,8 +44485,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_vpn_tunnel_options(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyVpnTunnelOptions", input, options)
   end
@@ -45118,8 +44505,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def monitor_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "MonitorInstances", input, options)
   end
@@ -45144,8 +44530,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def move_address_to_vpc(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "MoveAddressToVpc", input, options)
   end
@@ -45163,8 +44548,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def move_byoip_cidr_to_ipam(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "MoveByoipCidrToIpam", input, options)
   end
@@ -45206,8 +44590,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def move_capacity_reservation_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "MoveCapacityReservationInstances", input, options)
   end
@@ -45240,8 +44623,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def provision_byoip_cidr(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ProvisionByoipCidr", input, options)
   end
@@ -45259,8 +44641,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def provision_ipam_byoasn(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ProvisionIpamByoasn", input, options)
   end
@@ -45279,8 +44660,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def provision_ipam_pool_cidr(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ProvisionIpamPoolCidr", input, options)
   end
@@ -45296,8 +44676,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def provision_public_ipv4_pool_cidr(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ProvisionPublicIpv4PoolCidr", input, options)
   end
@@ -45315,8 +44694,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def purchase_capacity_block(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PurchaseCapacityBlock", input, options)
   end
@@ -45336,8 +44714,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def purchase_capacity_block_extension(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PurchaseCapacityBlockExtension", input, options)
   end
@@ -45357,8 +44734,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def purchase_host_reservation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PurchaseHostReservation", input, options)
   end
@@ -45391,8 +44767,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def purchase_reserved_instances_offering(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PurchaseReservedInstancesOffering", input, options)
   end
@@ -45419,8 +44794,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def purchase_scheduled_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PurchaseScheduledInstances", input, options)
   end
@@ -45447,8 +44821,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def reboot_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RebootInstances", input, options)
   end
@@ -45529,8 +44902,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def register_image(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterImage", input, options)
   end
@@ -45551,8 +44923,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def register_instance_event_notification_attributes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -45587,8 +44958,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def register_transit_gateway_multicast_group_members(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -45624,8 +44994,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def register_transit_gateway_multicast_group_sources(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -45653,8 +45022,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def reject_capacity_reservation_billing_ownership(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -45682,8 +45050,7 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -45706,8 +45073,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def reject_transit_gateway_peering_attachment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RejectTransitGatewayPeeringAttachment", input, options)
   end
@@ -45729,8 +45095,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def reject_transit_gateway_vpc_attachment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RejectTransitGatewayVpcAttachment", input, options)
   end
@@ -45743,8 +45108,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def reject_vpc_endpoint_connections(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RejectVpcEndpointConnections", input, options)
   end
@@ -45764,8 +45128,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def reject_vpc_peering_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RejectVpcPeeringConnection", input, options)
   end
@@ -45797,8 +45160,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def release_address(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ReleaseAddress", input, options)
   end
@@ -45826,8 +45188,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def release_hosts(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ReleaseHosts", input, options)
   end
@@ -45851,8 +45212,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def release_ipam_pool_allocation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ReleaseIpamPoolAllocation", input, options)
   end
@@ -45877,8 +45237,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def replace_iam_instance_profile_association(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ReplaceIamInstanceProfileAssociation", input, options)
   end
@@ -45906,8 +45265,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def replace_image_criteria_in_allowed_images_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -45933,8 +45291,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def replace_network_acl_association(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ReplaceNetworkAclAssociation", input, options)
   end
@@ -45951,8 +45308,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def replace_network_acl_entry(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ReplaceNetworkAclEntry", input, options)
   end
@@ -45975,8 +45331,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def replace_route(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ReplaceRoute", input, options)
   end
@@ -46000,8 +45355,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def replace_route_table_association(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ReplaceRouteTableAssociation", input, options)
   end
@@ -46014,8 +45368,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def replace_transit_gateway_route(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ReplaceTransitGatewayRoute", input, options)
   end
@@ -46028,8 +45381,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def replace_vpn_tunnel(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ReplaceVpnTunnel", input, options)
   end
@@ -46051,8 +45403,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def report_instance_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ReportInstanceStatus", input, options)
   end
@@ -46105,8 +45456,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def request_spot_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RequestSpotFleet", input, options)
   end
@@ -46130,8 +45480,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def request_spot_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RequestSpotInstances", input, options)
   end
@@ -46146,8 +45495,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def reset_address_attribute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResetAddressAttribute", input, options)
   end
@@ -46168,8 +45516,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def reset_ebs_default_kms_key_id(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResetEbsDefaultKmsKeyId", input, options)
   end
@@ -46185,8 +45532,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def reset_fpga_image_attribute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResetFpgaImageAttribute", input, options)
   end
@@ -46199,8 +45545,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def reset_image_attribute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResetImageAttribute", input, options)
   end
@@ -46225,8 +45570,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def reset_instance_attribute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResetInstanceAttribute", input, options)
   end
@@ -46246,8 +45590,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def reset_network_interface_attribute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResetNetworkInterfaceAttribute", input, options)
   end
@@ -46264,8 +45607,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def reset_snapshot_attribute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResetSnapshotAttribute", input, options)
   end
@@ -46284,8 +45626,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def restore_address_to_classic(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RestoreAddressToClassic", input, options)
   end
@@ -46303,8 +45644,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def restore_image_from_recycle_bin(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RestoreImageFromRecycleBin", input, options)
   end
@@ -46322,8 +45662,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def restore_managed_prefix_list_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RestoreManagedPrefixListVersion", input, options)
   end
@@ -46344,8 +45683,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def restore_snapshot_from_recycle_bin(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RestoreSnapshotFromRecycleBin", input, options)
   end
@@ -46368,8 +45706,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def restore_snapshot_tier(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RestoreSnapshotTier", input, options)
   end
@@ -46382,8 +45719,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def revoke_client_vpn_ingress(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RevokeClientVpnIngress", input, options)
   end
@@ -46422,8 +45758,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def revoke_security_group_egress(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RevokeSecurityGroupEgress", input, options)
   end
@@ -46468,8 +45803,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def revoke_security_group_ingress(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RevokeSecurityGroupIngress", input, options)
   end
@@ -46540,8 +45874,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def run_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RunInstances", input, options)
   end
@@ -46565,8 +45898,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def run_scheduled_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RunScheduledInstances", input, options)
   end
@@ -46579,8 +45911,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def search_local_gateway_routes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SearchLocalGatewayRoutes", input, options)
   end
@@ -46598,8 +45929,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def search_transit_gateway_multicast_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SearchTransitGatewayMulticastGroups", input, options)
   end
@@ -46612,8 +45942,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def search_transit_gateway_routes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SearchTransitGatewayRoutes", input, options)
   end
@@ -46650,8 +45979,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def send_diagnostic_interrupt(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SendDiagnosticInterrupt", input, options)
   end
@@ -46723,8 +46051,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def start_declarative_policies_report(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartDeclarativePoliciesReport", input, options)
   end
@@ -46766,8 +46093,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def start_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartInstances", input, options)
   end
@@ -46784,8 +46110,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def start_network_insights_access_scope_analysis(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartNetworkInsightsAccessScopeAnalysis", input, options)
   end
@@ -46801,8 +46126,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def start_network_insights_analysis(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartNetworkInsightsAnalysis", input, options)
   end
@@ -46831,8 +46155,7 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -46902,8 +46225,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def stop_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopInstances", input, options)
   end
@@ -46923,8 +46245,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def terminate_client_vpn_connections(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TerminateClientVpnConnections", input, options)
   end
@@ -47024,8 +46345,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def terminate_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TerminateInstances", input, options)
   end
@@ -47040,8 +46360,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def unassign_ipv6_addresses(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UnassignIpv6Addresses", input, options)
   end
@@ -47055,8 +46374,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def unassign_private_ip_addresses(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UnassignPrivateIpAddresses", input, options)
   end
@@ -47091,8 +46409,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def unassign_private_nat_gateway_address(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UnassignPrivateNatGatewayAddress", input, options)
   end
@@ -47110,8 +46427,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def unlock_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UnlockSnapshot", input, options)
   end
@@ -47129,8 +46445,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def unmonitor_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UnmonitorInstances", input, options)
   end
@@ -47154,8 +46469,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def update_security_group_rule_descriptions_egress(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -47185,8 +46499,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def update_security_group_rule_descriptions_ingress(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -47213,8 +46526,7 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def withdraw_byoip_cidr(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "WithdrawByoipCidr", input, options)
   end

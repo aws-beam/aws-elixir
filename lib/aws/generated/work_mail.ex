@@ -3680,8 +3680,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, associate_delegate_to_resource_errors()}
   def associate_delegate_to_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateDelegateToResource", input, options)
   end
@@ -3695,8 +3694,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, associate_member_to_group_errors()}
   def associate_member_to_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateMemberToGroup", input, options)
   end
@@ -3713,8 +3711,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, assume_impersonation_role_errors()}
   def assume_impersonation_role(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssumeImpersonationRole", input, options)
   end
@@ -3731,8 +3728,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, cancel_mailbox_export_job_errors()}
   def cancel_mailbox_export_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelMailboxExportJob", input, options)
   end
@@ -3746,8 +3742,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, create_alias_errors()}
   def create_alias(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAlias", input, options)
   end
@@ -3766,8 +3761,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, create_availability_configuration_errors()}
   def create_availability_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAvailabilityConfiguration", input, options)
   end
@@ -3782,8 +3776,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, create_group_errors()}
   def create_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateGroup", input, options)
   end
@@ -3806,8 +3799,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, create_identity_center_application_errors()}
   def create_identity_center_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateIdentityCenterApplication", input, options)
   end
@@ -3827,8 +3819,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, create_impersonation_role_errors()}
   def create_impersonation_role(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateImpersonationRole", input, options)
   end
@@ -3846,8 +3837,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, create_mobile_device_access_rule_errors()}
   def create_mobile_device_access_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateMobileDeviceAccessRule", input, options)
   end
@@ -3881,8 +3871,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, create_organization_errors()}
   def create_organization(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateOrganization", input, options)
   end
@@ -3896,8 +3885,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, create_resource_errors()}
   def create_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateResource", input, options)
   end
@@ -3912,8 +3900,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateUser", input, options)
   end
@@ -3931,8 +3918,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, delete_access_control_rule_errors()}
   def delete_access_control_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAccessControlRule", input, options)
   end
@@ -3947,8 +3933,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, delete_alias_errors()}
   def delete_alias(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAlias", input, options)
   end
@@ -3967,8 +3952,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, delete_availability_configuration_errors()}
   def delete_availability_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAvailabilityConfiguration", input, options)
   end
@@ -3986,8 +3970,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, delete_email_monitoring_configuration_errors()}
   def delete_email_monitoring_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteEmailMonitoringConfiguration", input, options)
   end
@@ -4001,8 +3984,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, delete_group_errors()}
   def delete_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteGroup", input, options)
   end
@@ -4024,8 +4006,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, delete_identity_center_application_errors()}
   def delete_identity_center_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteIdentityCenterApplication", input, options)
   end
@@ -4048,8 +4029,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, delete_identity_provider_configuration_errors()}
   def delete_identity_provider_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteIdentityProviderConfiguration", input, options)
   end
@@ -4063,8 +4043,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, delete_impersonation_role_errors()}
   def delete_impersonation_role(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteImpersonationRole", input, options)
   end
@@ -4078,8 +4057,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, delete_mailbox_permissions_errors()}
   def delete_mailbox_permissions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteMailboxPermissions", input, options)
   end
@@ -4102,8 +4080,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, delete_mobile_device_access_override_errors()}
   def delete_mobile_device_access_override(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteMobileDeviceAccessOverride", input, options)
   end
@@ -4125,8 +4102,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, delete_mobile_device_access_rule_errors()}
   def delete_mobile_device_access_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteMobileDeviceAccessRule", input, options)
   end
@@ -4145,8 +4121,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, delete_organization_errors()}
   def delete_organization(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteOrganization", input, options)
   end
@@ -4161,8 +4136,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, delete_personal_access_token_errors()}
   def delete_personal_access_token(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePersonalAccessToken", input, options)
   end
@@ -4176,8 +4150,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, delete_resource_errors()}
   def delete_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteResource", input, options)
   end
@@ -4191,8 +4164,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, delete_retention_policy_errors()}
   def delete_retention_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRetentionPolicy", input, options)
   end
@@ -4214,8 +4186,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteUser", input, options)
   end
@@ -4235,8 +4206,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, deregister_from_work_mail_errors()}
   def deregister_from_work_mail(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeregisterFromWorkMail", input, options)
   end
@@ -4254,8 +4224,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, deregister_mail_domain_errors()}
   def deregister_mail_domain(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeregisterMailDomain", input, options)
   end
@@ -4274,8 +4243,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, describe_email_monitoring_configuration_errors()}
   def describe_email_monitoring_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEmailMonitoringConfiguration", input, options)
   end
@@ -4289,8 +4257,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, describe_entity_errors()}
   def describe_entity(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEntity", input, options)
   end
@@ -4304,8 +4271,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, describe_group_errors()}
   def describe_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeGroup", input, options)
   end
@@ -4325,8 +4291,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, describe_identity_provider_configuration_errors()}
   def describe_identity_provider_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeIdentityProviderConfiguration", input, options)
   end
@@ -4340,8 +4305,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, describe_inbound_dmarc_settings_errors()}
   def describe_inbound_dmarc_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeInboundDmarcSettings", input, options)
   end
@@ -4355,8 +4319,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, describe_mailbox_export_job_errors()}
   def describe_mailbox_export_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeMailboxExportJob", input, options)
   end
@@ -4371,8 +4334,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, describe_organization_errors()}
   def describe_organization(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeOrganization", input, options)
   end
@@ -4386,8 +4348,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, describe_resource_errors()}
   def describe_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeResource", input, options)
   end
@@ -4401,8 +4362,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, describe_user_errors()}
   def describe_user(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeUser", input, options)
   end
@@ -4420,8 +4380,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, disassociate_delegate_from_resource_errors()}
   def disassociate_delegate_from_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateDelegateFromResource", input, options)
   end
@@ -4435,8 +4394,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, disassociate_member_from_group_errors()}
   def disassociate_member_from_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateMemberFromGroup", input, options)
   end
@@ -4455,8 +4413,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, get_access_control_effect_errors()}
   def get_access_control_effect(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAccessControlEffect", input, options)
   end
@@ -4470,8 +4427,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, get_default_retention_policy_errors()}
   def get_default_retention_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDefaultRetentionPolicy", input, options)
   end
@@ -4485,8 +4441,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, get_impersonation_role_errors()}
   def get_impersonation_role(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetImpersonationRole", input, options)
   end
@@ -4500,8 +4455,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, get_impersonation_role_effect_errors()}
   def get_impersonation_role_effect(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetImpersonationRoleEffect", input, options)
   end
@@ -4516,8 +4470,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, get_mail_domain_errors()}
   def get_mail_domain(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetMailDomain", input, options)
   end
@@ -4531,8 +4484,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, get_mailbox_details_errors()}
   def get_mailbox_details(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetMailboxDetails", input, options)
   end
@@ -4550,8 +4502,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, get_mobile_device_access_effect_errors()}
   def get_mobile_device_access_effect(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetMobileDeviceAccessEffect", input, options)
   end
@@ -4570,8 +4521,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, get_mobile_device_access_override_errors()}
   def get_mobile_device_access_override(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetMobileDeviceAccessOverride", input, options)
   end
@@ -4591,8 +4541,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, get_personal_access_token_metadata_errors()}
   def get_personal_access_token_metadata(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPersonalAccessTokenMetadata", input, options)
   end
@@ -4606,8 +4555,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, list_access_control_rules_errors()}
   def list_access_control_rules(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAccessControlRules", input, options)
   end
@@ -4622,8 +4570,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, list_aliases_errors()}
   def list_aliases(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAliases", input, options)
   end
@@ -4641,8 +4588,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, list_availability_configurations_errors()}
   def list_availability_configurations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAvailabilityConfigurations", input, options)
   end
@@ -4659,8 +4605,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, list_group_members_errors()}
   def list_group_members(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListGroupMembers", input, options)
   end
@@ -4674,8 +4619,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, list_groups_errors()}
   def list_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListGroups", input, options)
   end
@@ -4689,8 +4633,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, list_groups_for_entity_errors()}
   def list_groups_for_entity(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListGroupsForEntity", input, options)
   end
@@ -4704,8 +4647,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, list_impersonation_roles_errors()}
   def list_impersonation_roles(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListImpersonationRoles", input, options)
   end
@@ -4719,8 +4661,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, list_mail_domains_errors()}
   def list_mail_domains(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListMailDomains", input, options)
   end
@@ -4736,8 +4677,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, list_mailbox_export_jobs_errors()}
   def list_mailbox_export_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListMailboxExportJobs", input, options)
   end
@@ -4752,8 +4692,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, list_mailbox_permissions_errors()}
   def list_mailbox_permissions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListMailboxPermissions", input, options)
   end
@@ -4772,8 +4711,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, list_mobile_device_access_overrides_errors()}
   def list_mobile_device_access_overrides(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListMobileDeviceAccessOverrides", input, options)
   end
@@ -4787,8 +4725,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, list_mobile_device_access_rules_errors()}
   def list_mobile_device_access_rules(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListMobileDeviceAccessRules", input, options)
   end
@@ -4802,8 +4739,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, list_organizations_errors()}
   def list_organizations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListOrganizations", input, options)
   end
@@ -4818,8 +4754,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, list_personal_access_tokens_errors()}
   def list_personal_access_tokens(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPersonalAccessTokens", input, options)
   end
@@ -4836,8 +4771,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, list_resource_delegates_errors()}
   def list_resource_delegates(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListResourceDelegates", input, options)
   end
@@ -4851,8 +4785,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, list_resources_errors()}
   def list_resources(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListResources", input, options)
   end
@@ -4866,8 +4799,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -4881,8 +4813,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, list_users_errors()}
   def list_users(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListUsers", input, options)
   end
@@ -4903,8 +4834,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, put_access_control_rule_errors()}
   def put_access_control_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutAccessControlRule", input, options)
   end
@@ -4923,8 +4853,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, put_email_monitoring_configuration_errors()}
   def put_email_monitoring_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutEmailMonitoringConfiguration", input, options)
   end
@@ -4950,8 +4879,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, put_identity_provider_configuration_errors()}
   def put_identity_provider_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutIdentityProviderConfiguration", input, options)
   end
@@ -4965,8 +4893,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, put_inbound_dmarc_settings_errors()}
   def put_inbound_dmarc_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutInboundDmarcSettings", input, options)
   end
@@ -4983,8 +4910,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, put_mailbox_permissions_errors()}
   def put_mailbox_permissions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutMailboxPermissions", input, options)
   end
@@ -5003,8 +4929,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, put_mobile_device_access_override_errors()}
   def put_mobile_device_access_override(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutMobileDeviceAccessOverride", input, options)
   end
@@ -5018,8 +4943,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, put_retention_policy_errors()}
   def put_retention_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutRetentionPolicy", input, options)
   end
@@ -5038,8 +4962,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, register_mail_domain_errors()}
   def register_mail_domain(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterMailDomain", input, options)
   end
@@ -5065,8 +4988,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, register_to_work_mail_errors()}
   def register_to_work_mail(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterToWorkMail", input, options)
   end
@@ -5080,8 +5002,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, reset_password_errors()}
   def reset_password(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResetPassword", input, options)
   end
@@ -5103,8 +5024,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, start_mailbox_export_job_errors()}
   def start_mailbox_export_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartMailboxExportJob", input, options)
   end
@@ -5119,8 +5039,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -5145,8 +5064,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, test_availability_configuration_errors()}
   def test_availability_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TestAvailabilityConfiguration", input, options)
   end
@@ -5161,8 +5079,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -5181,8 +5098,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, update_availability_configuration_errors()}
   def update_availability_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateAvailabilityConfiguration", input, options)
   end
@@ -5199,8 +5115,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, update_default_mail_domain_errors()}
   def update_default_mail_domain(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDefaultMailDomain", input, options)
   end
@@ -5214,8 +5129,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, update_group_errors()}
   def update_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateGroup", input, options)
   end
@@ -5229,8 +5143,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, update_impersonation_role_errors()}
   def update_impersonation_role(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateImpersonationRole", input, options)
   end
@@ -5245,8 +5158,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, update_mailbox_quota_errors()}
   def update_mailbox_quota(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateMailboxQuota", input, options)
   end
@@ -5264,8 +5176,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, update_mobile_device_access_rule_errors()}
   def update_mobile_device_access_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateMobileDeviceAccessRule", input, options)
   end
@@ -5284,8 +5195,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, update_primary_email_address_errors()}
   def update_primary_email_address(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdatePrimaryEmailAddress", input, options)
   end
@@ -5303,8 +5213,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, update_resource_errors()}
   def update_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateResource", input, options)
   end
@@ -5322,8 +5231,7 @@ defmodule AWS.WorkMail do
           | {:error, term()}
           | {:error, update_user_errors()}
   def update_user(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateUser", input, options)
   end

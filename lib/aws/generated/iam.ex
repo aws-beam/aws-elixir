@@ -5026,8 +5026,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, add_client_id_to_open_id_connect_provider_errors()}
   def add_client_id_to_open_id_connect_provider(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddClientIDToOpenIDConnectProvider", input, options)
   end
@@ -5071,8 +5070,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, add_role_to_instance_profile_errors()}
   def add_role_to_instance_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddRoleToInstanceProfile", input, options)
   end
@@ -5086,8 +5084,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, add_user_to_group_errors()}
   def add_user_to_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddUserToGroup", input, options)
   end
@@ -5113,8 +5110,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, attach_group_policy_errors()}
   def attach_group_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AttachGroupPolicy", input, options)
   end
@@ -5155,8 +5151,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, attach_role_policy_errors()}
   def attach_role_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AttachRolePolicy", input, options)
   end
@@ -5182,8 +5177,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, attach_user_policy_errors()}
   def attach_user_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AttachUserPolicy", input, options)
   end
@@ -5212,8 +5206,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, change_password_errors()}
   def change_password(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ChangePassword", input, options)
   end
@@ -5251,8 +5244,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, create_access_key_errors()}
   def create_access_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAccessKey", input, options)
   end
@@ -5272,8 +5264,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, create_account_alias_errors()}
   def create_account_alias(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAccountAlias", input, options)
   end
@@ -5290,8 +5281,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, create_group_errors()}
   def create_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateGroup", input, options)
   end
@@ -5315,8 +5305,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, create_instance_profile_errors()}
   def create_instance_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateInstanceProfile", input, options)
   end
@@ -5344,8 +5333,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, create_login_profile_errors()}
   def create_login_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLoginProfile", input, options)
   end
@@ -5411,8 +5399,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, create_open_id_connect_provider_errors()}
   def create_open_id_connect_provider(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateOpenIDConnectProvider", input, options)
   end
@@ -5442,8 +5429,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, create_policy_errors()}
   def create_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePolicy", input, options)
   end
@@ -5473,8 +5459,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, create_policy_version_errors()}
   def create_policy_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePolicyVersion", input, options)
   end
@@ -5494,8 +5479,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, create_role_errors()}
   def create_role(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRole", input, options)
   end
@@ -5536,8 +5520,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, create_saml_provider_errors()}
   def create_saml_provider(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSAMLProvider", input, options)
   end
@@ -5567,8 +5550,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, create_service_linked_role_errors()}
   def create_service_linked_role(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateServiceLinkedRole", input, options)
   end
@@ -5605,8 +5587,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, create_service_specific_credential_errors()}
   def create_service_specific_credential(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateServiceSpecificCredential", input, options)
   end
@@ -5624,8 +5605,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateUser", input, options)
   end
@@ -5662,8 +5642,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, create_virtual_mfa_device_errors()}
   def create_virtual_mfa_device(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateVirtualMFADevice", input, options)
   end
@@ -5685,8 +5664,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, deactivate_mfa_device_errors()}
   def deactivate_mfa_device(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeactivateMFADevice", input, options)
   end
@@ -5709,8 +5687,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, delete_access_key_errors()}
   def delete_access_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAccessKey", input, options)
   end
@@ -5730,8 +5707,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, delete_account_alias_errors()}
   def delete_account_alias(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAccountAlias", input, options)
   end
@@ -5747,8 +5723,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, delete_account_password_policy_errors()}
   def delete_account_password_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAccountPasswordPolicy", input, options)
   end
@@ -5765,8 +5740,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, delete_group_errors()}
   def delete_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteGroup", input, options)
   end
@@ -5788,8 +5762,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, delete_group_policy_errors()}
   def delete_group_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteGroupPolicy", input, options)
   end
@@ -5816,8 +5789,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, delete_instance_profile_errors()}
   def delete_instance_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteInstanceProfile", input, options)
   end
@@ -5849,8 +5821,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, delete_login_profile_errors()}
   def delete_login_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLoginProfile", input, options)
   end
@@ -5874,8 +5845,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, delete_open_id_connect_provider_errors()}
   def delete_open_id_connect_provider(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteOpenIDConnectProvider", input, options)
   end
@@ -5923,8 +5893,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, delete_policy_errors()}
   def delete_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePolicy", input, options)
   end
@@ -5948,8 +5917,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, delete_policy_version_errors()}
   def delete_policy_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePolicyVersion", input, options)
   end
@@ -5992,8 +5960,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, delete_role_errors()}
   def delete_role(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRole", input, options)
   end
@@ -6017,8 +5984,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, delete_role_permissions_boundary_errors()}
   def delete_role_permissions_boundary(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRolePermissionsBoundary", input, options)
   end
@@ -6040,8 +6006,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, delete_role_policy_errors()}
   def delete_role_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRolePolicy", input, options)
   end
@@ -6063,8 +6028,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, delete_saml_provider_errors()}
   def delete_saml_provider(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSAMLProvider", input, options)
   end
@@ -6099,8 +6063,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, delete_server_certificate_errors()}
   def delete_server_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteServerCertificate", input, options)
   end
@@ -6143,8 +6106,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, delete_service_linked_role_errors()}
   def delete_service_linked_role(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteServiceLinkedRole", input, options)
   end
@@ -6162,8 +6124,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, delete_service_specific_credential_errors()}
   def delete_service_specific_credential(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteServiceSpecificCredential", input, options)
   end
@@ -6186,8 +6147,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, delete_signing_certificate_errors()}
   def delete_signing_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSigningCertificate", input, options)
   end
@@ -6208,8 +6168,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, delete_ssh_public_key_errors()}
   def delete_ssh_public_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSSHPublicKey", input, options)
   end
@@ -6266,8 +6225,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteUser", input, options)
   end
@@ -6289,8 +6247,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, delete_user_permissions_boundary_errors()}
   def delete_user_permissions_boundary(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteUserPermissionsBoundary", input, options)
   end
@@ -6312,8 +6269,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, delete_user_policy_errors()}
   def delete_user_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteUserPolicy", input, options)
   end
@@ -6331,8 +6287,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, delete_virtual_mfa_device_errors()}
   def delete_virtual_mfa_device(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteVirtualMFADevice", input, options)
   end
@@ -6355,8 +6310,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, detach_group_policy_errors()}
   def detach_group_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetachGroupPolicy", input, options)
   end
@@ -6378,8 +6332,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, detach_role_policy_errors()}
   def detach_role_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetachRolePolicy", input, options)
   end
@@ -6401,8 +6354,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, detach_user_policy_errors()}
   def detach_user_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetachUserPolicy", input, options)
   end
@@ -6427,8 +6379,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, disable_organizations_root_credentials_management_errors()}
   def disable_organizations_root_credentials_management(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -6458,8 +6409,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, disable_organizations_root_sessions_errors()}
   def disable_organizations_root_sessions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableOrganizationsRootSessions", input, options)
   end
@@ -6477,8 +6427,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, enable_mfa_device_errors()}
   def enable_mfa_device(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableMFADevice", input, options)
   end
@@ -6520,8 +6469,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, enable_organizations_root_credentials_management_errors()}
   def enable_organizations_root_credentials_management(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -6567,8 +6515,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, enable_organizations_root_sessions_errors()}
   def enable_organizations_root_sessions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableOrganizationsRootSessions", input, options)
   end
@@ -6587,8 +6534,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, generate_credential_report_errors()}
   def generate_credential_report(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GenerateCredentialReport", input, options)
   end
@@ -6778,8 +6724,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, generate_organizations_access_report_errors()}
   def generate_organizations_access_report(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GenerateOrganizationsAccessReport", input, options)
   end
@@ -6874,8 +6819,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, generate_service_last_accessed_details_errors()}
   def generate_service_last_accessed_details(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GenerateServiceLastAccessedDetails", input, options)
   end
@@ -6893,8 +6837,7 @@ defmodule AWS.IAM do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_access_key_last_used(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAccessKeyLastUsed", input, options)
   end
@@ -6932,8 +6875,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, get_account_authorization_details_errors()}
   def get_account_authorization_details(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAccountAuthorizationDetails", input, options)
   end
@@ -6953,8 +6895,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, get_account_password_policy_errors()}
   def get_account_password_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAccountPasswordPolicy", input, options)
   end
@@ -6974,8 +6915,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, get_account_summary_errors()}
   def get_account_summary(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAccountSummary", input, options)
   end
@@ -7009,8 +6949,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, get_context_keys_for_custom_policy_errors()}
   def get_context_keys_for_custom_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetContextKeysForCustomPolicy", input, options)
   end
@@ -7056,8 +6995,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, get_context_keys_for_principal_policy_errors()}
   def get_context_keys_for_principal_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetContextKeysForPrincipalPolicy", input, options)
   end
@@ -7076,8 +7014,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, get_credential_report_errors()}
   def get_credential_report(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCredentialReport", input, options)
   end
@@ -7094,8 +7031,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, get_group_errors()}
   def get_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetGroup", input, options)
   end
@@ -7132,8 +7068,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, get_group_policy_errors()}
   def get_group_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetGroupPolicy", input, options)
   end
@@ -7154,8 +7089,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, get_instance_profile_errors()}
   def get_instance_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetInstanceProfile", input, options)
   end
@@ -7187,8 +7121,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, get_login_profile_errors()}
   def get_login_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetLoginProfile", input, options)
   end
@@ -7202,8 +7135,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, get_mfa_device_errors()}
   def get_mfa_device(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetMFADevice", input, options)
   end
@@ -7219,8 +7151,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, get_open_id_connect_provider_errors()}
   def get_open_id_connect_provider(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetOpenIDConnectProvider", input, options)
   end
@@ -7270,8 +7201,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, get_organizations_access_report_errors()}
   def get_organizations_access_report(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetOrganizationsAccessReport", input, options)
   end
@@ -7304,8 +7234,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, get_policy_errors()}
   def get_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPolicy", input, options)
   end
@@ -7346,8 +7275,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, get_policy_version_errors()}
   def get_policy_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPolicyVersion", input, options)
   end
@@ -7376,8 +7304,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, get_role_errors()}
   def get_role(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRole", input, options)
   end
@@ -7416,8 +7343,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, get_role_policy_errors()}
   def get_role_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRolePolicy", input, options)
   end
@@ -7435,8 +7361,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, get_saml_provider_errors()}
   def get_saml_provider(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSAMLProvider", input, options)
   end
@@ -7457,8 +7382,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, get_server_certificate_errors()}
   def get_server_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetServerCertificate", input, options)
   end
@@ -7542,8 +7466,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, get_service_last_accessed_details_errors()}
   def get_service_last_accessed_details(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetServiceLastAccessedDetails", input, options)
   end
@@ -7592,8 +7515,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, get_service_last_accessed_details_with_entities_errors()}
   def get_service_last_accessed_details_with_entities(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -7625,8 +7547,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, get_service_linked_role_deletion_status_errors()}
   def get_service_linked_role_deletion_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetServiceLinkedRoleDeletionStatus", input, options)
   end
@@ -7647,8 +7568,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, get_ssh_public_key_errors()}
   def get_ssh_public_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSSHPublicKey", input, options)
   end
@@ -7669,8 +7589,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, get_user_errors()}
   def get_user(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetUser", input, options)
   end
@@ -7706,8 +7625,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, get_user_policy_errors()}
   def get_user_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetUserPolicy", input, options)
   end
@@ -7744,8 +7662,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_access_keys_errors()}
   def list_access_keys(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAccessKeys", input, options)
   end
@@ -7766,8 +7683,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_account_aliases_errors()}
   def list_account_aliases(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAccountAliases", input, options)
   end
@@ -7795,8 +7711,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_attached_group_policies_errors()}
   def list_attached_group_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAttachedGroupPolicies", input, options)
   end
@@ -7824,8 +7739,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_attached_role_policies_errors()}
   def list_attached_role_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAttachedRolePolicies", input, options)
   end
@@ -7853,8 +7767,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_attached_user_policies_errors()}
   def list_attached_user_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAttachedUserPolicies", input, options)
   end
@@ -7879,8 +7792,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_entities_for_policy_errors()}
   def list_entities_for_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListEntitiesForPolicy", input, options)
   end
@@ -7908,8 +7820,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_group_policies_errors()}
   def list_group_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListGroupPolicies", input, options)
   end
@@ -7926,8 +7837,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_groups_errors()}
   def list_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListGroups", input, options)
   end
@@ -7944,8 +7854,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_groups_for_user_errors()}
   def list_groups_for_user(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListGroupsForUser", input, options)
   end
@@ -7963,8 +7872,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_instance_profile_tags_errors()}
   def list_instance_profile_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListInstanceProfileTags", input, options)
   end
@@ -7994,8 +7902,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_instance_profiles_errors()}
   def list_instance_profiles(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListInstanceProfiles", input, options)
   end
@@ -8019,8 +7926,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_instance_profiles_for_role_errors()}
   def list_instance_profiles_for_role(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListInstanceProfilesForRole", input, options)
   end
@@ -8039,8 +7945,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_mfa_device_tags_errors()}
   def list_mfa_device_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListMFADeviceTags", input, options)
   end
@@ -8064,8 +7969,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_mfa_devices_errors()}
   def list_mfa_devices(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListMFADevices", input, options)
   end
@@ -8091,8 +7995,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_open_id_connect_provider_tags_errors()}
   def list_open_id_connect_provider_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListOpenIDConnectProviderTags", input, options)
   end
@@ -8113,8 +8016,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_open_id_connect_providers_errors()}
   def list_open_id_connect_providers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListOpenIDConnectProviders", input, options)
   end
@@ -8131,8 +8033,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_organizations_features_errors()}
   def list_organizations_features(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListOrganizationsFeatures", input, options)
   end
@@ -8168,8 +8069,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_policies_errors()}
   def list_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPolicies", input, options)
   end
@@ -8240,8 +8140,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_policies_granting_service_access_errors()}
   def list_policies_granting_service_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPoliciesGrantingServiceAccess", input, options)
   end
@@ -8259,8 +8158,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_policy_tags_errors()}
   def list_policy_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPolicyTags", input, options)
   end
@@ -8279,8 +8177,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_policy_versions_errors()}
   def list_policy_versions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPolicyVersions", input, options)
   end
@@ -8308,8 +8205,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_role_policies_errors()}
   def list_role_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRolePolicies", input, options)
   end
@@ -8327,8 +8223,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_role_tags_errors()}
   def list_role_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRoleTags", input, options)
   end
@@ -8365,8 +8260,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_roles_errors()}
   def list_roles(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRoles", input, options)
   end
@@ -8388,8 +8282,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_saml_provider_tags_errors()}
   def list_saml_provider_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSAMLProviderTags", input, options)
   end
@@ -8411,8 +8304,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_saml_providers_errors()}
   def list_saml_providers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSAMLProviders", input, options)
   end
@@ -8439,8 +8331,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_server_certificate_tags_errors()}
   def list_server_certificate_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListServerCertificateTags", input, options)
   end
@@ -8473,8 +8364,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_server_certificates_errors()}
   def list_server_certificates(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListServerCertificates", input, options)
   end
@@ -8502,8 +8392,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_service_specific_credentials_errors()}
   def list_service_specific_credentials(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListServiceSpecificCredentials", input, options)
   end
@@ -8535,8 +8424,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_signing_certificates_errors()}
   def list_signing_certificates(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSigningCertificates", input, options)
   end
@@ -8565,8 +8453,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_ssh_public_keys_errors()}
   def list_ssh_public_keys(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSSHPublicKeys", input, options)
   end
@@ -8593,8 +8480,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_user_policies_errors()}
   def list_user_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListUserPolicies", input, options)
   end
@@ -8612,8 +8498,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_user_tags_errors()}
   def list_user_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListUserTags", input, options)
   end
@@ -8648,8 +8533,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, list_users_errors()}
   def list_users(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListUsers", input, options)
   end
@@ -8678,8 +8562,7 @@ defmodule AWS.IAM do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_virtual_mfa_devices(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListVirtualMFADevices", input, options)
   end
@@ -8719,8 +8602,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, put_group_policy_errors()}
   def put_group_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutGroupPolicy", input, options)
   end
@@ -8753,8 +8635,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, put_role_permissions_boundary_errors()}
   def put_role_permissions_boundary(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutRolePermissionsBoundary", input, options)
   end
@@ -8808,8 +8689,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, put_role_policy_errors()}
   def put_role_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutRolePolicy", input, options)
   end
@@ -8838,8 +8718,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, put_user_permissions_boundary_errors()}
   def put_user_permissions_boundary(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutUserPermissionsBoundary", input, options)
   end
@@ -8878,8 +8757,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, put_user_policy_errors()}
   def put_user_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutUserPolicy", input, options)
   end
@@ -8904,8 +8782,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, remove_client_id_from_open_id_connect_provider_errors()}
   def remove_client_id_from_open_id_connect_provider(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveClientIDFromOpenIDConnectProvider", input, options)
   end
@@ -8937,8 +8814,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, remove_role_from_instance_profile_errors()}
   def remove_role_from_instance_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveRoleFromInstanceProfile", input, options)
   end
@@ -8952,8 +8828,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, remove_user_from_group_errors()}
   def remove_user_from_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveUserFromGroup", input, options)
   end
@@ -8977,8 +8852,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, reset_service_specific_credential_errors()}
   def reset_service_specific_credential(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResetServiceSpecificCredential", input, options)
   end
@@ -8998,8 +8872,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, resync_mfa_device_errors()}
   def resync_mfa_device(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResyncMFADevice", input, options)
   end
@@ -9022,8 +8895,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, set_default_policy_version_errors()}
   def set_default_policy_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetDefaultPolicyVersion", input, options)
   end
@@ -9076,8 +8948,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, set_security_token_service_preferences_errors()}
   def set_security_token_service_preferences(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetSecurityTokenServicePreferences", input, options)
   end
@@ -9130,8 +9001,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, simulate_custom_policy_errors()}
   def simulate_custom_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SimulateCustomPolicy", input, options)
   end
@@ -9198,8 +9068,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, simulate_principal_policy_errors()}
   def simulate_principal_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SimulatePrincipalPolicy", input, options)
   end
@@ -9252,8 +9121,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, tag_instance_profile_errors()}
   def tag_instance_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagInstanceProfile", input, options)
   end
@@ -9308,8 +9176,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, tag_mfa_device_errors()}
   def tag_mfa_device(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagMFADevice", input, options)
   end
@@ -9365,8 +9232,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, tag_open_id_connect_provider_errors()}
   def tag_open_id_connect_provider(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagOpenIDConnectProvider", input, options)
   end
@@ -9418,8 +9284,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, tag_policy_errors()}
   def tag_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagPolicy", input, options)
   end
@@ -9484,8 +9349,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, tag_role_errors()}
   def tag_role(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagRole", input, options)
   end
@@ -9541,8 +9405,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, tag_saml_provider_errors()}
   def tag_saml_provider(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagSAMLProvider", input, options)
   end
@@ -9607,8 +9470,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, tag_server_certificate_errors()}
   def tag_server_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagServerCertificate", input, options)
   end
@@ -9670,8 +9532,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, tag_user_errors()}
   def tag_user(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagUser", input, options)
   end
@@ -9688,8 +9549,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, untag_instance_profile_errors()}
   def untag_instance_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagInstanceProfile", input, options)
   end
@@ -9708,8 +9568,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, untag_mfa_device_errors()}
   def untag_mfa_device(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagMFADevice", input, options)
   end
@@ -9729,8 +9588,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, untag_open_id_connect_provider_errors()}
   def untag_open_id_connect_provider(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagOpenIDConnectProvider", input, options)
   end
@@ -9747,8 +9605,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, untag_policy_errors()}
   def untag_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagPolicy", input, options)
   end
@@ -9765,8 +9622,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, untag_role_errors()}
   def untag_role(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagRole", input, options)
   end
@@ -9786,8 +9642,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, untag_saml_provider_errors()}
   def untag_saml_provider(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagSAMLProvider", input, options)
   end
@@ -9812,8 +9667,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, untag_server_certificate_errors()}
   def untag_server_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagServerCertificate", input, options)
   end
@@ -9830,8 +9684,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, untag_user_errors()}
   def untag_user(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagUser", input, options)
   end
@@ -9861,8 +9714,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, update_access_key_errors()}
   def update_access_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateAccessKey", input, options)
   end
@@ -9889,8 +9741,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, update_account_password_policy_errors()}
   def update_account_password_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateAccountPasswordPolicy", input, options)
   end
@@ -9910,8 +9761,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, update_assume_role_policy_errors()}
   def update_assume_role_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateAssumeRolePolicy", input, options)
   end
@@ -9938,8 +9788,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, update_group_errors()}
   def update_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateGroup", input, options)
   end
@@ -9965,8 +9814,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, update_login_profile_errors()}
   def update_login_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateLoginProfile", input, options)
   end
@@ -10011,8 +9859,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, update_open_id_connect_provider_thumbprint_errors()}
   def update_open_id_connect_provider_thumbprint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateOpenIDConnectProviderThumbprint", input, options)
   end
@@ -10026,8 +9873,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, update_role_errors()}
   def update_role(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateRole", input, options)
   end
@@ -10047,8 +9893,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, update_role_description_errors()}
   def update_role_description(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateRoleDescription", input, options)
   end
@@ -10066,8 +9911,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, update_saml_provider_errors()}
   def update_saml_provider(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateSAMLProvider", input, options)
   end
@@ -10107,8 +9951,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, update_server_certificate_errors()}
   def update_server_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateServerCertificate", input, options)
   end
@@ -10132,8 +9975,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, update_service_specific_credential_errors()}
   def update_service_specific_credential(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateServiceSpecificCredential", input, options)
   end
@@ -10161,8 +10003,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, update_signing_certificate_errors()}
   def update_signing_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateSigningCertificate", input, options)
   end
@@ -10189,8 +10030,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, update_ssh_public_key_errors()}
   def update_ssh_public_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateSSHPublicKey", input, options)
   end
@@ -10216,8 +10056,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, update_user_errors()}
   def update_user(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateUser", input, options)
   end
@@ -10266,8 +10105,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, upload_server_certificate_errors()}
   def upload_server_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UploadServerCertificate", input, options)
   end
@@ -10312,8 +10150,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, upload_signing_certificate_errors()}
   def upload_signing_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UploadSigningCertificate", input, options)
   end
@@ -10335,8 +10172,7 @@ defmodule AWS.IAM do
           | {:error, term()}
           | {:error, upload_ssh_public_key_errors()}
   def upload_ssh_public_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UploadSSHPublicKey", input, options)
   end

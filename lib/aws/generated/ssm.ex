@@ -8969,8 +8969,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddTagsToResource", input, options)
   end
@@ -8989,8 +8988,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, associate_ops_item_related_item_errors()}
   def associate_ops_item_related_item(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateOpsItemRelatedItem", input, options)
   end
@@ -9007,8 +9005,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, cancel_command_errors()}
   def cancel_command(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelCommand", input, options)
   end
@@ -9031,8 +9028,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, cancel_maintenance_window_execution_errors()}
   def cancel_maintenance_window_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelMaintenanceWindowExecution", input, options)
   end
@@ -9063,8 +9059,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, create_activation_errors()}
   def create_activation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateActivation", input, options)
   end
@@ -9098,8 +9093,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, create_association_errors()}
   def create_association(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAssociation", input, options)
   end
@@ -9125,8 +9119,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, create_association_batch_errors()}
   def create_association_batch(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAssociationBatch", input, options)
   end
@@ -9148,8 +9141,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, create_document_errors()}
   def create_document(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDocument", input, options)
   end
@@ -9174,8 +9166,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, create_maintenance_window_errors()}
   def create_maintenance_window(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateMaintenanceWindow", input, options)
   end
@@ -9202,8 +9193,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, create_ops_item_errors()}
   def create_ops_item(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateOpsItem", input, options)
   end
@@ -9219,8 +9209,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, create_ops_metadata_errors()}
   def create_ops_metadata(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateOpsMetadata", input, options)
   end
@@ -9237,8 +9226,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, create_patch_baseline_errors()}
   def create_patch_baseline(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePatchBaseline", input, options)
   end
@@ -9289,8 +9277,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, create_resource_data_sync_errors()}
   def create_resource_data_sync(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateResourceDataSync", input, options)
   end
@@ -9309,8 +9296,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, delete_activation_errors()}
   def delete_activation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteActivation", input, options)
   end
@@ -9337,8 +9323,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, delete_association_errors()}
   def delete_association(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAssociation", input, options)
   end
@@ -9357,8 +9342,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, delete_document_errors()}
   def delete_document(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDocument", input, options)
   end
@@ -9377,8 +9361,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, delete_inventory_errors()}
   def delete_inventory(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteInventory", input, options)
   end
@@ -9392,8 +9375,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, delete_maintenance_window_errors()}
   def delete_maintenance_window(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteMaintenanceWindow", input, options)
   end
@@ -9439,8 +9421,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, delete_ops_item_errors()}
   def delete_ops_item(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteOpsItem", input, options)
   end
@@ -9454,8 +9435,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, delete_ops_metadata_errors()}
   def delete_ops_metadata(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteOpsMetadata", input, options)
   end
@@ -9472,8 +9452,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, delete_parameter_errors()}
   def delete_parameter(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteParameter", input, options)
   end
@@ -9490,8 +9469,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, delete_parameters_errors()}
   def delete_parameters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteParameters", input, options)
   end
@@ -9505,8 +9483,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, delete_patch_baseline_errors()}
   def delete_patch_baseline(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePatchBaseline", input, options)
   end
@@ -9525,8 +9502,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, delete_resource_data_sync_errors()}
   def delete_resource_data_sync(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteResourceDataSync", input, options)
   end
@@ -9558,8 +9534,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -9585,8 +9560,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, deregister_managed_instance_errors()}
   def deregister_managed_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeregisterManagedInstance", input, options)
   end
@@ -9604,8 +9578,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, deregister_patch_baseline_for_patch_group_errors()}
   def deregister_patch_baseline_for_patch_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeregisterPatchBaselineForPatchGroup", input, options)
   end
@@ -9623,8 +9596,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, deregister_target_from_maintenance_window_errors()}
   def deregister_target_from_maintenance_window(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeregisterTargetFromMaintenanceWindow", input, options)
   end
@@ -9642,8 +9614,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, deregister_task_from_maintenance_window_errors()}
   def deregister_task_from_maintenance_window(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeregisterTaskFromMaintenanceWindow", input, options)
   end
@@ -9663,8 +9634,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_activations_errors()}
   def describe_activations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeActivations", input, options)
   end
@@ -9683,8 +9653,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_association_errors()}
   def describe_association(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAssociation", input, options)
   end
@@ -9702,8 +9671,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_association_execution_targets_errors()}
   def describe_association_execution_targets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAssociationExecutionTargets", input, options)
   end
@@ -9717,8 +9685,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_association_executions_errors()}
   def describe_association_executions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAssociationExecutions", input, options)
   end
@@ -9732,8 +9699,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_automation_executions_errors()}
   def describe_automation_executions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAutomationExecutions", input, options)
   end
@@ -9752,8 +9718,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_automation_step_executions_errors()}
   def describe_automation_step_executions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAutomationStepExecutions", input, options)
   end
@@ -9770,8 +9735,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_available_patches_errors()}
   def describe_available_patches(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAvailablePatches", input, options)
   end
@@ -9786,8 +9750,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_document_errors()}
   def describe_document(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDocument", input, options)
   end
@@ -9807,8 +9770,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_document_permission_errors()}
   def describe_document_permission(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDocumentPermission", input, options)
   end
@@ -9826,8 +9788,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_effective_instance_associations_errors()}
   def describe_effective_instance_associations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEffectiveInstanceAssociations", input, options)
   end
@@ -9849,8 +9810,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_effective_patches_for_patch_baseline_errors()}
   def describe_effective_patches_for_patch_baseline(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEffectivePatchesForPatchBaseline", input, options)
   end
@@ -9868,8 +9828,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_instance_associations_status_errors()}
   def describe_instance_associations_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeInstanceAssociationsStatus", input, options)
   end
@@ -9900,8 +9859,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_instance_information_errors()}
   def describe_instance_information(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeInstanceInformation", input, options)
   end
@@ -9915,8 +9873,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_instance_patch_states_errors()}
   def describe_instance_patch_states(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeInstancePatchStates", input, options)
   end
@@ -9936,8 +9893,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_instance_patch_states_for_patch_group_errors()}
   def describe_instance_patch_states_for_patch_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeInstancePatchStatesForPatchGroup", input, options)
   end
@@ -9953,8 +9909,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_instance_patches_errors()}
   def describe_instance_patches(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeInstancePatches", input, options)
   end
@@ -9970,8 +9925,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_instance_properties_errors()}
   def describe_instance_properties(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeInstanceProperties", input, options)
   end
@@ -9985,8 +9939,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_inventory_deletions_errors()}
   def describe_inventory_deletions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeInventoryDeletions", input, options)
   end
@@ -10010,8 +9963,7 @@ defmodule AWS.SSM do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -10035,8 +9987,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_maintenance_window_execution_tasks_errors()}
   def describe_maintenance_window_execution_tasks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeMaintenanceWindowExecutionTasks", input, options)
   end
@@ -10059,8 +10010,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_maintenance_window_executions_errors()}
   def describe_maintenance_window_executions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeMaintenanceWindowExecutions", input, options)
   end
@@ -10078,8 +10028,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_maintenance_window_schedule_errors()}
   def describe_maintenance_window_schedule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeMaintenanceWindowSchedule", input, options)
   end
@@ -10097,8 +10046,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_maintenance_window_targets_errors()}
   def describe_maintenance_window_targets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeMaintenanceWindowTargets", input, options)
   end
@@ -10122,8 +10070,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_maintenance_window_tasks_errors()}
   def describe_maintenance_window_tasks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeMaintenanceWindowTasks", input, options)
   end
@@ -10137,8 +10084,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_maintenance_windows_errors()}
   def describe_maintenance_windows(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeMaintenanceWindows", input, options)
   end
@@ -10158,8 +10104,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_maintenance_windows_for_target_errors()}
   def describe_maintenance_windows_for_target(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeMaintenanceWindowsForTarget", input, options)
   end
@@ -10186,8 +10131,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_ops_items_errors()}
   def describe_ops_items(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeOpsItems", input, options)
   end
@@ -10227,8 +10171,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_parameters_errors()}
   def describe_parameters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeParameters", input, options)
   end
@@ -10242,8 +10185,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_patch_baselines_errors()}
   def describe_patch_baselines(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePatchBaselines", input, options)
   end
@@ -10258,8 +10200,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_patch_group_state_errors()}
   def describe_patch_group_state(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePatchGroupState", input, options)
   end
@@ -10273,8 +10214,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_patch_groups_errors()}
   def describe_patch_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePatchGroups", input, options)
   end
@@ -10352,8 +10292,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_patch_properties_errors()}
   def describe_patch_properties(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePatchProperties", input, options)
   end
@@ -10369,8 +10308,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_sessions_errors()}
   def describe_sessions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSessions", input, options)
   end
@@ -10393,8 +10331,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, disassociate_ops_item_related_item_errors()}
   def disassociate_ops_item_related_item(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateOpsItemRelatedItem", input, options)
   end
@@ -10408,8 +10345,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_access_token_errors()}
   def get_access_token(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAccessToken", input, options)
   end
@@ -10423,8 +10359,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_automation_execution_errors()}
   def get_automation_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAutomationExecution", input, options)
   end
@@ -10456,8 +10391,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_calendar_state_errors()}
   def get_calendar_state(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCalendarState", input, options)
   end
@@ -10490,8 +10424,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_command_invocation_errors()}
   def get_command_invocation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCommandInvocation", input, options)
   end
@@ -10507,8 +10440,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_connection_status_errors()}
   def get_connection_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetConnectionStatus", input, options)
   end
@@ -10530,8 +10462,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_default_patch_baseline_errors()}
   def get_default_patch_baseline(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDefaultPatchBaseline", input, options)
   end
@@ -10563,8 +10494,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_deployable_patch_snapshot_for_instance_errors()}
   def get_deployable_patch_snapshot_for_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDeployablePatchSnapshotForInstance", input, options)
   end
@@ -10579,8 +10509,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_document_errors()}
   def get_document(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDocument", input, options)
   end
@@ -10596,8 +10525,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_execution_preview_errors()}
   def get_execution_preview(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetExecutionPreview", input, options)
   end
@@ -10614,8 +10542,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_inventory_errors()}
   def get_inventory(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetInventory", input, options)
   end
@@ -10631,8 +10558,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_inventory_schema_errors()}
   def get_inventory_schema(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetInventorySchema", input, options)
   end
@@ -10646,8 +10572,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_maintenance_window_errors()}
   def get_maintenance_window(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetMaintenanceWindow", input, options)
   end
@@ -10665,8 +10590,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_maintenance_window_execution_errors()}
   def get_maintenance_window_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetMaintenanceWindowExecution", input, options)
   end
@@ -10685,8 +10609,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_maintenance_window_execution_task_errors()}
   def get_maintenance_window_execution_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetMaintenanceWindowExecutionTask", input, options)
   end
@@ -10704,8 +10627,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_maintenance_window_execution_task_invocation_errors()}
   def get_maintenance_window_execution_task_invocation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -10734,8 +10656,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_maintenance_window_task_errors()}
   def get_maintenance_window_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetMaintenanceWindowTask", input, options)
   end
@@ -10763,8 +10684,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_ops_item_errors()}
   def get_ops_item(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetOpsItem", input, options)
   end
@@ -10778,8 +10698,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_ops_metadata_errors()}
   def get_ops_metadata(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetOpsMetadata", input, options)
   end
@@ -10800,8 +10719,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_ops_summary_errors()}
   def get_ops_summary(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetOpsSummary", input, options)
   end
@@ -10824,8 +10742,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_parameter_errors()}
   def get_parameter(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetParameter", input, options)
   end
@@ -10851,8 +10768,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_parameter_history_errors()}
   def get_parameter_history(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetParameterHistory", input, options)
   end
@@ -10876,8 +10792,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_parameters_errors()}
   def get_parameters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetParameters", input, options)
   end
@@ -10908,8 +10823,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_parameters_by_path_errors()}
   def get_parameters_by_path(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetParametersByPath", input, options)
   end
@@ -10923,8 +10837,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_patch_baseline_errors()}
   def get_patch_baseline(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPatchBaseline", input, options)
   end
@@ -10942,8 +10855,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_patch_baseline_for_patch_group_errors()}
   def get_patch_baseline_for_patch_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPatchBaselineForPatchGroup", input, options)
   end
@@ -10957,8 +10869,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_resource_policies_errors()}
   def get_resource_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResourcePolicies", input, options)
   end
@@ -10995,8 +10906,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_service_setting_errors()}
   def get_service_setting(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetServiceSetting", input, options)
   end
@@ -11063,8 +10973,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, label_parameter_version_errors()}
   def label_parameter_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "LabelParameterVersion", input, options)
   end
@@ -11078,8 +10987,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_association_versions_errors()}
   def list_association_versions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAssociationVersions", input, options)
   end
@@ -11100,8 +11008,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_associations_errors()}
   def list_associations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAssociations", input, options)
   end
@@ -11124,8 +11031,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_command_invocations_errors()}
   def list_command_invocations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCommandInvocations", input, options)
   end
@@ -11139,8 +11045,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_commands_errors()}
   def list_commands(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCommands", input, options)
   end
@@ -11159,8 +11064,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_compliance_items_errors()}
   def list_compliance_items(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListComplianceItems", input, options)
   end
@@ -11180,8 +11084,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_compliance_summaries_errors()}
   def list_compliance_summaries(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListComplianceSummaries", input, options)
   end
@@ -11196,8 +11099,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_document_metadata_history_errors()}
   def list_document_metadata_history(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDocumentMetadataHistory", input, options)
   end
@@ -11211,8 +11113,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_document_versions_errors()}
   def list_document_versions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDocumentVersions", input, options)
   end
@@ -11230,8 +11131,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_documents_errors()}
   def list_documents(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDocuments", input, options)
   end
@@ -11245,8 +11145,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_inventory_entries_errors()}
   def list_inventory_entries(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListInventoryEntries", input, options)
   end
@@ -11261,8 +11160,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_nodes_errors()}
   def list_nodes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListNodes", input, options)
   end
@@ -11280,8 +11178,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_nodes_summary_errors()}
   def list_nodes_summary(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListNodesSummary", input, options)
   end
@@ -11300,8 +11197,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_ops_item_events_errors()}
   def list_ops_item_events(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListOpsItemEvents", input, options)
   end
@@ -11319,8 +11215,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_ops_item_related_items_errors()}
   def list_ops_item_related_items(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListOpsItemRelatedItems", input, options)
   end
@@ -11336,8 +11231,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_ops_metadata_errors()}
   def list_ops_metadata(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListOpsMetadata", input, options)
   end
@@ -11360,8 +11254,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_resource_compliance_summaries_errors()}
   def list_resource_compliance_summaries(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListResourceComplianceSummaries", input, options)
   end
@@ -11391,8 +11284,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_resource_data_sync_errors()}
   def list_resource_data_sync(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListResourceDataSync", input, options)
   end
@@ -11409,8 +11301,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -11431,8 +11322,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, modify_document_permission_errors()}
   def modify_document_permission(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyDocumentPermission", input, options)
   end
@@ -11519,8 +11409,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, put_compliance_items_errors()}
   def put_compliance_items(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutComplianceItems", input, options)
   end
@@ -11539,8 +11428,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, put_inventory_errors()}
   def put_inventory(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutInventory", input, options)
   end
@@ -11554,8 +11442,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, put_parameter_errors()}
   def put_parameter(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutParameter", input, options)
   end
@@ -11613,8 +11500,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -11636,8 +11522,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, register_default_patch_baseline_errors()}
   def register_default_patch_baseline(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterDefaultPatchBaseline", input, options)
   end
@@ -11655,8 +11540,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, register_patch_baseline_for_patch_group_errors()}
   def register_patch_baseline_for_patch_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterPatchBaselineForPatchGroup", input, options)
   end
@@ -11674,8 +11558,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, register_target_with_maintenance_window_errors()}
   def register_target_with_maintenance_window(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterTargetWithMaintenanceWindow", input, options)
   end
@@ -11693,8 +11576,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, register_task_with_maintenance_window_errors()}
   def register_task_with_maintenance_window(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterTaskWithMaintenanceWindow", input, options)
   end
@@ -11708,8 +11590,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromResource", input, options)
   end
@@ -11750,8 +11631,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, reset_service_setting_errors()}
   def reset_service_setting(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResetServiceSetting", input, options)
   end
@@ -11772,8 +11652,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, resume_session_errors()}
   def resume_session(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResumeSession", input, options)
   end
@@ -11789,8 +11668,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, send_automation_signal_errors()}
   def send_automation_signal(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SendAutomationSignal", input, options)
   end
@@ -11804,8 +11682,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, send_command_errors()}
   def send_command(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SendCommand", input, options)
   end
@@ -11819,8 +11696,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, start_access_request_errors()}
   def start_access_request(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartAccessRequest", input, options)
   end
@@ -11837,8 +11713,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, start_associations_once_errors()}
   def start_associations_once(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartAssociationsOnce", input, options)
   end
@@ -11852,8 +11727,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, start_automation_execution_errors()}
   def start_automation_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartAutomationExecution", input, options)
   end
@@ -11872,8 +11746,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, start_change_request_execution_errors()}
   def start_change_request_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartChangeRequestExecution", input, options)
   end
@@ -11889,8 +11762,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, start_execution_preview_errors()}
   def start_execution_preview(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartExecutionPreview", input, options)
   end
@@ -11920,8 +11792,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, start_session_errors()}
   def start_session(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartSession", input, options)
   end
@@ -11935,8 +11806,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, stop_automation_execution_errors()}
   def stop_automation_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopAutomationExecution", input, options)
   end
@@ -11954,8 +11824,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, terminate_session_errors()}
   def terminate_session(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TerminateSession", input, options)
   end
@@ -11975,8 +11844,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, unlabel_parameter_version_errors()}
   def unlabel_parameter_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UnlabelParameterVersion", input, options)
   end
@@ -12023,8 +11891,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, update_association_errors()}
   def update_association(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateAssociation", input, options)
   end
@@ -12046,8 +11913,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, update_association_status_errors()}
   def update_association_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateAssociationStatus", input, options)
   end
@@ -12061,8 +11927,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, update_document_errors()}
   def update_document(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDocument", input, options)
   end
@@ -12081,8 +11946,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, update_document_default_version_errors()}
   def update_document_default_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDocumentDefaultVersion", input, options)
   end
@@ -12098,8 +11962,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, update_document_metadata_errors()}
   def update_document_metadata(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDocumentMetadata", input, options)
   end
@@ -12126,8 +11989,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, update_maintenance_window_errors()}
   def update_maintenance_window(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateMaintenanceWindow", input, options)
   end
@@ -12170,8 +12032,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, update_maintenance_window_target_errors()}
   def update_maintenance_window_target(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateMaintenanceWindowTarget", input, options)
   end
@@ -12240,8 +12101,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, update_maintenance_window_task_errors()}
   def update_maintenance_window_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateMaintenanceWindowTask", input, options)
   end
@@ -12260,8 +12120,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, update_managed_instance_role_errors()}
   def update_managed_instance_role(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateManagedInstanceRole", input, options)
   end
@@ -12288,8 +12147,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, update_ops_item_errors()}
   def update_ops_item(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateOpsItem", input, options)
   end
@@ -12304,8 +12162,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, update_ops_metadata_errors()}
   def update_ops_metadata(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateOpsMetadata", input, options)
   end
@@ -12325,8 +12182,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, update_patch_baseline_errors()}
   def update_patch_baseline(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdatePatchBaseline", input, options)
   end
@@ -12358,8 +12214,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, update_resource_data_sync_errors()}
   def update_resource_data_sync(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateResourceDataSync", input, options)
   end
@@ -12397,8 +12252,7 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, update_service_setting_errors()}
   def update_service_setting(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateServiceSetting", input, options)
   end

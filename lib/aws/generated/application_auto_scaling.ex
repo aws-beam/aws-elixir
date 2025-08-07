@@ -1102,8 +1102,7 @@ defmodule AWS.ApplicationAutoScaling do
           | {:error, term()}
           | {:error, delete_scaling_policy_errors()}
   def delete_scaling_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteScalingPolicy", input, options)
   end
@@ -1121,8 +1120,7 @@ defmodule AWS.ApplicationAutoScaling do
           | {:error, term()}
           | {:error, delete_scheduled_action_errors()}
   def delete_scheduled_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteScheduledAction", input, options)
   end
@@ -1144,8 +1142,7 @@ defmodule AWS.ApplicationAutoScaling do
           | {:error, term()}
           | {:error, deregister_scalable_target_errors()}
   def deregister_scalable_target(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeregisterScalableTarget", input, options)
   end
@@ -1162,8 +1159,7 @@ defmodule AWS.ApplicationAutoScaling do
           | {:error, term()}
           | {:error, describe_scalable_targets_errors()}
   def describe_scalable_targets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeScalableTargets", input, options)
   end
@@ -1185,8 +1181,7 @@ defmodule AWS.ApplicationAutoScaling do
           | {:error, term()}
           | {:error, describe_scaling_activities_errors()}
   def describe_scaling_activities(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeScalingActivities", input, options)
   end
@@ -1208,8 +1203,7 @@ defmodule AWS.ApplicationAutoScaling do
           | {:error, term()}
           | {:error, describe_scaling_policies_errors()}
   def describe_scaling_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeScalingPolicies", input, options)
   end
@@ -1230,8 +1224,7 @@ defmodule AWS.ApplicationAutoScaling do
           | {:error, term()}
           | {:error, describe_scheduled_actions_errors()}
   def describe_scheduled_actions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeScheduledActions", input, options)
   end
@@ -1257,8 +1250,7 @@ defmodule AWS.ApplicationAutoScaling do
           | {:error, term()}
           | {:error, get_predictive_scaling_forecast_errors()}
   def get_predictive_scaling_forecast(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPredictiveScalingForecast", input, options)
   end
@@ -1276,8 +1268,7 @@ defmodule AWS.ApplicationAutoScaling do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1339,8 +1330,7 @@ defmodule AWS.ApplicationAutoScaling do
           | {:error, term()}
           | {:error, put_scaling_policy_errors()}
   def put_scaling_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutScalingPolicy", input, options)
   end
@@ -1381,8 +1371,7 @@ defmodule AWS.ApplicationAutoScaling do
           | {:error, term()}
           | {:error, put_scheduled_action_errors()}
   def put_scheduled_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutScheduledAction", input, options)
   end
@@ -1453,8 +1442,7 @@ defmodule AWS.ApplicationAutoScaling do
           | {:error, term()}
           | {:error, register_scalable_target_errors()}
   def register_scalable_target(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterScalableTarget", input, options)
   end
@@ -1491,8 +1479,7 @@ defmodule AWS.ApplicationAutoScaling do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1509,8 +1496,7 @@ defmodule AWS.ApplicationAutoScaling do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

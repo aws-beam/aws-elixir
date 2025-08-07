@@ -5330,8 +5330,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, accept_match_errors()}
   def accept_match(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AcceptMatch", input, options)
   end
@@ -5397,8 +5396,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, claim_game_server_errors()}
   def claim_game_server(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ClaimGameServer", input, options)
   end
@@ -5440,8 +5438,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_alias_errors()}
   def create_alias(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAlias", input, options)
   end
@@ -5503,8 +5500,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_build_errors()}
   def create_build(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateBuild", input, options)
   end
@@ -5615,8 +5611,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_container_fleet_errors()}
   def create_container_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateContainerFleet", input, options)
   end
@@ -5788,8 +5783,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_container_group_definition_errors()}
   def create_container_group_definition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateContainerGroupDefinition", input, options)
   end
@@ -5894,8 +5888,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_fleet_errors()}
   def create_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateFleet", input, options)
   end
@@ -5943,8 +5936,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_fleet_locations_errors()}
   def create_fleet_locations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateFleetLocations", input, options)
   end
@@ -6017,8 +6009,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_game_server_group_errors()}
   def create_game_server_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateGameServerGroup", input, options)
   end
@@ -6087,8 +6078,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_game_session_errors()}
   def create_game_session(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateGameSession", input, options)
   end
@@ -6209,8 +6199,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_game_session_queue_errors()}
   def create_game_session_queue(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateGameSessionQueue", input, options)
   end
@@ -6224,8 +6213,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_location_errors()}
   def create_location(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLocation", input, options)
   end
@@ -6274,8 +6262,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_matchmaking_configuration_errors()}
   def create_matchmaking_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateMatchmakingConfiguration", input, options)
   end
@@ -6318,8 +6305,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_matchmaking_rule_set_errors()}
   def create_matchmaking_rule_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateMatchmakingRuleSet", input, options)
   end
@@ -6358,8 +6344,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_player_session_errors()}
   def create_player_session(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePlayerSession", input, options)
   end
@@ -6395,8 +6380,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_player_sessions_errors()}
   def create_player_sessions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePlayerSessions", input, options)
   end
@@ -6455,8 +6439,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_script_errors()}
   def create_script(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateScript", input, options)
   end
@@ -6515,8 +6498,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_vpc_peering_authorization_errors()}
   def create_vpc_peering_authorization(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateVpcPeeringAuthorization", input, options)
   end
@@ -6572,8 +6554,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_vpc_peering_connection_errors()}
   def create_vpc_peering_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateVpcPeeringConnection", input, options)
   end
@@ -6596,8 +6577,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_alias_errors()}
   def delete_alias(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAlias", input, options)
   end
@@ -6625,8 +6605,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_build_errors()}
   def delete_build(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteBuild", input, options)
   end
@@ -6653,8 +6632,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_container_fleet_errors()}
   def delete_container_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteContainerFleet", input, options)
   end
@@ -6713,8 +6691,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_container_group_definition_errors()}
   def delete_container_group_definition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteContainerGroupDefinition", input, options)
   end
@@ -6746,8 +6723,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_fleet_errors()}
   def delete_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteFleet", input, options)
   end
@@ -6778,8 +6754,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_fleet_locations_errors()}
   def delete_fleet_locations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteFleetLocations", input, options)
   end
@@ -6834,8 +6809,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_game_server_group_errors()}
   def delete_game_server_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteGameServerGroup", input, options)
   end
@@ -6854,8 +6828,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_game_session_queue_errors()}
   def delete_game_session_queue(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteGameSessionQueue", input, options)
   end
@@ -6873,8 +6846,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_location_errors()}
   def delete_location(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLocation", input, options)
   end
@@ -6893,8 +6865,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_matchmaking_configuration_errors()}
   def delete_matchmaking_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteMatchmakingConfiguration", input, options)
   end
@@ -6919,8 +6890,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_matchmaking_rule_set_errors()}
   def delete_matchmaking_rule_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteMatchmakingRuleSet", input, options)
   end
@@ -6944,8 +6914,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_scaling_policy_errors()}
   def delete_scaling_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteScalingPolicy", input, options)
   end
@@ -6979,8 +6948,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_script_errors()}
   def delete_script(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteScript", input, options)
   end
@@ -7002,8 +6970,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_vpc_peering_authorization_errors()}
   def delete_vpc_peering_authorization(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteVpcPeeringAuthorization", input, options)
   end
@@ -7030,8 +6997,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_vpc_peering_connection_errors()}
   def delete_vpc_peering_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteVpcPeeringConnection", input, options)
   end
@@ -7055,8 +7021,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, deregister_compute_errors()}
   def deregister_compute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeregisterCompute", input, options)
   end
@@ -7088,8 +7053,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, deregister_game_server_errors()}
   def deregister_game_server(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeregisterGameServer", input, options)
   end
@@ -7114,8 +7078,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_alias_errors()}
   def describe_alias(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAlias", input, options)
   end
@@ -7139,8 +7102,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_build_errors()}
   def describe_build(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeBuild", input, options)
   end
@@ -7194,8 +7156,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_compute_errors()}
   def describe_compute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCompute", input, options)
   end
@@ -7230,8 +7191,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_container_fleet_errors()}
   def describe_container_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeContainerFleet", input, options)
   end
@@ -7274,8 +7234,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_container_group_definition_errors()}
   def describe_container_group_definition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeContainerGroupDefinition", input, options)
   end
@@ -7354,8 +7313,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_ec2_instance_limits_errors()}
   def describe_ec2_instance_limits(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEC2InstanceLimits", input, options)
   end
@@ -7398,8 +7356,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_fleet_attributes_errors()}
   def describe_fleet_attributes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFleetAttributes", input, options)
   end
@@ -7451,8 +7408,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_fleet_capacity_errors()}
   def describe_fleet_capacity(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFleetCapacity", input, options)
   end
@@ -7480,8 +7436,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_fleet_deployment_errors()}
   def describe_fleet_deployment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFleetDeployment", input, options)
   end
@@ -7512,8 +7467,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_fleet_events_errors()}
   def describe_fleet_events(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFleetEvents", input, options)
   end
@@ -7564,8 +7518,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_fleet_location_attributes_errors()}
   def describe_fleet_location_attributes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFleetLocationAttributes", input, options)
   end
@@ -7605,8 +7558,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_fleet_location_capacity_errors()}
   def describe_fleet_location_capacity(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFleetLocationCapacity", input, options)
   end
@@ -7646,8 +7598,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_fleet_location_utilization_errors()}
   def describe_fleet_location_utilization(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFleetLocationUtilization", input, options)
   end
@@ -7688,8 +7639,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_fleet_port_settings_errors()}
   def describe_fleet_port_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFleetPortSettings", input, options)
   end
@@ -7741,8 +7691,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_fleet_utilization_errors()}
   def describe_fleet_utilization(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFleetUtilization", input, options)
   end
@@ -7772,8 +7721,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_game_server_errors()}
   def describe_game_server(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeGameServer", input, options)
   end
@@ -7807,8 +7755,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_game_server_group_errors()}
   def describe_game_server_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeGameServerGroup", input, options)
   end
@@ -7853,8 +7800,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_game_server_instances_errors()}
   def describe_game_server_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeGameServerInstances", input, options)
   end
@@ -7904,8 +7850,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_game_session_details_errors()}
   def describe_game_session_details(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeGameSessionDetails", input, options)
   end
@@ -7931,8 +7876,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_game_session_placement_errors()}
   def describe_game_session_placement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeGameSessionPlacement", input, options)
   end
@@ -7959,8 +7903,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_game_session_queues_errors()}
   def describe_game_session_queues(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeGameSessionQueues", input, options)
   end
@@ -8019,8 +7962,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_game_sessions_errors()}
   def describe_game_sessions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeGameSessions", input, options)
   end
@@ -8077,8 +8019,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_instances_errors()}
   def describe_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeInstances", input, options)
   end
@@ -8118,8 +8059,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_matchmaking_errors()}
   def describe_matchmaking(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeMatchmaking", input, options)
   end
@@ -8152,8 +8092,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_matchmaking_configurations_errors()}
   def describe_matchmaking_configurations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeMatchmakingConfigurations", input, options)
   end
@@ -8179,8 +8118,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_matchmaking_rule_sets_errors()}
   def describe_matchmaking_rule_sets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeMatchmakingRuleSets", input, options)
   end
@@ -8222,8 +8160,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_player_sessions_errors()}
   def describe_player_sessions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePlayerSessions", input, options)
   end
@@ -8259,8 +8196,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_runtime_configuration_errors()}
   def describe_runtime_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeRuntimeConfiguration", input, options)
   end
@@ -8286,8 +8222,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_scaling_policies_errors()}
   def describe_scaling_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeScalingPolicies", input, options)
   end
@@ -8313,8 +8248,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_script_errors()}
   def describe_script(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeScript", input, options)
   end
@@ -8341,8 +8275,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_vpc_peering_authorizations_errors()}
   def describe_vpc_peering_authorizations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeVpcPeeringAuthorizations", input, options)
   end
@@ -8373,8 +8306,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_vpc_peering_connections_errors()}
   def describe_vpc_peering_connections(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeVpcPeeringConnections", input, options)
   end
@@ -8421,8 +8353,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, get_compute_access_errors()}
   def get_compute_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetComputeAccess", input, options)
   end
@@ -8476,8 +8407,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, get_compute_auth_token_errors()}
   def get_compute_auth_token(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetComputeAuthToken", input, options)
   end
@@ -8503,8 +8433,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, get_game_session_log_url_errors()}
   def get_game_session_log_url(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetGameSessionLogUrl", input, options)
   end
@@ -8555,8 +8484,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, get_instance_access_errors()}
   def get_instance_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetInstanceAccess", input, options)
   end
@@ -8581,8 +8509,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_aliases_errors()}
   def list_aliases(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAliases", input, options)
   end
@@ -8611,8 +8538,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_builds_errors()}
   def list_builds(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListBuilds", input, options)
   end
@@ -8657,8 +8583,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_compute_errors()}
   def list_compute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCompute", input, options)
   end
@@ -8702,8 +8627,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_container_fleets_errors()}
   def list_container_fleets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListContainerFleets", input, options)
   end
@@ -8748,8 +8672,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_container_group_definition_versions_errors()}
   def list_container_group_definition_versions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListContainerGroupDefinitionVersions", input, options)
   end
@@ -8791,8 +8714,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_container_group_definitions_errors()}
   def list_container_group_definitions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListContainerGroupDefinitions", input, options)
   end
@@ -8829,8 +8751,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_fleet_deployments_errors()}
   def list_fleet_deployments(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListFleetDeployments", input, options)
   end
@@ -8874,8 +8795,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_fleets_errors()}
   def list_fleets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListFleets", input, options)
   end
@@ -8889,8 +8809,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_game_server_groups_errors()}
   def list_game_server_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListGameServerGroups", input, options)
   end
@@ -8918,8 +8837,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_game_servers_errors()}
   def list_game_servers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListGameServers", input, options)
   end
@@ -8948,8 +8866,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_locations_errors()}
   def list_locations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListLocations", input, options)
   end
@@ -8973,8 +8890,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_scripts_errors()}
   def list_scripts(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListScripts", input, options)
   end
@@ -9008,8 +8924,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -9114,8 +9029,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, put_scaling_policy_errors()}
   def put_scaling_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutScalingPolicy", input, options)
   end
@@ -9171,8 +9085,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, register_compute_errors()}
   def register_compute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterCompute", input, options)
   end
@@ -9216,8 +9129,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, register_game_server_errors()}
   def register_game_server(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterGameServer", input, options)
   end
@@ -9246,8 +9158,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, request_upload_credentials_errors()}
   def request_upload_credentials(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RequestUploadCredentials", input, options)
   end
@@ -9273,8 +9184,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, resolve_alias_errors()}
   def resolve_alias(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResolveAlias", input, options)
   end
@@ -9312,8 +9222,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, resume_game_server_group_errors()}
   def resume_game_server_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResumeGameServerGroup", input, options)
   end
@@ -9421,8 +9330,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, search_game_sessions_errors()}
   def search_game_sessions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SearchGameSessions", input, options)
   end
@@ -9461,8 +9369,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, start_fleet_actions_errors()}
   def start_fleet_actions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartFleetActions", input, options)
   end
@@ -9590,8 +9497,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, start_game_session_placement_errors()}
   def start_game_session_placement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartGameSessionPlacement", input, options)
   end
@@ -9663,8 +9569,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, start_match_backfill_errors()}
   def start_match_backfill(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartMatchBackfill", input, options)
   end
@@ -9719,8 +9624,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, start_matchmaking_errors()}
   def start_matchmaking(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartMatchmaking", input, options)
   end
@@ -9767,8 +9671,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, stop_fleet_actions_errors()}
   def stop_fleet_actions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopFleetActions", input, options)
   end
@@ -9797,8 +9700,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, stop_game_session_placement_errors()}
   def stop_game_session_placement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopGameSessionPlacement", input, options)
   end
@@ -9833,8 +9735,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, stop_matchmaking_errors()}
   def stop_matchmaking(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopMatchmaking", input, options)
   end
@@ -9879,8 +9780,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, suspend_game_server_group_errors()}
   def suspend_game_server_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SuspendGameServerGroup", input, options)
   end
@@ -9920,8 +9820,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -9991,8 +9890,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, terminate_game_session_errors()}
   def terminate_game_session(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TerminateGameSession", input, options)
   end
@@ -10031,8 +9929,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -10056,8 +9953,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_alias_errors()}
   def update_alias(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateAlias", input, options)
   end
@@ -10083,8 +9979,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_build_errors()}
   def update_build(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateBuild", input, options)
   end
@@ -10161,8 +10056,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_container_fleet_errors()}
   def update_container_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateContainerFleet", input, options)
   end
@@ -10235,8 +10129,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_container_group_definition_errors()}
   def update_container_group_definition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateContainerGroupDefinition", input, options)
   end
@@ -10261,8 +10154,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_fleet_attributes_errors()}
   def update_fleet_attributes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateFleetAttributes", input, options)
   end
@@ -10330,8 +10222,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_fleet_capacity_errors()}
   def update_fleet_capacity(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateFleetCapacity", input, options)
   end
@@ -10365,8 +10256,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_fleet_port_settings_errors()}
   def update_fleet_port_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateFleetPortSettings", input, options)
   end
@@ -10419,8 +10309,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_game_server_errors()}
   def update_game_server(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateGameServer", input, options)
   end
@@ -10456,8 +10345,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_game_server_group_errors()}
   def update_game_server_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateGameServerGroup", input, options)
   end
@@ -10478,8 +10366,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_game_session_errors()}
   def update_game_session(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateGameSession", input, options)
   end
@@ -10506,8 +10393,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_game_session_queue_errors()}
   def update_game_session_queue(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateGameSessionQueue", input, options)
   end
@@ -10530,8 +10416,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_matchmaking_configuration_errors()}
   def update_matchmaking_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateMatchmakingConfiguration", input, options)
   end
@@ -10570,8 +10455,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_runtime_configuration_errors()}
   def update_runtime_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateRuntimeConfiguration", input, options)
   end
@@ -10609,8 +10493,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_script_errors()}
   def update_script(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateScript", input, options)
   end
@@ -10635,8 +10518,7 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, validate_matchmaking_rule_set_errors()}
   def validate_matchmaking_rule_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ValidateMatchmakingRuleSet", input, options)
   end

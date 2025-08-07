@@ -1222,8 +1222,7 @@ defmodule AWS.ACMPCA do
           | {:error, term()}
           | {:error, create_certificate_authority_errors()}
   def create_certificate_authority(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCertificateAuthority", input, options)
   end
@@ -1257,8 +1256,7 @@ defmodule AWS.ACMPCA do
           | {:error, term()}
           | {:error, create_certificate_authority_audit_report_errors()}
   def create_certificate_authority_audit_report(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCertificateAuthorityAuditReport", input, options)
   end
@@ -1296,8 +1294,7 @@ defmodule AWS.ACMPCA do
           | {:error, term()}
           | {:error, create_permission_errors()}
   def create_permission(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePermission", input, options)
   end
@@ -1348,8 +1345,7 @@ defmodule AWS.ACMPCA do
           | {:error, term()}
           | {:error, delete_certificate_authority_errors()}
   def delete_certificate_authority(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCertificateAuthority", input, options)
   end
@@ -1388,8 +1384,7 @@ defmodule AWS.ACMPCA do
           | {:error, term()}
           | {:error, delete_permission_errors()}
   def delete_permission(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePermission", input, options)
   end
@@ -1438,8 +1433,7 @@ defmodule AWS.ACMPCA do
           | {:error, term()}
           | {:error, delete_policy_errors()}
   def delete_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePolicy", input, options)
   end
@@ -1480,8 +1474,7 @@ defmodule AWS.ACMPCA do
           | {:error, term()}
           | {:error, describe_certificate_authority_errors()}
   def describe_certificate_authority(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCertificateAuthority", input, options)
   end
@@ -1507,8 +1500,7 @@ defmodule AWS.ACMPCA do
           | {:error, term()}
           | {:error, describe_certificate_authority_audit_report_errors()}
   def describe_certificate_authority_audit_report(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCertificateAuthorityAuditReport", input, options)
   end
@@ -1532,8 +1524,7 @@ defmodule AWS.ACMPCA do
           | {:error, term()}
           | {:error, get_certificate_errors()}
   def get_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCertificate", input, options)
   end
@@ -1556,8 +1547,7 @@ defmodule AWS.ACMPCA do
           | {:error, term()}
           | {:error, get_certificate_authority_certificate_errors()}
   def get_certificate_authority_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCertificateAuthorityCertificate", input, options)
   end
@@ -1579,8 +1569,7 @@ defmodule AWS.ACMPCA do
           | {:error, term()}
           | {:error, get_certificate_authority_csr_errors()}
   def get_certificate_authority_csr(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCertificateAuthorityCsr", input, options)
   end
@@ -1622,8 +1611,7 @@ defmodule AWS.ACMPCA do
           | {:error, term()}
           | {:error, get_policy_errors()}
   def get_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPolicy", input, options)
   end
@@ -1737,8 +1725,7 @@ defmodule AWS.ACMPCA do
           | {:error, term()}
           | {:error, import_certificate_authority_certificate_errors()}
   def import_certificate_authority_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ImportCertificateAuthorityCertificate", input, options)
   end
@@ -1761,8 +1748,7 @@ defmodule AWS.ACMPCA do
           | {:error, term()}
           | {:error, issue_certificate_errors()}
   def issue_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "IssueCertificate", input, options)
   end
@@ -1778,8 +1764,7 @@ defmodule AWS.ACMPCA do
           | {:error, term()}
           | {:error, list_certificate_authorities_errors()}
   def list_certificate_authorities(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCertificateAuthorities", input, options)
   end
@@ -1817,8 +1802,7 @@ defmodule AWS.ACMPCA do
           | {:error, term()}
           | {:error, list_permissions_errors()}
   def list_permissions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPermissions", input, options)
   end
@@ -1839,8 +1823,7 @@ defmodule AWS.ACMPCA do
           | {:error, term()}
           | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTags", input, options)
   end
@@ -1883,8 +1866,7 @@ defmodule AWS.ACMPCA do
           | {:error, term()}
           | {:error, put_policy_errors()}
   def put_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutPolicy", input, options)
   end
@@ -1916,8 +1898,7 @@ defmodule AWS.ACMPCA do
           | {:error, term()}
           | {:error, restore_certificate_authority_errors()}
   def restore_certificate_authority(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RestoreCertificateAuthority", input, options)
   end
@@ -1951,8 +1932,7 @@ defmodule AWS.ACMPCA do
           | {:error, term()}
           | {:error, revoke_certificate_errors()}
   def revoke_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RevokeCertificate", input, options)
   end
@@ -1982,8 +1962,7 @@ defmodule AWS.ACMPCA do
           | {:error, term()}
           | {:error, tag_certificate_authority_errors()}
   def tag_certificate_authority(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagCertificateAuthority", input, options)
   end
@@ -2005,8 +1984,7 @@ defmodule AWS.ACMPCA do
           | {:error, term()}
           | {:error, untag_certificate_authority_errors()}
   def untag_certificate_authority(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagCertificateAuthority", input, options)
   end
@@ -2029,8 +2007,7 @@ defmodule AWS.ACMPCA do
           | {:error, term()}
           | {:error, update_certificate_authority_errors()}
   def update_certificate_authority(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateCertificateAuthority", input, options)
   end

@@ -1866,8 +1866,7 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, analyze_document_errors()}
   def analyze_document(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AnalyzeDocument", input, options)
   end
@@ -1898,8 +1897,7 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, analyze_expense_errors()}
   def analyze_expense(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AnalyzeExpense", input, options)
   end
@@ -1918,8 +1916,7 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, analyze_id_errors()}
   def analyze_id(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AnalyzeID", input, options)
   end
@@ -1941,8 +1938,7 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, create_adapter_errors()}
   def create_adapter(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAdapter", input, options)
   end
@@ -1962,8 +1958,7 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, create_adapter_version_errors()}
   def create_adapter_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAdapterVersion", input, options)
   end
@@ -1979,8 +1974,7 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, delete_adapter_errors()}
   def delete_adapter(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAdapter", input, options)
   end
@@ -1998,8 +1992,7 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, delete_adapter_version_errors()}
   def delete_adapter_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAdapterVersion", input, options)
   end
@@ -2031,8 +2024,7 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, detect_document_text_errors()}
   def detect_document_text(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetectDocumentText", input, options)
   end
@@ -2048,8 +2040,7 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, get_adapter_errors()}
   def get_adapter(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAdapter", input, options)
   end
@@ -2065,8 +2056,7 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, get_adapter_version_errors()}
   def get_adapter_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAdapterVersion", input, options)
   end
@@ -2147,8 +2137,7 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, get_document_analysis_errors()}
   def get_document_analysis(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDocumentAnalysis", input, options)
   end
@@ -2200,8 +2189,7 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, get_document_text_detection_errors()}
   def get_document_text_detection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDocumentTextDetection", input, options)
   end
@@ -2246,8 +2234,7 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, get_expense_analysis_errors()}
   def get_expense_analysis(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetExpenseAnalysis", input, options)
   end
@@ -2276,8 +2263,7 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, get_lending_analysis_errors()}
   def get_lending_analysis(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetLendingAnalysis", input, options)
   end
@@ -2310,8 +2296,7 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, get_lending_analysis_summary_errors()}
   def get_lending_analysis_summary(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetLendingAnalysisSummary", input, options)
   end
@@ -2325,8 +2310,7 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, list_adapter_versions_errors()}
   def list_adapter_versions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAdapterVersions", input, options)
   end
@@ -2340,8 +2324,7 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, list_adapters_errors()}
   def list_adapters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAdapters", input, options)
   end
@@ -2355,8 +2338,7 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2391,8 +2373,7 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, start_document_analysis_errors()}
   def start_document_analysis(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartDocumentAnalysis", input, options)
   end
@@ -2428,8 +2409,7 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, start_document_text_detection_errors()}
   def start_document_text_detection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartDocumentTextDetection", input, options)
   end
@@ -2466,8 +2446,7 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, start_expense_analysis_errors()}
   def start_expense_analysis(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartExpenseAnalysis", input, options)
   end
@@ -2518,8 +2497,7 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, start_lending_analysis_errors()}
   def start_lending_analysis(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartLendingAnalysis", input, options)
   end
@@ -2533,8 +2511,7 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2548,8 +2525,7 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2566,8 +2542,7 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, update_adapter_errors()}
   def update_adapter(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateAdapter", input, options)
   end

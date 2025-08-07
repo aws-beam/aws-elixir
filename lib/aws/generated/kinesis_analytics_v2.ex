@@ -2860,8 +2860,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, add_application_cloud_watch_logging_option_errors()}
   def add_application_cloud_watch_logging_option(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddApplicationCloudWatchLoggingOption", input, options)
   end
@@ -2888,8 +2887,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, add_application_input_errors()}
   def add_application_input(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddApplicationInput", input, options)
   end
@@ -2913,8 +2911,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, add_application_input_processing_configuration_errors()}
   def add_application_input_processing_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -2957,8 +2954,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, add_application_output_errors()}
   def add_application_output(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddApplicationOutput", input, options)
   end
@@ -2987,8 +2983,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, add_application_reference_data_source_errors()}
   def add_application_reference_data_source(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddApplicationReferenceDataSource", input, options)
   end
@@ -3021,8 +3016,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, add_application_vpc_configuration_errors()}
   def add_application_vpc_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddApplicationVpcConfiguration", input, options)
   end
@@ -3039,8 +3033,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateApplication", input, options)
   end
@@ -3077,8 +3070,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, create_application_presigned_url_errors()}
   def create_application_presigned_url(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateApplicationPresignedUrl", input, options)
   end
@@ -3092,8 +3084,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, create_application_snapshot_errors()}
   def create_application_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateApplicationSnapshot", input, options)
   end
@@ -3110,8 +3101,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteApplication", input, options)
   end
@@ -3130,8 +3120,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, delete_application_cloud_watch_logging_option_errors()}
   def delete_application_cloud_watch_logging_option(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteApplicationCloudWatchLoggingOption", input, options)
   end
@@ -3149,8 +3138,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, delete_application_input_processing_configuration_errors()}
   def delete_application_input_processing_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -3174,8 +3162,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, delete_application_output_errors()}
   def delete_application_output(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteApplicationOutput", input, options)
   end
@@ -3198,8 +3185,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, delete_application_reference_data_source_errors()}
   def delete_application_reference_data_source(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteApplicationReferenceDataSource", input, options)
   end
@@ -3213,8 +3199,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, delete_application_snapshot_errors()}
   def delete_application_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteApplicationSnapshot", input, options)
   end
@@ -3232,8 +3217,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, delete_application_vpc_configuration_errors()}
   def delete_application_vpc_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteApplicationVpcConfiguration", input, options)
   end
@@ -3251,8 +3235,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, describe_application_errors()}
   def describe_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeApplication", input, options)
   end
@@ -3267,8 +3250,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, describe_application_operation_errors()}
   def describe_application_operation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeApplicationOperation", input, options)
   end
@@ -3282,8 +3264,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, describe_application_snapshot_errors()}
   def describe_application_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeApplicationSnapshot", input, options)
   end
@@ -3302,8 +3283,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, describe_application_version_errors()}
   def describe_application_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeApplicationVersion", input, options)
   end
@@ -3329,8 +3309,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, discover_input_schema_errors()}
   def discover_input_schema(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DiscoverInputSchema", input, options)
   end
@@ -3345,8 +3324,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, list_application_operations_errors()}
   def list_application_operations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListApplicationOperations", input, options)
   end
@@ -3360,8 +3338,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, list_application_snapshots_errors()}
   def list_application_snapshots(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListApplicationSnapshots", input, options)
   end
@@ -3384,8 +3361,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, list_application_versions_errors()}
   def list_application_versions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListApplicationVersions", input, options)
   end
@@ -3407,8 +3383,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, list_applications_errors()}
   def list_applications(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListApplications", input, options)
   end
@@ -3425,8 +3400,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3452,8 +3426,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, rollback_application_errors()}
   def rollback_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RollbackApplication", input, options)
   end
@@ -3470,8 +3443,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, start_application_errors()}
   def start_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartApplication", input, options)
   end
@@ -3495,8 +3467,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, stop_application_errors()}
   def stop_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopApplication", input, options)
   end
@@ -3516,8 +3487,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3534,8 +3504,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -3556,8 +3525,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateApplication", input, options)
   end
@@ -3601,8 +3569,7 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, update_application_maintenance_configuration_errors()}
   def update_application_maintenance_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,

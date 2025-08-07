@@ -6580,8 +6580,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, associate_approval_rule_template_with_repository_errors()}
   def associate_approval_rule_template_with_repository(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -6610,8 +6609,7 @@ defmodule AWS.CodeCommit do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -6632,8 +6630,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, batch_describe_merge_conflicts_errors()}
   def batch_describe_merge_conflicts(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchDescribeMergeConflicts", input, options)
   end
@@ -6656,8 +6653,7 @@ defmodule AWS.CodeCommit do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -6677,8 +6673,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, batch_get_commits_errors()}
   def batch_get_commits(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetCommits", input, options)
   end
@@ -6701,8 +6696,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, batch_get_repositories_errors()}
   def batch_get_repositories(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetRepositories", input, options)
   end
@@ -6725,8 +6719,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, create_approval_rule_template_errors()}
   def create_approval_rule_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateApprovalRuleTemplate", input, options)
   end
@@ -6743,8 +6736,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, create_branch_errors()}
   def create_branch(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateBranch", input, options)
   end
@@ -6758,8 +6750,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, create_commit_errors()}
   def create_commit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCommit", input, options)
   end
@@ -6773,8 +6764,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, create_pull_request_errors()}
   def create_pull_request(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePullRequest", input, options)
   end
@@ -6792,8 +6782,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, create_pull_request_approval_rule_errors()}
   def create_pull_request_approval_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePullRequestApprovalRule", input, options)
   end
@@ -6807,8 +6796,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, create_repository_errors()}
   def create_repository(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRepository", input, options)
   end
@@ -6833,8 +6821,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, create_unreferenced_merge_commit_errors()}
   def create_unreferenced_merge_commit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateUnreferencedMergeCommit", input, options)
   end
@@ -6851,8 +6838,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, delete_approval_rule_template_errors()}
   def delete_approval_rule_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteApprovalRuleTemplate", input, options)
   end
@@ -6867,8 +6853,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, delete_branch_errors()}
   def delete_branch(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteBranch", input, options)
   end
@@ -6883,8 +6868,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, delete_comment_content_errors()}
   def delete_comment_content(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCommentContent", input, options)
   end
@@ -6903,8 +6887,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, delete_file_errors()}
   def delete_file(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteFile", input, options)
   end
@@ -6929,8 +6912,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, delete_pull_request_approval_rule_errors()}
   def delete_pull_request_approval_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePullRequestApprovalRule", input, options)
   end
@@ -6951,8 +6933,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, delete_repository_errors()}
   def delete_repository(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRepository", input, options)
   end
@@ -6971,8 +6952,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, describe_merge_conflicts_errors()}
   def describe_merge_conflicts(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeMergeConflicts", input, options)
   end
@@ -6986,8 +6966,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, describe_pull_request_events_errors()}
   def describe_pull_request_events(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePullRequestEvents", input, options)
   end
@@ -7016,8 +6995,7 @@ defmodule AWS.CodeCommit do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -7042,8 +7020,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, evaluate_pull_request_approval_rules_errors()}
   def evaluate_pull_request_approval_rules(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EvaluatePullRequestApprovalRules", input, options)
   end
@@ -7057,8 +7034,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, get_approval_rule_template_errors()}
   def get_approval_rule_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetApprovalRuleTemplate", input, options)
   end
@@ -7072,8 +7048,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, get_blob_errors()}
   def get_blob(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetBlob", input, options)
   end
@@ -7088,8 +7063,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, get_branch_errors()}
   def get_branch(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetBranch", input, options)
   end
@@ -7108,8 +7082,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, get_comment_errors()}
   def get_comment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetComment", input, options)
   end
@@ -7125,8 +7098,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, get_comment_reactions_errors()}
   def get_comment_reactions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCommentReactions", input, options)
   end
@@ -7144,8 +7116,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, get_comments_for_compared_commit_errors()}
   def get_comments_for_compared_commit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCommentsForComparedCommit", input, options)
   end
@@ -7163,8 +7134,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, get_comments_for_pull_request_errors()}
   def get_comments_for_pull_request(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCommentsForPullRequest", input, options)
   end
@@ -7179,8 +7149,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, get_commit_errors()}
   def get_commit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCommit", input, options)
   end
@@ -7198,8 +7167,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, get_differences_errors()}
   def get_differences(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDifferences", input, options)
   end
@@ -7213,8 +7181,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, get_file_errors()}
   def get_file(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetFile", input, options)
   end
@@ -7228,8 +7195,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, get_folder_errors()}
   def get_folder(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetFolder", input, options)
   end
@@ -7243,8 +7209,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, get_merge_commit_errors()}
   def get_merge_commit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetMergeCommit", input, options)
   end
@@ -7259,8 +7224,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, get_merge_conflicts_errors()}
   def get_merge_conflicts(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetMergeConflicts", input, options)
   end
@@ -7278,8 +7242,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, get_merge_options_errors()}
   def get_merge_options(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetMergeOptions", input, options)
   end
@@ -7293,8 +7256,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, get_pull_request_errors()}
   def get_pull_request(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPullRequest", input, options)
   end
@@ -7311,8 +7273,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, get_pull_request_approval_states_errors()}
   def get_pull_request_approval_states(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPullRequestApprovalStates", input, options)
   end
@@ -7329,8 +7290,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, get_pull_request_override_state_errors()}
   def get_pull_request_override_state(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPullRequestOverrideState", input, options)
   end
@@ -7353,8 +7313,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, get_repository_errors()}
   def get_repository(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRepository", input, options)
   end
@@ -7368,8 +7327,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, get_repository_triggers_errors()}
   def get_repository_triggers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRepositoryTriggers", input, options)
   end
@@ -7388,8 +7346,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, list_approval_rule_templates_errors()}
   def list_approval_rule_templates(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListApprovalRuleTemplates", input, options)
   end
@@ -7412,8 +7369,7 @@ defmodule AWS.CodeCommit do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -7433,8 +7389,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, list_branches_errors()}
   def list_branches(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListBranches", input, options)
   end
@@ -7448,8 +7403,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, list_file_commit_history_errors()}
   def list_file_commit_history(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListFileCommitHistory", input, options)
   end
@@ -7466,8 +7420,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, list_pull_requests_errors()}
   def list_pull_requests(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPullRequests", input, options)
   end
@@ -7481,8 +7434,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, list_repositories_errors()}
   def list_repositories(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRepositories", input, options)
   end
@@ -7500,8 +7452,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, list_repositories_for_approval_rule_template_errors()}
   def list_repositories_for_approval_rule_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRepositoriesForApprovalRuleTemplate", input, options)
   end
@@ -7520,8 +7471,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -7535,8 +7485,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, merge_branches_by_fast_forward_errors()}
   def merge_branches_by_fast_forward(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "MergeBranchesByFastForward", input, options)
   end
@@ -7550,8 +7499,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, merge_branches_by_squash_errors()}
   def merge_branches_by_squash(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "MergeBranchesBySquash", input, options)
   end
@@ -7565,8 +7513,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, merge_branches_by_three_way_errors()}
   def merge_branches_by_three_way(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "MergeBranchesByThreeWay", input, options)
   end
@@ -7589,8 +7536,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, merge_pull_request_by_fast_forward_errors()}
   def merge_pull_request_by_fast_forward(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "MergePullRequestByFastForward", input, options)
   end
@@ -7609,8 +7555,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, merge_pull_request_by_squash_errors()}
   def merge_pull_request_by_squash(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "MergePullRequestBySquash", input, options)
   end
@@ -7629,8 +7574,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, merge_pull_request_by_three_way_errors()}
   def merge_pull_request_by_three_way(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "MergePullRequestByThreeWay", input, options)
   end
@@ -7649,8 +7593,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, override_pull_request_approval_rules_errors()}
   def override_pull_request_approval_rules(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "OverridePullRequestApprovalRules", input, options)
   end
@@ -7664,8 +7607,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, post_comment_for_compared_commit_errors()}
   def post_comment_for_compared_commit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PostCommentForComparedCommit", input, options)
   end
@@ -7679,8 +7621,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, post_comment_for_pull_request_errors()}
   def post_comment_for_pull_request(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PostCommentForPullRequest", input, options)
   end
@@ -7695,8 +7636,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, post_comment_reply_errors()}
   def post_comment_reply(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PostCommentReply", input, options)
   end
@@ -7715,8 +7655,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, put_comment_reaction_errors()}
   def put_comment_reaction(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutCommentReaction", input, options)
   end
@@ -7731,8 +7670,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, put_file_errors()}
   def put_file(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutFile", input, options)
   end
@@ -7748,8 +7686,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, put_repository_triggers_errors()}
   def put_repository_triggers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutRepositoryTriggers", input, options)
   end
@@ -7768,8 +7705,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -7788,8 +7724,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, test_repository_triggers_errors()}
   def test_repository_triggers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TestRepositoryTriggers", input, options)
   end
@@ -7807,8 +7742,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -7831,8 +7765,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, update_approval_rule_template_content_errors()}
   def update_approval_rule_template_content(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateApprovalRuleTemplateContent", input, options)
   end
@@ -7850,8 +7783,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, update_approval_rule_template_description_errors()}
   def update_approval_rule_template_description(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateApprovalRuleTemplateDescription", input, options)
   end
@@ -7869,8 +7801,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, update_approval_rule_template_name_errors()}
   def update_approval_rule_template_name(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateApprovalRuleTemplateName", input, options)
   end
@@ -7884,8 +7815,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, update_comment_errors()}
   def update_comment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateComment", input, options)
   end
@@ -7903,8 +7833,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, update_default_branch_errors()}
   def update_default_branch(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDefaultBranch", input, options)
   end
@@ -7926,8 +7855,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, update_pull_request_approval_rule_content_errors()}
   def update_pull_request_approval_rule_content(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdatePullRequestApprovalRuleContent", input, options)
   end
@@ -7947,8 +7875,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, update_pull_request_approval_state_errors()}
   def update_pull_request_approval_state(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdatePullRequestApprovalState", input, options)
   end
@@ -7962,8 +7889,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, update_pull_request_description_errors()}
   def update_pull_request_description(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdatePullRequestDescription", input, options)
   end
@@ -7977,8 +7903,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, update_pull_request_status_errors()}
   def update_pull_request_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdatePullRequestStatus", input, options)
   end
@@ -7992,8 +7917,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, update_pull_request_title_errors()}
   def update_pull_request_title(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdatePullRequestTitle", input, options)
   end
@@ -8016,8 +7940,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, update_repository_description_errors()}
   def update_repository_description(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateRepositoryDescription", input, options)
   end
@@ -8032,8 +7955,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, update_repository_encryption_key_errors()}
   def update_repository_encryption_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateRepositoryEncryptionKey", input, options)
   end
@@ -8057,8 +7979,7 @@ defmodule AWS.CodeCommit do
           | {:error, term()}
           | {:error, update_repository_name_errors()}
   def update_repository_name(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateRepositoryName", input, options)
   end

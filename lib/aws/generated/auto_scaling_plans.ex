@@ -509,8 +509,7 @@ defmodule AWS.AutoScalingPlans do
           | {:error, term()}
           | {:error, create_scaling_plan_errors()}
   def create_scaling_plan(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateScalingPlan", input, options)
   end
@@ -531,8 +530,7 @@ defmodule AWS.AutoScalingPlans do
           | {:error, term()}
           | {:error, delete_scaling_plan_errors()}
   def delete_scaling_plan(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteScalingPlan", input, options)
   end
@@ -546,8 +544,7 @@ defmodule AWS.AutoScalingPlans do
           | {:error, term()}
           | {:error, describe_scaling_plan_resources_errors()}
   def describe_scaling_plan_resources(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeScalingPlanResources", input, options)
   end
@@ -561,8 +558,7 @@ defmodule AWS.AutoScalingPlans do
           | {:error, term()}
           | {:error, describe_scaling_plans_errors()}
   def describe_scaling_plans(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeScalingPlans", input, options)
   end
@@ -585,8 +581,7 @@ defmodule AWS.AutoScalingPlans do
           | {:error, term()}
           | {:error, get_scaling_plan_resource_forecast_data_errors()}
   def get_scaling_plan_resource_forecast_data(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetScalingPlanResourceForecastData", input, options)
   end
@@ -604,8 +599,7 @@ defmodule AWS.AutoScalingPlans do
           | {:error, term()}
           | {:error, update_scaling_plan_errors()}
   def update_scaling_plan(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateScalingPlan", input, options)
   end

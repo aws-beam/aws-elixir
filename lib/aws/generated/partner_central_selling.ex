@@ -2231,8 +2231,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, accept_engagement_invitation_errors()}
   def accept_engagement_invitation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AcceptEngagementInvitation", input, options)
   end
@@ -2256,8 +2255,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, assign_opportunity_errors()}
   def assign_opportunity(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssignOpportunity", input, options)
   end
@@ -2305,8 +2303,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, associate_opportunity_errors()}
   def associate_opportunity(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateOpportunity", input, options)
   end
@@ -2325,8 +2322,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, create_engagement_errors()}
   def create_engagement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateEngagement", input, options)
   end
@@ -2341,8 +2337,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, create_engagement_invitation_errors()}
   def create_engagement_invitation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateEngagementInvitation", input, options)
   end
@@ -2377,8 +2372,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, create_opportunity_errors()}
   def create_opportunity(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateOpportunity", input, options)
   end
@@ -2396,8 +2390,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, create_resource_snapshot_errors()}
   def create_resource_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateResourceSnapshot", input, options)
   end
@@ -2416,8 +2409,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, create_resource_snapshot_job_errors()}
   def create_resource_snapshot_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateResourceSnapshotJob", input, options)
   end
@@ -2433,8 +2425,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, delete_resource_snapshot_job_errors()}
   def delete_resource_snapshot_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteResourceSnapshotJob", input, options)
   end
@@ -2460,8 +2451,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, disassociate_opportunity_errors()}
   def disassociate_opportunity(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateOpportunity", input, options)
   end
@@ -2480,8 +2470,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, get_aws_opportunity_summary_errors()}
   def get_aws_opportunity_summary(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAwsOpportunitySummary", input, options)
   end
@@ -2496,8 +2485,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, get_engagement_errors()}
   def get_engagement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetEngagement", input, options)
   end
@@ -2515,8 +2503,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, get_engagement_invitation_errors()}
   def get_engagement_invitation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetEngagementInvitation", input, options)
   end
@@ -2533,8 +2520,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, get_opportunity_errors()}
   def get_opportunity(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetOpportunity", input, options)
   end
@@ -2548,8 +2534,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, get_resource_snapshot_errors()}
   def get_resource_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResourceSnapshot", input, options)
   end
@@ -2563,8 +2548,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, get_resource_snapshot_job_errors()}
   def get_resource_snapshot_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResourceSnapshotJob", input, options)
   end
@@ -2579,8 +2563,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, get_selling_system_settings_errors()}
   def get_selling_system_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSellingSystemSettings", input, options)
   end
@@ -2600,8 +2583,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, list_engagement_by_accepting_invitation_tasks_errors()}
   def list_engagement_by_accepting_invitation_tasks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListEngagementByAcceptingInvitationTasks", input, options)
   end
@@ -2620,8 +2602,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, list_engagement_from_opportunity_tasks_errors()}
   def list_engagement_from_opportunity_tasks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListEngagementFromOpportunityTasks", input, options)
   end
@@ -2638,8 +2619,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, list_engagement_invitations_errors()}
   def list_engagement_invitations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListEngagementInvitations", input, options)
   end
@@ -2658,8 +2638,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, list_engagement_members_errors()}
   def list_engagement_members(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListEngagementMembers", input, options)
   end
@@ -2678,8 +2657,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, list_engagement_resource_associations_errors()}
   def list_engagement_resource_associations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListEngagementResourceAssociations", input, options)
   end
@@ -2697,8 +2675,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, list_engagements_errors()}
   def list_engagements(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListEngagements", input, options)
   end
@@ -2733,8 +2710,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, list_opportunities_errors()}
   def list_opportunities(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListOpportunities", input, options)
   end
@@ -2752,8 +2728,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, list_resource_snapshot_jobs_errors()}
   def list_resource_snapshot_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListResourceSnapshotJobs", input, options)
   end
@@ -2781,8 +2756,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, list_resource_snapshots_errors()}
   def list_resource_snapshots(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListResourceSnapshots", input, options)
   end
@@ -2800,8 +2774,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, list_solutions_errors()}
   def list_solutions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSolutions", input, options)
   end
@@ -2815,8 +2788,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2831,8 +2803,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, put_selling_system_settings_errors()}
   def put_selling_system_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutSellingSystemSettings", input, options)
   end
@@ -2849,8 +2820,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, reject_engagement_invitation_errors()}
   def reject_engagement_invitation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RejectEngagementInvitation", input, options)
   end
@@ -2874,8 +2844,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, start_engagement_by_accepting_invitation_task_errors()}
   def start_engagement_by_accepting_invitation_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartEngagementByAcceptingInvitationTask", input, options)
   end
@@ -2898,8 +2867,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, start_engagement_from_opportunity_task_errors()}
   def start_engagement_from_opportunity_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartEngagementFromOpportunityTask", input, options)
   end
@@ -2913,8 +2881,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, start_resource_snapshot_job_errors()}
   def start_resource_snapshot_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartResourceSnapshotJob", input, options)
   end
@@ -2930,8 +2897,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, stop_resource_snapshot_job_errors()}
   def stop_resource_snapshot_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopResourceSnapshotJob", input, options)
   end
@@ -2950,8 +2916,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, submit_opportunity_errors()}
   def submit_opportunity(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SubmitOpportunity", input, options)
   end
@@ -2965,8 +2930,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2980,8 +2944,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -3004,8 +2967,7 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, update_opportunity_errors()}
   def update_opportunity(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateOpportunity", input, options)
   end

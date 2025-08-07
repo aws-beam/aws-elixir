@@ -1771,8 +1771,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def batch_get_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetPolicy", input, options)
   end
@@ -1807,8 +1806,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, batch_is_authorized_errors()}
   def batch_is_authorized(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchIsAuthorized", input, options)
   end
@@ -1840,8 +1838,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, batch_is_authorized_with_token_errors()}
   def batch_is_authorized_with_token(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchIsAuthorizedWithToken", input, options)
   end
@@ -1883,8 +1880,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, create_identity_source_errors()}
   def create_identity_source(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateIdentitySource", input, options)
   end
@@ -1917,8 +1913,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, create_policy_errors()}
   def create_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePolicy", input, options)
   end
@@ -1941,8 +1936,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, create_policy_store_errors()}
   def create_policy_store(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePolicyStore", input, options)
   end
@@ -1968,8 +1962,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, create_policy_template_errors()}
   def create_policy_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePolicyTemplate", input, options)
   end
@@ -1990,8 +1983,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, delete_identity_source_errors()}
   def delete_identity_source(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteIdentitySource", input, options)
   end
@@ -2008,8 +2000,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, delete_policy_errors()}
   def delete_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePolicy", input, options)
   end
@@ -2026,8 +2017,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, delete_policy_store_errors()}
   def delete_policy_store(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePolicyStore", input, options)
   end
@@ -2045,8 +2035,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, delete_policy_template_errors()}
   def delete_policy_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePolicyTemplate", input, options)
   end
@@ -2060,8 +2049,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, get_identity_source_errors()}
   def get_identity_source(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetIdentitySource", input, options)
   end
@@ -2075,8 +2063,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, get_policy_errors()}
   def get_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPolicy", input, options)
   end
@@ -2090,8 +2077,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, get_policy_store_errors()}
   def get_policy_store(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPolicyStore", input, options)
   end
@@ -2106,8 +2092,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, get_policy_template_errors()}
   def get_policy_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPolicyTemplate", input, options)
   end
@@ -2121,8 +2106,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, get_schema_errors()}
   def get_schema(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSchema", input, options)
   end
@@ -2143,8 +2127,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, is_authorized_errors()}
   def is_authorized(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "IsAuthorized", input, options)
   end
@@ -2174,8 +2157,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, is_authorized_with_token_errors()}
   def is_authorized_with_token(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "IsAuthorizedWithToken", input, options)
   end
@@ -2190,8 +2172,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, list_identity_sources_errors()}
   def list_identity_sources(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListIdentitySources", input, options)
   end
@@ -2205,8 +2186,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, list_policies_errors()}
   def list_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPolicies", input, options)
   end
@@ -2220,8 +2200,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_policy_stores(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPolicyStores", input, options)
   end
@@ -2235,8 +2214,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, list_policy_templates_errors()}
   def list_policy_templates(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPolicyTemplates", input, options)
   end
@@ -2253,8 +2231,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2278,8 +2255,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, put_schema_errors()}
   def put_schema(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutSchema", input, options)
   end
@@ -2310,8 +2286,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2328,8 +2303,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2349,8 +2323,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, update_identity_source_errors()}
   def update_identity_source(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateIdentitySource", input, options)
   end
@@ -2400,8 +2373,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, update_policy_errors()}
   def update_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdatePolicy", input, options)
   end
@@ -2419,8 +2391,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, update_policy_store_errors()}
   def update_policy_store(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdatePolicyStore", input, options)
   end
@@ -2444,8 +2415,7 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, update_policy_template_errors()}
   def update_policy_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdatePolicyTemplate", input, options)
   end

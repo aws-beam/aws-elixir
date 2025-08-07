@@ -672,8 +672,7 @@ defmodule AWS.BCMDataExports do
           | {:error, term()}
           | {:error, create_export_errors()}
   def create_export(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateExport", input, options)
   end
@@ -687,8 +686,7 @@ defmodule AWS.BCMDataExports do
           | {:error, term()}
           | {:error, delete_export_errors()}
   def delete_export(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteExport", input, options)
   end
@@ -702,8 +700,7 @@ defmodule AWS.BCMDataExports do
           | {:error, term()}
           | {:error, get_execution_errors()}
   def get_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetExecution", input, options)
   end
@@ -717,8 +714,7 @@ defmodule AWS.BCMDataExports do
           | {:error, term()}
           | {:error, get_export_errors()}
   def get_export(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetExport", input, options)
   end
@@ -735,8 +731,7 @@ defmodule AWS.BCMDataExports do
           | {:error, term()}
           | {:error, get_table_errors()}
   def get_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTable", input, options)
   end
@@ -750,8 +745,7 @@ defmodule AWS.BCMDataExports do
           | {:error, term()}
           | {:error, list_executions_errors()}
   def list_executions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListExecutions", input, options)
   end
@@ -765,8 +759,7 @@ defmodule AWS.BCMDataExports do
           | {:error, term()}
           | {:error, list_exports_errors()}
   def list_exports(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListExports", input, options)
   end
@@ -780,8 +773,7 @@ defmodule AWS.BCMDataExports do
           | {:error, term()}
           | {:error, list_tables_errors()}
   def list_tables(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTables", input, options)
   end
@@ -795,8 +787,7 @@ defmodule AWS.BCMDataExports do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -810,8 +801,7 @@ defmodule AWS.BCMDataExports do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -825,8 +815,7 @@ defmodule AWS.BCMDataExports do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -843,8 +832,7 @@ defmodule AWS.BCMDataExports do
           | {:error, term()}
           | {:error, update_export_errors()}
   def update_export(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateExport", input, options)
   end

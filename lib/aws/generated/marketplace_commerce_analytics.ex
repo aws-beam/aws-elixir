@@ -119,8 +119,7 @@ defmodule AWS.MarketplaceCommerceAnalytics do
           | {:error, term()}
           | {:error, generate_data_set_errors()}
   def generate_data_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GenerateDataSet", input, options)
   end
@@ -150,8 +149,7 @@ defmodule AWS.MarketplaceCommerceAnalytics do
           | {:error, term()}
           | {:error, start_support_data_export_errors()}
   def start_support_data_export(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartSupportDataExport", input, options)
   end

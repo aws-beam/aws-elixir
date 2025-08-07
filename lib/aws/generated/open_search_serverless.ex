@@ -248,6 +248,18 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
+      delete_index_request() :: %{
+        required("id") => String.t() | atom(),
+        required("indexName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_index_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_account_settings_response() :: %{
         optional("accountSettingsDetail") => account_settings_detail()
       }
@@ -486,6 +498,15 @@ defmodule AWS.OpenSearchServerless do
       
   """
   @type get_security_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_index_response() :: %{}
+      
+  """
+  @type delete_index_response() :: %{}
 
   @typedoc """
 
@@ -1068,6 +1089,32 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
+      create_index_request() :: %{
+        optional("indexSchema") => any(),
+        required("id") => String.t() | atom(),
+        required("indexName") => String.t() | atom()
+      }
+      
+  """
+  @type create_index_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_index_request() :: %{
+        optional("indexSchema") => any(),
+        required("id") => String.t() | atom(),
+        required("indexName") => String.t() | atom()
+      }
+      
+  """
+  @type update_index_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       access_policy_detail() :: %{
         "createdDate" => [float()],
         "description" => String.t() | atom(),
@@ -1339,6 +1386,15 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
+      create_index_response() :: %{}
+      
+  """
+  @type create_index_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       update_security_policy_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
@@ -1416,6 +1472,15 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
+      update_index_response() :: %{}
+      
+  """
+  @type update_index_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       create_security_config_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
@@ -1465,6 +1530,18 @@ defmodule AWS.OpenSearchServerless do
       
   """
   @type create_access_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_index_request() :: %{
+        required("id") => String.t() | atom(),
+        required("indexName") => String.t() | atom()
+      }
+      
+  """
+  @type get_index_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1553,6 +1630,17 @@ defmodule AWS.OpenSearchServerless do
   """
   @type create_security_policy_request() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      get_index_response() :: %{
+        "indexSchema" => any()
+      }
+      
+  """
+  @type get_index_response() :: %{(String.t() | atom()) => any()}
+
   @type batch_get_collection_errors() :: validation_exception() | internal_server_exception()
 
   @type batch_get_effective_lifecycle_policy_errors() ::
@@ -1574,6 +1662,12 @@ defmodule AWS.OpenSearchServerless do
           | validation_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_index_errors() ::
+          validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
           | conflict_exception()
 
   @type create_lifecycle_policy_errors() ::
@@ -1612,6 +1706,9 @@ defmodule AWS.OpenSearchServerless do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_index_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
   @type delete_lifecycle_policy_errors() ::
           validation_exception()
           | internal_server_exception()
@@ -1640,6 +1737,9 @@ defmodule AWS.OpenSearchServerless do
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
   @type get_account_settings_errors() :: validation_exception() | internal_server_exception()
+
+  @type get_index_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
 
   @type get_policies_stats_errors() :: internal_server_exception()
 
@@ -1687,6 +1787,9 @@ defmodule AWS.OpenSearchServerless do
 
   @type update_collection_errors() ::
           validation_exception() | internal_server_exception() | conflict_exception()
+
+  @type update_index_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
 
   @type update_lifecycle_policy_errors() ::
           validation_exception()
@@ -1741,8 +1844,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, batch_get_collection_errors()}
   def batch_get_collection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetCollection", input, options)
   end
@@ -1764,8 +1866,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, batch_get_effective_lifecycle_policy_errors()}
   def batch_get_effective_lifecycle_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetEffectiveLifecyclePolicy", input, options)
   end
@@ -1782,8 +1883,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, batch_get_lifecycle_policy_errors()}
   def batch_get_lifecycle_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetLifecyclePolicy", input, options)
   end
@@ -1801,8 +1901,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, batch_get_vpc_endpoint_errors()}
   def batch_get_vpc_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetVpcEndpoint", input, options)
   end
@@ -1822,8 +1921,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, create_access_policy_errors()}
   def create_access_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAccessPolicy", input, options)
   end
@@ -1840,10 +1938,30 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, create_collection_errors()}
   def create_collection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCollection", input, options)
+  end
+
+  @doc """
+  Creates an index within an OpenSearch Serverless collection.
+
+  Unlike other OpenSearch indexes, indexes
+  created by this API are automatically configured to conduct automatic semantic
+  enrichment ingestion and search. For more information, see [About automatic semantic
+  enrichment](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html#serverless-semantic-enrichment)
+  in the *OpenSearch User
+  Guide*.
+  """
+  @spec create_index(map(), create_index_request(), list()) ::
+          {:ok, create_index_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_index_errors()}
+  def create_index(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateIndex", input, options)
   end
 
   @doc """
@@ -1860,8 +1978,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, create_lifecycle_policy_errors()}
   def create_lifecycle_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLifecyclePolicy", input, options)
   end
@@ -1878,8 +1995,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, create_security_config_errors()}
   def create_security_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSecurityConfig", input, options)
   end
@@ -1904,8 +2020,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, create_security_policy_errors()}
   def create_security_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSecurityPolicy", input, options)
   end
@@ -1922,8 +2037,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, create_vpc_endpoint_errors()}
   def create_vpc_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateVpcEndpoint", input, options)
   end
@@ -1940,8 +2054,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, delete_access_policy_errors()}
   def delete_access_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAccessPolicy", input, options)
   end
@@ -1958,10 +2071,28 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, delete_collection_errors()}
   def delete_collection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCollection", input, options)
+  end
+
+  @doc """
+  Deletes an index from an OpenSearch Serverless collection.
+
+  Be aware that the index might be
+  configured to conduct automatic semantic enrichment ingestion and search. For
+  more
+  information, see [About automatic semantic enrichment](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html#serverless-semantic-enrichment).
+  """
+  @spec delete_index(map(), delete_index_request(), list()) ::
+          {:ok, delete_index_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_index_errors()}
+  def delete_index(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteIndex", input, options)
   end
 
   @doc """
@@ -1975,8 +2106,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, delete_lifecycle_policy_errors()}
   def delete_lifecycle_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLifecyclePolicy", input, options)
   end
@@ -1993,8 +2123,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, delete_security_config_errors()}
   def delete_security_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSecurityConfig", input, options)
   end
@@ -2008,8 +2137,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, delete_security_policy_errors()}
   def delete_security_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSecurityPolicy", input, options)
   end
@@ -2026,8 +2154,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, delete_vpc_endpoint_errors()}
   def delete_vpc_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteVpcEndpoint", input, options)
   end
@@ -2044,8 +2171,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, get_access_policy_errors()}
   def get_access_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAccessPolicy", input, options)
   end
@@ -2059,10 +2185,28 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, get_account_settings_errors()}
   def get_account_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAccountSettings", input, options)
+  end
+
+  @doc """
+  Retrieves information about an index in an OpenSearch Serverless collection,
+  including its schema
+  definition.
+
+  The index might be configured to conduct automatic semantic enrichment
+  ingestion and search. For more information, see [About automatic semantic enrichment](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html#serverless-semantic-enrichment).
+  """
+  @spec get_index(map(), get_index_request(), list()) ::
+          {:ok, get_index_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_index_errors()}
+  def get_index(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetIndex", input, options)
   end
 
   @doc """
@@ -2076,8 +2220,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, get_policies_stats_errors()}
   def get_policies_stats(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPoliciesStats", input, options)
   end
@@ -2095,8 +2238,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, get_security_config_errors()}
   def get_security_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSecurityConfig", input, options)
   end
@@ -2116,8 +2258,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, get_security_policy_errors()}
   def get_security_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSecurityPolicy", input, options)
   end
@@ -2131,8 +2272,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, list_access_policies_errors()}
   def list_access_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAccessPolicies", input, options)
   end
@@ -2153,8 +2293,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, list_collections_errors()}
   def list_collections(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCollections", input, options)
   end
@@ -2170,8 +2309,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, list_lifecycle_policies_errors()}
   def list_lifecycle_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListLifecyclePolicies", input, options)
   end
@@ -2190,8 +2328,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, list_security_configs_errors()}
   def list_security_configs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSecurityConfigs", input, options)
   end
@@ -2205,8 +2342,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, list_security_policies_errors()}
   def list_security_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSecurityPolicies", input, options)
   end
@@ -2223,8 +2359,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2243,8 +2378,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, list_vpc_endpoints_errors()}
   def list_vpc_endpoints(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListVpcEndpoints", input, options)
   end
@@ -2261,8 +2395,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2279,8 +2412,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2297,8 +2429,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, update_access_policy_errors()}
   def update_access_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateAccessPolicy", input, options)
   end
@@ -2317,8 +2448,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, update_account_settings_errors()}
   def update_account_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateAccountSettings", input, options)
   end
@@ -2332,10 +2462,30 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, update_collection_errors()}
   def update_collection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateCollection", input, options)
+  end
+
+  @doc """
+  Updates an existing index in an OpenSearch Serverless collection.
+
+  This operation allows you to modify
+  the index schema, including adding new fields or changing field mappings. You
+  can also
+  enable automatic semantic enrichment ingestion and search. For more information,
+  see
+  [About automatic semantic enrichment](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html#serverless-semantic-enrichment).
+  """
+  @spec update_index(map(), update_index_request(), list()) ::
+          {:ok, update_index_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_index_errors()}
+  def update_index(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateIndex", input, options)
   end
 
   @doc """
@@ -2349,8 +2499,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, update_lifecycle_policy_errors()}
   def update_lifecycle_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateLifecyclePolicy", input, options)
   end
@@ -2367,8 +2516,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, update_security_config_errors()}
   def update_security_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateSecurityConfig", input, options)
   end
@@ -2387,8 +2535,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, update_security_policy_errors()}
   def update_security_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateSecurityPolicy", input, options)
   end
@@ -2405,8 +2552,7 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, update_vpc_endpoint_errors()}
   def update_vpc_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateVpcEndpoint", input, options)
   end

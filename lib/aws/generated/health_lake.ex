@@ -676,8 +676,7 @@ defmodule AWS.HealthLake do
           | {:error, term()}
           | {:error, create_fhir_datastore_errors()}
   def create_fhir_datastore(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateFHIRDatastore", input, options)
   end
@@ -691,8 +690,7 @@ defmodule AWS.HealthLake do
           | {:error, term()}
           | {:error, delete_fhir_datastore_errors()}
   def delete_fhir_datastore(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteFHIRDatastore", input, options)
   end
@@ -709,8 +707,7 @@ defmodule AWS.HealthLake do
           | {:error, term()}
           | {:error, describe_fhir_datastore_errors()}
   def describe_fhir_datastore(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFHIRDatastore", input, options)
   end
@@ -725,8 +722,7 @@ defmodule AWS.HealthLake do
           | {:error, term()}
           | {:error, describe_fhir_export_job_errors()}
   def describe_fhir_export_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFHIRExportJob", input, options)
   end
@@ -741,8 +737,7 @@ defmodule AWS.HealthLake do
           | {:error, term()}
           | {:error, describe_fhir_import_job_errors()}
   def describe_fhir_import_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFHIRImportJob", input, options)
   end
@@ -757,8 +752,7 @@ defmodule AWS.HealthLake do
           | {:error, term()}
           | {:error, list_fhir_datastores_errors()}
   def list_fhir_datastores(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListFHIRDatastores", input, options)
   end
@@ -773,8 +767,7 @@ defmodule AWS.HealthLake do
           | {:error, term()}
           | {:error, list_fhir_export_jobs_errors()}
   def list_fhir_export_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListFHIRExportJobs", input, options)
   end
@@ -789,8 +782,7 @@ defmodule AWS.HealthLake do
           | {:error, term()}
           | {:error, list_fhir_import_jobs_errors()}
   def list_fhir_import_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListFHIRImportJobs", input, options)
   end
@@ -805,8 +797,7 @@ defmodule AWS.HealthLake do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -820,8 +811,7 @@ defmodule AWS.HealthLake do
           | {:error, term()}
           | {:error, start_fhir_export_job_errors()}
   def start_fhir_export_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartFHIRExportJob", input, options)
   end
@@ -835,8 +825,7 @@ defmodule AWS.HealthLake do
           | {:error, term()}
           | {:error, start_fhir_import_job_errors()}
   def start_fhir_import_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartFHIRImportJob", input, options)
   end
@@ -851,8 +840,7 @@ defmodule AWS.HealthLake do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -867,8 +855,7 @@ defmodule AWS.HealthLake do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

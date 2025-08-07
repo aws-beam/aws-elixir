@@ -1345,8 +1345,7 @@ defmodule AWS.CodeStarConnections do
           | {:error, term()}
           | {:error, create_connection_errors()}
   def create_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateConnection", input, options)
   end
@@ -1372,8 +1371,7 @@ defmodule AWS.CodeStarConnections do
           | {:error, term()}
           | {:error, create_host_errors()}
   def create_host(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateHost", input, options)
   end
@@ -1390,8 +1388,7 @@ defmodule AWS.CodeStarConnections do
           | {:error, term()}
           | {:error, create_repository_link_errors()}
   def create_repository_link(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRepositoryLink", input, options)
   end
@@ -1410,8 +1407,7 @@ defmodule AWS.CodeStarConnections do
           | {:error, term()}
           | {:error, create_sync_configuration_errors()}
   def create_sync_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSyncConfiguration", input, options)
   end
@@ -1425,8 +1421,7 @@ defmodule AWS.CodeStarConnections do
           | {:error, term()}
           | {:error, delete_connection_errors()}
   def delete_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteConnection", input, options)
   end
@@ -1446,8 +1441,7 @@ defmodule AWS.CodeStarConnections do
           | {:error, term()}
           | {:error, delete_host_errors()}
   def delete_host(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteHost", input, options)
   end
@@ -1462,8 +1456,7 @@ defmodule AWS.CodeStarConnections do
           | {:error, term()}
           | {:error, delete_repository_link_errors()}
   def delete_repository_link(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRepositoryLink", input, options)
   end
@@ -1477,8 +1470,7 @@ defmodule AWS.CodeStarConnections do
           | {:error, term()}
           | {:error, delete_sync_configuration_errors()}
   def delete_sync_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSyncConfiguration", input, options)
   end
@@ -1492,8 +1484,7 @@ defmodule AWS.CodeStarConnections do
           | {:error, term()}
           | {:error, get_connection_errors()}
   def get_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetConnection", input, options)
   end
@@ -1509,8 +1500,7 @@ defmodule AWS.CodeStarConnections do
           | {:error, term()}
           | {:error, get_host_errors()}
   def get_host(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetHost", input, options)
   end
@@ -1527,8 +1517,7 @@ defmodule AWS.CodeStarConnections do
           | {:error, term()}
           | {:error, get_repository_link_errors()}
   def get_repository_link(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRepositoryLink", input, options)
   end
@@ -1545,8 +1534,7 @@ defmodule AWS.CodeStarConnections do
           | {:error, term()}
           | {:error, get_repository_sync_status_errors()}
   def get_repository_sync_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRepositorySyncStatus", input, options)
   end
@@ -1562,8 +1550,7 @@ defmodule AWS.CodeStarConnections do
           | {:error, term()}
           | {:error, get_resource_sync_status_errors()}
   def get_resource_sync_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResourceSyncStatus", input, options)
   end
@@ -1577,8 +1564,7 @@ defmodule AWS.CodeStarConnections do
           | {:error, term()}
           | {:error, get_sync_blocker_summary_errors()}
   def get_sync_blocker_summary(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSyncBlockerSummary", input, options)
   end
@@ -1596,8 +1582,7 @@ defmodule AWS.CodeStarConnections do
           | {:error, term()}
           | {:error, get_sync_configuration_errors()}
   def get_sync_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSyncConfiguration", input, options)
   end
@@ -1611,8 +1596,7 @@ defmodule AWS.CodeStarConnections do
           | {:error, term()}
           | {:error, list_connections_errors()}
   def list_connections(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListConnections", input, options)
   end
@@ -1625,8 +1609,7 @@ defmodule AWS.CodeStarConnections do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_hosts(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListHosts", input, options)
   end
@@ -1640,8 +1623,7 @@ defmodule AWS.CodeStarConnections do
           | {:error, term()}
           | {:error, list_repository_links_errors()}
   def list_repository_links(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRepositoryLinks", input, options)
   end
@@ -1655,8 +1637,7 @@ defmodule AWS.CodeStarConnections do
           | {:error, term()}
           | {:error, list_repository_sync_definitions_errors()}
   def list_repository_sync_definitions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRepositorySyncDefinitions", input, options)
   end
@@ -1670,8 +1651,7 @@ defmodule AWS.CodeStarConnections do
           | {:error, term()}
           | {:error, list_sync_configurations_errors()}
   def list_sync_configurations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSyncConfigurations", input, options)
   end
@@ -1685,8 +1665,7 @@ defmodule AWS.CodeStarConnections do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1703,8 +1682,7 @@ defmodule AWS.CodeStarConnections do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1718,8 +1696,7 @@ defmodule AWS.CodeStarConnections do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1733,8 +1710,7 @@ defmodule AWS.CodeStarConnections do
           | {:error, term()}
           | {:error, update_host_errors()}
   def update_host(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateHost", input, options)
   end
@@ -1753,8 +1729,7 @@ defmodule AWS.CodeStarConnections do
           | {:error, term()}
           | {:error, update_repository_link_errors()}
   def update_repository_link(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateRepositoryLink", input, options)
   end
@@ -1769,8 +1744,7 @@ defmodule AWS.CodeStarConnections do
           | {:error, term()}
           | {:error, update_sync_blocker_errors()}
   def update_sync_blocker(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateSyncBlocker", input, options)
   end
@@ -1785,8 +1759,7 @@ defmodule AWS.CodeStarConnections do
           | {:error, term()}
           | {:error, update_sync_configuration_errors()}
   def update_sync_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateSyncConfiguration", input, options)
   end

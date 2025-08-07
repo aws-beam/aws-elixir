@@ -1433,8 +1433,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, add_tags_errors()}
   def add_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddTags", input, options)
   end
@@ -1459,8 +1458,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, apply_security_groups_to_load_balancer_errors()}
   def apply_security_groups_to_load_balancer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ApplySecurityGroupsToLoadBalancer", input, options)
   end
@@ -1479,8 +1477,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, attach_load_balancer_to_subnets_errors()}
   def attach_load_balancer_to_subnets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AttachLoadBalancerToSubnets", input, options)
   end
@@ -1498,8 +1495,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, configure_health_check_errors()}
   def configure_health_check(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ConfigureHealthCheck", input, options)
   end
@@ -1535,8 +1531,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, create_app_cookie_stickiness_policy_errors()}
   def create_app_cookie_stickiness_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAppCookieStickinessPolicy", input, options)
   end
@@ -1571,8 +1566,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, create_lb_cookie_stickiness_policy_errors()}
   def create_lb_cookie_stickiness_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLBCookieStickinessPolicy", input, options)
   end
@@ -1601,8 +1595,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, create_load_balancer_errors()}
   def create_load_balancer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLoadBalancer", input, options)
   end
@@ -1623,8 +1616,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, create_load_balancer_listeners_errors()}
   def create_load_balancer_listeners(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLoadBalancerListeners", input, options)
   end
@@ -1641,8 +1633,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, create_load_balancer_policy_errors()}
   def create_load_balancer_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLoadBalancerPolicy", input, options)
   end
@@ -1664,8 +1655,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_load_balancer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLoadBalancer", input, options)
   end
@@ -1679,8 +1669,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, delete_load_balancer_listeners_errors()}
   def delete_load_balancer_listeners(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLoadBalancerListeners", input, options)
   end
@@ -1696,8 +1685,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, delete_load_balancer_policy_errors()}
   def delete_load_balancer_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLoadBalancerPolicy", input, options)
   end
@@ -1720,8 +1708,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, deregister_instances_from_load_balancer_errors()}
   def deregister_instances_from_load_balancer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeregisterInstancesFromLoadBalancer", input, options)
   end
@@ -1738,8 +1725,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_account_limits(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAccountLimits", input, options)
   end
@@ -1759,8 +1745,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, describe_instance_health_errors()}
   def describe_instance_health(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeInstanceHealth", input, options)
   end
@@ -1778,8 +1763,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, describe_load_balancer_attributes_errors()}
   def describe_load_balancer_attributes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLoadBalancerAttributes", input, options)
   end
@@ -1801,8 +1785,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, describe_load_balancer_policies_errors()}
   def describe_load_balancer_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLoadBalancerPolicies", input, options)
   end
@@ -1832,8 +1815,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, describe_load_balancer_policy_types_errors()}
   def describe_load_balancer_policy_types(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLoadBalancerPolicyTypes", input, options)
   end
@@ -1850,8 +1832,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, describe_load_balancers_errors()}
   def describe_load_balancers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLoadBalancers", input, options)
   end
@@ -1865,8 +1846,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTags", input, options)
   end
@@ -1889,8 +1869,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, detach_load_balancer_from_subnets_errors()}
   def detach_load_balancer_from_subnets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetachLoadBalancerFromSubnets", input, options)
   end
@@ -1923,8 +1902,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, disable_availability_zones_for_load_balancer_errors()}
   def disable_availability_zones_for_load_balancer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableAvailabilityZonesForLoadBalancer", input, options)
   end
@@ -1947,8 +1925,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, enable_availability_zones_for_load_balancer_errors()}
   def enable_availability_zones_for_load_balancer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableAvailabilityZonesForLoadBalancer", input, options)
   end
@@ -1987,8 +1964,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, modify_load_balancer_attributes_errors()}
   def modify_load_balancer_attributes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyLoadBalancerAttributes", input, options)
   end
@@ -2027,8 +2003,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, register_instances_with_load_balancer_errors()}
   def register_instances_with_load_balancer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterInstancesWithLoadBalancer", input, options)
   end
@@ -2042,8 +2017,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, remove_tags_errors()}
   def remove_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveTags", input, options)
   end
@@ -2068,8 +2042,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, set_load_balancer_listener_ssl_certificate_errors()}
   def set_load_balancer_listener_ssl_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetLoadBalancerListenerSSLCertificate", input, options)
   end
@@ -2107,8 +2080,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, set_load_balancer_policies_for_backend_server_errors()}
   def set_load_balancer_policies_for_backend_server(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetLoadBalancerPoliciesForBackendServer", input, options)
   end
@@ -2137,8 +2109,7 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, set_load_balancer_policies_of_listener_errors()}
   def set_load_balancer_policies_of_listener(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetLoadBalancerPoliciesOfListener", input, options)
   end

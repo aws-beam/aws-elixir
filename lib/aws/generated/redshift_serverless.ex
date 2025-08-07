@@ -2528,8 +2528,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, convert_recovery_point_to_snapshot_errors()}
   def convert_recovery_point_to_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ConvertRecoveryPointToSnapshot", input, options)
   end
@@ -2547,8 +2546,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, create_custom_domain_association_errors()}
   def create_custom_domain_association(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCustomDomainAssociation", input, options)
   end
@@ -2562,8 +2560,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, create_endpoint_access_errors()}
   def create_endpoint_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateEndpointAccess", input, options)
   end
@@ -2577,8 +2574,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, create_namespace_errors()}
   def create_namespace(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateNamespace", input, options)
   end
@@ -2594,8 +2590,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, create_reservation_errors()}
   def create_reservation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateReservation", input, options)
   end
@@ -2613,8 +2608,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, create_scheduled_action_errors()}
   def create_scheduled_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateScheduledAction", input, options)
   end
@@ -2633,8 +2627,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, create_snapshot_errors()}
   def create_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSnapshot", input, options)
   end
@@ -2653,8 +2646,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, create_snapshot_copy_configuration_errors()}
   def create_snapshot_copy_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSnapshotCopyConfiguration", input, options)
   end
@@ -2670,8 +2662,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, create_usage_limit_errors()}
   def create_usage_limit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateUsageLimit", input, options)
   end
@@ -2706,8 +2697,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, create_workgroup_errors()}
   def create_workgroup(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateWorkgroup", input, options)
   end
@@ -2725,8 +2715,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, delete_custom_domain_association_errors()}
   def delete_custom_domain_association(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCustomDomainAssociation", input, options)
   end
@@ -2740,8 +2729,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, delete_endpoint_access_errors()}
   def delete_endpoint_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteEndpointAccess", input, options)
   end
@@ -2758,8 +2746,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, delete_namespace_errors()}
   def delete_namespace(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteNamespace", input, options)
   end
@@ -2773,8 +2760,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -2788,8 +2774,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, delete_scheduled_action_errors()}
   def delete_scheduled_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteScheduledAction", input, options)
   end
@@ -2803,8 +2788,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, delete_snapshot_errors()}
   def delete_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSnapshot", input, options)
   end
@@ -2822,8 +2806,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, delete_snapshot_copy_configuration_errors()}
   def delete_snapshot_copy_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSnapshotCopyConfiguration", input, options)
   end
@@ -2837,8 +2820,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, delete_usage_limit_errors()}
   def delete_usage_limit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteUsageLimit", input, options)
   end
@@ -2852,8 +2834,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, delete_workgroup_errors()}
   def delete_workgroup(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteWorkgroup", input, options)
   end
@@ -2879,8 +2860,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, get_credentials_errors()}
   def get_credentials(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCredentials", input, options)
   end
@@ -2894,8 +2874,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, get_custom_domain_association_errors()}
   def get_custom_domain_association(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCustomDomainAssociation", input, options)
   end
@@ -2909,8 +2888,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, get_endpoint_access_errors()}
   def get_endpoint_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetEndpointAccess", input, options)
   end
@@ -2924,8 +2902,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, get_namespace_errors()}
   def get_namespace(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetNamespace", input, options)
   end
@@ -2939,8 +2916,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, get_recovery_point_errors()}
   def get_recovery_point(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRecoveryPoint", input, options)
   end
@@ -2958,8 +2934,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, get_reservation_errors()}
   def get_reservation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetReservation", input, options)
   end
@@ -2975,8 +2950,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, get_reservation_offering_errors()}
   def get_reservation_offering(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetReservationOffering", input, options)
   end
@@ -2990,8 +2964,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
@@ -3005,8 +2978,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, get_scheduled_action_errors()}
   def get_scheduled_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetScheduledAction", input, options)
   end
@@ -3020,8 +2992,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, get_snapshot_errors()}
   def get_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSnapshot", input, options)
   end
@@ -3035,8 +3006,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, get_table_restore_status_errors()}
   def get_table_restore_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTableRestoreStatus", input, options)
   end
@@ -3050,8 +3020,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, get_track_errors()}
   def get_track(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTrack", input, options)
   end
@@ -3065,8 +3034,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, get_usage_limit_errors()}
   def get_usage_limit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetUsageLimit", input, options)
   end
@@ -3080,8 +3048,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, get_workgroup_errors()}
   def get_workgroup(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetWorkgroup", input, options)
   end
@@ -3095,8 +3062,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_custom_domain_associations_errors()}
   def list_custom_domain_associations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCustomDomainAssociations", input, options)
   end
@@ -3110,8 +3076,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_endpoint_access_errors()}
   def list_endpoint_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListEndpointAccess", input, options)
   end
@@ -3126,8 +3091,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_managed_workgroups_errors()}
   def list_managed_workgroups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListManagedWorkgroups", input, options)
   end
@@ -3141,8 +3105,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_namespaces_errors()}
   def list_namespaces(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListNamespaces", input, options)
   end
@@ -3156,8 +3119,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_recovery_points_errors()}
   def list_recovery_points(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRecoveryPoints", input, options)
   end
@@ -3171,8 +3133,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_reservation_offerings_errors()}
   def list_reservation_offerings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListReservationOfferings", input, options)
   end
@@ -3186,8 +3147,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_reservations_errors()}
   def list_reservations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListReservations", input, options)
   end
@@ -3203,8 +3163,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_scheduled_actions_errors()}
   def list_scheduled_actions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListScheduledActions", input, options)
   end
@@ -3222,8 +3181,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_snapshot_copy_configurations_errors()}
   def list_snapshot_copy_configurations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSnapshotCopyConfigurations", input, options)
   end
@@ -3237,8 +3195,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_snapshots_errors()}
   def list_snapshots(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSnapshots", input, options)
   end
@@ -3252,8 +3209,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_table_restore_status_errors()}
   def list_table_restore_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTableRestoreStatus", input, options)
   end
@@ -3267,8 +3223,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3282,8 +3237,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_tracks_errors()}
   def list_tracks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTracks", input, options)
   end
@@ -3297,8 +3251,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_usage_limits_errors()}
   def list_usage_limits(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListUsageLimits", input, options)
   end
@@ -3312,8 +3265,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, list_workgroups_errors()}
   def list_workgroups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListWorkgroups", input, options)
   end
@@ -3330,8 +3282,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -3345,8 +3296,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, restore_from_recovery_point_errors()}
   def restore_from_recovery_point(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RestoreFromRecoveryPoint", input, options)
   end
@@ -3360,8 +3310,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, restore_from_snapshot_errors()}
   def restore_from_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RestoreFromSnapshot", input, options)
   end
@@ -3382,8 +3331,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, restore_table_from_recovery_point_errors()}
   def restore_table_from_recovery_point(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RestoreTableFromRecoveryPoint", input, options)
   end
@@ -3400,8 +3348,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, restore_table_from_snapshot_errors()}
   def restore_table_from_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RestoreTableFromSnapshot", input, options)
   end
@@ -3415,8 +3362,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3430,8 +3376,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -3450,8 +3395,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, update_custom_domain_association_errors()}
   def update_custom_domain_association(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateCustomDomainAssociation", input, options)
   end
@@ -3465,8 +3409,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, update_endpoint_access_errors()}
   def update_endpoint_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateEndpointAccess", input, options)
   end
@@ -3486,8 +3429,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, update_namespace_errors()}
   def update_namespace(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateNamespace", input, options)
   end
@@ -3501,8 +3443,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, update_scheduled_action_errors()}
   def update_scheduled_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateScheduledAction", input, options)
   end
@@ -3516,8 +3457,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, update_snapshot_errors()}
   def update_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateSnapshot", input, options)
   end
@@ -3535,8 +3475,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, update_snapshot_copy_configuration_errors()}
   def update_snapshot_copy_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateSnapshotCopyConfiguration", input, options)
   end
@@ -3552,8 +3491,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, update_usage_limit_errors()}
   def update_usage_limit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateUsageLimit", input, options)
   end
@@ -3592,8 +3530,7 @@ defmodule AWS.RedshiftServerless do
           | {:error, term()}
           | {:error, update_workgroup_errors()}
   def update_workgroup(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateWorkgroup", input, options)
   end

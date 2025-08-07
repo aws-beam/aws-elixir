@@ -1179,8 +1179,7 @@ defmodule AWS.CostOptimizationHub do
           | {:error, term()}
           | {:error, get_preferences_errors()}
   def get_preferences(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPreferences", input, options)
   end
@@ -1199,8 +1198,7 @@ defmodule AWS.CostOptimizationHub do
           | {:error, term()}
           | {:error, get_recommendation_errors()}
   def get_recommendation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRecommendation", input, options)
   end
@@ -1217,8 +1215,7 @@ defmodule AWS.CostOptimizationHub do
           | {:error, term()}
           | {:error, list_enrollment_statuses_errors()}
   def list_enrollment_statuses(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListEnrollmentStatuses", input, options)
   end
@@ -1237,8 +1234,7 @@ defmodule AWS.CostOptimizationHub do
           | {:error, term()}
           | {:error, list_recommendation_summaries_errors()}
   def list_recommendation_summaries(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRecommendationSummaries", input, options)
   end
@@ -1252,8 +1248,7 @@ defmodule AWS.CostOptimizationHub do
           | {:error, term()}
           | {:error, list_recommendations_errors()}
   def list_recommendations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRecommendations", input, options)
   end
@@ -1276,8 +1271,7 @@ defmodule AWS.CostOptimizationHub do
           | {:error, term()}
           | {:error, update_enrollment_status_errors()}
   def update_enrollment_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateEnrollmentStatus", input, options)
   end
@@ -1295,8 +1289,7 @@ defmodule AWS.CostOptimizationHub do
           | {:error, term()}
           | {:error, update_preferences_errors()}
   def update_preferences(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdatePreferences", input, options)
   end

@@ -14707,8 +14707,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_create_partition_errors()}
   def batch_create_partition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchCreatePartition", input, options)
   end
@@ -14722,8 +14721,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_delete_connection_errors()}
   def batch_delete_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchDeleteConnection", input, options)
   end
@@ -14737,8 +14735,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_delete_partition_errors()}
   def batch_delete_partition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchDeletePartition", input, options)
   end
@@ -14764,8 +14761,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_delete_table_errors()}
   def batch_delete_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchDeleteTable", input, options)
   end
@@ -14779,8 +14775,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_delete_table_version_errors()}
   def batch_delete_table_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchDeleteTableVersion", input, options)
   end
@@ -14794,8 +14789,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_blueprints_errors()}
   def batch_get_blueprints(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetBlueprints", input, options)
   end
@@ -14813,8 +14807,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_crawlers_errors()}
   def batch_get_crawlers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetCrawlers", input, options)
   end
@@ -14828,8 +14821,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_custom_entity_types_errors()}
   def batch_get_custom_entity_types(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetCustomEntityTypes", input, options)
   end
@@ -14843,8 +14835,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_data_quality_result_errors()}
   def batch_get_data_quality_result(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetDataQualityResult", input, options)
   end
@@ -14866,8 +14857,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_dev_endpoints_errors()}
   def batch_get_dev_endpoints(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetDevEndpoints", input, options)
   end
@@ -14885,8 +14875,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_jobs_errors()}
   def batch_get_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetJobs", input, options)
   end
@@ -14900,8 +14889,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_partition_errors()}
   def batch_get_partition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetPartition", input, options)
   end
@@ -14915,8 +14903,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_table_optimizer_errors()}
   def batch_get_table_optimizer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetTableOptimizer", input, options)
   end
@@ -14934,8 +14921,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_triggers_errors()}
   def batch_get_triggers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetTriggers", input, options)
   end
@@ -14953,8 +14939,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_workflows_errors()}
   def batch_get_workflows(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetWorkflows", input, options)
   end
@@ -14972,8 +14957,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_put_data_quality_statistic_annotation_errors()}
   def batch_put_data_quality_statistic_annotation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchPutDataQualityStatisticAnnotation", input, options)
   end
@@ -14987,8 +14971,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_stop_job_run_errors()}
   def batch_stop_job_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchStopJobRun", input, options)
   end
@@ -15002,8 +14985,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_update_partition_errors()}
   def batch_update_partition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchUpdatePartition", input, options)
   end
@@ -15021,8 +15003,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, cancel_data_quality_rule_recommendation_run_errors()}
   def cancel_data_quality_rule_recommendation_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelDataQualityRuleRecommendationRun", input, options)
   end
@@ -15040,8 +15021,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, cancel_data_quality_ruleset_evaluation_run_errors()}
   def cancel_data_quality_ruleset_evaluation_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelDataQualityRulesetEvaluationRun", input, options)
   end
@@ -15060,8 +15040,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, cancel_ml_task_run_errors()}
   def cancel_ml_task_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelMLTaskRun", input, options)
   end
@@ -15075,8 +15054,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, cancel_statement_errors()}
   def cancel_statement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelStatement", input, options)
   end
@@ -15094,8 +15072,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, check_schema_version_validity_errors()}
   def check_schema_version_validity(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CheckSchemaVersionValidity", input, options)
   end
@@ -15109,8 +15086,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_blueprint_errors()}
   def create_blueprint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateBlueprint", input, options)
   end
@@ -15124,8 +15100,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_catalog_errors()}
   def create_catalog(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCatalog", input, options)
   end
@@ -15143,8 +15118,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_classifier_errors()}
   def create_classifier(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateClassifier", input, options)
   end
@@ -15162,8 +15136,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_column_statistics_task_settings_errors()}
   def create_column_statistics_task_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateColumnStatisticsTaskSettings", input, options)
   end
@@ -15180,8 +15153,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_connection_errors()}
   def create_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateConnection", input, options)
   end
@@ -15199,8 +15171,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_crawler_errors()}
   def create_crawler(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCrawler", input, options)
   end
@@ -15219,8 +15190,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_custom_entity_type_errors()}
   def create_custom_entity_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCustomEntityType", input, options)
   end
@@ -15238,8 +15208,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_data_quality_ruleset_errors()}
   def create_data_quality_ruleset(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDataQualityRuleset", input, options)
   end
@@ -15253,8 +15222,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_database_errors()}
   def create_database(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDatabase", input, options)
   end
@@ -15268,8 +15236,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_dev_endpoint_errors()}
   def create_dev_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDevEndpoint", input, options)
   end
@@ -15284,8 +15251,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_integration_errors()}
   def create_integration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateIntegration", input, options)
   end
@@ -15310,8 +15276,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_integration_resource_property_errors()}
   def create_integration_resource_property(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateIntegrationResourceProperty", input, options)
   end
@@ -15336,8 +15301,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_integration_table_properties_errors()}
   def create_integration_table_properties(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateIntegrationTableProperties", input, options)
   end
@@ -15351,8 +15315,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_job_errors()}
   def create_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateJob", input, options)
   end
@@ -15384,8 +15347,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_ml_transform_errors()}
   def create_ml_transform(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateMLTransform", input, options)
   end
@@ -15399,8 +15361,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_partition_errors()}
   def create_partition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePartition", input, options)
   end
@@ -15414,8 +15375,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_partition_index_errors()}
   def create_partition_index(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePartitionIndex", input, options)
   end
@@ -15429,8 +15389,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_registry_errors()}
   def create_registry(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRegistry", input, options)
   end
@@ -15457,8 +15416,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_schema_errors()}
   def create_schema(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSchema", input, options)
   end
@@ -15472,8 +15430,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_script_errors()}
   def create_script(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateScript", input, options)
   end
@@ -15492,8 +15449,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_security_configuration_errors()}
   def create_security_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSecurityConfiguration", input, options)
   end
@@ -15507,8 +15463,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_session_errors()}
   def create_session(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSession", input, options)
   end
@@ -15522,8 +15477,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_table_errors()}
   def create_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTable", input, options)
   end
@@ -15537,8 +15491,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_table_optimizer_errors()}
   def create_table_optimizer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTableOptimizer", input, options)
   end
@@ -15556,8 +15509,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_trigger_errors()}
   def create_trigger(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTrigger", input, options)
   end
@@ -15571,8 +15523,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_usage_profile_errors()}
   def create_usage_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateUsageProfile", input, options)
   end
@@ -15586,8 +15537,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_user_defined_function_errors()}
   def create_user_defined_function(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateUserDefinedFunction", input, options)
   end
@@ -15601,8 +15551,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_workflow_errors()}
   def create_workflow(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateWorkflow", input, options)
   end
@@ -15616,8 +15565,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_blueprint_errors()}
   def delete_blueprint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteBlueprint", input, options)
   end
@@ -15643,8 +15591,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_catalog_errors()}
   def delete_catalog(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCatalog", input, options)
   end
@@ -15658,8 +15605,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_classifier_errors()}
   def delete_classifier(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteClassifier", input, options)
   end
@@ -15680,8 +15626,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_column_statistics_for_partition_errors()}
   def delete_column_statistics_for_partition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteColumnStatisticsForPartition", input, options)
   end
@@ -15702,8 +15647,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_column_statistics_for_table_errors()}
   def delete_column_statistics_for_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteColumnStatisticsForTable", input, options)
   end
@@ -15721,8 +15665,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_column_statistics_task_settings_errors()}
   def delete_column_statistics_task_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteColumnStatisticsTaskSettings", input, options)
   end
@@ -15736,8 +15679,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_connection_errors()}
   def delete_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteConnection", input, options)
   end
@@ -15753,8 +15695,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_crawler_errors()}
   def delete_crawler(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCrawler", input, options)
   end
@@ -15768,8 +15709,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_custom_entity_type_errors()}
   def delete_custom_entity_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCustomEntityType", input, options)
   end
@@ -15783,8 +15723,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_data_quality_ruleset_errors()}
   def delete_data_quality_ruleset(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDataQualityRuleset", input, options)
   end
@@ -15813,8 +15752,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_database_errors()}
   def delete_database(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDatabase", input, options)
   end
@@ -15828,8 +15766,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_dev_endpoint_errors()}
   def delete_dev_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDevEndpoint", input, options)
   end
@@ -15843,8 +15780,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_integration_errors()}
   def delete_integration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteIntegration", input, options)
   end
@@ -15863,8 +15799,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_integration_table_properties_errors()}
   def delete_integration_table_properties(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteIntegrationTableProperties", input, options)
   end
@@ -15881,8 +15816,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_job_errors()}
   def delete_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteJob", input, options)
   end
@@ -15905,8 +15839,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_ml_transform_errors()}
   def delete_ml_transform(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteMLTransform", input, options)
   end
@@ -15920,8 +15853,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_partition_errors()}
   def delete_partition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePartition", input, options)
   end
@@ -15935,8 +15867,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_partition_index_errors()}
   def delete_partition_index(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePartitionIndex", input, options)
   end
@@ -15955,8 +15886,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_registry_errors()}
   def delete_registry(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRegistry", input, options)
   end
@@ -15970,8 +15900,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -15990,8 +15919,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_schema_errors()}
   def delete_schema(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSchema", input, options)
   end
@@ -16024,8 +15952,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_schema_versions_errors()}
   def delete_schema_versions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSchemaVersions", input, options)
   end
@@ -16039,8 +15966,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_security_configuration_errors()}
   def delete_security_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSecurityConfiguration", input, options)
   end
@@ -16054,8 +15980,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_session_errors()}
   def delete_session(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSession", input, options)
   end
@@ -16081,8 +16006,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_table_errors()}
   def delete_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTable", input, options)
   end
@@ -16098,8 +16022,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_table_optimizer_errors()}
   def delete_table_optimizer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTableOptimizer", input, options)
   end
@@ -16113,8 +16036,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_table_version_errors()}
   def delete_table_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTableVersion", input, options)
   end
@@ -16131,8 +16053,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_trigger_errors()}
   def delete_trigger(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTrigger", input, options)
   end
@@ -16146,8 +16067,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_usage_profile_errors()}
   def delete_usage_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteUsageProfile", input, options)
   end
@@ -16161,8 +16081,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_user_defined_function_errors()}
   def delete_user_defined_function(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteUserDefinedFunction", input, options)
   end
@@ -16176,8 +16095,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_workflow_errors()}
   def delete_workflow(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteWorkflow", input, options)
   end
@@ -16192,8 +16110,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, describe_connection_type_errors()}
   def describe_connection_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeConnectionType", input, options)
   end
@@ -16210,8 +16127,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, describe_entity_errors()}
   def describe_entity(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEntity", input, options)
   end
@@ -16225,8 +16141,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, describe_inbound_integrations_errors()}
   def describe_inbound_integrations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeInboundIntegrations", input, options)
   end
@@ -16240,8 +16155,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, describe_integrations_errors()}
   def describe_integrations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeIntegrations", input, options)
   end
@@ -16255,8 +16169,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_blueprint_errors()}
   def get_blueprint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetBlueprint", input, options)
   end
@@ -16270,8 +16183,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_blueprint_run_errors()}
   def get_blueprint_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetBlueprintRun", input, options)
   end
@@ -16285,8 +16197,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_blueprint_runs_errors()}
   def get_blueprint_runs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetBlueprintRuns", input, options)
   end
@@ -16302,8 +16213,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_catalog_errors()}
   def get_catalog(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCatalog", input, options)
   end
@@ -16317,8 +16227,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_catalog_import_status_errors()}
   def get_catalog_import_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCatalogImportStatus", input, options)
   end
@@ -16335,8 +16244,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_catalogs_errors()}
   def get_catalogs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCatalogs", input, options)
   end
@@ -16350,8 +16258,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_classifier_errors()}
   def get_classifier(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetClassifier", input, options)
   end
@@ -16365,8 +16272,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_classifiers_errors()}
   def get_classifiers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetClassifiers", input, options)
   end
@@ -16387,8 +16293,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_column_statistics_for_partition_errors()}
   def get_column_statistics_for_partition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetColumnStatisticsForPartition", input, options)
   end
@@ -16405,8 +16310,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_column_statistics_for_table_errors()}
   def get_column_statistics_for_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetColumnStatisticsForTable", input, options)
   end
@@ -16420,8 +16324,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_column_statistics_task_run_errors()}
   def get_column_statistics_task_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetColumnStatisticsTaskRun", input, options)
   end
@@ -16435,8 +16338,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_column_statistics_task_runs_errors()}
   def get_column_statistics_task_runs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetColumnStatisticsTaskRuns", input, options)
   end
@@ -16454,8 +16356,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_column_statistics_task_settings_errors()}
   def get_column_statistics_task_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetColumnStatisticsTaskSettings", input, options)
   end
@@ -16469,8 +16370,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_connection_errors()}
   def get_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetConnection", input, options)
   end
@@ -16484,8 +16384,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_connections_errors()}
   def get_connections(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetConnections", input, options)
   end
@@ -16499,8 +16398,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_crawler_errors()}
   def get_crawler(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCrawler", input, options)
   end
@@ -16514,8 +16412,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_crawler_metrics_errors()}
   def get_crawler_metrics(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCrawlerMetrics", input, options)
   end
@@ -16530,8 +16427,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_crawlers_errors()}
   def get_crawlers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCrawlers", input, options)
   end
@@ -16545,8 +16441,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_custom_entity_type_errors()}
   def get_custom_entity_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCustomEntityType", input, options)
   end
@@ -16564,8 +16459,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_data_catalog_encryption_settings_errors()}
   def get_data_catalog_encryption_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDataCatalogEncryptionSettings", input, options)
   end
@@ -16580,8 +16474,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_data_quality_model_errors()}
   def get_data_quality_model(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDataQualityModel", input, options)
   end
@@ -16595,8 +16488,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_data_quality_model_result_errors()}
   def get_data_quality_model_result(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDataQualityModelResult", input, options)
   end
@@ -16610,8 +16502,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_data_quality_result_errors()}
   def get_data_quality_result(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDataQualityResult", input, options)
   end
@@ -16629,8 +16520,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_data_quality_rule_recommendation_run_errors()}
   def get_data_quality_rule_recommendation_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDataQualityRuleRecommendationRun", input, options)
   end
@@ -16644,8 +16534,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_data_quality_ruleset_errors()}
   def get_data_quality_ruleset(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDataQualityRuleset", input, options)
   end
@@ -16663,8 +16552,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_data_quality_ruleset_evaluation_run_errors()}
   def get_data_quality_ruleset_evaluation_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDataQualityRulesetEvaluationRun", input, options)
   end
@@ -16678,8 +16566,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_database_errors()}
   def get_database(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDatabase", input, options)
   end
@@ -16693,8 +16580,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_databases_errors()}
   def get_databases(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDatabases", input, options)
   end
@@ -16708,8 +16594,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_dataflow_graph_errors()}
   def get_dataflow_graph(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDataflowGraph", input, options)
   end
@@ -16729,8 +16614,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_dev_endpoint_errors()}
   def get_dev_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDevEndpoint", input, options)
   end
@@ -16750,8 +16634,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_dev_endpoints_errors()}
   def get_dev_endpoints(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDevEndpoints", input, options)
   end
@@ -16773,8 +16656,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_entity_records_errors()}
   def get_entity_records(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetEntityRecords", input, options)
   end
@@ -16793,8 +16675,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_integration_resource_property_errors()}
   def get_integration_resource_property(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetIntegrationResourceProperty", input, options)
   end
@@ -16816,8 +16697,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_integration_table_properties_errors()}
   def get_integration_table_properties(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetIntegrationTableProperties", input, options)
   end
@@ -16831,8 +16711,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_job_errors()}
   def get_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetJob", input, options)
   end
@@ -16860,8 +16739,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_job_bookmark_errors()}
   def get_job_bookmark(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetJobBookmark", input, options)
   end
@@ -16877,8 +16755,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_job_run_errors()}
   def get_job_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetJobRun", input, options)
   end
@@ -16895,8 +16772,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_job_runs_errors()}
   def get_job_runs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetJobRuns", input, options)
   end
@@ -16910,8 +16786,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_jobs_errors()}
   def get_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetJobs", input, options)
   end
@@ -16925,8 +16800,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_mapping_errors()}
   def get_mapping(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetMapping", input, options)
   end
@@ -16947,8 +16821,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_ml_task_run_errors()}
   def get_ml_task_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetMLTaskRun", input, options)
   end
@@ -16972,8 +16845,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_ml_task_runs_errors()}
   def get_ml_task_runs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetMLTaskRuns", input, options)
   end
@@ -16996,8 +16868,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_ml_transform_errors()}
   def get_ml_transform(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetMLTransform", input, options)
   end
@@ -17020,8 +16891,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_ml_transforms_errors()}
   def get_ml_transforms(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetMLTransforms", input, options)
   end
@@ -17035,8 +16905,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_partition_errors()}
   def get_partition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPartition", input, options)
   end
@@ -17050,8 +16919,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_partition_indexes_errors()}
   def get_partition_indexes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPartitionIndexes", input, options)
   end
@@ -17065,8 +16933,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_partitions_errors()}
   def get_partitions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPartitions", input, options)
   end
@@ -17080,8 +16947,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_plan_errors()}
   def get_plan(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPlan", input, options)
   end
@@ -17095,8 +16961,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_registry_errors()}
   def get_registry(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRegistry", input, options)
   end
@@ -17119,8 +16984,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_resource_policies_errors()}
   def get_resource_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResourcePolicies", input, options)
   end
@@ -17134,8 +16998,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
@@ -17149,8 +17012,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_schema_errors()}
   def get_schema(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSchema", input, options)
   end
@@ -17170,8 +17032,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_schema_by_definition_errors()}
   def get_schema_by_definition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSchemaByDefinition", input, options)
   end
@@ -17188,8 +17049,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_schema_version_errors()}
   def get_schema_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSchemaVersion", input, options)
   end
@@ -17207,8 +17067,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_schema_versions_diff_errors()}
   def get_schema_versions_diff(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSchemaVersionsDiff", input, options)
   end
@@ -17222,8 +17081,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_security_configuration_errors()}
   def get_security_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSecurityConfiguration", input, options)
   end
@@ -17237,8 +17095,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_security_configurations_errors()}
   def get_security_configurations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSecurityConfigurations", input, options)
   end
@@ -17252,8 +17109,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_session_errors()}
   def get_session(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSession", input, options)
   end
@@ -17267,8 +17123,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_statement_errors()}
   def get_statement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetStatement", input, options)
   end
@@ -17283,8 +17138,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_table_errors()}
   def get_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTable", input, options)
   end
@@ -17298,8 +17152,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_table_optimizer_errors()}
   def get_table_optimizer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTableOptimizer", input, options)
   end
@@ -17313,8 +17166,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_table_version_errors()}
   def get_table_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTableVersion", input, options)
   end
@@ -17329,8 +17181,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_table_versions_errors()}
   def get_table_versions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTableVersions", input, options)
   end
@@ -17345,8 +17196,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_tables_errors()}
   def get_tables(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTables", input, options)
   end
@@ -17360,8 +17210,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_tags_errors()}
   def get_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTags", input, options)
   end
@@ -17375,8 +17224,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_trigger_errors()}
   def get_trigger(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTrigger", input, options)
   end
@@ -17390,8 +17238,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_triggers_errors()}
   def get_triggers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTriggers", input, options)
   end
@@ -17413,8 +17260,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_unfiltered_partition_metadata_errors()}
   def get_unfiltered_partition_metadata(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetUnfilteredPartitionMetadata", input, options)
   end
@@ -17436,8 +17282,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_unfiltered_partitions_metadata_errors()}
   def get_unfiltered_partitions_metadata(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetUnfilteredPartitionsMetadata", input, options)
   end
@@ -17455,8 +17300,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_unfiltered_table_metadata_errors()}
   def get_unfiltered_table_metadata(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetUnfilteredTableMetadata", input, options)
   end
@@ -17470,8 +17314,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_usage_profile_errors()}
   def get_usage_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetUsageProfile", input, options)
   end
@@ -17485,8 +17328,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_user_defined_function_errors()}
   def get_user_defined_function(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetUserDefinedFunction", input, options)
   end
@@ -17500,8 +17342,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_user_defined_functions_errors()}
   def get_user_defined_functions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetUserDefinedFunctions", input, options)
   end
@@ -17515,8 +17356,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_workflow_errors()}
   def get_workflow(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetWorkflow", input, options)
   end
@@ -17532,8 +17372,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_workflow_run_errors()}
   def get_workflow_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetWorkflowRun", input, options)
   end
@@ -17547,8 +17386,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_workflow_run_properties_errors()}
   def get_workflow_run_properties(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetWorkflowRunProperties", input, options)
   end
@@ -17562,8 +17400,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_workflow_runs_errors()}
   def get_workflow_runs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetWorkflowRuns", input, options)
   end
@@ -17577,8 +17414,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, import_catalog_to_glue_errors()}
   def import_catalog_to_glue(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ImportCatalogToGlue", input, options)
   end
@@ -17592,8 +17428,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_blueprints_errors()}
   def list_blueprints(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListBlueprints", input, options)
   end
@@ -17611,8 +17446,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_column_statistics_task_runs_errors()}
   def list_column_statistics_task_runs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListColumnStatisticsTaskRuns", input, options)
   end
@@ -17632,8 +17466,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_connection_types_errors()}
   def list_connection_types(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListConnectionTypes", input, options)
   end
@@ -17657,8 +17490,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_crawlers_errors()}
   def list_crawlers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCrawlers", input, options)
   end
@@ -17691,8 +17523,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_crawls_errors()}
   def list_crawls(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCrawls", input, options)
   end
@@ -17706,8 +17537,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_custom_entity_types_errors()}
   def list_custom_entity_types(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCustomEntityTypes", input, options)
   end
@@ -17721,8 +17551,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_data_quality_results_errors()}
   def list_data_quality_results(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDataQualityResults", input, options)
   end
@@ -17740,8 +17569,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_data_quality_rule_recommendation_runs_errors()}
   def list_data_quality_rule_recommendation_runs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDataQualityRuleRecommendationRuns", input, options)
   end
@@ -17760,8 +17588,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_data_quality_ruleset_evaluation_runs_errors()}
   def list_data_quality_ruleset_evaluation_runs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDataQualityRulesetEvaluationRuns", input, options)
   end
@@ -17775,8 +17602,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_data_quality_rulesets_errors()}
   def list_data_quality_rulesets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDataQualityRulesets", input, options)
   end
@@ -17794,8 +17620,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_data_quality_statistic_annotations_errors()}
   def list_data_quality_statistic_annotations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDataQualityStatisticAnnotations", input, options)
   end
@@ -17809,8 +17634,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_data_quality_statistics_errors()}
   def list_data_quality_statistics(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDataQualityStatistics", input, options)
   end
@@ -17834,8 +17658,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_dev_endpoints_errors()}
   def list_dev_endpoints(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDevEndpoints", input, options)
   end
@@ -17849,8 +17672,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_entities_errors()}
   def list_entities(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListEntities", input, options)
   end
@@ -17873,8 +17695,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_jobs_errors()}
   def list_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListJobs", input, options)
   end
@@ -17895,8 +17716,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_ml_transforms_errors()}
   def list_ml_transforms(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListMLTransforms", input, options)
   end
@@ -17914,8 +17734,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_registries_errors()}
   def list_registries(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRegistries", input, options)
   end
@@ -17933,8 +17752,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_schema_versions_errors()}
   def list_schema_versions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSchemaVersions", input, options)
   end
@@ -17954,8 +17772,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_schemas_errors()}
   def list_schemas(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSchemas", input, options)
   end
@@ -17969,8 +17786,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_sessions_errors()}
   def list_sessions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSessions", input, options)
   end
@@ -17984,8 +17800,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_statements_errors()}
   def list_statements(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListStatements", input, options)
   end
@@ -17999,8 +17814,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_table_optimizer_runs_errors()}
   def list_table_optimizer_runs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTableOptimizerRuns", input, options)
   end
@@ -18023,8 +17837,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_triggers_errors()}
   def list_triggers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTriggers", input, options)
   end
@@ -18038,8 +17851,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_usage_profiles_errors()}
   def list_usage_profiles(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListUsageProfiles", input, options)
   end
@@ -18053,8 +17865,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_workflows_errors()}
   def list_workflows(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListWorkflows", input, options)
   end
@@ -18068,8 +17879,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, modify_integration_errors()}
   def modify_integration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyIntegration", input, options)
   end
@@ -18090,8 +17900,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, put_data_catalog_encryption_settings_errors()}
   def put_data_catalog_encryption_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutDataCatalogEncryptionSettings", input, options)
   end
@@ -18109,8 +17918,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, put_data_quality_profile_annotation_errors()}
   def put_data_quality_profile_annotation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutDataQualityProfileAnnotation", input, options)
   end
@@ -18124,8 +17932,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -18142,8 +17949,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, put_schema_version_metadata_errors()}
   def put_schema_version_metadata(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutSchemaVersionMetadata", input, options)
   end
@@ -18160,8 +17966,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, put_workflow_run_properties_errors()}
   def put_workflow_run_properties(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutWorkflowRunProperties", input, options)
   end
@@ -18175,8 +17980,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, query_schema_version_metadata_errors()}
   def query_schema_version_metadata(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "QuerySchemaVersionMetadata", input, options)
   end
@@ -18204,8 +18008,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, register_schema_version_errors()}
   def register_schema_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterSchemaVersion", input, options)
   end
@@ -18220,8 +18023,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, remove_schema_version_metadata_errors()}
   def remove_schema_version_metadata(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveSchemaVersionMetadata", input, options)
   end
@@ -18249,8 +18051,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, reset_job_bookmark_errors()}
   def reset_job_bookmark(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResetJobBookmark", input, options)
   end
@@ -18268,8 +18069,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, resume_workflow_run_errors()}
   def resume_workflow_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResumeWorkflowRun", input, options)
   end
@@ -18283,8 +18083,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, run_statement_errors()}
   def run_statement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RunStatement", input, options)
   end
@@ -18309,8 +18108,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, search_tables_errors()}
   def search_tables(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SearchTables", input, options)
   end
@@ -18324,8 +18122,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_blueprint_run_errors()}
   def start_blueprint_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartBlueprintRun", input, options)
   end
@@ -18343,8 +18140,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_column_statistics_task_run_errors()}
   def start_column_statistics_task_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartColumnStatisticsTaskRun", input, options)
   end
@@ -18362,8 +18158,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_column_statistics_task_run_schedule_errors()}
   def start_column_statistics_task_run_schedule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartColumnStatisticsTaskRunSchedule", input, options)
   end
@@ -18381,8 +18176,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_crawler_errors()}
   def start_crawler(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartCrawler", input, options)
   end
@@ -18398,8 +18192,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_crawler_schedule_errors()}
   def start_crawler_schedule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartCrawlerSchedule", input, options)
   end
@@ -18424,8 +18217,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_data_quality_rule_recommendation_run_errors()}
   def start_data_quality_rule_recommendation_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartDataQualityRuleRecommendationRun", input, options)
   end
@@ -18447,8 +18239,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_data_quality_ruleset_evaluation_run_errors()}
   def start_data_quality_ruleset_evaluation_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartDataQualityRulesetEvaluationRun", input, options)
   end
@@ -18476,8 +18267,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_export_labels_task_run_errors()}
   def start_export_labels_task_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartExportLabelsTaskRun", input, options)
   end
@@ -18523,8 +18313,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_import_labels_task_run_errors()}
   def start_import_labels_task_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartImportLabelsTaskRun", input, options)
   end
@@ -18538,8 +18327,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_job_run_errors()}
   def start_job_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartJobRun", input, options)
   end
@@ -18562,8 +18350,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_ml_evaluation_task_run_errors()}
   def start_ml_evaluation_task_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartMLEvaluationTaskRun", input, options)
   end
@@ -18603,8 +18390,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_ml_labeling_set_generation_task_run_errors()}
   def start_ml_labeling_set_generation_task_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartMLLabelingSetGenerationTaskRun", input, options)
   end
@@ -18622,8 +18408,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_trigger_errors()}
   def start_trigger(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartTrigger", input, options)
   end
@@ -18637,8 +18422,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_workflow_run_errors()}
   def start_workflow_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartWorkflowRun", input, options)
   end
@@ -18652,8 +18436,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, stop_column_statistics_task_run_errors()}
   def stop_column_statistics_task_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopColumnStatisticsTaskRun", input, options)
   end
@@ -18671,8 +18454,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, stop_column_statistics_task_run_schedule_errors()}
   def stop_column_statistics_task_run_schedule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopColumnStatisticsTaskRunSchedule", input, options)
   end
@@ -18686,8 +18468,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, stop_crawler_errors()}
   def stop_crawler(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopCrawler", input, options)
   end
@@ -18703,8 +18484,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, stop_crawler_schedule_errors()}
   def stop_crawler_schedule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopCrawlerSchedule", input, options)
   end
@@ -18718,8 +18498,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, stop_session_errors()}
   def stop_session(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopSession", input, options)
   end
@@ -18733,8 +18512,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, stop_trigger_errors()}
   def stop_trigger(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopTrigger", input, options)
   end
@@ -18748,8 +18526,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, stop_workflow_run_errors()}
   def stop_workflow_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopWorkflowRun", input, options)
   end
@@ -18767,8 +18544,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -18789,8 +18565,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, test_connection_errors()}
   def test_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TestConnection", input, options)
   end
@@ -18804,8 +18579,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -18819,8 +18593,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_blueprint_errors()}
   def update_blueprint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateBlueprint", input, options)
   end
@@ -18834,8 +18607,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_catalog_errors()}
   def update_catalog(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateCatalog", input, options)
   end
@@ -18851,8 +18623,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_classifier_errors()}
   def update_classifier(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateClassifier", input, options)
   end
@@ -18873,8 +18644,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_column_statistics_for_partition_errors()}
   def update_column_statistics_for_partition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateColumnStatisticsForPartition", input, options)
   end
@@ -18895,8 +18665,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_column_statistics_for_table_errors()}
   def update_column_statistics_for_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateColumnStatisticsForTable", input, options)
   end
@@ -18914,8 +18683,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_column_statistics_task_settings_errors()}
   def update_column_statistics_task_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateColumnStatisticsTaskSettings", input, options)
   end
@@ -18929,8 +18697,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_connection_errors()}
   def update_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateConnection", input, options)
   end
@@ -18948,8 +18715,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_crawler_errors()}
   def update_crawler(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateCrawler", input, options)
   end
@@ -18963,8 +18729,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_crawler_schedule_errors()}
   def update_crawler_schedule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateCrawlerSchedule", input, options)
   end
@@ -18978,8 +18743,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_data_quality_ruleset_errors()}
   def update_data_quality_ruleset(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDataQualityRuleset", input, options)
   end
@@ -18993,8 +18757,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_database_errors()}
   def update_database(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDatabase", input, options)
   end
@@ -19008,8 +18771,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_dev_endpoint_errors()}
   def update_dev_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDevEndpoint", input, options)
   end
@@ -19032,8 +18794,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_integration_resource_property_errors()}
   def update_integration_resource_property(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateIntegrationResourceProperty", input, options)
   end
@@ -19061,8 +18822,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_integration_table_properties_errors()}
   def update_integration_table_properties(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateIntegrationTableProperties", input, options)
   end
@@ -19078,8 +18838,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_job_errors()}
   def update_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateJob", input, options)
   end
@@ -19098,8 +18857,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_job_from_source_control_errors()}
   def update_job_from_source_control(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateJobFromSourceControl", input, options)
   end
@@ -19120,8 +18878,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_ml_transform_errors()}
   def update_ml_transform(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateMLTransform", input, options)
   end
@@ -19135,8 +18892,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_partition_errors()}
   def update_partition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdatePartition", input, options)
   end
@@ -19153,8 +18909,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_registry_errors()}
   def update_registry(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateRegistry", input, options)
   end
@@ -19180,8 +18935,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_schema_errors()}
   def update_schema(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateSchema", input, options)
   end
@@ -19200,8 +18954,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_source_control_from_job_errors()}
   def update_source_control_from_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateSourceControlFromJob", input, options)
   end
@@ -19215,8 +18968,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_table_errors()}
   def update_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateTable", input, options)
   end
@@ -19230,8 +18982,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_table_optimizer_errors()}
   def update_table_optimizer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateTableOptimizer", input, options)
   end
@@ -19249,8 +19000,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_trigger_errors()}
   def update_trigger(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateTrigger", input, options)
   end
@@ -19264,8 +19014,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_usage_profile_errors()}
   def update_usage_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateUsageProfile", input, options)
   end
@@ -19279,8 +19028,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_user_defined_function_errors()}
   def update_user_defined_function(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateUserDefinedFunction", input, options)
   end
@@ -19294,8 +19042,7 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_workflow_errors()}
   def update_workflow(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateWorkflow", input, options)
   end

@@ -459,8 +459,7 @@ defmodule AWS.KendraRanking do
           | {:error, term()}
           | {:error, create_rescore_execution_plan_errors()}
   def create_rescore_execution_plan(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRescoreExecutionPlan", input, options)
   end
@@ -478,8 +477,7 @@ defmodule AWS.KendraRanking do
           | {:error, term()}
           | {:error, delete_rescore_execution_plan_errors()}
   def delete_rescore_execution_plan(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRescoreExecutionPlan", input, options)
   end
@@ -497,8 +495,7 @@ defmodule AWS.KendraRanking do
           | {:error, term()}
           | {:error, describe_rescore_execution_plan_errors()}
   def describe_rescore_execution_plan(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeRescoreExecutionPlan", input, options)
   end
@@ -516,8 +513,7 @@ defmodule AWS.KendraRanking do
           | {:error, term()}
           | {:error, list_rescore_execution_plans_errors()}
   def list_rescore_execution_plans(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRescoreExecutionPlans", input, options)
   end
@@ -534,8 +530,7 @@ defmodule AWS.KendraRanking do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -554,8 +549,7 @@ defmodule AWS.KendraRanking do
           | {:error, term()}
           | {:error, rescore_errors()}
   def rescore(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "Rescore", input, options)
   end
@@ -575,8 +569,7 @@ defmodule AWS.KendraRanking do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -595,8 +588,7 @@ defmodule AWS.KendraRanking do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -617,8 +609,7 @@ defmodule AWS.KendraRanking do
           | {:error, term()}
           | {:error, update_rescore_execution_plan_errors()}
   def update_rescore_execution_plan(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateRescoreExecutionPlan", input, options)
   end

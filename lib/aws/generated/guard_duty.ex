@@ -1787,7 +1787,8 @@ defmodule AWS.GuardDuty do
         "Blocked" => boolean(),
         "Domain" => String.t() | atom(),
         "DomainWithSuffix" => String.t() | atom(),
-        "Protocol" => String.t() | atom()
+        "Protocol" => String.t() | atom(),
+        "VpcOwnerAccountId" => String.t() | atom()
       }
 
   """

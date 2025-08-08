@@ -1545,6 +1545,7 @@ defmodule AWS.CodeBuild do
         optional("buildType") => list(any()),
         optional("filterGroups") => list(list(webhook_filter())()),
         optional("manualCreation") => boolean(),
+        optional("pullRequestBuildPolicy") => pull_request_build_policy(),
         optional("scopeConfiguration") => scope_configuration(),
         required("projectName") => String.t() | atom()
       }
@@ -2201,6 +2202,18 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
+      pull_request_build_policy() :: %{
+        "approverRoles" => list(list(any())()),
+        "requiresCommentApproval" => list(any())
+      }
+      
+  """
+  @type pull_request_build_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_test_cases_input() :: %{
         optional("filter") => test_case_filter(),
         optional("maxResults") => integer(),
@@ -2533,6 +2546,7 @@ defmodule AWS.CodeBuild do
         optional("branchFilter") => String.t() | atom(),
         optional("buildType") => list(any()),
         optional("filterGroups") => list(list(webhook_filter())()),
+        optional("pullRequestBuildPolicy") => pull_request_build_policy(),
         optional("rotateSecret") => boolean(),
         required("projectName") => String.t() | atom()
       }

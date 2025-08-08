@@ -1852,7 +1852,8 @@ defmodule AWS.Glue do
       
       iceberg_orphan_file_deletion_configuration() :: %{
         "location" => String.t() | atom(),
-        "orphanFileRetentionPeriodInDays" => integer()
+        "orphanFileRetentionPeriodInDays" => integer(),
+        "runRateInHours" => integer()
       }
       
   """
@@ -6514,6 +6515,7 @@ defmodule AWS.Glue do
       
       table_optimizer() :: %{
         "configuration" => table_optimizer_configuration(),
+        "configurationSource" => list(any()),
         "lastRun" => table_optimizer_run(),
         "type" => list(any())
       }
@@ -7374,6 +7376,8 @@ defmodule AWS.Glue do
   ## Example:
       
       iceberg_compaction_configuration() :: %{
+        "deleteFileThreshold" => integer(),
+        "minInputFiles" => integer(),
         "strategy" => list(any())
       }
       
@@ -8877,7 +8881,8 @@ defmodule AWS.Glue do
       
       catalog_properties() :: %{
         "CustomProperties" => map(),
-        "DataLakeAccessProperties" => data_lake_access_properties()
+        "DataLakeAccessProperties" => data_lake_access_properties(),
+        "IcebergOptimizationProperties" => iceberg_optimization_properties()
       }
       
   """
@@ -10835,7 +10840,8 @@ defmodule AWS.Glue do
       
       catalog_properties_output() :: %{
         "CustomProperties" => map(),
-        "DataLakeAccessProperties" => data_lake_access_properties_output()
+        "DataLakeAccessProperties" => data_lake_access_properties_output(),
+        "IcebergOptimizationProperties" => iceberg_optimization_properties_output()
       }
       
   """
@@ -11859,6 +11865,21 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      iceberg_optimization_properties_output() :: %{
+        "Compaction" => map(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "OrphanFileDeletion" => map(),
+        "Retention" => map(),
+        "RoleArn" => String.t() | atom()
+      }
+      
+  """
+  @type iceberg_optimization_properties_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_schema_by_definition_response() :: %{
         "CreatedTime" => String.t() | atom(),
         "DataFormat" => list(any()),
@@ -12836,6 +12857,20 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      iceberg_optimization_properties() :: %{
+        "Compaction" => map(),
+        "OrphanFileDeletion" => map(),
+        "Retention" => map(),
+        "RoleArn" => String.t() | atom()
+      }
+      
+  """
+  @type iceberg_optimization_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       j_db_c_connector_target() :: %{
         "AdditionalOptions" => map(),
         "ConnectionName" => String.t() | atom(),
@@ -12938,6 +12973,7 @@ defmodule AWS.Glue do
       iceberg_retention_configuration() :: %{
         "cleanExpiredFiles" => boolean(),
         "numberOfSnapshotsToRetain" => integer(),
+        "runRateInHours" => integer(),
         "snapshotRetentionPeriodInDays" => integer()
       }
       

@@ -1727,6 +1727,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      get_contact_metrics_request() :: %{
+        required("ContactId") => String.t() | atom(),
+        required("InstanceId") => String.t() | atom(),
+        required("Metrics") => list(contact_metric_info())
+      }
+
+  """
+  @type get_contact_metrics_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_vocabulary_request() :: %{}
 
   """
@@ -4199,6 +4212,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      get_contact_metrics_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "MetricResults" => list(contact_metric_result())
+      }
+
+  """
+  @type get_contact_metrics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       stop_contact_recording_request() :: %{
         optional("ContactRecordingType") => list(any()),
         required("ContactId") => String.t() | atom(),
@@ -5159,6 +5185,18 @@ defmodule AWS.Connect do
 
   """
   @type search_quick_connects_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      contact_metric_result() :: %{
+        "Name" => list(any()),
+        "Value" => list()
+      }
+
+  """
+  @type contact_metric_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6779,6 +6817,7 @@ defmodule AWS.Connect do
 
       user_hierarchy_group_search_criteria() :: %{
         "AndConditions" => list(user_hierarchy_group_search_criteria()),
+        "HierarchyGroupCondition" => hierarchy_group_condition(),
         "OrConditions" => list(user_hierarchy_group_search_criteria()),
         "StringCondition" => string_condition()
       }
@@ -7907,6 +7946,7 @@ defmodule AWS.Connect do
   ## Example:
 
       common_attribute_and_condition() :: %{
+        "HierarchyGroupCondition" => hierarchy_group_condition(),
         "TagConditions" => list(tag_condition())
       }
 
@@ -8344,6 +8384,17 @@ defmodule AWS.Connect do
 
   """
   @type delete_quick_connect_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      contact_metric_info() :: %{
+        "Name" => list(any())
+      }
+
+  """
+  @type contact_metric_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11959,6 +12010,14 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type get_contact_metrics_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type get_current_metric_data_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
@@ -13546,8 +13605,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Associates a set of quick connects with a queue.
   """
   @spec associate_queue_quick_connects(
@@ -14068,8 +14125,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Creates an agent status for the specified Amazon Connect instance.
   """
   @spec create_agent_status(map(), String.t() | atom(), create_agent_status_request(), list()) ::
@@ -14342,8 +14397,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Creates hours of operation.
   """
   @spec create_hours_of_operation(
@@ -14379,7 +14432,7 @@ defmodule AWS.Connect do
 
   @doc """
   Creates an hours of operation override in an Amazon Connect hours of operation
-  resource
+  resource.
   """
   @spec create_hours_of_operation_override(
           map(),
@@ -15014,10 +15067,9 @@ defmodule AWS.Connect do
 
   Certain
   [UserIdentityInfo](https://docs.aws.amazon.com/connect/latest/APIReference/API_UserIdentityInfo.html) parameters
-  are required in some situations. For example, `Email` is required if you are
-  using
-  SAML for identity management. `FirstName` and `LastName` are required if
-  you are using Amazon Connect or SAML for identity management.
+  are required in some situations. For example, `Email`, `FirstName` and
+  `LastName` are required if you are using Amazon Connect or SAML for identity
+  management.
 
   For information about how to create users using the Amazon Connect admin
   website, see [Add
@@ -15563,8 +15615,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Deletes an hours of operation.
   """
   @spec delete_hours_of_operation(
@@ -15609,7 +15659,7 @@ defmodule AWS.Connect do
 
   @doc """
   Deletes an hours of operation override in an Amazon Connect hours of operation
-  resource
+  resource.
   """
   @spec delete_hours_of_operation_override(
           map(),
@@ -16446,8 +16496,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Describes an agent status.
   """
   @spec describe_agent_status(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -16677,8 +16725,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Describes the hours of operation.
   """
   @spec describe_hours_of_operation(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -16907,8 +16953,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Describes the specified queue.
   """
   @spec describe_queue(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -17507,8 +17551,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Disassociates a set of quick connects from a queue.
   """
   @spec disassociate_queue_quick_connects(
@@ -17855,11 +17897,83 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Gets the real-time metrics of the specified contact.
+
+  ## Use cases
+
+  Following are common uses cases for this API:
+
+    *
+  You can use this API to retrieve the position of the contact in the queue.
+
+  **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  """
+  @spec get_contact_metrics(map(), get_contact_metrics_request(), list()) ::
+          {:ok, get_contact_metrics_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_contact_metrics_errors()}
+  def get_contact_metrics(%Client{} = client, input, options \\ []) do
+    url_path = "/metrics/contact"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Gets the real-time metric data from the specified Amazon Connect instance.
 
   For a description of each metric, see [Metrics definitions](https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html)
   in the
   *Amazon Connect Administrator Guide*.
+
+  When you make a successful API request, you can expect the following metric
+  values in the response:
+
+    
+
+  **Metric value is null**: The calculation cannot be performed due to divide by
+  zero or insufficient data
+
+    
+
+  **Metric value is a number (including 0) of defined type**: The number provided
+  is the calculation result
+
+    
+
+  **MetricResult list is empty**: The request cannot find any data in the system
+
+  The following guidelines can help you work with the API:
+
+    
+  Each dimension in the metric response must contain a value
+
+    
+  Each item in MetricResult must include all requested metrics
+
+    
+  If the response is slow due to large result sets, try these approaches:
+
+      
+  Narrow the time range of your request
+
+      
+  Add filters to reduce the amount of data returned
   """
   @spec get_current_metric_data(
           map(),
@@ -18102,6 +18216,40 @@ defmodule AWS.Connect do
   definitions](https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html)
   in the
   *Amazon Connect Administrator Guide*.
+
+  When you make a successful API request, you can expect the following metric
+  values in the response:
+
+    
+
+  **Metric value is null**: The calculation cannot be performed due to divide by
+  zero or insufficient data
+
+    
+
+  **Metric value is a number (including 0) of defined type**: The number provided
+  is the calculation result
+
+    
+
+  **MetricResult list is empty**: The request cannot find any data in the system
+
+  The following guidelines can help you work with the API:
+
+    
+  Each dimension in the metric response must contain a value
+
+    
+  Each item in MetricResult must include all requested metrics
+
+    
+  If the response is slow due to large result sets, try these approaches:
+
+      
+  Narrow the time range of your request
+
+      
+  Add filters to reduce the amount of data returned
   """
   @spec get_metric_data_v2(map(), get_metric_data_v2_request(), list()) ::
           {:ok, get_metric_data_v2_response(), any()}
@@ -18273,8 +18421,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Lists agent statuses.
   """
   @spec list_agent_statuses(
@@ -19708,8 +19854,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Lists the quick connects associated with a queue.
   """
   @spec list_queue_quick_connects(
@@ -22705,8 +22849,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Updates agent status.
   """
   @spec update_agent_status(
@@ -23358,8 +23500,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Updates the hours of operation.
   """
   @spec update_hours_of_operation(
@@ -23819,8 +23959,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Updates the hours of operation for the specified queue.
   """
   @spec update_queue_hours_of_operation(
@@ -23864,8 +24002,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Updates the maximum number of contacts allowed in a queue before it is
   considered
   full.
@@ -23905,10 +24041,9 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  Updates the name and description of a queue.
 
-  Updates the name and description of a queue. At least `Name` or `Description`
-  must be provided.
+  At least `Name` or `Description` must be provided.
   """
   @spec update_queue_name(
           map(),
@@ -23943,8 +24078,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Updates the outbound caller ID name, number, and outbound whisper flow for a
   specified
   queue.
@@ -24060,8 +24193,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Updates the status of the queue.
   """
   @spec update_queue_status(

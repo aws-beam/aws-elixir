@@ -132,6 +132,18 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      cvss4() :: %{
+        "baseScore" => float(),
+        "scoringVector" => String.t() | atom()
+      }
+
+  """
+  @type cvss4() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_delegated_admin_account_response() :: %{
         optional("delegatedAdmin") => delegated_admin()
       }
@@ -221,6 +233,7 @@ defmodule AWS.Inspector2 do
         "cisaData" => cisa_data(),
         "cvss2" => cvss2(),
         "cvss3" => cvss3(),
+        "cvss4" => cvss4(),
         "cwes" => list(String.t() | atom()),
         "description" => String.t() | atom(),
         "detectionPlatforms" => list(String.t() | atom()),

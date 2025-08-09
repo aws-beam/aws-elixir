@@ -42,6 +42,18 @@ defmodule AWS.IoTDataPlane do
 
   ## Example:
 
+      delete_connection_request() :: %{
+        optional("cleanSession") => boolean(),
+        optional("preventWillMessage") => boolean()
+      }
+
+  """
+  @type delete_connection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_thing_shadow_request() :: %{
         optional("shadowName") => String.t() | atom()
       }
@@ -59,6 +71,17 @@ defmodule AWS.IoTDataPlane do
 
   """
   @type delete_thing_shadow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      forbidden_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -310,6 +333,13 @@ defmodule AWS.IoTDataPlane do
   """
   @type update_thing_shadow_response() :: %{(String.t() | atom()) => any()}
 
+  @type delete_connection_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | forbidden_exception()
+
   @type delete_thing_shadow_errors() ::
           unsupported_document_encoding_exception()
           | unauthorized_exception()
@@ -391,6 +421,44 @@ defmodule AWS.IoTDataPlane do
   end
 
   @doc """
+  Disconnects a connected MQTT client from Amazon Web Services IoT Core.
+
+  When you disconnect a client, Amazon Web Services IoT Core closes the client's
+  network connection and optionally cleans the session state.
+  """
+  @spec delete_connection(map(), String.t() | atom(), delete_connection_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_connection_errors()}
+  def delete_connection(%Client{} = client, client_id, input, options \\ []) do
+    url_path = "/connections/#{AWS.Util.encode_uri(client_id)}"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"cleanSession", "cleanSession"},
+        {"preventWillMessage", "preventWillMessage"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes the shadow for the specified thing.
 
   Requires permission to access the
@@ -439,7 +507,7 @@ defmodule AWS.IoTDataPlane do
   call
   [ListRetainedMessages](https://docs.aws.amazon.com/iot/latest/apireference/API_iotdata_ListRetainedMessages.html). 
   Requires permission to access the
-  [GetRetainedMessage](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html#awsiotfleethubfordevicemanagement-actions-as-permissions)
+  [GetRetainedMessage](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html)
   action.
 
   For more information about messaging costs, see [Amazon Web Services IoT Core pricing - Messaging](http://aws.amazon.com/iot-core/pricing/#Messaging).
@@ -552,7 +620,7 @@ defmodule AWS.IoTDataPlane do
   [GetRetainedMessage](https://docs.aws.amazon.com/iot/latest/apireference/API_iotdata_GetRetainedMessage.html)  with the topic name of the retained message.
 
   Requires permission to access the
-  [ListRetainedMessages](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html#awsiotfleethubfordevicemanagement-actions-as-permissions)
+  [ListRetainedMessages](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html)
   action.
 
   For more information about messaging costs, see [Amazon Web Services IoT Core pricing - Messaging](http://aws.amazon.com/iot-core/pricing/#Messaging).

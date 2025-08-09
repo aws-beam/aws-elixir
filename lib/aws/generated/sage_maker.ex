@@ -1469,6 +1469,19 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      list_ultra_servers_by_reserved_capacity_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ReservedCapacityArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_ultra_servers_by_reserved_capacity_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       drift_check_model_data_quality() :: %{
         "Constraints" => metrics_source(),
         "Statistics" => metrics_source()
@@ -1623,6 +1636,8 @@ defmodule AWS.SageMaker do
         optional("InstanceCount") => integer(),
         optional("InstanceType") => list(any()),
         optional("StartTimeAfter") => non_neg_integer(),
+        optional("UltraServerCount") => integer(),
+        optional("UltraServerType") => String.t() | atom(),
         required("DurationHours") => float(),
         required("TargetResources") => list(list(any())())
       }
@@ -4176,6 +4191,7 @@ defmodule AWS.SageMaker do
       
       describe_training_plan_response() :: %{
         "AvailableInstanceCount" => integer(),
+        "AvailableSpareInstanceCount" => integer(),
         "CurrencyCode" => String.t() | atom(),
         "DurationHours" => float(),
         "DurationMinutes" => float(),
@@ -4187,8 +4203,10 @@ defmodule AWS.SageMaker do
         "StatusMessage" => String.t() | atom(),
         "TargetResources" => list(list(any())()),
         "TotalInstanceCount" => integer(),
+        "TotalUltraServerCount" => integer(),
         "TrainingPlanArn" => String.t() | atom(),
         "TrainingPlanName" => String.t() | atom(),
+        "UnhealthyInstanceCount" => integer(),
         "UpfrontFee" => String.t() | atom()
       }
       
@@ -5685,6 +5703,17 @@ defmodule AWS.SageMaker do
       
   """
   @type describe_edge_packaging_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_reserved_capacity_request() :: %{
+        required("ReservedCapacityArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_reserved_capacity_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9111,6 +9140,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      ultra_server_info() :: %{
+        "Id" => [String.t() | atom()]
+      }
+      
+  """
+  @type ultra_server_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       stopping_condition() :: %{
         "MaxPendingTimeInSeconds" => integer(),
         "MaxRuntimeInSeconds" => integer(),
@@ -10331,6 +10371,29 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      describe_reserved_capacity_response() :: %{
+        "AvailabilityZone" => String.t() | atom(),
+        "AvailableInstanceCount" => integer(),
+        "DurationHours" => float(),
+        "DurationMinutes" => float(),
+        "EndTime" => non_neg_integer(),
+        "InUseInstanceCount" => integer(),
+        "InstanceType" => list(any()),
+        "ReservedCapacityArn" => String.t() | atom(),
+        "ReservedCapacityType" => list(any()),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "TotalInstanceCount" => integer(),
+        "UltraServerSummary" => ultra_server_summary()
+      }
+      
+  """
+  @type describe_reserved_capacity_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_hub_content_versions_request() :: %{
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
@@ -10407,7 +10470,8 @@ defmodule AWS.SageMaker do
         "InstanceType" => list(any()),
         "LastSoftwareUpdateTime" => non_neg_integer(),
         "LaunchTime" => non_neg_integer(),
-        "NodeLogicalId" => [String.t() | atom()]
+        "NodeLogicalId" => [String.t() | atom()],
+        "UltraServerInfo" => ultra_server_info()
       }
       
   """
@@ -11278,6 +11342,18 @@ defmodule AWS.SageMaker do
       
   """
   @type instance_group_scaling_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_placement_config() :: %{
+        "EnableMultipleJobs" => boolean(),
+        "PlacementSpecifications" => list(placement_specification())
+      }
+      
+  """
+  @type instance_placement_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12855,6 +12931,7 @@ defmodule AWS.SageMaker do
       resource_config() :: %{
         "InstanceCount" => integer(),
         "InstanceGroups" => list(instance_group()),
+        "InstancePlacementConfig" => instance_placement_config(),
         "InstanceType" => list(any()),
         "KeepAlivePeriodInSeconds" => integer(),
         "TrainingPlanArn" => String.t() | atom(),
@@ -13367,6 +13444,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       create_training_plan_request() :: %{
+        optional("SpareInstanceCountPerUltraServer") => integer(),
         optional("Tags") => list(tag()),
         required("TrainingPlanName") => String.t() | atom(),
         required("TrainingPlanOfferingId") => String.t() | atom()
@@ -15068,6 +15146,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      list_ultra_servers_by_reserved_capacity_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "UltraServers" => list(ultra_server())
+      }
+      
+  """
+  @type list_ultra_servers_by_reserved_capacity_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       channel() :: %{
         "ChannelName" => String.t() | atom(),
         "CompressionType" => list(any()),
@@ -16100,6 +16190,27 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      ultra_server() :: %{
+        "AvailabilityZone" => String.t() | atom(),
+        "AvailableInstanceCount" => integer(),
+        "AvailableSpareInstanceCount" => integer(),
+        "ConfiguredSpareInstanceCount" => integer(),
+        "HealthStatus" => list(any()),
+        "InUseInstanceCount" => integer(),
+        "InstanceType" => list(any()),
+        "TotalInstanceCount" => integer(),
+        "UltraServerId" => String.t() | atom(),
+        "UltraServerType" => String.t() | atom(),
+        "UnhealthyInstanceCount" => integer()
+      }
+      
+  """
+  @type ultra_server() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tabular_resolved_attributes() :: %{
         "ProblemType" => list(any())
       }
@@ -16868,9 +16979,12 @@ defmodule AWS.SageMaker do
         "EndTime" => non_neg_integer(),
         "InstanceType" => list(any()),
         "ReservedCapacityArn" => String.t() | atom(),
+        "ReservedCapacityType" => list(any()),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
-        "TotalInstanceCount" => integer()
+        "TotalInstanceCount" => integer(),
+        "UltraServerCount" => integer(),
+        "UltraServerType" => String.t() | atom()
       }
       
   """
@@ -18471,7 +18585,10 @@ defmodule AWS.SageMaker do
         "EndTime" => non_neg_integer(),
         "InstanceCount" => integer(),
         "InstanceType" => list(any()),
-        "StartTime" => non_neg_integer()
+        "ReservedCapacityType" => list(any()),
+        "StartTime" => non_neg_integer(),
+        "UltraServerCount" => integer(),
+        "UltraServerType" => String.t() | atom()
       }
       
   """
@@ -18487,6 +18604,21 @@ defmodule AWS.SageMaker do
       
   """
   @type delete_endpoint_config_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ultra_server_summary() :: %{
+        "AvailableSpareInstanceCount" => integer(),
+        "InstanceType" => list(any()),
+        "UltraServerCount" => integer(),
+        "UltraServerType" => String.t() | atom(),
+        "UnhealthyInstanceCount" => integer()
+      }
+      
+  """
+  @type ultra_server_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18524,6 +18656,7 @@ defmodule AWS.SageMaker do
         "StatusMessage" => String.t() | atom(),
         "TargetResources" => list(list(any())()),
         "TotalInstanceCount" => integer(),
+        "TotalUltraServerCount" => integer(),
         "TrainingPlanArn" => String.t() | atom(),
         "TrainingPlanName" => String.t() | atom(),
         "UpfrontFee" => String.t() | atom()
@@ -18560,6 +18693,18 @@ defmodule AWS.SageMaker do
       
   """
   @type create_monitoring_schedule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      placement_specification() :: %{
+        "InstanceCount" => integer(),
+        "UltraServerId" => String.t() | atom()
+      }
+      
+  """
+  @type placement_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18670,7 +18815,8 @@ defmodule AWS.SageMaker do
         "PrivateDnsHostname" => String.t() | atom(),
         "PrivatePrimaryIp" => String.t() | atom(),
         "PrivatePrimaryIpv6" => String.t() | atom(),
-        "ThreadsPerCore" => integer()
+        "ThreadsPerCore" => integer(),
+        "UltraServerInfo" => ultra_server_info()
       }
       
   """
@@ -19397,6 +19543,8 @@ defmodule AWS.SageMaker do
 
   @type describe_processing_job_errors() :: resource_not_found()
 
+  @type describe_reserved_capacity_errors() :: resource_not_found()
+
   @type describe_space_errors() :: resource_not_found()
 
   @type describe_studio_lifecycle_config_errors() :: resource_not_found()
@@ -19471,6 +19619,8 @@ defmodule AWS.SageMaker do
   @type list_trial_components_errors() :: resource_not_found()
 
   @type list_trials_errors() :: resource_not_found()
+
+  @type list_ultra_servers_by_reserved_capacity_errors() :: resource_not_found()
 
   @type put_model_package_group_policy_errors() :: conflict_exception()
 
@@ -19719,7 +19869,7 @@ defmodule AWS.SageMaker do
 
   @doc """
   Attaches your Amazon Elastic Block Store (Amazon EBS) volume to a node in your
-  EKS-orchestrated HyperPod cluster.
+  EKS orchestrated HyperPod cluster.
 
   This API works with the Amazon Elastic Block Store (Amazon EBS) Container
   Storage Interface (CSI) driver to manage the lifecycle of persistent storage in
@@ -23390,6 +23540,20 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Retrieves details about a reserved capacity.
+  """
+  @spec describe_reserved_capacity(map(), describe_reserved_capacity_request(), list()) ::
+          {:ok, describe_reserved_capacity_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_reserved_capacity_errors()}
+  def describe_reserved_capacity(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeReservedCapacity", input, options)
+  end
+
+  @doc """
   Describes the space.
   """
   @spec describe_space(map(), describe_space_request(), list()) ::
@@ -23567,7 +23731,7 @@ defmodule AWS.SageMaker do
 
   @doc """
   Detaches your Amazon Elastic Block Store (Amazon EBS) volume from a node in your
-  EKS-orchestrated SageMaker HyperPod cluster.
+  EKS orchestrated SageMaker HyperPod cluster.
 
   This API works with the Amazon Elastic Block Store (Amazon EBS) Container
   Storage Interface (CSI) driver to manage the lifecycle of persistent storage in
@@ -24949,6 +25113,24 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "ListTrials", input, options)
+  end
+
+  @doc """
+  Lists all UltraServers that are part of a specified reserved capacity.
+  """
+  @spec list_ultra_servers_by_reserved_capacity(
+          map(),
+          list_ultra_servers_by_reserved_capacity_request(),
+          list()
+        ) ::
+          {:ok, list_ultra_servers_by_reserved_capacity_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_ultra_servers_by_reserved_capacity_errors()}
+  def list_ultra_servers_by_reserved_capacity(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListUltraServersByReservedCapacity", input, options)
   end
 
   @doc """

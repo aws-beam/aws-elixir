@@ -5114,7 +5114,8 @@ defmodule AWS.Bedrock do
           | conflict_exception()
 
   @type create_automated_reasoning_policy_version_errors() ::
-          throttling_exception()
+          too_many_tags_exception()
+          | throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()

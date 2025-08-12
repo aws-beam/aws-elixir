@@ -13238,11 +13238,13 @@ defmodule AWS.QuickSight do
 
       heat_map_configuration() :: %{
         "ColorScale" => color_scale(),
+        "ColumnAxisDisplayOptions" => axis_display_options(),
         "ColumnLabelOptions" => chart_axis_label_options(),
         "DataLabels" => data_label_options(),
         "FieldWells" => heat_map_field_wells(),
         "Interactions" => visual_interaction_options(),
         "Legend" => legend_options(),
+        "RowAxisDisplayOptions" => axis_display_options(),
         "RowLabelOptions" => chart_axis_label_options(),
         "SortConfiguration" => heat_map_sort_configuration(),
         "Tooltip" => tooltip_options()
@@ -14896,6 +14898,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       plugin_visual() :: %{
+        "Actions" => list(visual_custom_action()),
         "ChartConfiguration" => plugin_visual_configuration(),
         "PluginArn" => String.t() | atom(),
         "Subtitle" => visual_subtitle_label_options(),

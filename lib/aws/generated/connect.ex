@@ -6817,7 +6817,6 @@ defmodule AWS.Connect do
 
       user_hierarchy_group_search_criteria() :: %{
         "AndConditions" => list(user_hierarchy_group_search_criteria()),
-        "HierarchyGroupCondition" => hierarchy_group_condition(),
         "OrConditions" => list(user_hierarchy_group_search_criteria()),
         "StringCondition" => string_condition()
       }
@@ -7946,7 +7945,6 @@ defmodule AWS.Connect do
   ## Example:
 
       common_attribute_and_condition() :: %{
-        "HierarchyGroupCondition" => hierarchy_group_condition(),
         "TagConditions" => list(tag_condition())
       }
 

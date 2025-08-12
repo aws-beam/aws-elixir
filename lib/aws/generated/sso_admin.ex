@@ -4,46 +4,34 @@
 defmodule AWS.SSOAdmin do
   @moduledoc """
   IAM Identity Center is the Amazon Web Services solution for connecting your
-  workforce users to Amazon Web Services managed
-  applications and other Amazon Web Services resources.
+  workforce users to Amazon Web Services managed applications and other Amazon Web
+  Services resources.
 
-  You can connect your existing identity provider
-  and synchronize users and groups from your directory, or create and manage your
-  users
-  directly in IAM Identity Center. You can then use IAM Identity Center for either
-  or both of the following:
+  You can connect your existing identity provider and synchronize users and groups
+  from your directory, or create and manage your users directly in IAM Identity
+  Center. You can then use IAM Identity Center for either or both of the
+  following:
 
-    *
-  User access to applications
+    * User access to applications
 
-    *
-  User access to Amazon Web Services accounts
+    * User access to Amazon Web Services accounts
 
   This guide provides information about single sign-on operations that you can use
-  for access to applications and
-  Amazon Web Services accounts. For information about IAM Identity Center
-  features, see the
-  [IAM Identity Center User
-  Guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html).
+  for access to applications and Amazon Web Services accounts. For information
+  about IAM Identity Center features, see the [IAM Identity Center User Guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html).
 
-  IAM Identity Center uses the `sso` and `identitystore` API
-  namespaces.
+  IAM Identity Center uses the `sso` and `identitystore` API namespaces.
 
   Many API operations for IAM Identity Center rely on identifiers for users and
-  groups, known as
-  principals. For more information about how to work with principals and principal
-  IDs in
-  IAM Identity Center, see the [Identity Store API Reference](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html).
+  groups, known as principals. For more information about how to work with
+  principals and principal IDs in IAM Identity Center, see the [Identity Store API Reference](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html).
 
   Amazon Web Services provides SDKs that consist of libraries and sample code for
-  various
-  programming languages and platforms (Java, Ruby, .Net, iOS, Android, and more).
-  The
-  SDKs provide a convenient way to create programmatic access to IAM Identity
-  Center and other Amazon Web Services
-  services. For more information about the Amazon Web Services SDKs, including how
-  to download and
-  install them, see [Tools for Amazon Web Services](http://aws.amazon.com/tools/).
+  various programming languages and platforms (Java, Ruby, .Net, iOS, Android, and
+  more). The SDKs provide a convenient way to create programmatic access to IAM
+  Identity Center and other Amazon Web Services services. For more information
+  about the Amazon Web Services SDKs, including how to download and install them,
+  see [Tools for Amazon Web Services](http://aws.amazon.com/tools/).
   """
 
   alias AWS.Client
@@ -189,6 +177,18 @@ defmodule AWS.SSOAdmin do
       
   """
   @type list_application_authentication_methods_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_application_session_configuration_request() :: %{
+        optional("UserBackgroundSessionApplicationStatus") => list(any()),
+        required("ApplicationArn") => String.t() | atom()
+      }
+      
+  """
+  @type put_application_session_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -530,6 +530,15 @@ defmodule AWS.SSOAdmin do
       
   """
   @type list_application_access_scopes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_application_session_configuration_response() :: %{}
+      
+  """
+  @type put_application_session_configuration_response() :: %{}
 
   @typedoc """
 
@@ -911,6 +920,17 @@ defmodule AWS.SSOAdmin do
       
   """
   @type create_account_assignment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_application_session_configuration_response() :: %{
+        "UserBackgroundSessionApplicationStatus" => list(any())
+      }
+      
+  """
+  @type get_application_session_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2001,6 +2021,17 @@ defmodule AWS.SSOAdmin do
 
   ## Example:
       
+      get_application_session_configuration_request() :: %{
+        required("ApplicationArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_application_session_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_applications_response() :: %{
         "Applications" => list(application()),
         "NextToken" => String.t() | atom()
@@ -2642,6 +2673,13 @@ defmodule AWS.SSOAdmin do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_application_session_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_inline_policy_for_permission_set_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2832,6 +2870,14 @@ defmodule AWS.SSOAdmin do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type put_application_session_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type put_inline_policy_to_permission_set_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2953,17 +2999,9 @@ defmodule AWS.SSOAdmin do
   Attaches an Amazon Web Services managed policy ARN to a permission set.
 
   If the permission set is already referenced by one or more account assignments,
-  you will need to call
-
-  ```
-
-  `ProvisionPermissionSet`
-
-  ```
-
-  after
-  this operation. Calling `ProvisionPermissionSet` applies the
-  corresponding IAM policy updates to all assigned accounts.
+  you will need to call ` `ProvisionPermissionSet` ` after this operation. Calling
+  `ProvisionPermissionSet` applies the corresponding IAM policy updates to all
+  assigned accounts.
   """
   @spec attach_managed_policy_to_permission_set(
           map(),
@@ -2982,34 +3020,20 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Assigns access to a principal for a specified Amazon Web Services account using
-  a specified
-  permission set.
+  a specified permission set.
 
-  The term *principal* here refers to a user or group that is
-  defined in IAM Identity Center.
+  The term *principal* here refers to a user or group that is defined in IAM
+  Identity Center.
 
-  As part of a successful `CreateAccountAssignment` call, the specified
-  permission set will automatically be provisioned to the account in the form of
-  an
-  IAM policy. That policy is attached to the IAM role created in IAM Identity
-  Center. If the
-  permission set is subsequently updated, the corresponding IAM policies attached
-  to
-  roles in your accounts will not be updated automatically. In this case, you must
-  call
+  As part of a successful `CreateAccountAssignment` call, the specified permission
+  set will automatically be provisioned to the account in the form of an IAM
+  policy. That policy is attached to the IAM role created in IAM Identity Center.
+  If the permission set is subsequently updated, the corresponding IAM policies
+  attached to roles in your accounts will not be updated automatically. In this
+  case, you must call ` `ProvisionPermissionSet` ` to make these updates.
 
-  ```
-
-  `ProvisionPermissionSet`
-
-  ```
-
-  to make these
-  updates.
-
-  After a successful response, call
-  `DescribeAccountAssignmentCreationStatus` to describe the status of
-  an assignment creation request.
+  After a successful response, call `DescribeAccountAssignmentCreationStatus` to
+  describe the status of an assignment creation request.
   """
   @spec create_account_assignment(map(), create_account_assignment_request(), list()) ::
           {:ok, create_account_assignment_response(), any()}
@@ -3024,19 +3048,15 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Creates an OAuth 2.0 customer managed application in IAM Identity Center for the
-  given
-  application provider.
+  given application provider.
 
   This API does not support creating SAML 2.0 customer managed applications or
-  Amazon Web Services
-  managed applications. To learn how to create an Amazon Web Services managed
-  application, see the
-  application user guide. You can create a SAML 2.0 customer managed application
-  in
-  the Amazon Web Services Management Console only. See [Setting up customer managed SAML 2.0
-  applications](https://docs.aws.amazon.com/singlesignon/latest/userguide/customermanagedapps-saml2-setup.html).
-  For more information on these
-  application types, see [Amazon Web Services managed applications](https://docs.aws.amazon.com/singlesignon/latest/userguide/awsapps.html).
+  Amazon Web Services managed applications. To learn how to create an Amazon Web
+  Services managed application, see the application user guide. You can create a
+  SAML 2.0 customer managed application in the Amazon Web Services Management
+  Console only. See [Setting up customer managed SAML 2.0 applications](https://docs.aws.amazon.com/singlesignon/latest/userguide/customermanagedapps-saml2-setup.html).
+  For more information on these application types, see [Amazon Web Services managed
+  applications](https://docs.aws.amazon.com/singlesignon/latest/userguide/awsapps.html).
   """
   @spec create_application(map(), create_application_request(), list()) ::
           {:ok, create_application_response(), any()}
@@ -3065,20 +3085,18 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Creates an instance of IAM Identity Center for a standalone Amazon Web Services
-  account that is not
-  managed by Organizations or a member Amazon Web Services account in an
-  organization.
+  account that is not managed by Organizations or a member Amazon Web Services
+  account in an organization.
 
-  You can create only
-  one instance per account and across all Amazon Web Services Regions.
+  You can create only one instance per account and across all Amazon Web Services
+  Regions.
 
   The CreateInstance request is rejected if the following apply:
 
-    *
-  The instance is created within the organization management account.
+    * The instance is created within the organization management
+  account.
 
-    *
-  An instance already exists in the same account.
+    * An instance already exists in the same account.
   """
   @spec create_instance(map(), create_instance_request(), list()) ::
           {:ok, create_instance_response(), any()}
@@ -3093,16 +3111,15 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Enables the attributes-based access control (ABAC) feature for the specified IAM
-  Identity Center
-  instance.
+  Identity Center instance.
 
-  You can also specify new attributes to add to your ABAC configuration during
-  the enabling process. For more information about ABAC, see [Attribute-Based Access Control](/singlesignon/latest/userguide/abac.html) in the *IAM Identity
-  Center User Guide*.
+  You can also specify new attributes to add to your ABAC configuration during the
+  enabling process. For more information about ABAC, see [Attribute-Based Access Control](/singlesignon/latest/userguide/abac.html) in the *IAM Identity Center
+  User Guide*.
 
   After a successful response, call
-  `DescribeInstanceAccessControlAttributeConfiguration` to validate
-  that `InstanceAccessControlAttributeConfiguration` was created.
+  `DescribeInstanceAccessControlAttributeConfiguration` to validate that
+  `InstanceAccessControlAttributeConfiguration` was created.
   """
   @spec create_instance_access_control_attribute_configuration(
           map(),
@@ -3132,15 +3149,8 @@ defmodule AWS.SSOAdmin do
   @doc """
   Creates a permission set within a specified IAM Identity Center instance.
 
-  To grant users and groups access to Amazon Web Services account resources, use
-
-  ```
-
-  `CreateAccountAssignment`
-
-  ```
-
-  .
+  To grant users and groups access to Amazon Web Services account resources, use `
+  `CreateAccountAssignment` `.
   """
   @spec create_permission_set(map(), create_permission_set_request(), list()) ::
           {:ok, create_permission_set_response(), any()}
@@ -3157,15 +3167,13 @@ defmodule AWS.SSOAdmin do
   Creates a connection to a trusted token issuer in an instance of IAM Identity
   Center.
 
-  A trusted token issuer enables trusted
-  identity propagation to be used with applications that authenticate outside of
-  Amazon Web Services.
+  A trusted token issuer enables trusted identity propagation to be used with
+  applications that authenticate outside of Amazon Web Services.
 
   This trusted token issuer describes an external identity provider (IdP) that can
-  generate claims or
-  assertions in the form of access tokens for a user. Applications enabled for IAM
-  Identity Center
-  can use these tokens for authentication.
+  generate claims or assertions in the form of access tokens for a user.
+  Applications enabled for IAM Identity Center can use these tokens for
+  authentication.
   """
   @spec create_trusted_token_issuer(map(), create_trusted_token_issuer_request(), list()) ::
           {:ok, create_trusted_token_issuer_response(), any()}
@@ -3180,12 +3188,10 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Deletes a principal's access from a specified Amazon Web Services account using
-  a specified
-  permission set.
+  a specified permission set.
 
-  After a successful response, call
-  `DescribeAccountAssignmentDeletionStatus` to describe the status of
-  an assignment deletion request.
+  After a successful response, call `DescribeAccountAssignmentDeletionStatus` to
+  describe the status of an assignment deletion request.
   """
   @spec delete_account_assignment(map(), delete_account_assignment_request(), list()) ::
           {:ok, delete_account_assignment_response(), any()}
@@ -3201,8 +3207,7 @@ defmodule AWS.SSOAdmin do
   @doc """
   Deletes the association with the application.
 
-  The connected service resource still
-  exists.
+  The connected service resource still exists.
   """
   @spec delete_application(map(), delete_application_request(), list()) ::
           {:ok, delete_application_response(), any()}
@@ -3231,8 +3236,7 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Revoke application access to an application by deleting application assignments
-  for a
-  user or group.
+  for a user or group.
   """
   @spec delete_application_assignment(map(), delete_application_assignment_request(), list()) ::
           {:ok, delete_application_assignment_response(), any()}
@@ -3298,10 +3302,9 @@ defmodule AWS.SSOAdmin do
   @doc """
   Deletes the instance of IAM Identity Center.
 
-  Only the account that owns the instance can
-  call this API. Neither the delegated administrator nor member account can delete
-  the
-  organization instance, but those roles can delete their own instance.
+  Only the account that owns the instance can call this API. Neither the delegated
+  administrator nor member account can delete the organization instance, but those
+  roles can delete their own instance.
   """
   @spec delete_instance(map(), delete_instance_request(), list()) ::
           {:ok, delete_instance_response(), any()}
@@ -3316,12 +3319,11 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Disables the attributes-based access control (ABAC) feature for the specified
-  IAM Identity Center
-  instance and deletes all of the attribute mappings that have been configured.
+  IAM Identity Center instance and deletes all of the attribute mappings that have
+  been configured.
 
-  Once
-  deleted, any attributes that are received from an identity source and any custom
-  attributes you have previously configured will not be passed. For more
+  Once deleted, any attributes that are received from an identity source and any
+  custom attributes you have previously configured will not be passed. For more
   information about ABAC, see [Attribute-Based Access Control](/singlesignon/latest/userguide/abac.html) in the *IAM Identity Center
   User Guide*.
   """
@@ -3393,8 +3395,7 @@ defmodule AWS.SSOAdmin do
   Center.
 
   Deleting this trusted token issuer configuration will cause users to lose access
-  to any
-  applications that are configured to use the trusted token issuer.
+  to any applications that are configured to use the trusted token issuer.
   """
   @spec delete_trusted_token_issuer(map(), delete_trusted_token_issuer_request(), list()) ::
           {:ok, delete_trusted_token_issuer_response(), any()}
@@ -3461,12 +3462,10 @@ defmodule AWS.SSOAdmin do
   @doc """
   Retrieves a direct assignment of a user or group to an application.
 
-  If the user
-  doesn’t have a direct assignment to the application, the user may still have
-  access to
-  the application through a group. Therefore, don’t use this API to test access to
-  an
-  application for a user. Instead use `ListApplicationAssignmentsForPrincipal`.
+  If the user doesn’t have a direct assignment to the application, the user may
+  still have access to the application through a group. Therefore, don’t use this
+  API to test access to an application for a user. Instead use
+  `ListApplicationAssignmentsForPrincipal`.
   """
   @spec describe_application_assignment(map(), describe_application_assignment_request(), list()) ::
           {:ok, describe_application_assignment_response(), any()}
@@ -3481,8 +3480,8 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Retrieves details about a provider that can be used to connect an Amazon Web
-  Services managed
-  application or customer managed application to IAM Identity Center.
+  Services managed application or customer managed application to IAM Identity
+  Center.
   """
   @spec describe_application_provider(map(), describe_application_provider_request(), list()) ::
           {:ok, describe_application_provider_response(), any()}
@@ -3498,25 +3497,17 @@ defmodule AWS.SSOAdmin do
   @doc """
   Returns the details of an instance of IAM Identity Center.
 
-  The status can be one of the
-  following:
+  The status can be one of the following:
 
-    *
-
-  `CREATE_IN_PROGRESS` - The instance is in the process of being
+    * `CREATE_IN_PROGRESS` - The instance is in the process of being
   created. When the instance is ready for use, DescribeInstance returns the status
-  of `ACTIVE`. While the instance is in the
-  `CREATE_IN_PROGRESS` state, you can call only DescribeInstance
-  and DeleteInstance operations.
+  of `ACTIVE`. While the instance is in the `CREATE_IN_PROGRESS` state, you can
+  call only DescribeInstance and DeleteInstance operations.
 
-    *
-
-  `DELETE_IN_PROGRESS` - The instance is being deleted. Returns
+    * `DELETE_IN_PROGRESS` - The instance is being deleted. Returns
   `AccessDeniedException` after the delete operation completes.
 
-    *
-
-  `ACTIVE` - The instance is active.
+    * `ACTIVE` - The instance is active.
   """
   @spec describe_instance(map(), describe_instance_request(), list()) ::
           {:ok, describe_instance_response(), any()}
@@ -3531,13 +3522,11 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Returns the list of IAM Identity Center identity store attributes that have been
-  configured to work
-  with attributes-based access control (ABAC) for the specified IAM Identity
-  Center instance.
+  configured to work with attributes-based access control (ABAC) for the specified
+  IAM Identity Center instance.
 
-  This will
-  not return attributes configured and sent by an external identity provider.
-  For more information about ABAC, see [Attribute-Based Access Control](/singlesignon/latest/userguide/abac.html) in the *IAM Identity Center
+  This will not return attributes configured and sent by an external identity
+  provider. For more information about ABAC, see [Attribute-Based Access Control](/singlesignon/latest/userguide/abac.html) in the *IAM Identity Center
   User Guide*.
   """
   @spec describe_instance_access_control_attribute_configuration(
@@ -3601,10 +3590,9 @@ defmodule AWS.SSOAdmin do
   Retrieves details about a trusted token issuer configuration stored in an
   instance of IAM Identity Center.
 
-  Details
-  include the name of the trusted token issuer, the issuer URL, and the path of
-  the source attribute and
-  the destination attribute for a trusted token issuer configuration.
+  Details include the name of the trusted token issuer, the issuer URL, and the
+  path of the source attribute and the destination attribute for a trusted token
+  issuer configuration.
   """
   @spec describe_trusted_token_issuer(map(), describe_trusted_token_issuer_request(), list()) ::
           {:ok, describe_trusted_token_issuer_response(), any()}
@@ -3648,8 +3636,7 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Detaches the attached Amazon Web Services managed policy ARN from the specified
-  permission
-  set.
+  permission set.
   """
   @spec detach_managed_policy_from_permission_set(
           map(),
@@ -3732,6 +3719,30 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
+  Retrieves the session configuration for an application in IAM Identity Center.
+
+  The session configuration determines how users can access an application. This
+  includes whether user background sessions are enabled. User background sessions
+  allow users to start a job on a supported Amazon Web Services managed
+  application without having to remain signed in to an active session while the
+  job runs.
+  """
+  @spec get_application_session_configuration(
+          map(),
+          get_application_session_configuration_request(),
+          list()
+        ) ::
+          {:ok, get_application_session_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_application_session_configuration_errors()}
+  def get_application_session_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetApplicationSessionConfiguration", input, options)
+  end
+
+  @doc """
   Obtains the inline policy assigned to the permission set.
   """
   @spec get_inline_policy_for_permission_set(
@@ -3769,8 +3780,7 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Lists the status of the Amazon Web Services account assignment creation requests
-  for a specified
-  IAM Identity Center instance.
+  for a specified IAM Identity Center instance.
   """
   @spec list_account_assignment_creation_status(
           map(),
@@ -3789,8 +3799,7 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Lists the status of the Amazon Web Services account assignment deletion requests
-  for a specified
-  IAM Identity Center instance.
+  for a specified IAM Identity Center instance.
   """
   @spec list_account_assignment_deletion_status(
           map(),
@@ -3809,8 +3818,7 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Lists the assignee of the specified Amazon Web Services account with the
-  specified permission
-  set.
+  specified permission set.
   """
   @spec list_account_assignments(map(), list_account_assignments_request(), list()) ::
           {:ok, list_account_assignments_response(), any()}
@@ -3825,13 +3833,11 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Retrieves a list of the IAM Identity Center associated Amazon Web Services
-  accounts that the principal has access
-  to.
+  accounts that the principal has access to.
 
   This action must be called from the management account containing your
-  organization
-  instance of IAM Identity Center. This action is not valid for account instances
-  of IAM Identity Center.
+  organization instance of IAM Identity Center. This action is not valid for
+  account instances of IAM Identity Center.
   """
   @spec list_account_assignments_for_principal(
           map(),
@@ -3898,14 +3904,11 @@ defmodule AWS.SSOAdmin do
   @doc """
   Lists the applications to which a specified principal is assigned.
 
-  You must provide a
-  filter when calling this action from a member account against your organization
-  instance
-  of IAM Identity Center. A filter is not required when called from the management
-  account against an
-  organization instance of IAM Identity Center, or from a member account against
-  an account instance of
-  IAM Identity Center in the same account.
+  You must provide a filter when calling this action from a member account against
+  your organization instance of IAM Identity Center. A filter is not required when
+  called from the management account against an organization instance of IAM
+  Identity Center, or from a member account against an account instance of IAM
+  Identity Center in the same account.
   """
   @spec list_application_assignments_for_principal(
           map(),
@@ -3972,12 +3975,11 @@ defmodule AWS.SSOAdmin do
   @doc """
   Lists all applications associated with the instance of IAM Identity Center.
 
-  When listing
-  applications for an organization instance in the management account, member
-  accounts
-  must use the `applicationAccount` parameter to filter the list to only
-  applications created from that account. When listing applications for an account
-  instance in the same member account, a filter is not required.
+  When listing applications for an organization instance in the management
+  account, member accounts must use the `applicationAccount` parameter to filter
+  the list to only applications created from that account. When listing
+  applications for an account instance in the same member account, a filter is not
+  required.
   """
   @spec list_applications(map(), list_applications_request(), list()) ::
           {:ok, list_applications_response(), any()}
@@ -4020,8 +4022,7 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Lists the details of the organization and account instances of IAM Identity
-  Center that
-  were created in or visible to the account calling this API.
+  Center that were created in or visible to the account calling this API.
   """
   @spec list_instances(map(), list_instances_request(), list()) ::
           {:ok, list_instances_response(), any()}
@@ -4055,8 +4056,7 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Lists the status of the permission set provisioning requests for a specified IAM
-  Identity Center
-  instance.
+  Identity Center instance.
   """
   @spec list_permission_set_provisioning_status(
           map(),
@@ -4089,8 +4089,7 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Lists all the permission sets that are provisioned to a specified Amazon Web
-  Services
-  account.
+  Services account.
   """
   @spec list_permission_sets_provisioned_to_account(
           map(),
@@ -4153,8 +4152,7 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Adds or updates the list of authorized targets for an IAM Identity Center access
-  scope for an
-  application.
+  scope for an application.
   """
   @spec put_application_access_scope(map(), put_application_access_scope_request(), list()) ::
           {:ok, nil, any()}
@@ -4170,14 +4168,13 @@ defmodule AWS.SSOAdmin do
   @doc """
   Configure how users gain access to an application.
 
-  If `AssignmentsRequired`
-  is `true` (default value), users don’t have access to the application unless
-  an assignment is created using the [CreateApplicationAssignment API](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateApplicationAssignment.html).
-  If `false`, all users have
-  access to the application. If an assignment is created using
+  If `AssignmentsRequired` is `true` (default value), users don’t have access to
+  the application unless an assignment is created using the
+  [CreateApplicationAssignment API](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateApplicationAssignment.html).
+  If `false`, all users have access to the application. If an assignment is
+  created using
   [CreateApplicationAssignment](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateApplicationAssignment.html).,
-  the user retains access if
-  `AssignmentsRequired` is set to `true`.
+  the user retains access if `AssignmentsRequired` is set to `true`.
   """
   @spec put_application_assignment_configuration(
           map(),
@@ -4215,84 +4212,52 @@ defmodule AWS.SSOAdmin do
   @doc """
   Creates a configuration for an application to use grants.
 
-  Conceptually grants are
-  authorization to request actions related to tokens. This configuration will be
-  used when
-  parties are requesting and receiving tokens during the trusted identity
-  propagation
-  process. For more information on the IAM Identity Center supported grant
-  workflows, see [SAML 2.0 and OAuth
-  2.0](https://docs.aws.amazon.com/singlesignon/latest/userguide/customermanagedapps-saml2-oauth2.html).
+  Conceptually grants are authorization to request actions related to tokens. This
+  configuration will be used when parties are requesting and receiving tokens
+  during the trusted identity propagation process. For more information on the IAM
+  Identity Center supported grant workflows, see [SAML 2.0 and OAuth 2.0](https://docs.aws.amazon.com/singlesignon/latest/userguide/customermanagedapps-saml2-oauth2.html).
 
   A grant is created between your applications and Identity Center instance which
   enables an application to use specified mechanisms to obtain tokens. These
-  tokens are
-  used by your applications to gain access to Amazon Web Services resources on
-  behalf of users. The
-  following elements are within these exchanges:
+  tokens are used by your applications to gain access to Amazon Web Services
+  resources on behalf of users. The following elements are within these exchanges:
 
-    *
+    * **Requester** - The application requesting access to Amazon Web
+  Services resources.
 
-  **Requester** - The application requesting access
-  to Amazon Web Services resources.
+    * **Subject** - Typically the user that is requesting access to
+  Amazon Web Services resources.
 
-    *
+    * **Grant** - Conceptually, a grant is authorization to access
+  Amazon Web Services resources. These grants authorize token generation for
+  authenticating access to the requester and for the request to make requests on
+  behalf of the subjects. There are four types of grants:
 
-  **Subject** - Typically the user that is
-  requesting access to Amazon Web Services resources.
+      * **AuthorizationCode** - Allows an application to
+  request authorization through a series of user-agent redirects.
 
-    *
+      * **JWT bearer ** - Authorizes an application to
+  exchange a JSON Web Token that came from an external identity provider. To learn
+  more, see [RFC 6479](https://datatracker.ietf.org/doc/html/rfc6749).       * **Refresh token** - Enables application to request new
+  access tokens to replace expiring or expired access tokens.
 
-  **Grant** - Conceptually, a grant is
-  authorization to access Amazon Web Services resources. These grants authorize
-  token generation
-  for authenticating access to the requester and for the request to make requests
-  on behalf of the subjects. There are four types of grants:
+      * **Exchange token** - A grant that requests tokens from
+  the authorization server by providing a ‘subject’ token with access scope
+  authorizing trusted identity propagation to this application. To learn more, see
+  [RFC 8693](https://datatracker.ietf.org/doc/html/rfc8693).
 
-      *
-
-  **AuthorizationCode** - Allows an
-  application to request authorization through a series of user-agent
-  redirects.
-
-      *
-
-  **JWT bearer ** - Authorizes an
-  application to exchange a JSON Web Token that came from an external
-  identity provider. To learn more, see [RFC 6479](https://datatracker.ietf.org/doc/html/rfc6749).
-
-      *
-
-  **Refresh token** - Enables application
-  to request new access tokens to replace expiring or expired access
-  tokens.
-
-      *
-
-  **Exchange token** - A grant that
-  requests tokens from the authorization server by providing a ‘subject’
-  token with access scope authorizing trusted identity propagation to this
-  application. To learn more, see [RFC 8693](https://datatracker.ietf.org/doc/html/rfc8693).
-
-    *
-
-  **Authorization server** - IAM Identity Center requests
-  tokens.
+    * **Authorization server** - IAM Identity Center requests tokens.
 
   User credentials are never shared directly within these exchanges. Instead,
   applications use grants to request access tokens from IAM Identity Center. For
-  more
-  information, see [RFC 6479](https://datatracker.ietf.org/doc/html/rfc6749).
+  more information, see [RFC 6479](https://datatracker.ietf.org/doc/html/rfc6749).
 
   ## Use cases
 
-    *
-  Connecting to custom applications.
+    * Connecting to custom applications.
 
-    *
-  Configuring an Amazon Web Services service to make calls to another Amazon Web
-  Services services using JWT
-  tokens.
+    * Configuring an Amazon Web Services service to make calls to
+  another Amazon Web Services services using JWT tokens.
   """
   @spec put_application_grant(map(), put_application_grant_request(), list()) ::
           {:ok, nil, any()}
@@ -4306,20 +4271,35 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
+  Updates the session configuration for an application in IAM Identity Center.
+
+  The session configuration determines how users can access an application. This
+  includes whether user background sessions are enabled. User background sessions
+  allow users to start a job on a supported Amazon Web Services managed
+  application without having to remain signed in to an active session while the
+  job runs.
+  """
+  @spec put_application_session_configuration(
+          map(),
+          put_application_session_configuration_request(),
+          list()
+        ) ::
+          {:ok, put_application_session_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_application_session_configuration_errors()}
+  def put_application_session_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutApplicationSessionConfiguration", input, options)
+  end
+
+  @doc """
   Attaches an inline policy to a permission set.
 
   If the permission set is already referenced by one or more account assignments,
-  you will need to call
-
-  ```
-
-  `ProvisionPermissionSet`
-
-  ```
-
-  after
-  this action to apply the corresponding IAM policy updates to all assigned
-  accounts.
+  you will need to call ` `ProvisionPermissionSet` ` after this action to apply
+  the corresponding IAM policy updates to all assigned accounts.
   """
   @spec put_inline_policy_to_permission_set(
           map(),
@@ -4414,17 +4394,14 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Updates the IAM Identity Center identity store attributes that you can use with
-  the IAM Identity Center instance
-  for attributes-based access control (ABAC).
+  the IAM Identity Center instance for attributes-based access control (ABAC).
 
-  When using an external identity provider as
-  an identity source, you can pass attributes through the SAML assertion as an
-  alternative
-  to configuring attributes from the IAM Identity Center identity store. If a SAML
-  assertion passes any
-  of these attributes, IAM Identity Center replaces the attribute value with the
-  value from the IAM Identity Center
-  identity store. For more information about ABAC, see [Attribute-Based Access Control](/singlesignon/latest/userguide/abac.html) in the *IAM Identity Center
+  When using an external identity provider as an identity source, you can pass
+  attributes through the SAML assertion as an alternative to configuring
+  attributes from the IAM Identity Center identity store. If a SAML assertion
+  passes any of these attributes, IAM Identity Center replaces the attribute value
+  with the value from the IAM Identity Center identity store. For more information
+  about ABAC, see [Attribute-Based Access Control](/singlesignon/latest/userguide/abac.html) in the *IAM Identity Center
   User Guide*.
   """
   @spec update_instance_access_control_attribute_configuration(
@@ -4468,12 +4445,10 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Updates the name of the trusted token issuer, or the path of a source attribute
-  or destination
-  attribute for a trusted token issuer configuration.
+  or destination attribute for a trusted token issuer configuration.
 
   Updating this trusted token issuer configuration might cause users to lose
-  access to any
-  applications that are configured to use the trusted token issuer.
+  access to any applications that are configured to use the trusted token issuer.
   """
   @spec update_trusted_token_issuer(map(), update_trusted_token_issuer_request(), list()) ::
           {:ok, update_trusted_token_issuer_response(), any()}

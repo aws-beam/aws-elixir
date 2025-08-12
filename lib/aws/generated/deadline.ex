@@ -4,16 +4,21 @@
 defmodule AWS.Deadline do
   @moduledoc """
   The Amazon Web Services Deadline Cloud API provides infrastructure and
-  centralized management for your projects.
+  centralized management for your
+  projects.
 
   Use the Deadline Cloud API to onboard users, assign projects, and attach
-  permissions specific to their job function.
+  permissions
+  specific to their job function.
 
   With Deadline Cloud, content production teams can deploy resources for their
-  workforce securely in the cloud, reducing the costs of added physical
-  infrastructure. Keep your content production operations secure, while allowing
-  your contributors to access the tools they need, such as scalable high-speed
-  storage, licenses, and cost management services.
+  workforce
+  securely in the cloud, reducing the costs of added physical infrastructure. Keep
+  your
+  content production operations secure, while allowing your contributors to access
+  the tools
+  they need, such as scalable high-speed storage, licenses, and cost management
+  services.
   """
 
   alias AWS.Client
@@ -2307,6 +2312,7 @@ defmodule AWS.Deadline do
         "maxWorkerCount" => integer(),
         "minWorkerCount" => integer(),
         "status" => list(any()),
+        "statusMessage" => String.t() | atom(),
         "targetWorkerCount" => integer(),
         "updatedAt" => non_neg_integer(),
         "updatedBy" => String.t() | atom(),
@@ -4222,6 +4228,7 @@ defmodule AWS.Deadline do
         "minWorkerCount" => integer(),
         "roleArn" => String.t() | atom(),
         "status" => list(any()),
+        "statusMessage" => String.t() | atom(),
         "targetWorkerCount" => integer(),
         "updatedAt" => non_neg_integer(),
         "updatedBy" => String.t() | atom(),
@@ -5525,7 +5532,8 @@ defmodule AWS.Deadline do
   @doc """
   Get Amazon Web Services credentials from the fleet role.
 
-  The IAM permissions of the credentials are scoped down to have read-only access.
+  The IAM permissions of the credentials are
+  scoped down to have read-only access.
   """
   @spec assume_fleet_role_for_read(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, assume_fleet_role_for_read_response(), any()}
@@ -5579,7 +5587,8 @@ defmodule AWS.Deadline do
   @doc """
   Gets Amazon Web Services credentials from the queue role.
 
-  The IAM permissions of the credentials are scoped down to have read-only access.
+  The IAM permissions of the credentials are
+  scoped down to have read-only access.
   """
   @spec assume_queue_role_for_read(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, assume_queue_role_for_read_response(), any()}
@@ -5773,9 +5782,12 @@ defmodule AWS.Deadline do
   @doc """
   Creates a farm to allow space for queues and fleets.
 
-  Farms are the space where the components of your renders gather and are pieced
-  together in the cloud. Farms contain budgets and allow you to enforce
-  permissions. Deadline Cloud farms are a useful container for large projects.
+  Farms are the space where the
+  components of your renders gather and are pieced together in the cloud. Farms
+  contain
+  budgets and allow you to enforce permissions. Deadline Cloud farms are a useful
+  container for
+  large projects.
   """
   @spec create_farm(map(), create_farm_request(), list()) ::
           {:ok, create_farm_response(), any()}
@@ -5812,9 +5824,10 @@ defmodule AWS.Deadline do
   @doc """
   Creates a fleet.
 
-  Fleets gather information relating to compute, or capacity, for renders within
-  your farms. You can choose to manage your own capacity or opt to have fleets
-  fully managed by Deadline Cloud.
+  Fleets gather information relating to compute, or capacity, for renders
+  within your farms. You can choose to manage your own capacity or opt to have
+  fleets fully
+  managed by Deadline Cloud.
   """
   @spec create_fleet(map(), String.t() | atom(), create_fleet_request(), list()) ::
           {:ok, create_fleet_response(), any()}
@@ -5851,8 +5864,8 @@ defmodule AWS.Deadline do
   @doc """
   Creates a job.
 
-  A job is a set of instructions that Deadline Cloud uses to schedule and run work
-  on available workers. For more information, see [Deadline Cloud jobs](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/deadline-cloud-jobs.html).
+  A job is a set of instructions that Deadline Cloud uses to schedule
+  and run work on available workers. For more information, see [Deadline Cloud jobs](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/deadline-cloud-jobs.html).
   """
   @spec create_job(map(), String.t() | atom(), String.t() | atom(), create_job_request(), list()) ::
           {:ok, create_job_response(), any()}
@@ -5925,14 +5938,15 @@ defmodule AWS.Deadline do
 
   @doc """
   Creates a limit that manages the distribution of shared resources, such as
-  floating licenses.
+  floating
+  licenses.
 
   A limit can throttle work assignments, help manage workloads, and track current
   usage. Before you use a limit, you must associate the limit with one or more
   queues.
 
-  You must add the `amountRequirementName` to a step in a job template to declare
-  the limit requirement.
+  You must add the `amountRequirementName` to a step in a job template to
+  declare the limit requirement.
   """
   @spec create_limit(map(), String.t() | atom(), create_limit_request(), list()) ::
           {:ok, create_limit_response(), any()}
@@ -5968,10 +5982,12 @@ defmodule AWS.Deadline do
 
   @doc """
   Creates an Amazon Web Services Deadline Cloud monitor that you can use to view
-  your farms, queues, and fleets.
+  your farms, queues, and
+  fleets.
 
   After you submit a job, you can track the progress of the tasks and steps that
-  make up the job, and then download the job's results.
+  make
+  up the job, and then download the job's results.
   """
   @spec create_monitor(map(), create_monitor_request(), list()) ::
           {:ok, create_monitor_response(), any()}
@@ -6008,8 +6024,8 @@ defmodule AWS.Deadline do
   @doc """
   Creates a queue to coordinate the order in which jobs run on a farm.
 
-  A queue can also specify where to pull resources and indicate where to output
-  completed jobs.
+  A queue can also
+  specify where to pull resources and indicate where to output completed jobs.
   """
   @spec create_queue(map(), String.t() | atom(), create_queue_request(), list()) ::
           {:ok, create_queue_response(), any()}
@@ -6122,9 +6138,11 @@ defmodule AWS.Deadline do
   @doc """
   Associates a limit with a particular queue.
 
-  After the limit is associated, all workers for jobs that specify the limit
-  associated with the queue are subject to the limit. You can't associate two
-  limits with the same `amountRequirementName` to the same queue.
+  After the limit is associated, all workers
+  for jobs that specify the limit associated with the queue are subject to the
+  limit. You
+  can't associate two limits with the same `amountRequirementName` to the same
+  queue.
   """
   @spec create_queue_limit_association(
           map(),
@@ -6159,7 +6177,8 @@ defmodule AWS.Deadline do
 
   @doc """
   Creates a storage profile that specifies the operating system, file type, and
-  file location of resources used on a farm.
+  file
+  location of resources used on a farm.
   """
   @spec create_storage_profile(
           map(),
@@ -6201,18 +6220,21 @@ defmodule AWS.Deadline do
   @doc """
   Creates a worker.
 
-  A worker tells your instance how much processing power (vCPU), and memory (GiB)
-  you’ll need to assemble the digital assets held within a particular instance.
+  A worker tells your instance how much processing power (vCPU), and
+  memory (GiB) you’ll need to assemble the digital assets held within a particular
+  instance.
   You can specify certain instance types to use, or let the worker know which
-  instances types to exclude.
+  instances types
+  to exclude.
 
   Deadline Cloud limits the number of workers to less than or equal to the fleet's
   maximum worker count. The service maintains eventual consistency for the worker
-  count. If you make multiple rapid calls to `CreateWorker` before the field
-  updates, you might exceed your fleet's maximum worker count. For example, if
-  your `maxWorkerCount` is 10 and you currently have 9 workers, making two quick
-  `CreateWorker` calls might successfully create 2 workers instead of 1, resulting
-  in 11 total workers.
+  count. If
+  you make multiple rapid calls to `CreateWorker` before the field updates, you
+  might exceed your fleet's maximum worker count. For example, if your
+  `maxWorkerCount` is 10 and you currently have 9 workers, making two quick
+  `CreateWorker` calls might successfully create 2 workers instead of 1,
+  resulting in 11 total workers.
   """
   @spec create_worker(
           map(),
@@ -6398,8 +6420,9 @@ defmodule AWS.Deadline do
   @doc """
   Removes a limit from the specified farm.
 
-  Before you delete a limit you must use the `DeleteQueueLimitAssociation`
-  operation to remove the association with any queues.
+  Before you delete a limit you must use the
+  `DeleteQueueLimitAssociation` operation to remove the association with any
+  queues.
   """
   @spec delete_limit(
           map(),
@@ -6481,8 +6504,8 @@ defmodule AWS.Deadline do
   @doc """
   Removes a Deadline Cloud monitor.
 
-  After you delete a monitor, you can create a new one and attach farms to the
-  monitor.
+  After you delete a monitor, you can create a new one and
+  attach farms to the monitor.
   """
   @spec delete_monitor(map(), String.t() | atom(), delete_monitor_request(), list()) ::
           {:ok, delete_monitor_response(), any()}
@@ -6514,7 +6537,8 @@ defmodule AWS.Deadline do
   Deletes a queue.
 
   You can't recover the jobs in a queue if you delete the queue. Deleting the
-  queue also deletes the jobs in that queue.
+  queue
+  also deletes the jobs in that queue.
   """
   @spec delete_queue(
           map(),
@@ -6643,11 +6667,12 @@ defmodule AWS.Deadline do
   @doc """
   Removes the association between a queue and a limit.
 
-  You must use the `UpdateQueueLimitAssociation` operation to set the status to
-  `STOP_LIMIT_USAGE_AND_COMPLETE_TASKS` or `STOP_LIMIT_USAGE_AND_CANCEL_TASKS`.
-  The status does not change immediately. Use the `GetQueueLimitAssociation`
-  operation to see if the status changed to `STOPPED` before deleting the
-  association.
+  You must use the
+  `UpdateQueueLimitAssociation` operation to set the status to
+  `STOP_LIMIT_USAGE_AND_COMPLETE_TASKS` or
+  `STOP_LIMIT_USAGE_AND_CANCEL_TASKS`. The status does not change immediately.
+  Use the `GetQueueLimitAssociation` operation to see if the status changed to
+  `STOPPED` before deleting the association.
   """
   @spec delete_queue_limit_association(
           map(),
@@ -7254,10 +7279,10 @@ defmodule AWS.Deadline do
   @doc """
   Gets a set of statistics for queues or farms.
 
-  Before you can call the `GetSessionStatisticsAggregation` operation, you must
-  first call the `StartSessionsStatisticsAggregation` operation. Statistics are
-  available for 1 hour after you call the `StartSessionsStatisticsAggregation`
-  operation.
+  Before you can call the
+  `GetSessionStatisticsAggregation` operation, you must first call the
+  `StartSessionsStatisticsAggregation` operation. Statistics are available for
+  1 hour after you call the `StartSessionsStatisticsAggregation` operation.
   """
   @spec get_sessions_statistics_aggregation(
           map(),
@@ -9045,9 +9070,10 @@ defmodule AWS.Deadline do
 
   Get the statistics using the `GetSessionsStatisticsAggregation` operation. You
   can only have one running aggregation for your Deadline Cloud farm. Call the
-  `GetSessionsStatisticsAggregation` operation and check the `status` field to see
-  if an aggregation is running. Statistics are available for 1 hour after you call
-  the `StartSessionsStatisticsAggregation` operation.
+  `GetSessionsStatisticsAggregation` operation and check the
+  `status` field to see if an aggregation is running. Statistics are available
+  for 1 hour after you call the `StartSessionsStatisticsAggregation`
+  operation.
   """
   @spec start_sessions_statistics_aggregation(
           map(),
@@ -9259,11 +9285,12 @@ defmodule AWS.Deadline do
   @doc """
   Updates a job.
 
-  When you change the status of the job to `ARCHIVED`, the job can't be scheduled
-  or archived.
+  When you change the status of the job to `ARCHIVED`, the job can't be
+  scheduled or archived.
 
   An archived jobs and its steps and tasks are deleted after 120 days. The job
-  can't be recovered.
+  can't be
+  recovered.
   """
   @spec update_job(
           map(),
@@ -9345,7 +9372,8 @@ defmodule AWS.Deadline do
   @doc """
   Modifies the settings for a Deadline Cloud monitor.
 
-  You can modify one or all of the settings when you call `UpdateMonitor`.
+  You can modify one or all of the settings
+  when you call `UpdateMonitor`.
   """
   @spec update_monitor(map(), String.t() | atom(), update_monitor_request(), list()) ::
           {:ok, update_monitor_response(), any()}
@@ -9513,8 +9541,9 @@ defmodule AWS.Deadline do
   @doc """
   Updates the status of the queue.
 
-  If you set the status to one of the `STOP_LIMIT_USAGE*` values, there will be a
-  delay before the status transitions to the `STOPPED` state.
+  If you set the status to one of the
+  `STOP_LIMIT_USAGE*` values, there will be a delay before the status
+  transitions to the `STOPPED` state.
   """
   @spec update_queue_limit_association(
           map(),

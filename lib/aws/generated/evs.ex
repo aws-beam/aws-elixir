@@ -3,8 +3,6 @@
 
 defmodule AWS.Evs do
   @moduledoc """
-  Amazon EVS is in public preview release and is subject to change.
-
   Amazon Elastic VMware Service (Amazon EVS) is a service that you can use to
   deploy a VMware Cloud Foundation (VCF) software environment directly on EC2 bare
   metal instances within an Amazon Virtual Private Cloud (VPC).
@@ -632,8 +630,6 @@ defmodule AWS.Evs do
   end
 
   @doc """
-  Amazon EVS is in public preview release and is subject to change.
-
   Creates an Amazon EVS environment that runs VCF software, such as SDDC Manager,
   NSX Manager, and vCenter Server.
 
@@ -660,15 +656,11 @@ defmodule AWS.Evs do
   end
 
   @doc """
-  Amazon EVS is in public preview release and is subject to change.
+  Creates an ESXi host and adds it to an Amazon EVS environment.
 
-  Creates an ESXi host and adds it to an Amazon EVS environment. Amazon EVS
-  supports 4-16 hosts per environment.
+  Amazon EVS supports 4-16 hosts per environment.
 
-  This action can only be used after the Amazon EVS environment is deployed. All
-  Amazon EVS hosts are created with the latest AMI release version for the
-  respective VCF version of the environment. Amazon EVS hosts are commissioned in
-  the SDDC Manager inventory as unassigned hosts.
+  This action can only be used after the Amazon EVS environment is deployed.
 
   You can use the `dedicatedHostId` parameter to specify an Amazon EC2 Dedicated
   Host for ESXi host creation.
@@ -692,16 +684,15 @@ defmodule AWS.Evs do
   end
 
   @doc """
-  Amazon EVS is in public preview release and is subject to change.
-
   Deletes an Amazon EVS environment.
 
   Amazon EVS environments will only be enabled for deletion once the hosts are
   deleted. You can delete hosts using the `DeleteEnvironmentHost` action.
 
-  Environment deletion also deletes the associated Amazon EVS VLAN subnets. Other
-  associated Amazon Web Services resources are not deleted. These resources may
-  continue to incur costs.
+  Environment deletion also deletes the associated Amazon EVS VLAN subnets and
+  Amazon Web Services Secrets Manager secrets that Amazon EVS created. Amazon Web
+  Services resources that you create are not deleted. These resources may continue
+  to incur costs.
   """
   @spec delete_environment(map(), delete_environment_request(), list()) ::
           {:ok, delete_environment_response(), any()}
@@ -715,8 +706,6 @@ defmodule AWS.Evs do
   end
 
   @doc """
-  Amazon EVS is in public preview release and is subject to change.
-
   Deletes a host from an Amazon EVS environment.
 
   Before deleting a host, you must unassign and decommission the host from within
@@ -735,8 +724,6 @@ defmodule AWS.Evs do
   end
 
   @doc """
-  Amazon EVS is in public preview release and is subject to change.
-
   Returns a description of the specified environment.
   """
   @spec get_environment(map(), get_environment_request(), list()) ::
@@ -751,8 +738,6 @@ defmodule AWS.Evs do
   end
 
   @doc """
-  Amazon EVS is in public preview release and is subject to change.
-
   List the hosts within an environment.
   """
   @spec list_environment_hosts(map(), list_environment_hosts_request(), list()) ::
@@ -767,8 +752,6 @@ defmodule AWS.Evs do
   end
 
   @doc """
-  Amazon EVS is in public preview release and is subject to change.
-
   Lists environment VLANs that are associated with the specified environment.
   """
   @spec list_environment_vlans(map(), list_environment_vlans_request(), list()) ::
@@ -783,8 +766,6 @@ defmodule AWS.Evs do
   end
 
   @doc """
-  Amazon EVS is in public preview release and is subject to change.
-
   Lists the Amazon EVS environments in your Amazon Web Services account in the
   specified Amazon Web Services Region.
   """
@@ -800,8 +781,6 @@ defmodule AWS.Evs do
   end
 
   @doc """
-  Amazon EVS is in public preview release and is subject to change.
-
   Lists the tags for an Amazon EVS resource.
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
@@ -816,16 +795,15 @@ defmodule AWS.Evs do
   end
 
   @doc """
-  Amazon EVS is in public preview release and is subject to change.
-
   Associates the specified tags to an Amazon EVS resource with the specified
-  `resourceArn`. If existing tags on a resource are not specified in the request
-  parameters, they aren't changed. When a resource is deleted, the tags associated
-  with that resource are also deleted. Tags that you create for Amazon EVS
-  resources don't propagate to any other resources associated with the
-  environment. For example, if you tag an environment with this operation, that
-  tag doesn't automatically propagate to the VLAN subnets and hosts associated
-  with the environment.
+  `resourceArn`.
+
+  If existing tags on a resource are not specified in the request parameters, they
+  aren't changed. When a resource is deleted, the tags associated with that
+  resource are also deleted. Tags that you create for Amazon EVS resources don't
+  propagate to any other resources associated with the environment. For example,
+  if you tag an environment with this operation, that tag doesn't automatically
+  propagate to the VLAN subnets and hosts associated with the environment.
   """
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -839,8 +817,6 @@ defmodule AWS.Evs do
   end
 
   @doc """
-  Amazon EVS is in public preview release and is subject to change.
-
   Deletes specified tags from an Amazon EVS resource.
   """
   @spec untag_resource(map(), untag_resource_request(), list()) ::

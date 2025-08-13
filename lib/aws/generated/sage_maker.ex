@@ -3801,6 +3801,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      trusted_identity_propagation_settings() :: %{
+        "Status" => list(any())
+      }
+      
+  """
+  @type trusted_identity_propagation_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       training_specification() :: %{
         "AdditionalS3DataSource" => additional_s3_data_source(),
         "MetricDefinitions" => list(metric_definition()),
@@ -4716,6 +4727,7 @@ defmodule AWS.SageMaker do
         "BuiltInLifecycleConfigArn" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
         "DomainId" => String.t() | atom(),
+        "EffectiveTrustedIdentityPropagationStatus" => list(any()),
         "FailureReason" => String.t() | atom(),
         "LastHealthCheckTimestamp" => non_neg_integer(),
         "LastUserActivityTimestamp" => non_neg_integer(),
@@ -9762,6 +9774,7 @@ defmodule AWS.SageMaker do
         "ExecutionRoleIdentityConfig" => list(any()),
         "RStudioServerProDomainSettingsForUpdate" => r_studio_server_pro_domain_settings_for_update(),
         "SecurityGroupIds" => list(String.t() | atom()),
+        "TrustedIdentityPropagationSettings" => trusted_identity_propagation_settings(),
         "UnifiedStudioSettings" => unified_studio_settings()
       }
       
@@ -11743,6 +11756,7 @@ defmodule AWS.SageMaker do
         "ExecutionRoleIdentityConfig" => list(any()),
         "RStudioServerProDomainSettings" => r_studio_server_pro_domain_settings(),
         "SecurityGroupIds" => list(String.t() | atom()),
+        "TrustedIdentityPropagationSettings" => trusted_identity_propagation_settings(),
         "UnifiedStudioSettings" => unified_studio_settings()
       }
       

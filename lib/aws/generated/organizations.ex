@@ -147,6 +147,21 @@ defmodule AWS.Organizations do
 
   ## Example:
       
+      list_accounts_with_invalid_effective_policy_response() :: %{
+        "Accounts" => list(account()),
+        "NextToken" => String.t() | atom(),
+        "PolicyType" => list(any())
+      }
+      
+  """
+  @type list_accounts_with_invalid_effective_policy_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       remove_account_from_organization_request() :: %{
         required("AccountId") => String.t() | atom()
       }
@@ -304,6 +319,36 @@ defmodule AWS.Organizations do
       
   """
   @type decline_handshake_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      effective_policy_validation_error() :: %{
+        "ContributingPolicies" => list(String.t() | atom()),
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "PathToError" => String.t() | atom()
+      }
+      
+  """
+  @type effective_policy_validation_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_effective_policy_validation_errors_response() :: %{
+        "AccountId" => String.t() | atom(),
+        "EffectivePolicyValidationErrors" => list(effective_policy_validation_error()),
+        "EvaluationTimestamp" => non_neg_integer(),
+        "NextToken" => String.t() | atom(),
+        "Path" => String.t() | atom(),
+        "PolicyType" => list(any())
+      }
+      
+  """
+  @type list_effective_policy_validation_errors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -697,6 +742,20 @@ defmodule AWS.Organizations do
       
   """
   @type policy_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_effective_policy_validation_errors_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("AccountId") => String.t() | atom(),
+        required("PolicyType") => list(any())
+      }
+      
+  """
+  @type list_effective_policy_validation_errors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1150,6 +1209,19 @@ defmodule AWS.Organizations do
       
   """
   @type unsupported_api_endpoint_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_accounts_with_invalid_effective_policy_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("PolicyType") => list(any())
+      }
+      
+  """
+  @type list_accounts_with_invalid_effective_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2320,6 +2392,16 @@ defmodule AWS.Organizations do
           | too_many_requests_exception()
           | aws_organizations_not_in_use_exception()
 
+  @type list_accounts_with_invalid_effective_policy_errors() ::
+          constraint_violation_exception()
+          | access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | effective_policy_not_found_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
   @type list_aws_service_access_for_organization_errors() ::
           constraint_violation_exception()
           | access_denied_exception()
@@ -2362,6 +2444,17 @@ defmodule AWS.Organizations do
           | invalid_input_exception()
           | service_exception()
           | account_not_registered_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type list_effective_policy_validation_errors_errors() ::
+          constraint_violation_exception()
+          | access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | effective_policy_not_found_exception()
+          | account_not_found_exception()
+          | invalid_input_exception()
+          | service_exception()
           | too_many_requests_exception()
           | aws_organizations_not_in_use_exception()
 
@@ -3870,6 +3963,31 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+  Lists all the accounts in an organization that have invalid effective policies.
+
+  An *invalid effective policy* is an [effective policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_effective.html)
+  that fails validation checks, resulting in the effective policy not being fully
+  enforced on all the intended accounts within an organization.
+
+  This operation can be called only from the organization's
+  management account or by a member account that is a delegated administrator.
+  """
+  @spec list_accounts_with_invalid_effective_policy(
+          map(),
+          list_accounts_with_invalid_effective_policy_request(),
+          list()
+        ) ::
+          {:ok, list_accounts_with_invalid_effective_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_accounts_with_invalid_effective_policy_errors()}
+  def list_accounts_with_invalid_effective_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAccountsWithInvalidEffectivePolicy", input, options)
+  end
+
+  @doc """
   Returns a list of the Amazon Web Services services that you enabled to integrate
   with your
   organization.
@@ -3999,6 +4117,28 @@ defmodule AWS.Organizations do
     meta = metadata()
 
     Request.request_post(client, meta, "ListDelegatedServicesForAccount", input, options)
+  end
+
+  @doc """
+  Lists all the validation errors on an [effective policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_effective.html)
+  for a specified account and policy type.
+
+  This operation can be called only from the organization's
+  management account or by a member account that is a delegated administrator.
+  """
+  @spec list_effective_policy_validation_errors(
+          map(),
+          list_effective_policy_validation_errors_request(),
+          list()
+        ) ::
+          {:ok, list_effective_policy_validation_errors_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_effective_policy_validation_errors_errors()}
+  def list_effective_policy_validation_errors(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListEffectivePolicyValidationErrors", input, options)
   end
 
   @doc """

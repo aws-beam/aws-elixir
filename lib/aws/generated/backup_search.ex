@@ -9,14 +9,9 @@ defmodule AWS.BackupSearch do
 
   For additional information, see:
 
-    *
+    * [Backup API Reference](https://docs.aws.amazon.com/aws-backup/latest/devguide/api-reference.html)
 
-  [Backup API Reference](https://docs.aws.amazon.com/aws-backup/latest/devguide/api-reference.html)
-
-    *
-
-  [Backup Developer
-  Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html)
+    * [Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html)
   """
 
   alias AWS.Client
@@ -644,7 +639,10 @@ defmodule AWS.BackupSearch do
 
   @type list_tags_for_resource_errors() :: resource_not_found_exception()
 
-  @type start_search_job_errors() :: service_quota_exceeded_exception() | conflict_exception()
+  @type start_search_job_errors() ::
+          service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type start_search_result_export_job_errors() ::
           service_quota_exceeded_exception()
@@ -674,8 +672,7 @@ defmodule AWS.BackupSearch do
   end
 
   @doc """
-  This operation retrieves metadata of a search job,
-  including its progress.
+  This operation retrieves metadata of a search job, including its progress.
   """
   @spec get_search_job(map(), String.t() | atom(), list()) ::
           {:ok, get_search_job_output(), any()}
@@ -695,12 +692,11 @@ defmodule AWS.BackupSearch do
   @doc """
   This operation retrieves the metadata of an export job.
 
-  An export job is an operation that transmits the results
-  of a search job to a specified S3 bucket in a
-  .csv file.
+  An export job is an operation that transmits the results of a search job to a
+  specified S3 bucket in a .csv file.
 
-  An export job allows you to retain results of a search
-  beyond the search job's scheduled retention of 7 days.
+  An export job allows you to retain results of a search beyond the search job's
+  scheduled retention of 7 days.
   """
   @spec get_search_result_export_job(map(), String.t() | atom(), list()) ::
           {:ok, get_search_result_export_job_output(), any()}
@@ -718,21 +714,17 @@ defmodule AWS.BackupSearch do
   end
 
   @doc """
-  This operation returns a list of all backups (recovery
-  points) in a paginated format that were included in
-  the search job.
+  This operation returns a list of all backups (recovery points) in a paginated
+  format that were included in the search job.
 
-  If a search does not display an expected backup in
-  the results, you can call this operation to display each
-  backup included in the search. Any backups that were not
-  included because they have a `FAILED` status
-  from a permissions issue will be displayed, along with a
-  status message.
+  If a search does not display an expected backup in the results, you can call
+  this operation to display each backup included in the search. Any backups that
+  were not included because they have a `FAILED` status from a permissions issue
+  will be displayed, along with a status message.
 
-  Only recovery points with a backup index that has
-  a status of `ACTIVE` will be included in search results.
-  If the index has any other status, its status will be
-  displayed along with a status message.
+  Only recovery points with a backup index that has a status of `ACTIVE` will be
+  included in search results. If the index has any other status, its status will
+  be displayed along with a status message.
   """
   @spec list_search_job_backups(
           map(),
@@ -820,8 +812,7 @@ defmodule AWS.BackupSearch do
   end
 
   @doc """
-  This operation returns a list of search jobs belonging
-  to an account.
+  This operation returns a list of search jobs belonging to an account.
   """
   @spec list_search_jobs(
           map(),
@@ -871,8 +862,8 @@ defmodule AWS.BackupSearch do
   end
 
   @doc """
-  This operation exports search results of a search job
-  to a specified destination S3 bucket.
+  This operation exports search results of a search job to a specified destination
+  S3 bucket.
   """
   @spec list_search_result_export_jobs(
           map(),
@@ -950,12 +941,10 @@ defmodule AWS.BackupSearch do
   end
 
   @doc """
-  This operation creates a search job which returns
-  recovery points filtered by SearchScope and items
-  filtered by ItemFilters.
+  This operation creates a search job which returns recovery points filtered by
+  SearchScope and items filtered by ItemFilters.
 
-  You can optionally include ClientToken,
-  EncryptionKeyArn, Name, and/or Tags.
+  You can optionally include ClientToken, EncryptionKeyArn, Name, and/or Tags.
   """
   @spec start_search_job(map(), start_search_job_input(), list()) ::
           {:ok, start_search_job_output(), any()}
@@ -984,8 +973,8 @@ defmodule AWS.BackupSearch do
   end
 
   @doc """
-  This operations starts a job to export the results
-  of search job to a designated S3 bucket.
+  This operations starts a job to export the results of search job to a designated
+  S3 bucket.
   """
   @spec start_search_result_export_job(map(), start_search_result_export_job_input(), list()) ::
           {:ok, start_search_result_export_job_output(), any()}
@@ -1016,8 +1005,7 @@ defmodule AWS.BackupSearch do
   @doc """
   This operations ends a search job.
 
-  Only a search job with a status of `RUNNING`
-  can be stopped.
+  Only a search job with a status of `RUNNING` can be stopped.
   """
   @spec stop_search_job(map(), String.t() | atom(), stop_search_job_input(), list()) ::
           {:ok, stop_search_job_output(), any()}

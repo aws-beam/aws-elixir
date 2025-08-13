@@ -14105,6 +14105,7 @@ defmodule AWS.EC2 do
         "AssociationState" => route_table_association_state(),
         "GatewayId" => String.t() | atom(),
         "Main" => boolean(),
+        "PublicIpv4Pool" => String.t() | atom(),
         "RouteTableAssociationId" => String.t() | atom(),
         "RouteTableId" => String.t() | atom(),
         "SubnetId" => String.t() | atom()
@@ -24426,6 +24427,7 @@ defmodule AWS.EC2 do
       associate_route_table_request() :: %{
         optional("DryRun") => boolean(),
         optional("GatewayId") => String.t() | atom(),
+        optional("PublicIpv4Pool") => String.t() | atom(),
         optional("SubnetId") => String.t() | atom(),
         required("RouteTableId") => String.t() | atom()
       }
@@ -30476,8 +30478,6 @@ defmodule AWS.EC2 do
   It can take a few minutes before traffic to the specified addresses starts
   routing to Amazon Web Services
   because of BGP propagation delays.
-
-  To stop advertising the BYOIP CIDR, use `WithdrawByoipCidr`.
   """
   @spec advertise_byoip_cidr(map(), advertise_byoip_cidr_request(), list()) ::
           {:ok, advertise_byoip_cidr_result(), any()}
@@ -35792,9 +35792,9 @@ defmodule AWS.EC2 do
   through bring your own IP addresses (BYOIP) and deletes the corresponding
   address pool.
 
-  Before you can release an address range, you must stop advertising it using
-  `WithdrawByoipCidr` and you must not have any IP addresses allocated from its
-  address range.
+  Before you can release an address range, you must stop advertising it and you
+  must not
+  have any IP addresses allocated from its address range.
   """
   @spec deprovision_byoip_cidr(map(), deprovision_byoip_cidr_request(), list()) ::
           {:ok, deprovision_byoip_cidr_result(), any()}
@@ -36204,11 +36204,9 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Describes the IP address ranges that were specified in calls to
-  `ProvisionByoipCidr`.
-
-  To describe the address pools that were created when you provisioned the address
-  ranges, use `DescribePublicIpv4Pools` or `DescribeIpv6Pools`.
+  Describes the IP address ranges that were provisioned for use with Amazon Web
+  Services resources
+  through through bring your own IP addresses (BYOIP).
   """
   @spec describe_byoip_cidrs(map(), describe_byoip_cidrs_request(), list()) ::
           {:ok, describe_byoip_cidrs_result(), any()}
@@ -36990,8 +36988,7 @@ defmodule AWS.EC2 do
   `audit-mode`, the `imageAllowed` field is set to `true` for
   images that meet the account's Allowed AMIs criteria, and `false` for images
   that
-  don't meet the criteria. For more information, see
-  `EnableAllowedImagesSettings`.
+  don't meet the criteria. For more information, see [Allowed AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html).
 
   The Amazon EC2 API follows an eventual consistency model. This means that the
   result of an API
@@ -37832,8 +37829,6 @@ defmodule AWS.EC2 do
   @doc """
   Describes your managed prefix lists and any Amazon Web Services-managed prefix
   lists.
-
-  To view the entries for your prefix list, use `GetManagedPrefixListEntries`.
   """
   @spec describe_managed_prefix_lists(map(), describe_managed_prefix_lists_request(), list()) ::
           {:ok, describe_managed_prefix_lists_result(), any()}
@@ -38074,8 +38069,6 @@ defmodule AWS.EC2 do
   Describes available Amazon Web Services services in a prefix list format, which
   includes the prefix list
   name and prefix list ID of the service and the IP address range for the service.
-
-  We recommend that you use `DescribeManagedPrefixLists` instead.
   """
   @spec describe_prefix_lists(map(), describe_prefix_lists_request(), list()) ::
           {:ok, describe_prefix_lists_result(), any()}
@@ -40960,8 +40953,7 @@ defmodule AWS.EC2 do
   the AMI can't be deregistered.
 
   To allow the AMI to be deregistered, you must first disable deregistration
-  protection
-  using `DisableImageDeregistrationProtection`.
+  protection.
 
   For more information, see [Protect an Amazon EC2 AMI from
   deregistration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deregistration-protection.html)
@@ -44545,9 +44537,8 @@ defmodule AWS.EC2 do
   it must not
   be associated with an instance. After the Elastic IP address is moved, it is no
   longer
-  available for use in the EC2-Classic platform, unless you move it back using the
-  `RestoreAddressToClassic` request. You cannot move an Elastic IP address that
-  was
+  available for use in the EC2-Classic platform. You cannot move an Elastic IP
+  address that was
   originally allocated for use in the EC2-VPC platform to the EC2-Classic
   platform.
   """
@@ -44627,7 +44618,7 @@ defmodule AWS.EC2 do
   addresses (BYOIP) and creates a corresponding address pool.
 
   After the address range is
-  provisioned, it is ready to be advertised using `AdvertiseByoipCidr`.
+  provisioned, it is ready to be advertised.
 
   Amazon Web Services verifies that you own the address range and are authorized
   to advertise it.
@@ -44642,12 +44633,7 @@ defmodule AWS.EC2 do
   immediately,
   but the address range is not ready to use until its status changes from
   `pending-provision`
-  to `provisioned`. To monitor the status of an address range, use
-  `DescribeByoipCidrs`.
-  To allocate an Elastic IP address from your IPv4 address pool, use
-  `AllocateAddress`
-  with either the specific address from the address pool or the ID of the address
-  pool.
+  to `provisioned`. For more information, see [Onboard your address range](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/byoip-onboard.html).
   """
   @spec provision_byoip_cidr(map(), provision_byoip_cidr_request(), list()) ::
           {:ok, provision_byoip_cidr_result(), any()}
@@ -44868,12 +44854,6 @@ defmodule AWS.EC2 do
   AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-instance-store.html)
   in the *Amazon EC2 User Guide*.
 
-  For Amazon EBS-backed instances, `CreateImage` creates and registers the AMI
-  in a single request, so you don't have to register the AMI yourself. We
-  recommend that you
-  always use `CreateImage` unless you have a specific reason to use
-  RegisterImage.
-
   If needed, you can deregister an AMI at any time. Any modifications you make to
   an AMI
   backed by an instance store volume invalidates its registration. If you make
@@ -44916,8 +44896,8 @@ defmodule AWS.EC2 do
   operating system
   code (for example, Windows, RedHat, SUSE, or SQL), the AMI creation was
   unsuccessful, and you
-  should discard the AMI and instead create the AMI from an instance using
-  `CreateImage`. For more information, see [Create an AMI from an instance
+  should discard the AMI and instead create the AMI from an instance.
+  For more information, see [Create an AMI from an instance
   ](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#how-to-create-ebs-ami)
   in the *Amazon EC2 User Guide*.
 
@@ -44927,7 +44907,7 @@ defmodule AWS.EC2 do
   has the matching
   billing product code. If you purchase a Reserved Instance without the matching
   billing product
-  code, the Reserved Instance will not be applied to the On-Demand Instance. For
+  code, the Reserved Instance is not applied to the On-Demand Instance. For
   information
   about how to obtain the platform details and billing information of an AMI, see
   [Understand AMI billing
@@ -45173,12 +45153,11 @@ defmodule AWS.EC2 do
   @doc """
   Releases the specified Elastic IP address.
 
-  [Default VPC] Releasing an Elastic IP address automatically disassociates it from any instance that it's associated with. To disassociate an Elastic IP
-  address without
-  releasing it, use `DisassociateAddress`.
+  [Default VPC] Releasing an Elastic IP address automatically disassociates it from any instance that it's associated with. Alternatively, you can disassociate
+  an Elastic IP address without
+  releasing it.
 
-  [Nondefault VPC] You must use `DisassociateAddress` to disassociate the Elastic
-  IP address
+  [Nondefault VPC] You must disassociate the Elastic IP address
   before you can release it. Otherwise, Amazon EC2 returns an error
   (`InvalidIPAddress.InUse`).
 
@@ -45191,7 +45170,7 @@ defmodule AWS.EC2 do
   Services account.
 
   After you release an Elastic IP address, you might be able to recover it.
-  For more information, see `AllocateAddress`.
+  For more information, see [Release an Elastic IP address](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing-eips-releasing.html).
   """
   @spec release_address(map(), release_address_request(), list()) ::
           {:ok, nil, any()}
@@ -46039,10 +46018,9 @@ defmodule AWS.EC2 do
 
   The report is saved to your specified S3 bucket, using the following path
   structure
-  (with the *italicized placeholders* representing your specific
-  values):
+  (with the capitalized placeholders representing your specific values):
 
-  `s3://*amzn-s3-demo-bucket*/*your-optional-s3-prefix*/ec2_*targetId*_*reportId*_*yyyyMMdd*T*hhmm*Z.csv`
+  `s3://AMZN-S3-DEMO-BUCKET/YOUR-OPTIONAL-S3-PREFIX/ec2_TARGETID_REPORTID_YYYYMMDDTHHMMZ.csv`
 
   ## Prerequisites for generating a report
 

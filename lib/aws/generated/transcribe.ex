@@ -1003,6 +1003,7 @@ defmodule AWS.Transcribe do
         "FailureReason" => String.t() | atom(),
         "LanguageCode" => list(any()),
         "Media" => media(),
+        "MedicalScribeContextProvided" => boolean(),
         "MedicalScribeJobName" => String.t() | atom(),
         "MedicalScribeJobStatus" => list(any()),
         "MedicalScribeOutput" => medical_scribe_output(),
@@ -1013,6 +1014,17 @@ defmodule AWS.Transcribe do
       
   """
   @type medical_scribe_job() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      medical_scribe_patient_context() :: %{
+        "Pronouns" => list(any())
+      }
+      
+  """
+  @type medical_scribe_patient_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1351,6 +1363,7 @@ defmodule AWS.Transcribe do
       start_medical_scribe_job_request() :: %{
         optional("ChannelDefinitions") => list(medical_scribe_channel_definition()),
         optional("KMSEncryptionContext") => map(),
+        optional("MedicalScribeContext") => medical_scribe_context(),
         optional("OutputEncryptionKMSKeyId") => String.t() | atom(),
         optional("Tags") => list(tag()),
         required("DataAccessRoleArn") => String.t() | atom(),
@@ -1466,6 +1479,17 @@ defmodule AWS.Transcribe do
       
   """
   @type get_vocabulary_filter_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      medical_scribe_context() :: %{
+        "PatientContext" => medical_scribe_patient_context()
+      }
+      
+  """
+  @type medical_scribe_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2773,7 +2797,7 @@ defmodule AWS.Transcribe do
 
     *
 
-  `Settings`: A `MedicalScribeSettings` obect
+  `Settings`: A `MedicalScribeSettings` object
   that must set exactly one of `ShowSpeakerLabels` or `ChannelIdentification` to
   true.
   If `ShowSpeakerLabels` is true, `MaxSpeakerLabels` must also be set.

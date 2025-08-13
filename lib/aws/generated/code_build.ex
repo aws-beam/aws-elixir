@@ -2516,6 +2516,7 @@ defmodule AWS.CodeBuild do
         "lastModifiedSecret" => non_neg_integer(),
         "manualCreation" => boolean(),
         "payloadUrl" => String.t() | atom(),
+        "pullRequestBuildPolicy" => pull_request_build_policy(),
         "scopeConfiguration" => scope_configuration(),
         "secret" => String.t() | atom(),
         "status" => list(any()),

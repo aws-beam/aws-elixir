@@ -133,6 +133,7 @@ defmodule AWS.TranscribeStreaming do
         "LanguageCode" => list(any()),
         "MediaEncoding" => list(any()),
         "MediaSampleRateHertz" => integer(),
+        "MedicalScribeContextProvided" => boolean(),
         "PostStreamAnalyticsResult" => medical_scribe_post_stream_analytics_result(),
         "PostStreamAnalyticsSettings" => medical_scribe_post_stream_analytics_settings(),
         "ResourceAccessRoleArn" => String.t() | atom(),
@@ -264,6 +265,7 @@ defmodule AWS.TranscribeStreaming do
       medical_scribe_configuration_event() :: %{
         "ChannelDefinitions" => list(medical_scribe_channel_definition()),
         "EncryptionSettings" => medical_scribe_encryption_settings(),
+        "MedicalScribeContext" => medical_scribe_context(),
         "PostStreamAnalyticsSettings" => medical_scribe_post_stream_analytics_settings(),
         "ResourceAccessRoleArn" => String.t() | atom(),
         "VocabularyFilterMethod" => list(any()),
@@ -559,6 +561,17 @@ defmodule AWS.TranscribeStreaming do
 
   ## Example:
 
+      medical_scribe_patient_context() :: %{
+        "Pronouns" => list(any())
+      }
+
+  """
+  @type medical_scribe_patient_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       medical_transcript_event() :: %{
         "Transcript" => medical_transcript()
       }
@@ -772,6 +785,17 @@ defmodule AWS.TranscribeStreaming do
 
   """
   @type medical_scribe_transcript_segment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_scribe_context() :: %{
+        "PatientContext" => medical_scribe_patient_context()
+      }
+
+  """
+  @type medical_scribe_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1018,9 +1042,9 @@ defmodule AWS.TranscribeStreaming do
 
   When you start a stream, you first specify the stream configuration in a
   `MedicalScribeConfigurationEvent`.
-  This event includes channel definitions, encryption settings, and post-stream
-  analytics settings, such as the output configuration for aggregated transcript
-  and clinical note generation. These are additional
+  This event includes channel definitions, encryption settings, medical scribe
+  context, and post-stream analytics settings, such as the output configuration
+  for aggregated transcript and clinical note generation. These are additional
   streaming session configurations beyond those provided in your initial start
   request headers. Whether you are starting a new session or resuming an existing
   session,

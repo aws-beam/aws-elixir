@@ -12809,8 +12809,11 @@ defmodule AWS.SageMaker do
   ## Example:
       
       compute_quota_resource_config() :: %{
+        "Accelerators" => integer(),
         "Count" => integer(),
-        "InstanceType" => list(any())
+        "InstanceType" => list(any()),
+        "MemoryInGiB" => float(),
+        "VCpu" => float()
       }
       
   """

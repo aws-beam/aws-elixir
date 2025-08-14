@@ -3,8 +3,7 @@
 
 defmodule AWS.SecurityIR do
   @moduledoc """
-  This guide provides documents the action and response elements for customer use
-  of the service.
+  This guide documents the action and response elements for use of the service.
   """
 
   alias AWS.Client
@@ -33,6 +32,7 @@ defmodule AWS.SecurityIR do
         "accountId" => String.t() | atom(),
         "customerType" => list(any()),
         "incidentResponseTeam" => list(incident_responder()),
+        "membershipAccountsConfigurations" => membership_accounts_configurations(),
         "membershipActivationTimestamp" => [non_neg_integer()],
         "membershipArn" => String.t() | atom(),
         "membershipDeactivationTimestamp" => [non_neg_integer()],
@@ -181,6 +181,18 @@ defmodule AWS.SecurityIR do
 
   """
   @type incident_responder() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      membership_accounts_configurations() :: %{
+        "coverEntireOrganization" => [boolean()],
+        "organizationalUnits" => list(String.t() | atom())
+      }
+
+  """
+  @type membership_accounts_configurations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -363,6 +375,19 @@ defmodule AWS.SecurityIR do
 
   ## Example:
 
+      membership_accounts_configurations_update() :: %{
+        "coverEntireOrganization" => [boolean()],
+        "organizationalUnitsToAdd" => list(String.t() | atom()),
+        "organizationalUnitsToRemove" => list(String.t() | atom())
+      }
+
+  """
+  @type membership_accounts_configurations_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_case_attachment_upload_url_request() :: %{
         optional("clientToken") => [String.t() | atom()],
         required("contentLength") => float(),
@@ -530,8 +555,10 @@ defmodule AWS.SecurityIR do
 
       update_membership_request() :: %{
         optional("incidentResponseTeam") => list(incident_responder()),
+        optional("membershipAccountsConfigurationsUpdate") => membership_accounts_configurations_update(),
         optional("membershipName") => String.t() | atom(),
-        optional("optInFeatures") => list(opt_in_feature())
+        optional("optInFeatures") => list(opt_in_feature()),
+        optional("undoMembershipCancellation") => [boolean()]
       }
 
   """
@@ -758,6 +785,7 @@ defmodule AWS.SecurityIR do
 
       create_membership_request() :: %{
         optional("clientToken") => [String.t() | atom()],
+        optional("coverEntireOrganization") => [boolean()],
         optional("optInFeatures") => list(opt_in_feature()),
         optional("tags") => map(),
         required("incidentResponseTeam") => list(incident_responder()),
@@ -869,7 +897,13 @@ defmodule AWS.SecurityIR do
   end
 
   @doc """
-  Grants permission to view an existing membership.
+  Provides information on whether the supplied account IDs are associated with a
+  membership.
+
+  AWS account ID's may appear less than 12 characters and need to be
+  zero-prepended. An example would be `123123123` which is nine digits, and with
+  zero-prepend would be `000123123123`. Not zero-prepending to 12 digits could
+  result in errors.
   """
   @spec batch_get_member_account_details(
           map(),
@@ -902,7 +936,7 @@ defmodule AWS.SecurityIR do
   end
 
   @doc """
-  Grants permissions to cancel an existing membership.
+  Cancels an existing membership.
   """
   @spec cancel_membership(map(), String.t() | atom(), cancel_membership_request(), list()) ::
           {:ok, cancel_membership_response(), any()}
@@ -930,7 +964,7 @@ defmodule AWS.SecurityIR do
   end
 
   @doc """
-  Grants permission to close an existing case.
+  Closes an existing case.
   """
   @spec close_case(map(), String.t() | atom(), close_case_request(), list()) ::
           {:ok, close_case_response(), any()}
@@ -958,7 +992,7 @@ defmodule AWS.SecurityIR do
   end
 
   @doc """
-  Grants permission to create a new case.
+  Creates a new case.
   """
   @spec create_case(map(), create_case_request(), list()) ::
           {:ok, create_case_response(), any()}
@@ -986,7 +1020,7 @@ defmodule AWS.SecurityIR do
   end
 
   @doc """
-  Grants permission to add a comment to an existing case.
+  Adds a comment to an existing case.
   """
   @spec create_case_comment(map(), String.t() | atom(), create_case_comment_request(), list()) ::
           {:ok, create_case_comment_response(), any()}
@@ -1014,7 +1048,7 @@ defmodule AWS.SecurityIR do
   end
 
   @doc """
-  Grants permissions to create a new membership.
+  Creates a new membership.
   """
   @spec create_membership(map(), create_membership_request(), list()) ::
           {:ok, create_membership_response(), any()}
@@ -1042,7 +1076,7 @@ defmodule AWS.SecurityIR do
   end
 
   @doc """
-  Grant permission to view a designated case.
+  Returns the attributes of a case.
   """
   @spec get_case(map(), String.t() | atom(), list()) ::
           {:ok, get_case_response(), any()}
@@ -1059,8 +1093,7 @@ defmodule AWS.SecurityIR do
   end
 
   @doc """
-  Grants permission to obtain an Amazon S3 presigned URL to download an
-  attachment.
+  Returns a Pre-Signed URL for uploading attachments into a case.
   """
   @spec get_case_attachment_download_url(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_case_attachment_download_url_response(), any()}
@@ -1079,7 +1112,7 @@ defmodule AWS.SecurityIR do
   end
 
   @doc """
-  Grants permission to upload an attachment to a case.
+  Uploads an attachment to a case.
   """
   @spec get_case_attachment_upload_url(
           map(),
@@ -1112,7 +1145,7 @@ defmodule AWS.SecurityIR do
   end
 
   @doc """
-  Grants permission to get details of a designated service membership.
+  Returns the attributes of a membership.
   """
   @spec get_membership(map(), String.t() | atom(), list()) ::
           {:ok, get_membership_response(), any()}
@@ -1129,7 +1162,7 @@ defmodule AWS.SecurityIR do
   end
 
   @doc """
-  Grants permissions to view the aidt log for edits made to a designated case.
+  Views the case history for edits made to a designated case.
   """
   @spec list_case_edits(map(), String.t() | atom(), list_case_edits_request(), list()) ::
           {:ok, list_case_edits_response(), any()}
@@ -1157,7 +1190,7 @@ defmodule AWS.SecurityIR do
   end
 
   @doc """
-  Grants permission to list all cases the requester has access to.
+  Lists all cases the requester has access to.
   """
   @spec list_cases(map(), list_cases_request(), list()) ::
           {:ok, list_cases_response(), any()}
@@ -1185,7 +1218,7 @@ defmodule AWS.SecurityIR do
   end
 
   @doc """
-  Grants permissions to list and view comments for a designated case.
+  Returns comments for a designated case.
   """
   @spec list_comments(map(), String.t() | atom(), list_comments_request(), list()) ::
           {:ok, list_comments_response(), any()}
@@ -1213,7 +1246,7 @@ defmodule AWS.SecurityIR do
   end
 
   @doc """
-  Grants permission to query the memberships a principal has access to.
+  Returns the memberships that the calling principal can access.
   """
   @spec list_memberships(map(), list_memberships_request(), list()) ::
           {:ok, list_memberships_response(), any()}
@@ -1241,7 +1274,7 @@ defmodule AWS.SecurityIR do
   end
 
   @doc """
-  Grants permission to view currently configured tags on a resource.
+  Returns currently configured tags on a resource.
   """
   @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
@@ -1259,7 +1292,7 @@ defmodule AWS.SecurityIR do
   end
 
   @doc """
-  Grants permission to add a tag(s) to a designated resource.
+  Adds a tag(s) to a designated resource.
   """
   @spec tag_resource(map(), String.t() | atom(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
@@ -1288,7 +1321,7 @@ defmodule AWS.SecurityIR do
   end
 
   @doc """
-  Grants permission to remove a tag(s) from a designate resource.
+  Removes a tag(s) from a designate resource.
   """
   @spec untag_resource(map(), String.t() | atom(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
@@ -1322,7 +1355,7 @@ defmodule AWS.SecurityIR do
   end
 
   @doc """
-  Grants permission to update an existing case.
+  Updates an existing case.
   """
   @spec update_case(map(), String.t() | atom(), update_case_request(), list()) ::
           {:ok, update_case_response(), any()}
@@ -1350,7 +1383,7 @@ defmodule AWS.SecurityIR do
   end
 
   @doc """
-  Grants permission to update an existing case comment.
+  Updates an existing case comment.
   """
   @spec update_case_comment(
           map(),
@@ -1386,10 +1419,27 @@ defmodule AWS.SecurityIR do
   end
 
   @doc """
-  Grants permission to update the status for a designated cases.
+  Updates the state transitions for a designated cases.
 
-  Options include `Submitted | Detection and Analysis | Eradication, Containment
-  and Recovery | Post-Incident Activities | Closed`.
+  **Self-managed**: the following states are available for self-managed cases.
+
+    * Submitted → Detection and Analysis
+
+    * Detection and Analysis → Containment, Eradication, and Recovery
+
+    * Detection and Analysis → Post-incident Activities
+
+    * Containment, Eradication, and Recovery → Detection and Analysis
+
+    * Containment, Eradication, and Recovery → Post-incident Activities
+
+    * Post-incident Activities → Containment, Eradication, and Recovery
+
+    * Post-incident Activities → Detection and Analysis
+
+    * Any → Closed
+
+  **AWS supported**: You must use the `CloseCase` API to close.
   """
   @spec update_case_status(map(), String.t() | atom(), update_case_status_request(), list()) ::
           {:ok, update_case_status_response(), any()}
@@ -1417,7 +1467,7 @@ defmodule AWS.SecurityIR do
   end
 
   @doc """
-  Grants access to UpdateMembership to change membership configuration.
+  Updates membership configuration.
   """
   @spec update_membership(map(), String.t() | atom(), update_membership_request(), list()) ::
           {:ok, update_membership_response(), any()}
@@ -1445,11 +1495,9 @@ defmodule AWS.SecurityIR do
   end
 
   @doc """
-  Grants permission to update the resolver type for a case.
+  Updates the resolver type for a case.
 
   This is a one-way action and cannot be reversed.
-
-  Options include self-supported > AWS-supported.
   """
   @spec update_resolver_type(map(), String.t() | atom(), update_resolver_type_request(), list()) ::
           {:ok, update_resolver_type_response(), any()}

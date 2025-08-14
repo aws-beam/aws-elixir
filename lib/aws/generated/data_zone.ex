@@ -173,6 +173,23 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      account_pool_summary() :: %{
+        "createdBy" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "domainUnitId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "resolutionStrategy" => list(any()),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type account_pool_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       business_name_generation_configuration() :: %{
         "enabled" => [boolean()]
       }
@@ -729,6 +746,27 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      create_account_pool_output() :: %{
+        "accountSource" => list(),
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "domainUnitId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastUpdatedAt" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "resolutionStrategy" => list(any()),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type create_account_pool_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       deployment() :: %{
         "deploymentId" => [String.t() | atom()],
         "deploymentStatus" => list(any()),
@@ -846,6 +884,19 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      environment_resolved_account() :: %{
+        "awsAccountId" => String.t() | atom(),
+        "regionName" => String.t() | atom(),
+        "sourceAccountPoolId" => String.t() | atom()
+      }
+
+  """
+  @type environment_resolved_account() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       untag_resource_response() :: %{}
 
   """
@@ -889,6 +940,18 @@ defmodule AWS.DataZone do
 
   """
   @type create_asset_type_policy_grant_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_accounts_in_account_pool_output() :: %{
+        "items" => list(account_info()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_accounts_in_account_pool_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1224,6 +1287,21 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      list_account_pools_input() :: %{
+        optional("maxResults") => integer(),
+        optional("name") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any())
+      }
+
+  """
+  @type list_account_pools_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_data_product_revision_output() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
@@ -1339,6 +1417,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      list_accounts_in_account_pool_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_accounts_in_account_pool_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       notification_resource() :: %{
         "id" => [String.t() | atom()],
         "name" => [String.t() | atom()],
@@ -1401,6 +1491,27 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      get_account_pool_output() :: %{
+        "accountSource" => list(),
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "domainUnitId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastUpdatedAt" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "resolutionStrategy" => list(any()),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type get_account_pool_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       single_sign_on() :: %{
         "idcInstanceArn" => [String.t() | atom()],
         "type" => list(any()),
@@ -1458,7 +1569,8 @@ defmodule AWS.DataZone do
       environment_configuration_user_parameter() :: %{
         "environmentConfigurationName" => String.t() | atom(),
         "environmentId" => String.t() | atom(),
-        "environmentParameters" => list(environment_parameter())
+        "environmentParameters" => list(environment_parameter()),
+        "environmentResolvedAccount" => environment_resolved_account()
       }
 
   """
@@ -1680,6 +1792,19 @@ defmodule AWS.DataZone do
 
   """
   @type create_asset_revision_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      account_info() :: %{
+        "awsAccountId" => String.t() | atom(),
+        "awsAccountName" => String.t() | atom(),
+        "supportedRegions" => list(String.t() | atom())
+      }
+
+  """
+  @type account_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1920,6 +2045,15 @@ defmodule AWS.DataZone do
 
   """
   @type greater_than_or_equal_to_expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_account_pool_output() :: %{}
+
+  """
+  @type delete_account_pool_output() :: %{}
 
   @typedoc """
 
@@ -2724,6 +2858,27 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      update_account_pool_output() :: %{
+        "accountSource" => list(),
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "domainUnitId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastUpdatedAt" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "resolutionStrategy" => list(any()),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type update_account_pool_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       reject_rule() :: %{
         "rule" => list(any()),
         "threshold" => [float()]
@@ -3036,6 +3191,15 @@ defmodule AWS.DataZone do
 
   """
   @type create_form_type_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_pool_input() :: %{}
+
+  """
+  @type get_account_pool_input() :: %{}
 
   @typedoc """
 
@@ -3948,6 +4112,18 @@ defmodule AWS.DataZone do
 
   """
   @type listing_revision_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_account_pool_handler() :: %{
+        "lambdaExecutionRoleArn" => String.t() | atom(),
+        "lambdaFunctionArn" => String.t() | atom()
+      }
+
+  """
+  @type custom_account_pool_handler() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5464,6 +5640,15 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      delete_account_pool_input() :: %{}
+
+  """
+  @type delete_account_pool_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       search_group_profiles_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
@@ -5735,6 +5920,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      list_account_pools_output() :: %{
+        "items" => list(account_pool_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_account_pools_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       username_password() :: %{
         "password" => String.t() | atom(),
         "username" => String.t() | atom()
@@ -5965,6 +6162,20 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      update_account_pool_input() :: %{
+        optional("accountSource") => list(),
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("resolutionStrategy") => list(any())
+      }
+
+  """
+  @type update_account_pool_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_listing_change_set_input() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("entityRevision") => String.t() | atom(),
@@ -6163,6 +6374,20 @@ defmodule AWS.DataZone do
 
   """
   @type delete_asset_type_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_account_pool_input() :: %{
+        optional("description") => String.t() | atom(),
+        required("accountSource") => list(),
+        required("name") => String.t() | atom(),
+        required("resolutionStrategy") => list(any())
+      }
+
+  """
+  @type create_account_pool_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6587,6 +6812,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       environment_configuration() :: %{
+        "accountPools" => list(String.t() | atom()),
         "awsAccount" => list(),
         "awsRegion" => list(),
         "configurationParameters" => environment_configuration_parameters_details(),
@@ -7923,6 +8149,15 @@ defmodule AWS.DataZone do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type create_account_pool_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_asset_errors() ::
           throttling_exception()
           | validation_exception()
@@ -8137,6 +8372,13 @@ defmodule AWS.DataZone do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type delete_account_pool_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type delete_asset_errors() ::
           throttling_exception()
           | validation_exception()
@@ -8326,6 +8568,13 @@ defmodule AWS.DataZone do
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type get_account_pool_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type get_asset_errors() ::
           throttling_exception()
@@ -8564,6 +8813,19 @@ defmodule AWS.DataZone do
 
   @type get_user_profile_errors() ::
           validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_account_pools_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_accounts_in_account_pool_errors() ::
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
@@ -8891,6 +9153,15 @@ defmodule AWS.DataZone do
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
   @type untag_resource_errors() :: internal_server_exception() | resource_not_found_exception()
+
+  @type update_account_pool_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type update_asset_filter_errors() ::
           throttling_exception()
@@ -9356,6 +9627,35 @@ defmodule AWS.DataZone do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Creates an account pool.
+  """
+  @spec create_account_pool(map(), String.t() | atom(), create_account_pool_input(), list()) ::
+          {:ok, create_account_pool_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_account_pool_errors()}
+  def create_account_pool(%Client{} = client, domain_identifier, input, options \\ []) do
+    url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/account-pools"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
     )
   end
 
@@ -10235,6 +10535,43 @@ defmodule AWS.DataZone do
       input,
       options,
       201
+    )
+  end
+
+  @doc """
+  Deletes an account pool.
+  """
+  @spec delete_account_pool(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_account_pool_input(),
+          list()
+        ) ::
+          {:ok, delete_account_pool_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_account_pool_errors()}
+  def delete_account_pool(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/account-pools/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
     )
   end
 
@@ -11280,6 +11617,26 @@ defmodule AWS.DataZone do
   end
 
   @doc """
+  Gets the details of the account pool.
+  """
+  @spec get_account_pool(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_account_pool_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_account_pool_errors()}
+  def get_account_pool(%Client{} = client, domain_identifier, identifier, options \\ []) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/account-pools/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets an Amazon DataZone asset.
   """
   @spec get_asset(
@@ -12239,6 +12596,125 @@ defmodule AWS.DataZone do
     query_params =
       if !is_nil(type) do
         [{"type", type} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists existing account pools.
+  """
+  @spec list_account_pools(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_account_pools_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_account_pools_errors()}
+  def list_account_pools(
+        %Client{} = client,
+        domain_identifier,
+        max_results \\ nil,
+        name \\ nil,
+        next_token \\ nil,
+        sort_by \\ nil,
+        sort_order \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/account-pools"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(sort_order) do
+        [{"sortOrder", sort_order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_by) do
+        [{"sortBy", sort_by} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(name) do
+        [{"name", name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the accounts in the specified account pool.
+  """
+  @spec list_accounts_in_account_pool(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_accounts_in_account_pool_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_accounts_in_account_pool_errors()}
+  def list_accounts_in_account_pool(
+        %Client{} = client,
+        domain_identifier,
+        identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/account-pools/#{AWS.Util.encode_uri(identifier)}/accounts"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -15082,6 +15558,43 @@ defmodule AWS.DataZone do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the account pool.
+  """
+  @spec update_account_pool(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_account_pool_input(),
+          list()
+        ) ::
+          {:ok, update_account_pool_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_account_pool_errors()}
+  def update_account_pool(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/account-pools/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
       url_path,
       query_params,
       custom_headers ++ headers,

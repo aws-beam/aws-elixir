@@ -38,6 +38,7 @@ defmodule AWS.FSx do
         "Lifecycle" => list(any()),
         "LustreConfiguration" => lustre_file_system_configuration(),
         "NetworkInterfaceIds" => list(String.t() | atom()),
+        "NetworkType" => list(any()),
         "OntapConfiguration" => ontap_file_system_configuration(),
         "OpenZFSConfiguration" => open_z_f_s_file_system_configuration(),
         "OwnerId" => String.t() | atom(),
@@ -385,6 +386,7 @@ defmodule AWS.FSx do
         "DeploymentType" => list(any()),
         "DiskIopsConfiguration" => disk_iops_configuration(),
         "EndpointIpAddressRange" => String.t() | atom(),
+        "EndpointIpv6AddressRange" => String.t() | atom(),
         "PreferredSubnetId" => String.t() | atom(),
         "ReadCacheConfiguration" => open_z_f_s_read_cache_configuration(),
         "RootVolumeConfiguration" => open_z_f_s_create_root_volume_configuration(),
@@ -1330,6 +1332,7 @@ defmodule AWS.FSx do
         optional("ClientRequestToken") => String.t() | atom(),
         optional("FileSystemTypeVersion") => String.t() | atom(),
         optional("LustreConfiguration") => update_file_system_lustre_configuration(),
+        optional("NetworkType") => list(any()),
         optional("OntapConfiguration") => update_file_system_ontap_configuration(),
         optional("OpenZFSConfiguration") => update_file_system_open_z_f_s_configuration(),
         optional("StorageCapacity") => integer(),
@@ -1528,6 +1531,7 @@ defmodule AWS.FSx do
         optional("FileSystemTypeVersion") => String.t() | atom(),
         optional("KmsKeyId") => String.t() | atom(),
         optional("LustreConfiguration") => create_file_system_lustre_configuration(),
+        optional("NetworkType") => list(any()),
         optional("OntapConfiguration") => create_file_system_ontap_configuration(),
         optional("OpenZFSConfiguration") => create_file_system_open_z_f_s_configuration(),
         optional("SecurityGroupIds") => list(String.t() | atom()),
@@ -1670,6 +1674,8 @@ defmodule AWS.FSx do
         "DiskIopsConfiguration" => disk_iops_configuration(),
         "EndpointIpAddress" => String.t() | atom(),
         "EndpointIpAddressRange" => String.t() | atom(),
+        "EndpointIpv6Address" => String.t() | atom(),
+        "EndpointIpv6AddressRange" => String.t() | atom(),
         "PreferredSubnetId" => String.t() | atom(),
         "ReadCacheConfiguration" => open_z_f_s_read_cache_configuration(),
         "RootVolumeId" => String.t() | atom(),
@@ -2442,6 +2448,7 @@ defmodule AWS.FSx do
         "CopyTagsToVolumes" => boolean(),
         "DailyAutomaticBackupStartTime" => String.t() | atom(),
         "DiskIopsConfiguration" => disk_iops_configuration(),
+        "EndpointIpv6AddressRange" => String.t() | atom(),
         "ReadCacheConfiguration" => open_z_f_s_read_cache_configuration(),
         "RemoveRouteTableIds" => list(String.t() | atom()),
         "ThroughputCapacity" => integer(),
@@ -3400,6 +3407,7 @@ defmodule AWS.FSx do
         optional("FileSystemTypeVersion") => String.t() | atom(),
         optional("KmsKeyId") => String.t() | atom(),
         optional("LustreConfiguration") => create_file_system_lustre_configuration(),
+        optional("NetworkType") => list(any()),
         optional("OpenZFSConfiguration") => create_file_system_open_z_f_s_configuration(),
         optional("SecurityGroupIds") => list(String.t() | atom()),
         optional("StorageCapacity") => integer(),
@@ -3879,7 +3887,7 @@ defmodule AWS.FSx do
   For FSx for OpenZFS file systems, the
   volume must be hosted on a high-availability file system, either Single-AZ or
   Multi-AZ. For more information,
-  see [Accessing your data using access points](fsx/latest/OpenZFSGuide/s3accesspoints-for-FSx.html)
+  see [Accessing your data using Amazon S3 access points](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/s3accesspoints-for-FSx.html).
   in the Amazon FSx for OpenZFS User Guide.
 
   The requester requires the following permissions to perform these actions:
@@ -4428,9 +4436,9 @@ defmodule AWS.FSx do
   any Amazon S3 access points attached to any volume. For more information on how
   to list S3
   access points that are attached to volumes, see
-  [Listing S3 access point attachments](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/access-points-list).
+  [Listing S3 access point attachments](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/access-points-list.html).
   For more information on how to delete S3 access points, see
-  [Deleting an S3 access point attachment](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/delete-points-list).
+  [Deleting an S3 access point attachment](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/delete-access-point.html).
 
   By default, when you delete an Amazon FSx for Windows File Server file system,
   a final backup is created upon deletion. This final backup isn't subject to the
@@ -5289,6 +5297,10 @@ defmodule AWS.FSx do
     *
 
   `DiskIopsConfiguration`
+
+    *
+
+  `EndpointIpv6AddressRange`
 
     *
 

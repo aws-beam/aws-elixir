@@ -993,7 +993,7 @@ defmodule AWS.PartnerCentralSelling do
   ## Example:
       
       expected_customer_spend() :: %{
-        "Amount" => [String.t() | atom()],
+        "Amount" => String.t() | atom(),
         "CurrencyCode" => list(any()),
         "EstimationUrl" => String.t() | atom(),
         "Frequency" => list(any()),
@@ -1169,6 +1169,7 @@ defmodule AWS.PartnerCentralSelling do
         optional("PrimaryNeedsFromAws") => list(list(any())()),
         optional("Project") => project(),
         optional("SoftwareRevenue") => software_revenue(),
+        optional("Tags") => list(tag()),
         required("Catalog") => String.t() | atom(),
         required("ClientToken") => [String.t() | atom()]
       }
@@ -2687,10 +2688,10 @@ defmodule AWS.PartnerCentralSelling do
   This feature is available to partners from [Partner Central](https://partnercentral.awspartner.com/) using the `ListOpportunities`
   API action.
 
-  To synchronize your system with Amazon Web Services, only list the opportunities
+  To synchronize your system with Amazon Web Services, list only the opportunities
   that were newly created or updated. We recommend you rely on events emitted by
   the service into your Amazon Web Services account’s Amazon EventBridge default
-  event bus, you can also use the `ListOpportunities` action.
+  event bus. You can also use the `ListOpportunities` action.
 
   We recommend the following approach:
 
@@ -2850,12 +2851,16 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
-  This action initiates the engagement process from an existing opportunity by
-  accepting the engagement invitation and creating a corresponding opportunity in
-  the partner’s system.
-
   Similar to `StartEngagementByAcceptingInvitationTask`, this action is
   asynchronous and performs multiple steps before completion.
+
+  This action orchestrates a comprehensive workflow that combines multiple API
+  operations into a single task to create and initiate an engagement from an
+  existing opportunity. It automatically executes a sequence of operations
+  including `GetOpportunity`, `CreateEngagement` (if it doesn't exist),
+  `CreateResourceSnapshot`, `CreateResourceSnapshotJob`,
+  `CreateEngagementInvitation` (if not already invited/accepted), and
+  `SubmitOpportunity`.
   """
   @spec start_engagement_from_opportunity_task(
           map(),

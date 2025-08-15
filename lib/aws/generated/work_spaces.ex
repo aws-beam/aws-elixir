@@ -1336,6 +1336,18 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      import_custom_workspace_image_result() :: %{
+        "ImageId" => String.t() | atom(),
+        "State" => list(any())
+      }
+      
+  """
+  @type import_custom_workspace_image_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_workspaces_pool_result() :: %{
         "WorkspacesPool" => workspaces_pool()
       }
@@ -1353,6 +1365,18 @@ defmodule AWS.WorkSpaces do
       
   """
   @type terminate_workspaces_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_workspace_image_import_error_details() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom()
+      }
+      
+  """
+  @type custom_workspace_image_import_error_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1382,10 +1406,12 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
-      modify_account_result() :: %{}
+      modify_account_result() :: %{
+        "Message" => String.t() | atom()
+      }
       
   """
-  @type modify_account_result() :: %{}
+  @type modify_account_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1448,6 +1474,17 @@ defmodule AWS.WorkSpaces do
       
   """
   @type update_workspace_bundle_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_custom_workspace_image_import_request() :: %{
+        required("ImageId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_custom_workspace_image_import_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2001,6 +2038,25 @@ defmodule AWS.WorkSpaces do
       
   """
   @type application_resource_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_custom_workspace_image_request() :: %{
+        optional("Tags") => list(tag()),
+        required("ComputeType") => list(any()),
+        required("ImageDescription") => String.t() | atom(),
+        required("ImageName") => String.t() | atom(),
+        required("ImageSource") => list(),
+        required("InfrastructureConfigurationArn") => String.t() | atom(),
+        required("OsVersion") => list(any()),
+        required("Platform") => list(any()),
+        required("Protocol") => list(any())
+      }
+      
+  """
+  @type import_custom_workspace_image_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2717,7 +2773,8 @@ defmodule AWS.WorkSpaces do
       describe_account_result() :: %{
         "DedicatedTenancyAccountType" => list(any()),
         "DedicatedTenancyManagementCidrRange" => String.t() | atom(),
-        "DedicatedTenancySupport" => list(any())
+        "DedicatedTenancySupport" => list(any()),
+        "Message" => String.t() | atom()
       }
       
   """
@@ -2847,6 +2904,24 @@ defmodule AWS.WorkSpaces do
       
   """
   @type incompatible_applications_exception() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_custom_workspace_image_import_result() :: %{
+        "Created" => non_neg_integer(),
+        "ErrorDetails" => list(custom_workspace_image_import_error_details()),
+        "ImageBuilderInstanceId" => String.t() | atom(),
+        "ImageId" => String.t() | atom(),
+        "ImageSource" => list(),
+        "InfrastructureConfigurationArn" => String.t() | atom(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "State" => list(any())
+      }
+      
+  """
+  @type describe_custom_workspace_image_import_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3712,6 +3787,9 @@ defmodule AWS.WorkSpaces do
           | access_denied_exception()
           | invalid_parameter_values_exception()
 
+  @type describe_custom_workspace_image_import_errors() ::
+          access_denied_exception() | resource_not_found_exception()
+
   @type describe_image_associations_errors() ::
           operation_not_supported_exception()
           | access_denied_exception()
@@ -3789,6 +3867,14 @@ defmodule AWS.WorkSpaces do
 
   @type import_client_branding_errors() ::
           access_denied_exception()
+          | invalid_parameter_values_exception()
+          | resource_limit_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type import_custom_workspace_image_errors() ::
+          operation_not_supported_exception()
+          | resource_already_exists_exception()
+          | access_denied_exception()
           | invalid_parameter_values_exception()
           | resource_limit_exceeded_exception()
           | resource_not_found_exception()
@@ -4734,6 +4820,25 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
+  Retrieves information about a WorkSpace BYOL image being imported via
+  ImportCustomWorkspaceImage.
+  """
+  @spec describe_custom_workspace_image_import(
+          map(),
+          describe_custom_workspace_image_import_request(),
+          list()
+        ) ::
+          {:ok, describe_custom_workspace_image_import_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_custom_workspace_image_import_errors()}
+  def describe_custom_workspace_image_import(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCustomWorkspaceImageImport", input, options)
+  end
+
+  @doc """
   Describes the associations between the applications and the specified image.
   """
   @spec describe_image_associations(map(), describe_image_associations_request(), list()) ::
@@ -5051,6 +5156,27 @@ defmodule AWS.WorkSpaces do
     meta = metadata()
 
     Request.request_post(client, meta, "ImportClientBranding", input, options)
+  end
+
+  @doc """
+  Imports the specified Windows 10 or 11 Bring Your Own License (BYOL)
+  image into Amazon WorkSpaces using EC2 Image Builder.
+
+  The image must be an already licensed image that is
+  in your Amazon Web Services account, and you must own the image. For more
+  information about
+  creating BYOL images, see [ Bring Your Own Windows Desktop
+  Licenses](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).
+  """
+  @spec import_custom_workspace_image(map(), import_custom_workspace_image_request(), list()) ::
+          {:ok, import_custom_workspace_image_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, import_custom_workspace_image_errors()}
+  def import_custom_workspace_image(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ImportCustomWorkspaceImage", input, options)
   end
 
   @doc """

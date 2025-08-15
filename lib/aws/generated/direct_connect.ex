@@ -161,7 +161,9 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       describe_lags_request() :: %{
-        optional("lagId") => String.t() | atom()
+        optional("lagId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
       
   """
@@ -186,6 +188,7 @@ defmodule AWS.DirectConnect do
         "addressFamily" => list(any()),
         "amazonAddress" => String.t() | atom(),
         "asn" => integer(),
+        "asnLong" => float(),
         "authKey" => String.t() | atom(),
         "customerAddress" => String.t() | atom(),
         "directConnectGatewayId" => String.t() | atom(),
@@ -252,6 +255,7 @@ defmodule AWS.DirectConnect do
         "addressFamily" => list(any()),
         "amazonAddress" => String.t() | atom(),
         "asn" => integer(),
+        "asnLong" => float(),
         "authKey" => String.t() | atom(),
         "customerAddress" => String.t() | atom(),
         "mtu" => integer(),
@@ -395,6 +399,8 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       describe_hosted_connections_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
         required("connectionId") => String.t() | atom()
       }
       
@@ -430,7 +436,9 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       describe_connections_request() :: %{
-        optional("connectionId") => String.t() | atom()
+        optional("connectionId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
       
   """
@@ -444,6 +452,7 @@ defmodule AWS.DirectConnect do
         "addressFamily" => list(any()),
         "amazonAddress" => String.t() | atom(),
         "asn" => integer(),
+        "asnLong" => float(),
         "authKey" => String.t() | atom(),
         "awsDeviceV2" => String.t() | atom(),
         "awsLogicalDeviceId" => String.t() | atom(),
@@ -624,6 +633,7 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       virtual_interfaces() :: %{
+        optional("nextToken") => String.t() | atom(),
         optional("virtualInterfaces") => list(virtual_interface())
       }
       
@@ -650,6 +660,7 @@ defmodule AWS.DirectConnect do
         "addressFamily" => list(any()),
         "amazonAddress" => String.t() | atom(),
         "asn" => integer(),
+        "asnLong" => float(),
         "authKey" => String.t() | atom(),
         "customerAddress" => String.t() | atom(),
         "mtu" => integer(),
@@ -667,6 +678,7 @@ defmodule AWS.DirectConnect do
       
       delete_bgp_peer_request() :: %{
         optional("asn") => integer(),
+        optional("asnLong") => float(),
         optional("bgpPeerId") => String.t() | atom(),
         optional("customerAddress") => String.t() | atom(),
         optional("virtualInterfaceId") => String.t() | atom()
@@ -872,6 +884,7 @@ defmodule AWS.DirectConnect do
         "addressFamily" => list(any()),
         "amazonAddress" => String.t() | atom(),
         "asn" => integer(),
+        "asnLong" => float(),
         "authKey" => String.t() | atom(),
         "customerAddress" => String.t() | atom(),
         "routeFilterPrefixes" => list(route_filter_prefix()),
@@ -1041,6 +1054,8 @@ defmodule AWS.DirectConnect do
       
       describe_virtual_interfaces_request() :: %{
         optional("connectionId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
         optional("virtualInterfaceId") => String.t() | atom()
       }
       
@@ -1052,7 +1067,8 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       connections() :: %{
-        optional("connections") => list(connection())
+        optional("connections") => list(connection()),
+        optional("nextToken") => String.t() | atom()
       }
       
   """
@@ -1119,6 +1135,7 @@ defmodule AWS.DirectConnect do
         "addressFamily" => list(any()),
         "amazonAddress" => String.t() | atom(),
         "asn" => integer(),
+        "asnLong" => float(),
         "authKey" => String.t() | atom(),
         "customerAddress" => String.t() | atom(),
         "directConnectGatewayId" => String.t() | atom(),
@@ -1166,6 +1183,7 @@ defmodule AWS.DirectConnect do
         "amazonAddress" => String.t() | atom(),
         "amazonSideAsn" => float(),
         "asn" => integer(),
+        "asnLong" => float(),
         "authKey" => String.t() | atom(),
         "awsDeviceV2" => String.t() | atom(),
         "awsLogicalDeviceId" => String.t() | atom(),
@@ -1319,7 +1337,9 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       describe_interconnects_request() :: %{
-        optional("interconnectId") => String.t() | atom()
+        optional("interconnectId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
       
   """
@@ -1378,7 +1398,8 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       interconnects() :: %{
-        optional("interconnects") => list(interconnect())
+        optional("interconnects") => list(interconnect()),
+        optional("nextToken") => String.t() | atom()
       }
       
   """
@@ -1681,7 +1702,8 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       lags() :: %{
-        optional("lags") => list(lag())
+        optional("lags") => list(lag()),
+        optional("nextToken") => String.t() | atom()
       }
       
   """
@@ -1801,6 +1823,7 @@ defmodule AWS.DirectConnect do
         "addressFamily" => list(any()),
         "amazonAddress" => String.t() | atom(),
         "asn" => integer(),
+        "asnLong" => float(),
         "authKey" => String.t() | atom(),
         "customerAddress" => String.t() | atom(),
         "routeFilterPrefixes" => list(route_filter_prefix()),
@@ -1820,6 +1843,7 @@ defmodule AWS.DirectConnect do
         "addressFamily" => list(any()),
         "amazonAddress" => String.t() | atom(),
         "asn" => integer(),
+        "asnLong" => float(),
         "authKey" => String.t() | atom(),
         "customerAddress" => String.t() | atom()
       }
@@ -3346,6 +3370,15 @@ defmodule AWS.DirectConnect do
 
   A virtual interface (VLAN) transmits the traffic between the Direct Connect
   location and the customer network.
+
+    *
+  If you're using an `asn`, the response includes ASN value in both the `asn` and
+  `asnLong` fields.
+
+    *
+  If you're using `asnLong`, the response returns a value of `0` (zero) for the
+  `asn` attribute because it exceeds the highest ASN value of 2,147,483,647 that
+  it can support
   """
   @spec describe_virtual_interfaces(map(), describe_virtual_interfaces_request(), list()) ::
           {:ok, virtual_interfaces(), any()}

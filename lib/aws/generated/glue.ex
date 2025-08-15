@@ -2607,6 +2607,15 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      delete_glue_identity_center_configuration_request() :: %{}
+      
+  """
+  @type delete_glue_identity_center_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       update_x_ml_classifier_request() :: %{
         "Classification" => String.t() | atom(),
         "Name" => String.t() | atom(),
@@ -4191,6 +4200,19 @@ defmodule AWS.Glue do
       
   """
   @type update_column_statistics_task_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_glue_identity_center_configuration_response() :: %{
+        "ApplicationArn" => String.t() | atom(),
+        "InstanceArn" => String.t() | atom(),
+        "Scopes" => list(String.t() | atom())
+      }
+      
+  """
+  @type get_glue_identity_center_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5893,6 +5915,15 @@ defmodule AWS.Glue do
       
   """
   @type schema_version_error_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_glue_identity_center_configuration_request() :: %{}
+      
+  """
+  @type get_glue_identity_center_configuration_request() :: %{}
 
   @typedoc """
 
@@ -9077,6 +9108,17 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      update_glue_identity_center_configuration_request() :: %{
+        optional("Scopes") => list(String.t() | atom())
+      }
+      
+  """
+  @type update_glue_identity_center_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_registries_response() :: %{
         "NextToken" => String.t() | atom(),
         "Registries" => list(registry_list_item())
@@ -9334,6 +9376,15 @@ defmodule AWS.Glue do
       
   """
   @type crawler_stopping_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_glue_identity_center_configuration_response() :: %{}
+      
+  """
+  @type delete_glue_identity_center_configuration_response() :: %{}
 
   @typedoc """
 
@@ -11393,6 +11444,17 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      create_glue_identity_center_configuration_response() :: %{
+        "ApplicationArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_glue_identity_center_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       authentication_configuration() :: %{
         "AuthenticationType" => list(any()),
         "OAuth2Properties" => o_auth2_properties(),
@@ -12382,6 +12444,15 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      update_glue_identity_center_configuration_response() :: %{}
+      
+  """
+  @type update_glue_identity_center_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       evaluation_metrics() :: %{
         "FindMatchesMetrics" => find_matches_metrics(),
         "TransformType" => list(any())
@@ -12918,6 +12989,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      create_glue_identity_center_configuration_request() :: %{
+        optional("Scopes") => list(String.t() | atom()),
+        required("InstanceArn") => String.t() | atom()
+      }
+      
+  """
+  @type create_glue_identity_center_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_column_statistics_task_settings_response() :: %{
         "ColumnStatisticsTaskSettings" => column_statistics_task_settings()
       }
@@ -13258,6 +13341,14 @@ defmodule AWS.Glue do
           | already_exists_exception()
           | operation_timeout_exception()
 
+  @type create_glue_identity_center_configuration_errors() ::
+          concurrent_modification_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | operation_timeout_exception()
+
   @type create_integration_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -13485,6 +13576,14 @@ defmodule AWS.Glue do
 
   @type delete_dev_endpoint_errors() ::
           invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type delete_glue_identity_center_configuration_errors() ::
+          concurrent_modification_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
           | entity_not_found_exception()
@@ -13824,6 +13923,14 @@ defmodule AWS.Glue do
           | access_denied_exception()
           | federation_source_exception()
           | invalid_input_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_glue_identity_center_configuration_errors() ::
+          concurrent_modification_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
           | operation_timeout_exception()
           | entity_not_found_exception()
 
@@ -14596,6 +14703,14 @@ defmodule AWS.Glue do
           | operation_timeout_exception()
           | entity_not_found_exception()
 
+  @type update_glue_identity_center_configuration_errors() ::
+          concurrent_modification_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
   @type update_integration_resource_property_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -15278,6 +15393,26 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Creates a new Glue Identity Center configuration to enable integration between
+  Glue and Amazon Web Services IAM
+  Identity Center for authentication and authorization.
+  """
+  @spec create_glue_identity_center_configuration(
+          map(),
+          create_glue_identity_center_configuration_request(),
+          list()
+        ) ::
+          {:ok, create_glue_identity_center_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_glue_identity_center_configuration_errors()}
+  def create_glue_identity_center_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateGlueIdentityCenterConfiguration", input, options)
+  end
+
+  @doc """
   Creates a Zero-ETL integration in the caller's account between two resources
   with Amazon Resource Names (ARNs): the `SourceArn` and `TargetArn`.
   """
@@ -15805,6 +15940,26 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteDevEndpoint", input, options)
+  end
+
+  @doc """
+  Deletes the existing Glue Identity Center configuration, removing the
+  integration between Glue and
+  Amazon Web Services IAM Identity Center.
+  """
+  @spec delete_glue_identity_center_configuration(
+          map(),
+          delete_glue_identity_center_configuration_request(),
+          list()
+        ) ::
+          {:ok, delete_glue_identity_center_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_glue_identity_center_configuration_errors()}
+  def delete_glue_identity_center_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteGlueIdentityCenterConfiguration", input, options)
   end
 
   @doc """
@@ -16695,6 +16850,26 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "GetEntityRecords", input, options)
+  end
+
+  @doc """
+  Retrieves the current Glue Identity Center configuration details, including the
+  associated Identity Center instance and
+  application information.
+  """
+  @spec get_glue_identity_center_configuration(
+          map(),
+          get_glue_identity_center_configuration_request(),
+          list()
+        ) ::
+          {:ok, get_glue_identity_center_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_glue_identity_center_configuration_errors()}
+  def get_glue_identity_center_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetGlueIdentityCenterConfiguration", input, options)
   end
 
   @doc """
@@ -18810,6 +18985,25 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateDevEndpoint", input, options)
+  end
+
+  @doc """
+  Updates the existing Glue Identity Center configuration, allowing modification
+  of scopes and permissions for the integration.
+  """
+  @spec update_glue_identity_center_configuration(
+          map(),
+          update_glue_identity_center_configuration_request(),
+          list()
+        ) ::
+          {:ok, update_glue_identity_center_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_glue_identity_center_configuration_errors()}
+  def update_glue_identity_center_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateGlueIdentityCenterConfiguration", input, options)
   end
 
   @doc """

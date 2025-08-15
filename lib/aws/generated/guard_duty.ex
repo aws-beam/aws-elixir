@@ -343,6 +343,20 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      update_trusted_entity_set_request() :: %{
+        optional("Activate") => boolean(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("Location") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_trusted_entity_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_malware_protection_plan_response() :: %{
         "Actions" => malware_protection_plan_actions(),
         "Arn" => String.t() | atom(),
@@ -560,6 +574,25 @@ defmodule AWS.GuardDuty do
 
   """
   @type kubernetes_audit_logs_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_threat_entity_set_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "ErrorDetails" => String.t() | atom(),
+        "ExpectedBucketOwner" => String.t() | atom(),
+        "Format" => list(any()),
+        "Location" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "Tags" => map(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_threat_entity_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -859,6 +892,15 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      delete_threat_entity_set_request() :: %{}
+
+  """
+  @type delete_threat_entity_set_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       scan_ec2_instance_with_findings() :: %{
         "EbsVolumes" => boolean()
       }
@@ -1072,6 +1114,15 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      delete_trusted_entity_set_request() :: %{}
+
+  """
+  @type delete_trusted_entity_set_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_ip_set_response() :: %{}
 
   """
@@ -1245,6 +1296,23 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      create_trusted_entity_set_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("Activate") => boolean(),
+        required("Format") => list(any()),
+        required("Location") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_trusted_entity_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_publishing_destination_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         required("DestinationProperties") => destination_properties(),
@@ -1253,6 +1321,15 @@ defmodule AWS.GuardDuty do
 
   """
   @type create_publishing_destination_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_trusted_entity_set_request() :: %{}
+
+  """
+  @type get_trusted_entity_set_request() :: %{}
 
   @typedoc """
 
@@ -1428,6 +1505,23 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      create_threat_entity_set_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("Activate") => boolean(),
+        required("Format") => list(any()),
+        required("Location") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_threat_entity_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invite_members_request() :: %{
         optional("DisableEmailNotification") => boolean(),
         optional("Message") => String.t() | atom(),
@@ -1523,6 +1617,29 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      update_trusted_entity_set_response() :: %{}
+
+  """
+  @type update_trusted_entity_set_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_threat_entity_set_request() :: %{
+        optional("Activate") => boolean(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("Location") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_threat_entity_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_threat_intel_sets_response() :: %{
         "NextToken" => String.t() | atom(),
         "ThreatIntelSetIds" => list(String.t() | atom())
@@ -1541,6 +1658,18 @@ defmodule AWS.GuardDuty do
 
   """
   @type observations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_trusted_entity_sets_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "TrustedEntitySetIds" => list(String.t() | atom())
+      }
+
+  """
+  @type list_trusted_entity_sets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1987,6 +2116,15 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      update_threat_entity_set_response() :: %{}
+
+  """
+  @type update_threat_entity_set_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       remote_account_details() :: %{
         "AccountId" => String.t() | atom(),
         "Affiliated" => boolean()
@@ -2005,6 +2143,17 @@ defmodule AWS.GuardDuty do
 
   """
   @type disassociate_members_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_trusted_entity_set_response() :: %{
+        "TrustedEntitySetId" => String.t() | atom()
+      }
+
+  """
+  @type create_trusted_entity_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2032,6 +2181,18 @@ defmodule AWS.GuardDuty do
 
   """
   @type get_threat_intel_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_threat_entity_sets_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_threat_entity_sets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2286,6 +2447,18 @@ defmodule AWS.GuardDuty do
 
   """
   @type create_publishing_destination_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_threat_entity_sets_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ThreatEntitySetIds" => list(String.t() | atom())
+      }
+
+  """
+  @type list_threat_entity_sets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2551,6 +2724,17 @@ defmodule AWS.GuardDuty do
 
   """
   @type delete_filter_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_threat_entity_set_response() :: %{
+        "ThreatEntitySetId" => String.t() | atom()
+      }
+
+  """
+  @type create_threat_entity_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2928,6 +3112,25 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      get_trusted_entity_set_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "ErrorDetails" => String.t() | atom(),
+        "ExpectedBucketOwner" => String.t() | atom(),
+        "Format" => list(any()),
+        "Location" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "Tags" => map(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_trusted_entity_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       kubernetes_workload() :: %{
         "ContainerUids" => list(String.t() | atom()),
         "KubernetesResourcesTypes" => list(any()),
@@ -3221,6 +3424,15 @@ defmodule AWS.GuardDuty do
 
   """
   @type login_attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_threat_entity_set_response() :: %{}
+
+  """
+  @type delete_threat_entity_set_response() :: %{}
 
   @typedoc """
 
@@ -4120,6 +4332,18 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      list_trusted_entity_sets_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_trusted_entity_sets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_malware_scan_settings_request() :: %{}
 
   """
@@ -4307,6 +4531,15 @@ defmodule AWS.GuardDuty do
   @type organization_feature_statistics_additional_configuration() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      delete_trusted_entity_set_response() :: %{}
+
+  """
+  @type delete_trusted_entity_set_response() :: %{}
 
   @typedoc """
 
@@ -4604,6 +4837,15 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      get_threat_entity_set_request() :: %{}
+
+  """
+  @type get_threat_entity_set_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       access_key_details() :: %{
         "AccessKeyId" => String.t() | atom(),
         "PrincipalId" => String.t() | atom(),
@@ -4813,8 +5055,14 @@ defmodule AWS.GuardDuty do
   @type create_sample_findings_errors() ::
           bad_request_exception() | internal_server_error_exception()
 
+  @type create_threat_entity_set_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
   @type create_threat_intel_set_errors() ::
           bad_request_exception() | internal_server_error_exception() | access_denied_exception()
+
+  @type create_trusted_entity_set_errors() ::
+          bad_request_exception() | internal_server_error_exception()
 
   @type decline_invitations_errors() ::
           bad_request_exception() | internal_server_error_exception()
@@ -4838,7 +5086,13 @@ defmodule AWS.GuardDuty do
   @type delete_publishing_destination_errors() ::
           bad_request_exception() | internal_server_error_exception()
 
+  @type delete_threat_entity_set_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
   @type delete_threat_intel_set_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type delete_trusted_entity_set_errors() ::
           bad_request_exception() | internal_server_error_exception()
 
   @type describe_malware_scans_errors() ::
@@ -4907,7 +5161,13 @@ defmodule AWS.GuardDuty do
   @type get_remaining_free_trial_days_errors() ::
           bad_request_exception() | internal_server_error_exception()
 
+  @type get_threat_entity_set_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
   @type get_threat_intel_set_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type get_trusted_entity_set_errors() ::
           bad_request_exception() | internal_server_error_exception()
 
   @type get_usage_statistics_errors() ::
@@ -4941,7 +5201,13 @@ defmodule AWS.GuardDuty do
   @type list_tags_for_resource_errors() ::
           bad_request_exception() | internal_server_error_exception() | access_denied_exception()
 
+  @type list_threat_entity_sets_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
   @type list_threat_intel_sets_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type list_trusted_entity_sets_errors() ::
           bad_request_exception() | internal_server_error_exception()
 
   @type start_malware_scan_errors() ::
@@ -4989,8 +5255,14 @@ defmodule AWS.GuardDuty do
   @type update_publishing_destination_errors() ::
           bad_request_exception() | internal_server_error_exception()
 
+  @type update_threat_entity_set_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
   @type update_threat_intel_set_errors() ::
           bad_request_exception() | internal_server_error_exception() | access_denied_exception()
+
+  @type update_trusted_entity_set_errors() ::
+          bad_request_exception() | internal_server_error_exception()
 
   def metadata do
     %{
@@ -5410,6 +5682,47 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
+  Creates a new threat entity set.
+
+  In a threat entity set, you can provide known malicious
+  IP addresses and domains for your Amazon Web Services environment.
+  GuardDuty generates findings based on the entries in the threat entity sets.
+  Only users of the administrator account can manage entity sets, which
+  automatically apply
+  to member accounts.
+  """
+  @spec create_threat_entity_set(
+          map(),
+          String.t() | atom(),
+          create_threat_entity_set_request(),
+          list()
+        ) ::
+          {:ok, create_threat_entity_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_threat_entity_set_errors()}
+  def create_threat_entity_set(%Client{} = client, detector_id, input, options \\ []) do
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/threatentityset"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a new ThreatIntelSet.
 
   ThreatIntelSets consist of known malicious IP addresses.
@@ -5429,6 +5742,51 @@ defmodule AWS.GuardDuty do
           | {:error, create_threat_intel_set_errors()}
   def create_threat_intel_set(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/threatintelset"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a new trusted entity set.
+
+  In the trusted entity set, you can provide IP addresses
+  and domains that you believe are secure for communication in your Amazon Web
+  Services environment. GuardDuty
+  will not generate findings for the entries that are specified in a trusted
+  entity set. At any
+  given time, you can have only one trusted entity set.
+
+  Only users of the administrator account can manage the entity sets, which
+  automatically
+  apply to member accounts.
+  """
+  @spec create_trusted_entity_set(
+          map(),
+          String.t() | atom(),
+          create_trusted_entity_set_request(),
+          list()
+        ) ::
+          {:ok, create_trusted_entity_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_trusted_entity_set_errors()}
+  def create_trusted_entity_set(%Client{} = client, detector_id, input, options \\ []) do
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/trustedentityset"
     headers = []
     custom_headers = []
     query_params = []
@@ -5739,6 +6097,50 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
+  Deletes the threat entity set that is associated with the specified
+  `threatEntitySetId`.
+  """
+  @spec delete_threat_entity_set(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_threat_entity_set_request(),
+          list()
+        ) ::
+          {:ok, delete_threat_entity_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_threat_entity_set_errors()}
+  def delete_threat_entity_set(
+        %Client{} = client,
+        detector_id,
+        threat_entity_set_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/detector/#{AWS.Util.encode_uri(detector_id)}/threatentityset/#{AWS.Util.encode_uri(threat_entity_set_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes the ThreatIntelSet specified by the ThreatIntelSet ID.
   """
   @spec delete_threat_intel_set(
@@ -5761,6 +6163,50 @@ defmodule AWS.GuardDuty do
       ) do
     url_path =
       "/detector/#{AWS.Util.encode_uri(detector_id)}/threatintelset/#{AWS.Util.encode_uri(threat_intel_set_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes the trusted entity set that is associated with the specified
+  `trustedEntitySetId`.
+  """
+  @spec delete_trusted_entity_set(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_trusted_entity_set_request(),
+          list()
+        ) ::
+          {:ok, delete_trusted_entity_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_trusted_entity_set_errors()}
+  def delete_trusted_entity_set(
+        %Client{} = client,
+        detector_id,
+        trusted_entity_set_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/detector/#{AWS.Util.encode_uri(detector_id)}/trustedentityset/#{AWS.Util.encode_uri(trusted_entity_set_id)}"
 
     headers = []
     custom_headers = []
@@ -6566,6 +7012,27 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
+  Retrieves the threat entity set associated with the specified
+  `threatEntitySetId`.
+  """
+  @spec get_threat_entity_set(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_threat_entity_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_threat_entity_set_errors()}
+  def get_threat_entity_set(%Client{} = client, detector_id, threat_entity_set_id, options \\ []) do
+    url_path =
+      "/detector/#{AWS.Util.encode_uri(detector_id)}/threatentityset/#{AWS.Util.encode_uri(threat_entity_set_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves the ThreatIntelSet that is specified by the ThreatIntelSet ID.
   """
   @spec get_threat_intel_set(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -6576,6 +7043,32 @@ defmodule AWS.GuardDuty do
   def get_threat_intel_set(%Client{} = client, detector_id, threat_intel_set_id, options \\ []) do
     url_path =
       "/detector/#{AWS.Util.encode_uri(detector_id)}/threatintelset/#{AWS.Util.encode_uri(threat_intel_set_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the trusted entity set associated with the specified
+  `trustedEntitySetId`.
+  """
+  @spec get_trusted_entity_set(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_trusted_entity_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_trusted_entity_set_errors()}
+  def get_trusted_entity_set(
+        %Client{} = client,
+        detector_id,
+        trusted_entity_set_id,
+        options \\ []
+      ) do
+    url_path =
+      "/detector/#{AWS.Util.encode_uri(detector_id)}/trustedentityset/#{AWS.Util.encode_uri(trusted_entity_set_id)}"
 
     headers = []
     query_params = []
@@ -7123,6 +7616,56 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
+  Lists the threat entity sets associated with the specified GuardDuty detector
+  ID.
+
+  If you use this
+  operation from a member account, the threat entity sets that are returned as a
+  response, belong to the
+  administrator account.
+  """
+  @spec list_threat_entity_sets(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_threat_entity_sets_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_threat_entity_sets_errors()}
+  def list_threat_entity_sets(
+        %Client{} = client,
+        detector_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/threatentityset"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID.
 
   If you
@@ -7149,6 +7692,56 @@ defmodule AWS.GuardDuty do
         options \\ []
       ) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/threatintelset"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the trusted entity sets associated with the specified GuardDuty detector
+  ID.
+
+  If you use this
+  operation from a member account, the trusted entity sets that are returned as a
+  response, belong to the
+  administrator account.
+  """
+  @spec list_trusted_entity_sets(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_trusted_entity_sets_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_trusted_entity_sets_errors()}
+  def list_trusted_entity_sets(
+        %Client{} = client,
+        detector_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/trustedentityset"
     headers = []
     query_params = []
 
@@ -7750,6 +8343,49 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
+  Updates the threat entity set associated with the specified `threatEntitySetId`.
+  """
+  @spec update_threat_entity_set(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_threat_entity_set_request(),
+          list()
+        ) ::
+          {:ok, update_threat_entity_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_threat_entity_set_errors()}
+  def update_threat_entity_set(
+        %Client{} = client,
+        detector_id,
+        threat_entity_set_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/detector/#{AWS.Util.encode_uri(detector_id)}/threatentityset/#{AWS.Util.encode_uri(threat_entity_set_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates the ThreatIntelSet specified by the ThreatIntelSet ID.
   """
   @spec update_threat_intel_set(
@@ -7772,6 +8408,50 @@ defmodule AWS.GuardDuty do
       ) do
     url_path =
       "/detector/#{AWS.Util.encode_uri(detector_id)}/threatintelset/#{AWS.Util.encode_uri(threat_intel_set_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the trusted entity set associated with the specified
+  `trustedEntitySetId`.
+  """
+  @spec update_trusted_entity_set(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_trusted_entity_set_request(),
+          list()
+        ) ::
+          {:ok, update_trusted_entity_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_trusted_entity_set_errors()}
+  def update_trusted_entity_set(
+        %Client{} = client,
+        detector_id,
+        trusted_entity_set_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/detector/#{AWS.Util.encode_uri(detector_id)}/trustedentityset/#{AWS.Util.encode_uri(trusted_entity_set_id)}"
 
     headers = []
     custom_headers = []

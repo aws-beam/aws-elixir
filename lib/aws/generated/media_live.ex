@@ -5759,6 +5759,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       cmaf_ingest_group_settings() :: %{
+        "AdditionalDestinations" => list(additional_destinations()),
         "CaptionLanguageMappings" => list(cmaf_ingest_caption_language_mapping()),
         "Destination" => output_location_ref(),
         "Id3Behavior" => list(any()),
@@ -6592,6 +6593,17 @@ defmodule AWS.MediaLive do
 
   """
   @type wav_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      additional_destinations() :: %{
+        "Destination" => output_location_ref()
+      }
+
+  """
+  @type additional_destinations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

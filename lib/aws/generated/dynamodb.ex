@@ -807,6 +807,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       update_contributor_insights_output() :: %{
+        "ContributorInsightsMode" => list(any()),
         "ContributorInsightsStatus" => list(any()),
         "IndexName" => String.t() | atom(),
         "TableName" => String.t() | atom()
@@ -1272,6 +1273,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       provisioned_throughput_exceeded_exception() :: %{
+        "ThrottlingReasons" => list(throttling_reason()),
         "message" => String.t() | atom()
       }
       
@@ -1356,6 +1358,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       describe_contributor_insights_output() :: %{
+        "ContributorInsightsMode" => list(any()),
         "ContributorInsightsRuleList" => list(String.t() | atom()),
         "ContributorInsightsStatus" => list(any()),
         "FailureException" => failure_exception(),
@@ -2642,6 +2645,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       request_limit_exceeded() :: %{
+        "ThrottlingReasons" => list(throttling_reason()),
         "message" => String.t() | atom()
       }
       
@@ -2790,6 +2794,18 @@ defmodule AWS.DynamoDB do
 
   ## Example:
       
+      throttling_exception() :: %{
+        "message" => String.t() | atom(),
+        "throttlingReasons" => list(throttling_reason())
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       replication_group_update() :: %{
         "Create" => create_replication_group_member_action(),
         "Delete" => delete_replication_group_member_action(),
@@ -2883,6 +2899,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       contributor_insights_summary() :: %{
+        "ContributorInsightsMode" => list(any()),
         "ContributorInsightsStatus" => list(any()),
         "IndexName" => String.t() | atom(),
         "TableName" => String.t() | atom()
@@ -3132,6 +3149,18 @@ defmodule AWS.DynamoDB do
 
   ## Example:
       
+      throttling_reason() :: %{
+        "reason" => String.t() | atom(),
+        "resource" => String.t() | atom()
+      }
+      
+  """
+  @type throttling_reason() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_table_input() :: %{
         optional("AttributeDefinitions") => list(attribute_definition()),
         optional("BillingMode") => list(any()),
@@ -3268,6 +3297,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       update_contributor_insights_input() :: %{
+        optional("ContributorInsightsMode") => list(any()),
         optional("IndexName") => String.t() | atom(),
         required("ContributorInsightsAction") => list(any()),
         required("TableName") => String.t() | atom()
@@ -3433,17 +3463,20 @@ defmodule AWS.DynamoDB do
   """
   @type condition_check() :: %{(String.t() | atom()) => any()}
 
-  @type batch_execute_statement_errors() :: request_limit_exceeded() | internal_server_error()
+  @type batch_execute_statement_errors() ::
+          throttling_exception() | request_limit_exceeded() | internal_server_error()
 
   @type batch_get_item_errors() ::
-          request_limit_exceeded()
+          throttling_exception()
+          | request_limit_exceeded()
           | internal_server_error()
           | resource_not_found_exception()
           | provisioned_throughput_exceeded_exception()
           | invalid_endpoint_exception()
 
   @type batch_write_item_errors() ::
-          request_limit_exceeded()
+          throttling_exception()
+          | request_limit_exceeded()
           | internal_server_error()
           | resource_not_found_exception()
           | provisioned_throughput_exceeded_exception()
@@ -3481,7 +3514,8 @@ defmodule AWS.DynamoDB do
           | invalid_endpoint_exception()
 
   @type delete_item_errors() ::
-          request_limit_exceeded()
+          throttling_exception()
+          | request_limit_exceeded()
           | internal_server_error()
           | conditional_check_failed_exception()
           | transaction_conflict_exception()
@@ -3559,7 +3593,8 @@ defmodule AWS.DynamoDB do
           | resource_in_use_exception()
 
   @type execute_statement_errors() ::
-          request_limit_exceeded()
+          throttling_exception()
+          | request_limit_exceeded()
           | internal_server_error()
           | conditional_check_failed_exception()
           | transaction_conflict_exception()
@@ -3570,6 +3605,7 @@ defmodule AWS.DynamoDB do
 
   @type execute_transaction_errors() ::
           transaction_in_progress_exception()
+          | throttling_exception()
           | request_limit_exceeded()
           | internal_server_error()
           | idempotent_parameter_mismatch_exception()
@@ -3586,7 +3622,8 @@ defmodule AWS.DynamoDB do
           | point_in_time_recovery_unavailable_exception()
 
   @type get_item_errors() ::
-          request_limit_exceeded()
+          throttling_exception()
+          | request_limit_exceeded()
           | internal_server_error()
           | resource_not_found_exception()
           | provisioned_throughput_exceeded_exception()
@@ -3618,7 +3655,8 @@ defmodule AWS.DynamoDB do
           internal_server_error() | resource_not_found_exception() | invalid_endpoint_exception()
 
   @type put_item_errors() ::
-          request_limit_exceeded()
+          throttling_exception()
+          | request_limit_exceeded()
           | internal_server_error()
           | conditional_check_failed_exception()
           | transaction_conflict_exception()
@@ -3637,7 +3675,8 @@ defmodule AWS.DynamoDB do
           | resource_in_use_exception()
 
   @type query_errors() ::
-          request_limit_exceeded()
+          throttling_exception()
+          | request_limit_exceeded()
           | internal_server_error()
           | resource_not_found_exception()
           | provisioned_throughput_exceeded_exception()
@@ -3663,7 +3702,8 @@ defmodule AWS.DynamoDB do
           | table_already_exists_exception()
 
   @type scan_errors() ::
-          request_limit_exceeded()
+          throttling_exception()
+          | request_limit_exceeded()
           | internal_server_error()
           | resource_not_found_exception()
           | provisioned_throughput_exceeded_exception()
@@ -3677,7 +3717,8 @@ defmodule AWS.DynamoDB do
           | resource_in_use_exception()
 
   @type transact_get_items_errors() ::
-          request_limit_exceeded()
+          throttling_exception()
+          | request_limit_exceeded()
           | internal_server_error()
           | resource_not_found_exception()
           | provisioned_throughput_exceeded_exception()
@@ -3686,6 +3727,7 @@ defmodule AWS.DynamoDB do
 
   @type transact_write_items_errors() ::
           transaction_in_progress_exception()
+          | throttling_exception()
           | request_limit_exceeded()
           | internal_server_error()
           | idempotent_parameter_mismatch_exception()
@@ -3728,7 +3770,8 @@ defmodule AWS.DynamoDB do
           | resource_in_use_exception()
 
   @type update_item_errors() ::
-          request_limit_exceeded()
+          throttling_exception()
+          | request_limit_exceeded()
           | internal_server_error()
           | conditional_check_failed_exception()
           | transaction_conflict_exception()

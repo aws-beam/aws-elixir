@@ -15313,6 +15313,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      instance_connect_endpoint_dns_names() :: %{
+        "DnsName" => String.t() | atom(),
+        "FipsDnsName" => String.t() | atom()
+      }
+      
+  """
+  @type instance_connect_endpoint_dns_names() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       network_insights_path() :: %{
         "CreatedDate" => non_neg_integer(),
         "Destination" => String.t() | atom(),
@@ -25267,6 +25279,21 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      modify_instance_connect_endpoint_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("IpAddressType") => list(any()),
+        optional("PreserveClientIp") => boolean(),
+        optional("SecurityGroupIds") => list(String.t() | atom()),
+        required("InstanceConnectEndpointId") => String.t() | atom()
+      }
+      
+  """
+  @type modify_instance_connect_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       client_certificate_revocation_list_status() :: %{
         "Code" => list(any()),
         "Message" => String.t() | atom()
@@ -26534,6 +26561,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      modify_instance_connect_endpoint_result() :: %{
+        "Return" => boolean()
+      }
+      
+  """
+  @type modify_instance_connect_endpoint_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       client_vpn_connection() :: %{
         "ClientIp" => String.t() | atom(),
         "ClientVpnEndpointId" => String.t() | atom(),
@@ -27086,6 +27124,18 @@ defmodule AWS.EC2 do
       
   """
   @type create_verified_access_trust_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_connect_endpoint_public_dns_names() :: %{
+        "Dualstack" => instance_connect_endpoint_dns_names(),
+        "Ipv4" => instance_connect_endpoint_dns_names()
+      }
+      
+  """
+  @type instance_connect_endpoint_public_dns_names() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -29516,6 +29566,7 @@ defmodule AWS.EC2 do
         "NetworkInterfaceIds" => list(String.t() | atom()),
         "OwnerId" => String.t() | atom(),
         "PreserveClientIp" => boolean(),
+        "PublicDnsNames" => instance_connect_endpoint_public_dns_names(),
         "SecurityGroupIds" => list(String.t() | atom()),
         "State" => list(any()),
         "StateMessage" => String.t() | atom(),
@@ -43217,6 +43268,28 @@ defmodule AWS.EC2 do
       input,
       options
     )
+  end
+
+  @doc """
+  Modifies the specified EC2 Instance Connect Endpoint.
+
+  For more information, see [Modify an EC2 Instance Connect
+  Endpoint](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/modify-ec2-instance-connect-endpoint.html)
+  in the
+  *Amazon EC2 User Guide*.
+  """
+  @spec modify_instance_connect_endpoint(
+          map(),
+          modify_instance_connect_endpoint_request(),
+          list()
+        ) ::
+          {:ok, modify_instance_connect_endpoint_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def modify_instance_connect_endpoint(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyInstanceConnectEndpoint", input, options)
   end
 
   @doc """

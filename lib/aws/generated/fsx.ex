@@ -759,6 +759,7 @@ defmodule AWS.FSx do
       administrative_action() :: %{
         "AdministrativeActionType" => list(any()),
         "FailureDetails" => administrative_action_failure_details(),
+        "Message" => String.t() | atom(),
         "ProgressPercent" => integer(),
         "RemainingTransferBytes" => float(),
         "RequestTime" => non_neg_integer(),

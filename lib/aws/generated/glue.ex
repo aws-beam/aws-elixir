@@ -165,6 +165,7 @@ defmodule AWS.Glue do
   ## Example:
       
       integration_config() :: %{
+        "ContinuousSync" => boolean(),
         "RefreshInterval" => String.t() | atom(),
         "SourceProperties" => map()
       }
@@ -1770,6 +1771,7 @@ defmodule AWS.Glue do
         "Description" => String.t() | atom(),
         "Errors" => list(integration_error()),
         "IntegrationArn" => String.t() | atom(),
+        "IntegrationConfig" => integration_config(),
         "IntegrationName" => String.t() | atom(),
         "KmsKeyId" => String.t() | atom(),
         "SourceArn" => String.t() | atom(),
@@ -3825,6 +3827,7 @@ defmodule AWS.Glue do
       modify_integration_request() :: %{
         optional("DataFilter") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
+        optional("IntegrationConfig") => integration_config(),
         optional("IntegrationName") => String.t() | atom(),
         required("IntegrationIdentifier") => String.t() | atom()
       }

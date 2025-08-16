@@ -787,6 +787,19 @@ defmodule AWS.Amp do
 
   ## Example:
 
+      put_resource_policy_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("revisionId") => [String.t() | atom()],
+        required("policyDocument") => [String.t() | atom()]
+      }
+
+  """
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       scraper_description() :: %{
         "alias" => String.t() | atom(),
         "arn" => String.t() | atom(),
@@ -962,6 +975,19 @@ defmodule AWS.Amp do
 
   ## Example:
 
+      describe_resource_policy_response() :: %{
+        "policyDocument" => [String.t() | atom()],
+        "policyStatus" => String.t() | atom(),
+        "revisionId" => [String.t() | atom()]
+      }
+
+  """
+  @type describe_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       amp_configuration() :: %{
         "workspaceArn" => String.t() | atom()
       }
@@ -996,6 +1022,18 @@ defmodule AWS.Amp do
 
   """
   @type create_alert_manager_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_policy_response() :: %{
+        "policyStatus" => String.t() | atom(),
+        "revisionId" => [String.t() | atom()]
+      }
+
+  """
+  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1036,6 +1074,18 @@ defmodule AWS.Amp do
 
   """
   @type describe_scraper_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_policy_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("revisionId") => [String.t() | atom()]
+      }
+
+  """
+  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1131,6 +1181,15 @@ defmodule AWS.Amp do
 
   """
   @type limits_per_label_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_resource_policy_request() :: %{}
+
+  """
+  @type describe_resource_policy_request() :: %{}
 
   @typedoc """
 
@@ -1237,6 +1296,14 @@ defmodule AWS.Amp do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_resource_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type delete_rule_groups_namespace_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1276,6 +1343,13 @@ defmodule AWS.Amp do
 
   @type describe_query_logging_configuration_errors() ::
           validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type describe_resource_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
@@ -1343,6 +1417,14 @@ defmodule AWS.Amp do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type put_resource_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -1788,6 +1870,47 @@ defmodule AWS.Amp do
   end
 
   @doc """
+  Deletes the resource-based policy attached to an Amazon Managed Service for
+  Prometheus workspace.
+  """
+  @spec delete_resource_policy(
+          map(),
+          String.t() | atom(),
+          delete_resource_policy_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_resource_policy_errors()}
+  def delete_resource_policy(%Client{} = client, workspace_id, input, options \\ []) do
+    url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/policy"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"},
+        {"revisionId", "revisionId"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Deletes one rule groups namespace and its associated rule groups definition.
   """
   @spec delete_rule_groups_namespace(
@@ -1952,6 +2075,25 @@ defmodule AWS.Amp do
           | {:error, describe_query_logging_configuration_errors()}
   def describe_query_logging_configuration(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/logging/query"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns information about the resource-based policy attached to an Amazon
+  Managed Service for Prometheus workspace.
+  """
+  @spec describe_resource_policy(map(), String.t() | atom(), list()) ::
+          {:ok, describe_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_resource_policy_errors()}
+  def describe_resource_policy(%Client{} = client, workspace_id, options \\ []) do
+    url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/policy"
     headers = []
     query_params = []
 
@@ -2259,6 +2401,55 @@ defmodule AWS.Amp do
           | {:error, put_alert_manager_definition_errors()}
   def put_alert_manager_definition(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/alertmanager/definition"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Creates or updates a resource-based policy for an Amazon Managed Service for
+  Prometheus workspace.
+
+  Use resource-based policies to grant permissions to other AWS accounts or
+  services to access your workspace.
+
+  Only Prometheus-compatible APIs can be used for workspace sharing. You can add
+  non-Prometheus-compatible APIs to the policy, but they will be ignored. For more
+  information, see [Prometheus-compatible APIs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-APIReference-Prometheus-Compatible-Apis.html)
+  in the *Amazon Managed Service for Prometheus User Guide*.
+
+  If your workspace uses customer-managed KMS keys for encryption, you must grant
+  the principals in your resource-based policy access to those KMS keys. You can
+  do this by creating KMS grants. For more information, see
+  [CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html) in the *AWS Key Management Service API Reference* and [Encryption at
+  rest](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+  in the *Amazon Managed Service for Prometheus User Guide*.
+
+  For more information about working with IAM, see [Using Amazon Managed Service for Prometheus with
+  IAM](https://docs.aws.amazon.com/prometheus/latest/userguide/security_iam_service-with-iam.html)
+  in the *Amazon Managed Service for Prometheus User Guide*.
+  """
+  @spec put_resource_policy(map(), String.t() | atom(), put_resource_policy_request(), list()) ::
+          {:ok, put_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_resource_policy_errors()}
+  def put_resource_policy(%Client{} = client, workspace_id, input, options \\ []) do
+    url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/policy"
     headers = []
     custom_headers = []
     query_params = []

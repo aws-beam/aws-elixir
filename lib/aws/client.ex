@@ -282,8 +282,8 @@ defmodule AWS.Client do
     end
   end
 
-  # Retry on 500
-  defp retriable?({:ok, %{status_code: status}}) when status >= 500, do: :retry
+  # Retry on 500 or 429
+  defp retriable?({:ok, %{status_code: status}}) when status >= 500 or status == 429, do: :retry
   # Hackney specific
   defp retriable?({:error, :closed}), do: :retry
   defp retriable?({:error, :connect_timeout}), do: :retry

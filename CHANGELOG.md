@@ -1,5 +1,8 @@
 # Change Log
 
+## [v1.0.9] - 2025-08-18
+- Allow retrying on http 429 too many requests
+
 ## [v1.0.8] - 2025-08-06
 - Add atom() to Elixir type specs so either String.t() or atom() is accepted
 

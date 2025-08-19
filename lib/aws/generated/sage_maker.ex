@@ -18931,6 +18931,8 @@ defmodule AWS.SageMaker do
   ## Example:
       
       cluster_ebs_volume_config() :: %{
+        "RootVolume" => boolean(),
+        "VolumeKmsKeyId" => String.t() | atom(),
         "VolumeSizeInGB" => integer()
       }
       

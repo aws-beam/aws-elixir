@@ -3022,6 +3022,7 @@ defmodule AWS.Connect do
 
       participant_details_to_add() :: %{
         "DisplayName" => String.t() | atom(),
+        "ParticipantCapabilities" => participant_capabilities(),
         "ParticipantRole" => list(any())
       }
 
@@ -11346,6 +11347,7 @@ defmodule AWS.Connect do
           | service_quota_exceeded_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
+          | conflict_exception()
           | internal_service_exception()
 
   @type create_persistent_contact_association_errors() ::
@@ -14554,10 +14556,11 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Adds a new participant into an on-going chat contact.
+  Adds a new participant into an on-going chat contact or webRTC call.
 
   For more information, see [Customize chat flow experiences by integrating custom
-  participants](https://docs.aws.amazon.com/connect/latest/adminguide/chat-customize-flow.html).
+  participants](https://docs.aws.amazon.com/connect/latest/adminguide/chat-customize-flow.html)
+  or [Enable multi-user web, in-app, and video calling](https://docs.aws.amazon.com/connect/latest/adminguide/enable-multiuser-inapp.html).
   """
   @spec create_participant(map(), create_participant_request(), list()) ::
           {:ok, create_participant_response(), any()}
@@ -17966,9 +17969,6 @@ defmodule AWS.Connect do
 
     
   If the response is slow due to large result sets, try these approaches:
-
-      
-  Narrow the time range of your request
 
       
   Add filters to reduce the amount of data returned

@@ -345,6 +345,7 @@ defmodule AWS.CleanRooms do
         "createTime" => [non_neg_integer()],
         "creatorAccountId" => String.t() | atom(),
         "description" => String.t() | atom(),
+        "errorMessageConfiguration" => error_message_configuration(),
         "format" => list(any()),
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
@@ -1130,6 +1131,17 @@ defmodule AWS.CleanRooms do
 
   """
   @type list_memberships_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      error_message_configuration() :: %{
+        "type" => list(any())
+      }
+
+  """
+  @type error_message_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2784,6 +2796,7 @@ defmodule AWS.CleanRooms do
         "collaborationId" => String.t() | atom(),
         "createTime" => [non_neg_integer()],
         "description" => String.t() | atom(),
+        "errorMessageConfiguration" => error_message_configuration(),
         "format" => list(any()),
         "id" => String.t() | atom(),
         "membershipArn" => String.t() | atom(),
@@ -3624,6 +3637,7 @@ defmodule AWS.CleanRooms do
       create_analysis_template_input() :: %{
         optional("analysisParameters") => list(analysis_parameter()),
         optional("description") => String.t() | atom(),
+        optional("errorMessageConfiguration") => error_message_configuration(),
         optional("schema") => analysis_schema(),
         optional("tags") => map(),
         required("format") => list(any()),

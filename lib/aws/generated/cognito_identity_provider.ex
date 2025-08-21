@@ -117,6 +117,18 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      list_terms_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Terms" => list(terms_description_type())
+      }
+      
+  """
+  @type list_terms_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       analytics_metadata_type() :: %{
         "AnalyticsEndpointId" => String.t() | atom()
       }
@@ -563,6 +575,22 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      update_terms_request() :: %{
+        optional("Enforcement") => list(any()),
+        optional("Links") => map(),
+        optional("TermsName") => String.t() | atom(),
+        optional("TermsSource") => list(any()),
+        required("TermsId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type update_terms_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_user_pool_domain_response() :: %{
         "CloudFrontDomain" => String.t() | atom(),
         "ManagedLoginVersion" => integer()
@@ -751,6 +779,25 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type describe_user_import_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      terms_type() :: %{
+        "ClientId" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "Enforcement" => list(any()),
+        "LastModifiedDate" => non_neg_integer(),
+        "Links" => map(),
+        "TermsId" => String.t() | atom(),
+        "TermsName" => String.t() | atom(),
+        "TermsSource" => list(any()),
+        "UserPoolId" => String.t() | atom()
+      }
+      
+  """
+  @type terms_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1418,6 +1465,21 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      terms_description_type() :: %{
+        "CreationDate" => non_neg_integer(),
+        "Enforcement" => list(any()),
+        "LastModifiedDate" => non_neg_integer(),
+        "TermsId" => String.t() | atom(),
+        "TermsName" => String.t() | atom()
+      }
+      
+  """
+  @type terms_description_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_group_request() :: %{
         optional("Description") => String.t() | atom(),
         optional("Precedence") => integer(),
@@ -1581,6 +1643,22 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type admin_set_user_mfa_preference_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_terms_request() :: %{
+        optional("Links") => map(),
+        required("ClientId") => String.t() | atom(),
+        required("Enforcement") => list(any()),
+        required("TermsName") => String.t() | atom(),
+        required("TermsSource") => list(any()),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type create_terms_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2748,6 +2826,18 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      delete_terms_request() :: %{
+        required("TermsId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_terms_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       initiate_auth_response() :: %{
         "AuthenticationResult" => authentication_result_type(),
         "AvailableChallenges" => list(list(any())()),
@@ -2846,6 +2936,17 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type create_managed_login_branding_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_terms_response() :: %{
+        "Terms" => terms_type()
+      }
+      
+  """
+  @type create_terms_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3112,6 +3213,19 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      list_terms_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type list_terms_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_managed_login_branding_response() :: %{
         "ManagedLoginBranding" => managed_login_branding_type()
       }
@@ -3210,6 +3324,18 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_terms_request() :: %{
+        required("TermsId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_terms_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4026,6 +4152,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      describe_terms_response() :: %{
+        "Terms" => terms_type()
+      }
+      
+  """
+  @type describe_terms_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       admin_forget_device_request() :: %{
         required("DeviceKey") => String.t() | atom(),
         required("UserPoolId") => String.t() | atom(),
@@ -4151,6 +4288,17 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type user_pool_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      terms_exists_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type terms_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4355,6 +4503,17 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type internal_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_terms_response() :: %{
+        "Terms" => terms_type()
+      }
+      
+  """
+  @type update_terms_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4903,6 +5062,16 @@ defmodule AWS.CognitoIdentityProvider do
           | resource_not_found_exception()
           | too_many_requests_exception()
 
+  @type create_terms_errors() ::
+          internal_error_exception()
+          | terms_exists_exception()
+          | limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
   @type create_user_import_job_errors() ::
           internal_error_exception()
           | precondition_not_met_exception()
@@ -4971,6 +5140,14 @@ defmodule AWS.CognitoIdentityProvider do
 
   @type delete_resource_server_errors() ::
           internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type delete_terms_errors() ::
+          internal_error_exception()
+          | concurrent_modification_exception()
           | invalid_parameter_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
@@ -5062,6 +5239,13 @@ defmodule AWS.CognitoIdentityProvider do
           internal_error_exception()
           | invalid_parameter_exception()
           | user_pool_add_on_not_enabled_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type describe_terms_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5299,6 +5483,13 @@ defmodule AWS.CognitoIdentityProvider do
           | too_many_requests_exception()
 
   @type list_tags_for_resource_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type list_terms_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
           | not_authorized_exception()
@@ -5559,6 +5750,15 @@ defmodule AWS.CognitoIdentityProvider do
 
   @type update_resource_server_errors() ::
           internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type update_terms_errors() ::
+          internal_error_exception()
+          | terms_exists_exception()
+          | concurrent_modification_exception()
           | invalid_parameter_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
@@ -6393,10 +6593,17 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Resets the specified user's password in a user pool.
+  Begins the password reset process.
 
-  This operation doesn't
-  change the user's password, but sends a password-reset code.
+  Sets the requested user’s account into a
+  `RESET_REQUIRED` status, and sends them a password-reset code. Your user
+  pool also sends the user a notification with a reset code and the information
+  that their
+  password has been reset. At sign-in, your application or the managed login
+  session
+  receives a challenge to complete the reset by confirming the code and setting a
+  new
+  password.
 
   To use this API operation, your user pool must have self-service account
   recovery
@@ -7124,7 +7331,7 @@ defmodule AWS.CognitoIdentityProvider do
   app client.
 
   This operation is the programmatic option for the creation of a new style in
-  the branding designer.
+  the branding editor.
 
   Provides values for UI customization in a `Settings` JSON object and image
   files in an `Assets` array. To send the JSON object `Document`
@@ -7202,6 +7409,56 @@ defmodule AWS.CognitoIdentityProvider do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateResourceServer", input, options)
+  end
+
+  @doc """
+  Creates terms documents for the requested app client.
+
+  When Terms and conditions and
+  Privacy policy documents are configured, the app client displays links to them
+  in the
+  sign-up page of managed login for the app client.
+
+  You can provide URLs for terms documents in the languages that are supported by
+  [managed login localization](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization).
+  Amazon Cognito directs users to the terms documents for
+  their current language, with fallback to `default` if no document exists for
+  the language.
+
+  Each request accepts one type of terms document and a map of language-to-link
+  for that
+  document type. You must provide both types of terms documents in at least one
+  language
+  before Amazon Cognito displays your terms documents. Supply each type in
+  separate
+  requests.
+
+  For more information, see [Terms documents](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-terms-documents).
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you must use IAM credentials to authorize requests, and you must
+  grant yourself the corresponding IAM permission in a policy.
+
+  ## Learn more
+
+    
+
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+    
+
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+  """
+  @spec create_terms(map(), create_terms_request(), list()) ::
+          {:ok, create_terms_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_terms_errors()}
+  def create_terms(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateTerms", input, options)
   end
 
   @doc """
@@ -7528,6 +7785,35 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+  Deletes the terms documents with the requested ID from your app client.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you must use IAM credentials to authorize requests, and you must
+  grant yourself the corresponding IAM permission in a policy.
+
+  ## Learn more
+
+    
+
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+    
+
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+  """
+  @spec delete_terms(map(), delete_terms_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_terms_errors()}
+  def delete_terms(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteTerms", input, options)
+  end
+
+  @doc """
   Deletes the profile of the currently signed-in user.
 
   A deleted user profile can no
@@ -7768,6 +8054,37 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+  Returns details for the requested terms documents ID.
+
+  For more information, see [Terms documents](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-terms-documents).
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you must use IAM credentials to authorize requests, and you must
+  grant yourself the corresponding IAM permission in a policy.
+
+  ## Learn more
+
+    
+
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+    
+
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+  """
+  @spec describe_terms(map(), describe_terms_request(), list()) ::
+          {:ok, describe_terms_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_terms_errors()}
+  def describe_terms(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTerms", input, options)
+  end
+
+  @doc """
   Describes a user import job.
 
   For more information about user CSV import, see [Importing users from a CSV file](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-using-import-tool.html).
@@ -7911,10 +8228,16 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Sends a password-reset confirmation code for the currently signed-in user.
+  Sends a password-reset confirmation code to the email address or phone number of
+  the
+  requested username.
 
-  For the `Username` parameter, you can use the username or user
-  alias.
+  The message delivery method is determined by the user's
+  available attributes and the `AccountRecoverySetting` configuration of the
+  user pool.
+
+  For the `Username` parameter, you can use the username or an email, phone,
+  or preferred username alias.
 
   If neither a verified phone number nor a verified email exists, Amazon Cognito
   responds with an
@@ -8624,6 +8947,35 @@ defmodule AWS.CognitoIdentityProvider do
     meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
+  end
+
+  @doc """
+  Returns details about all terms documents for the requested user pool.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you must use IAM credentials to authorize requests, and you must
+  grant yourself the corresponding IAM permission in a policy.
+
+  ## Learn more
+
+    
+
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+    
+
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+  """
+  @spec list_terms(map(), list_terms_request(), list()) ::
+          {:ok, list_terms_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_terms_errors()}
+  def list_terms(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTerms", input, options)
   end
 
   @doc """
@@ -9360,7 +9712,7 @@ defmodule AWS.CognitoIdentityProvider do
   invoke this operation when they select the link that corresponds to
   `{one-click-link-valid}` or `{one-click-link-invalid}` in your
   notification template. Because `FeedbackToken` is a required parameter, you
-  can' make requests to `UpdateAuthEventFeedback` without the contents of
+  can't make requests to `UpdateAuthEventFeedback` without the contents of
   the notification email message.
 
   Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
@@ -9489,7 +9841,7 @@ defmodule AWS.CognitoIdentityProvider do
   Configures the branding settings for a user pool style.
 
   This operation is the
-  programmatic option for the configuration of a style in the branding designer.
+  programmatic option for the configuration of a style in the branding editor.
 
   Provides values for UI customization in a `Settings` JSON object and image
   files in an `Assets` array.
@@ -9563,6 +9915,56 @@ defmodule AWS.CognitoIdentityProvider do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateResourceServer", input, options)
+  end
+
+  @doc """
+  Modifies existing terms documents for the requested app client.
+
+  When Terms and
+  conditions and Privacy policy documents are configured, the app client displays
+  links to
+  them in the sign-up page of managed login for the app client.
+
+  You can provide URLs for terms documents in the languages that are supported by
+  [managed login localization](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization).
+  Amazon Cognito directs users to the terms documents for
+  their current language, with fallback to `default` if no document exists for
+  the language.
+
+  Each request accepts one type of terms document and a map of language-to-link
+  for that
+  document type. You must provide both types of terms documents in at least one
+  language
+  before Amazon Cognito displays your terms documents. Supply each type in
+  separate
+  requests.
+
+  For more information, see [Terms documents](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-terms-documents).
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you must use IAM credentials to authorize requests, and you must
+  grant yourself the corresponding IAM permission in a policy.
+
+  ## Learn more
+
+    
+
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+    
+
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+  """
+  @spec update_terms(map(), update_terms_request(), list()) ::
+          {:ok, update_terms_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_terms_errors()}
+  def update_terms(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateTerms", input, options)
   end
 
   @doc """

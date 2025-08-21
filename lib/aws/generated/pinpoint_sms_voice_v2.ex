@@ -66,6 +66,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       update_phone_number_result() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
         "DeletionProtectionEnabled" => [boolean()],
+        "InternationalSendingEnabled" => [boolean()],
         "IsoCountryCode" => String.t() | atom(),
         "MessageType" => String.t() | atom(),
         "MonthlyLeasingPrice" => [String.t() | atom()],
@@ -146,6 +147,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       phone_number_information() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
         "DeletionProtectionEnabled" => [boolean()],
+        "InternationalSendingEnabled" => [boolean()],
         "IsoCountryCode" => String.t() | atom(),
         "MessageType" => String.t() | atom(),
         "MonthlyLeasingPrice" => [String.t() | atom()],
@@ -318,6 +320,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       request_phone_number_result() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
         "DeletionProtectionEnabled" => [boolean()],
+        "InternationalSendingEnabled" => [boolean()],
         "IsoCountryCode" => String.t() | atom(),
         "MessageType" => String.t() | atom(),
         "MonthlyLeasingPrice" => [String.t() | atom()],
@@ -1748,6 +1751,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       request_phone_number_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         optional("DeletionProtectionEnabled") => [boolean()],
+        optional("InternationalSendingEnabled") => [boolean()],
         optional("OptOutListName") => String.t() | atom(),
         optional("PoolId") => String.t() | atom(),
         optional("RegistrationId") => String.t() | atom(),
@@ -3086,6 +3090,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       update_phone_number_request() :: %{
         optional("DeletionProtectionEnabled") => [boolean()],
+        optional("InternationalSendingEnabled") => [boolean()],
         optional("OptOutListName") => String.t() | atom(),
         optional("SelfManagedOptOutsEnabled") => [boolean()],
         optional("TwoWayChannelArn") => String.t() | atom(),

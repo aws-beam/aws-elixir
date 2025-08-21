@@ -4,14 +4,11 @@
 defmodule AWS.DataZone do
   @moduledoc """
   Amazon DataZone is a data management service that enables you to catalog,
-  discover,
-  govern, share, and analyze your data.
+  discover, govern, share, and analyze your data.
 
-  With Amazon DataZone, you can share and access your
-  data across accounts and supported regions. Amazon DataZone simplifies your
-  experience
-  across Amazon Web Services services, including, but not limited to, Amazon
-  Redshift, Amazon
+  With Amazon DataZone, you can share and access your data across accounts and
+  supported regions. Amazon DataZone simplifies your experience across Amazon Web
+  Services services, including, but not limited to, Amazon Redshift, Amazon
   Athena, Amazon Web Services Glue, and Amazon Web Services Lake Formation.
   """
 
@@ -26,6 +23,7 @@ defmodule AWS.DataZone do
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
         "detail" => list(),
+        "grantId" => String.t() | atom(),
         "principal" => list()
       }
 
@@ -1384,10 +1382,12 @@ defmodule AWS.DataZone do
 
   ## Example:
 
-      add_policy_grant_output() :: %{}
+      add_policy_grant_output() :: %{
+        "grantId" => String.t() | atom()
+      }
 
   """
-  @type add_policy_grant_output() :: %{}
+  @type add_policy_grant_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6140,6 +6140,7 @@ defmodule AWS.DataZone do
 
       remove_policy_grant_input() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("grantIdentifier") => String.t() | atom(),
         required("policyType") => list(any()),
         required("principal") => list()
       }
@@ -9328,8 +9329,7 @@ defmodule AWS.DataZone do
 
   @doc """
   Accepts automatically generated business-friendly metadata for your Amazon
-  DataZone
-  assets.
+  DataZone assets.
   """
   @spec accept_predictions(
           map(),
@@ -9460,8 +9460,7 @@ defmodule AWS.DataZone do
 
   @doc """
   Adds a policy grant (an authorization policy) to a specified entity, including
-  domain
-  units, environment blueprint configurations, or environment profiles.
+  domain units, environment blueprint configurations, or environment profiles.
   """
   @spec add_policy_grant(
           map(),
@@ -9806,9 +9805,8 @@ defmodule AWS.DataZone do
   @doc """
   Creates a new connection.
 
-  In Amazon DataZone, a connection enables you to connect your
-  resources (domains, projects, and environments) to external resources and
-  services.
+  In Amazon DataZone, a connection enables you to connect your resources (domains,
+  projects, and environments) to external resources and services.
   """
   @spec create_connection(map(), String.t() | atom(), create_connection_input(), list()) ::
           {:ok, create_connection_output(), any()}
@@ -10026,8 +10024,7 @@ defmodule AWS.DataZone do
 
   @doc """
   Creates an action for the environment, for example, creates a console link for
-  an
-  analytics tool that is available in this environment.
+  an analytics tool that is available in this environment.
   """
   @spec create_environment_action(
           map(),
@@ -10221,8 +10218,7 @@ defmodule AWS.DataZone do
 
   @doc """
   Publishes a listing (a record of an asset at a given time) or removes a listing
-  from the
-  catalog.
+  from the catalog.
   """
   @spec create_listing_change_set(
           map(),
@@ -10359,18 +10355,13 @@ defmodule AWS.DataZone do
   @doc """
   Creates a rule in Amazon DataZone.
 
-  A rule is a formal agreement that enforces specific
-  requirements across user workflows (e.g., publishing assets to the catalog,
-  requesting
-  subscriptions, creating projects) within the Amazon DataZone data portal. These
-  rules help
+  A rule is a formal agreement that enforces specific requirements across user
+  workflows (e.g., publishing assets to the catalog, requesting subscriptions,
+  creating projects) within the Amazon DataZone data portal. These rules help
   maintain consistency, ensure compliance, and uphold governance standards in data
-  management
-  processes. For instance, a metadata enforcement rule can specify the required
-  information
-  for creating a subscription request or publishing a data asset to the catalog,
-  ensuring
-  alignment with organizational standards.
+  management processes. For instance, a metadata enforcement rule can specify the
+  required information for creating a subscription request or publishing a data
+  asset to the catalog, ensuring alignment with organizational standards.
   """
   @spec create_rule(map(), String.t() | atom(), create_rule_input(), list()) ::
           {:ok, create_rule_output(), any()}
@@ -10697,9 +10688,8 @@ defmodule AWS.DataZone do
   @doc """
   Deletes and connection.
 
-  In Amazon DataZone, a connection enables you to connect your
-  resources (domains, projects, and environments) to external resources and
-  services.
+  In Amazon DataZone, a connection enables you to connect your resources (domains,
+  projects, and environments) to external resources and services.
   """
   @spec delete_connection(
           map(),
@@ -10926,8 +10916,7 @@ defmodule AWS.DataZone do
 
   @doc """
   Deletes an action for the environment, for example, deletes a console link for
-  an
-  analytics tool that is available in this environment.
+  an analytics tool that is available in this environment.
   """
   @spec delete_environment_action(
           map(),
@@ -11348,18 +11337,13 @@ defmodule AWS.DataZone do
   @doc """
   Deletes a rule in Amazon DataZone.
 
-  A rule is a formal agreement that enforces specific
-  requirements across user workflows (e.g., publishing assets to the catalog,
-  requesting
-  subscriptions, creating projects) within the Amazon DataZone data portal. These
-  rules help
+  A rule is a formal agreement that enforces specific requirements across user
+  workflows (e.g., publishing assets to the catalog, requesting subscriptions,
+  creating projects) within the Amazon DataZone data portal. These rules help
   maintain consistency, ensure compliance, and uphold governance standards in data
-  management
-  processes. For instance, a metadata enforcement rule can specify the required
-  information
-  for creating a subscription request or publishing a data asset to the catalog,
-  ensuring
-  alignment with organizational standards.
+  management processes. For instance, a metadata enforcement rule can specify the
+  required information for creating a subscription request or publishing a data
+  asset to the catalog, ensuring alignment with organizational standards.
   """
   @spec delete_rule(map(), String.t() | atom(), String.t() | atom(), delete_rule_input(), list()) ::
           {:ok, delete_rule_output(), any()}
@@ -11743,9 +11727,8 @@ defmodule AWS.DataZone do
   @doc """
   Gets a connection.
 
-  In Amazon DataZone, a connection enables you to connect your
-  resources (domains, projects, and environments) to external resources and
-  services.
+  In Amazon DataZone, a connection enables you to connect your resources (domains,
+  projects, and environments) to external resources and services.
   """
   @spec get_connection(
           map(),
@@ -12276,8 +12259,8 @@ defmodule AWS.DataZone do
   @doc """
   Gets a listing (a record of an asset at a given time).
 
-  If you specify a listing version,
-  only details that are specific to that version are returned.
+  If you specify a listing version, only details that are specific to that version
+  are returned.
   """
   @spec get_listing(
           map(),
@@ -12383,17 +12366,12 @@ defmodule AWS.DataZone do
   @doc """
   Gets the details of a rule in Amazon DataZone.
 
-  A rule is a formal agreement that
-  enforces specific requirements across user workflows (e.g., publishing assets to
-  the
-  catalog, requesting subscriptions, creating projects) within the Amazon DataZone
-  data
-  portal. These rules help maintain consistency, ensure compliance, and uphold
-  governance
-  standards in data management processes. For instance, a metadata enforcement
-  rule can
-  specify the required information for creating a subscription request or
-  publishing a data
+  A rule is a formal agreement that enforces specific requirements across user
+  workflows (e.g., publishing assets to the catalog, requesting subscriptions,
+  creating projects) within the Amazon DataZone data portal. These rules help
+  maintain consistency, ensure compliance, and uphold governance standards in data
+  management processes. For instance, a metadata enforcement rule can specify the
+  required information for creating a subscription request or publishing a data
   asset to the catalog, ensuring alignment with organizational standards.
   """
   @spec get_rule(
@@ -12832,9 +12810,8 @@ defmodule AWS.DataZone do
   @doc """
   Lists connections.
 
-  In Amazon DataZone, a connection enables you to connect your
-  resources (domains, projects, and environments) to external resources and
-  services.
+  In Amazon DataZone, a connection enables you to connect your resources (domains,
+  projects, and environments) to external resources and services.
   """
   @spec list_connections(
           map(),
@@ -14357,18 +14334,14 @@ defmodule AWS.DataZone do
   @doc """
   Lists existing rules.
 
-  In Amazon DataZone, a rule is a formal agreement that enforces
-  specific requirements across user workflows (e.g., publishing assets to the
-  catalog,
+  In Amazon DataZone, a rule is a formal agreement that enforces specific
+  requirements across user workflows (e.g., publishing assets to the catalog,
   requesting subscriptions, creating projects) within the Amazon DataZone data
-  portal. These
-  rules help maintain consistency, ensure compliance, and uphold governance
-  standards in data
-  management processes. For instance, a metadata enforcement rule can specify the
-  required
-  information for creating a subscription request or publishing a data asset to
-  the catalog,
-  ensuring alignment with organizational standards.
+  portal. These rules help maintain consistency, ensure compliance, and uphold
+  governance standards in data management processes. For instance, a metadata
+  enforcement rule can specify the required information for creating a
+  subscription request or publishing a data asset to the catalog, ensuring
+  alignment with organizational standards.
   """
   @spec list_rules(
           map(),
@@ -15070,8 +15043,7 @@ defmodule AWS.DataZone do
 
   @doc """
   Rejects automatically generated business-friendly metadata for your Amazon
-  DataZone
-  assets.
+  DataZone assets.
   """
   @spec reject_predictions(
           map(),
@@ -15652,9 +15624,8 @@ defmodule AWS.DataZone do
   @doc """
   Updates a connection.
 
-  In Amazon DataZone, a connection enables you to connect your
-  resources (domains, projects, and environments) to external resources and
-  services.
+  In Amazon DataZone, a connection enables you to connect your resources (domains,
+  projects, and environments) to external resources and services.
   """
   @spec update_connection(
           map(),
@@ -16131,15 +16102,11 @@ defmodule AWS.DataZone do
 
   In Amazon DataZone, a rule is a formal agreement that enforces specific
   requirements across user workflows (e.g., publishing assets to the catalog,
-  requesting
-  subscriptions, creating projects) within the Amazon DataZone data portal. These
-  rules help
-  maintain consistency, ensure compliance, and uphold governance standards in data
-  management
-  processes. For instance, a metadata enforcement rule can specify the required
-  information
-  for creating a subscription request or publishing a data asset to the catalog,
-  ensuring
+  requesting subscriptions, creating projects) within the Amazon DataZone data
+  portal. These rules help maintain consistency, ensure compliance, and uphold
+  governance standards in data management processes. For instance, a metadata
+  enforcement rule can specify the required information for creating a
+  subscription request or publishing a data asset to the catalog, ensuring
   alignment with organizational standards.
   """
   @spec update_rule(map(), String.t() | atom(), String.t() | atom(), update_rule_input(), list()) ::

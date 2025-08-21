@@ -370,6 +370,18 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
+      application_encryption_configuration_update() :: %{
+        "KeyIdUpdate" => String.t() | atom(),
+        "KeyTypeUpdate" => list(any())
+      }
+      
+  """
+  @type application_encryption_configuration_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       add_application_vpc_configuration_request() :: %{
         optional("ConditionalToken") => String.t() | atom(),
         optional("CurrentApplicationVersionId") => float(),
@@ -1048,6 +1060,7 @@ defmodule AWS.KinesisAnalyticsV2 do
       
       application_configuration() :: %{
         "ApplicationCodeConfiguration" => application_code_configuration(),
+        "ApplicationEncryptionConfiguration" => application_encryption_configuration(),
         "ApplicationSnapshotConfiguration" => application_snapshot_configuration(),
         "ApplicationSystemRollbackConfiguration" => application_system_rollback_configuration(),
         "EnvironmentProperties" => environment_properties(),
@@ -1312,6 +1325,18 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
+      application_encryption_configuration_description() :: %{
+        "KeyId" => String.t() | atom(),
+        "KeyType" => list(any())
+      }
+      
+  """
+  @type application_encryption_configuration_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       kinesis_streams_input_description() :: %{
         "ResourceARN" => String.t() | atom(),
         "RoleARN" => String.t() | atom()
@@ -1331,6 +1356,18 @@ defmodule AWS.KinesisAnalyticsV2 do
       
   """
   @type describe_application_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      application_encryption_configuration() :: %{
+        "KeyId" => String.t() | atom(),
+        "KeyType" => list(any())
+      }
+      
+  """
+  @type application_encryption_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2080,6 +2117,7 @@ defmodule AWS.KinesisAnalyticsV2 do
       
       application_configuration_description() :: %{
         "ApplicationCodeConfigurationDescription" => application_code_configuration_description(),
+        "ApplicationEncryptionConfigurationDescription" => application_encryption_configuration_description(),
         "ApplicationSnapshotConfigurationDescription" => application_snapshot_configuration_description(),
         "ApplicationSystemRollbackConfigurationDescription" => application_system_rollback_configuration_description(),
         "EnvironmentPropertyDescriptions" => environment_property_descriptions(),
@@ -2314,6 +2352,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   ## Example:
       
       snapshot_details() :: %{
+        "ApplicationEncryptionConfigurationDescription" => application_encryption_configuration_description(),
         "ApplicationVersionId" => float(),
         "RuntimeEnvironment" => list(any()),
         "SnapshotCreationTimestamp" => non_neg_integer(),
@@ -2495,6 +2534,7 @@ defmodule AWS.KinesisAnalyticsV2 do
       
       application_configuration_update() :: %{
         "ApplicationCodeConfigurationUpdate" => application_code_configuration_update(),
+        "ApplicationEncryptionConfigurationUpdate" => application_encryption_configuration_update(),
         "ApplicationSnapshotConfigurationUpdate" => application_snapshot_configuration_update(),
         "ApplicationSystemRollbackConfigurationUpdate" => application_system_rollback_configuration_update(),
         "EnvironmentPropertyUpdates" => environment_property_updates(),
@@ -3241,8 +3281,12 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
-  Returns information about a specific operation performed on a Managed Service
-  for Apache Flink application
+  Provides a detailed description of a specified application operation.
+
+  To see a list of all the operations of an application, invoke the
+  `ListApplicationOperations` operation.
+
+  This operation is supported only for Managed Service for Apache Flink.
   """
   @spec describe_application_operation(map(), describe_application_operation_request(), list()) ::
           {:ok, describe_application_operation_response(), any()}
@@ -3315,8 +3359,15 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
-  Lists information about operations performed on a Managed Service for Apache
-  Flink application
+  Lists all the operations performed for the specified application such as
+  UpdateApplication, StartApplication etc.
+
+  The response also includes a summary of the operation.
+
+  To get the complete description of a specific operation, invoke the
+  `DescribeApplicationOperation` operation.
+
+  This operation is supported only for Managed Service for Apache Flink.
   """
   @spec list_application_operations(map(), list_application_operations_request(), list()) ::
           {:ok, list_application_operations_response(), any()}

@@ -154,6 +154,17 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      addon_namespace_config_request() :: %{
+        "namespace" => String.t() | atom()
+      }
+
+  """
+  @type addon_namespace_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       encryption_config() :: %{
         "provider" => provider(),
         "resources" => list(String.t() | atom())
@@ -872,6 +883,7 @@ defmodule AWS.EKS do
         "health" => addon_health(),
         "marketplaceInformation" => marketplace_information(),
         "modifiedAt" => non_neg_integer(),
+        "namespaceConfig" => addon_namespace_config_response(),
         "owner" => String.t() | atom(),
         "podIdentityAssociations" => list(String.t() | atom()),
         "publisher" => String.t() | atom(),
@@ -913,6 +925,17 @@ defmodule AWS.EKS do
 
   """
   @type access_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      addon_namespace_config_response() :: %{
+        "namespace" => String.t() | atom()
+      }
+
+  """
+  @type addon_namespace_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1409,6 +1432,7 @@ defmodule AWS.EKS do
         optional("addonVersion") => String.t() | atom(),
         optional("clientRequestToken") => String.t() | atom(),
         optional("configurationValues") => String.t() | atom(),
+        optional("namespaceConfig") => addon_namespace_config_request(),
         optional("podIdentityAssociations") => list(addon_pod_identity_associations()),
         optional("resolveConflicts") => list(any()),
         optional("serviceAccountRoleArn") => String.t() | atom(),
@@ -2326,6 +2350,7 @@ defmodule AWS.EKS do
       addon_info() :: %{
         "addonName" => String.t() | atom(),
         "addonVersions" => list(addon_version_info()),
+        "defaultNamespace" => String.t() | atom(),
         "marketplaceInformation" => marketplace_information(),
         "owner" => String.t() | atom(),
         "publisher" => String.t() | atom(),

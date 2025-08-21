@@ -13,6 +13,17 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      count_tokens_response() :: %{
+        "inputTokens" => [integer()]
+      }
+
+  """
+  @type count_tokens_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_automated_reasoning_rule() :: %{
         "identifier" => String.t() | atom(),
         "policyVersionArn" => String.t() | atom()
@@ -178,6 +189,18 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      converse_tokens_request() :: %{
+        "messages" => list(message()),
+        "system" => list(list())
+      }
+
+  """
+  @type converse_tokens_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       any_tool_choice() :: %{}
 
   """
@@ -280,6 +303,17 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type citation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      count_tokens_request() :: %{
+        required("input") => list()
+      }
+
+  """
+  @type count_tokens_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1331,6 +1365,17 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      invoke_model_tokens_request() :: %{
+        "body" => binary()
+      }
+
+  """
+  @type invoke_model_tokens_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_pii_entity_filter() :: %{
         "action" => list(any()),
         "detected" => [boolean()],
@@ -1494,6 +1539,14 @@ defmodule AWS.BedrockRuntime do
           | service_unavailable_exception()
           | resource_not_found_exception()
           | model_not_ready_exception()
+
+  @type count_tokens_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
 
   @type get_async_invoke_errors() ::
           throttling_exception()
@@ -1752,6 +1805,65 @@ defmodule AWS.BedrockRuntime do
           | {:error, converse_stream_errors()}
   def converse_stream(%Client{} = client, model_id, input, options \\ []) do
     url_path = "/model/#{AWS.Util.encode_uri(model_id)}/converse-stream"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the token count for a given inference request.
+
+  This operation helps you estimate token usage before sending requests to
+  foundation models by returning the token count that would be used if the same
+  input were sent to the model in an inference request.
+
+  Token counting is model-specific because different models use different
+  tokenization strategies. The token count returned by this operation will match
+  the token count that would be charged if the same input were sent to the model
+  in an `InvokeModel` or `Converse` request.
+
+  You can use this operation to:
+
+    * Estimate costs before sending inference requests.
+
+    * Optimize prompts to fit within token limits.
+
+    * Plan for token usage in your applications.
+
+  This operation accepts the same input formats as `InvokeModel` and `Converse`,
+  allowing you to count tokens for both raw text inputs and structured
+  conversation formats.
+
+  The following operations are related to `CountTokens`:
+
+    *
+  [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/API/API_runtime_InvokeModel.html) - Sends inference requests to foundation models
+
+    *
+  [Converse](https://docs.aws.amazon.com/bedrock/latest/API/API_runtime_Converse.html)
+  - Sends conversation-based inference requests to foundation models
+  """
+  @spec count_tokens(map(), String.t() | atom(), count_tokens_request(), list()) ::
+          {:ok, count_tokens_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, count_tokens_errors()}
+  def count_tokens(%Client{} = client, model_id, input, options \\ []) do
+    url_path = "/model/#{AWS.Util.encode_uri(model_id)}/count-tokens"
     headers = []
     custom_headers = []
     query_params = []

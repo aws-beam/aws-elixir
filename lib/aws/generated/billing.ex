@@ -3,7 +3,6 @@
 
 defmodule AWS.Billing do
   @moduledoc """
-
   You can use the Billing API to programatically list the billing views available
   to you for a given time period.
 
@@ -536,7 +535,6 @@ defmodule AWS.Billing do
   end
 
   @doc """
-
   Creates a billing view with the specified billing view attributes.
   """
   @spec create_billing_view(map(), create_billing_view_request(), list()) ::
@@ -646,7 +644,6 @@ defmodule AWS.Billing do
   end
 
   @doc """
-
   An API operation for adding one or more tags (key-value pairs) to a resource.
   """
   @spec tag_resource(map(), tag_resource_request(), list()) ::
@@ -661,7 +658,6 @@ defmodule AWS.Billing do
   end
 
   @doc """
-
   Removes one or more tags from a resource.
 
   Specify only tag keys in your request. Don't specify the value.

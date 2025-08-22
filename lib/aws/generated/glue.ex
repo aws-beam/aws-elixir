@@ -4047,6 +4047,22 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      data_quality_glue_table() :: %{
+        "AdditionalOptions" => map(),
+        "CatalogId" => String.t() | atom(),
+        "ConnectionName" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
+        "PreProcessingQuery" => String.t() | atom(),
+        "TableName" => String.t() | atom()
+      }
+      
+  """
+  @type data_quality_glue_table() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_custom_entity_types_response() :: %{
         "CustomEntityTypes" => list(custom_entity_type()),
         "NextToken" => String.t() | atom()
@@ -11610,6 +11626,7 @@ defmodule AWS.Glue do
   ## Example:
       
       data_source() :: %{
+        "DataQualityGlueTable" => data_quality_glue_table(),
         "GlueTable" => glue_table()
       }
       
@@ -15100,6 +15117,10 @@ defmodule AWS.Glue do
 
   @doc """
   Annotate datapoints over time for a specific data quality statistic.
+
+  The API requires both profileID and statisticID as part of the
+  InclusionAnnotation input.
+  The API only works for a single statisticId across multiple profiles.
   """
   @spec batch_put_data_quality_statistic_annotation(
           map(),

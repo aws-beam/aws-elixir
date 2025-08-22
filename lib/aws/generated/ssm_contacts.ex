@@ -1848,12 +1848,13 @@ defmodule AWS.SSMContacts do
   @doc """
   To remove a contact from Incident Manager, you can delete the contact.
 
-  Deleting a contact
-  removes them from all escalation plans and related response plans. Deleting an
-  escalation
-  plan removes it from all related response plans. You will have to recreate the
-  contact and
-  its contact channels before you can use it again.
+  However, deleting a
+  contact does not remove it from escalation plans and related response plans.
+  Deleting an
+  escalation plan also does not remove it from all related response plans. To
+  modify an
+  escalation plan, we recommend using the `UpdateContact` action to specify a
+  different existing contact.
   """
   @spec delete_contact(map(), delete_contact_request(), list()) ::
           {:ok, delete_contact_result(), any()}
@@ -1867,15 +1868,16 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
-  To no longer receive engagements on a contact channel, you can delete the
-  channel from a
+  To stop receiving engagements on a contact channel, you can delete the channel
+  from a
   contact.
 
-  Deleting the contact channel removes it from the contact's engagement plan. If
-  you
-  delete the only contact channel for a contact, you won't be able to engage that
-  contact
-  during an incident.
+  Deleting the contact channel does not remove it from the contact's engagement
+  plan, but the stage that includes the channel will be ignored. If you delete the
+  only
+  contact channel for a contact, you'll no longer be able to engage that contact
+  during an
+  incident.
   """
   @spec delete_contact_channel(map(), delete_contact_channel_request(), list()) ::
           {:ok, delete_contact_channel_result(), any()}
@@ -2187,7 +2189,7 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
-  Lists the tags of an escalation plan or contact.
+  Lists the tags of a contact, escalation plan, rotation, or on-call schedule.
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_result(), any()}

@@ -149,6 +149,7 @@ defmodule AWS.Synthetics do
 
       create_canary_request() :: %{
         optional("ArtifactConfig") => artifact_config_input(),
+        optional("BrowserConfigs") => list(browser_config()),
         optional("FailureRetentionPeriodInDays") => integer(),
         optional("ProvisionedResourceCleanup") => list(any()),
         optional("ResourcesToReplicateTags") => list(list(any())()),
@@ -173,7 +174,8 @@ defmodule AWS.Synthetics do
 
       visual_reference_output() :: %{
         "BaseCanaryRunId" => String.t() | atom(),
-        "BaseScreenshots" => list(base_screenshot())
+        "BaseScreenshots" => list(base_screenshot()),
+        "BrowserType" => list(any())
       }
 
   """
@@ -186,6 +188,7 @@ defmodule AWS.Synthetics do
       start_canary_dry_run_request() :: %{
         optional("ArtifactConfig") => artifact_config_input(),
         optional("ArtifactS3Location") => String.t() | atom(),
+        optional("BrowserConfigs") => list(browser_config()),
         optional("Code") => canary_code_input(),
         optional("ExecutionRoleArn") => String.t() | atom(),
         optional("FailureRetentionPeriodInDays") => integer(),
@@ -194,6 +197,7 @@ defmodule AWS.Synthetics do
         optional("RuntimeVersion") => String.t() | atom(),
         optional("SuccessRetentionPeriodInDays") => integer(),
         optional("VisualReference") => visual_reference_input(),
+        optional("VisualReferences") => list(visual_reference_input()),
         optional("VpcConfig") => vpc_config_input()
       }
 
@@ -321,6 +325,7 @@ defmodule AWS.Synthetics do
 
       canary_run() :: %{
         "ArtifactS3Location" => String.t() | atom(),
+        "BrowserType" => list(any()),
         "DryRunConfig" => canary_dry_run_config_output(),
         "Id" => String.t() | atom(),
         "Name" => String.t() | atom(),
@@ -399,6 +404,7 @@ defmodule AWS.Synthetics do
       update_canary_request() :: %{
         optional("ArtifactConfig") => artifact_config_input(),
         optional("ArtifactS3Location") => String.t() | atom(),
+        optional("BrowserConfigs") => list(browser_config()),
         optional("Code") => canary_code_input(),
         optional("DryRunId") => String.t() | atom(),
         optional("ExecutionRoleArn") => String.t() | atom(),
@@ -409,6 +415,7 @@ defmodule AWS.Synthetics do
         optional("Schedule") => canary_schedule_input(),
         optional("SuccessRetentionPeriodInDays") => integer(),
         optional("VisualReference") => visual_reference_input(),
+        optional("VisualReferences") => list(visual_reference_input()),
         optional("VpcConfig") => vpc_config_input()
       }
 
@@ -620,6 +627,7 @@ defmodule AWS.Synthetics do
   ## Example:
 
       describe_canaries_last_run_request() :: %{
+        optional("BrowserType") => list(any()),
         optional("MaxResults") => integer(),
         optional("Names") => list(String.t() | atom()),
         optional("NextToken") => String.t() | atom()
@@ -669,7 +677,8 @@ defmodule AWS.Synthetics do
 
       visual_reference_input() :: %{
         "BaseCanaryRunId" => String.t() | atom(),
-        "BaseScreenshots" => list(base_screenshot())
+        "BaseScreenshots" => list(base_screenshot()),
+        "BrowserType" => list(any())
       }
 
   """
@@ -730,6 +739,18 @@ defmodule AWS.Synthetics do
 
   ## Example:
 
+      engine_config() :: %{
+        "BrowserType" => list(any()),
+        "EngineArn" => String.t() | atom()
+      }
+
+  """
+  @type engine_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_response() :: %{}
 
   """
@@ -756,9 +777,11 @@ defmodule AWS.Synthetics do
       canary() :: %{
         "ArtifactConfig" => artifact_config_output(),
         "ArtifactS3Location" => String.t() | atom(),
+        "BrowserConfigs" => list(browser_config()),
         "Code" => canary_code_output(),
         "DryRunConfig" => dry_run_config_output(),
         "EngineArn" => String.t() | atom(),
+        "EngineConfigs" => list(engine_config()),
         "ExecutionRoleArn" => String.t() | atom(),
         "FailureRetentionPeriodInDays" => integer(),
         "Id" => String.t() | atom(),
@@ -772,6 +795,7 @@ defmodule AWS.Synthetics do
         "Tags" => map(),
         "Timeline" => canary_timeline(),
         "VisualReference" => visual_reference_output(),
+        "VisualReferences" => list(visual_reference_output()),
         "VpcConfig" => vpc_config_output()
       }
 
@@ -939,6 +963,17 @@ defmodule AWS.Synthetics do
 
   """
   @type list_associated_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      browser_config() :: %{
+        "BrowserType" => list(any())
+      }
+
+  """
+  @type browser_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1983,11 +2018,20 @@ defmodule AWS.Synthetics do
   end
 
   @doc """
-  Updates the configuration of a canary that has
-  already been created.
+  Updates the configuration of a canary that has already been created.
 
-  You can't use this operation to update the tags of an existing canary. To
-  change the tags of an existing canary, use
+  For multibrowser canaries, you can add or remove browsers by updating the
+  browserConfig list in the update call. For example:
+
+    *
+  To add Firefox to a canary that currently uses Chrome, specify browserConfigs as
+  [CHROME, FIREFOX] 
+
+    *
+  To remove Firefox and keep only Chrome, specify browserConfigs as [CHROME]
+
+  You can't use this operation to update the tags of an existing canary. To change
+  the tags of an existing canary, use
   [TagResource](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_TagResource.html).
 
   When you use the `dryRunId` field when updating a canary, the only other field

@@ -1730,6 +1730,7 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       update_web_acl_request() :: %{
+        optional("ApplicationConfig") => application_config(),
         optional("AssociationConfig") => association_config(),
         optional("CaptchaConfig") => captcha_config(),
         optional("ChallengeConfig") => challenge_config(),

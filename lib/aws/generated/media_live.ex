@@ -4417,6 +4417,7 @@ defmodule AWS.MediaLive do
         "ShadowOpacity" => integer(),
         "ShadowXOffset" => integer(),
         "ShadowYOffset" => integer(),
+        "SubtitleRows" => list(any()),
         "TeletextGridControl" => list(any()),
         "XPosition" => integer(),
         "YPosition" => integer()
@@ -5596,6 +5597,7 @@ defmodule AWS.MediaLive do
         "ShadowOpacity" => integer(),
         "ShadowXOffset" => integer(),
         "ShadowYOffset" => integer(),
+        "SubtitleRows" => list(any()),
         "TeletextGridControl" => list(any()),
         "XPosition" => integer(),
         "YPosition" => integer()

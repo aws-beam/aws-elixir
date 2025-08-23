@@ -21,6 +21,7 @@ defmodule AWS.SageMaker do
       
       docker_settings() :: %{
         "EnableDockerAccess" => list(any()),
+        "RootlessDocker" => list(any()),
         "VpcOnlyTrustedAccounts" => list(String.t() | atom())
       }
       

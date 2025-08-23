@@ -858,6 +858,7 @@ defmodule AWS.QConnect do
       update_a_iprompt_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
+        optional("modelId") => String.t() | atom(),
         optional("templateConfiguration") => list(),
         required("visibilityStatus") => String.t() | atom()
       }
@@ -4969,6 +4970,9 @@ defmodule AWS.QConnect do
 
   @doc """
   Creates an Amazon Q in Connect AI Prompt.
+
+  For more information on supported models, see [Supported models for system and custom
+  prompts](https://docs.aws.amazon.com/connect/latest/adminguide/create-ai-prompts.html#cli-create-aiprompt).
   """
   @spec create_a_iprompt(map(), String.t() | atom(), create_a_iprompt_request(), list()) ::
           {:ok, create_a_iprompt_response(), any()}

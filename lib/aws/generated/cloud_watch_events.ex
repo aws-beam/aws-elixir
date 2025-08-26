@@ -3326,7 +3326,7 @@ defmodule AWS.CloudWatchEvents do
   us-west-2, or Europe (Ireland) eu-west-1 Regions as a target for a rule.
 
     *
-  Firehose delivery stream (Kinesis Data Firehose)
+  Firehose delivery stream (Firehose)
 
     *
   Inspector assessment template (Amazon Inspector)

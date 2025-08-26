@@ -49,7 +49,7 @@ defmodule AWS.Support do
 
     *
   The `DescribeServices` and `DescribeSeverityLevels` operations return Amazon Web
-  Service names, service codes, service categories, and problem
+  Services service names, service codes, service categories, and problem
   severity levels. You use these values when you call the `CreateCase` operation.
 
   You can also use the Amazon Web Services Support API to call the Trusted Advisor

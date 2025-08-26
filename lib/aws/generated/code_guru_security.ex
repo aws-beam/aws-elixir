@@ -3,23 +3,22 @@
 
 defmodule AWS.CodeGuruSecurity do
   @moduledoc """
+  On November 20, 2025, AWS will discontinue support for Amazon CodeGuru Security.
 
-  Amazon CodeGuru Security is in preview release and is subject to change.
-
+  After November 20, 2025, you will no longer be able to access the
+  /codeguru/security console, service resources, or documentation. For more
+  information, see
+  [https://docs.aws.amazon.com/codeguru/latest/security-ug/end-of-support.html](https://docs.aws.amazon.com/codeguru/latest/security-ug/end-of-support.html). 
   This section provides documentation for the Amazon CodeGuru Security API
-  operations.
-  CodeGuru Security is a service that uses program analysis and machine learning
-  to detect
-  security policy violations and vulnerabilities, and recommends ways to address
-  these security
-  risks.
+  operations. CodeGuru Security is a service that uses program analysis and
+  machine learning to detect security policy violations and vulnerabilities, and
+  recommends ways to address these security risks.
 
   By proactively detecting and providing recommendations for addressing security
-  risks,
-  CodeGuru Security improves the overall security of your application code. For
-  more information
-  about CodeGuru Security, see the
-  [Amazon CodeGuru Security User Guide](https://docs.aws.amazon.com/codeguru/latest/security-ug/what-is-codeguru-security.html).
+  risks, CodeGuru Security improves the overall security of your application code.
+  For more information about CodeGuru Security, see the [Amazon CodeGuru Security
+  User
+  Guide](https://docs.aws.amazon.com/codeguru/latest/security-ug/what-is-codeguru-security.html).
   """
 
   alias AWS.Client
@@ -830,12 +829,10 @@ defmodule AWS.CodeGuruSecurity do
 
   @doc """
   Generates a pre-signed URL, request headers used to upload a code resource, and
-  code
-  artifact identifier for the uploaded resource.
+  code artifact identifier for the uploaded resource.
 
   You can upload your code resource to the URL with the request headers using any
-  HTTP
-  client.
+  HTTP client.
   """
   @spec create_upload_url(map(), create_upload_url_request(), list()) ::
           {:ok, create_upload_url_response(), any()}
@@ -936,10 +933,8 @@ defmodule AWS.CodeGuruSecurity do
 
   @doc """
   Returns a summary of metrics for an account from a specified date, including
-  number of open
-  findings, the categories with most findings, the scans with most open findings,
-  and scans with
-  most open critical findings.
+  number of open findings, the categories with most findings, the scans with most
+  open findings, and scans with most open critical findings.
   """
   @spec get_metrics_summary(map(), String.t() | atom(), list()) ::
           {:ok, get_metrics_summary_response(), any()}
@@ -1051,8 +1046,7 @@ defmodule AWS.CodeGuruSecurity do
   @doc """
   Returns a list of all scans in an account.
 
-  Does not return `EXPRESS`
-  scans.
+  Does not return `EXPRESS` scans.
   """
   @spec list_scans(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_scans_response(), any()}

@@ -3,11 +3,11 @@
 
 defmodule AWS.Codestarnotifications do
   @moduledoc """
-  This AWS CodeStar Notifications API Reference provides descriptions and usage
+  This CodeStar Notifications API Reference provides descriptions and usage
   examples of the
-  operations and data types for the AWS CodeStar Notifications API.
+  operations and data types for the CodeStar Notifications API.
 
-  You can use the AWS CodeStar Notifications API
+  You can use the CodeStar Notifications API
   to work with the following objects:
 
   Notification rules, by calling the following:
@@ -81,7 +81,7 @@ defmodule AWS.Codestarnotifications do
   `UntagResource`, which removes a tag from a notification rule in
   your account.
 
-  For information about how to use AWS CodeStar Notifications, see the [Amazon Web Services Developer Tools Console User
+  For information about how to use CodeStar Notifications, see the [Amazon Web Services Developer Tools Console User
   Guide](https://docs.aws.amazon.com/dtconsole/latest/userguide/what-is-dtconsole.html).
   """
 
@@ -646,7 +646,8 @@ defmodule AWS.Codestarnotifications do
   Creates a notification rule for a resource.
 
   The rule specifies the events you want
-  notifications about and the targets (such as Chatbot topics or Chatbot clients
+  notifications about and the targets (such as Amazon Q Developer in chat
+  applications topics or Amazon Q Developer in chat applications clients
   configured for Slack) where you want to receive
   them.
   """
@@ -882,8 +883,9 @@ defmodule AWS.Codestarnotifications do
   end
 
   @doc """
-  Creates an association between a notification rule and an Chatbot topic or
-  Chatbot client so that the
+  Creates an association between a notification rule and an Amazon Q Developer in
+  chat applications topic or Amazon Q Developer in chat applications client so
+  that the
   associated target can receive notifications when the events described in the
   rule are
   triggered.
@@ -944,7 +946,8 @@ defmodule AWS.Codestarnotifications do
   end
 
   @doc """
-  Removes an association between a notification rule and an Chatbot topic so that
+  Removes an association between a notification rule and an Amazon Q Developer in
+  chat applications topic so that
   subscribers to that topic stop receiving notifications when the events described
   in the
   rule are triggered.

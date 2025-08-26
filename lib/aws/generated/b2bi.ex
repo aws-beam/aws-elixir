@@ -132,6 +132,18 @@ defmodule AWS.B2bi do
 
   ## Example:
       
+      x12_element_requirement_validation_rule() :: %{
+        "elementPosition" => String.t() | atom(),
+        "requirement" => list(any())
+      }
+      
+  """
+  @type x12_element_requirement_validation_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_transformer_request() :: %{}
       
   """
@@ -460,12 +472,24 @@ defmodule AWS.B2bi do
   ## Example:
       
       output_conversion() :: %{
+        "advancedOptions" => advanced_options(),
         "formatOptions" => list(),
         "toFormat" => list(any())
       }
       
   """
   @type output_conversion() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      x12_validation_options() :: %{
+        "validationRules" => list(list())
+      }
+      
+  """
+  @type x12_validation_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -846,6 +870,19 @@ defmodule AWS.B2bi do
 
   ## Example:
       
+      x12_code_list_validation_rule() :: %{
+        "codesToAdd" => list([String.t() | atom()]()),
+        "codesToRemove" => list([String.t() | atom()]()),
+        "elementId" => String.t() | atom()
+      }
+      
+  """
+  @type x12_code_list_validation_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       sample_document_keys() :: %{
         "input" => String.t() | atom(),
         "output" => String.t() | atom()
@@ -860,7 +897,8 @@ defmodule AWS.B2bi do
       
       test_parsing_response() :: %{
         "parsedFileContent" => [String.t() | atom()],
-        "parsedSplitFileContents" => list([String.t() | atom()]())
+        "parsedSplitFileContents" => list([String.t() | atom()]()),
+        "validationMessages" => list([String.t() | atom()]())
       }
       
   """
@@ -1029,6 +1067,19 @@ defmodule AWS.B2bi do
 
   ## Example:
       
+      x12_element_length_validation_rule() :: %{
+        "elementId" => String.t() | atom(),
+        "maxLength" => [integer()],
+        "minLength" => [integer()]
+      }
+      
+  """
+  @type x12_element_length_validation_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       x12_control_numbers() :: %{
         "startingFunctionalGroupControlNumber" => integer(),
         "startingInterchangeControlNumber" => integer(),
@@ -1118,7 +1169,8 @@ defmodule AWS.B2bi do
   ## Example:
       
       x12_advanced_options() :: %{
-        "splitOptions" => x12_split_options()
+        "splitOptions" => x12_split_options(),
+        "validationOptions" => x12_validation_options()
       }
       
   """
@@ -1184,6 +1236,7 @@ defmodule AWS.B2bi do
   ## Example:
       
       conversion_target() :: %{
+        "advancedOptions" => advanced_options(),
         "fileFormat" => list(any()),
         "formatDetails" => list(),
         "outputSampleFile" => list()

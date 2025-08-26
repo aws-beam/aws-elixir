@@ -157,6 +157,7 @@ defmodule AWS.DataZone do
         "firstRevisionCreatedAt" => non_neg_integer(),
         "firstRevisionCreatedBy" => String.t() | atom(),
         "glossaryTerms" => list(String.t() | atom()),
+        "governedGlossaryTerms" => list(String.t() | atom()),
         "identifier" => String.t() | atom(),
         "name" => String.t() | atom(),
         "owningProjectId" => String.t() | atom(),
@@ -304,7 +305,8 @@ defmodule AWS.DataZone do
         "name" => String.t() | atom(),
         "shortDescription" => String.t() | atom(),
         "status" => list(any()),
-        "termRelations" => term_relations()
+        "termRelations" => term_relations(),
+        "usageRestrictions" => list(list(any())())
       }
 
   """
@@ -1167,6 +1169,15 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      associate_governed_terms_output() :: %{}
+
+  """
+  @type associate_governed_terms_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       domain_summary() :: %{
         "arn" => [String.t() | atom()],
         "createdAt" => non_neg_integer(),
@@ -1535,6 +1546,7 @@ defmodule AWS.DataZone do
         "firstRevisionCreatedBy" => String.t() | atom(),
         "formsOutput" => list(form_output()),
         "glossaryTerms" => list(String.t() | atom()),
+        "governedGlossaryTerms" => list(String.t() | atom()),
         "id" => String.t() | atom(),
         "latestTimeSeriesDataPointFormsOutput" => list(time_series_data_point_summary_form_output()),
         "listing" => asset_listing_details(),
@@ -2915,7 +2927,8 @@ defmodule AWS.DataZone do
         "status" => list(any()),
         "termRelations" => term_relations(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom()
+        "updatedBy" => String.t() | atom(),
+        "usageRestrictions" => list(list(any())())
       }
 
   """
@@ -3317,6 +3330,7 @@ defmodule AWS.DataZone do
         "createdAt" => non_neg_integer(),
         "forms" => String.t() | atom(),
         "glossaryTerms" => list(detailed_glossary_term()),
+        "governedGlossaryTerms" => list(detailed_glossary_term()),
         "latestTimeSeriesDataPointForms" => list(time_series_data_point_summary_form_output()),
         "owningProjectId" => String.t() | atom()
       }
@@ -3519,7 +3533,8 @@ defmodule AWS.DataZone do
         "status" => list(any()),
         "termRelations" => term_relations(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom()
+        "updatedBy" => String.t() | atom(),
+        "usageRestrictions" => list(list(any())())
       }
 
   """
@@ -3767,7 +3782,8 @@ defmodule AWS.DataZone do
         "owningProjectId" => String.t() | atom(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom()
+        "updatedBy" => String.t() | atom(),
+        "usageRestrictions" => list(list(any())())
       }
 
   """
@@ -4094,6 +4110,7 @@ defmodule AWS.DataZone do
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
         optional("status") => list(any()),
+        optional("usageRestrictions") => list(list(any())()),
         required("name") => String.t() | atom(),
         required("owningProjectIdentifier") => String.t() | atom()
       }
@@ -4638,7 +4655,8 @@ defmodule AWS.DataZone do
         "name" => String.t() | atom(),
         "shortDescription" => String.t() | atom(),
         "status" => list(any()),
-        "termRelations" => term_relations()
+        "termRelations" => term_relations(),
+        "usageRestrictions" => list(list(any())())
       }
 
   """
@@ -4777,7 +4795,8 @@ defmodule AWS.DataZone do
         "owningProjectId" => String.t() | atom(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom()
+        "updatedBy" => String.t() | atom(),
+        "usageRestrictions" => list(list(any())())
       }
 
   """
@@ -4914,6 +4933,7 @@ defmodule AWS.DataZone do
         "firstRevisionCreatedBy" => String.t() | atom(),
         "formsOutput" => list(form_output()),
         "glossaryTerms" => list(String.t() | atom()),
+        "governedGlossaryTerms" => list(String.t() | atom()),
         "id" => String.t() | atom(),
         "latestTimeSeriesDataPointFormsOutput" => list(time_series_data_point_summary_form_output()),
         "listing" => asset_listing_details(),
@@ -5242,6 +5262,17 @@ defmodule AWS.DataZone do
 
   """
   @type notification_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_governed_terms_input() :: %{
+        required("governedGlossaryTerms") => list(String.t() | atom())
+      }
+
+  """
+  @type disassociate_governed_terms_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5595,6 +5626,7 @@ defmodule AWS.DataZone do
         "entityRevision" => String.t() | atom(),
         "entityType" => String.t() | atom(),
         "glossaryTerms" => list(detailed_glossary_term()),
+        "governedGlossaryTerms" => list(detailed_glossary_term()),
         "listingCreatedBy" => String.t() | atom(),
         "listingId" => String.t() | atom(),
         "listingRevision" => String.t() | atom(),
@@ -5869,6 +5901,17 @@ defmodule AWS.DataZone do
 
   """
   @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_governed_terms_input() :: %{
+        required("governedGlossaryTerms") => list(String.t() | atom())
+      }
+
+  """
+  @type associate_governed_terms_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6269,6 +6312,15 @@ defmodule AWS.DataZone do
 
   """
   @type accept_subscription_request_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_governed_terms_output() :: %{}
+
+  """
+  @type disassociate_governed_terms_output() :: %{}
 
   @typedoc """
 
@@ -7429,7 +7481,8 @@ defmodule AWS.DataZone do
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
         "owningProjectId" => String.t() | atom(),
-        "status" => list(any())
+        "status" => list(any()),
+        "usageRestrictions" => list(list(any())())
       }
 
   """
@@ -7546,6 +7599,7 @@ defmodule AWS.DataZone do
         "firstRevisionCreatedBy" => String.t() | atom(),
         "formsOutput" => list(form_output()),
         "glossaryTerms" => list(String.t() | atom()),
+        "governedGlossaryTerms" => list(String.t() | atom()),
         "id" => String.t() | atom(),
         "latestTimeSeriesDataPointFormsOutput" => list(time_series_data_point_summary_form_output()),
         "listing" => asset_listing_details(),
@@ -7981,7 +8035,8 @@ defmodule AWS.DataZone do
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
         "owningProjectId" => String.t() | atom(),
-        "status" => list(any())
+        "status" => list(any()),
+        "usageRestrictions" => list(list(any())())
       }
 
   """
@@ -8127,6 +8182,14 @@ defmodule AWS.DataZone do
           | conflict_exception()
 
   @type associate_environment_role_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type associate_governed_terms_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -8563,6 +8626,14 @@ defmodule AWS.DataZone do
           | resource_not_found_exception()
 
   @type disassociate_environment_role_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type disassociate_governed_terms_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -9540,6 +9611,51 @@ defmodule AWS.DataZone do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Associates governed terms with an asset.
+  """
+  @spec associate_governed_terms(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          associate_governed_terms_input(),
+          list()
+        ) ::
+          {:ok, associate_governed_terms_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_governed_terms_errors()}
+  def associate_governed_terms(
+        %Client{} = client,
+        domain_identifier,
+        entity_identifier,
+        entity_type,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/entities/#{AWS.Util.encode_uri(entity_type)}/#{AWS.Util.encode_uri(entity_identifier)}/associate-governed-terms"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -11591,6 +11707,51 @@ defmodule AWS.DataZone do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Disassociates restricted terms from an asset.
+  """
+  @spec disassociate_governed_terms(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          disassociate_governed_terms_input(),
+          list()
+        ) ::
+          {:ok, disassociate_governed_terms_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_governed_terms_errors()}
+  def disassociate_governed_terms(
+        %Client{} = client,
+        domain_identifier,
+        entity_identifier,
+        entity_type,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/entities/#{AWS.Util.encode_uri(entity_type)}/#{AWS.Util.encode_uri(entity_identifier)}/disassociate-governed-terms"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
       url_path,
       query_params,
       custom_headers ++ headers,

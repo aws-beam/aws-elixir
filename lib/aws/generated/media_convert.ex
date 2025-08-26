@@ -63,6 +63,15 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
+      create_resource_share_response() :: %{}
+
+  """
+  @type create_resource_share_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       output_detail() :: %{
         "DurationInMs" => integer(),
         "VideoDetails" => video_detail()
@@ -380,7 +389,20 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
+      create_resource_share_request() :: %{
+        required("JobId") => String.t() | atom(),
+        required("SupportCaseId") => String.t() | atom()
+      }
+
+  """
+  @type create_resource_share_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       mp2_settings() :: %{
+        "AudioDescriptionMix" => list(any()),
         "Bitrate" => integer(),
         "Channels" => integer(),
         "SampleRate" => integer()
@@ -2239,7 +2261,9 @@ defmodule AWS.MediaConvert do
         "Pid" => integer(),
         "ProgramNumber" => integer(),
         "Rotate" => list(any()),
-        "SampleRange" => list(any())
+        "SampleRange" => list(any()),
+        "SelectorType" => list(any()),
+        "Streams" => list(integer())
       }
 
   """
@@ -3056,6 +3080,7 @@ defmodule AWS.MediaConvert do
         "JobEngineVersionUsed" => String.t() | atom(),
         "JobPercentComplete" => integer(),
         "JobTemplate" => String.t() | atom(),
+        "LastShareDetails" => String.t() | atom(),
         "Messages" => job_messages(),
         "OutputGroupDetails" => list(output_group_detail()),
         "Priority" => integer(),
@@ -3064,6 +3089,7 @@ defmodule AWS.MediaConvert do
         "RetryCount" => integer(),
         "Role" => String.t() | atom(),
         "Settings" => job_settings(),
+        "ShareStatus" => list(any()),
         "SimulateReservedQueue" => list(any()),
         "Status" => list(any()),
         "StatusUpdateInterval" => list(any()),
@@ -4157,6 +4183,14 @@ defmodule AWS.MediaConvert do
           | too_many_requests_exception()
           | forbidden_exception()
 
+  @type create_resource_share_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
   @type delete_job_template_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
@@ -4559,6 +4593,35 @@ defmodule AWS.MediaConvert do
       input,
       options,
       201
+    )
+  end
+
+  @doc """
+  Create a new resource share request for MediaConvert resources with AWS Support.
+  """
+  @spec create_resource_share(map(), create_resource_share_request(), list()) ::
+          {:ok, create_resource_share_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_resource_share_errors()}
+  def create_resource_share(%Client{} = client, input, options \\ []) do
+    url_path = "/2017-08-29/resourceShares"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 

@@ -20452,6 +20452,7 @@ defmodule AWS.EC2 do
         "DisconnectOnSessionTimeout" => boolean(),
         "DnsName" => String.t() | atom(),
         "DnsServers" => list(String.t() | atom()),
+        "EndpointIpAddressType" => list(any()),
         "SecurityGroupIds" => list(String.t() | atom()),
         "SelfServicePortalUrl" => String.t() | atom(),
         "ServerCertificateArn" => String.t() | atom(),
@@ -20459,6 +20460,7 @@ defmodule AWS.EC2 do
         "SplitTunnel" => boolean(),
         "Status" => client_vpn_endpoint_status(),
         "Tags" => list(tag()),
+        "TrafficIpAddressType" => list(any()),
         "TransportProtocol" => list(any()),
         "VpcId" => String.t() | atom(),
         "VpnPort" => integer(),
@@ -26574,6 +26576,7 @@ defmodule AWS.EC2 do
       
       client_vpn_connection() :: %{
         "ClientIp" => String.t() | atom(),
+        "ClientIpv6Address" => String.t() | atom(),
         "ClientVpnEndpointId" => String.t() | atom(),
         "CommonName" => String.t() | atom(),
         "ConnectionEndTime" => String.t() | atom(),
@@ -28045,6 +28048,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       create_client_vpn_endpoint_request() :: %{
+        optional("ClientCidrBlock") => String.t() | atom(),
         optional("ClientConnectOptions") => client_connect_options(),
         optional("ClientLoginBannerOptions") => client_login_banner_options(),
         optional("ClientRouteEnforcementOptions") => client_route_enforcement_options(),
@@ -28053,16 +28057,17 @@ defmodule AWS.EC2 do
         optional("DisconnectOnSessionTimeout") => boolean(),
         optional("DnsServers") => list(String.t() | atom()),
         optional("DryRun") => boolean(),
+        optional("EndpointIpAddressType") => list(any()),
         optional("SecurityGroupIds") => list(String.t() | atom()),
         optional("SelfServicePortal") => list(any()),
         optional("SessionTimeoutHours") => integer(),
         optional("SplitTunnel") => boolean(),
         optional("TagSpecifications") => list(tag_specification()),
+        optional("TrafficIpAddressType") => list(any()),
         optional("TransportProtocol") => list(any()),
         optional("VpcId") => String.t() | atom(),
         optional("VpnPort") => integer(),
         required("AuthenticationOptions") => list(client_vpn_authentication_request()),
-        required("ClientCidrBlock") => String.t() | atom(),
         required("ConnectionLogOptions") => connection_log_options(),
         required("ServerCertificateArn") => String.t() | atom()
       }

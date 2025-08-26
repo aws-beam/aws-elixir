@@ -4112,6 +4112,7 @@ defmodule AWS.QBusiness do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | conflict_exception()
           | license_not_found_exception()
 
   @type delete_data_accessor_errors() ::

@@ -3,7 +3,7 @@
 
 defmodule AWS.SageMakerRuntime do
   @moduledoc """
-  The Amazon SageMaker runtime API.
+  The Amazon SageMaker AI runtime API.
   """
 
   alias AWS.Client
@@ -248,16 +248,16 @@ defmodule AWS.SageMakerRuntime do
   end
 
   @doc """
-  After you deploy a model into production using Amazon SageMaker hosting
+  After you deploy a model into production using Amazon SageMaker AI hosting
   services,
   your client applications use this API to get inferences from the model hosted at
   the
   specified endpoint.
 
-  For an overview of Amazon SageMaker, see [How It Works](https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html).
+  For an overview of Amazon SageMaker AI, see [How It Works](https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html).
 
-  Amazon SageMaker strips all POST headers except those supported by the API.
-  Amazon SageMaker might add
+  Amazon SageMaker AI strips all POST headers except those supported by the API.
+  Amazon SageMaker AI might add
   additional headers. You should not rely on the behavior of headers outside those
   enumerated in the request syntax.
 
@@ -274,7 +274,8 @@ defmodule AWS.SageMakerRuntime do
   socket timeout should be set to be 70 seconds.
 
   Endpoints are scoped to an individual account, and are not public. The URL does
-  not contain the account ID, but Amazon SageMaker determines the account ID from
+  not contain the account ID, but Amazon SageMaker AI determines the account ID
+  from
   the authentication token that is supplied by the caller.
   """
   @spec invoke_endpoint(map(), String.t() | atom(), invoke_endpoint_input(), list()) ::
@@ -346,7 +347,7 @@ defmodule AWS.SageMakerRuntime do
   end
 
   @doc """
-  After you deploy a model into production using Amazon SageMaker hosting
+  After you deploy a model into production using Amazon SageMaker AI hosting
   services,
   your client applications use this API to get inferences from the model hosted at
   the
@@ -359,8 +360,8 @@ defmodule AWS.SageMakerRuntime do
   of the
   inference request but contain information about where you can locate it.
 
-  Amazon SageMaker strips all POST headers except those supported by the API.
-  Amazon SageMaker might add
+  Amazon SageMaker AI strips all POST headers except those supported by the API.
+  Amazon SageMaker AI might add
   additional headers. You should not rely on the behavior of headers outside those
   enumerated in the request syntax.
 
@@ -424,13 +425,13 @@ defmodule AWS.SageMakerRuntime do
   The inference stream provides the response payload incrementally as a series of
   parts. Before you can get an inference stream, you must have access to a model
   that's
-  deployed using Amazon SageMaker hosting services, and the container for that
+  deployed using Amazon SageMaker AI hosting services, and the container for that
   model
   must support inference streaming.
 
   For more information that can help you use this API, see the following sections
   in the
-  *Amazon SageMaker Developer Guide*:
+  *Amazon SageMaker AI Developer Guide*:
 
     *
   For information about how to add streaming support to a model, see [How Containers Serve
@@ -442,12 +443,13 @@ defmodule AWS.SageMakerRuntime do
 
   Before you can use this operation, your IAM permissions must allow the
   `sagemaker:InvokeEndpoint` action. For more information about Amazon SageMaker
-  actions for IAM policies, see [Actions, resources, and condition keys for Amazon SageMaker](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonsagemaker.html)
+  AI actions for IAM policies, see [Actions, resources, and condition keys for Amazon SageMaker
+  AI](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonsagemaker.html)
   in the *IAM Service Authorization
   Reference*.
 
-  Amazon SageMaker strips all POST headers except those supported by the API.
-  Amazon SageMaker might add
+  Amazon SageMaker AI strips all POST headers except those supported by the API.
+  Amazon SageMaker AI might add
   additional headers. You should not rely on the behavior of headers outside those
   enumerated in the request syntax.
 

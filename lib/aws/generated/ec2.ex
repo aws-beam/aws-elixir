@@ -476,6 +476,22 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_image_references_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("IncludeAllResourceTypes") => boolean(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceTypes") => list(resource_type_request()),
+        required("ImageIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_image_references_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       client_vpn_route() :: %{
         "ClientVpnEndpointId" => String.t() | atom(),
         "Description" => String.t() | atom(),
@@ -1783,6 +1799,22 @@ defmodule AWS.EC2 do
   @type reject_capacity_reservation_billing_ownership_request() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+      
+      image_usage_report_entry() :: %{
+        "AccountId" => String.t() | atom(),
+        "ImageId" => String.t() | atom(),
+        "ReportCreationTime" => non_neg_integer(),
+        "ReportId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "UsageCount" => float()
+      }
+      
+  """
+  @type image_usage_report_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3510,6 +3542,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      resource_type_request() :: %{
+        "ResourceType" => list(any()),
+        "ResourceTypeOptions" => list(resource_type_option())
+      }
+      
+  """
+  @type resource_type_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_transit_gateway_request() :: %{
         optional("Description") => String.t() | atom(),
         optional("DryRun") => boolean(),
@@ -3657,6 +3701,18 @@ defmodule AWS.EC2 do
       
   """
   @type instance_count() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_usage_resource_type_option() :: %{
+        "OptionName" => String.t() | atom(),
+        "OptionValues" => list(String.t() | atom())
+      }
+      
+  """
+  @type image_usage_resource_type_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4772,6 +4828,18 @@ defmodule AWS.EC2 do
       
   """
   @type route_server_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_image_references_result() :: %{
+        "ImageReferences" => list(image_reference()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_image_references_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6202,6 +6270,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_image_usage_report_result() :: %{
+        "ReportId" => String.t() | atom()
+      }
+      
+  """
+  @type create_image_usage_report_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       subnet_ipv6_cidr_block_association() :: %{
         "AssociationId" => String.t() | atom(),
         "IpSource" => list(any()),
@@ -6761,6 +6840,18 @@ defmodule AWS.EC2 do
       
   """
   @type delete_verified_access_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_usage_resource_type_option_request() :: %{
+        "OptionName" => String.t() | atom(),
+        "OptionValues" => list(String.t() | atom())
+      }
+      
+  """
+  @type image_usage_resource_type_option_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12066,6 +12157,22 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_image_usage_report_entries_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("ImageIds") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ReportIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_image_usage_report_entries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_security_groups_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()),
@@ -13088,6 +13195,22 @@ defmodule AWS.EC2 do
       
   """
   @type get_default_credit_specification_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_image_usage_reports_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("ImageIds") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ReportIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_image_usage_reports_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14545,6 +14668,18 @@ defmodule AWS.EC2 do
       
   """
   @type launch_template_placement_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_type_option() :: %{
+        "OptionName" => list(any()),
+        "OptionValues" => list(String.t() | atom())
+      }
+      
+  """
+  @type resource_type_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17282,6 +17417,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      delete_image_usage_report_request() :: %{
+        optional("DryRun") => boolean(),
+        required("ReportId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_image_usage_report_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_network_insights_access_scope_analyses_request() :: %{
         optional("AnalysisStartTimeBegin") => non_neg_integer(),
         optional("AnalysisStartTimeEnd") => non_neg_integer(),
@@ -18184,6 +18331,18 @@ defmodule AWS.EC2 do
       
   """
   @type create_customer_gateway_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_image_usage_report_entries_result() :: %{
+        "ImageUsageReportEntries" => list(image_usage_report_entry()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_image_usage_report_entries_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -19893,6 +20052,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      image_reference() :: %{
+        "Arn" => String.t() | atom(),
+        "ImageId" => String.t() | atom(),
+        "ResourceType" => list(any())
+      }
+      
+  """
+  @type image_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_route_server_peer_result() :: %{
         "RouteServerPeer" => route_server_peer()
       }
@@ -21568,6 +21740,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      delete_image_usage_report_result() :: %{
+        "Return" => boolean()
+      }
+      
+  """
+  @type delete_image_usage_report_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_vpcs_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()),
@@ -21831,6 +22014,22 @@ defmodule AWS.EC2 do
       
   """
   @type reset_image_attribute_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_image_usage_report_request() :: %{
+        optional("AccountIds") => list(String.t() | atom()),
+        optional("ClientToken") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("TagSpecifications") => list(tag_specification()),
+        required("ImageId") => String.t() | atom(),
+        required("ResourceTypes") => list(image_usage_resource_type_request())
+      }
+      
+  """
+  @type create_image_usage_report_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -22597,6 +22796,18 @@ defmodule AWS.EC2 do
       
   """
   @type enable_image_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_usage_resource_type_request() :: %{
+        "ResourceType" => String.t() | atom(),
+        "ResourceTypeOptions" => list(image_usage_resource_type_option_request())
+      }
+      
+  """
+  @type image_usage_resource_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -28501,6 +28712,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_image_usage_reports_result() :: %{
+        "ImageUsageReports" => list(image_usage_report()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_image_usage_reports_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       instance_metadata_defaults_response() :: %{
         "HttpEndpoint" => list(any()),
         "HttpPutResponseHopLimit" => integer(),
@@ -29055,6 +29278,18 @@ defmodule AWS.EC2 do
       
   """
   @type disable_ebs_encryption_by_default_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_usage_resource_type() :: %{
+        "ResourceType" => String.t() | atom(),
+        "ResourceTypeOptions" => list(image_usage_resource_type_option())
+      }
+      
+  """
+  @type image_usage_resource_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -30071,6 +30306,25 @@ defmodule AWS.EC2 do
       
   """
   @type vpn_tunnel_log_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_usage_report() :: %{
+        "AccountIds" => list(String.t() | atom()),
+        "CreationTime" => non_neg_integer(),
+        "ExpirationTime" => non_neg_integer(),
+        "ImageId" => String.t() | atom(),
+        "ReportId" => String.t() | atom(),
+        "ResourceTypes" => list(image_usage_resource_type()),
+        "State" => String.t() | atom(),
+        "StateReason" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type image_usage_report() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -32334,6 +32588,29 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Creates a report that shows how your image is used across other Amazon Web
+  Services accounts.
+
+  The report
+  provides visibility into which accounts are using the specified image, and how
+  many resources
+  (EC2 instances or launch templates) are referencing it.
+
+  For more information, see [View your AMI usage](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-ami-usage.html)
+  in the
+  *Amazon EC2 User Guide*.
+  """
+  @spec create_image_usage_report(map(), create_image_usage_report_request(), list()) ::
+          {:ok, create_image_usage_report_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def create_image_usage_report(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateImageUsageReport", input, options)
+  end
+
+  @doc """
   Creates an EC2 Instance Connect Endpoint.
 
   An EC2 Instance Connect Endpoint allows you to connect to an instance, without
@@ -34534,6 +34811,23 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteFpgaImage", input, options)
+  end
+
+  @doc """
+  Deletes the specified image usage report.
+
+  For more information, see [View your AMI usage](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-ami-usage.html)
+  in the
+  *Amazon EC2 User Guide*.
+  """
+  @spec delete_image_usage_report(map(), delete_image_usage_report_request(), list()) ::
+          {:ok, delete_image_usage_report_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def delete_image_usage_report(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteImageUsageReport", input, options)
   end
 
   @doc """
@@ -37018,6 +37312,66 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeImageAttribute", input, options)
+  end
+
+  @doc """
+  Describes your Amazon Web Services resources that are referencing the specified
+  images.
+
+  For more information, see [Identiy your resources referencing selected
+  AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-ami-references.html)
+  in the *Amazon EC2 User Guide*.
+  """
+  @spec describe_image_references(map(), describe_image_references_request(), list()) ::
+          {:ok, describe_image_references_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_image_references(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeImageReferences", input, options)
+  end
+
+  @doc """
+  Describes the entries in image usage reports, showing how your images are used
+  across
+  other Amazon Web Services accounts.
+
+  For more information, see [View your AMI usage](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-ami-usage.html)
+  in the
+  *Amazon EC2 User Guide*.
+  """
+  @spec describe_image_usage_report_entries(
+          map(),
+          describe_image_usage_report_entries_request(),
+          list()
+        ) ::
+          {:ok, describe_image_usage_report_entries_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_image_usage_report_entries(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeImageUsageReportEntries", input, options)
+  end
+
+  @doc """
+  Describes the configuration and status of image usage reports, filtered by
+  report IDs or
+  image IDs.
+
+  For more information, see [View your AMI usage](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-ami-usage.html)
+  in the
+  *Amazon EC2 User Guide*.
+  """
+  @spec describe_image_usage_reports(map(), describe_image_usage_reports_request(), list()) ::
+          {:ok, describe_image_usage_reports_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_image_usage_reports(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeImageUsageReports", input, options)
   end
 
   @doc """

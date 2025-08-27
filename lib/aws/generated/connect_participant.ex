@@ -36,15 +36,14 @@ defmodule AWS.ConnectParticipant do
 
   ## Example:
 
-      meeting() :: %{
-        "MediaPlacement" => media_placement(),
-        "MediaRegion" => String.t() | atom(),
+      web_r_t_cmeeting() :: %{
+        "MediaPlacement" => web_r_t_cmedia_placement(),
         "MeetingFeatures" => meeting_features_configuration(),
         "MeetingId" => String.t() | atom()
       }
 
   """
-  @type meeting() :: %{(String.t() | atom()) => any()}
+  @type web_r_t_cmeeting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -105,6 +104,20 @@ defmodule AWS.ConnectParticipant do
 
   """
   @type receipt() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      web_r_t_cmedia_placement() :: %{
+        "AudioFallbackUrl" => String.t() | atom(),
+        "AudioHostUrl" => String.t() | atom(),
+        "EventIngestionUrl" => String.t() | atom(),
+        "SignalingUrl" => String.t() | atom()
+      }
+
+  """
+  @type web_r_t_cmedia_placement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -342,6 +355,18 @@ defmodule AWS.ConnectParticipant do
 
   ## Example:
 
+      web_r_t_c_connection() :: %{
+        "Attendee" => attendee(),
+        "Meeting" => web_r_t_cmeeting()
+      }
+
+  """
+  @type web_r_t_c_connection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       message_metadata() :: %{
         "MessageId" => String.t() | atom(),
         "Receipts" => list(receipt())
@@ -391,18 +416,6 @@ defmodule AWS.ConnectParticipant do
 
   """
   @type get_attachment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connection_data() :: %{
-        "Attendee" => attendee(),
-        "Meeting" => meeting()
-      }
-
-  """
-  @type connection_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -572,24 +585,9 @@ defmodule AWS.ConnectParticipant do
 
   ## Example:
 
-      media_placement() :: %{
-        "AudioFallbackUrl" => String.t() | atom(),
-        "AudioHostUrl" => String.t() | atom(),
-        "EventIngestionUrl" => String.t() | atom(),
-        "SignalingUrl" => String.t() | atom(),
-        "TurnControlUrl" => String.t() | atom()
-      }
-
-  """
-  @type media_placement() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       create_participant_connection_response() :: %{
         "ConnectionCredentials" => connection_credentials(),
-        "WebRTCConnection" => connection_data(),
+        "WebRTCConnection" => web_r_t_c_connection(),
         "Websocket" => websocket()
       }
 

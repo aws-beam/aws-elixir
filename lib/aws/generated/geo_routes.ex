@@ -4,29 +4,22 @@
 defmodule AWS.GeoRoutes do
   @moduledoc """
   With the Amazon Location Routes API you can calculate routes and estimate travel
-  time
-  based on up-to-date road network and live traffic information.
+  time based on up-to-date road network and live traffic information.
 
   Calculate optimal travel routes and estimate travel times using up-to-date road
-  network
-  and traffic data. Key features include:
+  network and traffic data. Key features include:
 
-    *
-  Point-to-point routing with estimated travel time, distance, and turn-by-turn
-  directions
+    * Point-to-point routing with estimated travel time, distance, and
+  turn-by-turn directions
 
-    *
-  Multi-point route optimization to minimize travel time or distance
+    * Multi-point route optimization to minimize travel time or distance
 
-    *
-  Route matrices for efficient multi-destination planning
+    * Route matrices for efficient multi-destination planning
 
-    *
-  Isoline calculations to determine reachable areas within specified time or
-  distance thresholds
+    * Isoline calculations to determine reachable areas within specified
+  time or distance thresholds
 
-    *
-  Map-matching to align GPS traces with the road network
+    * Map-matching to align GPS traces with the road network
   """
 
   alias AWS.Client
@@ -37,10 +30,10 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       route_toll_pass() :: %{
-        "IncludesReturnTrip" => [boolean()],
-        "SeniorPass" => [boolean()],
-        "TransferCount" => [integer()],
-        "TripCount" => [integer()],
+        "IncludesReturnTrip" => boolean(),
+        "SeniorPass" => boolean(),
+        "TransferCount" => integer(),
+        "TripCount" => integer(),
         "ValidityPeriod" => route_toll_pass_validity_period()
       }
 
@@ -52,7 +45,7 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       waypoint_optimization_trailer_options() :: %{
-        "TrailerCount" => [integer()]
+        "TrailerCount" => integer()
       }
 
   """
@@ -64,16 +57,16 @@ defmodule AWS.GeoRoutes do
 
       route_avoidance_options() :: %{
         "Areas" => list(route_avoidance_area()),
-        "CarShuttleTrains" => [boolean()],
-        "ControlledAccessHighways" => [boolean()],
-        "DirtRoads" => [boolean()],
-        "Ferries" => [boolean()],
-        "SeasonalClosure" => [boolean()],
-        "TollRoads" => [boolean()],
-        "TollTransponders" => [boolean()],
+        "CarShuttleTrains" => boolean(),
+        "ControlledAccessHighways" => boolean(),
+        "DirtRoads" => boolean(),
+        "Ferries" => boolean(),
+        "SeasonalClosure" => boolean(),
+        "TollRoads" => boolean(),
+        "TollTransponders" => boolean(),
         "TruckRoadTypes" => list(String.t() | atom()),
-        "Tunnels" => [boolean()],
-        "UTurns" => [boolean()],
+        "Tunnels" => boolean(),
+        "UTurns" => boolean(),
         "ZoneCategories" => list(route_avoidance_zone_category())
       }
 
@@ -160,7 +153,7 @@ defmodule AWS.GeoRoutes do
 
       route_destination_options() :: %{
         "AvoidActionsForDistance" => float(),
-        "AvoidUTurns" => [boolean()],
+        "AvoidUTurns" => boolean(),
         "Heading" => float(),
         "Matching" => route_matching_options(),
         "SideOfStreet" => route_side_of_street_options(),
@@ -187,8 +180,8 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       isoline_allow_options() :: %{
-        "Hot" => [boolean()],
-        "Hov" => [boolean()]
+        "Hot" => boolean(),
+        "Hov" => boolean()
       }
 
   """
@@ -199,11 +192,11 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       route_toll_rate() :: %{
-        "ApplicableTimes" => [String.t() | atom()],
+        "ApplicableTimes" => String.t() | atom(),
         "ConvertedPrice" => route_toll_price(),
-        "Id" => [String.t() | atom()],
+        "Id" => String.t() | atom(),
         "LocalPrice" => route_toll_price(),
-        "Name" => [String.t() | atom()],
+        "Name" => String.t() | atom(),
         "Pass" => route_toll_pass(),
         "PaymentMethods" => list(String.t() | atom()),
         "Transponders" => list(route_transponder())
@@ -229,7 +222,7 @@ defmodule AWS.GeoRoutes do
 
       route_exit_step_details() :: %{
         "Intersection" => list(localized_string()),
-        "RelativeExit" => [integer()],
+        "RelativeExit" => integer(),
         "SteeringDirection" => String.t() | atom(),
         "TurnAngle" => float(),
         "TurnIntensity" => String.t() | atom()
@@ -255,11 +248,11 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       route_vehicle_place() :: %{
-        "Name" => [String.t() | atom()],
+        "Name" => String.t() | atom(),
         "OriginalPosition" => list([float()]()),
         "Position" => list([float()]()),
         "SideOfStreet" => String.t() | atom(),
-        "WaypointIndex" => [integer()]
+        "WaypointIndex" => integer()
       }
 
   """
@@ -304,7 +297,7 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       route_vehicle_license_plate() :: %{
-        "LastCharacter" => [String.t() | atom()]
+        "LastCharacter" => String.t() | atom()
       }
 
   """
@@ -330,7 +323,7 @@ defmodule AWS.GeoRoutes do
       route_matrix_car_options() :: %{
         "LicensePlate" => route_matrix_vehicle_license_plate(),
         "MaxSpeed" => float(),
-        "Occupancy" => [integer()]
+        "Occupancy" => integer()
       }
 
   """
@@ -409,7 +402,7 @@ defmodule AWS.GeoRoutes do
         "EngineType" => String.t() | atom(),
         "LicensePlate" => isoline_vehicle_license_plate(),
         "MaxSpeed" => float(),
-        "Occupancy" => [integer()]
+        "Occupancy" => integer()
       }
 
   """
@@ -460,7 +453,7 @@ defmodule AWS.GeoRoutes do
 
       route_roundabout_exit_step_details() :: %{
         "Intersection" => list(localized_string()),
-        "RelativeExit" => [integer()],
+        "RelativeExit" => integer(),
         "RoundaboutAngle" => float(),
         "SteeringDirection" => String.t() | atom()
       }
@@ -487,7 +480,7 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       route_toll_system() :: %{
-        "Name" => [String.t() | atom()]
+        "Name" => String.t() | atom()
       }
 
   """
@@ -522,7 +515,7 @@ defmodule AWS.GeoRoutes do
 
       road_snap_notice() :: %{
         "Code" => String.t() | atom(),
-        "Title" => [String.t() | atom()],
+        "Title" => String.t() | atom(),
         "TracePointIndexes" => list([integer()]())
       }
 
@@ -534,8 +527,8 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       route_toll_price_value_range() :: %{
-        "Max" => [float()],
-        "Min" => [float()]
+        "Max" => float(),
+        "Min" => float()
       }
 
   """
@@ -657,11 +650,11 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       route_pedestrian_place() :: %{
-        "Name" => [String.t() | atom()],
+        "Name" => String.t() | atom(),
         "OriginalPosition" => list([float()]()),
         "Position" => list([float()]()),
         "SideOfStreet" => String.t() | atom(),
-        "WaypointIndex" => [integer()]
+        "WaypointIndex" => integer()
       }
 
   """
@@ -684,8 +677,8 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       route_toll_options() :: %{
-        "AllTransponders" => [boolean()],
-        "AllVignettes" => [boolean()],
+        "AllTransponders" => boolean(),
+        "AllVignettes" => boolean(),
         "Currency" => String.t() | atom(),
         "EmissionType" => route_emission_type(),
         "VehicleCategory" => String.t() | atom()
@@ -724,7 +717,7 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       waypoint_optimization_rest_profile() :: %{
-        "Profile" => [String.t() | atom()]
+        "Profile" => String.t() | atom()
       }
 
   """
@@ -774,7 +767,7 @@ defmodule AWS.GeoRoutes do
         optional("Allow") => isoline_allow_options(),
         optional("ArrivalTime") => String.t() | atom(),
         optional("Avoid") => isoline_avoidance_options(),
-        optional("DepartNow") => [boolean()],
+        optional("DepartNow") => boolean(),
         optional("DepartureTime") => String.t() | atom(),
         optional("Destination") => list([float()]()),
         optional("DestinationOptions") => isoline_destination_options(),
@@ -892,14 +885,14 @@ defmodule AWS.GeoRoutes do
         "Distance" => float(),
         "Duration" => float(),
         "DynamicSpeed" => route_span_dynamic_speed_details(),
-        "FunctionalClassification" => [integer()],
+        "FunctionalClassification" => integer(),
         "Gate" => String.t() | atom(),
         "GeometryOffset" => [integer()],
         "Incidents" => list([integer()]()),
         "Names" => list(localized_string()),
         "Notices" => list([integer()]()),
         "RailwayCrossing" => String.t() | atom(),
-        "Region" => [String.t() | atom()],
+        "Region" => String.t() | atom(),
         "RoadAttributes" => list(String.t() | atom()),
         "RouteNumbers" => list(route_number()),
         "ScooterAccess" => list(String.t() | atom()),
@@ -933,7 +926,7 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       route_transponder() :: %{
-        "SystemName" => [String.t() | atom()]
+        "SystemName" => String.t() | atom()
       }
 
   """
@@ -950,7 +943,7 @@ defmodule AWS.GeoRoutes do
         "Departure" => route_ferry_departure(),
         "Notices" => list(route_ferry_notice()),
         "PassThroughWaypoints" => list(route_pass_through_waypoint()),
-        "RouteName" => [String.t() | atom()],
+        "RouteName" => String.t() | atom(),
         "Spans" => list(route_ferry_span()),
         "Summary" => route_ferry_summary(),
         "TravelSteps" => list(route_ferry_travel_step())
@@ -1017,7 +1010,7 @@ defmodule AWS.GeoRoutes do
         "EngineType" => String.t() | atom(),
         "LicensePlate" => isoline_vehicle_license_plate(),
         "MaxSpeed" => float(),
-        "Occupancy" => [integer()]
+        "Occupancy" => integer()
       }
 
   """
@@ -1029,10 +1022,10 @@ defmodule AWS.GeoRoutes do
 
       route_toll_price_summary() :: %{
         "Currency" => String.t() | atom(),
-        "Estimate" => [boolean()],
-        "Range" => [boolean()],
+        "Estimate" => boolean(),
+        "Range" => boolean(),
         "RangeValue" => route_toll_price_value_range(),
-        "Value" => [float()]
+        "Value" => float()
       }
 
   """
@@ -1081,7 +1074,7 @@ defmodule AWS.GeoRoutes do
 
       route_origin_options() :: %{
         "AvoidActionsForDistance" => float(),
-        "AvoidUTurns" => [boolean()],
+        "AvoidUTurns" => boolean(),
         "Heading" => float(),
         "Matching" => route_matching_options(),
         "SideOfStreet" => route_side_of_street_options()
@@ -1096,7 +1089,7 @@ defmodule AWS.GeoRoutes do
 
       route_ferry_after_travel_step() :: %{
         "Duration" => float(),
-        "Instruction" => [String.t() | atom()],
+        "Instruction" => String.t() | atom(),
         "Type" => String.t() | atom()
       }
 
@@ -1144,7 +1137,7 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       route_matrix_trailer_options() :: %{
-        "TrailerCount" => [integer()]
+        "TrailerCount" => integer()
       }
 
   """
@@ -1189,7 +1182,7 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       route_vehicle_notice_detail() :: %{
-        "Title" => [String.t() | atom()],
+        "Title" => String.t() | atom(),
         "ViolatedConstraints" => route_violated_constraints()
       }
 
@@ -1201,7 +1194,7 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       route_truck_options() :: %{
-        "AxleCount" => [integer()],
+        "AxleCount" => integer(),
         "EngineType" => String.t() | atom(),
         "GrossWeight" => float(),
         "HazardousCargos" => list(String.t() | atom()),
@@ -1211,9 +1204,9 @@ defmodule AWS.GeoRoutes do
         "Length" => float(),
         "LicensePlate" => route_vehicle_license_plate(),
         "MaxSpeed" => float(),
-        "Occupancy" => [integer()],
+        "Occupancy" => integer(),
         "PayloadCapacity" => float(),
-        "TireCount" => [integer()],
+        "TireCount" => integer(),
         "Trailer" => route_trailer_options(),
         "TruckType" => String.t() | atom(),
         "TunnelRestrictionCode" => String.t() | atom(),
@@ -1230,7 +1223,7 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       route_vehicle_incident() :: %{
-        "Description" => [String.t() | atom()],
+        "Description" => String.t() | atom(),
         "EndTime" => String.t() | atom(),
         "Severity" => String.t() | atom(),
         "StartTime" => String.t() | atom(),
@@ -1270,7 +1263,7 @@ defmodule AWS.GeoRoutes do
         "EngineType" => String.t() | atom(),
         "LicensePlate" => route_vehicle_license_plate(),
         "MaxSpeed" => float(),
-        "Occupancy" => [integer()]
+        "Occupancy" => integer()
       }
 
   """
@@ -1282,7 +1275,7 @@ defmodule AWS.GeoRoutes do
 
       localized_string() :: %{
         "Language" => String.t() | atom(),
-        "Value" => [String.t() | atom()]
+        "Value" => String.t() | atom()
       }
 
   """
@@ -1299,7 +1292,7 @@ defmodule AWS.GeoRoutes do
         "Duration" => float(),
         "ExitNumber" => list(localized_string()),
         "GeometryOffset" => [integer()],
-        "Instruction" => [String.t() | atom()],
+        "Instruction" => String.t() | atom(),
         "KeepStepDetails" => route_keep_step_details(),
         "NextRoad" => route_road(),
         "RoundaboutEnterStepDetails" => route_roundabout_enter_step_details(),
@@ -1331,7 +1324,7 @@ defmodule AWS.GeoRoutes do
 
       route_span_speed_limit_details() :: %{
         "MaxSpeed" => float(),
-        "Unlimited" => [boolean()]
+        "Unlimited" => boolean()
       }
 
   """
@@ -1383,8 +1376,8 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       route_trailer_options() :: %{
-        "AxleCount" => [integer()],
-        "TrailerCount" => [integer()]
+        "AxleCount" => integer(),
+        "TrailerCount" => integer()
       }
 
   """
@@ -1411,7 +1404,7 @@ defmodule AWS.GeoRoutes do
 
       circle() :: %{
         "Center" => list([float()]()),
-        "Radius" => [float()]
+        "Radius" => float()
       }
 
   """
@@ -1475,8 +1468,8 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       isoline_trailer_options() :: %{
-        "AxleCount" => [integer()],
-        "TrailerCount" => [integer()]
+        "AxleCount" => integer(),
+        "TrailerCount" => integer()
       }
 
   """
@@ -1523,16 +1516,16 @@ defmodule AWS.GeoRoutes do
 
       isoline_avoidance_options() :: %{
         "Areas" => list(isoline_avoidance_area()),
-        "CarShuttleTrains" => [boolean()],
-        "ControlledAccessHighways" => [boolean()],
-        "DirtRoads" => [boolean()],
-        "Ferries" => [boolean()],
-        "SeasonalClosure" => [boolean()],
-        "TollRoads" => [boolean()],
-        "TollTransponders" => [boolean()],
+        "CarShuttleTrains" => boolean(),
+        "ControlledAccessHighways" => boolean(),
+        "DirtRoads" => boolean(),
+        "Ferries" => boolean(),
+        "SeasonalClosure" => boolean(),
+        "TollRoads" => boolean(),
+        "TollTransponders" => boolean(),
         "TruckRoadTypes" => list(String.t() | atom()),
-        "Tunnels" => [boolean()],
-        "UTurns" => [boolean()],
+        "Tunnels" => boolean(),
+        "UTurns" => boolean(),
         "ZoneCategories" => list(isoline_avoidance_zone_category())
       }
 
@@ -1553,7 +1546,7 @@ defmodule AWS.GeoRoutes do
         "ExitNumber" => list(localized_string()),
         "ExitStepDetails" => route_exit_step_details(),
         "GeometryOffset" => [integer()],
-        "Instruction" => [String.t() | atom()],
+        "Instruction" => String.t() | atom(),
         "KeepStepDetails" => route_keep_step_details(),
         "NextRoad" => route_road(),
         "RampStepDetails" => route_ramp_step_details(),
@@ -1575,7 +1568,7 @@ defmodule AWS.GeoRoutes do
 
       route_toll_pass_validity_period() :: %{
         "Period" => String.t() | atom(),
-        "PeriodCount" => [integer()]
+        "PeriodCount" => integer()
       }
 
   """
@@ -1641,7 +1634,7 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       route_matrix_truck_options() :: %{
-        "AxleCount" => [integer()],
+        "AxleCount" => integer(),
         "GrossWeight" => float(),
         "HazardousCargos" => list(String.t() | atom()),
         "Height" => float(),
@@ -1649,7 +1642,7 @@ defmodule AWS.GeoRoutes do
         "Length" => float(),
         "LicensePlate" => route_matrix_vehicle_license_plate(),
         "MaxSpeed" => float(),
-        "Occupancy" => [integer()],
+        "Occupancy" => integer(),
         "PayloadCapacity" => float(),
         "Trailer" => route_matrix_trailer_options(),
         "TruckType" => String.t() | atom(),
@@ -1734,7 +1727,7 @@ defmodule AWS.GeoRoutes do
 
       route_matrix_boundary() :: %{
         "Geometry" => route_matrix_boundary_geometry(),
-        "Unbounded" => [boolean()]
+        "Unbounded" => boolean()
       }
 
   """
@@ -1770,7 +1763,7 @@ defmodule AWS.GeoRoutes do
 
       route_ferry_before_travel_step() :: %{
         "Duration" => float(),
-        "Instruction" => [String.t() | atom()],
+        "Instruction" => String.t() | atom(),
         "Type" => String.t() | atom()
       }
 
@@ -1796,7 +1789,7 @@ defmodule AWS.GeoRoutes do
 
       route_zone() :: %{
         "Category" => String.t() | atom(),
-        "Name" => [String.t() | atom()]
+        "Name" => String.t() | atom()
       }
 
   """
@@ -1822,7 +1815,7 @@ defmodule AWS.GeoRoutes do
         optional("Allow") => route_allow_options(),
         optional("ArrivalTime") => String.t() | atom(),
         optional("Avoid") => route_avoidance_options(),
-        optional("DepartNow") => [boolean()],
+        optional("DepartNow") => boolean(),
         optional("DepartureTime") => String.t() | atom(),
         optional("DestinationOptions") => route_destination_options(),
         optional("Driver") => route_driver_options(),
@@ -1856,7 +1849,7 @@ defmodule AWS.GeoRoutes do
       route_number() :: %{
         "Direction" => String.t() | atom(),
         "Language" => String.t() | atom(),
-        "Value" => [String.t() | atom()]
+        "Value" => String.t() | atom()
       }
 
   """
@@ -1895,7 +1888,7 @@ defmodule AWS.GeoRoutes do
         "EngineType" => String.t() | atom(),
         "LicensePlate" => route_vehicle_license_plate(),
         "MaxSpeed" => float(),
-        "Occupancy" => [integer()]
+        "Occupancy" => integer()
       }
 
   """
@@ -1965,7 +1958,7 @@ defmodule AWS.GeoRoutes do
         "Distance" => float(),
         "Duration" => float(),
         "GeometryOffset" => [integer()],
-        "Instruction" => [String.t() | atom()],
+        "Instruction" => String.t() | atom(),
         "Type" => String.t() | atom()
       }
 
@@ -2007,12 +2000,12 @@ defmodule AWS.GeoRoutes do
         "Distance" => float(),
         "Duration" => float(),
         "DynamicSpeed" => route_span_dynamic_speed_details(),
-        "FunctionalClassification" => [integer()],
+        "FunctionalClassification" => integer(),
         "GeometryOffset" => [integer()],
         "Incidents" => list([integer()]()),
         "Names" => list(localized_string()),
         "PedestrianAccess" => list(String.t() | atom()),
-        "Region" => [String.t() | atom()],
+        "Region" => String.t() | atom(),
         "RoadAttributes" => list(String.t() | atom()),
         "RouteNumbers" => list(route_number()),
         "SpeedLimit" => route_span_speed_limit_details(),
@@ -2043,15 +2036,15 @@ defmodule AWS.GeoRoutes do
 
       route_matrix_avoidance_options() :: %{
         "Areas" => list(route_matrix_avoidance_area()),
-        "CarShuttleTrains" => [boolean()],
-        "ControlledAccessHighways" => [boolean()],
-        "DirtRoads" => [boolean()],
-        "Ferries" => [boolean()],
-        "TollRoads" => [boolean()],
-        "TollTransponders" => [boolean()],
+        "CarShuttleTrains" => boolean(),
+        "ControlledAccessHighways" => boolean(),
+        "DirtRoads" => boolean(),
+        "Ferries" => boolean(),
+        "TollRoads" => boolean(),
+        "TollTransponders" => boolean(),
         "TruckRoadTypes" => list(String.t() | atom()),
-        "Tunnels" => [boolean()],
-        "UTurns" => [boolean()],
+        "Tunnels" => boolean(),
+        "UTurns" => boolean(),
         "ZoneCategories" => list(route_matrix_avoidance_zone_category())
       }
 
@@ -2128,7 +2121,7 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       road_snap_snapped_trace_point() :: %{
-        "Confidence" => [float()],
+        "Confidence" => float(),
         "OriginalPosition" => list([float()]()),
         "SnappedPosition" => list([float()]())
       }
@@ -2213,10 +2206,10 @@ defmodule AWS.GeoRoutes do
 
       route_waypoint() :: %{
         "AvoidActionsForDistance" => float(),
-        "AvoidUTurns" => [boolean()],
+        "AvoidUTurns" => boolean(),
         "Heading" => float(),
         "Matching" => route_matching_options(),
-        "PassThrough" => [boolean()],
+        "PassThrough" => boolean(),
         "Position" => list([float()]()),
         "SideOfStreet" => route_side_of_street_options(),
         "StopDuration" => float()
@@ -2259,10 +2252,10 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       route_ferry_place() :: %{
-        "Name" => [String.t() | atom()],
+        "Name" => String.t() | atom(),
         "OriginalPosition" => list([float()]()),
         "Position" => list([float()]()),
-        "WaypointIndex" => [integer()]
+        "WaypointIndex" => integer()
       }
 
   """
@@ -2299,7 +2292,7 @@ defmodule AWS.GeoRoutes do
       route_pass_through_place() :: %{
         "OriginalPosition" => list([float()]()),
         "Position" => list([float()]()),
-        "WaypointIndex" => [integer()]
+        "WaypointIndex" => integer()
       }
 
   """
@@ -2351,13 +2344,13 @@ defmodule AWS.GeoRoutes do
 
       waypoint_optimization_avoidance_options() :: %{
         "Areas" => list(waypoint_optimization_avoidance_area()),
-        "CarShuttleTrains" => [boolean()],
-        "ControlledAccessHighways" => [boolean()],
-        "DirtRoads" => [boolean()],
-        "Ferries" => [boolean()],
-        "TollRoads" => [boolean()],
-        "Tunnels" => [boolean()],
-        "UTurns" => [boolean()]
+        "CarShuttleTrains" => boolean(),
+        "ControlledAccessHighways" => boolean(),
+        "DirtRoads" => boolean(),
+        "Ferries" => boolean(),
+        "TollRoads" => boolean(),
+        "Tunnels" => boolean(),
+        "UTurns" => boolean()
       }
 
   """
@@ -2427,7 +2420,7 @@ defmodule AWS.GeoRoutes do
 
       waypoint_optimization_failed_constraint() :: %{
         "Constraint" => String.t() | atom(),
-        "Reason" => [String.t() | atom()]
+        "Reason" => String.t() | atom()
       }
 
   """
@@ -2452,8 +2445,8 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       route_matrix_allow_options() :: %{
-        "Hot" => [boolean()],
-        "Hov" => [boolean()]
+        "Hot" => boolean(),
+        "Hov" => boolean()
       }
 
   """
@@ -2512,8 +2505,8 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       route_allow_options() :: %{
-        "Hot" => [boolean()],
-        "Hov" => [boolean()]
+        "Hot" => boolean(),
+        "Hov" => boolean()
       }
 
   """
@@ -2543,7 +2536,7 @@ defmodule AWS.GeoRoutes do
         "Duration" => float(),
         "GeometryOffset" => [integer()],
         "Names" => list(localized_string()),
-        "Region" => [String.t() | atom()]
+        "Region" => String.t() | atom()
       }
 
   """
@@ -2595,7 +2588,7 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       route_violated_constraints() :: %{
-        "AllHazardsRestricted" => [boolean()],
+        "AllHazardsRestricted" => boolean(),
         "AxleCount" => route_notice_detail_range(),
         "HazardousCargos" => list(String.t() | atom()),
         "MaxHeight" => float(),
@@ -2608,9 +2601,9 @@ defmodule AWS.GeoRoutes do
         "MaxWidth" => float(),
         "Occupancy" => route_notice_detail_range(),
         "RestrictedTimes" => [String.t() | atom()],
-        "TimeDependent" => [boolean()],
+        "TimeDependent" => boolean(),
         "TrailerCount" => route_notice_detail_range(),
-        "TravelMode" => [boolean()],
+        "TravelMode" => boolean(),
         "TruckRoadType" => [String.t() | atom()],
         "TruckType" => String.t() | atom(),
         "TunnelRestrictionCode" => String.t() | atom()
@@ -2649,7 +2642,7 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       isoline_truck_options() :: %{
-        "AxleCount" => [integer()],
+        "AxleCount" => integer(),
         "EngineType" => String.t() | atom(),
         "GrossWeight" => float(),
         "HazardousCargos" => list(String.t() | atom()),
@@ -2659,9 +2652,9 @@ defmodule AWS.GeoRoutes do
         "Length" => float(),
         "LicensePlate" => isoline_vehicle_license_plate(),
         "MaxSpeed" => float(),
-        "Occupancy" => [integer()],
+        "Occupancy" => integer(),
         "PayloadCapacity" => float(),
-        "TireCount" => [integer()],
+        "TireCount" => integer(),
         "Trailer" => isoline_trailer_options(),
         "TruckType" => String.t() | atom(),
         "TunnelRestrictionCode" => String.t() | atom(),
@@ -2690,7 +2683,7 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       road_snap_trailer_options() :: %{
-        "TrailerCount" => [integer()]
+        "TrailerCount" => integer()
       }
 
   """
@@ -2701,8 +2694,8 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       route_emission_type() :: %{
-        "Co2EmissionClass" => [String.t() | atom()],
-        "Type" => [String.t() | atom()]
+        "Co2EmissionClass" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
@@ -2727,7 +2720,7 @@ defmodule AWS.GeoRoutes do
       calculate_route_matrix_request() :: %{
         optional("Allow") => route_matrix_allow_options(),
         optional("Avoid") => route_matrix_avoidance_options(),
-        optional("DepartNow") => [boolean()],
+        optional("DepartNow") => boolean(),
         optional("DepartureTime") => String.t() | atom(),
         optional("Exclude") => route_matrix_exclusion_options(),
         optional("Key") => String.t() | atom(),
@@ -2750,7 +2743,7 @@ defmodule AWS.GeoRoutes do
       route_matrix_scooter_options() :: %{
         "LicensePlate" => route_matrix_vehicle_license_plate(),
         "MaxSpeed" => float(),
-        "Occupancy" => [integer()]
+        "Occupancy" => integer()
       }
 
   """
@@ -2774,11 +2767,11 @@ defmodule AWS.GeoRoutes do
 
       route_toll_price() :: %{
         "Currency" => String.t() | atom(),
-        "Estimate" => [boolean()],
+        "Estimate" => boolean(),
         "PerDuration" => float(),
-        "Range" => [boolean()],
+        "Range" => boolean(),
         "RangeValue" => route_toll_price_value_range(),
-        "Value" => [float()]
+        "Value" => float()
       }
 
   """
@@ -2831,8 +2824,8 @@ defmodule AWS.GeoRoutes do
   end
 
   @doc """
-  Use the `CalculateIsolines` action to find service areas that can be reached
-  in a given threshold of time, distance.
+  Use the `CalculateIsolines` action to find service areas that can be reached in
+  a given threshold of time, distance.
   """
   @spec calculate_isolines(map(), calculate_isolines_request(), list()) ::
           {:ok, calculate_isolines_response(), any()}
@@ -2876,9 +2869,8 @@ defmodule AWS.GeoRoutes do
   Use `CalculateRouteMatrix` to compute results for all pairs of Origins to
   Destinations.
 
-  Each row corresponds to one entry in Origins. Each entry in the row
-  corresponds to the route from that entry in Origins to an entry in Destinations
-  positions.
+  Each row corresponds to one entry in Origins. Each entry in the row corresponds
+  to the route from that entry in Origins to an entry in Destinations positions.
   """
   @spec calculate_route_matrix(map(), calculate_route_matrix_request(), list()) ::
           {:ok, calculate_route_matrix_response(), any()}
@@ -2919,7 +2911,6 @@ defmodule AWS.GeoRoutes do
   end
 
   @doc """
-
   `CalculateRoutes` computes routes given the following required parameters:
   `Origin` and `Destination`.
   """
@@ -2962,11 +2953,9 @@ defmodule AWS.GeoRoutes do
   end
 
   @doc """
-
   `OptimizeWaypoints` calculates the optimal order to travel between a set of
   waypoints to minimize either the travel time or the distance travelled during
-  the journey,
-  based on road network restrictions and the traffic pattern data.
+  the journey, based on road network restrictions and the traffic pattern data.
   """
   @spec optimize_waypoints(map(), optimize_waypoints_request(), list()) ::
           {:ok, optimize_waypoints_response(), any()}
@@ -3007,7 +2996,6 @@ defmodule AWS.GeoRoutes do
   end
 
   @doc """
-
   `SnapToRoads` matches GPS trace to roads most likely traveled on.
   """
   @spec snap_to_roads(map(), snap_to_roads_request(), list()) ::

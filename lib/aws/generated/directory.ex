@@ -989,6 +989,18 @@ defmodule AWS.Directory do
 
   ## Example:
       
+      disable_already_in_progress_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type disable_already_in_progress_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       share_directory_result() :: %{
         "SharedDirectoryId" => String.t() | atom()
       }
@@ -1564,6 +1576,17 @@ defmodule AWS.Directory do
 
   ## Example:
       
+      describe_ca_enrollment_policy_request() :: %{
+        required("DirectoryId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_ca_enrollment_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       directory_description() :: %{
         "AccessUrl" => String.t() | atom(),
         "Alias" => String.t() | atom(),
@@ -1915,6 +1938,18 @@ defmodule AWS.Directory do
 
   ## Example:
       
+      enable_ca_enrollment_policy_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        required("PcaConnectorArn") => String.t() | atom()
+      }
+      
+  """
+  @type enable_ca_enrollment_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_conditional_forwarders_request() :: %{
         optional("RemoteDomainNames") => list(String.t() | atom()),
         required("DirectoryId") => String.t() | atom()
@@ -2219,6 +2254,15 @@ defmodule AWS.Directory do
 
   ## Example:
       
+      disable_ca_enrollment_policy_result() :: %{}
+      
+  """
+  @type disable_ca_enrollment_policy_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       entity_does_not_exist_exception() :: %{
         "Message" => String.t() | atom(),
         "RequestId" => String.t() | atom()
@@ -2330,6 +2374,21 @@ defmodule AWS.Directory do
       
   """
   @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_ca_enrollment_policy_result() :: %{
+        "CaEnrollmentPolicyStatus" => list(any()),
+        "CaEnrollmentPolicyStatusReason" => String.t() | atom(),
+        "DirectoryId" => String.t() | atom(),
+        "LastUpdatedDateTime" => non_neg_integer(),
+        "PcaConnectorArn" => String.t() | atom()
+      }
+      
+  """
+  @type describe_ca_enrollment_policy_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2507,6 +2566,17 @@ defmodule AWS.Directory do
       
   """
   @type start_schema_extension_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_ca_enrollment_policy_request() :: %{
+        required("DirectoryId") => String.t() | atom()
+      }
+      
+  """
+  @type disable_ca_enrollment_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2750,6 +2820,15 @@ defmodule AWS.Directory do
 
   ## Example:
       
+      enable_ca_enrollment_policy_result() :: %{}
+      
+  """
+  @type enable_ca_enrollment_policy_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       snapshot_limits() :: %{
         "ManualSnapshotsCurrentCount" => integer(),
         "ManualSnapshotsLimit" => integer(),
@@ -2857,6 +2936,18 @@ defmodule AWS.Directory do
       
   """
   @type invalid_password_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_already_in_progress_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type enable_already_in_progress_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3162,6 +3253,12 @@ defmodule AWS.Directory do
           | client_exception()
           | unsupported_operation_exception()
 
+  @type describe_ca_enrollment_policy_errors() ::
+          service_exception()
+          | directory_does_not_exist_exception()
+          | client_exception()
+          | unsupported_operation_exception()
+
   @type describe_certificate_errors() ::
           certificate_does_not_exist_exception()
           | invalid_parameter_exception()
@@ -3278,6 +3375,16 @@ defmodule AWS.Directory do
           | directory_does_not_exist_exception()
           | client_exception()
 
+  @type disable_ca_enrollment_policy_errors() ::
+          directory_unavailable_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | service_exception()
+          | directory_does_not_exist_exception()
+          | client_exception()
+          | disable_already_in_progress_exception()
+
   @type disable_client_authentication_errors() ::
           invalid_client_auth_status_exception()
           | access_denied_exception()
@@ -3313,6 +3420,17 @@ defmodule AWS.Directory do
           | service_exception()
           | client_exception()
           | insufficient_permissions_exception()
+
+  @type enable_ca_enrollment_policy_errors() ::
+          enable_already_in_progress_exception()
+          | directory_unavailable_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | service_exception()
+          | directory_does_not_exist_exception()
+          | client_exception()
+          | entity_already_exists_exception()
 
   @type enable_client_authentication_errors() ::
           invalid_client_auth_status_exception()
@@ -4033,6 +4151,25 @@ defmodule AWS.Directory do
   end
 
   @doc """
+  Retrieves detailed information about the certificate authority (CA) enrollment
+  policy for
+  the specified directory.
+
+  This policy determines how client certificates are automatically enrolled and
+  managed through Amazon Web Services Private Certificate Authority.
+  """
+  @spec describe_ca_enrollment_policy(map(), describe_ca_enrollment_policy_request(), list()) ::
+          {:ok, describe_ca_enrollment_policy_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_ca_enrollment_policy_errors()}
+  def describe_ca_enrollment_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCAEnrollmentPolicy", input, options)
+  end
+
+  @doc """
   Displays information about the certificate registered for secure LDAP or client
   certificate authentication.
   """
@@ -4300,6 +4437,31 @@ defmodule AWS.Directory do
   end
 
   @doc """
+  Disables the certificate authority (CA) enrollment policy for the specified
+  directory.
+
+  This stops
+  automatic certificate enrollment and management for domain-joined clients, but
+  does not affect
+  existing certificates.
+
+  Disabling the CA enrollment policy prevents new certificates from being
+  automatically
+  enrolled, but existing certificates remain valid and functional until they
+  expire.
+  """
+  @spec disable_ca_enrollment_policy(map(), disable_ca_enrollment_policy_request(), list()) ::
+          {:ok, disable_ca_enrollment_policy_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disable_ca_enrollment_policy_errors()}
+  def disable_ca_enrollment_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableCAEnrollmentPolicy", input, options)
+  end
+
+  @doc """
   Disables alternative client authentication methods for the specified directory.
   """
   @spec disable_client_authentication(map(), disable_client_authentication_request(), list()) ::
@@ -4374,6 +4536,32 @@ defmodule AWS.Directory do
     meta = metadata()
 
     Request.request_post(client, meta, "DisableSso", input, options)
+  end
+
+  @doc """
+  Enables certificate authority (CA) enrollment policy for the specified
+  directory.
+
+  This allows
+  domain-joined clients to automatically request and receive certificates from the
+  specified
+  Amazon Web Services Private Certificate Authority.
+
+  Before enabling CA enrollment, ensure that the PCA connector is properly
+  configured and
+  accessible from the directory. The connector must be in an active state and have
+  the
+  necessary permissions.
+  """
+  @spec enable_ca_enrollment_policy(map(), enable_ca_enrollment_policy_request(), list()) ::
+          {:ok, enable_ca_enrollment_policy_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, enable_ca_enrollment_policy_errors()}
+  def enable_ca_enrollment_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableCAEnrollmentPolicy", input, options)
   end
 
   @doc """

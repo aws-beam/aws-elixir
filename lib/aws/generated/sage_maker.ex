@@ -1710,8 +1710,10 @@ defmodule AWS.SageMaker do
   ## Example:
       
       describe_cluster_response() :: %{
+        "AutoScaling" => cluster_auto_scaling_config_output(),
         "ClusterArn" => String.t() | atom(),
         "ClusterName" => String.t() | atom(),
+        "ClusterRole" => String.t() | atom(),
         "ClusterStatus" => list(any()),
         "CreationTime" => non_neg_integer(),
         "FailureMessage" => String.t() | atom(),
@@ -5543,6 +5545,8 @@ defmodule AWS.SageMaker do
   ## Example:
       
       update_cluster_request() :: %{
+        optional("AutoScaling") => cluster_auto_scaling_config(),
+        optional("ClusterRole") => String.t() | atom(),
         optional("InstanceGroups") => list(cluster_instance_group_specification()),
         optional("InstanceGroupsToDelete") => list(String.t() | atom()),
         optional("NodeRecovery") => list(any()),
@@ -5799,6 +5803,18 @@ defmodule AWS.SageMaker do
       
   """
   @type update_code_repository_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_auto_scaling_config() :: %{
+        "AutoScalerType" => list(any()),
+        "Mode" => list(any())
+      }
+      
+  """
+  @type cluster_auto_scaling_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7247,6 +7263,8 @@ defmodule AWS.SageMaker do
   ## Example:
       
       create_cluster_request() :: %{
+        optional("AutoScaling") => cluster_auto_scaling_config(),
+        optional("ClusterRole") => String.t() | atom(),
         optional("InstanceGroups") => list(cluster_instance_group_specification()),
         optional("NodeProvisioningMode") => list(any()),
         optional("NodeRecovery") => list(any()),
@@ -18987,6 +19005,20 @@ defmodule AWS.SageMaker do
       
   """
   @type retention_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_auto_scaling_config_output() :: %{
+        "AutoScalerType" => list(any()),
+        "FailureMessage" => [String.t() | atom()],
+        "Mode" => list(any()),
+        "Status" => list(any())
+      }
+      
+  """
+  @type cluster_auto_scaling_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

@@ -774,6 +774,20 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      describe_insights_refresh_response() :: %{
+        "endedAt" => non_neg_integer(),
+        "message" => String.t() | atom(),
+        "startedAt" => non_neg_integer(),
+        "status" => list(any())
+      }
+
+  """
+  @type describe_insights_refresh_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       control_plane_placement_response() :: %{
         "groupName" => String.t() | atom()
       }
@@ -1864,6 +1878,15 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      start_insights_refresh_request() :: %{}
+
+  """
+  @type start_insights_refresh_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       create_fargate_profile_request() :: %{
         optional("clientRequestToken") => String.t() | atom(),
         optional("selectors") => list(fargate_profile_selector()),
@@ -2133,6 +2156,15 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      describe_insights_refresh_request() :: %{}
+
+  """
+  @type describe_insights_refresh_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       oidc_identity_provider_config() :: %{
         "clientId" => String.t() | atom(),
         "clusterName" => String.t() | atom(),
@@ -2331,6 +2363,18 @@ defmodule AWS.EKS do
 
   """
   @type fargate_profile() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_insights_refresh_response() :: %{
+        "message" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type start_insights_refresh_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3038,6 +3082,12 @@ defmodule AWS.EKS do
           | invalid_request_exception()
           | resource_not_found_exception()
 
+  @type describe_insights_refresh_errors() ::
+          server_exception()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
   @type describe_nodegroup_errors() ::
           server_exception()
           | invalid_parameter_exception()
@@ -3148,6 +3198,12 @@ defmodule AWS.EKS do
           | resource_limit_exceeded_exception()
           | client_exception()
           | resource_in_use_exception()
+
+  @type start_insights_refresh_errors() ::
+          server_exception()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
 
   @type tag_resource_errors() :: bad_request_exception() | not_found_exception()
 
@@ -4518,6 +4574,24 @@ defmodule AWS.EKS do
   end
 
   @doc """
+  Returns the status of the latest on-demand cluster insights refresh operation.
+  """
+  @spec describe_insights_refresh(map(), String.t() | atom(), list()) ::
+          {:ok, describe_insights_refresh_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_insights_refresh_errors()}
+  def describe_insights_refresh(%Client{} = client, cluster_name, options \\ []) do
+    url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/insights-refresh"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Describes a managed node group.
   """
   @spec describe_nodegroup(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -5361,6 +5435,41 @@ defmodule AWS.EKS do
           | {:error, register_cluster_errors()}
   def register_cluster(%Client{} = client, input, options \\ []) do
     url_path = "/cluster-registrations"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Initiates an on-demand refresh operation for cluster insights, getting the
+  latest analysis outside of the standard refresh schedule.
+  """
+  @spec start_insights_refresh(
+          map(),
+          String.t() | atom(),
+          start_insights_refresh_request(),
+          list()
+        ) ::
+          {:ok, start_insights_refresh_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_insights_refresh_errors()}
+  def start_insights_refresh(%Client{} = client, cluster_name, input, options \\ []) do
+    url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/insights-refresh"
     headers = []
     custom_headers = []
     query_params = []

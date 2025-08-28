@@ -4,10 +4,9 @@
 defmodule AWS.NeptuneGraph do
   @moduledoc """
   Neptune Analytics is a new analytics database engine for Amazon Neptune that
-  helps customers get to
-  insights faster by quickly processing large amounts of graph data, invoking
-  popular graph analytic
-  algorithms in low-latency queries, and getting analytics results in seconds.
+  helps customers get to insights faster by quickly processing large amounts of
+  graph data, invoking popular graph analytic algorithms in low-latency queries,
+  and getting analytics results in seconds.
   """
 
   alias AWS.Client
@@ -642,6 +641,15 @@ defmodule AWS.NeptuneGraph do
 
   ## Example:
 
+      start_graph_input() :: %{}
+
+  """
+  @type start_graph_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       start_export_task_output() :: %{
         "destination" => [String.t() | atom()],
         "exportFilter" => export_filter(),
@@ -1140,6 +1148,15 @@ defmodule AWS.NeptuneGraph do
 
   ## Example:
 
+      stop_graph_input() :: %{}
+
+  """
+  @type stop_graph_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_private_graph_endpoints_output() :: %{
         "nextToken" => String.t() | atom(),
         "privateGraphEndpoints" => list(private_graph_endpoint_summary())
@@ -1173,6 +1190,31 @@ defmodule AWS.NeptuneGraph do
 
   """
   @type get_import_task_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_graph_output() :: %{
+        "arn" => [String.t() | atom()],
+        "buildNumber" => [String.t() | atom()],
+        "createTime" => [non_neg_integer()],
+        "deletionProtection" => [boolean()],
+        "endpoint" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "kmsKeyIdentifier" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "provisionedMemory" => integer(),
+        "publicConnectivity" => [boolean()],
+        "replicaCount" => integer(),
+        "sourceSnapshotId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "vectorSearchConfiguration" => vector_search_configuration()
+      }
+
+  """
+  @type start_graph_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1262,6 +1304,31 @@ defmodule AWS.NeptuneGraph do
 
   """
   @type list_import_tasks_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_graph_output() :: %{
+        "arn" => [String.t() | atom()],
+        "buildNumber" => [String.t() | atom()],
+        "createTime" => [non_neg_integer()],
+        "deletionProtection" => [boolean()],
+        "endpoint" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "kmsKeyIdentifier" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "provisionedMemory" => integer(),
+        "publicConnectivity" => [boolean()],
+        "replicaCount" => integer(),
+        "sourceSnapshotId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "vectorSearchConfiguration" => vector_search_configuration()
+      }
+
+  """
+  @type stop_graph_output() :: %{(String.t() | atom()) => any()}
 
   @type cancel_export_task_errors() ::
           throttling_exception()
@@ -1448,7 +1515,21 @@ defmodule AWS.NeptuneGraph do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type start_graph_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type start_import_task_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type stop_graph_errors() ::
           throttling_exception()
           | validation_exception()
           | internal_server_exception()
@@ -1643,12 +1724,11 @@ defmodule AWS.NeptuneGraph do
 
   @doc """
   Creates a new Neptune Analytics graph and imports data into it, either from
-  Amazon Simple Storage Service (S3) or from a Neptune database
-  or a Neptune database snapshot.
+  Amazon Simple Storage Service (S3) or from a Neptune database or a Neptune
+  database snapshot.
 
   The data can be loaded from files in S3 that in either the [Gremlin CSV format](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html)
-  or the [openCypher load
-  format](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html).
+  or the [openCypher load format](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html).
   """
   @spec create_graph_using_import_task(map(), create_graph_using_import_task_input(), list()) ::
           {:ok, create_graph_using_import_task_output(), any()}
@@ -1678,8 +1758,7 @@ defmodule AWS.NeptuneGraph do
 
   @doc """
   Create a private graph endpoint to allow private access from to the graph from
-  within
-  a VPC.
+  within a VPC.
 
   You can attach security groups to the private graph endpoint.
 
@@ -1828,18 +1907,14 @@ defmodule AWS.NeptuneGraph do
   Execute an openCypher query.
 
   When invoking this operation in a Neptune Analytics cluster, the IAM user or
-  role making the request must have a policy attached
-  that allows one of the following IAM actions in that cluster, depending on the
-  query:
+  role making the request must have a policy attached that allows one of the
+  following IAM actions in that cluster, depending on the query:
 
-    *
-  neptune-graph:ReadDataViaQuery
+    * neptune-graph:ReadDataViaQuery
 
-    *
-  neptune-graph:WriteDataViaQuery
+    * neptune-graph:WriteDataViaQuery
 
-    *
-  neptune-graph:DeleteDataViaQuery
+    * neptune-graph:DeleteDataViaQuery
   """
   @spec execute_query(map(), execute_query_input(), list()) ::
           {:ok, execute_query_output(), any()}
@@ -2002,8 +2077,8 @@ defmodule AWS.NeptuneGraph do
   Retrieves the status of a specified query.
 
   When invoking this operation in a Neptune Analytics cluster, the IAM user or
-  role making the request must have the
-  `neptune-graph:GetQueryStatus` IAM action attached.
+  role making the request must have the `neptune-graph:GetQueryStatus` IAM action
+  attached.
   """
   @spec get_query(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_query_output(), any()}
@@ -2397,6 +2472,35 @@ defmodule AWS.NeptuneGraph do
   end
 
   @doc """
+  Starts the specific graph.
+  """
+  @spec start_graph(map(), String.t() | atom(), start_graph_input(), list()) ::
+          {:ok, start_graph_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_graph_errors()}
+  def start_graph(%Client{} = client, graph_identifier, input, options \\ []) do
+    url_path = "/graphs/#{AWS.Util.encode_uri(graph_identifier)}/start"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Import data into existing Neptune Analytics graph from Amazon Simple Storage
   Service (S3).
 
@@ -2425,6 +2529,35 @@ defmodule AWS.NeptuneGraph do
       input,
       options,
       201
+    )
+  end
+
+  @doc """
+  Stops the specific graph.
+  """
+  @spec stop_graph(map(), String.t() | atom(), stop_graph_input(), list()) ::
+          {:ok, stop_graph_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_graph_errors()}
+  def stop_graph(%Client{} = client, graph_identifier, input, options \\ []) do
+    url_path = "/graphs/#{AWS.Util.encode_uri(graph_identifier)}/stop"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 

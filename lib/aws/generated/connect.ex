@@ -977,6 +977,7 @@ defmodule AWS.Connect do
   ## Example:
 
       dimensions() :: %{
+        "AgentStatus" => agent_status_identifier(),
         "Channel" => list(any()),
         "Queue" => queue_reference(),
         "RoutingProfile" => routing_profile_reference(),
@@ -6010,6 +6011,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      agent_status_identifier() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom()
+      }
+
+  """
+  @type agent_status_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       lex_bot() :: %{
         "LexRegion" => String.t() | atom(),
         "Name" => String.t() | atom()
@@ -9086,6 +9099,7 @@ defmodule AWS.Connect do
   ## Example:
 
       filters() :: %{
+        "AgentStatuses" => list(String.t() | atom()),
         "Channels" => list(list(any())()),
         "Queues" => list(String.t() | atom()),
         "RoutingProfiles" => list(String.t() | atom()),
@@ -14558,9 +14572,10 @@ defmodule AWS.Connect do
   @doc """
   Adds a new participant into an on-going chat contact or webRTC call.
 
-  For more information, see [Customize chat flow experiences by integrating custom
-  participants](https://docs.aws.amazon.com/connect/latest/adminguide/chat-customize-flow.html)
-  or [Enable multi-user web, in-app, and video calling](https://docs.aws.amazon.com/connect/latest/adminguide/enable-multiuser-inapp.html).
+  For more information,
+  see [Customize chat flow experiences by integrating custom participants](https://docs.aws.amazon.com/connect/latest/adminguide/chat-customize-flow.html)
+  or [Enable multi-user web, in-app, and video
+  calling](https://docs.aws.amazon.com/connect/latest/adminguide/enable-multiuser-inapp.html).
   """
   @spec create_participant(map(), create_participant_request(), list()) ::
           {:ok, create_participant_response(), any()}
@@ -16520,7 +16535,7 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   To
-  request access to this API, contact Amazon Web ServicesSupport.
+  request access to this API, contact Amazon Web Services Support.
 
   Describes the target authentication profile.
   """
@@ -17943,21 +17958,23 @@ defmodule AWS.Connect do
   *Amazon Connect Administrator Guide*.
 
   When you make a successful API request, you can expect the following metric
-  values in the response:
+  values in the
+  response:
 
     
 
-  **Metric value is null**: The calculation cannot be performed due to divide by
-  zero or insufficient data
+  **Metric value is null**: The calculation cannot be
+  performed due to divide by zero or insufficient data
 
     
 
-  **Metric value is a number (including 0) of defined type**: The number provided
-  is the calculation result
+  **Metric value is a number (including 0) of defined type**:
+  The number provided is the calculation result
 
     
 
-  **MetricResult list is empty**: The request cannot find any data in the system
+  **MetricResult list is empty**: The request cannot find any
+  data in the system
 
   The following guidelines can help you work with the API:
 
@@ -18216,21 +18233,23 @@ defmodule AWS.Connect do
   *Amazon Connect Administrator Guide*.
 
   When you make a successful API request, you can expect the following metric
-  values in the response:
+  values in the
+  response:
 
     
 
-  **Metric value is null**: The calculation cannot be performed due to divide by
-  zero or insufficient data
+  **Metric value is null**: The calculation cannot be
+  performed due to divide by zero or insufficient data
 
     
 
-  **Metric value is a number (including 0) of defined type**: The number provided
-  is the calculation result
+  **Metric value is a number (including 0) of defined type**:
+  The number provided is the calculation result
 
     
 
-  **MetricResult list is empty**: The request cannot find any data in the system
+  **MetricResult list is empty**: The request cannot find any
+  data in the system
 
   The following guidelines can help you work with the API:
 
@@ -18390,7 +18409,7 @@ defmodule AWS.Connect do
   release 99, you
   will have exceeded the 200% limit. At that point you are blocked from claiming
   any more numbers
-  until you open an Amazon Web ServicesSupport ticket.
+  until you open an Amazon Web Services Support ticket.
   """
   @spec import_phone_number(map(), import_phone_number_request(), list()) ::
           {:ok, import_phone_number_response(), any()}
@@ -18676,7 +18695,7 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   To
-  request access to this API, contact Amazon Web ServicesSupport.
+  request access to this API, contact Amazon Web Services Support.
 
   Provides summary information about the authentication profiles in a specified
   Amazon Connect instance.
@@ -21024,7 +21043,7 @@ defmodule AWS.Connect do
   for up to
   180 days. It cannot be searched for or claimed again until the period has ended.
   If you
-  accidentally release a phone number, contact Amazon Web ServicesSupport.
+  accidentally release a phone number, contact Amazon Web Services Support.
 
   If you plan to claim and release numbers frequently,
   contact us for a service quota exception. Otherwise, it is possible you will be
@@ -21903,7 +21922,7 @@ defmodule AWS.Connect do
   If you use the `ChatDurationInMinutes` parameter and receive a 400 error, your
   account may not support the ability to configure custom chat durations. For more
   information,
-  contact Amazon Web ServicesSupport.
+  contact Amazon Web Services Support.
 
   For more information about chat, see the following topics in the *Amazon Connect
   Administrator Guide*:
@@ -22887,7 +22906,7 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   To
-  request access to this API, contact Amazon Web ServicesSupport.
+  request access to this API, contact Amazon Web Services Support.
 
   Updates the selected authentication profile.
   """

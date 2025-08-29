@@ -4,11 +4,9 @@
 defmodule AWS.SsmSap do
   @moduledoc """
   This API reference provides descriptions, syntax, and other details about each
-  of the
-  actions and data types for AWS Systems Manager for SAP.
+  of the actions and data types for AWS Systems Manager for SAP.
 
-  The topic for each action shows
-  the API request parameters and responses.
+  The topic for each action shows the API request parameters and responses.
   """
 
   alias AWS.Client
@@ -62,12 +60,51 @@ defmodule AWS.SsmSap do
 
   ## Example:
 
+      sub_check_result() :: %{
+        "Description" => [String.t() | atom()],
+        "Id" => String.t() | atom(),
+        "Name" => [String.t() | atom()],
+        "References" => list([String.t() | atom()]())
+      }
+
+  """
+  @type sub_check_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_configuration_checks_input() :: %{
+        optional("ConfigurationCheckIds") => list(list(any())()),
+        required("ApplicationId") => String.t() | atom()
+      }
+
+  """
+  @type start_configuration_checks_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_application_output() :: %{
         "OperationId" => String.t() | atom()
       }
 
   """
   @type start_application_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sub_check_rule_results_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("SubCheckResultId") => String.t() | atom()
+      }
+
+  """
+  @type list_sub_check_rule_results_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -123,6 +160,18 @@ defmodule AWS.SsmSap do
 
   """
   @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sub_check_rule_results_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "RuleResults" => list(rule_result())
+      }
+
+  """
+  @type list_sub_check_rule_results_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -199,6 +248,17 @@ defmodule AWS.SsmSap do
 
   ## Example:
 
+      get_configuration_check_operation_output() :: %{
+        "ConfigurationCheckOperation" => configuration_check_operation()
+      }
+
+  """
+  @type get_configuration_check_operation_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_resource_permission_output() :: %{
         optional("Policy") => [String.t() | atom()]
       }
@@ -216,6 +276,21 @@ defmodule AWS.SsmSap do
 
   """
   @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configuration_check_operations_input() :: %{
+        optional("Filters") => list(filter()),
+        optional("ListMode") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ApplicationId") => String.t() | atom()
+      }
+
+  """
+  @type list_configuration_check_operations_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -283,6 +358,17 @@ defmodule AWS.SsmSap do
 
   """
   @type stop_application_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_configuration_checks_output() :: %{
+        "ConfigurationCheckOperations" => list(configuration_check_operation())
+      }
+
+  """
+  @type start_configuration_checks_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -432,6 +518,26 @@ defmodule AWS.SsmSap do
 
   ## Example:
 
+      configuration_check_operation() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "ConfigurationCheckDescription" => [String.t() | atom()],
+        "ConfigurationCheckId" => list(any()),
+        "ConfigurationCheckName" => [String.t() | atom()],
+        "EndTime" => [non_neg_integer()],
+        "Id" => String.t() | atom(),
+        "RuleStatusCounts" => rule_status_counts(),
+        "StartTime" => [non_neg_integer()],
+        "Status" => list(any()),
+        "StatusMessage" => [String.t() | atom()]
+      }
+
+  """
+  @type configuration_check_operation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_application_settings_output() :: %{
         optional("Message") => [String.t() | atom()],
         optional("OperationIds") => list(String.t() | atom())
@@ -519,6 +625,18 @@ defmodule AWS.SsmSap do
 
   ## Example:
 
+      list_configuration_check_operations_output() :: %{
+        "ConfigurationCheckOperations" => list(configuration_check_operation()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_configuration_check_operations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_resource_permission_input() :: %{
         optional("ActionType") => list(any()),
         optional("SourceResourceArn") => String.t() | atom(),
@@ -594,6 +712,18 @@ defmodule AWS.SsmSap do
 
   ## Example:
 
+      list_configuration_check_definitions_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_configuration_check_definitions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       host() :: %{
         "EC2InstanceId" => [String.t() | atom()],
         "HostIp" => [String.t() | atom()],
@@ -628,6 +758,18 @@ defmodule AWS.SsmSap do
 
   """
   @type get_application_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configuration_check_definitions_output() :: %{
+        "ConfigurationChecks" => list(configuration_check_definition()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_configuration_check_definitions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -670,6 +812,31 @@ defmodule AWS.SsmSap do
 
   ## Example:
 
+      configuration_check_definition() :: %{
+        "ApplicableApplicationTypes" => list(list(any())()),
+        "Description" => [String.t() | atom()],
+        "Id" => list(any()),
+        "Name" => [String.t() | atom()]
+      }
+
+  """
+  @type configuration_check_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configuration_check_operation_input() :: %{
+        required("OperationId") => String.t() | atom()
+      }
+
+  """
+  @type get_configuration_check_operation_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       component_info() :: %{
         "ComponentType" => list(any()),
         "Ec2InstanceId" => String.t() | atom(),
@@ -702,6 +869,21 @@ defmodule AWS.SsmSap do
 
   """
   @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_result() :: %{
+        "Description" => [String.t() | atom()],
+        "Id" => String.t() | atom(),
+        "Message" => [String.t() | atom()],
+        "Metadata" => map(),
+        "Status" => list(any())
+      }
+
+  """
+  @type rule_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -764,6 +946,18 @@ defmodule AWS.SsmSap do
 
   """
   @type get_resource_permission_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sub_check_results_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "SubCheckResults" => list(sub_check_result())
+      }
+
+  """
+  @type list_sub_check_results_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -832,6 +1026,21 @@ defmodule AWS.SsmSap do
 
   ## Example:
 
+      rule_status_counts() :: %{
+        "Failed" => [integer()],
+        "Info" => [integer()],
+        "Passed" => [integer()],
+        "Unknown" => [integer()],
+        "Warning" => [integer()]
+      }
+
+  """
+  @type rule_status_counts() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       register_application_input() :: %{
         optional("ComponentsInfo") => list(component_info()),
         optional("Credentials") => list(application_credential()),
@@ -846,6 +1055,19 @@ defmodule AWS.SsmSap do
 
   """
   @type register_application_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sub_check_results_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("OperationId") => String.t() | atom()
+      }
+
+  """
+  @type list_sub_check_results_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -870,6 +1092,9 @@ defmodule AWS.SsmSap do
   @type get_component_errors() ::
           validation_exception() | internal_server_exception() | unauthorized_exception()
 
+  @type get_configuration_check_operation_errors() ::
+          validation_exception() | internal_server_exception()
+
   @type get_database_errors() :: validation_exception() | internal_server_exception()
 
   @type get_operation_errors() :: validation_exception() | internal_server_exception()
@@ -886,12 +1111,23 @@ defmodule AWS.SsmSap do
           | resource_not_found_exception()
           | unauthorized_exception()
 
+  @type list_configuration_check_definitions_errors() ::
+          validation_exception() | internal_server_exception()
+
+  @type list_configuration_check_operations_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
   @type list_databases_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
   @type list_operation_events_errors() :: validation_exception() | internal_server_exception()
 
   @type list_operations_errors() :: validation_exception() | internal_server_exception()
+
+  @type list_sub_check_results_errors() :: validation_exception() | internal_server_exception()
+
+  @type list_sub_check_rule_results_errors() ::
+          validation_exception() | internal_server_exception()
 
   @type list_tags_for_resource_errors() ::
           validation_exception() | resource_not_found_exception() | conflict_exception()
@@ -917,6 +1153,12 @@ defmodule AWS.SsmSap do
           | resource_not_found_exception()
           | conflict_exception()
           | unauthorized_exception()
+
+  @type start_configuration_checks_errors() ::
+          validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type stop_application_errors() ::
           validation_exception()
@@ -985,8 +1227,8 @@ defmodule AWS.SsmSap do
   @doc """
   Deregister an SAP application with AWS Systems Manager for SAP.
 
-  This action does not
-  aﬀect the existing setup of your SAP workloads on Amazon EC2.
+  This action does not aﬀect the existing setup of your SAP workloads on Amazon
+  EC2.
   """
   @spec deregister_application(map(), deregister_application_input(), list()) ::
           {:ok, deregister_application_output(), any()}
@@ -1017,8 +1259,7 @@ defmodule AWS.SsmSap do
   @doc """
   Gets an application registered with AWS Systems Manager for SAP.
 
-  It also returns the
-  components of the application.
+  It also returns the components of the application.
   """
   @spec get_application(map(), get_application_input(), list()) ::
           {:ok, get_application_output(), any()}
@@ -1077,9 +1318,42 @@ defmodule AWS.SsmSap do
   end
 
   @doc """
+  Gets the details of a configuration check operation by specifying the operation
+  ID.
+  """
+  @spec get_configuration_check_operation(
+          map(),
+          get_configuration_check_operation_input(),
+          list()
+        ) ::
+          {:ok, get_configuration_check_operation_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_configuration_check_operation_errors()}
+  def get_configuration_check_operation(%Client{} = client, input, options \\ []) do
+    url_path = "/get-configuration-check-operation"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Gets the SAP HANA database of an application registered with AWS Systems Manager
-  for
-  SAP.
+  for SAP.
   """
   @spec get_database(map(), get_database_input(), list()) ::
           {:ok, get_database_output(), any()}
@@ -1224,9 +1498,75 @@ defmodule AWS.SsmSap do
   end
 
   @doc """
-  Lists the SAP HANA databases of an application registered with AWS Systems
-  Manager for
+  Lists all configuration check types supported by AWS Systems Manager for SAP.
+  """
+  @spec list_configuration_check_definitions(
+          map(),
+          list_configuration_check_definitions_input(),
+          list()
+        ) ::
+          {:ok, list_configuration_check_definitions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_configuration_check_definitions_errors()}
+  def list_configuration_check_definitions(%Client{} = client, input, options \\ []) do
+    url_path = "/list-configuration-check-definitions"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists the configuration check operations performed by AWS Systems Manager for
   SAP.
+  """
+  @spec list_configuration_check_operations(
+          map(),
+          list_configuration_check_operations_input(),
+          list()
+        ) ::
+          {:ok, list_configuration_check_operations_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_configuration_check_operations_errors()}
+  def list_configuration_check_operations(%Client{} = client, input, options \\ []) do
+    url_path = "/list-configuration-check-operations"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists the SAP HANA databases of an application registered with AWS Systems
+  Manager for SAP.
   """
   @spec list_databases(map(), list_databases_input(), list()) ::
           {:ok, list_databases_output(), any()}
@@ -1316,9 +1656,67 @@ defmodule AWS.SsmSap do
   end
 
   @doc """
+  Lists the sub-check results of a specified configuration check operation.
+  """
+  @spec list_sub_check_results(map(), list_sub_check_results_input(), list()) ::
+          {:ok, list_sub_check_results_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_sub_check_results_errors()}
+  def list_sub_check_results(%Client{} = client, input, options \\ []) do
+    url_path = "/list-sub-check-results"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists the rules of a specified sub-check belonging to a configuration check
+  operation.
+  """
+  @spec list_sub_check_rule_results(map(), list_sub_check_rule_results_input(), list()) ::
+          {:ok, list_sub_check_rule_results_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_sub_check_rule_results_errors()}
+  def list_sub_check_rule_results(%Client{} = client, input, options \\ []) do
+    url_path = "/list-sub-check-rule-results"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists all tags on an SAP HANA application and/or database registered with AWS
-  Systems
-  Manager for SAP.
+  Systems Manager for SAP.
   """
   @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1367,20 +1765,16 @@ defmodule AWS.SsmSap do
   @doc """
   Register an SAP application with AWS Systems Manager for SAP.
 
-  You must meet the
-  following requirements before registering.
+  You must meet the following requirements before registering.
 
   The SAP application you want to register with AWS Systems Manager for SAP is
-  running
-  on Amazon EC2.
+  running on Amazon EC2.
 
   AWS Systems Manager Agent must be setup on an Amazon EC2 instance along with the
-  required
-  IAM permissions.
+  required IAM permissions.
 
   Amazon EC2 instance(s) must have access to the secrets created in AWS Secrets
-  Manager to
-  manage SAP applications and components.
+  Manager to manage SAP applications and components.
   """
   @spec register_application(map(), register_application_input(), list()) ::
           {:ok, register_application_output(), any()}
@@ -1469,11 +1863,39 @@ defmodule AWS.SsmSap do
   end
 
   @doc """
+  Initiates configuration check operations against a specified application.
+  """
+  @spec start_configuration_checks(map(), start_configuration_checks_input(), list()) ::
+          {:ok, start_configuration_checks_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_configuration_checks_errors()}
+  def start_configuration_checks(%Client{} = client, input, options \\ []) do
+    url_path = "/start-configuration-checks"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Request is an operation to stop an application.
 
-  Parameter `ApplicationId` is required. Parameters
-  `StopConnectedEntity` and `IncludeEc2InstanceShutdown` are
-  optional.
+  Parameter `ApplicationId` is required. Parameters `StopConnectedEntity` and
+  `IncludeEc2InstanceShutdown` are optional.
   """
   @spec stop_application(map(), stop_application_input(), list()) ::
           {:ok, stop_application_output(), any()}

@@ -78,6 +78,8 @@ defmodule AWS.Omics do
 
       create_workflow_request() :: %{
         optional("accelerators") => String.t() | atom(),
+        optional("containerRegistryMap") => container_registry_map(),
+        optional("containerRegistryMapUri") => String.t() | atom(),
         optional("definitionRepository") => definition_repository(),
         optional("definitionUri") => String.t() | atom(),
         optional("definitionZip") => [binary()],
@@ -681,6 +683,7 @@ defmodule AWS.Omics do
       get_workflow_version_response() :: %{
         "accelerators" => String.t() | atom(),
         "arn" => String.t() | atom(),
+        "containerRegistryMap" => container_registry_map(),
         "creationTime" => non_neg_integer(),
         "definition" => String.t() | atom(),
         "definitionRepositoryDetails" => definition_repository_details(),
@@ -1525,6 +1528,20 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      registry_mapping() :: %{
+        "ecrAccountId" => String.t() | atom(),
+        "ecrRepositoryPrefix" => String.t() | atom(),
+        "upstreamRegistryUrl" => String.t() | atom(),
+        "upstreamRepositoryPrefix" => String.t() | atom()
+      }
+
+  """
+  @type registry_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       variant_import_item_source() :: %{
         "source" => String.t() | atom()
       }
@@ -1765,6 +1782,8 @@ defmodule AWS.Omics do
 
       create_workflow_version_request() :: %{
         optional("accelerators") => String.t() | atom(),
+        optional("containerRegistryMap") => container_registry_map(),
+        optional("containerRegistryMapUri") => String.t() | atom(),
         optional("definitionRepository") => definition_repository(),
         optional("definitionUri") => String.t() | atom(),
         optional("definitionZip") => [binary()],
@@ -1972,6 +1991,19 @@ defmodule AWS.Omics do
 
   """
   @type create_multipart_read_set_upload_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_details() :: %{
+        "image" => String.t() | atom(),
+        "imageDigest" => String.t() | atom(),
+        "sourceImage" => String.t() | atom()
+      }
+
+  """
+  @type image_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2930,6 +2962,18 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      image_mapping() :: %{
+        "destinationImage" => String.t() | atom(),
+        "sourceImage" => String.t() | atom()
+      }
+
+  """
+  @type image_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       variant_import_item_detail() :: %{
         "jobStatus" => String.t() | atom(),
         "source" => String.t() | atom(),
@@ -2959,6 +3003,7 @@ defmodule AWS.Omics do
         "creationTime" => non_neg_integer(),
         "failureReason" => String.t() | atom(),
         "gpus" => [integer()],
+        "imageDetails" => image_details(),
         "instanceType" => String.t() | atom(),
         "logStream" => String.t() | atom(),
         "memory" => [integer()],
@@ -3100,7 +3145,6 @@ defmodule AWS.Omics do
         optional("cacheId") => String.t() | atom(),
         optional("logLevel") => String.t() | atom(),
         optional("name") => String.t() | atom(),
-        optional("outputUri") => String.t() | atom(),
         optional("parameters") => any(),
         optional("priority") => [integer()],
         optional("retentionMode") => String.t() | atom(),
@@ -3113,6 +3157,7 @@ defmodule AWS.Omics do
         optional("workflowOwnerId") => String.t() | atom(),
         optional("workflowType") => String.t() | atom(),
         optional("workflowVersionName") => String.t() | atom(),
+        required("outputUri") => String.t() | atom(),
         required("requestId") => String.t() | atom(),
         required("roleArn") => String.t() | atom()
       }
@@ -3346,6 +3391,18 @@ defmodule AWS.Omics do
 
   """
   @type list_annotation_store_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      container_registry_map() :: %{
+        "imageMappings" => list(image_mapping()),
+        "registryMappings" => list(registry_mapping())
+      }
+
+  """
+  @type container_registry_map() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3663,6 +3720,7 @@ defmodule AWS.Omics do
       get_workflow_response() :: %{
         "accelerators" => String.t() | atom(),
         "arn" => String.t() | atom(),
+        "containerRegistryMap" => container_registry_map(),
         "creationTime" => non_neg_integer(),
         "definition" => String.t() | atom(),
         "definitionRepositoryDetails" => definition_repository_details(),
@@ -4562,7 +4620,12 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Stops a multipart upload.
+  Stops a multipart read set upload into a sequence store and returns a response
+  with no body if the operation is successful.
+
+  To confirm that a multipart read set upload has been stopped, use the
+  `ListMultipartReadSetUploads` API operation to view all active multipart read
+  set uploads.
   """
   @spec abort_multipart_read_set_upload(
           map(),
@@ -4635,6 +4698,13 @@ defmodule AWS.Omics do
 
   @doc """
   Deletes one or more read sets.
+
+  If the operation is successful, it returns a response with no body. If there is
+  an error with deleting one of the read sets, the operation returns an error
+  list. If the operation successfully deletes only a subset of files, it will
+  return an error list for the remaining files that fail to be deleted. There is a
+  limit of 100 read sets that can be deleted in each `BatchDeleteReadSet` API
+  call.
   """
   @spec batch_delete_read_set(map(), String.t() | atom(), batch_delete_read_set_request(), list()) ::
           {:ok, batch_delete_read_set_response(), any()}
@@ -4764,7 +4834,16 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Concludes a multipart upload once you have uploaded all the components.
+  Completes a multipart read set upload into a sequence store after you have
+  initiated the upload process with `CreateMultipartReadSetUpload` and uploaded
+  all read set parts using `UploadReadSetPart`.
+
+  You must specify the parts you uploaded using the parts parameter. If the
+  operation is successful, it returns the read set ID(s) of the uploaded read
+  set(s).
+
+  For more information, see [Direct upload to a sequence store](https://docs.aws.amazon.com/omics/latest/dev/synchronous-uploads.html) in
+  the *Amazon Web Services HealthOmics User Guide*.
   """
   @spec complete_multipart_read_set_upload(
           map(),
@@ -4870,7 +4949,31 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Begins a multipart read set upload.
+  Initiates a multipart read set upload for uploading partitioned source files
+  into a sequence store.
+
+  You can directly import source files from an EC2 instance and other local
+  compute, or from an S3 bucket. To separate these source files into parts, use
+  the `split` operation. Each part cannot be larger than 100 MB. If the operation
+  is successful, it provides an `uploadId` which is required by the
+  `UploadReadSetPart` API operation to upload parts into a sequence store.
+
+  To continue uploading a multipart read set into your sequence store, you must
+  use the `UploadReadSetPart` API operation to upload each part individually
+  following the steps below:
+
+    * Specify the `uploadId` obtained from the previous call to
+  `CreateMultipartReadSetUpload`.
+
+    * Upload parts for that `uploadId`.
+
+  When you have finished uploading parts, use the `CompleteMultipartReadSetUpload`
+  API to complete the multipart read set upload and to retrieve the final read set
+  IDs in the response.
+
+  To learn more about creating parts and the `split` operation, see [Direct upload to a sequence
+  store](https://docs.aws.amazon.com/omics/latest/dev/synchronous-uploads.html) in
+  the *Amazon Web Services HealthOmics User Guide*.
   """
   @spec create_multipart_read_set_upload(
           map(),
@@ -4909,7 +5012,15 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Creates a reference store.
+  Creates a reference store and returns metadata in JSON format.
+
+  Reference stores are used to store reference genomes in FASTA format. A
+  reference store is created when the first reference genome is imported. To
+  import additional reference genomes from an Amazon S3 bucket, use the
+  `StartReferenceImportJob` API operation.
+
+  For more information, see [Creating a HealthOmics reference store](https://docs.aws.amazon.com/omics/latest/dev/create-reference-store.html)
+  in the *Amazon Web Services HealthOmics User Guide*.
   """
   @spec create_reference_store(map(), create_reference_store_request(), list()) ::
           {:ok, create_reference_store_response(), any()}
@@ -5009,7 +5120,32 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Creates a sequence store.
+  Creates a sequence store and returns its metadata.
+
+  Sequence stores are used to store sequence data files called read sets that are
+  saved in FASTQ, BAM, uBAM, or CRAM formats. For aligned formats (BAM and CRAM),
+  a sequence store can only use one reference genome. For unaligned formats (FASTQ
+  and uBAM), a reference genome is not required. You can create multiple sequence
+  stores per region per account.
+
+  The following are optional parameters you can specify for your sequence store:
+
+    * Use `s3AccessConfig` to configure your sequence store with S3
+  access logs (recommended).
+
+    * Use `sseConfig` to define your own KMS key for encryption.
+
+    * Use `eTagAlgorithmFamily` to define which algorithm to use for the
+  HealthOmics eTag on objects.
+
+    * Use `fallbackLocation` to define a backup location for storing
+  files that have failed a direct upload.
+
+    * Use `propagatedSetLevelTags` to configure tags that propagate to
+  all objects in your store.
+
+  For more information, see [Creating a HealthOmics sequence store](https://docs.aws.amazon.com/omics/latest/dev/create-sequence-store.html)
+  in the *Amazon Web Services HealthOmics User Guide*.
   """
   @spec create_sequence_store(map(), create_sequence_store_request(), list()) ::
           {:ok, create_sequence_store_response(), any()}
@@ -5123,8 +5259,9 @@ defmodule AWS.Omics do
   template file that defines the run parameters, or Amazon Web Services
   HealthOmics can generate the parameter template for you.
 
-    * *ECR container images*: Create one or more container images for
-  the workflow. Store the images in a private ECR repository.
+    * *ECR container images*: Create container images for the workflow
+  in a private ECR repository, or synchronize images from a supported upstream
+  registry with your Amazon ECR private repository.
 
     * (Optional) *Sentieon licenses*: Request a Sentieon license if
   using the Sentieon software in a private workflow.
@@ -5170,7 +5307,7 @@ defmodule AWS.Omics do
   Provide a version name that is unique for this workflow. You cannot change the
   name after HealthOmics creates the version.
 
-  Don’t include any personally identifiable information (PII) in the version name.
+  Don't include any personally identifiable information (PII) in the version name.
   Version names appear in the workflow version ARN.
 
   For more information, see [Workflow versioning in Amazon Web Services HealthOmics](https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html)
@@ -5286,7 +5423,15 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Deletes a genome reference.
+  Deletes a reference genome and returns a response with no body if the operation
+  is successful.
+
+  The read set associated with the reference genome must first be deleted before
+  deleting the reference genome. After the reference genome is deleted, you can
+  delete the reference store using the `DeleteReferenceStore` API operation.
+
+  For more information, see [Deleting HealthOmics reference and sequence stores](https://docs.aws.amazon.com/omics/latest/dev/deleting-reference-and-sequence-stores.html)
+  in the *Amazon Web Services HealthOmics User Guide*.
   """
   @spec delete_reference(
           map(),
@@ -5323,7 +5468,15 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Deletes a genome reference store.
+  Deletes a reference store and returns a response with no body if the operation
+  is successful.
+
+  You can only delete a reference store when it does not contain any reference
+  genomes. To empty a reference store, use `DeleteReference`.
+
+  For more information about your workflow status, see [Deleting HealthOmics reference and sequence
+  stores](https://docs.aws.amazon.com/omics/latest/dev/deleting-reference-and-sequence-stores.html)
+  in the *Amazon Web Services HealthOmics User Guide*.
   """
   @spec delete_reference_store(
           map(),
@@ -5509,7 +5662,17 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Deletes a sequence store.
+  Deletes a sequence store and returns a response with no body if the operation is
+  successful.
+
+  You can only delete a sequence store when it does not contain any read sets.
+
+  Use the `BatchDeleteReadSet` API operation to ensure that all read sets in the
+  sequence store are deleted. When a sequence store is deleted, all tags
+  associated with the store are also deleted.
+
+  For more information, see [Deleting HealthOmics reference and sequence stores](https://docs.aws.amazon.com/omics/latest/dev/deleting-reference-and-sequence-stores.html)
+  in the *Amazon Web Services HealthOmics User Guide*.
   """
   @spec delete_sequence_store(map(), String.t() | atom(), delete_sequence_store_request(), list()) ::
           {:ok, delete_sequence_store_response(), any()}
@@ -5607,7 +5770,7 @@ defmodule AWS.Omics do
   @doc """
   Deletes a workflow by specifying its ID.
 
-  No response is returned if the deletion is successful.
+  This operation returns a response with no body if the deletion is successful.
 
   To verify that the workflow is deleted:
 
@@ -5742,7 +5905,11 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Gets a file from a read set.
+  Retrieves detailed information from parts of a read set and returns the read set
+  in the same format that it was uploaded.
+
+  You must have read sets uploaded to your sequence store in order to run this
+  operation.
   """
   @spec get_read_set(
           map(),
@@ -5790,7 +5957,8 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Gets information about a read set activation job.
+  Returns detailed information about the status of a read set activation job in
+  JSON format.
   """
   @spec get_read_set_activation_job(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_read_set_activation_job_response(), any()}
@@ -5810,7 +5978,10 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Gets information about a read set export job.
+  Retrieves status information about a read set export job and returns the data in
+  JSON format.
+
+  Use this operation to actively monitor the progress of an export job.
   """
   @spec get_read_set_export_job(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_read_set_export_job_response(), any()}
@@ -5830,7 +6001,8 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Gets information about a read set import job.
+  Gets detailed and status information about a read set import job and returns the
+  data in JSON format.
   """
   @spec get_read_set_import_job(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_read_set_import_job_response(), any()}
@@ -5850,7 +6022,10 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Gets details about a read set.
+  Retrieves the metadata for a read set from a sequence store in JSON format.
+
+  This operation does not return tags. To retrieve the list of tags for a read
+  set, use the `ListTagsForResource` API operation.
   """
   @spec get_read_set_metadata(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_read_set_metadata_response(), any()}
@@ -5870,7 +6045,11 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Gets a reference file.
+  Downloads parts of data from a reference genome and returns the reference file
+  in the same format that it was uploaded.
+
+  For more information, see [Creating a HealthOmics reference store](https://docs.aws.amazon.com/omics/latest/dev/create-reference-store.html)
+  in the *Amazon Web Services HealthOmics User Guide*.
   """
   @spec get_reference(
           map(),
@@ -5928,7 +6107,10 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Gets information about a reference import job.
+  Monitors the status of a reference import job.
+
+  This operation can be called after calling the `StartReferenceImportJob`
+  operation.
   """
   @spec get_reference_import_job(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_reference_import_job_response(), any()}
@@ -5948,7 +6130,11 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Gets information about a genome reference's metadata.
+  Retrieves metadata for a reference genome.
+
+  This operation returns the number of parts, part size, and MD5 of an entire
+  file. This operation does not return tags. To retrieve the list of tags for a
+  read set, use the `ListTagsForResource` API operation.
   """
   @spec get_reference_metadata(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_reference_metadata_response(), any()}
@@ -6093,7 +6279,8 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Gets information about a sequence store.
+  Retrieves metadata for a sequence store using its ID and returns it in JSON
+  format.
   """
   @spec get_sequence_store(map(), String.t() | atom(), list()) ::
           {:ok, get_sequence_store_response(), any()}
@@ -6393,10 +6580,12 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Lists multipart read set uploads and for in progress uploads.
+  Lists in-progress multipart read set uploads for a sequence store and returns it
+  in a JSON formatted output.
 
-  Once the upload is completed, a read set is created and the upload will no
-  longer be returned in the response.
+  Multipart read set uploads are initiated by the `CreateMultipartReadSetUploads`
+  API operation. This operation returns a response with no body when the upload is
+  complete.
   """
   @spec list_multipart_read_set_uploads(
           map(),
@@ -6436,7 +6625,11 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Retrieves a list of read set activation jobs.
+  Retrieves a list of read set activation jobs and returns the metadata in a JSON
+  formatted output.
+
+  To extract metadata from a read set activation job, use the
+  `GetReadSetActivationJob` API operation.
   """
   @spec list_read_set_activation_jobs(
           map(),
@@ -6476,7 +6669,10 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Retrieves a list of read set export jobs.
+  Retrieves a list of read set export jobs in a JSON formatted response.
+
+  This API operation is used to check the status of a read set export job
+  initiated by the `StartReadSetExportJob` API operation.
   """
   @spec list_read_set_export_jobs(
           map(),
@@ -6516,7 +6712,7 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Retrieves a list of read set import jobs.
+  Retrieves a list of read set import jobs and returns the data in JSON format.
   """
   @spec list_read_set_import_jobs(
           map(),
@@ -6556,8 +6752,8 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  This operation will list all parts in a requested multipart upload for a
-  sequence store.
+  Lists all parts in a multipart read set upload for a sequence store and returns
+  the metadata in a JSON formatted output.
   """
   @spec list_read_set_upload_parts(
           map(),
@@ -6606,7 +6802,8 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Retrieves a list of read sets.
+  Retrieves a list of read sets from a sequence store ID and returns the metadata
+  in JSON format.
   """
   @spec list_read_sets(map(), String.t() | atom(), list_read_sets_request(), list()) ::
           {:ok, list_read_sets_response(), any()}
@@ -6641,7 +6838,8 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Retrieves a list of reference import jobs.
+  Retrieves the metadata of one or more reference import jobs for a reference
+  store.
   """
   @spec list_reference_import_jobs(
           map(),
@@ -6681,7 +6879,11 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Retrieves a list of reference stores.
+  Retrieves a list of reference stores linked to your account and returns their
+  metadata in JSON format.
+
+  For more information, see [Creating a reference store](https://docs.aws.amazon.com/omics/latest/dev/create-reference-store.html)
+  in the *Amazon Web Services HealthOmics User Guide*.
   """
   @spec list_reference_stores(map(), list_reference_stores_request(), list()) ::
           {:ok, list_reference_stores_response(), any()}
@@ -6716,7 +6918,10 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Retrieves a list of references.
+  Retrieves the metadata of one or more reference genomes in a reference store.
+
+  For more information, see [Creating a reference store](https://docs.aws.amazon.com/omics/latest/dev/create-reference-store.html)
+  in the *Amazon Web Services HealthOmics User Guide*.
   """
   @spec list_references(map(), String.t() | atom(), list_references_request(), list()) ::
           {:ok, list_references_response(), any()}
@@ -6971,7 +7176,10 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Retrieves a list of sequence stores.
+  Retrieves a list of sequence stores and returns each sequence store's metadata.
+
+  For more information, see [Creating a HealthOmics sequence store](https://docs.aws.amazon.com/omics/latest/dev/create-sequence-store.html)
+  in the *Amazon Web Services HealthOmics User Guide*.
   """
   @spec list_sequence_stores(map(), list_sequence_stores_request(), list()) ::
           {:ok, list_sequence_stores_response(), any()}
@@ -7319,9 +7527,15 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Activates an archived read set.
+  Activates an archived read set and returns its metadata in a JSON formatted
+  output.
 
-  To reduce storage charges, Amazon Omics archives unused read sets after 30 days.
+  AWS HealthOmics automatically archives unused read sets after 30 days. To
+  monitor the status of your read set activation job, use the
+  `GetReadSetActivationJob` operation.
+
+  To learn more, see [Activating read sets](https://docs.aws.amazon.com/omics/latest/dev/activating-read-sets.html) in
+  the *Amazon Web Services HealthOmics User Guide*.
   """
   @spec start_read_set_activation_job(
           map(),
@@ -7355,7 +7569,13 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Exports a read set to Amazon S3.
+  Starts a read set export job.
+
+  When the export job is finished, the read set is exported to an Amazon S3 bucket
+  which can be retrieved using the `GetReadSetExportJob` API operation.
+
+  To monitor the status of the export job, use the `ListReadSetExportJobs` API
+  operation.
   """
   @spec start_read_set_export_job(
           map(),
@@ -7389,7 +7609,11 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Starts a read set import job.
+  Imports a read set from the sequence store.
+
+  Read set import jobs support a maximum of 100 read sets of different types.
+  Monitor the progress of your read set import job by calling the
+  `GetReadSetImportJob` API operation.
   """
   @spec start_read_set_import_job(
           map(),
@@ -7423,7 +7647,12 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Starts a reference import job.
+  Imports a reference genome from Amazon S3 into a specified reference store.
+
+  You can have multiple reference genomes in a reference store. You can only
+  import reference genomes one at a time into each reference store. Monitor the
+  status of your reference import job by using the `GetReferenceImportJob` API
+  operation.
   """
   @spec start_reference_import_job(
           map(),
@@ -7934,10 +8163,15 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  This operation uploads a specific part of a read set.
+  Uploads a specific part of a read set into a sequence store.
 
-  If you upload a new part using a previously used part number, the previously
-  uploaded part will be overwritten.
+  When you a upload a read set part with a part number that already exists, the
+  new part replaces the existing one. This operation returns a JSON formatted
+  response containing a string identifier that is used to confirm that parts are
+  being added to the intended upload.
+
+  For more information, see [Direct upload to a sequence store](https://docs.aws.amazon.com/omics/latest/dev/synchronous-uploads.html) in
+  the *Amazon Web Services HealthOmics User Guide*.
   """
   @spec upload_read_set_part(
           map(),

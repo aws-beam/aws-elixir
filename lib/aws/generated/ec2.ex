@@ -5256,6 +5256,8 @@ defmodule AWS.EC2 do
         optional("ClientToken") => String.t() | atom(),
         optional("CopyImageTags") => boolean(),
         optional("Description") => String.t() | atom(),
+        optional("DestinationAvailabilityZone") => String.t() | atom(),
+        optional("DestinationAvailabilityZoneId") => String.t() | atom(),
         optional("DestinationOutpostArn") => String.t() | atom(),
         optional("DryRun") => boolean(),
         optional("Encrypted") => boolean(),
@@ -22402,6 +22404,7 @@ defmodule AWS.EC2 do
       copy_snapshot_request() :: %{
         optional("CompletionDurationMinutes") => integer(),
         optional("Description") => String.t() | atom(),
+        optional("DestinationAvailabilityZone") => String.t() | atom(),
         optional("DestinationOutpostArn") => String.t() | atom(),
         optional("DestinationRegion") => String.t() | atom(),
         optional("DryRun") => boolean(),
@@ -32027,25 +32030,97 @@ defmodule AWS.EC2 do
   @doc """
   Initiates an AMI copy operation.
 
-  You can copy an AMI from one Region to another, or from a
-  Region to an Outpost. You can't copy an AMI from an Outpost to a Region, from
-  one Outpost to
-  another, or within the same Outpost. To copy an AMI to another partition, see
-  [CreateStoreImageTask](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html).   When you copy an AMI from one Region to another, the destination Region is the
-  current
+  You must specify the source AMI ID and both the source
+  and destination locations. The copy operation must be initiated in the
+  destination
   Region.
 
-  When you copy an AMI from a Region to an Outpost, specify the ARN of the Outpost
-  as the
-  destination. Backing snapshots copied to an Outpost are encrypted by default
-  using the default
-  encryption key for the Region or the key that you specify. Outposts do not
-  support unencrypted
-  snapshots.
+  ## CopyImage supports the following source to destination copies:
 
-  For information about the prerequisites when copying an AMI, see [Copy an Amazon
-  EC2 AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html)
-  in the
+    *
+  Region to Region
+
+    *
+  Region to Outpost
+
+    *
+  Parent Region to Local Zone
+
+    *
+  Local Zone to parent Region
+
+    *
+  Between Local Zones with the same parent Region (only supported for certain
+  Local
+  Zones)
+
+  ## CopyImage does not support the following source to destination copies:
+
+    *
+  Local Zone to non-parent Regions
+
+    *
+  Between Local Zones with different parent Regions
+
+    *
+  Local Zone to Outpost
+
+    *
+  Outpost to Local Zone
+
+    *
+  Outpost to Region
+
+    *
+  Between Outposts
+
+    *
+  Within same Outpost
+
+    *
+  Cross-partition copies (use
+  [CreateStoreImageTask](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html) instead)
+
+  ## Destination specification
+
+    *
+  Region to Region: The destination Region is the Region in which you initiate the
+  copy
+  operation.
+
+    *
+  Region to Outpost: Specify the destination using the
+  `DestinationOutpostArn` parameter (the ARN of the Outpost)
+
+    *
+  Region to Local Zone, and Local Zone to Local Zone copies: Specify the
+  destination
+  using the `DestinationAvailabilityZone` parameter (the name of the destination
+  Local Zone) or `DestinationAvailabilityZoneId` parameter (the ID of the
+  destination Local Zone).
+
+  ## Snapshot encryption
+
+    *
+  Region to Outpost: Backing snapshots copied to an Outpost are encrypted by
+  default
+  using the default encryption key for the Region or the key that you specify.
+  Outposts do
+  not support unencrypted snapshots.
+
+    *
+  Region to Local Zone, and Local Zone to Local Zone: Not all Local Zones require
+  encrypted snapshots. In Local Zones that require encrypted snapshots, backing
+  snapshots
+  are automatically encrypted during copy. In Local Zones where encryption is not
+  required,
+  snapshots retain their original encryption state (encrypted or unencrypted) by
+  default.
+
+  For more information, including the required permissions for copying an AMI, see
+  [Copy an Amazon EC2
+  AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html) in
+  the
   *Amazon EC2 User Guide*.
   """
   @spec copy_image(map(), copy_image_request(), list()) ::
@@ -32059,16 +32134,25 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Copies a point-in-time snapshot of an EBS volume and stores it in Amazon S3.
+  Creates an exact copy of an Amazon EBS snapshot.
 
-  You can copy a
-  snapshot within the same Region, from one Region to another, or from a Region to
-  an Outpost.
-  You can't copy a snapshot from an Outpost to a Region, from one Outpost to
-  another, or within
-  the same Outpost.
+  The location of the source snapshot determines whether you can copy it or not,
+  and the allowed destinations for the snapshot copy.
 
-  You can use the snapshot to create EBS volumes or Amazon Machine Images (AMIs).
+    *
+  If the source snapshot is in a Region, you can copy it within that Region,
+  to another Region, to an Outpost associated with that Region, or to a Local
+  Zone in that Region.
+
+    *
+  If the source snapshot is in a Local Zone, you can copy it within that Local
+  Zone,
+  to another Local Zone in the same zone group, or to the parent Region of the
+  Local
+  Zone.
+
+    *
+  If the source snapshot is on an Outpost, you can't copy it.
 
   When copying snapshots to a Region, copies of encrypted EBS snapshots remain
   encrypted.
@@ -32090,9 +32174,9 @@ defmodule AWS.EC2 do
   Outposts](https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#ami)
   in the *Amazon EBS User Guide*.
 
-  Snapshots created by copying another snapshot have an arbitrary volume ID that
-  should not
-  be used for any purpose.
+  Snapshots copies have an arbitrary source volume ID. Do not use this volume ID
+  for
+  any purpose.
 
   For more information, see [Copy an Amazon EBS snapshot](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-copy-snapshot.html)
   in the
@@ -32596,7 +32680,7 @@ defmodule AWS.EC2 do
   many resources
   (EC2 instances or launch templates) are referencing it.
 
-  For more information, see [View your AMI usage](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-ami-usage.html)
+  For more information, see [View your AMI usage](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/your-ec2-ami-usage.html)
   in the
   *Amazon EC2 User Guide*.
   """
@@ -34816,7 +34900,7 @@ defmodule AWS.EC2 do
   @doc """
   Deletes the specified image usage report.
 
-  For more information, see [View your AMI usage](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-ami-usage.html)
+  For more information, see [View your AMI usage](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/your-ec2-ami-usage.html)
   in the
   *Amazon EC2 User Guide*.
   """
@@ -37318,7 +37402,7 @@ defmodule AWS.EC2 do
   Describes your Amazon Web Services resources that are referencing the specified
   images.
 
-  For more information, see [Identiy your resources referencing selected
+  For more information, see [Identify your resources referencing specified
   AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-ami-references.html)
   in the *Amazon EC2 User Guide*.
   """
@@ -37337,7 +37421,7 @@ defmodule AWS.EC2 do
   across
   other Amazon Web Services accounts.
 
-  For more information, see [View your AMI usage](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-ami-usage.html)
+  For more information, see [View your AMI usage](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/your-ec2-ami-usage.html)
   in the
   *Amazon EC2 User Guide*.
   """
@@ -37360,7 +37444,7 @@ defmodule AWS.EC2 do
   report IDs or
   image IDs.
 
-  For more information, see [View your AMI usage](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-ami-usage.html)
+  For more information, see [View your AMI usage](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/your-ec2-ami-usage.html)
   in the
   *Amazon EC2 User Guide*.
   """

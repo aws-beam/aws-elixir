@@ -3,9 +3,12 @@
 
 defmodule AWS.HealthLake do
   @moduledoc """
-  AWS HealthLake is a HIPAA eligibile service that allows customers to store,
-  transform, query, and analyze their FHIR-formatted data in a consistent fashion
-  in the cloud.
+  This is the *AWS HealthLake API Reference*.
+
+  For an introduction to
+  the service, see [What is AWS HealthLake?](https://docs.aws.amazon.com/healthlake/latest/devguide/what-is.html)
+  in the *AWS HealthLake Developer
+  Guide*.
   """
 
   alias AWS.Client
@@ -91,6 +94,7 @@ defmodule AWS.HealthLake do
       start_fhir_import_job_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         optional("JobName") => String.t() | atom(),
+        optional("ValidationLevel") => list(any()),
         required("DataAccessRoleArn") => String.t() | atom(),
         required("DatastoreId") => String.t() | atom(),
         required("InputDataConfig") => list(),
@@ -146,7 +150,8 @@ defmodule AWS.HealthLake do
         "JobProgressReport" => job_progress_report(),
         "JobStatus" => list(any()),
         "Message" => String.t() | atom(),
-        "SubmitTime" => non_neg_integer()
+        "SubmitTime" => non_neg_integer(),
+        "ValidationLevel" => list(any())
       }
       
   """
@@ -668,7 +673,7 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
-  Creates a data store that can ingest and export FHIR formatted data.
+  Create a FHIR-enabled data store.
   """
   @spec create_fhir_datastore(map(), create_fhir_datastore_request(), list()) ::
           {:ok, create_fhir_datastore_response(), any()}
@@ -682,7 +687,7 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
-  Deletes a data store.
+  Delete a FHIR-enabled data store.
   """
   @spec delete_fhir_datastore(map(), delete_fhir_datastore_request(), list()) ::
           {:ok, delete_fhir_datastore_response(), any()}
@@ -696,10 +701,7 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
-  Gets the properties associated with the FHIR data store, including the data
-  store ID,
-  data store ARN, data store name, data store status, when the data store was
-  created, data store type version, and the data store's endpoint.
+  Get properties for a FHIR-enabled data store.
   """
   @spec describe_fhir_datastore(map(), describe_fhir_datastore_request(), list()) ::
           {:ok, describe_fhir_datastore_response(), any()}
@@ -713,8 +715,7 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
-  Displays the properties of a FHIR export job, including the ID, ARN, name, and
-  the status of the job.
+  Get FHIR export job properties.
   """
   @spec describe_fhir_export_job(map(), describe_fhir_export_job_request(), list()) ::
           {:ok, describe_fhir_export_job_response(), any()}
@@ -728,8 +729,7 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
-  Displays the properties of a FHIR import job, including the ID, ARN, name, and
-  the status of the job.
+  Get the import job properties to learn more about the job or job progress.
   """
   @spec describe_fhir_import_job(map(), describe_fhir_import_job_request(), list()) ::
           {:ok, describe_fhir_import_job_response(), any()}
@@ -743,8 +743,8 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
-  Lists all FHIR data stores that are in the user’s account, regardless of data
-  store status.
+  List all FHIR-enabled data stores in a user’s account, regardless of data store
+  status.
   """
   @spec list_fhir_datastores(map(), list_fhir_datastores_request(), list()) ::
           {:ok, list_fhir_datastores_response(), any()}
@@ -758,7 +758,6 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
-
   Lists all FHIR export jobs associated with an account and their statuses.
   """
   @spec list_fhir_export_jobs(map(), list_fhir_export_jobs_request(), list()) ::
@@ -773,8 +772,7 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
-
-  Lists all FHIR import jobs associated with an account and their statuses.
+  List all FHIR import jobs associated with an account and their statuses.
   """
   @spec list_fhir_import_jobs(map(), list_fhir_import_jobs_request(), list()) ::
           {:ok, list_fhir_import_jobs_response(), any()}
@@ -788,7 +786,6 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
-
   Returns a list of all existing tags associated with a data store.
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
@@ -803,7 +800,7 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
-  Begins a FHIR export job.
+  Start a FHIR export job.
   """
   @spec start_fhir_export_job(map(), start_fhir_export_job_request(), list()) ::
           {:ok, start_fhir_export_job_response(), any()}
@@ -817,7 +814,11 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
-  Begins a FHIR Import job.
+  Start importing bulk FHIR data into an ACTIVE data store.
+
+  The import job imports FHIR
+  data found in the `InputDataConfig` object and stores processing results in the
+  `JobOutputDataConfig` object.
   """
   @spec start_fhir_import_job(map(), start_fhir_import_job_request(), list()) ::
           {:ok, start_fhir_import_job_response(), any()}
@@ -831,8 +832,7 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
-
-  Adds a user specified key and value tag to a data store.
+  Add a user-specifed key and value tag to a data store.
   """
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -846,8 +846,7 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
-
-  Removes tags from a data store.
+  Remove a user-specifed key and value tag from a data store.
   """
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}

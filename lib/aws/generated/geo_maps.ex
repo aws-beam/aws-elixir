@@ -8,29 +8,23 @@ defmodule AWS.GeoMaps do
 
   Capabilities include:
 
-    *
-  Access to comprehensive base map data, allowing you to tailor the map display to
-  your specific needs.
+    * Access to comprehensive base map data, allowing you to tailor the
+  map display to your specific needs.
 
-    *
-  Multiple pre-designed map styles suited for various application types, such as
-  navigation, logistics, or data visualization.
+    * Multiple pre-designed map styles suited for various application
+  types, such as navigation, logistics, or data visualization.
 
-    *
-  Generation of static map images for scenarios where interactive maps aren't
-  suitable, such as:
+    * Generation of static map images for scenarios where interactive
+  maps aren't suitable, such as:
 
-      *
-  Embedding in emails or documents
+      * Embedding in emails or documents
 
-      *
-  Displaying in low-bandwidth environments
+      * Displaying in low-bandwidth environments
 
-      *
-  Creating printable maps
+      * Creating printable maps
 
-      *
-  Enhancing application performance by reducing client-side rendering
+      * Enhancing application performance by reducing
+  client-side rendering
   """
 
   alias AWS.Client
@@ -108,15 +102,15 @@ defmodule AWS.GeoMaps do
         optional("Key") => String.t() | atom(),
         optional("LabelSize") => String.t() | atom(),
         optional("Language") => String.t() | atom(),
-        optional("Padding") => [integer()],
+        optional("Padding") => integer(),
         optional("PointsOfInterests") => String.t() | atom(),
         optional("PoliticalView") => String.t() | atom(),
         optional("Radius") => float(),
         optional("ScaleBarUnit") => String.t() | atom(),
         optional("Style") => String.t() | atom(),
-        optional("Zoom") => [float()],
-        required("Height") => [integer()],
-        required("Width") => [integer()]
+        optional("Zoom") => float(),
+        required("Height") => integer(),
+        required("Width") => integer()
       }
 
   """
@@ -205,6 +199,17 @@ defmodule AWS.GeoMaps do
 
   ## Example:
 
+      resource_not_found_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       throttling_exception() :: %{
         "Message" => [String.t() | atom()]
       }
@@ -246,6 +251,7 @@ defmodule AWS.GeoMaps do
   @type get_tile_errors() ::
           validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
           | access_denied_exception()
 
@@ -266,7 +272,6 @@ defmodule AWS.GeoMaps do
   end
 
   @doc """
-
   `GetGlyphs` returns the map's glyphs.
   """
   @spec get_glyphs(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -297,7 +302,6 @@ defmodule AWS.GeoMaps do
   end
 
   @doc """
-
   `GetSprites` returns the map's sprites.
   """
   @spec get_sprites(
@@ -335,7 +339,6 @@ defmodule AWS.GeoMaps do
   end
 
   @doc """
-
   `GetStaticMap` provides high-quality static map images with customizable
   options.
 
@@ -549,7 +552,6 @@ defmodule AWS.GeoMaps do
   end
 
   @doc """
-
   `GetStyleDescriptor` returns information about the style.
   """
   @spec get_style_descriptor(
@@ -613,13 +615,10 @@ defmodule AWS.GeoMaps do
   end
 
   @doc """
-
   `GetTile` returns a tile.
 
-  Map tiles are used by clients to render a map.
-  they're addressed using a grid arrangement with an X coordinate, Y coordinate,
-  and Z (zoom)
-  level.
+  Map tiles are used by clients to render a map. they're addressed using a grid
+  arrangement with an X coordinate, Y coordinate, and Z (zoom) level.
   """
   @spec get_tile(
           map(),

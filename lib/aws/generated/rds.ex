@@ -3357,7 +3357,8 @@ defmodule AWS.RDS do
         "MinIopsPerGib" => float(),
         "SupportedActivityStreamModes" => list(String.t() | atom()),
         "EngineVersion" => String.t() | atom(),
-        "AvailabilityZoneGroup" => String.t() | atom()
+        "AvailabilityZoneGroup" => String.t() | atom(),
+        "SupportsHttpEndpoint" => boolean()
       }
       
   """

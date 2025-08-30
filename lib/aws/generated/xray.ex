@@ -269,6 +269,7 @@ defmodule AWS.XRay do
         "ResourceARN" => String.t() | atom(),
         "RuleARN" => String.t() | atom(),
         "RuleName" => String.t() | atom(),
+        "SamplingRateBoost" => sampling_rate_boost(),
         "ServiceName" => String.t() | atom(),
         "ServiceType" => String.t() | atom(),
         "URLPath" => String.t() | atom()
@@ -482,6 +483,18 @@ defmodule AWS.XRay do
 
   ## Example:
 
+      sampling_rate_boost() :: %{
+        "CooldownWindowMinutes" => integer(),
+        "MaxRate" => float()
+      }
+
+  """
+  @type sampling_rate_boost() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_sampling_rules_request() :: %{
         optional("NextToken") => String.t() | atom()
       }
@@ -543,7 +556,8 @@ defmodule AWS.XRay do
         "Interval" => integer(),
         "ReservoirQuota" => integer(),
         "ReservoirQuotaTTL" => non_neg_integer(),
-        "RuleName" => String.t() | atom()
+        "RuleName" => String.t() | atom(),
+        "SamplingBoost" => sampling_boost()
       }
 
   """
@@ -844,6 +858,7 @@ defmodule AWS.XRay do
         "ResourceARN" => String.t() | atom(),
         "RuleARN" => String.t() | atom(),
         "RuleName" => String.t() | atom(),
+        "SamplingRateBoost" => sampling_rate_boost(),
         "ServiceName" => String.t() | atom(),
         "ServiceType" => String.t() | atom(),
         "URLPath" => String.t() | atom(),
@@ -921,6 +936,7 @@ defmodule AWS.XRay do
   ## Example:
 
       get_sampling_targets_request() :: %{
+        optional("SamplingBoostStatisticsDocuments") => list(sampling_boost_statistics_document()),
         required("SamplingStatisticsDocuments") => list(sampling_statistics_document())
       }
 
@@ -978,6 +994,7 @@ defmodule AWS.XRay do
       get_sampling_targets_result() :: %{
         "LastRuleModification" => non_neg_integer(),
         "SamplingTargetDocuments" => list(sampling_target_document()),
+        "UnprocessedBoostStatistics" => list(unprocessed_statistics()),
         "UnprocessedStatistics" => list(unprocessed_statistics())
       }
 
@@ -992,6 +1009,18 @@ defmodule AWS.XRay do
 
   """
   @type delete_group_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      sampling_boost() :: %{
+        "BoostRate" => float(),
+        "BoostRateTTL" => non_neg_integer()
+      }
+
+  """
+  @type sampling_boost() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1164,6 +1193,22 @@ defmodule AWS.XRay do
 
   """
   @type resource_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sampling_boost_statistics_document() :: %{
+        "AnomalyCount" => integer(),
+        "RuleName" => String.t() | atom(),
+        "SampledAnomalyCount" => integer(),
+        "ServiceName" => String.t() | atom(),
+        "Timestamp" => non_neg_integer(),
+        "TotalCount" => integer()
+      }
+
+  """
+  @type sampling_boost_statistics_document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2753,7 +2798,7 @@ defmodule AWS.XRay do
   @doc """
 
   Retrieves the current destination of data sent to `PutTraceSegments` and
-  *OpenTelemetry* API.
+  *OpenTelemetry protocol (OTLP)* endpoint.
 
   The Transaction Search feature requires a CloudWatchLogs destination. For more
   information, see [Transaction Search](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html)
@@ -2874,7 +2919,7 @@ defmodule AWS.XRay do
 
   For information on what each trace returns, see
   [BatchGetTraces](https://docs.aws.amazon.com/xray/latest/api/API_BatchGetTraces.html). 
-  This API does not initiate a retrieval job. To start a trace retrieval, use
+  This API does not initiate a retrieval process. To start a trace retrieval, use
   `StartTraceRetrieval`, which generates the required `RetrievalToken`.
 
   When the `RetrievalStatus` is not *COMPLETE*, the API will return an empty
@@ -2882,12 +2927,12 @@ defmodule AWS.XRay do
   list of traces.
 
   For cross-account observability, this API can retrieve traces from linked
-  accounts when CloudWatch log is the destination across relevant accounts. For
-  more details, see [CloudWatch cross-account
+  accounts when CloudWatch log is set as the destination across relevant accounts.
+  For more details, see [CloudWatch cross-account
   observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
 
-  For retrieving data from X-Ray directly as opposed to the Transaction-Search Log
-  group, see
+  For retrieving data from X-Ray directly as opposed to the Transaction Search
+  generated log group, see
   [BatchGetTraces](https://docs.aws.amazon.com/xray/latest/api/API_BatchGetTraces.html).
   """
   @spec list_retrieved_traces(map(), list_retrieved_traces_request(), list()) ::
@@ -3155,7 +3200,7 @@ defmodule AWS.XRay do
   @doc """
 
   Initiates a trace retrieval process using the specified time range and for the
-  give trace IDs on Transaction Search generated by the CloudWatch log group.
+  given trace IDs in the Transaction Search generated CloudWatch log group.
 
   For more information, see [Transaction Search](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html).
 

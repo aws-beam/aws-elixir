@@ -3,27 +3,45 @@
 
 defmodule AWS.Notifications do
   @moduledoc """
-  The *Amazon Web Services User Notifications API Reference* provides
-  descriptions, API request parameters, and the JSON response for each of the User
-  Notification API actions.
+  The *User Notifications API Reference* provides descriptions, API request
+  parameters, and the JSON response for each of the User Notifications API
+  actions.
 
   User Notification control plane APIs are currently available in US East
   (Virginia) - `us-east-1`.
 
-  [GetNotificationEvent](https://docs.aws.amazon.com/notifications/latest/APIReference/API_GetNotificationEvent.html)  and
+  [GetNotificationEvent](https://docs.aws.amazon.com/notifications/latest/APIReference/API_GetNotificationEvent.html) and
   [ListNotificationEvents](https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListNotificationEvents.html)
-  APIs are currently available in
-  [commercial partition Regions](https://docs.aws.amazon.com/notifications/latest/userguide/supported-regions.html)
+  APIs are currently available in [commercial partition Regions](https://docs.aws.amazon.com/notifications/latest/userguide/supported-regions.html)
   and only return notifications stored in the same Region in which they're called.
 
   The User Notifications console can only be used in US East (Virginia). Your data
-  however, is stored in each Region chosen as a
-  [notification hub](https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html)
+  however, is stored in each Region chosen as a [notification hub](https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html)
   in addition to US East (Virginia).
+
+  For information about descriptions, API request parameters, and the JSON
+  response for email contact related API actions, see the [User Notifications Contacts API Reference
+  Guide](https://docs.aws.amazon.com/notificationscontacts/latest/APIReference/Welcome.html).
   """
 
   alias AWS.Client
   alias AWS.Request
+
+  @typedoc """
+
+  ## Example:
+
+      list_member_accounts_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("memberAccount") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("organizationalUnitId") => String.t() | atom(),
+        optional("status") => String.t() | atom(),
+        required("notificationConfigurationArn") => String.t() | atom()
+      }
+
+  """
+  @type list_member_accounts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -114,7 +132,8 @@ defmodule AWS.Notifications do
         "creationTime" => non_neg_integer(),
         "description" => String.t() | atom(),
         "name" => String.t() | atom(),
-        "status" => String.t() | atom()
+        "status" => String.t() | atom(),
+        "subtype" => String.t() | atom()
       }
 
   """
@@ -235,6 +254,31 @@ defmodule AWS.Notifications do
 
   """
   @type disassociate_channel_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_organizational_units_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        required("notificationConfigurationArn") => String.t() | atom()
+      }
+
+  """
+  @type list_organizational_units_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_member_accounts_response() :: %{
+        "memberAccounts" => list(member_account()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_member_accounts_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -494,11 +538,21 @@ defmodule AWS.Notifications do
         optional("eventRuleSource") => String.t() | atom(),
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t() | atom(),
-        optional("status") => String.t() | atom()
+        optional("status") => String.t() | atom(),
+        optional("subtype") => String.t() | atom()
       }
 
   """
   @type list_notification_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_organizational_unit_response() :: %{}
+
+  """
+  @type associate_organizational_unit_response() :: %{}
 
   @typedoc """
 
@@ -510,7 +564,8 @@ defmodule AWS.Notifications do
         "creationTime" => non_neg_integer(),
         "description" => String.t() | atom(),
         "name" => String.t() | atom(),
-        "status" => String.t() | atom()
+        "status" => String.t() | atom(),
+        "subtype" => String.t() | atom()
       }
 
   """
@@ -541,6 +596,7 @@ defmodule AWS.Notifications do
         "media" => list(media_element()),
         "messageComponents" => message_components(),
         "notificationType" => String.t() | atom(),
+        "organizationalUnitId" => String.t() | atom(),
         "schemaVersion" => String.t() | atom(),
         "sourceEventDetailUrl" => String.t() | atom(),
         "sourceEventDetailUrlDisplayText" => [String.t() | atom()],
@@ -563,6 +619,7 @@ defmodule AWS.Notifications do
         optional("locale") => String.t() | atom(),
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t() | atom(),
+        optional("organizationalUnitId") => String.t() | atom(),
         optional("source") => String.t() | atom(),
         optional("startTime") => [non_neg_integer()]
       }
@@ -635,10 +692,33 @@ defmodule AWS.Notifications do
 
   ## Example:
 
+      list_organizational_units_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "organizationalUnits" => list(String.t() | atom())
+      }
+
+  """
+  @type list_organizational_units_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       enable_notifications_access_for_organization_response() :: %{}
 
   """
   @type enable_notifications_access_for_organization_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_organizational_unit_request() :: %{
+        required("notificationConfigurationArn") => String.t() | atom()
+      }
+
+  """
+  @type associate_organizational_unit_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -749,6 +829,21 @@ defmodule AWS.Notifications do
 
   """
   @type list_managed_notification_events_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      member_account() :: %{
+        "accountId" => String.t() | atom(),
+        "notificationConfigurationArn" => String.t() | atom(),
+        "organizationalUnitId" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusReason" => [String.t() | atom()]
+      }
+
+  """
+  @type member_account() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1044,6 +1139,7 @@ defmodule AWS.Notifications do
         "creationTime" => non_neg_integer(),
         "notificationConfigurationArn" => String.t() | atom(),
         "notificationEvent" => notification_event_summary(),
+        "organizationalUnitId" => String.t() | atom(),
         "relatedAccount" => String.t() | atom()
       }
 
@@ -1101,6 +1197,15 @@ defmodule AWS.Notifications do
 
   """
   @type message_components() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_organizational_unit_response() :: %{}
+
+  """
+  @type disassociate_organizational_unit_response() :: %{}
 
   @typedoc """
 
@@ -1278,6 +1383,17 @@ defmodule AWS.Notifications do
 
   ## Example:
 
+      disassociate_organizational_unit_request() :: %{
+        required("notificationConfigurationArn") => String.t() | atom()
+      }
+
+  """
+  @type disassociate_organizational_unit_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       managed_notification_channel_association_summary() :: %{
         "channelIdentifier" => [String.t() | atom()],
         "channelType" => String.t() | atom(),
@@ -1445,6 +1561,15 @@ defmodule AWS.Notifications do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type associate_organizational_unit_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_event_rule_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1511,6 +1636,13 @@ defmodule AWS.Notifications do
           | conflict_exception()
 
   @type disassociate_managed_notification_additional_channel_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type disassociate_organizational_unit_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1613,6 +1745,13 @@ defmodule AWS.Notifications do
           | access_denied_exception()
           | internal_server_exception()
 
+  @type list_member_accounts_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_notification_configurations_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1630,6 +1769,13 @@ defmodule AWS.Notifications do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+
+  @type list_organizational_units_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type list_tags_for_resource_errors() ::
           throttling_exception()
@@ -1697,8 +1843,8 @@ defmodule AWS.Notifications do
   [Channel](https://docs.aws.amazon.com/notifications/latest/userguide/managing-delivery-channels.html)
   with a particular `NotificationConfiguration`.
 
-  Supported Channels include Chatbot,
-  the Console Mobile Application, and emails (notifications-contacts).
+  Supported Channels include Amazon Q Developer in chat applications, the Console
+  Mobile Application, and emails (notifications-contacts).
   """
   @spec associate_channel(map(), String.t() | atom(), associate_channel_request(), list()) ::
           {:ok, associate_channel_response(), any()}
@@ -1772,8 +1918,8 @@ defmodule AWS.Notifications do
   Associates an additional Channel with a particular
   `ManagedNotificationConfiguration`.
 
-  Supported Channels include Chatbot, the Console Mobile Application, and emails
-  (notifications-contacts).
+  Supported Channels include Amazon Q Developer in chat applications, the Console
+  Mobile Application, and emails (notifications-contacts).
   """
   @spec associate_managed_notification_additional_channel(
           map(),
@@ -1812,8 +1958,46 @@ defmodule AWS.Notifications do
   end
 
   @doc """
-  Creates an [
-  `EventRule`
+  Associates an organizational unit with a notification configuration.
+  """
+  @spec associate_organizational_unit(
+          map(),
+          String.t() | atom(),
+          associate_organizational_unit_request(),
+          list()
+        ) ::
+          {:ok, associate_organizational_unit_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_organizational_unit_errors()}
+  def associate_organizational_unit(
+        %Client{} = client,
+        organizational_unit_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/organizational-units/associate/#{AWS.Util.encode_uri(organizational_unit_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates an [ `EventRule`
   ](https://docs.aws.amazon.com/notifications/latest/userguide/glossary.html) that
   is associated with a specified `NotificationConfiguration`.
   """
@@ -1944,10 +2128,8 @@ defmodule AWS.Notifications do
 
   You can't deregister the last `NotificationHub` in the account.
   `NotificationEvents` stored in the deregistered `NotificationConfiguration` are
-  no
-  longer be visible. Recreating a new `NotificationConfiguration` in the same
-  Region restores access
-  to those `NotificationEvents`.
+  no longer be visible. Recreating a new `NotificationConfiguration` in the same
+  Region restores access to those `NotificationEvents`.
   """
   @spec deregister_notification_hub(
           map(),
@@ -2022,8 +2204,8 @@ defmodule AWS.Notifications do
   @doc """
   Disassociates a Channel from a specified `NotificationConfiguration`.
 
-  Supported Channels include Chatbot, the Console Mobile Application, and emails
-  (notifications-contacts).
+  Supported Channels include Amazon Q Developer in chat applications, the Console
+  Mobile Application, and emails (notifications-contacts).
   """
   @spec disassociate_channel(map(), String.t() | atom(), disassociate_channel_request(), list()) ::
           {:ok, disassociate_channel_response(), any()}
@@ -2097,8 +2279,8 @@ defmodule AWS.Notifications do
   Disassociates an additional Channel from a particular
   `ManagedNotificationConfiguration`.
 
-  Supported Channels include Chatbot, the Console Mobile Application, and emails
-  (notifications-contacts).
+  Supported Channels include Amazon Q Developer in chat applications, the Console
+  Mobile Application, and emails (notifications-contacts).
   """
   @spec disassociate_managed_notification_additional_channel(
           map(),
@@ -2127,6 +2309,46 @@ defmodule AWS.Notifications do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Removes the association between an organizational unit and a notification
+  configuration.
+  """
+  @spec disassociate_organizational_unit(
+          map(),
+          String.t() | atom(),
+          disassociate_organizational_unit_request(),
+          list()
+        ) ::
+          {:ok, disassociate_organizational_unit_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_organizational_unit_errors()}
+  def disassociate_organizational_unit(
+        %Client{} = client,
+        organizational_unit_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/organizational-units/disassociate/#{AWS.Util.encode_uri(organizational_unit_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -2290,11 +2512,10 @@ defmodule AWS.Notifications do
   User Notifications stores notifications in the individual Regions you register
   as notification hubs and the Region of the source event rule.
   `GetNotificationEvent` only returns notifications stored in the same Region in
-  which the action is called.
-  User Notifications doesn't backfill notifications to new Regions selected as
-  notification hubs. For this reason, we recommend that you make calls in your
-  oldest registered notification hub.
-  For more information, see [Notification hubs](https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html)
+  which the action is called. User Notifications doesn't backfill notifications to
+  new Regions selected as notification hubs. For this reason, we recommend that
+  you make calls in your oldest registered notification hub. For more information,
+  see [Notification hubs](https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html)
   in the *Amazon Web Services User Notifications User Guide*.
   """
   @spec get_notification_event(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
@@ -2739,11 +2960,90 @@ defmodule AWS.Notifications do
   end
 
   @doc """
+  Returns a list of member accounts associated with a notification configuration.
+  """
+  @spec list_member_accounts(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_member_accounts_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_member_accounts_errors()}
+  def list_member_accounts(
+        %Client{} = client,
+        max_results \\ nil,
+        member_account \\ nil,
+        next_token \\ nil,
+        notification_configuration_arn,
+        organizational_unit_id \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/list-member-accounts"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(organizational_unit_id) do
+        [{"organizationalUnitId", organizational_unit_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(notification_configuration_arn) do
+        [{"notificationConfigurationArn", notification_configuration_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(member_account) do
+        [{"memberAccount", member_account} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a list of abbreviated `NotificationConfigurations` according to
   specified filters, in reverse chronological order (newest first).
   """
   @spec list_notification_configurations(
           map(),
+          String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
@@ -2762,11 +3062,19 @@ defmodule AWS.Notifications do
         max_results \\ nil,
         next_token \\ nil,
         status \\ nil,
+        subtype \\ nil,
         options \\ []
       ) do
     url_path = "/notification-configurations"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(subtype) do
+        [{"subtype", subtype} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(status) do
@@ -2815,15 +3123,15 @@ defmodule AWS.Notifications do
   User Notifications stores notifications in the individual Regions you register
   as notification hubs and the Region of the source event rule.
   ListNotificationEvents only returns notifications stored in the same Region in
-  which the action is called.
-  User Notifications doesn't backfill notifications to new Regions selected as
-  notification hubs. For this reason, we recommend that you make calls in your
-  oldest registered notification hub.
-  For more information, see [Notification hubs](https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html)
+  which the action is called. User Notifications doesn't backfill notifications to
+  new Regions selected as notification hubs. For this reason, we recommend that
+  you make calls in your oldest registered notification hub. For more information,
+  see [Notification hubs](https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html)
   in the *Amazon Web Services User Notifications User Guide*.
   """
   @spec list_notification_events(
           map(),
+          String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
@@ -2846,6 +3154,7 @@ defmodule AWS.Notifications do
         locale \\ nil,
         max_results \\ nil,
         next_token \\ nil,
+        organizational_unit_id \\ nil,
         source \\ nil,
         start_time \\ nil,
         options \\ []
@@ -2864,6 +3173,13 @@ defmodule AWS.Notifications do
     query_params =
       if !is_nil(source) do
         [{"source", source} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(organizational_unit_id) do
+        [{"organizationalUnitId", organizational_unit_id} | query_params]
       else
         query_params
       end
@@ -2937,6 +3253,58 @@ defmodule AWS.Notifications do
     url_path = "/notification-hubs"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of organizational units associated with a notification
+  configuration.
+  """
+  @spec list_organizational_units(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, list_organizational_units_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_organizational_units_errors()}
+  def list_organizational_units(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        notification_configuration_arn,
+        options \\ []
+      ) do
+    url_path = "/organizational-units"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(notification_configuration_arn) do
+        [{"notificationConfigurationArn", notification_configuration_arn} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do

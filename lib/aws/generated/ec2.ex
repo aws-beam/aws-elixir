@@ -4213,9 +4213,11 @@ defmodule AWS.EC2 do
   ## Example:
       
       ebs_info() :: %{
+        "AttachmentLimitType" => list(any()),
         "EbsOptimizedInfo" => ebs_optimized_info(),
         "EbsOptimizedSupport" => list(any()),
         "EncryptionSupport" => list(any()),
+        "MaximumEbsAttachments" => integer(),
         "NvmeSupport" => list(any())
       }
       

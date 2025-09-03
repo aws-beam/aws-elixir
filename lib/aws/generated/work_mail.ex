@@ -149,9 +149,9 @@ defmodule AWS.WorkMail do
   ## Example:
       
       put_email_monitoring_configuration_request() :: %{
+        optional("RoleArn") => String.t() | atom(),
         required("LogGroupArn") => String.t() | atom(),
-        required("OrganizationId") => String.t() | atom(),
-        required("RoleArn") => String.t() | atom()
+        required("OrganizationId") => String.t() | atom()
       }
       
   """
@@ -3541,6 +3541,7 @@ defmodule AWS.WorkMail do
           | mail_domain_not_found_exception()
           | organization_state_exception()
           | entity_state_exception()
+          | unsupported_operation_exception()
           | entity_not_found_exception()
 
   @type reset_password_errors() ::

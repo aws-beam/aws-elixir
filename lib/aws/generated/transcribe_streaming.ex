@@ -239,6 +239,18 @@ defmodule AWS.TranscribeStreaming do
 
   ## Example:
 
+      call_analytics_language_with_score() :: %{
+        "LanguageCode" => list(any()),
+        "Score" => float()
+      }
+
+  """
+  @type call_analytics_language_with_score() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       category_event() :: %{
         "MatchedCategories" => list(String.t() | atom()),
         "MatchedDetails" => map()
@@ -356,17 +368,22 @@ defmodule AWS.TranscribeStreaming do
         "ContentIdentificationType" => list(any()),
         "ContentRedactionType" => list(any()),
         "EnablePartialResultsStabilization" => boolean(),
+        "IdentifyLanguage" => boolean(),
         "LanguageCode" => list(any()),
         "LanguageModelName" => String.t() | atom(),
+        "LanguageOptions" => String.t() | atom(),
         "MediaEncoding" => list(any()),
         "MediaSampleRateHertz" => integer(),
         "PartialResultsStability" => list(any()),
         "PiiEntityTypes" => String.t() | atom(),
+        "PreferredLanguage" => list(any()),
         "RequestId" => String.t() | atom(),
         "SessionId" => String.t() | atom(),
         "VocabularyFilterMethod" => list(any()),
         "VocabularyFilterName" => String.t() | atom(),
-        "VocabularyName" => String.t() | atom()
+        "VocabularyFilterNames" => String.t() | atom(),
+        "VocabularyName" => String.t() | atom(),
+        "VocabularyNames" => String.t() | atom()
       }
 
   """
@@ -636,15 +653,20 @@ defmodule AWS.TranscribeStreaming do
         optional("ContentIdentificationType") => list(any()),
         optional("ContentRedactionType") => list(any()),
         optional("EnablePartialResultsStabilization") => boolean(),
+        optional("IdentifyLanguage") => boolean(),
+        optional("LanguageCode") => list(any()),
         optional("LanguageModelName") => String.t() | atom(),
+        optional("LanguageOptions") => String.t() | atom(),
         optional("PartialResultsStability") => list(any()),
         optional("PiiEntityTypes") => String.t() | atom(),
+        optional("PreferredLanguage") => list(any()),
         optional("SessionId") => String.t() | atom(),
         optional("VocabularyFilterMethod") => list(any()),
         optional("VocabularyFilterName") => String.t() | atom(),
+        optional("VocabularyFilterNames") => String.t() | atom(),
         optional("VocabularyName") => String.t() | atom(),
+        optional("VocabularyNames") => String.t() | atom(),
         required("AudioStream") => list(),
-        required("LanguageCode") => list(any()),
         required("MediaEncoding") => list(any()),
         required("MediaSampleRateHertz") => integer()
       }
@@ -711,6 +733,8 @@ defmodule AWS.TranscribeStreaming do
         "IsPartial" => boolean(),
         "IssuesDetected" => list(issue_detected()),
         "Items" => list(call_analytics_item()),
+        "LanguageCode" => list(any()),
+        "LanguageIdentification" => list(call_analytics_language_with_score()),
         "ParticipantRole" => list(any()),
         "Sentiment" => list(any()),
         "Transcript" => String.t() | atom(),
@@ -950,7 +974,7 @@ defmodule AWS.TranscribeStreaming do
 
     *
 
-  `language-code`
+  `language-code` or `identify-language`
 
     *
 
@@ -981,16 +1005,21 @@ defmodule AWS.TranscribeStreaming do
         {"ContentRedactionType", "x-amzn-transcribe-content-redaction-type"},
         {"EnablePartialResultsStabilization",
          "x-amzn-transcribe-enable-partial-results-stabilization"},
+        {"IdentifyLanguage", "x-amzn-transcribe-identify-language"},
         {"LanguageCode", "x-amzn-transcribe-language-code"},
         {"LanguageModelName", "x-amzn-transcribe-language-model-name"},
+        {"LanguageOptions", "x-amzn-transcribe-language-options"},
         {"MediaEncoding", "x-amzn-transcribe-media-encoding"},
         {"MediaSampleRateHertz", "x-amzn-transcribe-sample-rate"},
         {"PartialResultsStability", "x-amzn-transcribe-partial-results-stability"},
         {"PiiEntityTypes", "x-amzn-transcribe-pii-entity-types"},
+        {"PreferredLanguage", "x-amzn-transcribe-preferred-language"},
         {"SessionId", "x-amzn-transcribe-session-id"},
         {"VocabularyFilterMethod", "x-amzn-transcribe-vocabulary-filter-method"},
         {"VocabularyFilterName", "x-amzn-transcribe-vocabulary-filter-name"},
-        {"VocabularyName", "x-amzn-transcribe-vocabulary-name"}
+        {"VocabularyFilterNames", "x-amzn-transcribe-vocabulary-filter-names"},
+        {"VocabularyName", "x-amzn-transcribe-vocabulary-name"},
+        {"VocabularyNames", "x-amzn-transcribe-vocabulary-names"}
       ]
       |> Request.build_params(input)
 
@@ -1006,17 +1035,22 @@ defmodule AWS.TranscribeStreaming do
           {"x-amzn-transcribe-content-redaction-type", "ContentRedactionType"},
           {"x-amzn-transcribe-enable-partial-results-stabilization",
            "EnablePartialResultsStabilization"},
+          {"x-amzn-transcribe-identify-language", "IdentifyLanguage"},
           {"x-amzn-transcribe-language-code", "LanguageCode"},
           {"x-amzn-transcribe-language-model-name", "LanguageModelName"},
+          {"x-amzn-transcribe-language-options", "LanguageOptions"},
           {"x-amzn-transcribe-media-encoding", "MediaEncoding"},
           {"x-amzn-transcribe-sample-rate", "MediaSampleRateHertz"},
           {"x-amzn-transcribe-partial-results-stability", "PartialResultsStability"},
           {"x-amzn-transcribe-pii-entity-types", "PiiEntityTypes"},
+          {"x-amzn-transcribe-preferred-language", "PreferredLanguage"},
           {"x-amzn-request-id", "RequestId"},
           {"x-amzn-transcribe-session-id", "SessionId"},
           {"x-amzn-transcribe-vocabulary-filter-method", "VocabularyFilterMethod"},
           {"x-amzn-transcribe-vocabulary-filter-name", "VocabularyFilterName"},
-          {"x-amzn-transcribe-vocabulary-name", "VocabularyName"}
+          {"x-amzn-transcribe-vocabulary-filter-names", "VocabularyFilterNames"},
+          {"x-amzn-transcribe-vocabulary-name", "VocabularyName"},
+          {"x-amzn-transcribe-vocabulary-names", "VocabularyNames"}
         ]
       )
 

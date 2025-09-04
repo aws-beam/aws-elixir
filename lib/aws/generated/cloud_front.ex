@@ -7422,6 +7422,7 @@ defmodule AWS.CloudFront do
       custom_origin_config() :: %{
         "HTTPPort" => integer(),
         "HTTPSPort" => integer(),
+        "IpAddressType" => list(any()),
         "OriginKeepaliveTimeout" => integer(),
         "OriginProtocolPolicy" => list(any()),
         "OriginReadTimeout" => integer(),

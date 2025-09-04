@@ -177,6 +177,19 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      change() :: %{
+        "specification" => list(),
+        "specificationType" => list(any()),
+        "types" => list(list(any())())
+      }
+
+  """
+  @type change() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_id_mapping_tables_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
@@ -196,6 +209,19 @@ defmodule AWS.CleanRooms do
 
   """
   @type list_members_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      member_change_specification() :: %{
+        "accountId" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
+        "memberAbilities" => list(list(any())())
+      }
+
+  """
+  @type member_change_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -758,6 +784,18 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      change_input() :: %{
+        "specification" => list(),
+        "specificationType" => list(any())
+      }
+
+  """
+  @type change_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_configured_audience_model_association_input() :: %{}
 
   """
@@ -836,6 +874,7 @@ defmodule AWS.CleanRooms do
       collaboration() :: %{
         "analyticsEngine" => list(any()),
         "arn" => String.t() | atom(),
+        "autoApprovedChangeTypes" => list(list(any())()),
         "createTime" => [non_neg_integer()],
         "creatorAccountId" => String.t() | atom(),
         "creatorDisplayName" => String.t() | atom(),
@@ -1123,6 +1162,19 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      list_collaboration_change_requests_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type list_collaboration_change_requests_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_memberships_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
@@ -1315,6 +1367,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      get_collaboration_change_request_output() :: %{
+        "collaborationChangeRequest" => collaboration_change_request()
+      }
+
+  """
+  @type get_collaboration_change_request_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       membership_model_inference_payment_config() :: %{
         "isResponsible" => [boolean()]
       }
@@ -1469,6 +1532,23 @@ defmodule AWS.CleanRooms do
 
   """
   @type list_collaboration_privacy_budget_templates_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      collaboration_change_request_summary() :: %{
+        "changes" => list(change()),
+        "collaborationId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "id" => String.t() | atom(),
+        "isAutoApproved" => [boolean()],
+        "status" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type collaboration_change_request_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2129,6 +2209,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      create_collaboration_change_request_output() :: %{
+        "collaborationChangeRequest" => collaboration_change_request()
+      }
+
+  """
+  @type create_collaboration_change_request_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       membership_summary() :: %{
         "arn" => String.t() | atom(),
         "collaborationArn" => String.t() | atom(),
@@ -2293,6 +2384,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      create_collaboration_change_request_input() :: %{
+        required("changes") => list(change_input())
+      }
+
+  """
+  @type create_collaboration_change_request_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_input() :: %{
         required("tags") => map()
       }
@@ -2409,6 +2511,7 @@ defmodule AWS.CleanRooms do
 
       create_collaboration_input() :: %{
         optional("analyticsEngine") => list(any()),
+        optional("autoApprovedChangeRequestTypes") => list(list(any())()),
         optional("creatorMLMemberAbilities") => ml_member_abilities(),
         optional("creatorPaymentConfiguration") => payment_configuration(),
         optional("dataEncryptionMetadata") => data_encryption_metadata(),
@@ -2590,6 +2693,23 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      collaboration_change_request() :: %{
+        "changes" => list(change()),
+        "collaborationId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "id" => String.t() | atom(),
+        "isAutoApproved" => [boolean()],
+        "status" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type collaboration_change_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_id_namespace_associations_output() :: %{
         "idNamespaceAssociationSummaries" => list(id_namespace_association_summary()),
         "nextToken" => String.t() | atom()
@@ -2740,6 +2860,18 @@ defmodule AWS.CleanRooms do
 
   """
   @type direct_analysis_configuration_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_collaboration_change_requests_output() :: %{
+        "collaborationChangeRequestSummaries" => list(collaboration_change_request_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_collaboration_change_requests_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3203,6 +3335,15 @@ defmodule AWS.CleanRooms do
 
   """
   @type get_id_mapping_table_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_collaboration_change_request_input() :: %{}
+
+  """
+  @type get_collaboration_change_request_input() :: %{}
 
   @typedoc """
 
@@ -4075,6 +4216,15 @@ defmodule AWS.CleanRooms do
           | internal_server_exception()
           | service_quota_exceeded_exception()
 
+  @type create_collaboration_change_request_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_configured_audience_model_association_errors() ::
           throttling_exception()
           | validation_exception()
@@ -4263,6 +4413,13 @@ defmodule AWS.CleanRooms do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_collaboration_change_request_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_collaboration_configured_audience_model_association_errors() ::
           throttling_exception()
           | validation_exception()
@@ -4383,6 +4540,13 @@ defmodule AWS.CleanRooms do
           | resource_not_found_exception()
 
   @type list_collaboration_analysis_templates_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_collaboration_change_requests_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -4814,6 +4978,48 @@ defmodule AWS.CleanRooms do
           | {:error, create_collaboration_errors()}
   def create_collaboration(%Client{} = client, input, options \\ []) do
     url_path = "/collaborations"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a new change request to modify an existing collaboration.
+
+  This enables post-creation modifications to collaborations through a structured
+  API-driven approach.
+  """
+  @spec create_collaboration_change_request(
+          map(),
+          String.t() | atom(),
+          create_collaboration_change_request_input(),
+          list()
+        ) ::
+          {:ok, create_collaboration_change_request_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_collaboration_change_request_errors()}
+  def create_collaboration_change_request(
+        %Client{} = client,
+        collaboration_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/changeRequests"
     headers = []
     custom_headers = []
     query_params = []
@@ -5750,6 +5956,31 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
+  Retrieves detailed information about a specific collaboration change request.
+  """
+  @spec get_collaboration_change_request(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_collaboration_change_request_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_collaboration_change_request_errors()}
+  def get_collaboration_change_request(
+        %Client{} = client,
+        change_request_identifier,
+        collaboration_identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/changeRequests/#{AWS.Util.encode_uri(change_request_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves a configured audience model association within a collaboration.
   """
   @spec get_collaboration_configured_audience_model_association(
@@ -6239,6 +6470,61 @@ defmodule AWS.CleanRooms do
 
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all change requests for a collaboration with pagination support.
+
+  Returns change requests sorted by creation time.
+  """
+  @spec list_collaboration_change_requests(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_collaboration_change_requests_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_collaboration_change_requests_errors()}
+  def list_collaboration_change_requests(
+        %Client{} = client,
+        collaboration_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/changeRequests"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do

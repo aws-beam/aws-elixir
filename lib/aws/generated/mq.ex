@@ -160,12 +160,12 @@ defmodule AWS.Mq do
         optional("StorageType") => list(any()),
         optional("SubnetIds") => list(String.t() | atom()),
         optional("Tags") => map(),
+        optional("Users") => list(user()),
         required("BrokerName") => String.t() | atom(),
         required("DeploymentMode") => list(any()),
         required("EngineType") => list(any()),
         required("HostInstanceType") => String.t() | atom(),
-        required("PubliclyAccessible") => boolean(),
-        required("Users") => list(user())
+        required("PubliclyAccessible") => boolean()
       }
 
   """

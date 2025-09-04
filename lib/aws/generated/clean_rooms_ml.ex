@@ -240,6 +240,18 @@ defmodule AWS.CleanRoomsML do
 
   ## Example:
 
+      log_redaction_configuration() :: %{
+        "customEntityConfig" => custom_entity_config(),
+        "entitiesToRedact" => list(list(any())())
+      }
+
+  """
+  @type log_redaction_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_training_dataset_response() :: %{
         "createTime" => [non_neg_integer()],
         "description" => String.t() | atom(),
@@ -844,6 +856,17 @@ defmodule AWS.CleanRoomsML do
 
   """
   @type metrics_configuration_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_entity_config() :: %{
+        "customDataIdentifiers" => list(String.t() | atom())
+      }
+
+  """
+  @type custom_entity_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1589,7 +1612,9 @@ defmodule AWS.CleanRoomsML do
 
       logs_configuration_policy() :: %{
         "allowedAccountIds" => list([String.t() | atom()]()),
-        "filterPattern" => [String.t() | atom()]
+        "filterPattern" => [String.t() | atom()],
+        "logRedactionConfiguration" => log_redaction_configuration(),
+        "logType" => list(any())
       }
 
   """

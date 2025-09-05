@@ -479,6 +479,7 @@ defmodule AWS.CloudFormation do
         "DetailedStatus" => list(any()),
         "EventId" => String.t() | atom(),
         "HookFailureMode" => list(any()),
+        "HookInvocationId" => String.t() | atom(),
         "HookInvocationPoint" => list(any()),
         "HookStatus" => list(any()),
         "HookStatusReason" => String.t() | atom(),
@@ -1563,8 +1564,10 @@ defmodule AWS.CloudFormation do
       
       list_hook_results_input() :: %{
         optional("NextToken") => String.t() | atom(),
-        required("TargetId") => String.t() | atom(),
-        required("TargetType") => list(any())
+        optional("Status") => list(any()),
+        optional("TargetId") => String.t() | atom(),
+        optional("TargetType") => list(any()),
+        optional("TypeArn") => String.t() | atom()
       }
       
   """
@@ -2907,9 +2910,15 @@ defmodule AWS.CloudFormation do
       
       hook_result_summary() :: %{
         "FailureMode" => list(any()),
+        "HookExecutionTarget" => String.t() | atom(),
+        "HookResultId" => String.t() | atom(),
         "HookStatusReason" => String.t() | atom(),
         "InvocationPoint" => list(any()),
+        "InvokedAt" => non_neg_integer(),
         "Status" => list(any()),
+        "TargetId" => String.t() | atom(),
+        "TargetType" => list(any()),
+        "TypeArn" => String.t() | atom(),
         "TypeConfigurationVersionId" => String.t() | atom(),
         "TypeName" => String.t() | atom(),
         "TypeVersionId" => String.t() | atom()
@@ -4091,15 +4100,30 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Activates a public third-party extension, making it available for use in stack
-  templates.
+  Activates a public third-party extension, such as a resource or module, to make
+  it
+  available for use in stack templates in your current account and Region.
 
-  Once you have activated a public third-party extension in your account and
-  Region, use
-  [SetTypeConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html) to specify configuration properties for the extension. For
-  more information, see [Using public
-  extensions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html)
-  in the *CloudFormation User Guide*.
+  It can also create
+  CloudFormation Hooks, which allow you to evaluate resource configurations before
+  CloudFormation
+  provisions them. Hooks integrate with both CloudFormation and Cloud Control API
+  operations.
+
+  After you activate an extension, you can use
+  [SetTypeConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html) to set specific properties for the extension.
+
+  To see which extensions have been activated, use
+  [ListTypes](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListTypes.html).
+  To see
+  configuration details for an extension, use
+  [DescribeType](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html).   For more information, see [Activate a
+  third-party public extension in your
+  account](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public-activate-extension.html)
+  in the
+  *CloudFormation User Guide*. For information about creating Hooks, see the
+  [CloudFormation Hooks User
+  Guide](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.html).
   """
   @spec activate_type(map(), activate_type_input(), list()) ::
           {:ok, activate_type_output(), any()}
@@ -4115,7 +4139,7 @@ defmodule AWS.CloudFormation do
   @doc """
   Returns configuration data for the specified CloudFormation extensions, from the
   CloudFormation
-  registry for the account and Region.
+  registry in your current account and Region.
 
   For more information, see [Edit configuration data for extensions in your
   account](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-set-configuration.html)
@@ -4157,25 +4181,28 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  For a specified stack that's in the `UPDATE_ROLLBACK_FAILED` state, continues
-  rolling it back to the `UPDATE_ROLLBACK_COMPLETE` state.
+  Continues rolling back a stack from `UPDATE_ROLLBACK_FAILED` to
+  `UPDATE_ROLLBACK_COMPLETE` state.
 
-  Depending on the cause of
-  the failure, you can manually [fix the error](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed)
-  and continue the rollback. By continuing the rollback, you can return
-  your stack to a working state (the `UPDATE_ROLLBACK_COMPLETE` state), and then
+  Depending on the cause of the failure, you can
+  manually fix the error and continue the rollback. By continuing the rollback,
+  you can return
+  your stack to a working state (the `UPDATE_ROLLBACK_COMPLETE` state) and then
   try
   to update the stack again.
 
-  A stack goes into the `UPDATE_ROLLBACK_FAILED` state when CloudFormation can't
-  roll
-  back all changes after a failed stack update. For example, you might have a
-  stack that's
-  rolling back to an old database instance that was deleted outside of
+  A stack enters the `UPDATE_ROLLBACK_FAILED` state when CloudFormation can't roll
+  back all changes after a failed stack update. For example, this might occur when
+  a stack
+  attempts to roll back to an old database that was deleted outside of
   CloudFormation. Because
-  CloudFormation doesn't know the database was deleted, it assumes that the
-  database instance still
-  exists and attempts to roll back to it, causing the update rollback to fail.
+  CloudFormation doesn't know the instance was deleted, it assumes the instance
+  still exists and
+  attempts to roll back to it, causing the update rollback to fail.
+
+  For more information, see [Continue rolling back an update](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html)
+  in the *CloudFormation User Guide*. For
+  information for troubleshooting a failed update rollback, see [Update rollback failed](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed).
   """
   @spec continue_update_rollback(map(), continue_update_rollback_input(), list()) ::
           {:ok, continue_update_rollback_output(), any()}
@@ -4331,7 +4358,7 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Creates a stack set.
+  Creates a StackSet.
   """
   @spec create_stack_set(map(), create_stack_set_input(), list()) ::
           {:ok, create_stack_set_output(), any()}
@@ -4363,16 +4390,23 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Deactivates a public extension that was previously activated in this account and
-  Region.
+  Deactivates a public third-party extension, such as a resource or module, or a
+  CloudFormation
+  Hook when you no longer use it.
 
-  Once deactivated, an extension can't be used in any CloudFormation operation.
+  Deactivating an extension deletes the configuration details that are associated
+  with it.
+  To temporary disable a CloudFormation Hook instead, you can use
+  [SetTypeConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html).   Once deactivated, an extension can't be used in any CloudFormation operation.
   This includes
   stack update operations where the stack template includes the extension, even if
   no updates
   are being made to the extension. In addition, deactivated extensions aren't
   automatically
   updated if a new version of the extension is released.
+
+  To see which extensions are currently activated, use
+  [ListTypes](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListTypes.html).
   """
   @spec deactivate_type(map(), deactivate_type_input(), list()) ::
           {:ok, deactivate_type_output(), any()}
@@ -4480,10 +4514,10 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Deletes a stack set.
+  Deletes a StackSet.
 
-  Before you can delete a stack set, all its member stack instances
-  must be deleted. For more information about how to complete this, see
+  Before you can delete a StackSet, all its member stack instances must
+  be deleted. For more information about how to complete this, see
   `DeleteStackInstances`.
   """
   @spec delete_stack_set(map(), delete_stack_set_input(), list()) ::
@@ -4519,7 +4553,11 @@ defmodule AWS.CloudFormation do
   type itself is deregistered as well and marked as deprecated.
 
   To view the deprecation status of an extension or extension version, use
-  [DescribeType](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html).
+  [DescribeType](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html).   For more information, see [Remove
+  third-party private extensions from your
+  account](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-private-deregister-extension.html)
+  in the
+  *CloudFormation User Guide*.
   """
   @spec deregister_type(map(), deregister_type_input(), list()) ::
           {:ok, deregister_type_output(), any()}
@@ -4907,7 +4945,9 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Returns detailed information about an extension that has been registered.
+  Returns detailed information about an extension from the CloudFormation registry
+  in your
+  current account and Region.
 
   If you specify a `VersionId`, `DescribeType` returns information
   about that specific extension version. Otherwise, it returns information about
@@ -5028,20 +5068,20 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Detect drift on a stack set.
+  Detect drift on a StackSet.
 
-  When CloudFormation performs drift detection on a stack set, it
+  When CloudFormation performs drift detection on a StackSet, it
   performs drift detection on the stack associated with each stack instance in the
-  stack set.
-  For more information, see [Performing drift detection on CloudFormation
+  StackSet. For
+  more information, see [Performing drift detection on CloudFormation
   StackSets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html).
 
-  `DetectStackSetDrift` returns the `OperationId` of the stack set
+  `DetectStackSetDrift` returns the `OperationId` of the StackSet
   drift detection operation. Use this operation id with
   `DescribeStackSetOperation` to monitor the progress of the drift detection
   operation. The drift detection operation may take some time, depending on the
   number of stack
-  instances included in the stack set, in addition to the number of resources
+  instances included in the StackSet, in addition to the number of resources
   included in each
   stack.
 
@@ -5051,23 +5091,23 @@ defmodule AWS.CloudFormation do
     *
   Use `DescribeStackSet` to return detailed information about the stack
   set, including detailed information about the last *completed* drift
-  operation performed on the stack set. (Information about drift operations that
+  operation performed on the StackSet. (Information about drift operations that
   are in
   progress isn't included.)
 
     *
   Use `ListStackInstances` to return a list of stack instances belonging
-  to the stack set, including the drift status and last drift time checked of each
+  to the StackSet, including the drift status and last drift time checked of each
   instance.
 
     *
   Use `DescribeStackInstance` to return detailed information about a
   specific stack instance, including its drift status and last drift time checked.
 
-  You can only run a single drift detection operation on a given stack set at one
+  You can only run a single drift detection operation on a given StackSet at one
   time.
 
-  To stop a drift detection stack set operation, use `StopStackSetOperation`.
+  To stop a drift detection StackSet operation, use `StopStackSetOperation`.
   """
   @spec detect_stack_set_drift(map(), detect_stack_set_drift_input(), list()) ::
           {:ok, detect_stack_set_drift_output(), any()}
@@ -5205,10 +5245,10 @@ defmodule AWS.CloudFormation do
   The `GetTemplateSummary`
   action is useful for viewing parameter information, such as default parameter
   values and
-  parameter types, before you create or update a stack or stack set.
+  parameter types, before you create or update a stack or StackSet.
 
   You can use the `GetTemplateSummary` action when you submit a template, or you
-  can get template information for a stack set, or a running or deleted stack.
+  can get template information for a StackSet, or a running or deleted stack.
 
   For deleted stacks, `GetTemplateSummary` returns the template information for
   up to 90 days after the stack has been deleted. If the template doesn't exist, a
@@ -5226,11 +5266,11 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Import existing stacks into a new stack sets.
+  Import existing stacks into a new StackSets.
 
   Use the stack import operation to import up
-  to 10 stacks into a new stack set in the same account as the source stack or in
-  a different
+  to 10 stacks into a new StackSet in the same account as the source stack or in a
+  different
   administrator account and Region, by specifying the stack ID of the stack you
   intend to
   import.
@@ -5270,7 +5310,7 @@ defmodule AWS.CloudFormation do
   Use this action to see the exported output values that you can import into other
   stacks. To
   import values, use the [
-  Fn::ImportValue](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html)
+  Fn::ImportValue](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/intrinsic-function-reference-importvalue.html)
   function.
 
   For more information, see [Get exported outputs from a deployed CloudFormation
@@ -5300,9 +5340,29 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Returns summaries of invoked Hooks when a change set or Cloud Control API
-  operation target is
-  provided.
+  Returns summaries of invoked Hooks.
+
+  For more information, see [View CloudFormation Hooks invocations](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/hooks-view-invocations.html)
+  in the *CloudFormation Hooks User Guide*.
+
+  This operation supports the following parameter combinations:
+
+    *
+  No parameters: Returns all Hook invocation summaries.
+
+    *
+
+  `TypeArn` only: Returns summaries for a specific Hook.
+
+    *
+
+  `TypeArn` and `Status`: Returns summaries for a specific
+  Hook filtered by status.
+
+    *
+
+  `TargetId` and `TargetType`: Returns summaries for a specific
+  Hook invocation target.
   """
   @spec list_hook_results(map(), list_hook_results_input(), list()) ::
           {:ok, list_hook_results_output(), any()}
@@ -5324,7 +5384,7 @@ defmodule AWS.CloudFormation do
   exported output values in your account, see `ListExports`.
 
   For more information about importing an exported output value, see the
-  [Fn::ImportValue](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html)
+  [Fn::ImportValue](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/intrinsic-function-reference-importvalue.html)
   function.
   """
   @spec list_imports(map(), list_imports_input(), list()) ::
@@ -5421,10 +5481,11 @@ defmodule AWS.CloudFormation do
   @doc """
   Returns summary information about stack instances that are associated with the
   specified
-  stack set.
+  StackSet.
 
-  You can filter for stack instances that are associated with a specific
-  Amazon Web Services account name or Region, or that have a specific status.
+  You can filter for stack instances that are associated with a specific Amazon
+  Web Services account
+  name or Region, or that have a specific status.
   """
   @spec list_stack_instances(map(), list_stack_instances_input(), list()) ::
           {:ok, list_stack_instances_output(), any()}
@@ -5482,7 +5543,7 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Returns summary information about deployment targets for a stack set.
+  Returns summary information about deployment targets for a StackSet.
   """
   @spec list_stack_set_auto_deployment_targets(
           map(),
@@ -5500,7 +5561,7 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Returns summary information about the results of a stack set operation.
+  Returns summary information about the results of a StackSet operation.
 
   This API provides *eventually consistent* reads meaning it may take
   some time but will eventually return the most up-to-date data.
@@ -5517,7 +5578,7 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Returns summary information about operations performed on a stack set.
+  Returns summary information about operations performed on a StackSet.
 
   This API provides *eventually consistent* reads meaning it may take
   some time but will eventually return the most up-to-date data.
@@ -5534,25 +5595,25 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Returns summary information about stack sets that are associated with the user.
+  Returns summary information about StackSets that are associated with the user.
 
   This API provides *strongly consistent* reads meaning it will always
   return the most up-to-date data.
 
     *
   [Self-managed permissions] If you set the `CallAs` parameter to `SELF` while signed in to your Amazon Web Services account, `ListStackSets`
-  returns all self-managed stack sets in your Amazon Web Services account.
+  returns all self-managed StackSets in your Amazon Web Services account.
 
     *
   [Service-managed permissions] If you set the `CallAs` parameter to
   `SELF` while signed in to the organization's management account,
-  `ListStackSets` returns all stack sets in the management account.
+  `ListStackSets` returns all StackSets in the management account.
 
     *
   [Service-managed permissions] If you set the `CallAs` parameter to
   `DELEGATED_ADMIN` while signed in to your member account,
-  `ListStackSets` returns all stack sets with service-managed permissions in
-  the management account.
+  `ListStackSets` returns all StackSets with service-managed permissions in the
+  management account.
   """
   @spec list_stack_sets(map(), list_stack_sets_input(), list()) ::
           {:ok, list_stack_sets_output(), any()}
@@ -5613,8 +5674,11 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Returns summary information about extension that have been registered with
-  CloudFormation.
+  Returns summary information about all extensions, including your private
+  resource types,
+  modules, and Hooks as well as all public extensions from Amazon Web Services and
+  third-party
+  publishers.
   """
   @spec list_types(map(), list_types_input(), list()) ::
           {:ok, list_types_output(), any()}
@@ -5897,8 +5961,7 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Stops an in-progress operation on a stack set and its associated stack
-  instances.
+  Stops an in-progress operation on a StackSet and its associated stack instances.
 
   StackSets
   will cancel all the unstarted stack instance deployments and wait for those are
@@ -6021,22 +6084,22 @@ defmodule AWS.CloudFormation do
   You can only update stack instances in Amazon Web Services Regions and accounts
   where they already
   exist; to create additional stack instances, use
-  [CreateStackInstances](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackInstances.html).   During stack set updates, any parameters overridden for a stack instance aren't
+  [CreateStackInstances](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackInstances.html).   During StackSet updates, any parameters overridden for a stack instance aren't
   updated,
   but retain their overridden value.
 
   You can only update the parameter *values* that are specified in the
-  stack set; to add or delete a parameter itself, use
+  StackSet. To add or delete a parameter itself, use
   [UpdateStackSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html)
-  to update the stack set template. If you add a parameter to a template, before
-  you can
-  override the parameter value specified in the stack set you must first use
+  to update the StackSet template. If you add a parameter to a template, before
+  you can override
+  the parameter value specified in the StackSet you must first use
   [UpdateStackSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html)
-  to update all stack instances with the updated template and
-  parameter value specified in the stack set. Once a stack instance has been
-  updated with the
-  new parameter, you can then override the parameter value using
-  `UpdateStackInstances`.
+  to update all stack instances with the updated template and parameter value
+  specified in the
+  StackSet. Once a stack instance has been updated with the new parameter, you can
+  then override
+  the parameter value using `UpdateStackInstances`.
 
   The maximum number of organizational unit (OUs) supported by a
   `UpdateStackInstances` operation is 50.
@@ -6066,16 +6129,16 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Updates the stack set and associated stack instances in the specified accounts
+  Updates the StackSet and associated stack instances in the specified accounts
   and
   Amazon Web Services Regions.
 
-  Even if the stack set operation created by updating the stack set fails
+  Even if the StackSet operation created by updating the StackSet fails
   (completely or
-  partially, below or above a specified failure tolerance), the stack set is
+  partially, below or above a specified failure tolerance), the StackSet is
   updated with your
-  changes. Subsequent `CreateStackInstances` calls on the specified stack set
-  use the updated stack set.
+  changes. Subsequent `CreateStackInstances` calls on the specified StackSet use
+  the updated StackSet.
 
   The maximum number of organizational unit (OUs) supported by a
   `UpdateStackSet` operation is 50.

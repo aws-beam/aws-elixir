@@ -493,6 +493,7 @@ defmodule AWS.RDS do
         "DBProxyEndpointName" => String.t() | atom(),
         "DBProxyName" => String.t() | atom(),
         "Endpoint" => String.t() | atom(),
+        "EndpointNetworkType" => list(any()),
         "IsDefault" => boolean(),
         "Status" => list(any()),
         "TargetRole" => list(any()),
@@ -561,9 +562,11 @@ defmodule AWS.RDS do
       
       create_db_proxy_request() :: %{
         optional("DebugLogging") => boolean(),
+        optional("EndpointNetworkType") => list(any()),
         optional("IdleClientTimeout") => integer(),
         optional("RequireTLS") => boolean(),
         optional("Tags") => list(tag()),
+        optional("TargetConnectionNetworkType") => list(any()),
         optional("VpcSecurityGroupIds") => list(String.t() | atom()),
         required("Auth") => list(user_auth_config()),
         required("DBProxyName") => String.t() | atom(),
@@ -7332,11 +7335,13 @@ defmodule AWS.RDS do
         "DBProxyName" => String.t() | atom(),
         "DebugLogging" => boolean(),
         "Endpoint" => String.t() | atom(),
+        "EndpointNetworkType" => list(any()),
         "EngineFamily" => String.t() | atom(),
         "IdleClientTimeout" => integer(),
         "RequireTLS" => boolean(),
         "RoleArn" => String.t() | atom(),
         "Status" => list(any()),
+        "TargetConnectionNetworkType" => list(any()),
         "UpdatedDate" => non_neg_integer(),
         "VpcId" => String.t() | atom(),
         "VpcSecurityGroupIds" => list(String.t() | atom()),
@@ -8086,6 +8091,7 @@ defmodule AWS.RDS do
   ## Example:
       
       create_db_proxy_endpoint_request() :: %{
+        optional("EndpointNetworkType") => list(any()),
         optional("Tags") => list(tag()),
         optional("TargetRole") => list(any()),
         optional("VpcSecurityGroupIds") => list(String.t() | atom()),

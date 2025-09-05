@@ -4,21 +4,15 @@
 defmodule AWS.OpenSearchServerless do
   @moduledoc """
   Use the Amazon OpenSearch Serverless API to create, configure, and manage
-  OpenSearch Serverless collections and
-  security policies.
+  OpenSearch Serverless collections and security policies.
 
   OpenSearch Serverless is an on-demand, pre-provisioned serverless configuration
-  for
-  Amazon OpenSearch Service. OpenSearch Serverless removes the operational
-  complexities of provisioning,
-  configuring, and tuning your OpenSearch clusters. It enables you to easily
-  search and
-  analyze petabytes of data without having to worry about the underlying
-  infrastructure
-  and data management.
+  for Amazon OpenSearch Service. OpenSearch Serverless removes the operational
+  complexities of provisioning, configuring, and tuning your OpenSearch clusters.
+  It enables you to easily search and analyze petabytes of data without having to
+  worry about the underlying infrastructure and data management.
 
-  To learn more about OpenSearch Serverless, see [What is Amazon OpenSearch
-  Serverless?](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html)
+  To learn more about OpenSearch Serverless, see [What is Amazon OpenSearch Serverless?](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html)
   """
 
   alias AWS.Client
@@ -234,6 +228,18 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
+      fips_endpoints() :: %{
+        "collectionEndpoint" => [String.t() | atom()],
+        "dashboardEndpoint" => [String.t() | atom()]
+      }
+      
+  """
+  @type fips_endpoints() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       collection_summary() :: %{
         "arn" => [String.t() | atom()],
         "id" => String.t() | atom(),
@@ -340,6 +346,7 @@ defmodule AWS.OpenSearchServerless do
         "description" => [String.t() | atom()],
         "failureCode" => [String.t() | atom()],
         "failureMessage" => [String.t() | atom()],
+        "fipsEndpoints" => fips_endpoints(),
         "id" => String.t() | atom(),
         "kmsKeyArn" => [String.t() | atom()],
         "lastModifiedDate" => [float()],
@@ -1832,11 +1839,9 @@ defmodule AWS.OpenSearchServerless do
 
   @doc """
   Returns attributes for one or more collections, including the collection
-  endpoint and
-  the OpenSearch Dashboards endpoint.
+  endpoint, the OpenSearch Dashboards endpoint, and FIPS-compliant endpoints.
 
-  For more information, see [Creating and managing Amazon OpenSearch Serverless
-  collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html).
+  For more information, see [Creating and managing Amazon OpenSearch Serverless collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html).
   """
   @spec batch_get_collection(map(), batch_get_collection_request(), list()) ::
           {:ok, batch_get_collection_response(), any()}
@@ -1853,8 +1858,7 @@ defmodule AWS.OpenSearchServerless do
   Returns a list of successful and failed retrievals for the OpenSearch Serverless
   indexes.
 
-  For more
-  information, see [Viewing data lifecycle policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-list).
+  For more information, see [Viewing data lifecycle policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-list).
   """
   @spec batch_get_effective_lifecycle_policy(
           map(),
@@ -1874,8 +1878,7 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Returns one or more configured OpenSearch Serverless lifecycle policies.
 
-  For more information, see
-  [Viewing data lifecycle policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-list).
+  For more information, see [Viewing data lifecycle policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-list).
   """
   @spec batch_get_lifecycle_policy(map(), batch_get_lifecycle_policy_request(), list()) ::
           {:ok, batch_get_lifecycle_policy_response(), any()}
@@ -1909,11 +1912,9 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Creates a data access policy for OpenSearch Serverless.
 
-  Access policies limit access to collections
-  and the resources within them, and allow a user to access that data irrespective
-  of the
-  access mechanism or network source. For more information, see [Data access control for Amazon OpenSearch
-  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html).
+  Access policies limit access to collections and the resources within them, and
+  allow a user to access that data irrespective of the access mechanism or network
+  source. For more information, see [Data access control for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html).
   """
   @spec create_access_policy(map(), create_access_policy_request(), list()) ::
           {:ok, create_access_policy_response(), any()}
@@ -1929,8 +1930,7 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Creates a new OpenSearch Serverless collection.
 
-  For more information, see [Creating and managing Amazon OpenSearch Serverless
-  collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html).
+  For more information, see [Creating and managing Amazon OpenSearch Serverless collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html).
   """
   @spec create_collection(map(), create_collection_request(), list()) ::
           {:ok, create_collection_response(), any()}
@@ -1946,12 +1946,10 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Creates an index within an OpenSearch Serverless collection.
 
-  Unlike other OpenSearch indexes, indexes
-  created by this API are automatically configured to conduct automatic semantic
-  enrichment ingestion and search. For more information, see [About automatic semantic
-  enrichment](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html#serverless-semantic-enrichment)
-  in the *OpenSearch User
-  Guide*.
+  Unlike other OpenSearch indexes, indexes created by this API are automatically
+  configured to conduct automatic semantic enrichment ingestion and search. For
+  more information, see [About automatic semantic enrichment](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html#serverless-semantic-enrichment)
+  in the *OpenSearch User Guide*.
   """
   @spec create_index(map(), create_index_request(), list()) ::
           {:ok, create_index_response(), any()}
@@ -1967,10 +1965,8 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Creates a lifecyle policy to be applied to OpenSearch Serverless indexes.
 
-  Lifecycle policies define
-  the number of days or hours to retain the data on an OpenSearch Serverless
-  index. For more information,
-  see [Creating data lifecycle policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-create).
+  Lifecycle policies define the number of days or hours to retain the data on an
+  OpenSearch Serverless index. For more information, see [Creating data lifecycle policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-create).
   """
   @spec create_lifecycle_policy(map(), create_lifecycle_policy_request(), list()) ::
           {:ok, create_lifecycle_policy_response(), any()}
@@ -1986,8 +1982,7 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Specifies a security configuration for OpenSearch Serverless.
 
-  For more information, see [SAML authentication for Amazon OpenSearch
-  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html).
+  For more information, see [SAML authentication for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html).
   """
   @spec create_security_config(map(), create_security_config_request(), list()) ::
           {:ok, create_security_config_response(), any()}
@@ -2004,15 +1999,11 @@ defmodule AWS.OpenSearchServerless do
   Creates a security policy to be used by one or more OpenSearch Serverless
   collections.
 
-  Security
-  policies provide access to a collection and its OpenSearch Dashboards endpoint
-  from
-  public networks or specific VPC endpoints. They also allow you to secure a
-  collection
-  with a KMS encryption key. For more information, see [Network access for Amazon OpenSearch
-  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html)
-  and [Encryption at rest for Amazon OpenSearch
-  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html).
+  Security policies provide access to a collection and its OpenSearch Dashboards
+  endpoint from public networks or specific VPC endpoints. They also allow you to
+  secure a collection with a KMS encryption key. For more information, see
+  [Network access for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html)
+  and [Encryption at rest for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html).
   """
   @spec create_security_policy(map(), create_security_policy_request(), list()) ::
           {:ok, create_security_policy_response(), any()}
@@ -2045,8 +2036,7 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Deletes an OpenSearch Serverless access policy.
 
-  For more information, see [Data access control for Amazon OpenSearch
-  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html).
+  For more information, see [Data access control for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html).
   """
   @spec delete_access_policy(map(), delete_access_policy_request(), list()) ::
           {:ok, delete_access_policy_response(), any()}
@@ -2062,8 +2052,7 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Deletes an OpenSearch Serverless collection.
 
-  For more information, see [Creating and managing Amazon OpenSearch Serverless
-  collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html).
+  For more information, see [Creating and managing Amazon OpenSearch Serverless collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html).
   """
   @spec delete_collection(map(), delete_collection_request(), list()) ::
           {:ok, delete_collection_response(), any()}
@@ -2079,10 +2068,9 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Deletes an index from an OpenSearch Serverless collection.
 
-  Be aware that the index might be
-  configured to conduct automatic semantic enrichment ingestion and search. For
-  more
-  information, see [About automatic semantic enrichment](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html#serverless-semantic-enrichment).
+  Be aware that the index might be configured to conduct automatic semantic
+  enrichment ingestion and search. For more information, see [About automatic semantic
+  enrichment](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html#serverless-semantic-enrichment).
   """
   @spec delete_index(map(), delete_index_request(), list()) ::
           {:ok, delete_index_response(), any()}
@@ -2114,8 +2102,7 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Deletes a security configuration for OpenSearch Serverless.
 
-  For more information, see [SAML authentication for Amazon OpenSearch
-  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html).
+  For more information, see [SAML authentication for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html).
   """
   @spec delete_security_config(map(), delete_security_config_request(), list()) ::
           {:ok, delete_security_config_response(), any()}
@@ -2162,8 +2149,7 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Returns an OpenSearch Serverless access policy.
 
-  For more information, see [Data access control for Amazon OpenSearch
-  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html).
+  For more information, see [Data access control for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html).
   """
   @spec get_access_policy(map(), get_access_policy_request(), list()) ::
           {:ok, get_access_policy_response(), any()}
@@ -2192,11 +2178,10 @@ defmodule AWS.OpenSearchServerless do
 
   @doc """
   Retrieves information about an index in an OpenSearch Serverless collection,
-  including its schema
-  definition.
+  including its schema definition.
 
-  The index might be configured to conduct automatic semantic enrichment
-  ingestion and search. For more information, see [About automatic semantic enrichment](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html#serverless-semantic-enrichment).
+  The index might be configured to conduct automatic semantic enrichment ingestion
+  and search. For more information, see [About automatic semantic enrichment](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html#serverless-semantic-enrichment).
   """
   @spec get_index(map(), get_index_request(), list()) ::
           {:ok, get_index_response(), any()}
@@ -2211,8 +2196,7 @@ defmodule AWS.OpenSearchServerless do
 
   @doc """
   Returns statistical information about your OpenSearch Serverless access
-  policies, security
-  configurations, and security policies.
+  policies, security configurations, and security policies.
   """
   @spec get_policies_stats(map(), get_policies_stats_request(), list()) ::
           {:ok, get_policies_stats_response(), any()}
@@ -2228,9 +2212,7 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Returns information about an OpenSearch Serverless security configuration.
 
-  For more information, see
-  [SAML authentication for Amazon OpenSearch
-  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html).
+  For more information, see [SAML authentication for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html).
   """
   @spec get_security_config(map(), get_security_config_request(), list()) ::
           {:ok, get_security_config_response(), any()}
@@ -2246,11 +2228,8 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Returns information about a configured OpenSearch Serverless security policy.
 
-  For more information,
-  see [Network access for Amazon OpenSearch
-  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html)
-  and [Encryption at rest for Amazon OpenSearch
-  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html).
+  For more information, see [Network access for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html)
+  and [Encryption at rest for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html).
   """
   @spec get_security_policy(map(), get_security_policy_request(), list()) ::
           {:ok, get_security_policy_response(), any()}
@@ -2280,12 +2259,10 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Lists all OpenSearch Serverless collections.
 
-  For more information, see [Creating and managing Amazon OpenSearch Serverless
-  collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html).
+  For more information, see [Creating and managing Amazon OpenSearch Serverless collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html).
 
   Make sure to include an empty request body {} if you don't include any
-  collection
-  filters in the request.
+  collection filters in the request.
   """
   @spec list_collections(map(), list_collections_request(), list()) ::
           {:ok, list_collections_response(), any()}
@@ -2318,9 +2295,7 @@ defmodule AWS.OpenSearchServerless do
   Returns information about configured OpenSearch Serverless security
   configurations.
 
-  For more
-  information, see [SAML authentication for Amazon OpenSearch
-  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html).
+  For more information, see [SAML authentication for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html).
   """
   @spec list_security_configs(map(), list_security_configs_request(), list()) ::
           {:ok, list_security_configs_response(), any()}
@@ -2350,8 +2325,7 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Returns the tags for an OpenSearch Serverless resource.
 
-  For more information, see [Tagging Amazon OpenSearch Serverless
-  collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-collection.html).
+  For more information, see [Tagging Amazon OpenSearch Serverless collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-collection.html).
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2366,8 +2340,7 @@ defmodule AWS.OpenSearchServerless do
 
   @doc """
   Returns the OpenSearch Serverless-managed interface VPC endpoints associated
-  with the current
-  account.
+  with the current account.
 
   For more information, see [Access Amazon OpenSearch Serverless using an interface
   endpoint](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html).
@@ -2386,8 +2359,7 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Associates tags with an OpenSearch Serverless resource.
 
-  For more information, see [Tagging Amazon OpenSearch Serverless
-  collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-collection.html).
+  For more information, see [Tagging Amazon OpenSearch Serverless collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-collection.html).
   """
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -2403,8 +2375,7 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Removes a tag or set of tags from an OpenSearch Serverless resource.
 
-  For more information, see [Tagging Amazon OpenSearch Serverless
-  collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-collection.html).
+  For more information, see [Tagging Amazon OpenSearch Serverless collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-collection.html).
   """
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
@@ -2420,8 +2391,7 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Updates an OpenSearch Serverless access policy.
 
-  For more information, see [Data access control for Amazon OpenSearch
-  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html).
+  For more information, see [Data access control for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html).
   """
   @spec update_access_policy(map(), update_access_policy_request(), list()) ::
           {:ok, update_access_policy_response(), any()}
@@ -2438,9 +2408,7 @@ defmodule AWS.OpenSearchServerless do
   Update the OpenSearch Serverless settings for the current Amazon Web Services
   account.
 
-  For more
-  information, see [Managing capacity limits for Amazon OpenSearch
-  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-scaling.html).
+  For more information, see [Managing capacity limits for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-scaling.html).
   """
   @spec update_account_settings(map(), update_account_settings_request(), list()) ::
           {:ok, update_account_settings_response(), any()}
@@ -2470,12 +2438,10 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Updates an existing index in an OpenSearch Serverless collection.
 
-  This operation allows you to modify
-  the index schema, including adding new fields or changing field mappings. You
-  can also
-  enable automatic semantic enrichment ingestion and search. For more information,
-  see
-  [About automatic semantic enrichment](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html#serverless-semantic-enrichment).
+  This operation allows you to modify the index schema, including adding new
+  fields or changing field mappings. You can also enable automatic semantic
+  enrichment ingestion and search. For more information, see [About automatic semantic
+  enrichment](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html#serverless-semantic-enrichment).
   """
   @spec update_index(map(), update_index_request(), list()) ::
           {:ok, update_index_response(), any()}
@@ -2507,8 +2473,7 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Updates a security configuration for OpenSearch Serverless.
 
-  For more information, see [SAML authentication for Amazon OpenSearch
-  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html).
+  For more information, see [SAML authentication for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html).
   """
   @spec update_security_config(map(), update_security_config_request(), list()) ::
           {:ok, update_security_config_response(), any()}
@@ -2524,10 +2489,8 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Updates an OpenSearch Serverless security policy.
 
-  For more information, see [Network access for Amazon OpenSearch
-  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html)
-  and [Encryption at rest for Amazon OpenSearch
-  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html).
+  For more information, see [Network access for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html)
+  and [Encryption at rest for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html).
   """
   @spec update_security_policy(map(), update_security_policy_request(), list()) ::
           {:ok, update_security_policy_response(), any()}

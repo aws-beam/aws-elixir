@@ -25,6 +25,18 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      protected_job_worker_compute_configuration() :: %{
+        "number" => [integer()],
+        "type" => list(any())
+      }
+
+  """
+  @type protected_job_worker_compute_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       protected_query_distribute_output_configuration() :: %{
         "locations" => list(list())
       }
@@ -410,6 +422,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       protected_job() :: %{
+        "computeConfiguration" => list(),
         "createTime" => [non_neg_integer()],
         "error" => protected_job_error(),
         "id" => String.t() | atom(),
@@ -1876,6 +1889,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       start_protected_job_input() :: %{
+        optional("computeConfiguration") => list(),
         optional("resultConfiguration") => protected_job_result_configuration_input(),
         required("jobParameters") => protected_job_parameters(),
         required("type") => list(any())

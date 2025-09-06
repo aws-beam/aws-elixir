@@ -1039,6 +1039,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      cluster_tiered_storage_config() :: %{
+        "InstanceMemoryAllocationPercentage" => integer(),
+        "Mode" => list(any())
+      }
+      
+  """
+  @type cluster_tiered_storage_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       experiment_summary() :: %{
         "CreationTime" => non_neg_integer(),
         "DisplayName" => String.t() | atom(),
@@ -1722,6 +1734,7 @@ defmodule AWS.SageMaker do
         "NodeRecovery" => list(any()),
         "Orchestrator" => cluster_orchestrator(),
         "RestrictedInstanceGroups" => list(cluster_restricted_instance_group_details()),
+        "TieredStorageConfig" => cluster_tiered_storage_config(),
         "VpcConfig" => vpc_config()
       }
       
@@ -5551,6 +5564,7 @@ defmodule AWS.SageMaker do
         optional("InstanceGroupsToDelete") => list(String.t() | atom()),
         optional("NodeRecovery") => list(any()),
         optional("RestrictedInstanceGroups") => list(cluster_restricted_instance_group_specification()),
+        optional("TieredStorageConfig") => cluster_tiered_storage_config(),
         required("ClusterName") => String.t() | atom()
       }
       
@@ -6864,6 +6878,7 @@ defmodule AWS.SageMaker do
         "FailureReason" => String.t() | atom(),
         "InstanceMetadataServiceConfiguration" => instance_metadata_service_configuration(),
         "InstanceType" => list(any()),
+        "IpAddressType" => list(any()),
         "KmsKeyId" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
         "NetworkInterfaceId" => String.t() | atom(),
@@ -7271,6 +7286,7 @@ defmodule AWS.SageMaker do
         optional("Orchestrator") => cluster_orchestrator(),
         optional("RestrictedInstanceGroups") => list(cluster_restricted_instance_group_specification()),
         optional("Tags") => list(tag()),
+        optional("TieredStorageConfig") => cluster_tiered_storage_config(),
         optional("VpcConfig") => vpc_config(),
         required("ClusterName") => String.t() | atom()
       }
@@ -7644,6 +7660,7 @@ defmodule AWS.SageMaker do
         optional("DisassociateLifecycleConfig") => boolean(),
         optional("InstanceMetadataServiceConfiguration") => instance_metadata_service_configuration(),
         optional("InstanceType") => list(any()),
+        optional("IpAddressType") => list(any()),
         optional("LifecycleConfigName") => String.t() | atom(),
         optional("RoleArn") => String.t() | atom(),
         optional("RootAccess") => list(any()),
@@ -12143,6 +12160,7 @@ defmodule AWS.SageMaker do
         optional("DefaultCodeRepository") => String.t() | atom(),
         optional("DirectInternetAccess") => list(any()),
         optional("InstanceMetadataServiceConfiguration") => instance_metadata_service_configuration(),
+        optional("IpAddressType") => list(any()),
         optional("KmsKeyId") => String.t() | atom(),
         optional("LifecycleConfigName") => String.t() | atom(),
         optional("PlatformIdentifier") => String.t() | atom(),

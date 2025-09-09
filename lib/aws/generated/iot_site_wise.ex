@@ -3006,10 +3006,12 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
-      describe_computation_model_request() :: %{}
+      describe_computation_model_request() :: %{
+        optional("computationModelVersion") => String.t() | atom()
+      }
 
   """
-  @type describe_computation_model_request() :: %{}
+  @type describe_computation_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5895,6 +5897,9 @@ defmodule AWS.IoTSiteWise do
   user, IAM Identity Center group, or
   IAM user) access to the specified IoT SiteWise Monitor portal or project
   resource.
+
+  Support for access policies that use an SSO Group as the identity is not
+  supported at this time.
   """
   @spec create_access_policy(map(), create_access_policy_request(), list()) ::
           {:ok, create_access_policy_response(), any()}
@@ -7121,15 +7126,27 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves information about a computation model.
   """
-  @spec describe_computation_model(map(), String.t() | atom(), list()) ::
+  @spec describe_computation_model(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, describe_computation_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, describe_computation_model_errors()}
-  def describe_computation_model(%Client{} = client, computation_model_id, options \\ []) do
+  def describe_computation_model(
+        %Client{} = client,
+        computation_model_id,
+        computation_model_version \\ nil,
+        options \\ []
+      ) do
     url_path = "/computation-models/#{AWS.Util.encode_uri(computation_model_id)}"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(computation_model_version) do
+        [{"computationModelVersion", computation_model_version} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 

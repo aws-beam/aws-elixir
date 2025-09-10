@@ -902,6 +902,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       cancel_instance_refresh_type() :: %{
+        optional("WaitForTransitioningInstances") => boolean(),
         required("AutoScalingGroupName") => String.t() | atom()
       }
       

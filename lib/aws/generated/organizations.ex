@@ -997,6 +997,7 @@ defmodule AWS.Organizations do
         "JoinedMethod" => list(any()),
         "JoinedTimestamp" => non_neg_integer(),
         "Name" => String.t() | atom(),
+        "State" => list(any()),
         "Status" => list(any())
       }
       
@@ -2803,8 +2804,8 @@ defmodule AWS.Organizations do
     
   You can close only 10% of member accounts, between 10 and 1000, within a
   rolling 30 day period. This quota is not bound by a calendar month, but
-  starts when you close an account. After you reach this limit, you can't close
-  additional accounts. For more information, see [Closing a member account in your
+  starts when you close an account. After you reach this limit, you can't
+  close additional accounts. For more information, see [Closing a member account in your
   organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html)
   and [Quotas for Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html)
   in the *Organizations User Guide*.
@@ -2889,10 +2890,11 @@ defmodule AWS.Organizations do
     
   When you create an account in an organization using the Organizations console,
   API, or CLI commands, the information required for the account to operate
-  as a standalone account, such as a payment method is *not* automatically
-  collected. If you must remove an account from your organization later, you
-  can do so only after you provide the missing information. For more
-  information, see [Considerations before removing an account from an organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_account-before-remove.html)
+  as a standalone account, such as a payment method is
+  *not* automatically collected. If you must remove an
+  account from your organization later, you can do so only after you provide
+  the missing information. For more information, see [Considerations before removing an account from an
+  organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_account-before-remove.html)
   in the *Organizations User Guide*.
 
     
@@ -2905,11 +2907,10 @@ defmodule AWS.Organizations do
   If the error persists, contact [Amazon Web Services Support](https://console.aws.amazon.com/support/home#/).
 
     
-  It isn't recommended to use `CreateAccount` to create multiple temporary
-  accounts, and using
-  the `CreateAccount` API to close accounts is subject to a 30-day usage quota.
-  For information on the requirements
-  and process for closing an account, see [Closing a member account in your
+  It isn't recommended to use `CreateAccount` to create multiple
+  temporary accounts, and using the `CreateAccount` API to close
+  accounts is subject to a 30-day usage quota. For information on the
+  requirements and process for closing an account, see [Closing a member account in your
   organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html)
   in the
   *Organizations User Guide*.
@@ -3374,8 +3375,8 @@ defmodule AWS.Organizations do
   account.
 
   This operation applies only to management policies. It does not apply to
-  authorization policies: service
-  control policies (SCPs) and resource control policies (RCPs).
+  authorization
+  policies: service control policies (SCPs) and resource control policies (RCPs).
 
   For more information about policy inheritance, see [Understanding management policy
   inheritance](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inheritance_mgmt.html)
@@ -3639,7 +3640,7 @@ defmodule AWS.Organizations do
   management account or by a member account that is a delegated administrator.
 
   To view the status of available policy types in the organization, use
-  `DescribeOrganization`.
+  `ListRoots`.
   """
   @spec disable_policy_type(map(), disable_policy_type_request(), list()) ::
           {:ok, disable_policy_type_response(), any()}
@@ -3717,14 +3718,15 @@ defmodule AWS.Organizations do
 
   @doc """
   Provides an Amazon Web Services service (the service that is specified by
-  `ServicePrincipal`) with permissions to view the structure of an organization,
-  create a [service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html)
-  in all the accounts in the organization,
-  and allow the service to perform operations
-  on behalf of the organization and its accounts.
+  `ServicePrincipal`) with permissions to view the structure of an
+  organization, create a [service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html)
+  in
+  all the accounts in the organization, and allow the service to perform
+  operations on
+  behalf of the organization and its accounts.
 
-  Establishing these permissions can be a first step
-  in enabling the integration of an Amazon Web Services service with
+  Establishing these permissions can be a
+  first step in enabling the integration of an Amazon Web Services service with
   Organizations.
 
   We recommend that you enable integration between Organizations and the specified
@@ -3777,7 +3779,7 @@ defmodule AWS.Organizations do
   the
   organization. To view the status of available policy types in the organization,
   use
-  `DescribeOrganization`.
+  `ListRoots`.
   """
   @spec enable_policy_type(map(), enable_policy_type_request(), list()) ::
           {:ok, enable_policy_type_response(), any()}
@@ -3799,10 +3801,12 @@ defmodule AWS.Organizations do
   other account's owner. The invitation is implemented as a `Handshake`
   whose details are in the response.
 
-  If you receive an exception that indicates that you exceeded your account
-  limits for the organization or that the operation failed because your
-  organization is still initializing, wait one hour and then try again. If the
-  error persists after an hour, contact [Amazon Web Services Support](https://console.aws.amazon.com/support/home#/).
+  If you receive an exception that indicates that you exceeded your account limits
+  for the organization or that the operation failed because your organization is
+  still
+  initializing, wait one hour and then try again. If the error persists after an
+  hour,
+  contact [Amazon Web Services Support](https://console.aws.amazon.com/support/home#/).
 
   If the request includes tags, then the requester must have the
   `organizations:TagResource` permission.
@@ -3879,9 +3883,8 @@ defmodule AWS.Organizations do
 
     
   A newly created account has a waiting period before it can be removed from
-  its organization.
-  You must wait until at least seven days after the account was created. Invited
-  accounts aren't subject to this waiting period.
+  its organization. You must wait until at least seven days after the account
+  was created. Invited accounts aren't subject to this waiting period.
 
     
   If you are using an organization principal to call
@@ -3965,9 +3968,10 @@ defmodule AWS.Organizations do
   @doc """
   Lists all the accounts in an organization that have invalid effective policies.
 
-  An *invalid effective policy* is an [effective policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_effective.html)
-  that fails validation checks, resulting in the effective policy not being fully
-  enforced on all the intended accounts within an organization.
+  An
+  *invalid effective policy* is an [effective policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_effective.html)
+  that fails validation checks, resulting in the effective policy not
+  being fully enforced on all the intended accounts within an organization.
 
   This operation can be called only from the organization's
   management account or by a member account that is a delegated administrator.

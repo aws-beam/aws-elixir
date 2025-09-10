@@ -1048,6 +1048,26 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      create_environment_blueprint_output() :: %{
+        "createdAt" => [non_neg_integer()],
+        "deploymentProperties" => deployment_properties(),
+        "description" => String.t() | atom(),
+        "glossaryTerms" => list(String.t() | atom()),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "provider" => [String.t() | atom()],
+        "provisioningProperties" => list(),
+        "updatedAt" => [non_neg_integer()],
+        "userParameters" => list(custom_parameter())
+      }
+
+  """
+  @type create_environment_blueprint_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_environment_input() :: %{
         optional("deploymentOrder") => [integer()],
         optional("description") => [String.t() | atom()],
@@ -3192,6 +3212,26 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      update_environment_blueprint_output() :: %{
+        "createdAt" => [non_neg_integer()],
+        "deploymentProperties" => deployment_properties(),
+        "description" => String.t() | atom(),
+        "glossaryTerms" => list(String.t() | atom()),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "provider" => [String.t() | atom()],
+        "provisioningProperties" => list(),
+        "updatedAt" => [non_neg_integer()],
+        "userParameters" => list(custom_parameter())
+      }
+
+  """
+  @type update_environment_blueprint_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_form_type_output() :: %{
         "description" => String.t() | atom(),
         "domainId" => String.t() | atom(),
@@ -3342,6 +3382,15 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      delete_environment_blueprint_input() :: %{}
+
+  """
+  @type delete_environment_blueprint_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       domain_unit_user_properties() :: %{
         "userId" => [String.t() | atom()]
       }
@@ -3395,6 +3444,7 @@ defmodule AWS.DataZone do
         "fieldType" => [String.t() | atom()],
         "isEditable" => [boolean()],
         "isOptional" => [boolean()],
+        "isUpdateSupported" => [boolean()],
         "keyName" => [String.t() | atom()]
       }
 
@@ -5050,6 +5100,20 @@ defmodule AWS.DataZone do
 
   """
   @type get_time_series_data_point_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_environment_blueprint_input() :: %{
+        optional("description") => String.t() | atom(),
+        optional("userParameters") => list(custom_parameter()),
+        required("name") => String.t() | atom(),
+        required("provisioningProperties") => list()
+      }
+
+  """
+  @type create_environment_blueprint_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7839,6 +7903,19 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      update_environment_blueprint_input() :: %{
+        optional("description") => [String.t() | atom()],
+        optional("provisioningProperties") => list(),
+        optional("userParameters") => list(custom_parameter())
+      }
+
+  """
+  @type update_environment_blueprint_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_group_profile_output() :: %{
         "domainId" => String.t() | atom(),
         "groupName" => String.t() | atom(),
@@ -8115,6 +8192,7 @@ defmodule AWS.DataZone do
 
       put_environment_blueprint_configuration_input() :: %{
         optional("environmentRolePermissionBoundary") => String.t() | atom(),
+        optional("globalParameters") => map(),
         optional("manageAccessRoleArn") => String.t() | atom(),
         optional("provisioningConfigurations") => list(list()),
         optional("provisioningRoleArn") => String.t() | atom(),
@@ -8324,6 +8402,15 @@ defmodule AWS.DataZone do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type create_environment_blueprint_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_environment_profile_errors() ::
           throttling_exception()
           | validation_exception()
@@ -8515,6 +8602,14 @@ defmodule AWS.DataZone do
           | resource_not_found_exception()
 
   @type delete_environment_action_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_environment_blueprint_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -9294,6 +9389,15 @@ defmodule AWS.DataZone do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type update_environment_blueprint_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type update_environment_profile_errors() ::
           throttling_exception()
           | validation_exception()
@@ -9667,6 +9771,15 @@ defmodule AWS.DataZone do
 
   @doc """
   Cancels the metadata generation run.
+
+  Prerequisites:
+
+    * The run must exist and be in a cancelable status (e.g., SUBMITTED,
+  IN_PROGRESS).
+
+    * Runs in SUCCEEDED status cannot be cancelled.
+
+    * User must have access to the run and cancel permissions.
   """
   @spec cancel_metadata_generation_run(
           map(),
@@ -9776,6 +9889,31 @@ defmodule AWS.DataZone do
 
   @doc """
   Creates an asset in Amazon DataZone catalog.
+
+  Before creating assets, make sure that the following requirements are met:
+
+    * `--domain-identifier` must refer to an existing domain.
+
+    * `--owning-project-identifier` must be a valid project within the
+  domain.
+
+    * Asset type must be created beforehand using `create-asset-type`,
+  or be a supported system-defined type. For more information, see
+  [create-asset-type](https://docs.aws.amazon.com/cli/latest/reference/datazone/create-asset-type.html).     * `--type-revision` (if used) must match a valid revision of the
+  asset type.
+
+    * Form type must exist and be associated with the asset type. Use
+  `create-form-type` to define. For more information, see
+  [create-form-type](https://docs.aws.amazon.com/cli/latest/reference/datazone/create-form-type.html).
+
+    * Form content must include all required fields as per the form
+  schema (e.g., `bucketArn`).
+
+  You must invoke the following pre-requisite commands before invoking this API:
+
+    *
+  [CreateFormType](https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateFormType.html)     *
+  [CreateAssetType](https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateAssetType.html)
   """
   @spec create_asset(map(), String.t() | atom(), create_asset_input(), list()) ::
           {:ok, create_asset_output(), any()}
@@ -9805,6 +9943,27 @@ defmodule AWS.DataZone do
 
   @doc """
   Creates a data asset filter.
+
+  Asset filters provide a sophisticated way to create controlled views of data
+  assets by selecting specific columns or applying row-level filters. This
+  capability is crucial for organizations that need to share data while
+  maintaining security and privacy controls. For example, your database might be
+  filtered to show only non-PII fields to certain users, or sales data might be
+  filtered by region for different regional teams. Asset filters enable
+  fine-grained access control while maintaining a single source of truth.
+
+  Prerequisites:
+
+    * A valid domain (`--domain-identifier`) must exist.
+
+    * A data asset (`--asset-identifier`) must already be created under
+  that domain.
+
+    * The asset must have the referenced columns available in its schema
+  for column-based filtering.
+
+    * You cannot specify both (`columnConfiguration`,
+  `rowConfiguration`)at the same time.
   """
   @spec create_asset_filter(
           map(),
@@ -9848,6 +10007,28 @@ defmodule AWS.DataZone do
 
   @doc """
   Creates a revision of the asset.
+
+  Asset revisions represent new versions of existing assets, capturing changes to
+  either the underlying data or its metadata. They maintain a historical record of
+  how assets evolve over time, who made changes, and when those changes occurred.
+  This versioning capability is crucial for governance and compliance, allowing
+  organizations to track changes, understand their impact, and roll back if
+  necessary.
+
+  Prerequisites:
+
+    * Asset must already exist in the domain with identifier.
+
+    * The form type with correct revision must be registered in the same
+  domain.
+
+    * The form content must include all required fields (e.g.,
+  `bucketArn` for `S3ObjectCollectionForm`).
+
+    * The owning project of the original asset must still exist and be
+  active.
+
+    * User must have write access to the project and domain.
   """
   @spec create_asset_revision(
           map(),
@@ -9891,6 +10072,22 @@ defmodule AWS.DataZone do
 
   @doc """
   Creates a custom asset type.
+
+  Prerequisites:
+
+    * The form type with `typeIdentifier` and `typeRevision` must exist
+  and be published.
+
+    * You must have `CreateAssetType` permissions.
+
+    * The domain-identifier and owning-project-identifier must be valid
+  and active.
+
+    * The name of the asset type must be unique within the domain —
+  duplicate names will cause failure.
+
+    * JSON input must be valid — incorrect formatting causes Invalid
+  JSON errors.
   """
   @spec create_asset_type(map(), String.t() | atom(), create_asset_type_input(), list()) ::
           {:ok, create_asset_type_output(), any()}
@@ -9952,6 +10149,27 @@ defmodule AWS.DataZone do
 
   @doc """
   Creates a data product.
+
+  A data product is a comprehensive package that combines data assets with their
+  associated metadata, documentation, and access controls. It's designed to serve
+  specific business needs or use cases, making it easier for users to find and
+  consume data appropriately. Data products include important information about
+  data quality, freshness, and usage guidelines, effectively bridging the gap
+  between data producers and consumers while ensuring proper governance.
+
+  Prerequisites:
+
+    * The domain must exist and be accessible.
+
+    * The owning project must be valid and active.
+
+    * The name must be unique within the domain (no existing data
+  product with the same name).
+
+    * User must have create permissions for data products in the
+  project.
+
+    * The domain must have Amazon DataZone publishing enabled.
   """
   @spec create_data_product(map(), String.t() | atom(), create_data_product_input(), list()) ::
           {:ok, create_data_product_output(), any()}
@@ -9981,6 +10199,17 @@ defmodule AWS.DataZone do
 
   @doc """
   Creates a data product revision.
+
+  Prerequisites:
+
+    * The original data product must exist in the given domain.
+
+    * User must have permissions on the data product.
+
+    * The domain must be valid and accessible.
+
+    * The new revision name must comply with naming constraints (if
+  required).
   """
   @spec create_data_product_revision(
           map(),
@@ -10183,6 +10412,40 @@ defmodule AWS.DataZone do
   end
 
   @doc """
+  Creates a Amazon DataZone blueprint.
+  """
+  @spec create_environment_blueprint(
+          map(),
+          String.t() | atom(),
+          create_environment_blueprint_input(),
+          list()
+        ) ::
+          {:ok, create_environment_blueprint_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_environment_blueprint_errors()}
+  def create_environment_blueprint(%Client{} = client, domain_identifier, input, options \\ []) do
+    url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environment-blueprints"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Creates an Amazon DataZone environment profile.
   """
   @spec create_environment_profile(
@@ -10218,6 +10481,14 @@ defmodule AWS.DataZone do
 
   @doc """
   Creates a metadata form type.
+
+  Prerequisites:
+
+    * The domain must exist and be in an `ENABLED` state.
+
+    * The owning project must exist and be accessible.
+
+    * The name must be unique within the domain.
   """
   @spec create_form_type(map(), String.t() | atom(), create_form_type_input(), list()) ::
           {:ok, create_form_type_output(), any()}
@@ -10247,6 +10518,24 @@ defmodule AWS.DataZone do
 
   @doc """
   Creates an Amazon DataZone business glossary.
+
+  Specifies that this is a create glossary policy.
+
+  A glossary serves as the central repository for business terminology and
+  definitions within an organization. It helps establish and maintain a common
+  language across different departments and teams, reducing miscommunication and
+  ensuring consistent interpretation of business concepts. Glossaries can include
+  hierarchical relationships between terms, cross-references, and links to actual
+  data assets, making them invaluable for both business users and technical teams
+  trying to understand and use data correctly.
+
+  Prerequisites:
+
+    * Domain must exist and be in an active state.
+
+    * Owning project must exist and be accessible by the caller.
+
+    * The glossary name must be unique within the domain.
   """
   @spec create_glossary(map(), String.t() | atom(), create_glossary_input(), list()) ::
           {:ok, create_glossary_output(), any()}
@@ -10276,6 +10565,26 @@ defmodule AWS.DataZone do
 
   @doc """
   Creates a business glossary term.
+
+  A glossary term represents an individual entry within the Amazon DataZone
+  glossary, serving as a standardized definition for a specific business concept
+  or data element. Each term can include rich metadata such as detailed
+  definitions, synonyms, related terms, and usage examples. Glossary terms can be
+  linked directly to data assets, providing business context to technical data
+  elements. This linking capability helps users understand the business meaning of
+  data fields and ensures consistent interpretation across different systems and
+  teams. Terms can also have relationships with other terms, creating a semantic
+  network that reflects the complexity of business concepts.
+
+  Prerequisites:
+
+    * Domain must exist.
+
+    * Glossary must exist and be in an ENABLED state.
+
+    * The term name must be unique within the glossary.
+
+    * Ensure term does not conflict with existing terms in hierarchy.
   """
   @spec create_glossary_term(map(), String.t() | atom(), create_glossary_term_input(), list()) ::
           {:ok, create_glossary_term_output(), any()}
@@ -10684,6 +10993,17 @@ defmodule AWS.DataZone do
 
   @doc """
   Deletes an asset in Amazon DataZone.
+
+    * --domain-identifier must refer to a valid and existing domain.
+
+    * --identifier must refer to an existing asset in the specified
+  domain.
+
+    * Asset must not be referenced in any existing asset filters.
+
+    * Asset must not be linked to any draft or published data product.
+
+    * User must have delete permissions for the domain and project.
   """
   @spec delete_asset(
           map(),
@@ -10721,6 +11041,14 @@ defmodule AWS.DataZone do
 
   @doc """
   Deletes an asset filter.
+
+  Prerequisites:
+
+    * The asset filter must exist.
+
+    * The domain and asset must not have been deleted.
+
+    * Ensure the --identifier refers to a valid filter ID.
   """
   @spec delete_asset_filter(
           map(),
@@ -10766,6 +11094,18 @@ defmodule AWS.DataZone do
 
   @doc """
   Deletes an asset type in Amazon DataZone.
+
+  Prerequisites:
+
+    * The asset type must exist in the domain.
+
+    * You must have DeleteAssetType permission.
+
+    * The asset type must not be in use (e.g., assigned to any asset).
+  If used, deletion will fail.
+
+    * You should retrieve the asset type using get-asset-type to confirm
+  its presence before deletion.
   """
   @spec delete_asset_type(
           map(),
@@ -10843,6 +11183,17 @@ defmodule AWS.DataZone do
 
   @doc """
   Deletes a data product in Amazon DataZone.
+
+  Prerequisites:
+
+    * The data product must exist and not be deleted or archived.
+
+    * The user must have delete permissions for the data product.
+
+    * Ensure there are no active dependencies (e.g., published links,
+  assets using the product).
+
+    * Domain and project must be active.
   """
   @spec delete_data_product(
           map(),
@@ -11077,6 +11428,49 @@ defmodule AWS.DataZone do
   end
 
   @doc """
+  Deletes a blueprint in Amazon DataZone.
+  """
+  @spec delete_environment_blueprint(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_environment_blueprint_input(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_environment_blueprint_errors()}
+  def delete_environment_blueprint(
+        %Client{} = client,
+        domain_identifier,
+        identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environment-blueprints/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Deletes the blueprint configuration in Amazon DataZone.
   """
   @spec delete_environment_blueprint_configuration(
@@ -11163,7 +11557,20 @@ defmodule AWS.DataZone do
   end
 
   @doc """
-  Delets and metadata form type in Amazon DataZone.
+  Deletes and metadata form type in Amazon DataZone.
+
+  Prerequisites:
+
+    * The form type must exist in the domain.
+
+    * The form type must not be in use by any asset types or assets.
+
+    * The domain must be valid and accessible.
+
+    * User must have delete permissions on the form type.
+
+    * Any dependencies (such as linked asset types) must be removed
+  first.
   """
   @spec delete_form_type(
           map(),
@@ -11207,6 +11614,20 @@ defmodule AWS.DataZone do
 
   @doc """
   Deletes a business glossary in Amazon DataZone.
+
+  Prerequisites:
+
+    * The glossary must be in DISABLED state.
+
+    * The glossary must not have any glossary terms associated with it.
+
+    * The glossary must exist in the specified domain.
+
+    * The caller must have the `datazone:DeleteGlossary` permission in
+  the domain and glossary.
+
+    * There should be no active assets or metadata linked to the
+  glossary.
   """
   @spec delete_glossary(
           map(),
@@ -11244,6 +11665,17 @@ defmodule AWS.DataZone do
 
   @doc """
   Deletes a business glossary term in Amazon DataZone.
+
+  Prerequisites:
+
+    * Glossary term must exist and be active.
+
+    * The term must not be linked to other assets or child terms.
+
+    * Caller must have delete permissions in the domain/glossary.
+
+    * Ensure all associations (such as to assets or parent terms) are
+  removed before deletion.
   """
   @spec delete_glossary_term(
           map(),
@@ -11783,6 +12215,23 @@ defmodule AWS.DataZone do
 
   @doc """
   Gets an Amazon DataZone asset.
+
+  An asset is the fundamental building block in Amazon DataZone, representing any
+  data resource that needs to be cataloged and managed. It can take many forms,
+  from Amazon S3 buckets and database tables to dashboards and machine learning
+  models. Each asset contains comprehensive metadata about the resource, including
+  its location, schema, ownership, and lineage information. Assets are essential
+  for organizing and managing data resources across an organization, making them
+  discoverable and usable while maintaining proper governance.
+
+  Before using the Amazon DataZone GetAsset command, ensure the following
+  prerequisites are met:
+
+    * Domain identifier must exist and be valid
+
+    * Asset identifier must exist
+
+    * User must have the required permissions to perform the action
   """
   @spec get_asset(
           map(),
@@ -11816,6 +12265,15 @@ defmodule AWS.DataZone do
 
   @doc """
   Gets an asset filter.
+
+  Prerequisites:
+
+    * Domain (`--domain-identifier`), asset (`--asset-identifier`), and
+  filter (`--identifier`) must all exist.
+
+    * The asset filter should not have been deleted.
+
+    * The asset must still exist (since the filter is linked to it).
   """
   @spec get_asset_filter(
           map(),
@@ -11848,6 +12306,23 @@ defmodule AWS.DataZone do
 
   @doc """
   Gets an Amazon DataZone asset type.
+
+  Asset types define the categories and characteristics of different kinds of data
+  assets within Amazon DataZone.. They determine what metadata fields are
+  required, what operations are possible, and how the asset integrates with other
+  Amazon Web Services services. Asset types can range from built-in types like
+  Amazon S3 buckets and Amazon Web Services Glue tables to custom types defined
+  for specific organizational needs. Understanding asset types is crucial for
+  properly organizing and managing different kinds of data resources.
+
+  Prerequisites:
+
+    * The asset type with identifier must exist in the domain.
+  ResourceNotFoundException.
+
+    * You must have the GetAssetType permission.
+
+    * Ensure the domain-identifier value is correct and accessible.
   """
   @spec get_asset_type(
           map(),
@@ -11929,6 +12404,14 @@ defmodule AWS.DataZone do
 
   @doc """
   Gets the data product.
+
+  Prerequisites:
+
+    * The data product ID must exist.
+
+    * The domain must be valid and accessible.
+
+    * User must have read or discovery permissions for the data product.
   """
   @spec get_data_product(
           map(),
@@ -12193,6 +12676,22 @@ defmodule AWS.DataZone do
 
   @doc """
   Gets a metadata form type in Amazon DataZone.
+
+  Form types define the structure and validation rules for collecting metadata
+  about assets in Amazon DataZone. They act as templates that ensure consistent
+  metadata capture across similar types of assets, while allowing for
+  customization to meet specific organizational needs. Form types can include
+  required fields, validation rules, and dependencies, helping maintain
+  high-quality metadata that makes data assets more discoverable and usable.
+
+    * The form type with the specified identifier must exist in the
+  given domain.
+
+    * The domain must be valid and active.
+
+    * User must have permission on the form type.
+
+    * The form type should not be deleted or in an invalid state.
   """
   @spec get_form_type(
           map(),
@@ -12232,6 +12731,14 @@ defmodule AWS.DataZone do
 
   @doc """
   Gets a business glossary in Amazon DataZone.
+
+  Prerequisites:
+
+    * The specified glossary ID must exist and be associated with the
+  given domain.
+
+    * The caller must have the `datazone:GetGlossary` permission on the
+  domain.
   """
   @spec get_glossary(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_glossary_output(), any()}
@@ -12252,6 +12759,14 @@ defmodule AWS.DataZone do
 
   @doc """
   Gets a business glossary term in Amazon DataZone.
+
+  Prerequisites:
+
+    * Glossary term with identifier must exist in the domain.
+
+    * User must have permission on the glossary term.
+
+    * Domain must be accessible and active.
   """
   @spec get_glossary_term(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_glossary_term_output(), any()}
@@ -12461,6 +12976,14 @@ defmodule AWS.DataZone do
 
   @doc """
   Gets a metadata generation run in Amazon DataZone.
+
+  Prerequisites:
+
+    * Valid domain and run identifier.
+
+    * The metadata generation run must exist.
+
+    * User must have read access to the metadata run.
   """
   @spec get_metadata_generation_run(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_metadata_generation_run_output(), any()}
@@ -12865,6 +13388,12 @@ defmodule AWS.DataZone do
 
   @doc """
   Lists asset filters.
+
+  Prerequisites:
+
+    * A valid domain and asset must exist.
+
+    * The asset must have at least one filter created to return results.
   """
   @spec list_asset_filters(
           map(),
@@ -12922,6 +13451,17 @@ defmodule AWS.DataZone do
 
   @doc """
   Lists the revisions for the asset.
+
+  Prerequisites:
+
+    * The asset must exist in the domain.
+
+    * There must be at least one revision of the asset (which happens
+  automatically after creation).
+
+    * The domain must be valid and active.
+
+    * User must have permissions on the asset and domain.
   """
   @spec list_asset_revisions(
           map(),
@@ -13071,6 +13611,14 @@ defmodule AWS.DataZone do
 
   @doc """
   Lists data product revisions.
+
+  Prerequisites:
+
+    * The data product ID must exist within the domain.
+
+    * User must have view permissions on the data product.
+
+    * The domain must be in a valid and accessible state.
   """
   @spec list_data_product_revisions(
           map(),
@@ -14076,6 +14624,20 @@ defmodule AWS.DataZone do
 
   @doc """
   Lists all metadata generation runs.
+
+  Metadata generation runs represent automated processes that leverage AI/ML
+  capabilities to create or enhance asset metadata at scale. This feature helps
+  organizations maintain comprehensive and consistent metadata across large
+  numbers of assets without manual intervention. It can automatically generate
+  business descriptions, tags, and other metadata elements, significantly reducing
+  the time and effort required for metadata management while improving consistency
+  and completeness.
+
+  Prerequisites:
+
+    * Valid domain identifier.
+
+    * User must have access to metadata generation runs in the domain.
   """
   @spec list_metadata_generation_runs(
           map(),
@@ -15417,6 +15979,38 @@ defmodule AWS.DataZone do
 
   @doc """
   Searches for assets in Amazon DataZone.
+
+  Search in Amazon DataZone is a powerful capability that enables users to
+  discover and explore data assets, glossary terms, and data products across their
+  organization. It provides both basic and advanced search functionality, allowing
+  users to find resources based on names, descriptions, metadata, and other
+  attributes. Search can be scoped to specific types of resources (like assets,
+  glossary terms, or data products) and can be filtered using various criteria
+  such as creation date, owner, or status. The search functionality is essential
+  for making the wealth of data resources in an organization discoverable and
+  usable, helping users find the right data for their needs quickly and
+  efficiently.
+
+  Many search commands in Amazon DataZone are paginated, including `search` and
+  `search-types`. When the result set is large, Amazon DataZone returns a
+  `nextToken` in the response. This token can be used to retrieve the next page of
+  results.
+
+  Prerequisites:
+
+    * The --domain-identifier must refer to an existing Amazon DataZone
+  domain.
+
+    * --search-scope must be one of: ASSET, GLOSSARY_TERM, DATA_PRODUCT,
+  or GLOSSARY.
+
+    * The user must have search permissions in the specified domain.
+
+    * If using --filters, ensure that the JSON is well-formed and that
+  each filter includes valid attribute and value keys.
+
+    * For paginated results, be prepared to use --next-token to fetch
+  additional pages.
   """
   @spec search(map(), String.t() | atom(), search_input(), list()) ::
           {:ok, search_output(), any()}
@@ -15504,6 +16098,23 @@ defmodule AWS.DataZone do
 
   @doc """
   Searches for types in Amazon DataZone.
+
+  Prerequisites:
+
+    * The --domain-identifier must refer to an existing Amazon DataZone
+  domain.
+
+    * --search-scope must be one of the valid values including:
+  ASSET_TYPE, GLOSSARY_TERM_TYPE, DATA_PRODUCT_TYPE.
+
+    * The --managed flag must be present without a value.
+
+    * The user must have permissions for form or asset types in the
+  domain.
+
+    * If using --filters, ensure that the JSON is valid.
+
+    * Filters contain correct structure (attribute, value, operator).
   """
   @spec search_types(map(), String.t() | atom(), search_types_input(), list()) ::
           {:ok, search_types_output(), any()}
@@ -15605,6 +16216,21 @@ defmodule AWS.DataZone do
 
   @doc """
   Starts the metadata generation run.
+
+  Prerequisites:
+
+    * Asset must be created and belong to the specified domain and
+  project.
+
+    * Asset type must be supported for metadata generation (e.g., Amazon
+  Web Services Glue table).
+
+    * Asset must have a structured schema with valid rows and columns.
+
+    * Valid values for --type: BUSINESS_DESCRIPTIONS, BUSINESS_NAMES.
+
+    * The user must have permission to run metadata generation in the
+  domain/project.
   """
   @spec start_metadata_generation_run(
           map(),
@@ -15739,6 +16365,15 @@ defmodule AWS.DataZone do
 
   @doc """
   Updates an asset filter.
+
+  Prerequisites:
+
+    * The domain, asset, and asset filter identifier must all exist.
+
+    * The asset must contain the columns being referenced in the update.
+
+    * If applying a row filter, ensure the column referenced in the
+  expression exists in the asset schema.
   """
   @spec update_asset_filter(
           map(),
@@ -16013,6 +16648,49 @@ defmodule AWS.DataZone do
   end
 
   @doc """
+  Updates an environment blueprint in Amazon DataZone.
+  """
+  @spec update_environment_blueprint(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_environment_blueprint_input(),
+          list()
+        ) ::
+          {:ok, update_environment_blueprint_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_environment_blueprint_errors()}
+  def update_environment_blueprint(
+        %Client{} = client,
+        domain_identifier,
+        identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environment-blueprints/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates the specified environment profile in Amazon DataZone.
   """
   @spec update_environment_profile(
@@ -16057,6 +16735,18 @@ defmodule AWS.DataZone do
 
   @doc """
   Updates the business glossary in Amazon DataZone.
+
+  Prerequisites:
+
+    * The glossary must exist in the given domain.
+
+    * The caller must have the `datazone:UpdateGlossary` permission to
+  update it.
+
+    * When updating the name, the new name must be unique within the
+  domain.
+
+    * The glossary must not be deleted or in a terminal state.
   """
   @spec update_glossary(
           map(),
@@ -16094,6 +16784,17 @@ defmodule AWS.DataZone do
 
   @doc """
   Updates a business glossary term in Amazon DataZone.
+
+  Prerequisites:
+
+    * Glossary term must exist in the specified domain.
+
+    * New name must not conflict with existing terms in the same
+  glossary.
+
+    * User must have permissions on the term.
+
+    * The term must not be in DELETED status.
   """
   @spec update_glossary_term(
           map(),

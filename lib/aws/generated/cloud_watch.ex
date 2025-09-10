@@ -204,6 +204,8 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       alarm_history_item() :: %{
+        "AlarmContributorAttributes" => map(),
+        "AlarmContributorId" => String.t() | atom(),
         "AlarmName" => String.t() | atom(),
         "AlarmType" => list(any()),
         "HistoryData" => String.t() | atom(),
@@ -532,6 +534,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       describe_alarm_history_input() :: %{
+        optional("AlarmContributorId") => String.t() | atom(),
         optional("AlarmName") => String.t() | atom(),
         optional("AlarmTypes") => list(list(any())()),
         optional("EndDate") => non_neg_integer(),
@@ -606,6 +609,20 @@ defmodule AWS.CloudWatch do
       
   """
   @type message_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      alarm_contributor() :: %{
+        "ContributorAttributes" => map(),
+        "ContributorId" => String.t() | atom(),
+        "StateReason" => String.t() | atom(),
+        "StateTransitionedTimestamp" => non_neg_integer()
+      }
+      
+  """
+  @type alarm_contributor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1141,6 +1158,18 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
+      describe_alarm_contributors_output() :: %{
+        "AlarmContributors" => list(alarm_contributor()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_alarm_contributors_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_metric_statistics_output() :: %{
         "Datapoints" => list(datapoint()),
         "Label" => String.t() | atom()
@@ -1323,6 +1352,18 @@ defmodule AWS.CloudWatch do
       
   """
   @type composite_alarm() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_alarm_contributors_input() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("AlarmName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_alarm_contributors_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1652,6 +1693,9 @@ defmodule AWS.CloudWatch do
           | invalid_parameter_value_exception()
           | missing_required_parameter_exception()
 
+  @type describe_alarm_contributors_errors() ::
+          invalid_next_token() | resource_not_found_exception()
+
   @type describe_alarm_history_errors() :: invalid_next_token()
 
   @type describe_alarms_errors() :: invalid_next_token()
@@ -1905,6 +1949,24 @@ defmodule AWS.CloudWatch do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteMetricStream", input, options)
+  end
+
+  @doc """
+  Returns the information of the current alarm contributors that are in `ALARM`
+  state.
+
+  This operation returns details about the individual time series that contribute
+  to the alarm's state.
+  """
+  @spec describe_alarm_contributors(map(), describe_alarm_contributors_input(), list()) ::
+          {:ok, describe_alarm_contributors_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_alarm_contributors_errors()}
+  def describe_alarm_contributors(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAlarmContributors", input, options)
   end
 
   @doc """

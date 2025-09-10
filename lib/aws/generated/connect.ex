@@ -1047,6 +1047,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      predefined_attribute_configuration() :: %{
+        "EnableValueValidationOnAssociation" => boolean(),
+        "IsReadOnly" => boolean()
+      }
+
+  """
+  @type predefined_attribute_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       property_validation_exception() :: %{
         "Message" => String.t() | atom(),
         "PropertyList" => list(property_validation_exception_property())
@@ -2851,7 +2863,9 @@ defmodule AWS.Connect do
   ## Example:
 
       segment_attribute_value() :: %{
+        "ValueArn" => String.t() | atom(),
         "ValueInteger" => integer(),
+        "ValueList" => list(segment_attribute_value()),
         "ValueMap" => map(),
         "ValueString" => String.t() | atom()
       }
@@ -4203,8 +4217,10 @@ defmodule AWS.Connect do
   ## Example:
 
       create_predefined_attribute_request() :: %{
-        required("Name") => String.t() | atom(),
-        required("Values") => list()
+        optional("AttributeConfiguration") => input_predefined_attribute_configuration(),
+        optional("Purposes") => list(String.t() | atom()),
+        optional("Values") => list(),
+        required("Name") => String.t() | atom()
       }
 
   """
@@ -5894,6 +5910,8 @@ defmodule AWS.Connect do
   ## Example:
 
       update_predefined_attribute_request() :: %{
+        optional("AttributeConfiguration") => input_predefined_attribute_configuration(),
+        optional("Purposes") => list(String.t() | atom()),
         optional("Values") => list()
       }
 
@@ -6313,6 +6331,17 @@ defmodule AWS.Connect do
 
   """
   @type update_routing_profile_concurrency_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_predefined_attribute_configuration() :: %{
+        "EnableValueValidationOnAssociation" => boolean()
+      }
+
+  """
+  @type input_predefined_attribute_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10745,9 +10774,11 @@ defmodule AWS.Connect do
   ## Example:
 
       predefined_attribute() :: %{
+        "AttributeConfiguration" => predefined_attribute_configuration(),
         "LastModifiedRegion" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t() | atom(),
+        "Purposes" => list(String.t() | atom()),
         "Values" => list()
       }
 
@@ -14654,12 +14685,31 @@ defmodule AWS.Connect do
   @doc """
   Creates a new predefined attribute for the specified Amazon Connect instance.
 
-  *Predefined
-  attributes* are attributes in an Amazon Connect instance that can be used to
-  route
-  contacts to an agent or pools of agents within a queue. For more information,
-  see [Create predefined attributes for routing contacts to
+  A *predefined
+  attribute* is made up of a name and a value.
+
+  For the predefined attributes per instance quota, see [Amazon Connect quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas).
+
+  ## Use cases
+
+  Following are common uses cases for this API:
+
+    *
+  Create an attribute for routing proficiency (for example, agent certification)
+  that has
+  predefined values (for example, a list of possible certifications). For more
+  information, see
+  [Create predefined attributes for routing contacts to
   agents](https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html).
+
+    *
+  Create an attribute for business unit name that has a list of predefined
+  business unit
+  names used in your organization. This is a use case where information for a
+  contact varies between transfers or conferences. For more information, see
+  [Use contact segment attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
+
+  **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
   @spec create_predefined_attribute(
           map(),
@@ -16926,12 +16976,25 @@ defmodule AWS.Connect do
   @doc """
   Describes a predefined attribute for the specified Amazon Connect instance.
 
-  *Predefined
-  attributes* are attributes in an Amazon Connect instance that can be used to
-  route
-  contacts to an agent or pools of agents within a queue. For more information,
-  see [Create predefined attributes for routing contacts to
+  A *predefined
+  attribute* is made up of a name and a value. You can use predefined attributes
+  for:
+
+    *
+  Routing proficiency (for example, agent certification) that has
+  predefined values (for example, a list of possible certifications). For more
+  information, see
+  [Create predefined attributes for routing contacts to
   agents](https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html).
+
+    *
+  Contact information that varies between transfers or conferences, such as the
+  name of the business unit handling the contact. For more information, see
+  [Use contact segment attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
+
+  For the predefined attributes per instance quota, see [Amazon Connect quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas).
+
+  **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
   @spec describe_predefined_attribute(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_predefined_attribute_response(), any()}
@@ -19777,12 +19840,25 @@ defmodule AWS.Connect do
   @doc """
   Lists predefined attributes for the specified Amazon Connect instance.
 
-  *Predefined
-  attributes* are attributes in an Amazon Connect instance that can be used to
-  route
-  contacts to an agent or pools of agents within a queue. For more information,
-  see [Create predefined attributes for routing contacts to
+  A *predefined
+  attribute* is made up of a name and a value. You can use predefined attributes
+  for:
+
+    *
+  Routing proficiency (for example, agent certification) that has
+  predefined values (for example, a list of possible certifications). For more
+  information, see
+  [Create predefined attributes for routing contacts to
   agents](https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html).
+
+    *
+  Contact information that varies between transfers or conferences, such as the
+  name of the business unit handling the contact. For more information, see
+  [Use contact segment attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
+
+  For the predefined attributes per instance quota, see [Amazon Connect quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas).
+
+  **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
   @spec list_predefined_attributes(
           map(),
@@ -21449,12 +21525,25 @@ defmodule AWS.Connect do
   @doc """
   Searches predefined attributes that meet certain criteria.
 
-  *Predefined
-  attributes* are attributes in an Amazon Connect instance that can be used to
-  route
-  contacts to an agent or pools of agents within a queue. For more information,
-  see [Create predefined attributes for routing contacts to
+  A *predefined
+  attribute* is made up of a name and a value. You can use predefined attributes
+  for:
+
+    *
+  Routing proficiency (for example, agent certification) that has
+  predefined values (for example, a list of possible certifications). For more
+  information, see
+  [Create predefined attributes for routing contacts to
   agents](https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html).
+
+    *
+  Contact information that varies between transfers or conferences, such as the
+  name of the business unit handling the contact. For more information, see
+  [Use contact segment attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
+
+  For the predefined attributes per instance quota, see [Amazon Connect quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas).
+
+  **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
   @spec search_predefined_attributes(map(), search_predefined_attributes_request(), list()) ::
           {:ok, search_predefined_attributes_response(), any()}
@@ -23899,12 +23988,30 @@ defmodule AWS.Connect do
   @doc """
   Updates a predefined attribute for the specified Amazon Connect instance.
 
-  *Predefined
-  attributes* are attributes in an Amazon Connect instance that can be used to
-  route
-  contacts to an agent or pools of agents within a queue. For more information,
-  see [Create predefined attributes for routing contacts to
+  A *predefined
+  attribute* is made up of a name and a value.
+
+  For the predefined attributes per instance quota, see [Amazon Connect quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas).
+
+  ## Use cases
+
+  Following are common uses cases for this API:
+
+    *
+  Update routing proficiency (for example, agent certification) that has
+  predefined values (for example, a list of possible certifications). For more
+  information, see
+  [Create predefined attributes for routing contacts to
   agents](https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html).
+
+    *
+  Update an attribute for business unit name that has a list of predefined
+  business unit
+  names used in your organization. This is a use case where information for a
+  contact varies between transfers or conferences. For more information, see
+  [Use contact segment attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
+
+  **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
   @spec update_predefined_attribute(
           map(),

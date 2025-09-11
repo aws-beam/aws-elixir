@@ -898,6 +898,7 @@ defmodule AWS.NetworkFlowMonitor do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   @type delete_scope_errors() ::
           throttling_exception()
@@ -1085,9 +1086,9 @@ defmodule AWS.NetworkFlowMonitor do
   workloads.
 
   For each monitor, Network Flow Monitor publishes detailed end-to-end performance
-  metrics and a network health indicators (NHI) that informs you whether there
-  were Amazon Web Services network issues for one or more of the network flows
-  tracked by a monitor, during a time period that you choose.
+  metrics and a network health indicator (NHI) that informs you whether there were
+  Amazon Web Services network issues for one or more of the network flows tracked
+  by a monitor, during a time period that you choose.
   """
   @spec create_monitor(map(), create_monitor_input(), list()) ::
           {:ok, create_monitor_output(), any()}
@@ -1116,15 +1117,29 @@ defmodule AWS.NetworkFlowMonitor do
   end
 
   @doc """
-  Create a scope of resources that you want to be available for Network Flow
-  Monitor to generate metrics for, when you have active agents on those resources
-  sending metrics reports to the Network Flow Monitor backend.
+  In Network Flow Monitor, you specify a scope for the service to generate metrics
+  for.
 
-  This call returns a scope ID to identify the scope.
+  By using the scope, Network Flow Monitor can generate a topology of all the
+  resources to measure performance metrics for. When you create a scope, you
+  enable permissions for Network Flow Monitor.
 
-  When you create a scope, you enable permissions for Network Flow Monitor. The
-  scope is set to the resources for the Amazon Web Services that enables the
-  feature.
+  A scope is a Region-account pair or multiple Region-account pairs. Network Flow
+  Monitor uses your scope to determine all the resources (the topology) where
+  Network Flow Monitor will gather network flow performance metrics for you. To
+  provide performance metrics, Network Flow Monitor uses the data that is sent by
+  the Network Flow Monitor agents you install on the resources.
+
+  To define the Region-account pairs for your scope, the Network Flow Monitor API
+  uses the following constucts, which allow for future flexibility in defining
+  scopes:
+
+    * *Targets*, which are arrays of targetResources.
+
+    * *Target resources*, which are Region-targetIdentifier pairs.
+
+    * *Target identifiers*, made up of a targetID (currently always an
+  account ID) and a targetType (currently always an account).
   """
   @spec create_scope(map(), create_scope_input(), list()) ::
           {:ok, create_scope_output(), any()}

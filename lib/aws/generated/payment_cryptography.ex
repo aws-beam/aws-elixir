@@ -72,6 +72,17 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
+      disable_default_key_replication_regions_input() :: %{
+        required("ReplicationRegions") => list(String.t() | atom())
+      }
+      
+  """
+  @type disable_default_key_replication_regions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       key_modes_of_use() :: %{
         "Decrypt" => [boolean()],
         "DeriveKey" => [boolean()],
@@ -122,7 +133,9 @@ defmodule AWS.PaymentCryptography do
         "KeyArn" => String.t() | atom(),
         "KeyAttributes" => key_attributes(),
         "KeyCheckValue" => String.t() | atom(),
-        "KeyState" => String.t() | atom()
+        "KeyState" => String.t() | atom(),
+        "MultiRegionKeyType" => String.t() | atom(),
+        "PrimaryRegion" => String.t() | atom()
       }
       
   """
@@ -162,6 +175,7 @@ defmodule AWS.PaymentCryptography do
       import_key_input() :: %{
         optional("Enabled") => [boolean()],
         optional("KeyCheckValueAlgorithm") => String.t() | atom(),
+        optional("ReplicationRegions") => list(String.t() | atom()),
         optional("Tags") => list(tag()),
         required("KeyMaterial") => list()
       }
@@ -292,6 +306,17 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
+      enable_default_key_replication_regions_output() :: %{
+        "EnabledReplicationRegions" => list(String.t() | atom())
+      }
+      
+  """
+  @type enable_default_key_replication_regions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_tags_for_resource_output() :: %{
         "NextToken" => String.t() | atom(),
         "Tags" => list(tag())
@@ -404,6 +429,7 @@ defmodule AWS.PaymentCryptography do
         optional("DeriveKeyUsage") => String.t() | atom(),
         optional("Enabled") => [boolean()],
         optional("KeyCheckValueAlgorithm") => String.t() | atom(),
+        optional("ReplicationRegions") => list(String.t() | atom()),
         optional("Tags") => list(tag()),
         required("Exportable") => [boolean()],
         required("KeyAttributes") => key_attributes()
@@ -411,6 +437,29 @@ defmodule AWS.PaymentCryptography do
       
   """
   @type create_key_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_key_replication_regions_output() :: %{
+        "Key" => key()
+      }
+      
+  """
+  @type add_key_replication_regions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_key_replication_regions_input() :: %{
+        required("KeyIdentifier") => String.t() | atom(),
+        required("ReplicationRegions") => list(String.t() | atom())
+      }
+      
+  """
+  @type add_key_replication_regions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -468,6 +517,17 @@ defmodule AWS.PaymentCryptography do
       
   """
   @type update_alias_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_default_key_replication_regions_output() :: %{
+        "EnabledReplicationRegions" => list(String.t() | atom())
+      }
+      
+  """
+  @type get_default_key_replication_regions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -543,6 +603,15 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
+      get_default_key_replication_regions_input() :: %{}
+      
+  """
+  @type get_default_key_replication_regions_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_key_input() :: %{
         optional("DeleteKeyInDays") => [integer()],
         required("KeyIdentifier") => String.t() | atom()
@@ -561,6 +630,18 @@ defmodule AWS.PaymentCryptography do
       
   """
   @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replication_status_type() :: %{
+        "Status" => String.t() | atom(),
+        "StatusMessage" => [String.t() | atom()]
+      }
+      
+  """
+  @type replication_status_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -603,6 +684,17 @@ defmodule AWS.PaymentCryptography do
       
   """
   @type get_public_key_certificate_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_default_key_replication_regions_output() :: %{
+        "EnabledReplicationRegions" => list(String.t() | atom())
+      }
+      
+  """
+  @type disable_default_key_replication_regions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -683,6 +775,17 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
+      remove_key_replication_regions_output() :: %{
+        "Key" => key()
+      }
+      
+  """
+  @type remove_key_replication_regions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_parameters_for_import_input() :: %{
         required("KeyMaterialType") => String.t() | atom(),
         required("WrappingKeyAlgorithm") => String.t() | atom()
@@ -752,8 +855,12 @@ defmodule AWS.PaymentCryptography do
         "KeyCheckValueAlgorithm" => String.t() | atom(),
         "KeyOrigin" => String.t() | atom(),
         "KeyState" => String.t() | atom(),
+        "MultiRegionKeyType" => String.t() | atom(),
+        "PrimaryRegion" => String.t() | atom(),
+        "ReplicationStatus" => map(),
         "UsageStartTimestamp" => non_neg_integer(),
-        "UsageStopTimestamp" => non_neg_integer()
+        "UsageStopTimestamp" => non_neg_integer(),
+        "UsingDefaultReplicationRegions" => [boolean()]
       }
       
   """
@@ -782,6 +889,29 @@ defmodule AWS.PaymentCryptography do
       
   """
   @type create_alias_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_key_replication_regions_input() :: %{
+        required("KeyIdentifier") => String.t() | atom(),
+        required("ReplicationRegions") => list(String.t() | atom())
+      }
+      
+  """
+  @type remove_key_replication_regions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_default_key_replication_regions_input() :: %{
+        required("ReplicationRegions") => list(String.t() | atom())
+      }
+      
+  """
+  @type enable_default_key_replication_regions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -885,6 +1015,15 @@ defmodule AWS.PaymentCryptography do
   """
   @type key_block_headers() :: %{(String.t() | atom()) => any()}
 
+  @type add_key_replication_regions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_alias_errors() ::
           throttling_exception()
           | validation_exception()
@@ -923,6 +1062,24 @@ defmodule AWS.PaymentCryptography do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type disable_default_key_replication_regions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type enable_default_key_replication_regions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type export_key_errors() ::
           throttling_exception()
           | validation_exception()
@@ -939,6 +1096,15 @@ defmodule AWS.PaymentCryptography do
           | internal_server_exception()
           | service_unavailable_exception()
           | resource_not_found_exception()
+
+  @type get_default_key_replication_regions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type get_key_errors() ::
           throttling_exception()
@@ -1009,6 +1175,15 @@ defmodule AWS.PaymentCryptography do
           | internal_server_exception()
           | service_unavailable_exception()
           | resource_not_found_exception()
+
+  @type remove_key_replication_regions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type restore_key_errors() ::
           throttling_exception()
@@ -1082,6 +1257,44 @@ defmodule AWS.PaymentCryptography do
       signing_name: "payment-cryptography",
       target_prefix: "PaymentCryptographyControlPlane"
     }
+  end
+
+  @doc """
+  Adds replication Amazon Web Services Regions to an existing Amazon Web Services
+  Payment Cryptography key, enabling the key to be used for cryptographic
+  operations in additional Amazon Web Services Regions.
+
+  Multi-region keys allow you to use the same key material across multiple Amazon
+  Web Services Regions, providing lower latency for applications distributed
+  across regions. When you add Replication Regions, Amazon Web Services Payment
+  Cryptography securely replicates the key material to the specified Amazon Web
+  Services Regions.
+
+  The key must be in an active state to add Replication Regions. You can add
+  multiple regions in a single operation, and the key will be available for use in
+  those regions once replication is complete.
+
+  **Cross-account use:** This operation can't be used across different Amazon Web
+  Services accounts.
+
+  ## Related operations:
+
+    *
+  [RemoveKeyReplicationRegions](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_RemoveKeyReplicationRegions.html)     *
+  [EnableDefaultKeyReplicationRegions](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_EnableDefaultKeyReplicationRegions.html)
+
+    *
+  [GetDefaultKeyReplicationRegions](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetDefaultKeyReplicationRegions.html)
+  """
+  @spec add_key_replication_regions(map(), add_key_replication_regions_input(), list()) ::
+          {:ok, add_key_replication_regions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, add_key_replication_regions_errors()}
+  def add_key_replication_regions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddKeyReplicationRegions", input, options)
   end
 
   @doc """
@@ -1269,6 +1482,80 @@ defmodule AWS.PaymentCryptography do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteKey", input, options)
+  end
+
+  @doc """
+  Disables multi-region key replication settings for the specified Amazon Web
+  Services Regions in your account, preventing new keys from being automatically
+  replicated to those regions.
+
+  After disabling default replication for specific regions, new keys created in
+  your account will not be automatically replicated to those regions. You can
+  still manually add replication to those regions for individual keys using the
+  AddKeyReplicationRegions operation.
+
+  This operation does not affect existing keys or their current replication
+  configuration.
+
+  **Cross-account use:** This operation can't be used across different Amazon Web
+  Services accounts.
+
+  ## Related operations:
+
+    *
+  [EnableDefaultKeyReplicationRegions](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_EnableDefaultKeyReplicationRegions.html)     *
+  [GetDefaultKeyReplicationRegions](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetDefaultKeyReplicationRegions.html)
+  """
+  @spec disable_default_key_replication_regions(
+          map(),
+          disable_default_key_replication_regions_input(),
+          list()
+        ) ::
+          {:ok, disable_default_key_replication_regions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disable_default_key_replication_regions_errors()}
+  def disable_default_key_replication_regions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableDefaultKeyReplicationRegions", input, options)
+  end
+
+  @doc """
+  Enables multi-region key replication settings for your account, causing new keys
+  to be automatically replicated to the specified Amazon Web Services Regions when
+  created.
+
+  When default Replication Regions are enabled, any new keys created in your
+  account will automatically be replicated to these regions unless you explicitly
+  override this behavior during key creation. This simplifies key management for
+  applications that operate across multiple regions.
+
+  Existing keys are not affected by this operation - only keys created after
+  enabling default replication will be automatically replicated.
+
+  **Cross-account use:** This operation can't be used across different Amazon Web
+  Services accounts.
+
+  ## Related operations:
+
+    *
+  [DisableDefaultKeyReplicationRegions](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DisableDefaultKeyReplicationRegions.html)     *
+  [GetDefaultKeyReplicationRegions](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetDefaultKeyReplicationRegions.html)
+  """
+  @spec enable_default_key_replication_regions(
+          map(),
+          enable_default_key_replication_regions_input(),
+          list()
+        ) ::
+          {:ok, enable_default_key_replication_regions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, enable_default_key_replication_regions_errors()}
+  def enable_default_key_replication_regions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableDefaultKeyReplicationRegions", input, options)
   end
 
   @doc """
@@ -1499,8 +1786,44 @@ defmodule AWS.PaymentCryptography do
   end
 
   @doc """
-  Gets the key material for an Amazon Web Services Payment Cryptography key,
-  including the immutable and mutable data specified when the key was created.
+  Retrieves the list of regions where default key replication is currently enabled
+  for your account.
+
+  This operation returns the current configuration of default Replication Regions.
+  New keys created in your account will be automatically replicated to these
+  regions unless explicitly overridden during key creation.
+
+  **Cross-account use:** This operation can't be used across different Amazon Web
+  Services accounts.
+
+  ## Related operations:
+
+    *
+  [EnableDefaultKeyReplicationRegions](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_EnableDefaultKeyReplicationRegions.html)     *
+  [DisableDefaultKeyReplicationRegions](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DisableDefaultKeyReplicationRegions.html)
+  """
+  @spec get_default_key_replication_regions(
+          map(),
+          get_default_key_replication_regions_input(),
+          list()
+        ) ::
+          {:ok, get_default_key_replication_regions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_default_key_replication_regions_errors()}
+  def get_default_key_replication_regions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDefaultKeyReplicationRegions", input, options)
+  end
+
+  @doc """
+  Gets the key metadata for an Amazon Web Services Payment Cryptography key,
+  including the immutable and mutable attributes specified when the key was
+  created.
+
+  Returns key metadata including attributes, state, and timestamps, but does not
+  return the actual cryptographic key material.
 
   **Cross-account use:** This operation can't be used across different Amazon Web
   Services accounts.
@@ -1913,6 +2236,38 @@ defmodule AWS.PaymentCryptography do
     meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
+  end
+
+  @doc """
+  Removes Replication Regions from an existing Amazon Web Services Payment
+  Cryptography key, disabling the key's availability for cryptographic operations
+  in the specified Amazon Web Services Regions.
+
+  When you remove Replication Regions, the key material is securely deleted from
+  those regions and can no longer be used for cryptographic operations there. This
+  operation is irreversible for the specified Amazon Web Services Regions.
+
+  Ensure that no active cryptographic operations or applications depend on the key
+  in the regions you're removing before performing this operation.
+
+  **Cross-account use:** This operation can't be used across different Amazon Web
+  Services accounts.
+
+  ## Related operations:
+
+    *
+  [AddKeyReplicationRegions](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_AddKeyReplicationRegions.html)     *
+  [DisableDefaultKeyReplicationRegions](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DisableDefaultKeyReplicationRegions.html)
+  """
+  @spec remove_key_replication_regions(map(), remove_key_replication_regions_input(), list()) ::
+          {:ok, remove_key_replication_regions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, remove_key_replication_regions_errors()}
+  def remove_key_replication_regions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "RemoveKeyReplicationRegions", input, options)
   end
 
   @doc """

@@ -44,6 +44,20 @@ defmodule AWS.Evs do
 
   ## Example:
       
+      associate_eip_to_vlan_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("allocationId") => String.t() | atom(),
+        required("environmentId") => String.t() | atom(),
+        required("vlanName") => [String.t() | atom()]
+      }
+      
+  """
+  @type associate_eip_to_vlan_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_environment_hosts_response() :: %{
         "environmentHosts" => list(host()),
         "nextToken" => String.t() | atom()
@@ -160,6 +174,8 @@ defmodule AWS.Evs do
         "expansionVlan1" => initial_vlan_info(),
         "expansionVlan2" => initial_vlan_info(),
         "hcx" => initial_vlan_info(),
+        "hcxNetworkAclId" => String.t() | atom(),
+        "isHcxPublic" => [boolean()],
         "nsxUplink" => initial_vlan_info(),
         "vMotion" => initial_vlan_info(),
         "vSan" => initial_vlan_info(),
@@ -226,6 +242,28 @@ defmodule AWS.Evs do
       
   """
   @type service_access_security_groups() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_eip_to_vlan_response() :: %{
+        "vlan" => vlan()
+      }
+      
+  """
+  @type associate_eip_to_vlan_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_eip_from_vlan_response() :: %{
+        "vlan" => vlan()
+      }
+      
+  """
+  @type disassociate_eip_from_vlan_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -343,6 +381,19 @@ defmodule AWS.Evs do
 
   ## Example:
       
+      eip_association() :: %{
+        "allocationId" => String.t() | atom(),
+        "associationId" => String.t() | atom(),
+        "ipAddress" => String.t() | atom()
+      }
+      
+  """
+  @type eip_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       validation_exception_field() :: %{
         "message" => [String.t() | atom()],
         "name" => [String.t() | atom()]
@@ -437,6 +488,20 @@ defmodule AWS.Evs do
       
   """
   @type delete_environment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_eip_from_vlan_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("associationId") => String.t() | atom(),
+        required("environmentId") => String.t() | atom(),
+        required("vlanName") => [String.t() | atom()]
+      }
+      
+  """
+  @type disassociate_eip_from_vlan_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -540,8 +605,11 @@ defmodule AWS.Evs do
         "availabilityZone" => [String.t() | atom()],
         "cidr" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
+        "eipAssociations" => list(eip_association()),
         "functionName" => [String.t() | atom()],
+        "isPublic" => [boolean()],
         "modifiedAt" => [non_neg_integer()],
+        "networkAclId" => String.t() | atom(),
         "stateDetails" => String.t() | atom(),
         "subnetId" => String.t() | atom(),
         "vlanId" => integer(),
@@ -586,6 +654,9 @@ defmodule AWS.Evs do
   """
   @type delete_environment_host_request() :: %{(String.t() | atom()) => any()}
 
+  @type associate_eip_to_vlan_errors() ::
+          throttling_exception() | validation_exception() | resource_not_found_exception()
+
   @type create_environment_errors() :: validation_exception()
 
   @type create_environment_host_errors() :: throttling_exception() | validation_exception()
@@ -594,6 +665,9 @@ defmodule AWS.Evs do
 
   @type delete_environment_host_errors() ::
           validation_exception() | resource_not_found_exception()
+
+  @type disassociate_eip_from_vlan_errors() ::
+          throttling_exception() | validation_exception() | resource_not_found_exception()
 
   @type get_environment_errors() :: validation_exception() | resource_not_found_exception()
 
@@ -627,6 +701,22 @@ defmodule AWS.Evs do
       signing_name: "evs",
       target_prefix: "AmazonElasticVMwareService"
     }
+  end
+
+  @doc """
+  Associates an Elastic IP address with a public HCX VLAN.
+
+  This operation is only allowed for public HCX VLANs at this time.
+  """
+  @spec associate_eip_to_vlan(map(), associate_eip_to_vlan_request(), list()) ::
+          {:ok, associate_eip_to_vlan_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_eip_to_vlan_errors()}
+  def associate_eip_to_vlan(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateEipToVlan", input, options)
   end
 
   @doc """
@@ -721,6 +811,22 @@ defmodule AWS.Evs do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteEnvironmentHost", input, options)
+  end
+
+  @doc """
+  Disassociates an Elastic IP address from a public HCX VLAN.
+
+  This operation is only allowed for public HCX VLANs at this time.
+  """
+  @spec disassociate_eip_from_vlan(map(), disassociate_eip_from_vlan_request(), list()) ::
+          {:ok, disassociate_eip_from_vlan_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_eip_from_vlan_errors()}
+  def disassociate_eip_from_vlan(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateEipFromVlan", input, options)
   end
 
   @doc """

@@ -561,14 +561,15 @@ defmodule AWS.RDS do
   ## Example:
       
       create_db_proxy_request() :: %{
+        optional("Auth") => list(user_auth_config()),
         optional("DebugLogging") => boolean(),
+        optional("DefaultAuthScheme") => list(any()),
         optional("EndpointNetworkType") => list(any()),
         optional("IdleClientTimeout") => integer(),
         optional("RequireTLS") => boolean(),
         optional("Tags") => list(tag()),
         optional("TargetConnectionNetworkType") => list(any()),
         optional("VpcSecurityGroupIds") => list(String.t() | atom()),
-        required("Auth") => list(user_auth_config()),
         required("DBProxyName") => String.t() | atom(),
         required("EngineFamily") => list(any()),
         required("RoleArn") => String.t() | atom(),
@@ -885,6 +886,7 @@ defmodule AWS.RDS do
       modify_db_proxy_request() :: %{
         optional("Auth") => list(user_auth_config()),
         optional("DebugLogging") => boolean(),
+        optional("DefaultAuthScheme") => list(any()),
         optional("IdleClientTimeout") => integer(),
         optional("NewDBProxyName") => String.t() | atom(),
         optional("RequireTLS") => boolean(),
@@ -7334,6 +7336,7 @@ defmodule AWS.RDS do
         "DBProxyArn" => String.t() | atom(),
         "DBProxyName" => String.t() | atom(),
         "DebugLogging" => boolean(),
+        "DefaultAuthScheme" => String.t() | atom(),
         "Endpoint" => String.t() | atom(),
         "EndpointNetworkType" => list(any()),
         "EngineFamily" => String.t() | atom(),

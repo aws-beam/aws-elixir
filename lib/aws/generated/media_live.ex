@@ -2413,10 +2413,12 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      media_package_output_settings() :: %{}
+      media_package_output_settings() :: %{
+        "MediaPackageV2DestinationSettings" => media_package_v2_destination_settings()
+      }
 
   """
-  @type media_package_output_settings() :: %{}
+  @type media_package_output_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4936,6 +4938,17 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      media_package_v2_group_settings() :: %{
+        "CaptionLanguageMappings" => list(caption_language_mapping())
+      }
+
+  """
+  @type media_package_v2_group_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cmaf_ingest_output_settings() :: %{
         "NameModifier" => String.t() | atom()
       }
@@ -5017,7 +5030,8 @@ defmodule AWS.MediaLive do
   ## Example:
 
       media_package_group_settings() :: %{
-        "Destination" => output_location_ref()
+        "Destination" => output_location_ref(),
+        "MediapackageV2GroupSettings" => media_package_v2_group_settings()
       }
 
   """
@@ -5907,6 +5921,20 @@ defmodule AWS.MediaLive do
 
   """
   @type multiplex_program_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_package_v2_destination_settings() :: %{
+        "AudioGroupId" => String.t() | atom(),
+        "AudioRenditionSets" => String.t() | atom(),
+        "HlsAutoSelect" => list(any()),
+        "HlsDefault" => list(any())
+      }
+
+  """
+  @type media_package_v2_destination_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

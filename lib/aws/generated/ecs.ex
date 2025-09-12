@@ -1521,6 +1521,7 @@ defmodule AWS.ECS do
   ## Example:
       
       deployment_lifecycle_hook() :: %{
+        "hookDetails" => any(),
         "hookTargetArn" => String.t() | atom(),
         "lifecycleStages" => list(list(any())()),
         "roleArn" => String.t() | atom()

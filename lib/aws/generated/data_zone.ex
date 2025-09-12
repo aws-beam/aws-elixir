@@ -3078,7 +3078,8 @@ defmodule AWS.DataZone do
   ## Example:
 
       iam_user_profile_details() :: %{
-        "arn" => [String.t() | atom()]
+        "arn" => [String.t() | atom()],
+        "principalId" => [String.t() | atom()]
       }
 
   """

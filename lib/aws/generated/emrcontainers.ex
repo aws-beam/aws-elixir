@@ -188,6 +188,7 @@ defmodule AWS.EMRcontainers do
   ## Example:
 
       create_security_configuration_request() :: %{
+        optional("containerProvider") => container_provider(),
         optional("tags") => map(),
         required("clientToken") => String.t() | atom(),
         required("name") => String.t() | atom(),
@@ -347,7 +348,8 @@ defmodule AWS.EMRcontainers do
   ## Example:
 
       eks_info() :: %{
-        "namespace" => String.t() | atom()
+        "namespace" => String.t() | atom(),
+        "nodeLabel" => String.t() | atom()
       }
 
   """

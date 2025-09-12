@@ -49,6 +49,17 @@ defmodule AWS.Amp do
 
   ## Example:
 
+      delete_scraper_logging_configuration_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_scraper_logging_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_request() :: %{
         required("tags") => map()
       }
@@ -205,6 +216,21 @@ defmodule AWS.Amp do
 
   ## Example:
 
+      describe_scraper_logging_configuration_response() :: %{
+        "loggingDestination" => list(),
+        "modifiedAt" => [non_neg_integer()],
+        "scraperComponents" => list(scraper_component()),
+        "scraperId" => String.t() | atom(),
+        "status" => scraper_logging_configuration_status()
+      }
+
+  """
+  @type describe_scraper_logging_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       scraper_status() :: %{
         "statusCode" => String.t() | atom()
       }
@@ -278,6 +304,17 @@ defmodule AWS.Amp do
 
   """
   @type update_logging_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_scraper_logging_configuration_response() :: %{
+        "status" => scraper_logging_configuration_status()
+      }
+
+  """
+  @type update_scraper_logging_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -576,6 +613,17 @@ defmodule AWS.Amp do
 
   ## Example:
 
+      component_config() :: %{
+        "options" => map()
+      }
+
+  """
+  @type component_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_query_logging_configuration_request() :: %{
         optional("clientToken") => String.t() | atom()
       }
@@ -834,6 +882,15 @@ defmodule AWS.Amp do
 
   ## Example:
 
+      describe_scraper_logging_configuration_request() :: %{}
+
+  """
+  @type describe_scraper_logging_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       workspace_configuration_status() :: %{
         "statusCode" => String.t() | atom(),
         "statusReason" => [String.t() | atom()]
@@ -950,6 +1007,18 @@ defmodule AWS.Amp do
 
   ## Example:
 
+      scraper_logging_configuration_status() :: %{
+        "statusCode" => String.t() | atom(),
+        "statusReason" => [String.t() | atom()]
+      }
+
+  """
+  @type scraper_logging_configuration_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       throttling_exception() :: %{
         "message" => [String.t() | atom()],
         "quotaCode" => [String.t() | atom()],
@@ -959,6 +1028,18 @@ defmodule AWS.Amp do
 
   """
   @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_scraper_logging_configuration_request() :: %{
+        optional("scraperComponents") => list(scraper_component()),
+        required("loggingDestination") => list()
+      }
+
+  """
+  @type update_scraper_logging_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1022,6 +1103,18 @@ defmodule AWS.Amp do
 
   """
   @type create_alert_manager_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scraper_component() :: %{
+        "config" => component_config(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type scraper_component() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1320,6 +1413,13 @@ defmodule AWS.Amp do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_scraper_logging_configuration_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type delete_workspace_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1364,6 +1464,12 @@ defmodule AWS.Amp do
   @type describe_scraper_errors() ::
           throttling_exception()
           | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type describe_scraper_logging_configuration_errors() ::
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
@@ -1471,6 +1577,13 @@ defmodule AWS.Amp do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_scraper_logging_configuration_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -1988,6 +2101,46 @@ defmodule AWS.Amp do
   end
 
   @doc """
+  Deletes the logging configuration for a Amazon Managed Service for Prometheus
+  scraper.
+  """
+  @spec delete_scraper_logging_configuration(
+          map(),
+          String.t() | atom(),
+          delete_scraper_logging_configuration_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_scraper_logging_configuration_errors()}
+  def delete_scraper_logging_configuration(%Client{} = client, scraper_id, input, options \\ []) do
+    url_path = "/scrapers/#{AWS.Util.encode_uri(scraper_id)}/logging-configuration"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Deletes an existing workspace.
 
   When you delete a workspace, the data that has been ingested into it is not
@@ -2134,6 +2287,25 @@ defmodule AWS.Amp do
           | {:error, describe_scraper_errors()}
   def describe_scraper(%Client{} = client, scraper_id, options \\ []) do
     url_path = "/scrapers/#{AWS.Util.encode_uri(scraper_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Describes the logging configuration for a Amazon Managed Service for Prometheus
+  scraper.
+  """
+  @spec describe_scraper_logging_configuration(map(), String.t() | atom(), list()) ::
+          {:ok, describe_scraper_logging_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_scraper_logging_configuration_errors()}
+  def describe_scraper_logging_configuration(%Client{} = client, scraper_id, options \\ []) do
+    url_path = "/scrapers/#{AWS.Util.encode_uri(scraper_id)}/logging-configuration"
     headers = []
     query_params = []
 
@@ -2676,6 +2848,41 @@ defmodule AWS.Amp do
           | {:error, update_scraper_errors()}
   def update_scraper(%Client{} = client, scraper_id, input, options \\ []) do
     url_path = "/scrapers/#{AWS.Util.encode_uri(scraper_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Updates the logging configuration for a Amazon Managed Service for Prometheus
+  scraper.
+  """
+  @spec update_scraper_logging_configuration(
+          map(),
+          String.t() | atom(),
+          update_scraper_logging_configuration_request(),
+          list()
+        ) ::
+          {:ok, update_scraper_logging_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_scraper_logging_configuration_errors()}
+  def update_scraper_logging_configuration(%Client{} = client, scraper_id, input, options \\ []) do
+    url_path = "/scrapers/#{AWS.Util.encode_uri(scraper_id)}/logging-configuration"
     headers = []
     custom_headers = []
     query_params = []

@@ -286,6 +286,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      executive_summary_option() :: %{
+        "AvailabilityStatus" => list(any())
+      }
+
+  """
+  @type executive_summary_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       image_menu_option() :: %{
         "AvailabilityStatus" => list(any())
       }
@@ -481,6 +492,19 @@ defmodule AWS.QuickSight do
 
   """
   @type trend_arrow_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_account_custom_permission_response() :: %{
+        "CustomPermissionsName" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "Status" => integer()
+      }
+
+  """
+  @type describe_account_custom_permission_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3380,6 +3404,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      q_data_key() :: %{
+        "QDataKeyArn" => String.t() | atom(),
+        "QDataKeyType" => list(any())
+      }
+
+  """
+  @type q_data_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       asset_bundle_export_job_resource_id_override_configuration() :: %{
         "PrefixForAllResources" => boolean()
       }
@@ -4925,6 +4961,7 @@ defmodule AWS.QuickSight do
       describe_key_registration_response() :: %{
         "AwsAccountId" => String.t() | atom(),
         "KeyRegistration" => list(registered_customer_managed_key()),
+        "QDataKey" => q_data_key(),
         "RequestId" => String.t() | atom(),
         "Status" => integer()
       }
@@ -6046,6 +6083,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_account_custom_permission_response() :: %{
+        "RequestId" => String.t() | atom(),
+        "Status" => integer()
+      }
+
+  """
+  @type update_account_custom_permission_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_data_sources_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -6812,6 +6861,15 @@ defmodule AWS.QuickSight do
 
   """
   @type section_after_page_break() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_account_custom_permission_request() :: %{}
+
+  """
+  @type delete_account_custom_permission_request() :: %{}
 
   @typedoc """
 
@@ -7596,6 +7654,17 @@ defmodule AWS.QuickSight do
 
   """
   @type visual_menu_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_connection_parameters() :: %{
+        "ConnectionType" => String.t() | atom()
+      }
+
+  """
+  @type custom_connection_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9961,6 +10030,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      topic_null_filter() :: %{
+        "Constant" => topic_singular_filter_constant(),
+        "Inverse" => boolean(),
+        "NullFilterType" => list(any())
+      }
+
+  """
+  @type topic_null_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_set_identifier_declaration() :: %{
         "DataSetArn" => String.t() | atom(),
         "Identifier" => String.t() | atom()
@@ -11994,6 +12076,8 @@ defmodule AWS.QuickSight do
         "DataPointMenuLabelOption" => data_point_menu_label_option(),
         "DataPointTooltipOption" => data_point_tooltip_option(),
         "DataQAEnabledOption" => data_q_a_enabled_option(),
+        "DataStoriesSharingOption" => data_stories_sharing_option(),
+        "ExecutiveSummaryOption" => executive_summary_option(),
         "ExportToCSVOption" => export_to_csv_option(),
         "ExportWithHiddenFieldsOption" => export_with_hidden_fields_option(),
         "SheetControlsOption" => sheet_controls_option(),
@@ -13367,6 +13451,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      delete_account_custom_permission_response() :: %{
+        "RequestId" => String.t() | atom(),
+        "Status" => integer()
+      }
+
+  """
+  @type delete_account_custom_permission_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_folder_response() :: %{
         "Arn" => String.t() | atom(),
         "FolderId" => String.t() | atom(),
@@ -14056,6 +14152,17 @@ defmodule AWS.QuickSight do
 
   """
   @type describe_account_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_stories_sharing_option() :: %{
+        "AvailabilityStatus" => list(any())
+      }
+
+  """
+  @type data_stories_sharing_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14960,6 +15067,17 @@ defmodule AWS.QuickSight do
 
   """
   @type column_schema() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_account_custom_permission_request() :: %{
+        required("CustomPermissionsName") => String.t() | atom()
+      }
+
+  """
+  @type update_account_custom_permission_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16127,6 +16245,15 @@ defmodule AWS.QuickSight do
 
   """
   @type data_field_series_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_account_custom_permission_request() :: %{}
+
+  """
+  @type describe_account_custom_permission_request() :: %{}
 
   @typedoc """
 
@@ -17400,6 +17527,7 @@ defmodule AWS.QuickSight do
 
       capabilities() :: %{
         "AddOrRunAnomalyDetectionForAnalyses" => list(any()),
+        "Analysis" => list(any()),
         "CreateAndUpdateDashboardEmailReports" => list(any()),
         "CreateAndUpdateDataSources" => list(any()),
         "CreateAndUpdateDatasets" => list(any()),
@@ -17407,6 +17535,7 @@ defmodule AWS.QuickSight do
         "CreateAndUpdateThresholdAlerts" => list(any()),
         "CreateSPICEDataset" => list(any()),
         "CreateSharedFolders" => list(any()),
+        "Dashboard" => list(any()),
         "ExportToCsv" => list(any()),
         "ExportToCsvInScheduledReports" => list(any()),
         "ExportToExcel" => list(any()),
@@ -17500,6 +17629,7 @@ defmodule AWS.QuickSight do
         "FilterName" => String.t() | atom(),
         "FilterSynonyms" => list(String.t() | atom()),
         "FilterType" => list(any()),
+        "NullFilter" => topic_null_filter(),
         "NumericEqualityFilter" => topic_numeric_equality_filter(),
         "NumericRangeFilter" => topic_numeric_range_filter(),
         "OperandFieldName" => String.t() | atom(),
@@ -18153,6 +18283,13 @@ defmodule AWS.QuickSight do
           | unsupported_user_edition_exception()
           | internal_failure_exception()
 
+  @type delete_account_custom_permission_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
   @type delete_account_customization_errors() ::
           precondition_not_met_exception()
           | limit_exceeded_exception()
@@ -18419,6 +18556,13 @@ defmodule AWS.QuickSight do
           | resource_not_found_exception()
           | conflict_exception()
           | unsupported_user_edition_exception()
+          | internal_failure_exception()
+
+  @type describe_account_custom_permission_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
           | internal_failure_exception()
 
   @type describe_account_customization_errors() ::
@@ -19314,6 +19458,13 @@ defmodule AWS.QuickSight do
           | resource_not_found_exception()
           | internal_failure_exception()
 
+  @type update_account_custom_permission_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
   @type update_account_customization_errors() ::
           throttling_exception()
           | access_denied_exception()
@@ -19852,9 +20003,8 @@ defmodule AWS.QuickSight do
 
   Currently, you can add a custom default theme by using the
   `CreateAccountCustomization` or `UpdateAccountCustomization`
-  API operation. To further customize Amazon QuickSight by removing Amazon
-  QuickSight
-  sample assets and videos for all new users, see [Customizing Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/customizing-quicksight.html)
+  API operation. To further customize QuickSight by removing QuickSight
+  sample assets and videos for all new users, see [Customizing QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/customizing-quicksight.html)
   in the *Amazon QuickSight User Guide.*
 
   You can create customizations for your Amazon Web Services account or, if you
@@ -19924,7 +20074,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Creates an Amazon QuickSight account, or subscribes to Amazon QuickSight Q.
+  Creates an QuickSight account, or subscribes to QuickSight Q.
 
   The Amazon Web Services Region for the account is derived from what is
   configured in the
@@ -19935,11 +20085,11 @@ defmodule AWS.QuickSight do
   see [Sign up for Amazon Web
   Services](https://docs.aws.amazon.com/quicksight/latest/user/setting-up-aws-sign-up.html)
   in the *Amazon QuickSight User
-  Guide*. The person who signs up for Amazon QuickSight needs to have the
+  Guide*. The person who signs up for QuickSight needs to have the
   correct Identity and Access Management (IAM) permissions. For more information,
-  see [IAM Policy Examples for Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/iam-policy-examples.html)
+  see [IAM Policy Examples for QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/iam-policy-examples.html)
   in the
-  *Amazon QuickSight User Guide*.
+  *QuickSight User Guide*.
 
   If your IAM policy includes both the `Subscribe` and
   `CreateAccountSubscription` actions, make sure that both actions are set
@@ -19948,19 +20098,17 @@ defmodule AWS.QuickSight do
 
   You can't pass an existing IAM role to access other Amazon Web Services services
   using this API operation. To pass your existing IAM role to
-  Amazon QuickSight, see [Passing IAM roles to Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html#security-create-iam-role)
+  QuickSight, see [Passing IAM roles to QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html#security-create-iam-role)
   in the
-  *Amazon QuickSight User Guide*.
+  *QuickSight User Guide*.
 
-  You can't set default resource access on the new account from the Amazon
-  QuickSight
-  API. Instead, add default resource access from the Amazon QuickSight console.
-  For more
+  You can't set default resource access on the new account from the QuickSight
+  API. Instead, add default resource access from the QuickSight console. For more
   information about setting default resource access to Amazon Web Services
   services, see
   [Setting default resource access to Amazon Web Services
   services](https://docs.aws.amazon.com/quicksight/latest/user/scoping-policies-defaults.html)
-  in the *Amazon QuickSight
+  in the *QuickSight
   User Guide*.
   """
   @spec create_account_subscription(
@@ -20034,7 +20182,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Creates an Amazon QuickSight brand.
+  Creates an QuickSight brand.
   """
   @spec create_brand(
           map(),
@@ -20118,10 +20266,10 @@ defmodule AWS.QuickSight do
 
   API operation.
 
-  A dashboard is an entity in Amazon QuickSight that identifies Amazon QuickSight
-  reports, created
-  from analyses. You can share Amazon QuickSight dashboards. With the right
-  permissions, you can
+  A dashboard is an entity in QuickSight that identifies QuickSight reports,
+  created
+  from analyses. You can share QuickSight dashboards. With the right permissions,
+  you can
   create scheduled email reports from them. If you have the correct permissions,
   you can
   create a dashboard from a template that exists in a different Amazon Web
@@ -20306,7 +20454,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Use the `CreateGroup` operation to create a group in Amazon QuickSight.
+  Use the `CreateGroup` operation to create a group in QuickSight.
 
   You can create up to 10,000 groups in a namespace. If you want to create more
   than 10,000 groups in a namespace, contact Amazon Web Services Support.
@@ -20517,18 +20665,18 @@ defmodule AWS.QuickSight do
   (Enterprise edition only) Creates a new namespace for you to use with Amazon
   QuickSight.
 
-  A namespace allows you to isolate the Amazon QuickSight users and groups that
-  are registered
+  A namespace allows you to isolate the QuickSight users and groups that are
+  registered
   for that namespace. Users that access the namespace can share assets only with
   other
   users or groups in the same namespace. They can't see users and groups in other
   namespaces. You can create a namespace after your Amazon Web Services account is
   subscribed to
-  Amazon QuickSight. The namespace must be unique within the Amazon Web Services
-  account. By default, there is a
+  QuickSight. The namespace must be unique within the Amazon Web Services account.
+  By default, there is a
   limit of 100 namespaces per Amazon Web Services account. To increase your limit,
   create a ticket with
-  Amazon Web ServicesSupport.
+  Amazon Web Services Support.
   """
   @spec create_namespace(map(), String.t() | atom(), create_namespace_request(), list()) ::
           {:ok, create_namespace_response(), any()}
@@ -20602,8 +20750,8 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Use `CreateRoleMembership` to add an existing Amazon QuickSight group to an
-  existing role.
+  Use `CreateRoleMembership` to add an existing QuickSight group to an existing
+  role.
   """
   @spec create_role_membership(
           map(),
@@ -20650,13 +20798,13 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Creates a template either from a `TemplateDefinition` or from an existing Amazon
+  Creates a template either from a `TemplateDefinition` or from an existing
   QuickSight analysis or template.
 
   You can use the resulting
   template to create additional dashboards, templates, or analyses.
 
-  A *template* is an entity in Amazon QuickSight that encapsulates the metadata
+  A *template* is an entity in QuickSight that encapsulates the metadata
   required to create an analysis and that you can use to create s dashboard. A
   template adds
   a layer of abstraction by using placeholders to replace the dataset associated
@@ -20935,9 +21083,43 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Unapplies a custom permissions profile from an account.
+  """
+  @spec delete_account_custom_permission(
+          map(),
+          String.t() | atom(),
+          delete_account_custom_permission_request(),
+          list()
+        ) ::
+          {:ok, delete_account_custom_permission_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_account_custom_permission_errors()}
+  def delete_account_custom_permission(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/custom-permission"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes all Amazon QuickSight customizations in this Amazon Web Services Region
   for the specified
-  Amazon Web Services account and Amazon QuickSight namespace.
+  Amazon Web Services account and QuickSight namespace.
   """
   @spec delete_account_customization(
           map(),
@@ -20976,8 +21158,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Use the `DeleteAccountSubscription` operation to delete an Amazon QuickSight
-  account.
+  Use the `DeleteAccountSubscription` operation to delete an QuickSight account.
 
   This operation will result in an error message if you have configured your
   account termination protection settings to `True`. To change this setting and
@@ -21022,11 +21203,10 @@ defmodule AWS.QuickSight do
   You can optionally include a recovery window during
   which you can restore the analysis. If you don't specify a recovery window
   value, the
-  operation defaults to 30 days. Amazon QuickSight attaches a `DeletionTime` stamp
-  to
+  operation defaults to 30 days. QuickSight attaches a `DeletionTime` stamp to
   the response that specifies the end of the recovery window. At the end of the
   recovery
-  window, Amazon QuickSight deletes the analysis permanently.
+  window, QuickSight deletes the analysis permanently.
 
   At any time before recovery window ends, you can use the `RestoreAnalysis`
   API operation to remove the `DeletionTime` stamp and cancel the deletion of
@@ -21034,8 +21214,8 @@ defmodule AWS.QuickSight do
   can
   describe it but you can't make a template from it.
 
-  An analysis that's scheduled for deletion isn't accessible in the Amazon
-  QuickSight console.
+  An analysis that's scheduled for deletion isn't accessible in the QuickSight
+  console.
   To access it in the console, restore it. Deleting an analysis doesn't delete the
   dashboards that you publish from it.
   """
@@ -21080,7 +21260,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Deletes an Amazon QuickSight brand.
+  Deletes an QuickSight brand.
   """
   @spec delete_brand(
           map(),
@@ -21356,7 +21536,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Deletes a linked Amazon Q Business application from an Amazon QuickSight account
+  Deletes a linked Amazon Q Business application from an QuickSight account
   """
   @spec delete_default_q_business_application(
           map(),
@@ -21622,10 +21802,10 @@ defmodule AWS.QuickSight do
 
   @doc """
   Deletes all access scopes and authorized targets that are associated with a
-  service from the Amazon QuickSight IAM Identity Center application.
+  service from the QuickSight IAM Identity Center application.
 
-  This operation is only supported for Amazon QuickSight accounts that use IAM
-  Identity Center.
+  This operation is only supported for QuickSight accounts that use IAM Identity
+  Center.
   """
   @spec delete_identity_propagation_config(
           map(),
@@ -22285,11 +22465,29 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Describes the custom permissions profile that is applied to an account.
+  """
+  @spec describe_account_custom_permission(map(), String.t() | atom(), list()) ::
+          {:ok, describe_account_custom_permission_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_account_custom_permission_errors()}
+  def describe_account_custom_permission(%Client{} = client, aws_account_id, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/custom-permission"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Describes the customizations associated with the provided Amazon Web Services
   account and Amazon
-  Amazon QuickSight namespace in an Amazon Web Services Region.
+  QuickSight namespace in an Amazon Web Services Region.
 
-  The Amazon QuickSight console evaluates which
+  The QuickSight console evaluates which
   customizations to apply by running this API operation with the `Resolved` flag
   included.
 
@@ -22303,21 +22501,18 @@ defmodule AWS.QuickSight do
   top of the hierarchy.
   It has the potential to use all of the Amazon Web Services Regions and Amazon
   Web Services Services. When you
-  subscribe to Amazon QuickSight, you choose one Amazon Web Services Region to use
-  as your home Region.
-  That's where your free SPICE capacity is located. You can use Amazon QuickSight
-  in any
+  subscribe to QuickSight, you choose one Amazon Web Services Region to use as
+  your home Region.
+  That's where your free SPICE capacity is located. You can use QuickSight in any
   supported Amazon Web Services Region.
 
     *
 
   `Amazon Web Services Region` - In each Amazon Web Services Region where you sign
-  in to Amazon QuickSight
-  at least once, Amazon QuickSight acts as a separate instance of the same
-  service. If
+  in to QuickSight
+  at least once, QuickSight acts as a separate instance of the same service. If
   you have a user directory, it resides in us-east-1, which is the US East (N.
-  Virginia). Generally speaking, these users have access to Amazon QuickSight in
-  any
+  Virginia). Generally speaking, these users have access to QuickSight in any
   Amazon Web Services Region, unless they are constrained to a namespace.
 
   To run the command in a different Amazon Web Services Region, you change your
@@ -22348,8 +22543,8 @@ defmodule AWS.QuickSight do
     *
 
   `Applied customizations` - Within an Amazon Web Services Region, a set of
-  Amazon QuickSight customizations can apply to an Amazon Web Services account or
-  to a namespace.
+  QuickSight customizations can apply to an Amazon Web Services account or to a
+  namespace.
   Settings that you apply to a namespace override settings that you apply to an
   Amazon Web Services account. All settings are isolated to a single Amazon Web
   Services Region. To apply them in
@@ -22399,8 +22594,8 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Describes the settings that were used when your Amazon QuickSight subscription
-  was first
+  Describes the settings that were used when your QuickSight subscription was
+  first
   created in this Amazon Web Services account.
   """
   @spec describe_account_settings(map(), String.t() | atom(), list()) ::
@@ -22420,7 +22615,7 @@ defmodule AWS.QuickSight do
 
   @doc """
   Use the DescribeAccountSubscription operation to receive a description of an
-  Amazon QuickSight account's subscription.
+  QuickSight account's subscription.
 
   A successful API call returns an `AccountInfo` object that includes an account's
   name, subscription status, authentication type, edition, and notification email
@@ -23029,7 +23224,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Describes a Amazon Q Business application that is linked to an Amazon QuickSight
+  Describes a Amazon Q Business application that is linked to an QuickSight
   account.
   """
   @spec describe_default_q_business_application(
@@ -23349,7 +23544,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Describes all customer managed key registrations in a Amazon QuickSight account.
+  Describes all customer managed key registrations in a QuickSight account.
   """
   @spec describe_key_registration(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, describe_key_registration_response(), any()}
@@ -23417,7 +23612,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Describes the state of a Amazon QuickSight Q Search configuration.
+  Describes the state of a QuickSight Q Search configuration.
   """
   @spec describe_quick_sight_q_search_configuration(map(), String.t() | atom(), list()) ::
           {:ok, describe_quick_sight_q_search_configuration_response(), any()}
@@ -24072,21 +24267,20 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Generates an embed URL that you can use to embed an Amazon QuickSight experience
-  in your website.
+  Generates an embed URL that you can use to embed an QuickSight experience in
+  your website.
 
-  This action can be used for any type of user that is registered in an Amazon
-  QuickSight account that uses IAM Identity Center for authentication. This API
-  requires [identity-enhanced IAM Role sessions](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overview.html#types-identity-enhanced-iam-role-sessions)
+  This action can be used for any type of user that is registered in an QuickSight
+  account that uses IAM Identity Center for authentication. This API requires
+  [identity-enhanced IAM Role sessions](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overview.html#types-identity-enhanced-iam-role-sessions)
   for the authenticated user that the API call is being made for.
 
   This API uses [trusted identity propagation](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation.html)
   to ensure that an end user is authenticated and receives the embed URL that is
   specific to that user. The IAM Identity Center application that the user has
-  logged into needs to have [trusted Identity Propagation enabled for Amazon QuickSight](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-using-customermanagedapps-specify-trusted-apps.html)
+  logged into needs to have [trusted Identity Propagation enabled for QuickSight](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-using-customermanagedapps-specify-trusted-apps.html)
   with the scope value set to `quicksight:read`. Before you use this action, make
-  sure that you have configured the relevant Amazon QuickSight resource and
-  permissions.
+  sure that you have configured the relevant QuickSight resource and permissions.
   """
   @spec generate_embed_url_for_registered_user_with_identity(
           map(),
@@ -24128,7 +24322,7 @@ defmodule AWS.QuickSight do
 
   @doc """
   Generates a temporary session URL and authorization code(bearer token) that you
-  can use to embed an Amazon QuickSight read-only dashboard in your website or
+  can use to embed an QuickSight read-only dashboard in your website or
   application.
 
   Before you use this command, make sure that you have configured the dashboards
@@ -24147,7 +24341,7 @@ defmodule AWS.QuickSight do
   They are valid for 5 minutes after you run this command.
 
     *
-  You are charged only when the URL is used or there is interaction with Amazon
+  You are charged only when the URL is used or there is interaction with
   QuickSight.
 
     *
@@ -24265,13 +24459,13 @@ defmodule AWS.QuickSight do
   @doc """
   Generates a session URL and authorization code that you can use to embed the
   Amazon
-  Amazon QuickSight console in your web server code.
+  QuickSight console in your web server code.
 
   Use `GetSessionEmbedUrl` where
   you want to provide an authoring portal that allows users to create data
   sources,
-  datasets, analyses, and dashboards. The users who access an embedded Amazon
-  QuickSight console
+  datasets, analyses, and dashboards. The users who access an embedded QuickSight
+  console
   need belong to the author or admin security cohort. If you want to restrict
   permissions
   to some of these features, add a custom permissions profile to the user with the
@@ -24494,7 +24688,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Lists all brands in an Amazon QuickSight account.
+  Lists all brands in an QuickSight account.
   """
   @spec list_brands(
           map(),
@@ -24582,7 +24776,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Lists all the versions of the dashboards in the Amazon QuickSight subscription.
+  Lists all the versions of the dashboards in the QuickSight subscription.
   """
   @spec list_dashboard_versions(
           map(),
@@ -25120,11 +25314,11 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Lists all services and authorized targets that the Amazon QuickSight IAM
-  Identity Center application can access.
+  Lists all services and authorized targets that the QuickSight IAM Identity
+  Center application can access.
 
-  This operation is only supported for Amazon QuickSight accounts that use IAM
-  Identity Center.
+  This operation is only supported for QuickSight accounts that use IAM Identity
+  Center.
   """
   @spec list_identity_propagation_configs(
           map(),
@@ -25878,10 +26072,9 @@ defmodule AWS.QuickSight do
   This API uses [trusted identity propagation](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation.html)
   to ensure that an end user is authenticated and receives the embed URL that is
   specific to that user. The IAM Identity Center application that the user has
-  logged into needs to have [trusted Identity Propagation enabled for Amazon QuickSight](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-using-customermanagedapps-specify-trusted-apps.html)
+  logged into needs to have [trusted Identity Propagation enabled for QuickSight](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-using-customermanagedapps-specify-trusted-apps.html)
   with the scope value set to `quicksight:read`. Before you use this action, make
-  sure that you have configured the relevant Amazon QuickSight resource and
-  permissions.
+  sure that you have configured the relevant QuickSight resource and permissions.
 
   We recommend enabling the `QSearchStatus` API to unlock the full potential of
   `PredictQnA`. When `QSearchStatus` is enabled, it first checks the specified
@@ -25963,13 +26156,13 @@ defmodule AWS.QuickSight do
   Creates an Amazon QuickSight user whose identity is associated with the Identity
   and Access Management (IAM) identity or role specified in the request.
 
-  When you register a new user from the Amazon QuickSight API, Amazon QuickSight
-  generates a registration URL. The user accesses this registration URL to create
-  their account. Amazon QuickSight doesn't send a registration email to users who
-  are registered from the Amazon QuickSight API. If you want new users to receive
-  a registration email, then add those users in the Amazon QuickSight console. For
-  more information on registering a new user in the Amazon QuickSight console, see
-  [ Inviting users to access Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/managing-users.html#inviting-users).
+  When you register a new user from the QuickSight API, QuickSight generates a
+  registration URL. The user accesses this registration URL to create their
+  account. QuickSight doesn't send a registration email to users who are
+  registered from the QuickSight API. If you want new users to receive a
+  registration email, then add those users in the QuickSight console. For more
+  information on registering a new user in the QuickSight console, see [ Inviting users to access
+  QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/managing-users.html#inviting-users).
   """
   @spec register_user(
           map(),
@@ -26201,8 +26394,8 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Use the `SearchGroups` operation to search groups in a specified Amazon
-  QuickSight namespace using the supplied filters.
+  Use the `SearchGroups` operation to search groups in a specified QuickSight
+  namespace using the supplied filters.
   """
   @spec search_groups(
           map(),
@@ -26245,7 +26438,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Searches for any Q topic that exists in an Amazon QuickSight account.
+  Searches for any Q topic that exists in an QuickSight account.
   """
   @spec search_topics(map(), String.t() | atom(), search_topics_request(), list()) ::
           {:ok, search_topics_response(), any()}
@@ -26276,13 +26469,13 @@ defmodule AWS.QuickSight do
   @doc """
   Starts an Asset Bundle export job.
 
-  An Asset Bundle export job exports specified Amazon QuickSight assets. You can
-  also choose to export any asset dependencies in the same job. Export jobs run
+  An Asset Bundle export job exports specified QuickSight assets. You can also
+  choose to export any asset dependencies in the same job. Export jobs run
   asynchronously and can be polled with a `DescribeAssetBundleExportJob` API call.
   When a job is successfully completed, a download URL that contains the exported
   assets is returned. The URL is valid for 5 minutes and can be refreshed with a
-  `DescribeAssetBundleExportJob` API call. Each Amazon QuickSight account can run
-  up to 5 export jobs concurrently.
+  `DescribeAssetBundleExportJob` API call. Each QuickSight account can run up to 5
+  export jobs concurrently.
 
   The API caller must have the necessary permissions in their IAM role to access
   each resource before the resources can be exported.
@@ -26321,12 +26514,12 @@ defmodule AWS.QuickSight do
   @doc """
   Starts an Asset Bundle import job.
 
-  An Asset Bundle import job imports specified Amazon QuickSight assets into an
-  Amazon QuickSight account. You can also choose to import a naming prefix and
-  specified configuration overrides. The assets that are contained in the bundle
-  file that you provide are used to create or update a new or existing asset in
-  your Amazon QuickSight account. Each Amazon QuickSight account can run up to 5
-  import jobs concurrently.
+  An Asset Bundle import job imports specified QuickSight assets into an
+  QuickSight account. You can also choose to import a naming prefix and specified
+  configuration overrides. The assets that are contained in the bundle file that
+  you provide are used to create or update a new or existing asset in your
+  QuickSight account. Each QuickSight account can run up to 5 import jobs
+  concurrently.
 
   The API caller must have the necessary `"create"`, `"describe"`, and `"update"`
   permissions in their IAM role to access each resource type that is contained in
@@ -26388,14 +26581,13 @@ defmodule AWS.QuickSight do
 
   ## StartDashboardSnapshotJob API throttling
 
-  Amazon QuickSight utilizes API throttling to create a more consistent user
-  experience within a time span for customers when they call the
-  `StartDashboardSnapshotJob`. By default, 12 jobs can run simlutaneously in one
-  Amazon Web Services account and users can submit up 10 API requests per second
-  before an account is throttled. If an overwhelming number of API requests are
-  made by the same user in a short period of time, Amazon QuickSight throttles the
-  API calls to maintin an optimal experience and reliability for all Amazon
-  QuickSight users.
+  QuickSight utilizes API throttling to create a more consistent user experience
+  within a time span for customers when they call the `StartDashboardSnapshotJob`.
+  By default, 12 jobs can run simlutaneously in one Amazon Web Services account
+  and users can submit up 10 API requests per second before an account is
+  throttled. If an overwhelming number of API requests are made by the same user
+  in a short period of time, QuickSight throttles the API calls to maintin an
+  optimal experience and reliability for all QuickSight users.
 
   ## Common throttling scenarios
 
@@ -26413,8 +26605,8 @@ defmodule AWS.QuickSight do
     *
 
   **A large number of API requests are submitted on an Amazon Web Services
-  account.** When a user makes more than 10 API calls to the Amazon QuickSight API
-  in one second, a `ThrottlingException` is returned.
+  account.** When a user makes more than 10 API calls to the QuickSight API in one
+  second, a `ThrottlingException` is returned.
 
   If your use case requires a higher throttling limit, contact your account admin
   or [Amazon Web ServicesSupport](http://aws.amazon.com/contact-us/) to explore
@@ -26426,9 +26618,9 @@ defmodule AWS.QuickSight do
   of frequency and parallelism of API calls as much as you can to avoid
   throttling. You can also perform a timing test to calculate an estimate for the
   total processing time of your projected load that stays within the throttling
-  limits of the Amazon QuickSight APIs. For example, if your projected traffic is
-  100 snapshot jobs before 12:00 PM per day, start 12 jobs in parallel and measure
-  the amount of time it takes to proccess all 12 jobs. Once you obtain the result,
+  limits of the QuickSight APIs. For example, if your projected traffic is 100
+  snapshot jobs before 12:00 PM per day, start 12 jobs in parallel and measure the
+  amount of time it takes to proccess all 12 jobs. Once you obtain the result,
   multiply the duration by 9, for example `(12 minutes * 9 = 108 minutes)`. Use
   the new result to determine the latest time at which the jobs need to be started
   to meet your target deadline.
@@ -26504,8 +26696,8 @@ defmodule AWS.QuickSight do
   Only one job can run simultaneously in a given schedule. Repeated requests are
   skipped with a `202` HTTP status code.
 
-  For more information, see [Scheduling and sending Amazon QuickSight reports by email](https://docs.aws.amazon.com/quicksight/latest/user/sending-reports.html)
-  and [Configuring email report settings for a Amazon QuickSight dashboard](https://docs.aws.amazon.com/quicksight/latest/user/email-reports-from-dashboard.html)
+  For more information, see [Scheduling and sending QuickSight reports by email](https://docs.aws.amazon.com/quicksight/latest/user/sending-reports.html)
+  and [Configuring email report settings for a QuickSight dashboard](https://docs.aws.amazon.com/quicksight/latest/user/email-reports-from-dashboard.html)
   in the *Amazon QuickSight User Guide*.
   """
   @spec start_dashboard_snapshot_job_schedule(
@@ -26551,8 +26743,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Assigns one or more tags (key-value pairs) to the specified Amazon QuickSight
-  resource.
+  Assigns one or more tags (key-value pairs) to the specified QuickSight resource.
 
   Tags can help you organize and categorize your resources. You can also use them
   to
@@ -26566,21 +26757,21 @@ defmodule AWS.QuickSight do
   that is already associated with the resource, the new tag value that you specify
   replaces the previous value for that tag.
 
-  You can associate as many as 50 tags with a resource. Amazon QuickSight supports
+  You can associate as many as 50 tags with a resource. QuickSight supports
   tagging on data
   set, data source, dashboard, template, topic, and user.
 
-  Tagging for Amazon QuickSight works in a similar way to tagging for other Amazon
-  Web Services services, except for
+  Tagging for QuickSight works in a similar way to tagging for other Amazon Web
+  Services services, except for
   the following:
 
     *
-  Tags are used to track costs for users in Amazon QuickSight. You can't tag other
-  resources that Amazon QuickSight costs are based on, such as storage capacoty
-  (SPICE), session usage, alert consumption, or reporting units.
+  Tags are used to track costs for users in QuickSight. You can't tag other
+  resources that QuickSight costs are based on, such as storage capacoty (SPICE),
+  session usage, alert consumption, or reporting units.
 
     *
-  Amazon QuickSight doesn't currently support the tag editor for Resource Groups.
+  QuickSight doesn't currently support the tag editor for Resource Groups.
   """
   @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -26643,6 +26834,40 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Applies a custom permissions profile to an account.
+  """
+  @spec update_account_custom_permission(
+          map(),
+          String.t() | atom(),
+          update_account_custom_permission_request(),
+          list()
+        ) ::
+          {:ok, update_account_custom_permission_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_account_custom_permission_errors()}
+  def update_account_custom_permission(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/custom-permission"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates Amazon QuickSight customizations for the current Amazon Web Services
   Region.
 
@@ -26650,8 +26875,7 @@ defmodule AWS.QuickSight do
 
   You can use customizations for your Amazon Web Services account or, if you
   specify a namespace, for a
-  Amazon QuickSight namespace instead. Customizations that apply to a namespace
-  override
+  QuickSight namespace instead. Customizations that apply to a namespace override
   customizations that apply to an Amazon Web Services account. To find out which
   customizations apply, use
   the `DescribeAccountCustomization` API operation.
@@ -26807,10 +27031,10 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Updates an Amazon QuickSight application with a token exchange grant.
+  Updates an QuickSight application with a token exchange grant.
 
-  This operation only supports Amazon QuickSight applications that are registered
-  with IAM Identity Center.
+  This operation only supports QuickSight applications that are registered with
+  IAM Identity Center.
   """
   @spec update_application_with_token_exchange_grant(
           map(),
@@ -27399,8 +27623,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Updates a Amazon Q Business application that is linked to a Amazon QuickSight
-  account.
+  Updates a Amazon Q Business application that is linked to a QuickSight account.
   """
   @spec update_default_q_business_application(
           map(),
@@ -27619,11 +27842,11 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Adds or updates services and authorized targets to configure what the Amazon
-  QuickSight IAM Identity Center application can access.
+  Adds or updates services and authorized targets to configure what the QuickSight
+  IAM Identity Center application can access.
 
-  This operation is only supported for Amazon QuickSight accounts using IAM
-  Identity Center
+  This operation is only supported for QuickSight accounts using IAM Identity
+  Center
   """
   @spec update_identity_propagation_config(
           map(),
@@ -27700,7 +27923,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Updates a customer managed key in a Amazon QuickSight account.
+  Updates a customer managed key in a QuickSight account.
   """
   @spec update_key_registration(
           map(),
@@ -27735,19 +27958,18 @@ defmodule AWS.QuickSight do
 
   @doc """
   Use the `UpdatePublicSharingSettings` operation to turn on or turn off the
-  public sharing settings of an Amazon QuickSight dashboard.
+  public sharing settings of an QuickSight dashboard.
 
-  To use this operation, turn on session capacity pricing for your Amazon
-  QuickSight
+  To use this operation, turn on session capacity pricing for your QuickSight
   account.
 
   Before you can turn on public sharing on your account, make sure to give public
   sharing
   permissions to an administrative user in the Identity and Access Management
   (IAM)
-  console. For more information on using IAM with Amazon QuickSight, see
-  [Using Amazon QuickSight with IAM](https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html)
-  in the *Amazon QuickSight
+  console. For more information on using IAM with QuickSight, see
+  [Using QuickSight with IAM](https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html)
+  in the *QuickSight
   User Guide*.
   """
   @spec update_public_sharing_settings(
@@ -27821,7 +28043,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Updates the state of a Amazon QuickSight Q Search configuration.
+  Updates the state of a QuickSight Q Search configuration.
   """
   @spec update_quick_sight_q_search_configuration(
           map(),
@@ -27950,7 +28172,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Updates the SPICE capacity configuration for a Amazon QuickSight account.
+  Updates the SPICE capacity configuration for a QuickSight account.
   """
   @spec update_s_p_i_c_e_capacity_configuration(
           map(),

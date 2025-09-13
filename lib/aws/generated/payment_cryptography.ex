@@ -162,7 +162,9 @@ defmodule AWS.PaymentCryptography do
         "KeyBlockFormat" => String.t() | atom(),
         "RandomNonce" => String.t() | atom(),
         "SigningKeyCertificate" => String.t() | atom(),
-        "WrappedKeyBlock" => String.t() | atom()
+        "WrappedKeyBlock" => String.t() | atom(),
+        "WrappingKeyCertificate" => String.t() | atom(),
+        "WrappingKeyIdentifier" => String.t() | atom()
       }
       
   """
@@ -342,6 +344,23 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
+      certificate_subject_type() :: %{
+        "City" => [String.t() | atom()],
+        "CommonName" => [String.t() | atom()],
+        "Country" => [String.t() | atom()],
+        "EmailAddress" => [String.t() | atom()],
+        "Organization" => [String.t() | atom()],
+        "OrganizationUnit" => [String.t() | atom()],
+        "StateOrProvince" => [String.t() | atom()]
+      }
+      
+  """
+  @type certificate_subject_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       wrapped_key() :: %{
         "KeyCheckValue" => String.t() | atom(),
         "KeyCheckValueAlgorithm" => String.t() | atom(),
@@ -510,6 +529,19 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
+      get_certificate_signing_request_input() :: %{
+        required("CertificateSubject") => certificate_subject_type(),
+        required("KeyIdentifier") => String.t() | atom(),
+        required("SigningAlgorithm") => String.t() | atom()
+      }
+      
+  """
+  @type get_certificate_signing_request_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_alias_input() :: %{
         optional("KeyArn") => String.t() | atom(),
         required("AliasName") => String.t() | atom()
@@ -660,6 +692,17 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
+      get_certificate_signing_request_output() :: %{
+        "CertificateSigningRequest" => String.t() | atom()
+      }
+      
+  """
+  @type get_certificate_signing_request_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       import_diffie_hellman_tr31_key_block() :: %{
         "CertificateAuthorityPublicKeyIdentifier" => String.t() | atom(),
         "DerivationData" => list(),
@@ -752,6 +795,8 @@ defmodule AWS.PaymentCryptography do
         "KeyBlockFormat" => String.t() | atom(),
         "KeyBlockHeaders" => key_block_headers(),
         "RandomNonce" => String.t() | atom(),
+        "SigningKeyCertificate" => String.t() | atom(),
+        "SigningKeyIdentifier" => String.t() | atom(),
         "WrappingKeyCertificate" => String.t() | atom()
       }
       
@@ -1090,6 +1135,14 @@ defmodule AWS.PaymentCryptography do
           | conflict_exception()
 
   @type get_alias_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type get_certificate_signing_request_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1783,6 +1836,20 @@ defmodule AWS.PaymentCryptography do
     meta = metadata()
 
     Request.request_post(client, meta, "GetAlias", input, options)
+  end
+
+  @doc """
+  Used to retrieve the public key for a keypair.
+  """
+  @spec get_certificate_signing_request(map(), get_certificate_signing_request_input(), list()) ::
+          {:ok, get_certificate_signing_request_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_certificate_signing_request_errors()}
+  def get_certificate_signing_request(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCertificateSigningRequest", input, options)
   end
 
   @doc """

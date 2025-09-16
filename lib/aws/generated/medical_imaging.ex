@@ -474,6 +474,7 @@ defmodule AWS.MedicalImaging do
         "datastoreName" => String.t() | atom(),
         "datastoreStatus" => list(any()),
         "kmsKeyArn" => String.t() | atom(),
+        "lambdaAuthorizerArn" => String.t() | atom(),
         "updatedAt" => non_neg_integer()
       }
 
@@ -678,6 +679,7 @@ defmodule AWS.MedicalImaging do
       create_datastore_request() :: %{
         optional("datastoreName") => String.t() | atom(),
         optional("kmsKeyArn") => String.t() | atom(),
+        optional("lambdaAuthorizerArn") => String.t() | atom(),
         optional("tags") => map(),
         required("clientToken") => String.t() | atom()
       }
@@ -837,6 +839,7 @@ defmodule AWS.MedicalImaging do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
           | conflict_exception()
 
   @type delete_datastore_errors() ::

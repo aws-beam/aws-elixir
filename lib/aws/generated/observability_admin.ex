@@ -86,6 +86,41 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      update_centralization_rule_for_organization_output() :: %{
+        "RuleArn" => String.t() | atom()
+      }
+
+  """
+  @type update_centralization_rule_for_organization_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_centralization_rule_for_organization_output() :: %{
+        "RuleArn" => String.t() | atom()
+      }
+
+  """
+  @type create_centralization_rule_for_organization_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      logs_encryption_configuration() :: %{
+        "EncryptionConflictResolutionStrategy" => list(any()),
+        "EncryptionStrategy" => list(any()),
+        "KmsKeyArn" => String.t() | atom()
+      }
+
+  """
+  @type logs_encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_telemetry_evaluation_status_output() :: %{
         "FailureReason" => String.t() | atom(),
         "Status" => list(any())
@@ -134,6 +169,37 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      get_centralization_rule_for_organization_output() :: %{
+        "CentralizationRule" => centralization_rule(),
+        "CreatedRegion" => String.t() | atom(),
+        "CreatedTimeStamp" => [float()],
+        "CreatorAccountId" => [String.t() | atom()],
+        "FailureReason" => list(any()),
+        "LastUpdateTimeStamp" => [float()],
+        "RuleArn" => String.t() | atom(),
+        "RuleHealth" => list(any()),
+        "RuleName" => String.t() | atom()
+      }
+
+  """
+  @type get_centralization_rule_for_organization_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_logs_configuration() :: %{
+        "EncryptedLogGroupStrategy" => list(any()),
+        "LogGroupSelectionCriteria" => String.t() | atom()
+      }
+
+  """
+  @type source_logs_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       too_many_requests_exception() :: %{
         "Message" => [String.t() | atom()]
       }
@@ -162,6 +228,30 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_centralization_rule_for_organization_input() :: %{
+        required("RuleIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type delete_centralization_rule_for_organization_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      centralization_rule_source() :: %{
+        "Regions" => list(String.t() | atom()),
+        "Scope" => String.t() | atom(),
+        "SourceLogsConfiguration" => source_logs_configuration()
+      }
+
+  """
+  @type centralization_rule_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -243,6 +333,18 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      update_centralization_rule_for_organization_input() :: %{
+        required("Rule") => centralization_rule(),
+        required("RuleIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type update_centralization_rule_for_organization_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_quota_exceeded_exception() :: %{
         "Message" => [String.t() | atom()],
         "amznErrorType" => [String.t() | atom()]
@@ -250,6 +352,18 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      destination_logs_configuration() :: %{
+        "BackupConfiguration" => logs_backup_configuration(),
+        "LogsEncryptionConfiguration" => logs_encryption_configuration()
+      }
+
+  """
+  @type destination_logs_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -274,6 +388,19 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type list_resource_telemetry_for_organization_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_centralization_rule_for_organization_input() :: %{
+        optional("Tags") => map(),
+        required("Rule") => centralization_rule(),
+        required("RuleName") => String.t() | atom()
+      }
+
+  """
+  @type create_centralization_rule_for_organization_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -306,6 +433,18 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      logs_backup_configuration() :: %{
+        "KmsKeyArn" => String.t() | atom(),
+        "Region" => String.t() | atom()
+      }
+
+  """
+  @type logs_backup_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_resource_telemetry_for_organization_input() :: %{
         optional("AccountIdentifiers") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
@@ -323,6 +462,18 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      list_centralization_rules_for_organization_output() :: %{
+        "CentralizationRuleSummaries" => list(centralization_rule_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_centralization_rules_for_organization_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_input() :: %{
         required("ResourceARN") => String.t() | atom(),
         required("Tags") => map()
@@ -330,6 +481,26 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      centralization_rule_summary() :: %{
+        "CreatedRegion" => String.t() | atom(),
+        "CreatedTimeStamp" => [float()],
+        "CreatorAccountId" => [String.t() | atom()],
+        "DestinationAccountId" => [String.t() | atom()],
+        "DestinationRegion" => String.t() | atom(),
+        "FailureReason" => list(any()),
+        "LastUpdateTimeStamp" => [float()],
+        "RuleArn" => String.t() | atom(),
+        "RuleHealth" => list(any()),
+        "RuleName" => String.t() | atom()
+      }
+
+  """
+  @type centralization_rule_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -390,6 +561,17 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_centralization_rule_for_organization_input() :: %{
+        required("RuleIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type get_centralization_rule_for_organization_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -471,6 +653,19 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      centralization_rule_destination() :: %{
+        "Account" => String.t() | atom(),
+        "DestinationLogsConfiguration" => destination_logs_configuration(),
+        "Region" => String.t() | atom()
+      }
+
+  """
+  @type centralization_rule_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       telemetry_rule() :: %{
         "DestinationConfiguration" => telemetry_destination_configuration(),
         "ResourceType" => list(any()),
@@ -527,6 +722,40 @@ defmodule AWS.ObservabilityAdmin do
   """
   @type list_telemetry_rules_output() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      centralization_rule() :: %{
+        "Destination" => centralization_rule_destination(),
+        "Source" => centralization_rule_source()
+      }
+
+  """
+  @type centralization_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_centralization_rules_for_organization_input() :: %{
+        optional("AllRegions") => [boolean()],
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("RuleNamePrefix") => [String.t() | atom()]
+      }
+
+  """
+  @type list_centralization_rules_for_organization_input() :: %{(String.t() | atom()) => any()}
+
+  @type create_centralization_rule_for_organization_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
   @type create_telemetry_rule_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -543,6 +772,13 @@ defmodule AWS.ObservabilityAdmin do
           | conflict_exception()
           | too_many_requests_exception()
 
+  @type delete_centralization_rule_for_organization_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
   @type delete_telemetry_rule_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -551,6 +787,13 @@ defmodule AWS.ObservabilityAdmin do
           | too_many_requests_exception()
 
   @type delete_telemetry_rule_for_organization_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type get_centralization_rule_for_organization_errors() ::
           validation_exception()
           | access_denied_exception()
           | internal_server_exception()
@@ -578,6 +821,12 @@ defmodule AWS.ObservabilityAdmin do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type list_centralization_rules_for_organization_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | too_many_requests_exception()
 
   @type list_resource_telemetry_errors() ::
@@ -650,6 +899,14 @@ defmodule AWS.ObservabilityAdmin do
           | resource_not_found_exception()
           | too_many_requests_exception()
 
+  @type update_centralization_rule_for_organization_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
   @type update_telemetry_rule_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -680,6 +937,43 @@ defmodule AWS.ObservabilityAdmin do
       signing_name: "observabilityadmin",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Creates a centralization rule that applies across an Amazon Web Services
+  Organization.
+
+  This operation can only be called by the organization's management account or a
+  delegated administrator account.
+  """
+  @spec create_centralization_rule_for_organization(
+          map(),
+          create_centralization_rule_for_organization_input(),
+          list()
+        ) ::
+          {:ok, create_centralization_rule_for_organization_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_centralization_rule_for_organization_errors()}
+  def create_centralization_rule_for_organization(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateCentralizationRuleForOrganization"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -756,6 +1050,42 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
+  Deletes an organization-wide centralization rule.
+
+  This operation can only be called by the organization's management account or a
+  delegated administrator account.
+  """
+  @spec delete_centralization_rule_for_organization(
+          map(),
+          delete_centralization_rule_for_organization_input(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_centralization_rule_for_organization_errors()}
+  def delete_centralization_rule_for_organization(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteCentralizationRuleForOrganization"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
 
   Deletes a telemetry rule from your account.
 
@@ -806,6 +1136,42 @@ defmodule AWS.ObservabilityAdmin do
           | {:error, delete_telemetry_rule_for_organization_errors()}
   def delete_telemetry_rule_for_organization(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteTelemetryRuleForOrganization"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves the details of a specific organization centralization rule.
+
+  This operation can only be called by the organization's management account or a
+  delegated administrator account.
+  """
+  @spec get_centralization_rule_for_organization(
+          map(),
+          get_centralization_rule_for_organization_input(),
+          list()
+        ) ::
+          {:ok, get_centralization_rule_for_organization_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_centralization_rule_for_organization_errors()}
+  def get_centralization_rule_for_organization(%Client{} = client, input, options \\ []) do
+    url_path = "/GetCentralizationRuleForOrganization"
     headers = []
     custom_headers = []
     query_params = []
@@ -939,6 +1305,42 @@ defmodule AWS.ObservabilityAdmin do
           | {:error, get_telemetry_rule_for_organization_errors()}
   def get_telemetry_rule_for_organization(%Client{} = client, input, options \\ []) do
     url_path = "/GetTelemetryRuleForOrganization"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all centralization rules in your organization.
+
+  This operation can only be called by the organization's management account or a
+  delegated administrator account.
+  """
+  @spec list_centralization_rules_for_organization(
+          map(),
+          list_centralization_rules_for_organization_input(),
+          list()
+        ) ::
+          {:ok, list_centralization_rules_for_organization_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_centralization_rules_for_organization_errors()}
+  def list_centralization_rules_for_organization(%Client{} = client, input, options \\ []) do
+    url_path = "/ListCentralizationRulesForOrganization"
     headers = []
     custom_headers = []
     query_params = []
@@ -1290,6 +1692,43 @@ defmodule AWS.ObservabilityAdmin do
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/UntagResource"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an existing centralization rule that applies across an Amazon Web
+  Services Organization.
+
+  This operation can only be called by the organization's management account or a
+  delegated administrator account.
+  """
+  @spec update_centralization_rule_for_organization(
+          map(),
+          update_centralization_rule_for_organization_input(),
+          list()
+        ) ::
+          {:ok, update_centralization_rule_for_organization_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_centralization_rule_for_organization_errors()}
+  def update_centralization_rule_for_organization(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateCentralizationRuleForOrganization"
     headers = []
     custom_headers = []
     query_params = []

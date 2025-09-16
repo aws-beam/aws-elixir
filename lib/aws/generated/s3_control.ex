@@ -503,6 +503,17 @@ defmodule AWS.S3Control do
 
   ## Example:
 
+      d_sse_kms_filter() :: %{
+        "KmsKeyArn" => String.t() | atom()
+      }
+
+  """
+  @type d_sse_kms_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_job_tagging_request() :: %{
         required("AccountId") => String.t() | atom()
       }
@@ -1238,6 +1249,15 @@ defmodule AWS.S3Control do
 
   ## Example:
 
+      sse_s3_filter() :: %{}
+
+  """
+  @type sse_s3_filter() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       s3_job_manifest_generator() :: %{
         "EnableManifestOutput" => boolean(),
         "ExpectedBucketOwner" => String.t() | atom(),
@@ -1365,6 +1385,18 @@ defmodule AWS.S3Control do
 
   """
   @type list_storage_lens_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sse_kms_filter() :: %{
+        "BucketKeyEnabled" => boolean(),
+        "KmsKeyArn" => String.t() | atom()
+      }
+
+  """
+  @type sse_kms_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2618,6 +2650,15 @@ defmodule AWS.S3Control do
 
   ## Example:
 
+      not_sse_filter() :: %{}
+
+  """
+  @type not_sse_filter() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_marker_replication() :: %{
         "Status" => list(any())
       }
@@ -2782,6 +2823,7 @@ defmodule AWS.S3Control do
         "CreatedBefore" => non_neg_integer(),
         "EligibleForReplication" => boolean(),
         "KeyNameConstraint" => key_name_constraint(),
+        "MatchAnyObjectEncryption" => list(list()),
         "MatchAnyStorageClass" => list(list(any())()),
         "ObjectReplicationStatuses" => list(list(any())()),
         "ObjectSizeGreaterThanBytes" => float(),
@@ -3778,6 +3820,15 @@ defmodule AWS.S3Control do
 
   """
   @type get_multi_region_access_point_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sse_c_filter() :: %{}
+
+  """
+  @type sse_c_filter() :: %{}
 
   @typedoc """
 

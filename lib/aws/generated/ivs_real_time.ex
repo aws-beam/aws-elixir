@@ -373,6 +373,7 @@ defmodule AWS.IVSRealTime do
         "featuredParticipantAttribute" => String.t() | atom(),
         "gridGap" => integer(),
         "omitStoppedVideo" => boolean(),
+        "participantOrderAttribute" => String.t() | atom(),
         "pipBehavior" => list(any()),
         "pipHeight" => integer(),
         "pipOffset" => integer(),
@@ -1407,6 +1408,7 @@ defmodule AWS.IVSRealTime do
         "featuredParticipantAttribute" => String.t() | atom(),
         "gridGap" => integer(),
         "omitStoppedVideo" => boolean(),
+        "participantOrderAttribute" => String.t() | atom(),
         "videoAspectRatio" => list(any()),
         "videoFillMode" => list(any())
       }

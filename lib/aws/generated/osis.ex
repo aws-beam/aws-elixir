@@ -54,6 +54,15 @@ defmodule AWS.OSIS do
 
   ## Example:
 
+      delete_resource_policy_response() :: %{}
+
+  """
+  @type delete_resource_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_pipelines_response() :: %{
         "NextToken" => String.t() | atom(),
         "Pipelines" => list(pipeline_summary())
@@ -93,6 +102,17 @@ defmodule AWS.OSIS do
 
   """
   @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      revoke_pipeline_endpoint_connections_response() :: %{
+        "PipelineArn" => String.t() | atom()
+      }
+
+  """
+  @type revoke_pipeline_endpoint_connections_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -160,6 +180,44 @@ defmodule AWS.OSIS do
 
   ## Example:
 
+      create_pipeline_endpoint_request() :: %{
+        required("PipelineArn") => String.t() | atom(),
+        required("VpcOptions") => pipeline_endpoint_vpc_options()
+      }
+
+  """
+  @type create_pipeline_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipeline_endpoint_connection() :: %{
+        "EndpointId" => String.t() | atom(),
+        "PipelineArn" => String.t() | atom(),
+        "Status" => list(any()),
+        "VpcEndpointOwner" => String.t() | atom()
+      }
+
+  """
+  @type pipeline_endpoint_connection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_policy_response() :: %{
+        "Policy" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
+      }
+
+  """
+  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       disabled_operation_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -180,6 +238,31 @@ defmodule AWS.OSIS do
 
   """
   @type change_progress_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipeline_endpoint() :: %{
+        "EndpointId" => String.t() | atom(),
+        "IngestEndpointUrl" => String.t() | atom(),
+        "PipelineArn" => String.t() | atom(),
+        "Status" => list(any()),
+        "VpcId" => String.t() | atom(),
+        "VpcOptions" => pipeline_endpoint_vpc_options()
+      }
+
+  """
+  @type pipeline_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_pipeline_endpoint_request() :: %{}
+
+  """
+  @type delete_pipeline_endpoint_request() :: %{}
 
   @typedoc """
 
@@ -248,6 +331,18 @@ defmodule AWS.OSIS do
 
   ## Example:
 
+      list_pipeline_endpoint_connections_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "PipelineEndpointConnections" => list(pipeline_endpoint_connection())
+      }
+
+  """
+  @type list_pipeline_endpoint_connections_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conflict_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -265,6 +360,18 @@ defmodule AWS.OSIS do
 
   """
   @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_pipeline_endpoint_connections_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_pipeline_endpoint_connections_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -402,6 +509,20 @@ defmodule AWS.OSIS do
 
   ## Example:
 
+      create_pipeline_endpoint_response() :: %{
+        "EndpointId" => String.t() | atom(),
+        "PipelineArn" => String.t() | atom(),
+        "Status" => list(any()),
+        "VpcId" => String.t() | atom()
+      }
+
+  """
+  @type create_pipeline_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       vpc_endpoint() :: %{
         "VpcEndpointId" => String.t() | atom(),
         "VpcId" => String.t() | atom(),
@@ -426,6 +547,15 @@ defmodule AWS.OSIS do
 
   """
   @type pipeline_blueprint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_policy_request() :: %{}
+
+  """
+  @type get_resource_policy_request() :: %{}
 
   @typedoc """
 
@@ -481,6 +611,17 @@ defmodule AWS.OSIS do
 
   ## Example:
 
+      put_resource_policy_request() :: %{
+        required("Policy") => String.t() | atom()
+      }
+
+  """
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_message() :: %{
         "Message" => String.t() | atom()
       }
@@ -509,6 +650,42 @@ defmodule AWS.OSIS do
 
   """
   @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipeline_endpoint_vpc_options() :: %{
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom())
+      }
+
+  """
+  @type pipeline_endpoint_vpc_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      revoke_pipeline_endpoint_connections_request() :: %{
+        required("EndpointIds") => list(String.t() | atom()),
+        required("PipelineArn") => String.t() | atom()
+      }
+
+  """
+  @type revoke_pipeline_endpoint_connections_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_pipeline_endpoints_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "PipelineEndpoints" => list(pipeline_endpoint())
+      }
+
+  """
+  @type list_pipeline_endpoints_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -614,12 +791,54 @@ defmodule AWS.OSIS do
 
   ## Example:
 
+      put_resource_policy_response() :: %{
+        "Policy" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
+      }
+
+  """
+  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       limit_exceeded_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
   @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_pipeline_endpoint_response() :: %{}
+
+  """
+  @type delete_pipeline_endpoint_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_policy_request() :: %{}
+
+  """
+  @type delete_resource_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_pipeline_endpoints_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_pipeline_endpoints_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -684,12 +903,34 @@ defmodule AWS.OSIS do
           | resource_not_found_exception()
           | disabled_operation_exception()
 
+  @type create_pipeline_endpoint_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
   @type delete_pipeline_errors() ::
           validation_exception()
           | access_denied_exception()
           | internal_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | disabled_operation_exception()
+
+  @type delete_pipeline_endpoint_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | disabled_operation_exception()
+
+  @type delete_resource_policy_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | resource_not_found_exception()
           | disabled_operation_exception()
 
   @type get_pipeline_errors() ::
@@ -713,8 +954,30 @@ defmodule AWS.OSIS do
           | resource_not_found_exception()
           | disabled_operation_exception()
 
+  @type get_resource_policy_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
   @type list_pipeline_blueprints_errors() ::
           invalid_pagination_token_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | disabled_operation_exception()
+
+  @type list_pipeline_endpoint_connections_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | disabled_operation_exception()
+
+  @type list_pipeline_endpoints_errors() ::
+          limit_exceeded_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_exception()
@@ -732,6 +995,21 @@ defmodule AWS.OSIS do
           | access_denied_exception()
           | internal_exception()
           | resource_not_found_exception()
+          | disabled_operation_exception()
+
+  @type put_resource_policy_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
+  @type revoke_pipeline_endpoint_connections_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_exception()
           | disabled_operation_exception()
 
   @type start_pipeline_errors() ::
@@ -798,7 +1076,8 @@ defmodule AWS.OSIS do
   @doc """
   Creates an OpenSearch Ingestion pipeline.
 
-  For more information, see [Creating Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html).
+  For more information, see [Creating Amazon OpenSearch Ingestion
+  pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html).
   """
   @spec create_pipeline(map(), create_pipeline_request(), list()) ::
           {:ok, create_pipeline_response(), any()}
@@ -827,9 +1106,42 @@ defmodule AWS.OSIS do
   end
 
   @doc """
+  Creates a VPC endpoint for an OpenSearch Ingestion pipeline.
+
+  Pipeline endpoints allow you to
+  ingest data from your VPC into pipelines that you have access to.
+  """
+  @spec create_pipeline_endpoint(map(), create_pipeline_endpoint_request(), list()) ::
+          {:ok, create_pipeline_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_pipeline_endpoint_errors()}
+  def create_pipeline_endpoint(%Client{} = client, input, options \\ []) do
+    url_path = "/2022-01-01/osis/createPipelineEndpoint"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes an OpenSearch Ingestion pipeline.
 
-  For more information, see [Deleting Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/delete-pipeline.html).
+  For more information, see [Deleting Amazon OpenSearch Ingestion
+  pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/delete-pipeline.html).
   """
   @spec delete_pipeline(map(), String.t() | atom(), delete_pipeline_request(), list()) ::
           {:ok, delete_pipeline_response(), any()}
@@ -838,6 +1150,74 @@ defmodule AWS.OSIS do
           | {:error, delete_pipeline_errors()}
   def delete_pipeline(%Client{} = client, pipeline_name, input, options \\ []) do
     url_path = "/2022-01-01/osis/deletePipeline/#{AWS.Util.encode_uri(pipeline_name)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a VPC endpoint for an OpenSearch Ingestion pipeline.
+  """
+  @spec delete_pipeline_endpoint(
+          map(),
+          String.t() | atom(),
+          delete_pipeline_endpoint_request(),
+          list()
+        ) ::
+          {:ok, delete_pipeline_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_pipeline_endpoint_errors()}
+  def delete_pipeline_endpoint(%Client{} = client, endpoint_id, input, options \\ []) do
+    url_path = "/2022-01-01/osis/deletePipelineEndpoint/#{AWS.Util.encode_uri(endpoint_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a resource-based policy from an OpenSearch Ingestion resource.
+  """
+  @spec delete_resource_policy(
+          map(),
+          String.t() | atom(),
+          delete_resource_policy_request(),
+          list()
+        ) ::
+          {:ok, delete_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_resource_policy_errors()}
+  def delete_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/2022-01-01/osis/resourcePolicy/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     custom_headers = []
     query_params = []
@@ -931,10 +1311,30 @@ defmodule AWS.OSIS do
   end
 
   @doc """
+  Retrieves the resource-based policy attached to an OpenSearch Ingestion
+  resource.
+  """
+  @spec get_resource_policy(map(), String.t() | atom(), list()) ::
+          {:ok, get_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_resource_policy_errors()}
+  def get_resource_policy(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/2022-01-01/osis/resourcePolicy/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves a list of all available blueprints for Data Prepper.
 
   For more information, see
-  [Using blueprints to create a pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint).
+  [Using blueprints to create a
+  pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint).
   """
   @spec list_pipeline_blueprints(map(), list_pipeline_blueprints_request(), list()) ::
           {:ok, list_pipeline_blueprints_response(), any()}
@@ -963,11 +1363,95 @@ defmodule AWS.OSIS do
   end
 
   @doc """
+  Lists the pipeline endpoints connected to pipelines in your account.
+  """
+  @spec list_pipeline_endpoint_connections(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_pipeline_endpoint_connections_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_pipeline_endpoint_connections_errors()}
+  def list_pipeline_endpoint_connections(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2022-01-01/osis/listPipelineEndpointConnections"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all pipeline endpoints in your account.
+  """
+  @spec list_pipeline_endpoints(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_pipeline_endpoints_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_pipeline_endpoints_errors()}
+  def list_pipeline_endpoints(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2022-01-01/osis/listPipelineEndpoints"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists all OpenSearch Ingestion pipelines in the current Amazon Web Services
   account and Region.
 
-  For
-  more information, see [Viewing Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/list-pipeline.html).
+  For more information, see [Viewing Amazon OpenSearch Ingestion
+  pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/list-pipeline.html).
   """
   @spec list_pipelines(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_pipelines_response(), any()}
@@ -1027,6 +1511,71 @@ defmodule AWS.OSIS do
   end
 
   @doc """
+  Attaches a resource-based policy to an OpenSearch Ingestion resource.
+
+  Resource-based
+  policies grant permissions to principals to perform actions on the resource.
+  """
+  @spec put_resource_policy(map(), String.t() | atom(), put_resource_policy_request(), list()) ::
+          {:ok, put_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_resource_policy_errors()}
+  def put_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/2022-01-01/osis/resourcePolicy/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Revokes pipeline endpoints from specified endpoint IDs.
+  """
+  @spec revoke_pipeline_endpoint_connections(
+          map(),
+          revoke_pipeline_endpoint_connections_request(),
+          list()
+        ) ::
+          {:ok, revoke_pipeline_endpoint_connections_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, revoke_pipeline_endpoint_connections_errors()}
+  def revoke_pipeline_endpoint_connections(%Client{} = client, input, options \\ []) do
+    url_path = "/2022-01-01/osis/revokePipelineEndpointConnections"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Starts an OpenSearch Ingestion pipeline.
 
   For more information, see [Starting an OpenSearch Ingestion pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--start).
@@ -1060,7 +1609,8 @@ defmodule AWS.OSIS do
   @doc """
   Stops an OpenSearch Ingestion pipeline.
 
-  For more information, see [Stopping an OpenSearch Ingestion pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--stop).
+  For more information, see [Stopping an OpenSearch Ingestion
+  pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--stop).
   """
   @spec stop_pipeline(map(), String.t() | atom(), stop_pipeline_request(), list()) ::
           {:ok, stop_pipeline_response(), any()}
@@ -1091,7 +1641,8 @@ defmodule AWS.OSIS do
   @doc """
   Tags an OpenSearch Ingestion pipeline.
 
-  For more information, see [Tagging Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html).
+  For more information, see [Tagging Amazon OpenSearch Ingestion
+  pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html).
   """
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -1164,7 +1715,8 @@ defmodule AWS.OSIS do
   @doc """
   Updates an OpenSearch Ingestion pipeline.
 
-  For more information, see [Updating Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/update-pipeline.html).
+  For more information, see [Updating Amazon OpenSearch Ingestion
+  pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/update-pipeline.html).
   """
   @spec update_pipeline(map(), String.t() | atom(), update_pipeline_request(), list()) ::
           {:ok, update_pipeline_response(), any()}

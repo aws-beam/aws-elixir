@@ -519,6 +519,17 @@ defmodule AWS.Budgets do
 
   ## Example:
       
+      billing_view_health_status_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type billing_view_health_status_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_budget_action_histories_response() :: %{
         "ActionHistories" => list(action_history()),
         "NextToken" => String.t() | atom()
@@ -1218,6 +1229,7 @@ defmodule AWS.Budgets do
           | invalid_parameter_exception()
           | access_denied_exception()
           | not_found_exception()
+          | billing_view_health_status_exception()
           | service_quota_exceeded_exception()
 
   @type create_budget_action_errors() ::
@@ -1395,6 +1407,7 @@ defmodule AWS.Budgets do
           | invalid_parameter_exception()
           | access_denied_exception()
           | not_found_exception()
+          | billing_view_health_status_exception()
 
   @type update_budget_action_errors() ::
           internal_error_exception()

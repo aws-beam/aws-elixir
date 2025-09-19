@@ -7300,6 +7300,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      deprecation_time_condition() :: %{
+        "MaximumDaysSinceDeprecated" => integer()
+      }
+      
+  """
+  @type deprecation_time_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       reset_fpga_image_attribute_result() :: %{
         "Return" => boolean()
       }
@@ -7778,7 +7789,11 @@ defmodule AWS.EC2 do
   ## Example:
       
       image_criterion() :: %{
-        "ImageProviders" => list(String.t() | atom())
+        "CreationDateCondition" => creation_date_condition(),
+        "DeprecationTimeCondition" => deprecation_time_condition(),
+        "ImageNames" => list(String.t() | atom()),
+        "ImageProviders" => list(String.t() | atom()),
+        "MarketplaceProductCodes" => list(String.t() | atom())
       }
       
   """
@@ -12884,6 +12899,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      creation_date_condition() :: %{
+        "MaximumDaysSinceCreated" => integer()
+      }
+      
+  """
+  @type creation_date_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_ipam_discovered_public_addresses_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()),
@@ -14404,6 +14430,17 @@ defmodule AWS.EC2 do
       
   """
   @type modify_vpc_endpoint_service_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      creation_date_condition_request() :: %{
+        "MaximumDaysSinceCreated" => integer()
+      }
+      
+  """
+  @type creation_date_condition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17034,6 +17071,17 @@ defmodule AWS.EC2 do
   @type describe_ipam_external_resource_verification_tokens_request() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+      
+      deprecation_time_condition_request() :: %{
+        "MaximumDaysSinceDeprecated" => integer()
+      }
+      
+  """
+  @type deprecation_time_condition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -27869,7 +27917,11 @@ defmodule AWS.EC2 do
   ## Example:
       
       image_criterion_request() :: %{
-        "ImageProviders" => list(String.t() | atom())
+        "CreationDateCondition" => creation_date_condition_request(),
+        "DeprecationTimeCondition" => deprecation_time_condition_request(),
+        "ImageNames" => list(String.t() | atom()),
+        "ImageProviders" => list(String.t() | atom()),
+        "MarketplaceProductCodes" => list(String.t() | atom())
       }
       
   """
@@ -32156,25 +32208,20 @@ defmodule AWS.EC2 do
     *
   If the source snapshot is on an Outpost, you can't copy it.
 
-  When copying snapshots to a Region, copies of encrypted EBS snapshots remain
-  encrypted.
-  Copies of unencrypted snapshots remain unencrypted, unless you enable encryption
-  for the
-  snapshot copy operation. By default, encrypted snapshot copies use the default
-  KMS key;
-  however, you can specify a different KMS key. To copy an encrypted
-  snapshot that has been shared from another account, you must have permissions
-  for the KMS key
-  used to encrypt the snapshot.
+  When copying snapshots to a Region, the encryption outcome for the snapshot copy
+  depends on the
+  Amazon EBS encryption by default setting for the destination Region, the
+  encryption status of the source
+  snapshot, and the encryption parameters you specify in the request. For more
+  information, see [
+  Encryption and snapshot
+  copying](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-copy-snapshot.html#creating-encrypted-snapshots).
 
-  Snapshots copied to an Outpost are encrypted by default using the default
-  encryption key
-  for the Region, or a different key that you specify in the request using
-  **KmsKeyId**. Outposts do not support unencrypted snapshots. For more
-  information,
-  see [Amazon EBS local snapshots on
-  Outposts](https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#ami)
-  in the *Amazon EBS User Guide*.
+  Snapshots copied to an Outpost must be encrypted. Unencrypted snapshots are not
+  supported
+  on Outposts. For more information, [
+  Amazon EBS local snapshots on
+  Outposts](https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#considerations).
 
   Snapshots copies have an arbitrary source volume ID. Do not use this volume ID
   for
@@ -32616,8 +32663,8 @@ defmodule AWS.EC2 do
   @doc """
   Creates an Amazon FPGA Image (AFI) from the specified design checkpoint (DCP).
 
-  The create operation is asynchronous. To verify that the AFI is ready for use,
-  check the output logs.
+  The create operation is asynchronous. To verify that the AFI was successfully
+  created and is ready for use, check the output logs.
 
   An AFI contains the FPGA bitstream that is ready to download to an FPGA.
   You can securely deploy an AFI on multiple FPGA-accelerated instances.
@@ -40521,14 +40568,7 @@ defmodule AWS.EC2 do
   AMIs in the
   specified Amazon Web Services Region.
 
-  The API can take up to 10 minutes to configure this setting. During this time,
-  if you run
-  [GetImageBlockPublicAccessState](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetImageBlockPublicAccessState.html), the response will be
-  `block-new-sharing`. When the API has completed the configuration, the response
-  will be `unblocked`.
-
-  For more information, see [Block
-  public access to your
+  For more information, see [Block public access to your
   AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-to-amis.html)
   in the *Amazon EC2 User Guide*.
   """

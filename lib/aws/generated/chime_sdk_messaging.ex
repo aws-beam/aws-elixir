@@ -10,7 +10,7 @@ defmodule AWS.ChimeSDKMessaging do
   These APIs depend on the frameworks
   provided by the Amazon Chime SDK identity APIs. For more information about the
   messaging
-  APIs, see [Amazon Chime SDK messaging](https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Messaging.html).
+  APIs, see [Amazon Chime SDK messaging](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_Operations_Amazon_Chime_SDK_Messaging.html).
   """
 
   alias AWS.Client
@@ -910,10 +910,12 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Example:
 
-      get_messaging_session_endpoint_request() :: %{}
+      get_messaging_session_endpoint_request() :: %{
+        optional("NetworkType") => list(any())
+      }
 
   """
-  @type get_messaging_session_endpoint_request() :: %{}
+  @type get_messaging_session_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2456,7 +2458,7 @@ defmodule AWS.ChimeSDKMessaging do
 
   Channel flows don't process Control or System messages. For more information
   about the message types provided by Chime SDK messaging, refer to
-  [Message types](https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html#msg-types)
+  [Message types](https://docs.aws.amazon.com/chime-sdk/latest/dg/using-the-messaging-sdk.html#msg-types)
   in the *Amazon Chime developer guide*.
   """
   @spec create_channel_flow(map(), create_channel_flow_request(), list()) ::
@@ -3502,15 +3504,22 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   The details of the endpoint for the messaging session.
   """
-  @spec get_messaging_session_endpoint(map(), list()) ::
+  @spec get_messaging_session_endpoint(map(), String.t() | atom() | nil, list()) ::
           {:ok, get_messaging_session_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_messaging_session_endpoint_errors()}
-  def get_messaging_session_endpoint(%Client{} = client, options \\ []) do
+  def get_messaging_session_endpoint(%Client{} = client, network_type \\ nil, options \\ []) do
     url_path = "/endpoints/messaging-session"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(network_type) do
+        [{"network-type", network_type} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -3661,7 +3670,7 @@ defmodule AWS.ChimeSDKMessaging do
 
   If you want to list the channels to which a specific app instance user belongs,
   see the
-  [ListChannelMembershipsForAppInstanceUser](https://docs.aws.amazon.com/chime/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html)
+  [ListChannelMembershipsForAppInstanceUser](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html)
   API.
   """
   @spec list_channel_memberships(
@@ -4417,7 +4426,7 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Redacts message content, but not metadata.
+  Redacts message content and metadata.
 
   The message exists in the back end, but the
   action returns null content, and the state shows as redacted.
@@ -4478,6 +4487,9 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
   value in
   the header.
+
+  This operation isn't supported for `AppInstanceUsers` with a large number of
+  memberships.
   """
   @spec search_channels(map(), search_channels_request(), list()) ::
           {:ok, search_channels_response(), any()}

@@ -1475,7 +1475,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       automated_reasoning_policy_build_workflow_document() :: %{
-        "document" => [binary()],
+        "document" => binary(),
         "documentContentType" => list(any()),
         "documentDescription" => String.t() | atom(),
         "documentName" => String.t() | atom()
@@ -1526,7 +1526,6 @@ defmodule AWS.Bedrock do
       update_automated_reasoning_policy_test_case_request() :: %{
         optional("clientRequestToken") => String.t() | atom(),
         optional("confidenceThreshold") => float(),
-        optional("kmsKeyArn") => String.t() | atom(),
         optional("queryContent") => String.t() | atom(),
         required("expectedAggregatedFindingsResult") => list(any()),
         required("guardContent") => String.t() | atom(),
@@ -5265,6 +5264,7 @@ defmodule AWS.Bedrock do
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | resource_in_use_exception()
 
   @type delete_automated_reasoning_policy_test_case_errors() ::
           throttling_exception()

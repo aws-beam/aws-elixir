@@ -4734,6 +4734,7 @@ defmodule AWS.Connect do
         "AfterContactWorkTimeLimit" => integer(),
         "AutoAccept" => boolean(),
         "DeskPhoneNumber" => String.t() | atom(),
+        "PersistentConnection" => boolean(),
         "PhoneType" => list(any())
       }
 
@@ -14706,8 +14707,8 @@ defmodule AWS.Connect do
   Create an attribute for business unit name that has a list of predefined
   business unit
   names used in your organization. This is a use case where information for a
-  contact varies between transfers or conferences. For more information, see
-  [Use contact segment attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
+  contact varies
+  between transfers or conferences. For more information, see [Use contact segment attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
 
   **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
@@ -16981,16 +16982,16 @@ defmodule AWS.Connect do
   for:
 
     *
-  Routing proficiency (for example, agent certification) that has
-  predefined values (for example, a list of possible certifications). For more
-  information, see
-  [Create predefined attributes for routing contacts to
+  Routing proficiency (for example, agent certification) that has predefined
+  values (for
+  example, a list of possible certifications). For more information, see [Create predefined attributes for routing contacts to
   agents](https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html).
 
     *
   Contact information that varies between transfers or conferences, such as the
-  name of the business unit handling the contact. For more information, see
-  [Use contact segment attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
+  name of the
+  business unit handling the contact. For more information, see [Use contact segment
+  attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
 
   For the predefined attributes per instance quota, see [Amazon Connect quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas).
 
@@ -17674,6 +17675,10 @@ defmodule AWS.Connect do
 
   @doc """
   Disassociates a set of queues from a routing profile.
+
+  Up to 10 queue references can be disassociated in a single API call. More than
+  10 queue
+  references results in a single call results in an InvalidParameterException.
   """
   @spec disassociate_routing_profile_queues(
           map(),
@@ -17976,14 +17981,36 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Gets the real-time metrics of the specified contact.
+  Retrieves the position of the contact in the queue.
 
   ## Use cases
 
-  Following are common uses cases for this API:
+  Following are common uses cases for position in queue:
 
     *
-  You can use this API to retrieve the position of the contact in the queue.
+  Understand the expected wait experience of a contact.
+
+    *
+  Inform customers of their position in queue and potentially offer a callback.
+
+    *
+  Make data-driven routing decisions between primary and alternative queues.
+
+    *
+  Enhance queue visibility and leverage agent proficiencies to streamline contact
+  routing.
+
+  ## Important things to know
+
+    *
+  The only way to retrieve the position of the contact in queue is by using this
+  API. You
+  can't retrieve the position by using flows and attributes.
+
+    *
+  For more information, see the [Position in queue](https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html)
+  metric in the
+  *Amazon Connect Administrator Guide*.
 
   **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
@@ -19845,16 +19872,16 @@ defmodule AWS.Connect do
   for:
 
     *
-  Routing proficiency (for example, agent certification) that has
-  predefined values (for example, a list of possible certifications). For more
-  information, see
-  [Create predefined attributes for routing contacts to
+  Routing proficiency (for example, agent certification) that has predefined
+  values (for
+  example, a list of possible certifications). For more information, see [Create predefined attributes for routing contacts to
   agents](https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html).
 
     *
   Contact information that varies between transfers or conferences, such as the
-  name of the business unit handling the contact. For more information, see
-  [Use contact segment attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
+  name of the
+  business unit handling the contact. For more information, see [Use contact segment
+  attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
 
   For the predefined attributes per instance quota, see [Amazon Connect quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas).
 
@@ -21530,16 +21557,16 @@ defmodule AWS.Connect do
   for:
 
     *
-  Routing proficiency (for example, agent certification) that has
-  predefined values (for example, a list of possible certifications). For more
-  information, see
-  [Create predefined attributes for routing contacts to
+  Routing proficiency (for example, agent certification) that has predefined
+  values (for
+  example, a list of possible certifications). For more information, see [Create predefined attributes for routing contacts to
   agents](https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html).
 
     *
   Contact information that varies between transfers or conferences, such as the
-  name of the business unit handling the contact. For more information, see
-  [Use contact segment attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
+  name of the
+  business unit handling the contact. For more information, see [Use contact segment
+  attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
 
   For the predefined attributes per instance quota, see [Amazon Connect quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas).
 
@@ -23999,8 +24026,8 @@ defmodule AWS.Connect do
 
     *
   Update routing proficiency (for example, agent certification) that has
-  predefined values (for example, a list of possible certifications). For more
-  information, see
+  predefined values
+  (for example, a list of possible certifications). For more information, see
   [Create predefined attributes for routing contacts to
   agents](https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html).
 
@@ -24008,8 +24035,8 @@ defmodule AWS.Connect do
   Update an attribute for business unit name that has a list of predefined
   business unit
   names used in your organization. This is a use case where information for a
-  contact varies between transfers or conferences. For more information, see
-  [Use contact segment attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
+  contact varies
+  between transfers or conferences. For more information, see [Use contact segment attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
 
   **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """

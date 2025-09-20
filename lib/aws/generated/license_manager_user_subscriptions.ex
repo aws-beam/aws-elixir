@@ -4,8 +4,7 @@
 defmodule AWS.LicenseManagerUserSubscriptions do
   @moduledoc """
   With License Manager, you can create user-based subscriptions to utilize
-  licensed software with
-  a per user subscription fee on Amazon EC2 instances.
+  licensed software with a per user subscription fee on Amazon EC2 instances.
   """
 
   alias AWS.Client
@@ -380,6 +379,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
         "FailureMessage" => [String.t() | atom()],
         "IdentityProvider" => list(),
         "IdentityProviderArn" => String.t() | atom(),
+        "OwnerAccountId" => [String.t() | atom()],
         "Product" => [String.t() | atom()],
         "Settings" => settings(),
         "Status" => [String.t() | atom()]
@@ -599,8 +599,10 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   ## Example:
 
       instance_summary() :: %{
+        "IdentityProvider" => list(),
         "InstanceId" => [String.t() | atom()],
         "LastStatusCheckDate" => [String.t() | atom()],
+        "OwnerAccountId" => [String.t() | atom()],
         "Products" => list([String.t() | atom()]()),
         "Status" => [String.t() | atom()],
         "StatusMessage" => [String.t() | atom()]
@@ -708,7 +710,8 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       active_directory_identity_provider() :: %{
         "ActiveDirectorySettings" => active_directory_settings(),
         "ActiveDirectoryType" => String.t() | atom(),
-        "DirectoryId" => String.t() | atom()
+        "DirectoryId" => String.t() | atom(),
+        "IsSharedActiveDirectory" => [boolean()]
       }
 
   """
@@ -875,11 +878,9 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   Associates the user to an EC2 instance to utilize user-based subscriptions.
 
   Your estimated bill for charges on the number of users and related costs will
-  take 48
-  hours to appear for billing periods that haven't closed (marked as ## Pending
-  billing status) in Amazon Web Services Billing. For more information, see
-  [Viewing your monthly
-  charges](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html)
+  take 48 hours to appear for billing periods that haven't closed (marked as
+  **Pending** billing status) in Amazon Web Services Billing. For more
+  information, see [Viewing your monthly charges](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html)
   in the *Amazon Web Services Billing User Guide*.
   """
   @spec associate_user(map(), associate_user_request(), list()) ::
@@ -1221,11 +1222,9 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   Starts a product subscription for a user with the specified identity provider.
 
   Your estimated bill for charges on the number of users and related costs will
-  take 48
-  hours to appear for billing periods that haven't closed (marked as ## Pending
-  billing status) in Amazon Web Services Billing. For more information, see
-  [Viewing your monthly
-  charges](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html)
+  take 48 hours to appear for billing periods that haven't closed (marked as
+  **Pending** billing status) in Amazon Web Services Billing. For more
+  information, see [Viewing your monthly charges](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html)
   in the *Amazon Web Services Billing User Guide*.
   """
   @spec start_product_subscription(map(), start_product_subscription_request(), list()) ::

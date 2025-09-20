@@ -3,14 +3,11 @@
 
 defmodule AWS.BedrockAgentCoreControl do
   @moduledoc """
-  Amazon Bedrock AgentCore is in preview release and is subject to change.
+  is in preview release and is subject to change.
 
-  Amazon Bedrock Agent Core Control is a service that enables you to manage memory
-  resources for your Amazon Bedrock agents.
-
-  Use this API to create, retrieve, update, and delete memory resources and their
-  associated memory strategies. Memory resources enable your agents to store and
-  retrieve information from conversations and interactions.
+  Welcome to the Amazon Bedrock AgentCore Control plane API reference. Control
+  plane actions configure, create, modify, and monitor Amazon Web Services
+  resources.
   """
 
   alias AWS.Client
@@ -67,6 +64,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("agentRuntimeVersion") => String.t() | atom(),
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
+        optional("tags") => map(),
         required("name") => String.t() | atom()
       }
 
@@ -113,6 +111,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type memory_strategy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -252,6 +261,15 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type schema_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
@@ -630,6 +648,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "createdAt" => non_neg_integer(),
         "description" => String.t() | atom(),
         "executionRoleArn" => String.t() | atom(),
+        "failureReason" => [String.t() | atom()],
         "lastUpdatedAt" => non_neg_integer(),
         "name" => String.t() | atom(),
         "networkConfiguration" => browser_network_configuration(),
@@ -650,6 +669,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type workload_identity_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -791,6 +821,8 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("description") => String.t() | atom(),
         optional("environmentVariables") => map(),
         optional("protocolConfiguration") => protocol_configuration(),
+        optional("requestHeaderConfiguration") => list(),
+        optional("tags") => map(),
         required("agentRuntimeArtifact") => list(),
         required("agentRuntimeName") => String.t() | atom(),
         required("networkConfiguration") => network_configuration(),
@@ -860,6 +892,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("description") => String.t() | atom(),
         optional("environmentVariables") => map(),
         optional("protocolConfiguration") => protocol_configuration(),
+        optional("requestHeaderConfiguration") => list(),
         required("agentRuntimeArtifact") => list(),
         required("networkConfiguration") => network_configuration(),
         required("roleArn") => String.t() | atom()
@@ -916,6 +949,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("description") => String.t() | atom(),
         optional("executionRoleArn") => String.t() | atom(),
         optional("recording") => recording_config(),
+        optional("tags") => map(),
         required("name") => String.t() | atom(),
         required("networkConfiguration") => browser_network_configuration()
       }
@@ -1201,6 +1235,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "createdAt" => non_neg_integer(),
         "description" => String.t() | atom(),
         "executionRoleArn" => String.t() | atom(),
+        "failureReason" => [String.t() | atom()],
         "lastUpdatedAt" => non_neg_integer(),
         "name" => String.t() | atom(),
         "networkConfiguration" => code_interpreter_network_configuration(),
@@ -1214,6 +1249,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      vpc_config() :: %{
+        "securityGroups" => list(String.t() | atom()),
+        "subnets" => list(String.t() | atom())
+      }
+
+  """
+  @type vpc_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       modify_memory_strategies() :: %{
         "addMemoryStrategies" => list(list()),
         "deleteMemoryStrategies" => list(delete_memory_strategy_input()),
@@ -1222,23 +1269,6 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type modify_memory_strategies() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      agent() :: %{
-        "agentRuntimeArn" => String.t() | atom(),
-        "agentRuntimeId" => String.t() | atom(),
-        "agentRuntimeName" => String.t() | atom(),
-        "agentRuntimeVersion" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "status" => list(any())
-      }
-
-  """
-  @type agent() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1280,12 +1310,23 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       list_agent_runtimes_response() :: %{
-        "agentRuntimes" => list(agent()),
+        "agentRuntimes" => list(agent_runtime()),
         "nextToken" => String.t() | atom()
       }
 
   """
   @type list_agent_runtimes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1512,7 +1553,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       list_agent_runtime_versions_response() :: %{
-        "agentRuntimes" => list(agent()),
+        "agentRuntimes" => list(agent_runtime()),
         "nextToken" => String.t() | atom()
       }
 
@@ -1621,6 +1662,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
         optional("executionRoleArn") => String.t() | atom(),
+        optional("tags") => map(),
         required("name") => String.t() | atom(),
         required("networkConfiguration") => code_interpreter_network_configuration()
       }
@@ -1691,6 +1733,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "lastUpdatedAt" => non_neg_integer(),
         "networkConfiguration" => network_configuration(),
         "protocolConfiguration" => protocol_configuration(),
+        "requestHeaderConfiguration" => list(),
         "roleArn" => String.t() | atom(),
         "status" => list(any()),
         "workloadIdentityDetails" => workload_identity_details()
@@ -1698,26 +1741,6 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type get_agent_runtime_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      agent_endpoint() :: %{
-        "agentRuntimeArn" => String.t() | atom(),
-        "agentRuntimeEndpointArn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "liveVersion" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "targetVersion" => String.t() | atom()
-      }
-
-  """
-  @type agent_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1748,7 +1771,8 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       network_configuration() :: %{
-        "networkMode" => list(any())
+        "networkMode" => list(any()),
+        "networkModeConfig" => vpc_config()
       }
 
   """
@@ -1878,6 +1902,15 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       custom_j_w_t_authorizer_configuration() :: %{
         "allowedAudience" => list(String.t() | atom()),
         "allowedClients" => list(String.t() | atom()),
@@ -1892,7 +1925,8 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       browser_network_configuration() :: %{
-        "networkMode" => list(any())
+        "networkMode" => list(any()),
+        "vpcConfig" => vpc_config()
       }
 
   """
@@ -1913,11 +1947,31 @@ defmodule AWS.BedrockAgentCoreControl do
 
       list_agent_runtime_endpoints_response() :: %{
         "nextToken" => String.t() | atom(),
-        "runtimeEndpoints" => list(agent_endpoint())
+        "runtimeEndpoints" => list(agent_runtime_endpoint())
       }
 
   """
   @type list_agent_runtime_endpoints_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_runtime_endpoint() :: %{
+        "agentRuntimeArn" => String.t() | atom(),
+        "agentRuntimeEndpointArn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "liveVersion" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "targetVersion" => String.t() | atom()
+      }
+
+  """
+  @type agent_runtime_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1984,6 +2038,15 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
@@ -2079,6 +2142,23 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      agent_runtime() :: %{
+        "agentRuntimeArn" => String.t() | atom(),
+        "agentRuntimeId" => String.t() | atom(),
+        "agentRuntimeName" => String.t() | atom(),
+        "agentRuntimeVersion" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "status" => list(any())
+      }
+
+  """
+  @type agent_runtime() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       protocol_configuration() :: %{
         "serverProtocol" => list(any())
       }
@@ -2126,7 +2206,8 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       code_interpreter_network_configuration() :: %{
-        "networkMode" => list(any())
+        "networkMode" => list(any()),
+        "vpcConfig" => vpc_config()
       }
 
   """
@@ -2751,6 +2832,13 @@ defmodule AWS.BedrockAgentCoreControl do
           | resource_not_found_exception()
           | unauthorized_exception()
 
+  @type list_tags_for_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_workload_identities_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2767,6 +2855,21 @@ defmodule AWS.BedrockAgentCoreControl do
           | internal_server_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
+
+  @type tag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type update_agent_runtime_errors() ::
           throttling_exception()
@@ -2862,7 +2965,7 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  Creates an Amazon Secure Agent.
+  Creates an Amazon Bedrock AgentCore Runtime.
   """
   @spec create_agent_runtime(map(), create_agent_runtime_request(), list()) ::
           {:ok, create_agent_runtime_response(), any()}
@@ -2891,7 +2994,7 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  Creates an Amazon Secure AgentEndpoint.
+  Creates an AgentCore Runtime endpoint.
   """
   @spec create_agent_runtime_endpoint(
           map(),
@@ -3055,9 +3158,6 @@ defmodule AWS.BedrockAgentCoreControl do
   Creates a target for a gateway.
 
   A target defines an endpoint that the gateway can connect to.
-
-  To create a target, you must specify the gateway identifier and target
-  configuration.
   """
   @spec create_gateway_target(map(), String.t() | atom(), create_gateway_target_request(), list()) ::
           {:ok, create_gateway_target_response(), any()}
@@ -3086,7 +3186,7 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  Creates a new memory.
+  Creates a new Amazon Bedrock AgentCore Memory resource.
   """
   @spec create_memory(map(), create_memory_input(), list()) ::
           {:ok, create_memory_output(), any()}
@@ -3177,7 +3277,7 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  Deletes an Amazon Secure Agent.
+  Deletes an Amazon Bedrock AgentCore Runtime.
   """
   @spec delete_agent_runtime(map(), String.t() | atom(), delete_agent_runtime_request(), list()) ::
           {:ok, delete_agent_runtime_response(), any()}
@@ -3206,7 +3306,7 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  Deletes an Amazon Secure AgentEndpoint.
+  Deletes an AAgentCore Runtime endpoint.
   """
   @spec delete_agent_runtime_endpoint(
           map(),
@@ -3360,7 +3460,7 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  Deletes a Gateway.
+  Deletes a gateway.
   """
   @spec delete_gateway(map(), String.t() | atom(), delete_gateway_request(), list()) ::
           {:ok, delete_gateway_response(), any()}
@@ -3389,7 +3489,7 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  Deletes a Gateway Target.
+  Deletes a gateway target.
   """
   @spec delete_gateway_target(
           map(),
@@ -3432,7 +3532,7 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  Deletes a memory.
+  Deletes an Amazon Bedrock AgentCore Memory resource.
   """
   @spec delete_memory(map(), String.t() | atom(), delete_memory_input(), list()) ::
           {:ok, delete_memory_output(), any()}
@@ -3528,7 +3628,7 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  Gets an Amazon Secure Agent.
+  Gets an Amazon Bedrock AgentCore Runtime.
   """
   @spec get_agent_runtime(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_agent_runtime_response(), any()}
@@ -3666,7 +3766,7 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  Retrieves information about a specific Gateway Target.
+  Retrieves information about a specific gateway target.
   """
   @spec get_gateway_target(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_gateway_target_response(), any()}
@@ -3686,7 +3786,7 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  Retrieve an existing memory.
+  Retrieve an existing Amazon Bedrock AgentCore Memory resource.
   """
   @spec get_memory(map(), String.t() | atom(), list()) ::
           {:ok, get_memory_output(), any()}
@@ -4011,7 +4111,7 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  Lists all targets for a specific Gateway.
+  Lists all targets for a specific gateway.
   """
   @spec list_gateway_targets(
           map(),
@@ -4055,7 +4155,7 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  Lists all Gateways in the account.
+  Lists all gateways in the account.
   """
   @spec list_gateways(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_gateways_response(), any()}
@@ -4087,7 +4187,8 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  Lists the memory present.
+  Lists the available Amazon Bedrock AgentCore Memory resources in the current
+  Amazon Web Services Region.
   """
   @spec list_memories(map(), list_memories_input(), list()) ::
           {:ok, list_memories_output(), any()}
@@ -4149,6 +4250,24 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
+  Lists the tags associated with the specified resource.
+  """
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_tags_for_resource_errors()}
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists all workload identities in your account.
   """
   @spec list_workload_identities(map(), list_workload_identities_request(), list()) ::
@@ -4207,6 +4326,73 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
+  Associates the specified tags to a resource with the specified resourceArn.
+
+  If existing tags on a resource are not specified in the request parameters, they
+  are not changed. When a resource is deleted, the tags associated with that
+  resource are also deleted.
+  """
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, tag_resource_errors()}
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Removes the specified tags from the specified resource.
+  """
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, untag_resource_errors()}
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"tagKeys", "tagKeys"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Updates an existing Amazon Secure Agent.
   """
   @spec update_agent_runtime(map(), String.t() | atom(), update_agent_runtime_request(), list()) ::
@@ -4236,7 +4422,7 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  Updates an existing Amazon Secure AgentEndpoint.
+  Updates an existing Amazon Bedrock AgentCore Runtime endpoint.
   """
   @spec update_agent_runtime_endpoint(
           map(),
@@ -4312,7 +4498,7 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  Updates an existing Gateway.
+  Updates an existing gateway.
   """
   @spec update_gateway(map(), String.t() | atom(), update_gateway_request(), list()) ::
           {:ok, update_gateway_response(), any()}
@@ -4341,7 +4527,7 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  Updates an existing Gateway Target.
+  Updates an existing gateway target.
   """
   @spec update_gateway_target(
           map(),
@@ -4384,7 +4570,7 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  Update memory.
+  Update an Amazon Bedrock AgentCore Memory resource memory.
   """
   @spec update_memory(map(), String.t() | atom(), update_memory_input(), list()) ::
           {:ok, update_memory_output(), any()}

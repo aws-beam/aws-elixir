@@ -1431,6 +1431,20 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      node_repair_config_overrides() :: %{
+        "minRepairWaitTimeMins" => integer(),
+        "nodeMonitoringCondition" => String.t() | atom(),
+        "nodeUnhealthyReason" => String.t() | atom(),
+        "repairAction" => list(any())
+      }
+
+  """
+  @type node_repair_config_overrides() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       fargate_profile_health() :: %{
         "issues" => list(fargate_profile_issue())
       }
@@ -1673,7 +1687,12 @@ defmodule AWS.EKS do
   ## Example:
 
       node_repair_config() :: %{
-        "enabled" => boolean()
+        "enabled" => boolean(),
+        "maxParallelNodesRepairedCount" => integer(),
+        "maxParallelNodesRepairedPercentage" => integer(),
+        "maxUnhealthyNodeThresholdCount" => integer(),
+        "maxUnhealthyNodeThresholdPercentage" => integer(),
+        "nodeRepairConfigOverrides" => list(node_repair_config_overrides())
       }
 
   """

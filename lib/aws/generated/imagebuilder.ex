@@ -939,9 +939,9 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       list_component_build_versions_request() :: %{
+        optional("componentVersionArn") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("componentVersionArn") => String.t() | atom()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
@@ -2362,9 +2362,9 @@ defmodule AWS.Imagebuilder do
 
       list_image_build_versions_request() :: %{
         optional("filters") => list(filter()),
+        optional("imageVersionArn") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("imageVersionArn") => String.t() | atom()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
@@ -2852,7 +2852,7 @@ defmodule AWS.Imagebuilder do
       list_workflow_build_versions_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
-        required("workflowVersionArn") => String.t() | atom()
+        optional("workflowVersionArn") => String.t() | atom()
       }
 
   """

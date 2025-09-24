@@ -73,7 +73,7 @@ defmodule AWS.EntityResolution do
   ## Example:
 
       record() :: %{
-        "inputSourceARN" => [String.t() | atom()],
+        "inputSourceARN" => String.t() | atom(),
         "recordAttributeMap" => map(),
         "uniqueId" => String.t() | atom()
       }
@@ -87,7 +87,7 @@ defmodule AWS.EntityResolution do
 
       input_source() :: %{
         "applyNormalization" => [boolean()],
-        "inputSourceARN" => [String.t() | atom()],
+        "inputSourceARN" => String.t() | atom(),
         "schemaName" => String.t() | atom()
       }
 
@@ -407,6 +407,7 @@ defmodule AWS.EntityResolution do
   ## Example:
 
       job_metrics() :: %{
+        "deleteRecordsProcessed" => [integer()],
         "inputRecords" => [integer()],
         "matchIDs" => [integer()],
         "recordsNotProcessed" => [integer()],
@@ -424,6 +425,7 @@ defmodule AWS.EntityResolution do
         "createdAt" => [non_neg_integer()],
         "description" => String.t() | atom(),
         "idMappingTechniques" => id_mapping_techniques(),
+        "incrementalRunConfig" => id_mapping_incremental_run_config(),
         "inputSourceConfig" => list(id_mapping_workflow_input_source()),
         "outputSourceConfig" => list(id_mapping_workflow_output_source()),
         "roleArn" => String.t() | atom(),
@@ -453,7 +455,7 @@ defmodule AWS.EntityResolution do
 
       failed_record() :: %{
         "errorMessage" => String.t() | atom(),
-        "inputSourceARN" => [String.t() | atom()],
+        "inputSourceARN" => String.t() | atom(),
         "uniqueId" => [String.t() | atom()]
       }
 
@@ -715,7 +717,15 @@ defmodule AWS.EntityResolution do
   ## Example:
 
       id_mapping_job_metrics() :: %{
+        "deleteRecordsProcessed" => [integer()],
         "inputRecords" => [integer()],
+        "mappedRecordsRemoved" => [integer()],
+        "mappedSourceRecordsRemoved" => [integer()],
+        "mappedTargetRecordsRemoved" => [integer()],
+        "newMappedRecords" => [integer()],
+        "newMappedSourceRecords" => [integer()],
+        "newMappedTargetRecords" => [integer()],
+        "newUniqueRecordsLoaded" => [integer()],
         "recordsNotProcessed" => [integer()],
         "totalMappedRecords" => [integer()],
         "totalMappedSourceRecords" => [integer()],
@@ -733,6 +743,7 @@ defmodule AWS.EntityResolution do
 
       create_id_mapping_workflow_input() :: %{
         optional("description") => String.t() | atom(),
+        optional("incrementalRunConfig") => id_mapping_incremental_run_config(),
         optional("outputSourceConfig") => list(id_mapping_workflow_output_source()),
         optional("roleArn") => String.t() | atom(),
         optional("tags") => map(),
@@ -808,6 +819,7 @@ defmodule AWS.EntityResolution do
         "endTime" => [non_neg_integer()],
         "errorDetails" => error_details(),
         "jobId" => String.t() | atom(),
+        "jobType" => list(any()),
         "metrics" => id_mapping_job_metrics(),
         "outputSourceConfig" => list(id_mapping_job_output_source()),
         "startTime" => [non_neg_integer()],
@@ -836,6 +848,7 @@ defmodule AWS.EntityResolution do
   ## Example:
 
       start_id_mapping_job_input() :: %{
+        optional("jobType") => list(any()),
         optional("outputSourceConfig") => list(id_mapping_job_output_source())
       }
 
@@ -849,6 +862,7 @@ defmodule AWS.EntityResolution do
       update_id_mapping_workflow_output() :: %{
         "description" => String.t() | atom(),
         "idMappingTechniques" => id_mapping_techniques(),
+        "incrementalRunConfig" => id_mapping_incremental_run_config(),
         "inputSourceConfig" => list(id_mapping_workflow_input_source()),
         "outputSourceConfig" => list(id_mapping_workflow_output_source()),
         "roleArn" => String.t() | atom(),
@@ -972,6 +986,17 @@ defmodule AWS.EntityResolution do
 
   ## Example:
 
+      id_mapping_incremental_run_config() :: %{
+        "incrementalRunType" => list(any())
+      }
+
+  """
+  @type id_mapping_incremental_run_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_output() :: %{}
 
   """
@@ -1020,6 +1045,7 @@ defmodule AWS.EntityResolution do
       create_id_mapping_workflow_output() :: %{
         "description" => String.t() | atom(),
         "idMappingTechniques" => id_mapping_techniques(),
+        "incrementalRunConfig" => id_mapping_incremental_run_config(),
         "inputSourceConfig" => list(id_mapping_workflow_input_source()),
         "outputSourceConfig" => list(id_mapping_workflow_output_source()),
         "roleArn" => String.t() | atom(),
@@ -1036,6 +1062,7 @@ defmodule AWS.EntityResolution do
 
       update_id_mapping_workflow_input() :: %{
         optional("description") => String.t() | atom(),
+        optional("incrementalRunConfig") => id_mapping_incremental_run_config(),
         optional("outputSourceConfig") => list(id_mapping_workflow_output_source()),
         optional("roleArn") => String.t() | atom(),
         required("idMappingTechniques") => id_mapping_techniques(),
@@ -1209,7 +1236,7 @@ defmodule AWS.EntityResolution do
   ## Example:
 
       matched_record() :: %{
-        "inputSourceARN" => [String.t() | atom()],
+        "inputSourceARN" => String.t() | atom(),
         "recordId" => [String.t() | atom()]
       }
 
@@ -1412,6 +1439,7 @@ defmodule AWS.EntityResolution do
 
       start_id_mapping_job_output() :: %{
         "jobId" => String.t() | atom(),
+        "jobType" => list(any()),
         "outputSourceConfig" => list(id_mapping_job_output_source())
       }
 
@@ -1460,7 +1488,7 @@ defmodule AWS.EntityResolution do
   ## Example:
 
       id_namespace_input_source() :: %{
-        "inputSourceARN" => [String.t() | atom()],
+        "inputSourceARN" => String.t() | atom(),
         "schemaName" => String.t() | atom()
       }
 
@@ -1569,7 +1597,7 @@ defmodule AWS.EntityResolution do
   ## Example:
 
       id_mapping_workflow_input_source() :: %{
-        "inputSourceARN" => [String.t() | atom()],
+        "inputSourceARN" => String.t() | atom(),
         "schemaName" => String.t() | atom(),
         "type" => list(any())
       }
@@ -1996,6 +2024,8 @@ defmodule AWS.EntityResolution do
 
   Each `IdMappingWorkflow` must have a unique workflow name. To modify an existing
   workflow, use the UpdateIdMappingWorkflow API.
+
+  Incremental processing is not supported for ID mapping workflows.
   """
   @spec create_id_mapping_workflow(map(), create_id_mapping_workflow_input(), list()) ::
           {:ok, create_id_mapping_workflow_output(), any()}
@@ -2063,8 +2093,8 @@ defmodule AWS.EntityResolution do
   The workflow name must be unique. To modify an existing workflow, use
   `UpdateMatchingWorkflow`.
 
-  For workflows where `resolutionType` is ML_MATCHING, incremental processing is
-  not supported.
+  For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER`, incremental
+  processing is not supported.
   """
   @spec create_matching_workflow(map(), create_matching_workflow_input(), list()) ::
           {:ok, create_matching_workflow_output(), any()}
@@ -2396,7 +2426,7 @@ defmodule AWS.EntityResolution do
 
   @doc """
   Returns the corresponding Match ID of a customer record if the record has been
-  processed in a rule-based matching workflow or ML matching workflow.
+  processed in a rule-based matching workflow.
 
   You can call this API as a dry run of an incremental load on the rule-based
   matching workflow.
@@ -3018,6 +3048,8 @@ defmodule AWS.EntityResolution do
   This method is identical to CreateIdMappingWorkflow, except it uses an HTTP
   `PUT` request instead of a `POST` request, and the `IdMappingWorkflow` must
   already exist for the method to succeed.
+
+  Incremental processing is not supported for ID mapping workflows.
   """
   @spec update_id_mapping_workflow(
           map(),
@@ -3084,8 +3116,8 @@ defmodule AWS.EntityResolution do
 
   The workflow must already exist for this operation to succeed.
 
-  For workflows where `resolutionType` is ML_MATCHING, incremental processing is
-  not supported.
+  For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER`, incremental
+  processing is not supported.
   """
   @spec update_matching_workflow(
           map(),

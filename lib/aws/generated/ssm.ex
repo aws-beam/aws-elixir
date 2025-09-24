@@ -7754,6 +7754,7 @@ defmodule AWS.SSM do
       
       get_deployable_patch_snapshot_for_instance_request() :: %{
         optional("BaselineOverride") => baseline_override(),
+        optional("UseS3DualStackEndpoint") => boolean(),
         required("InstanceId") => String.t() | atom(),
         required("SnapshotId") => String.t() | atom()
       }

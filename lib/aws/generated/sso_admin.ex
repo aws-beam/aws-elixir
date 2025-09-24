@@ -86,6 +86,18 @@ defmodule AWS.SSOAdmin do
 
   ## Example:
       
+      encryption_configuration() :: %{
+        "KeyType" => list(any()),
+        "KmsKeyArn" => String.t() | atom()
+      }
+      
+  """
+  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tag_resource_request() :: %{
         optional("InstanceArn") => String.t() | atom(),
         required("ResourceArn") => String.t() | atom(),
@@ -105,7 +117,8 @@ defmodule AWS.SSOAdmin do
         "InstanceArn" => String.t() | atom(),
         "Name" => String.t() | atom(),
         "OwnerAccountId" => String.t() | atom(),
-        "Status" => list(any())
+        "Status" => list(any()),
+        "StatusReason" => String.t() | atom()
       }
       
   """
@@ -882,11 +895,26 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
+        "Message" => String.t() | atom(),
+        "Reason" => list(any())
       }
       
   """
   @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      encryption_configuration_details() :: %{
+        "EncryptionStatus" => list(any()),
+        "EncryptionStatusReason" => String.t() | atom(),
+        "KeyType" => list(any()),
+        "KmsKeyArn" => String.t() | atom()
+      }
+      
+  """
+  @type encryption_configuration_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1091,8 +1119,9 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       update_instance_request() :: %{
-        required("InstanceArn") => String.t() | atom(),
-        required("Name") => String.t() | atom()
+        optional("EncryptionConfiguration") => encryption_configuration(),
+        optional("Name") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom()
       }
       
   """
@@ -1714,11 +1743,13 @@ defmodule AWS.SSOAdmin do
       
       describe_instance_response() :: %{
         "CreatedDate" => non_neg_integer(),
+        "EncryptionConfigurationDetails" => encryption_configuration_details(),
         "IdentityStoreId" => String.t() | atom(),
         "InstanceArn" => String.t() | atom(),
         "Name" => String.t() | atom(),
         "OwnerAccountId" => String.t() | atom(),
-        "Status" => list(any())
+        "Status" => list(any()),
+        "StatusReason" => String.t() | atom()
       }
       
   """
@@ -1756,7 +1787,8 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t() | atom()
+        "Message" => String.t() | atom(),
+        "Reason" => list(any())
       }
       
   """
@@ -1873,7 +1905,8 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       validation_exception() :: %{
-        "Message" => String.t() | atom()
+        "Message" => String.t() | atom(),
+        "Reason" => list(any())
       }
       
   """
@@ -1944,7 +1977,8 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       throttling_exception() :: %{
-        "Message" => String.t() | atom()
+        "Message" => String.t() | atom(),
+        "Reason" => list(any())
       }
       
   """
@@ -2925,6 +2959,7 @@ defmodule AWS.SSOAdmin do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | resource_not_found_exception()
           | conflict_exception()
 
   @type update_instance_access_control_attribute_configuration_errors() ::

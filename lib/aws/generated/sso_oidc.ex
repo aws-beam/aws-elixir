@@ -15,7 +15,7 @@ defmodule AWS.SSOOIDC do
 
   IAM Identity Center uses the `sso` and `identitystore` API namespaces. IAM
   Identity Center
-  OpenID Connect uses the `sso-oidc` namespace.
+  OpenID Connect uses the `sso-oauth` namespace.
 
   ## Considerations for using this guide
 
@@ -72,7 +72,8 @@ defmodule AWS.SSOOIDC do
 
       access_denied_exception() :: %{
         "error" => String.t() | atom(),
-        "error_description" => String.t() | atom()
+        "error_description" => String.t() | atom(),
+        "reason" => list(any())
       }
 
   """
@@ -252,7 +253,8 @@ defmodule AWS.SSOOIDC do
 
       invalid_request_exception() :: %{
         "error" => String.t() | atom(),
-        "error_description" => String.t() | atom()
+        "error_description" => String.t() | atom(),
+        "reason" => list(any())
       }
 
   """
@@ -411,6 +413,7 @@ defmodule AWS.SSOOIDC do
 
   @type register_client_errors() ::
           unsupported_grant_type_exception()
+          | slow_down_exception()
           | invalid_scope_exception()
           | invalid_request_exception()
           | invalid_redirect_uri_exception()
@@ -475,14 +478,22 @@ defmodule AWS.SSOOIDC do
   end
 
   @doc """
-  Creates and returns access and refresh tokens for clients and applications that
-  are
-  authenticated using IAM entities.
+  Creates and returns access and refresh tokens for authorized client applications
+  that are
+  authenticated using any IAM entity, such as a service
+  role or user.
 
-  The access token can be used to fetch short-lived
-  credentials for the assigned Amazon Web Services accounts or to access
-  application APIs using
-  `bearer` authentication.
+  These tokens might contain defined scopes that specify permissions such as
+  `read:profile` or `write:data`. Through downscoping, you can use the scopes
+  parameter to request tokens with reduced permissions compared to the original
+  client application's permissions or, if applicable, the refresh token's scopes.
+  The access token can be used to fetch short-lived credentials for the assigned
+  Amazon Web Services accounts or to access application APIs using `bearer`
+  authentication.
+
+  This API is used with Signature Version 4. For more information, see [Amazon Web Services Signature
+  Version 4 for API
+  Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html).
   """
   @spec create_token_with_iam(map(), create_token_with_iam_request(), list()) ::
           {:ok, create_token_with_iam_response(), any()}

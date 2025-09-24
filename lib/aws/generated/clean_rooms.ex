@@ -4079,10 +4079,12 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
-      populate_id_mapping_table_input() :: %{}
+      populate_id_mapping_table_input() :: %{
+        optional("jobType") => list(any())
+      }
 
   """
-  @type populate_id_mapping_table_input() :: %{}
+  @type populate_id_mapping_table_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4315,6 +4317,7 @@ defmodule AWS.CleanRooms do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 

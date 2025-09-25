@@ -3406,18 +3406,19 @@ defmodule AWS.KMS do
   particular trusted accounts. For details, see [Best practices for IAM policies](https://docs.aws.amazon.com/kms/latest/developerguide/iam-policies.html#iam-policies-best-practices)
   in the *Key Management Service Developer Guide*.
 
-  `Decrypt` also supports [Amazon Web Services Nitro Enclaves](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html),
-  which provide an
-  isolated compute environment in Amazon EC2. To call `Decrypt` for a Nitro
-  enclave, use
+  `Decrypt` also supports [Amazon Web Services Nitro Enclaves](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html)
+  and NitroTPM, which provide
+  attested environments in Amazon EC2. To call `Decrypt` for a Nitro enclave or
+  NitroTPM, use
   the [Amazon Web Services Nitro Enclaves SDK](https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk)
   or any Amazon Web Services SDK. Use the `Recipient` parameter to provide the
-  attestation document for the enclave. Instead of the plaintext data, the
-  response includes the
-  plaintext data encrypted with the public key from the attestation document
+  attestation document for the attested environment. Instead of the plaintext
+  data, the response
+  includes the plaintext data encrypted with the public key from the attestation
+  document
   (`CiphertextForRecipient`). For information about the interaction between KMS
-  and Amazon Web Services Nitro Enclaves, see [How Amazon Web Services Nitro Enclaves uses
-  KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html)
+  and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see
+  [Cryptographic attestation support in KMS](https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html)
   in the *Key Management Service Developer Guide*.
 
   The KMS key that you use for this operation must be in a compatible key state.
@@ -3682,8 +3683,8 @@ defmodule AWS.KMS do
 
   You must use an asymmetric NIST-recommended elliptic curve (ECC) or SM2 (China
   Regions
-  only) KMS key pair with a `KeyUsage` value of `KEY_AGREEMENT` to call
-  DeriveSharedSecret.
+  only) KMS key pair with a `KeyUsage`
+  value of `KEY_AGREEMENT` to call DeriveSharedSecret.
 
   DeriveSharedSecret uses the [Elliptic Curve Cryptography Cofactor Diffie-Hellman Primitive](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Ar3.pdf#page=60)
   (ECDH) to establish a
@@ -3892,7 +3893,8 @@ defmodule AWS.KMS do
   Provides detailed information about a KMS key.
 
   You can run `DescribeKey` on a
-  [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key)
+  [customer managed
+  key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key)
   or an [Amazon Web Services managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key).
 
   This detailed information includes the key ARN, creation date (and deletion
@@ -4488,17 +4490,19 @@ defmodule AWS.KMS do
   which provide an
   isolated compute environment in Amazon EC2. To call `GenerateDataKey` for an
   Amazon Web Services Nitro
-  enclave, use the [Amazon Web Services Nitro Enclaves SDK](https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk)
+  enclave or NitroTPM, use the [Amazon Web Services Nitro Enclaves SDK](https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk)
   or any Amazon Web Services SDK. Use the `Recipient` parameter
-  to provide the attestation document for the enclave. `GenerateDataKey` returns a
+  to provide the attestation document for the attested environment.
+  `GenerateDataKey` returns a
   copy of the data key encrypted under the specified KMS key, as usual. But
   instead of a
   plaintext copy of the data key, the response includes a copy of the data key
   encrypted under
   the public key from the attestation document (`CiphertextForRecipient`).
   For information about the interaction between KMS and Amazon Web Services Nitro
-  Enclaves, see [How Amazon Web Services Nitro Enclaves uses KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html)
-  in the *Key Management Service Developer Guide*..
+  Enclaves or Amazon Web Services NitroTPM, see [Cryptographic attestation support in
+  KMS](https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html)
+  in the *Key Management Service Developer Guide*.
 
   The KMS key that you use for this operation must be in a compatible key state.
   For
@@ -4644,18 +4648,18 @@ defmodule AWS.KMS do
   which provide an
   isolated compute environment in Amazon EC2. To call `GenerateDataKeyPair` for an
   Amazon Web Services
-  Nitro enclave, use the [Amazon Web Services Nitro Enclaves SDK](https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk)
+  Nitro enclave or NitroTPM, use the [Amazon Web Services Nitro Enclaves SDK](https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk)
   or any Amazon Web Services SDK. Use the `Recipient`
-  parameter to provide the attestation document for the enclave.
+  parameter to provide the attestation document for the attested environment.
   `GenerateDataKeyPair` returns the public data key and a copy of the private data
   key encrypted under the specified KMS key, as usual. But instead of a plaintext
   copy of the
   private data key (`PrivateKeyPlaintext`), the response includes a copy of the
   private data key encrypted under the public key from the attestation document
   (`CiphertextForRecipient`). For information about the interaction between KMS
-  and Amazon Web Services Nitro Enclaves, see [How Amazon Web Services Nitro Enclaves uses
-  KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html)
-  in the *Key Management Service Developer Guide*..
+  and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see
+  [Cryptographic attestation support in KMS](https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html)
+  in the *Key Management Service Developer Guide*.
 
   You can use an optional encryption context to add additional security to the
   encryption
@@ -5012,15 +5016,15 @@ defmodule AWS.KMS do
   `GenerateRandom` also supports [Amazon Web Services Nitro Enclaves](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html),
   which provide an
   isolated compute environment in Amazon EC2. To call `GenerateRandom` for a Nitro
-  enclave, use the [Amazon Web Services Nitro Enclaves SDK](https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk)
+  enclave or NitroTPM, use the [Amazon Web Services Nitro Enclaves SDK](https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk)
   or any Amazon Web Services SDK. Use the `Recipient` parameter
-  to provide the attestation document for the enclave. Instead of plaintext bytes,
-  the response
+  to provide the attestation document for the attested environment. Instead of
+  plaintext bytes, the response
   includes the plaintext bytes encrypted under the public key from the attestation
   document
-  (`CiphertextForRecipient`).For information about the interaction between KMS and
-  Amazon Web Services Nitro Enclaves, see [How Amazon Web Services Nitro Enclaves uses
-  KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html)
+  (`CiphertextForRecipient`). For information about the interaction between KMS
+  and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see
+  [Cryptographic attestation support in KMS](https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html)
   in the *Key Management Service Developer Guide*.
 
   For more information about entropy and random number generation, see [Entropy and random number
@@ -6630,9 +6634,8 @@ defmodule AWS.KMS do
   value. To edit a tag, specify an existing tag key and a new tag value.
 
   You can use this operation to tag a [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key),
-  but you cannot
-  tag an [Amazon Web Services managed
-  key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key),
+  but you
+  cannot tag an [Amazon Web Services managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key),
   an [Amazon Web Services owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-key),
   a [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html),
   or an
@@ -6693,8 +6696,8 @@ defmodule AWS.KMS do
   @doc """
   Deletes tags from a [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key).
 
-  To delete a tag,
-  specify the tag key and the KMS key.
+  To delete a
+  tag, specify the tag key and the KMS key.
 
   Tagging or untagging a KMS key can allow or deny permission to the KMS key. For
   details, see [ABAC for KMS](https://docs.aws.amazon.com/kms/latest/developerguide/abac.html) in the

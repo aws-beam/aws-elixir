@@ -11476,6 +11476,7 @@ defmodule AWS.Glue do
       
       authentication_configuration() :: %{
         "AuthenticationType" => list(any()),
+        "KmsKeyArn" => String.t() | atom(),
         "OAuth2Properties" => o_auth2_properties(),
         "SecretArn" => String.t() | atom()
       }

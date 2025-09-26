@@ -265,7 +265,6 @@ defmodule AWS.Lightsail do
   ## Example:
       
       test_alarm_request() :: %{
-        required("alarmName") => String.t() | atom(),
         required("state") => list(any())
       }
       
@@ -891,12 +890,10 @@ defmodule AWS.Lightsail do
 
   ## Example:
       
-      delete_alarm_request() :: %{
-        required("alarmName") => String.t() | atom()
-      }
+      delete_alarm_request() :: %{}
       
   """
-  @type delete_alarm_request() :: %{(String.t() | atom()) => any()}
+  @type delete_alarm_request() :: %{}
 
   @typedoc """
 

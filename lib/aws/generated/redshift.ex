@@ -2873,7 +2873,9 @@ defmodule AWS.Redshift do
         "IdentityNamespace" => String.t() | atom(),
         "RedshiftIdcApplicationArn" => String.t() | atom(),
         "RedshiftIdcApplicationName" => String.t() | atom(),
-        "ServiceIntegrations" => list(list())
+        "ServiceIntegrations" => list(list()),
+        "SsoTagKeys" => list(String.t() | atom()),
+        "Tags" => list(tag())
       }
       
   """
@@ -3724,6 +3726,8 @@ defmodule AWS.Redshift do
         optional("AuthorizedTokenIssuerList") => list(authorized_token_issuer()),
         optional("IdentityNamespace") => String.t() | atom(),
         optional("ServiceIntegrations") => list(list()),
+        optional("SsoTagKeys") => list(String.t() | atom()),
+        optional("Tags") => list(tag()),
         required("IamRoleArn") => String.t() | atom(),
         required("IdcDisplayName") => String.t() | atom(),
         required("IdcInstanceArn") => String.t() | atom(),
@@ -6247,8 +6251,10 @@ defmodule AWS.Redshift do
 
   @type create_redshift_idc_application_errors() ::
           dependent_service_unavailable_fault()
+          | tag_limit_exceeded_fault()
           | redshift_idc_application_quota_exceeded_fault()
           | dependent_service_access_denied_fault()
+          | invalid_tag_fault()
           | unsupported_operation_fault()
           | redshift_idc_application_already_exists_fault()
 

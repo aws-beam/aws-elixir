@@ -24,6 +24,17 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      speaker_labeling_configuration() :: %{
+        "state" => list(any())
+      }
+
+  """
+  @type speaker_labeling_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_data_automation_project_response() :: %{
         "projectArn" => String.t() | atom(),
         "status" => list(any())
@@ -181,6 +192,17 @@ defmodule AWS.BedrockDataAutomation do
 
   """
   @type override_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_extraction_category_type_configuration() :: %{
+        "transcript" => transcript_configuration()
+      }
+
+  """
+  @type audio_extraction_category_type_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -428,6 +450,17 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      channel_labeling_configuration() :: %{
+        "state" => list(any())
+      }
+
+  """
+  @type channel_labeling_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_quota_exceeded_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -516,6 +549,7 @@ defmodule AWS.BedrockDataAutomation do
 
       audio_extraction_category() :: %{
         "state" => list(any()),
+        "typeConfiguration" => audio_extraction_category_type_configuration(),
         "types" => list(list(any())())
       }
 
@@ -671,6 +705,18 @@ defmodule AWS.BedrockDataAutomation do
 
   """
   @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transcript_configuration() :: %{
+        "channelLabeling" => channel_labeling_configuration(),
+        "speakerLabeling" => speaker_labeling_configuration()
+      }
+
+  """
+  @type transcript_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

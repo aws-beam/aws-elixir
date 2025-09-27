@@ -873,6 +873,15 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      associate_contact_with_user_response() :: %{}
+
+  """
+  @type associate_contact_with_user_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       view_summary() :: %{
         "Arn" => String.t() | atom(),
         "Description" => String.t() | atom(),
@@ -2574,6 +2583,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      searchable_routing_criteria_step() :: %{
+        "AgentCriteria" => searchable_agent_criteria_step()
+      }
+
+  """
+  @type searchable_routing_criteria_step() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       task_template_default_field_value() :: %{
         "DefaultValue" => String.t() | atom(),
         "Id" => task_template_field_identifier()
@@ -2862,6 +2882,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      searchable_routing_criteria() :: %{
+        "Steps" => list(searchable_routing_criteria_step())
+      }
+
+  """
+  @type searchable_routing_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       segment_attribute_value() :: %{
         "ValueArn" => String.t() | atom(),
         "ValueInteger" => integer(),
@@ -3048,6 +3079,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      search_contacts_additional_time_range_criteria() :: %{
+        "TimeRange" => search_contacts_time_range(),
+        "TimestampCondition" => search_contacts_timestamp_condition()
+      }
+
+  """
+  @type search_contacts_additional_time_range_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_contact_streaming_request() :: %{
         required("ChatStreamingConfiguration") => chat_streaming_configuration(),
         required("ClientToken") => String.t() | atom(),
@@ -3135,6 +3178,22 @@ defmodule AWS.Connect do
 
   """
   @type queue_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      routing_profile_manual_assignment_queue_config_summary() :: %{
+        "Channel" => list(any()),
+        "QueueArn" => String.t() | atom(),
+        "QueueId" => String.t() | atom(),
+        "QueueName" => String.t() | atom()
+      }
+
+  """
+  @type routing_profile_manual_assignment_queue_config_summary() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -3353,6 +3412,7 @@ defmodule AWS.Connect do
   ## Example:
 
       contact_search_summary_segment_attribute_value() :: %{
+        "ValueMap" => map(),
         "ValueString" => String.t() | atom()
       }
 
@@ -3841,6 +3901,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      search_contacts_timestamp_condition() :: %{
+        "ConditionType" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type search_contacts_timestamp_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       associate_traffic_distribution_group_user_request() :: %{
         required("InstanceId") => String.t() | atom(),
         required("UserId") => String.t() | atom()
@@ -4091,7 +4163,8 @@ defmodule AWS.Connect do
   ## Example:
 
       associate_routing_profile_queues_request() :: %{
-        required("QueueConfigs") => list(routing_profile_queue_config())
+        optional("ManualAssignmentQueueConfigs") => list(routing_profile_manual_assignment_queue_config()),
+        optional("QueueConfigs") => list(routing_profile_queue_config())
       }
 
   """
@@ -4940,7 +5013,8 @@ defmodule AWS.Connect do
   ## Example:
 
       disassociate_routing_profile_queues_request() :: %{
-        required("QueueReferences") => list(routing_profile_queue_reference())
+        optional("ManualAssignmentQueueReferences") => list(routing_profile_queue_reference()),
+        optional("QueueReferences") => list(routing_profile_queue_reference())
       }
 
   """
@@ -5977,6 +6051,18 @@ defmodule AWS.Connect do
 
   """
   @type attribute_and_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      searchable_agent_criteria_step() :: %{
+        "AgentIds" => list(String.t() | atom()),
+        "MatchType" => list(any())
+      }
+
+  """
+  @type searchable_agent_criteria_step() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8686,8 +8772,10 @@ defmodule AWS.Connect do
         "InitialContactId" => String.t() | atom(),
         "InitiationMethod" => list(any()),
         "InitiationTimestamp" => non_neg_integer(),
+        "Name" => String.t() | atom(),
         "PreviousContactId" => String.t() | atom(),
         "QueueInfo" => contact_search_summary_queue_info(),
+        "RoutingCriteria" => routing_criteria(),
         "ScheduledTimestamp" => non_neg_integer(),
         "SegmentAttributes" => map()
       }
@@ -9395,6 +9483,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      name_criteria() :: %{
+        "MatchType" => list(any()),
+        "SearchText" => list(String.t() | atom())
+      }
+
+  """
+  @type name_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_vocabulary_response() :: %{
         "Vocabulary" => vocabulary()
       }
@@ -9508,6 +9608,18 @@ defmodule AWS.Connect do
 
   """
   @type contact_search_summary_queue_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_contacts_additional_time_range() :: %{
+        "Criteria" => list(search_contacts_additional_time_range_criteria()),
+        "MatchType" => list(any())
+      }
+
+  """
+  @type search_contacts_additional_time_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9638,6 +9750,22 @@ defmodule AWS.Connect do
 
   """
   @type evaluation_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_routing_profile_manual_assignment_queues_response() :: %{
+        "LastModifiedRegion" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "NextToken" => String.t() | atom(),
+        "RoutingProfileManualAssignmentQueueConfigSummaryList" => list(routing_profile_manual_assignment_queue_config_summary())
+      }
+
+  """
+  @type list_routing_profile_manual_assignment_queues_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -9968,6 +10096,7 @@ defmodule AWS.Connect do
 
       routing_profile() :: %{
         "AgentAvailabilityTimer" => list(any()),
+        "AssociatedManualAssignmentQueueIds" => list(String.t() | atom()),
         "AssociatedQueueIds" => list(String.t() | atom()),
         "DefaultOutboundQueueId" => String.t() | atom(),
         "Description" => String.t() | atom(),
@@ -9977,6 +10106,7 @@ defmodule AWS.Connect do
         "LastModifiedTime" => non_neg_integer(),
         "MediaConcurrencies" => list(media_concurrency()),
         "Name" => String.t() | atom(),
+        "NumberOfAssociatedManualAssignmentQueues" => float(),
         "NumberOfAssociatedQueues" => float(),
         "NumberOfAssociatedUsers" => float(),
         "RoutingProfileArn" => String.t() | atom(),
@@ -10016,6 +10146,7 @@ defmodule AWS.Connect do
 
       create_routing_profile_request() :: %{
         optional("AgentAvailabilityTimer") => list(any()),
+        optional("ManualAssignmentQueueConfigs") => list(routing_profile_manual_assignment_queue_config()),
         optional("QueueConfigs") => list(routing_profile_queue_config()),
         optional("Tags") => map(),
         required("DefaultOutboundQueueId") => String.t() | atom(),
@@ -10128,12 +10259,15 @@ defmodule AWS.Connect do
   ## Example:
 
       search_criteria() :: %{
+        "AdditionalTimeRange" => search_contacts_additional_time_range(),
         "AgentHierarchyGroups" => agent_hierarchy_groups(),
         "AgentIds" => list(String.t() | atom()),
         "Channels" => list(list(any())()),
         "ContactAnalysis" => contact_analysis(),
         "InitiationMethods" => list(list(any())()),
+        "Name" => name_criteria(),
         "QueueIds" => list(String.t() | atom()),
+        "RoutingCriteria" => searchable_routing_criteria(),
         "SearchableContactAttributes" => searchable_contact_attributes(),
         "SearchableSegmentAttributes" => searchable_segment_attributes()
       }
@@ -10250,6 +10384,17 @@ defmodule AWS.Connect do
 
   """
   @type create_task_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_contact_with_user_request() :: %{
+        required("UserId") => String.t() | atom()
+      }
+
+  """
+  @type associate_contact_with_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10650,6 +10795,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      routing_profile_manual_assignment_queue_config() :: %{
+        "QueueReference" => routing_profile_queue_reference()
+      }
+
+  """
+  @type routing_profile_manual_assignment_queue_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_realtime_contact_analysis_segments_v2_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
@@ -11031,6 +11187,20 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      list_routing_profile_manual_assignment_queues_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_routing_profile_manual_assignment_queues_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
       instance_storage_config() :: %{
         "AssociationId" => String.t() | atom(),
         "KinesisFirehoseConfig" => kinesis_firehose_config(),
@@ -11142,6 +11312,14 @@ defmodule AWS.Connect do
           | limit_exceeded_exception()
           | throttling_exception()
           | service_quota_exceeded_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type associate_contact_with_user_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
@@ -12361,6 +12539,13 @@ defmodule AWS.Connect do
           | internal_service_exception()
           | output_type_not_found_exception()
 
+  @type list_routing_profile_manual_assignment_queues_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type list_routing_profile_queues_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
@@ -13398,6 +13583,97 @@ defmodule AWS.Connect do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Associates a queued contact with an agent.
+
+  ## Use cases
+
+  Following are common uses cases for this API:
+
+    *
+  Custom contact routing. You can build custom contact routing mechanisms beyond
+  the default
+  system routing in Amazon Connect. You can create tailored contact distribution
+  logic that
+  offers queued contacts directly to specific agents.
+
+    *
+  Manual contact assignment. You can programmatically assign queued contacts to
+  available users. This
+  provides flexibility to contact centers that require manual oversight or
+  specialized routing
+  workflows outside of standard queue management.
+
+  For information about how manual contact assignment works in the agent
+  workspace, see the [Access the Worklist app in the Amazon Connect agent workspace](https://docs.aws.amazon.com/connect/latest/adminguide/worklist-app.html)
+  in the *Amazon Connect Administrator
+  Guide*.
+
+  ## Important things to know
+
+    *
+  Use this API chat/SMS, email, and task contacts. It does not support voice
+  contacts.
+
+    *
+  Use it to associate contacts with users regardless of their current state,
+  including
+  custom states. Ensure your application logic accounts for user availability
+  before making
+  associations.
+
+    *
+  It honors the IAM context key `connect:PreferredUserArn` to prevent
+  unauthorized contact associations.
+
+    *
+  It respects the IAM context key `connect:PreferredUserArn` to enforce
+  authorization controls and prevent unauthorized contact associations. Verify
+  that your IAM
+  policies are properly configured to support your intended use cases.
+
+  **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  """
+  @spec associate_contact_with_user(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          associate_contact_with_user_request(),
+          list()
+        ) ::
+          {:ok, associate_contact_with_user_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_contact_with_user_errors()}
+  def associate_contact_with_user(
+        %Client{} = client,
+        contact_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/contacts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}/associate-user"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -18009,8 +18285,8 @@ defmodule AWS.Connect do
 
     *
   For more information, see the [Position in queue](https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html)
-  metric in the
-  *Amazon Connect Administrator Guide*.
+  metric in
+  the *Amazon Connect Administrator Guide*.
 
   **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
@@ -20185,6 +20461,81 @@ defmodule AWS.Connect do
       options,
       200
     )
+  end
+
+  @doc """
+  Lists the manual assignment queues associated with a routing profile.
+
+  ## Use cases
+
+  Following are common uses cases for this API:
+
+    *
+  This API returns list of queues where contacts can be manually assigned or
+  picked. The
+  user can additionally filter on queues, if they have access to those queues
+  (otherwise a
+  invalid request exception will be thrown).
+
+  For information about how manual contact assignment works in the agent
+  workspace, see the [Access the Worklist app in the Amazon Connect agent workspace](https://docs.aws.amazon.com/connect/latest/adminguide/worklist-app.html)
+  in the *Amazon Connect Administrator
+  Guide*.
+
+  ## Important things to know
+
+    *
+  This API only returns the manual assignment queues associated with a routing
+  profile. Use
+  the ListRoutingProfileQueues API to list the auto assignment queues for the
+  routing
+  profile.
+
+  **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  """
+  @spec list_routing_profile_manual_assignment_queues(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_routing_profile_manual_assignment_queues_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_routing_profile_manual_assignment_queues_errors()}
+  def list_routing_profile_manual_assignment_queues(
+        %Client{} = client,
+        instance_id,
+        routing_profile_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}/manual-assignment-queues"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """

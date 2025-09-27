@@ -1355,6 +1355,17 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
+      billing_view_health_status_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type billing_view_health_status_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_cost_category_definition_response() :: %{
         "CostCategoryArn" => String.t() | atom(),
         "EffectiveEnd" => String.t() | atom()
@@ -2936,6 +2947,7 @@ defmodule AWS.CostExplorer do
           limit_exceeded_exception()
           | bill_expiration_exception()
           | data_unavailable_exception()
+          | billing_view_health_status_exception()
           | invalid_next_token_exception()
           | request_changed_exception()
           | resource_not_found_exception()
@@ -2943,6 +2955,7 @@ defmodule AWS.CostExplorer do
   @type get_cost_and_usage_comparisons_errors() ::
           limit_exceeded_exception()
           | data_unavailable_exception()
+          | billing_view_health_status_exception()
           | invalid_next_token_exception()
           | resource_not_found_exception()
 
@@ -2950,6 +2963,7 @@ defmodule AWS.CostExplorer do
           limit_exceeded_exception()
           | bill_expiration_exception()
           | data_unavailable_exception()
+          | billing_view_health_status_exception()
           | invalid_next_token_exception()
           | request_changed_exception()
           | resource_not_found_exception()
@@ -2958,6 +2972,7 @@ defmodule AWS.CostExplorer do
           limit_exceeded_exception()
           | bill_expiration_exception()
           | data_unavailable_exception()
+          | billing_view_health_status_exception()
           | invalid_next_token_exception()
           | request_changed_exception()
           | resource_not_found_exception()
@@ -2965,18 +2980,21 @@ defmodule AWS.CostExplorer do
   @type get_cost_comparison_drivers_errors() ::
           limit_exceeded_exception()
           | data_unavailable_exception()
+          | billing_view_health_status_exception()
           | invalid_next_token_exception()
           | resource_not_found_exception()
 
   @type get_cost_forecast_errors() ::
           limit_exceeded_exception()
           | data_unavailable_exception()
+          | billing_view_health_status_exception()
           | resource_not_found_exception()
 
   @type get_dimension_values_errors() ::
           limit_exceeded_exception()
           | bill_expiration_exception()
           | data_unavailable_exception()
+          | billing_view_health_status_exception()
           | invalid_next_token_exception()
           | request_changed_exception()
           | resource_not_found_exception()
@@ -3022,6 +3040,7 @@ defmodule AWS.CostExplorer do
           limit_exceeded_exception()
           | bill_expiration_exception()
           | data_unavailable_exception()
+          | billing_view_health_status_exception()
           | invalid_next_token_exception()
           | request_changed_exception()
           | resource_not_found_exception()
@@ -3030,6 +3049,7 @@ defmodule AWS.CostExplorer do
           limit_exceeded_exception()
           | unresolvable_usage_unit_exception()
           | data_unavailable_exception()
+          | billing_view_health_status_exception()
           | resource_not_found_exception()
 
   @type list_commitment_purchase_analyses_errors() ::

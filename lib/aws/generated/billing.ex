@@ -38,7 +38,8 @@ defmodule AWS.Billing do
         optional("billingViewTypes") => list(list(any())()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
-        optional("ownerAccountId") => String.t() | atom()
+        optional("ownerAccountId") => String.t() | atom(),
+        optional("sourceAccountId") => String.t() | atom()
       }
       
   """
@@ -68,6 +69,17 @@ defmodule AWS.Billing do
       
   """
   @type update_billing_view_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_source_views_response() :: %{
+        "arn" => String.t() | atom()
+      }
+      
+  """
+  @type associate_source_views_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -140,6 +152,18 @@ defmodule AWS.Billing do
 
   ## Example:
       
+      disassociate_source_views_request() :: %{
+        required("arn") => String.t() | atom(),
+        required("sourceViews") => list(String.t() | atom())
+      }
+      
+  """
+  @type disassociate_source_views_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       untag_resource_request() :: %{
         required("resourceArn") => String.t() | atom(),
         required("resourceTagKeys") => list(String.t() | atom())
@@ -207,6 +231,7 @@ defmodule AWS.Billing do
   ## Example:
       
       delete_billing_view_request() :: %{
+        optional("force") => [boolean()],
         required("arn") => String.t() | atom()
       }
       
@@ -231,6 +256,17 @@ defmodule AWS.Billing do
 
   ## Example:
       
+      disassociate_source_views_response() :: %{
+        "arn" => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_source_views_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       service_quota_exceeded_exception() :: %{
         "message" => String.t() | atom(),
         "quotaCode" => String.t() | atom(),
@@ -241,6 +277,17 @@ defmodule AWS.Billing do
       
   """
   @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      billing_view_health_status_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type billing_view_health_status_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -297,10 +344,15 @@ defmodule AWS.Billing do
         "billingViewType" => list(any()),
         "createdAt" => [non_neg_integer()],
         "dataFilterExpression" => expression(),
+        "derivedViewCount" => [integer()],
         "description" => String.t() | atom(),
+        "healthStatus" => billing_view_health_status(),
         "name" => String.t() | atom(),
         "ownerAccountId" => String.t() | atom(),
-        "updatedAt" => [non_neg_integer()]
+        "sourceAccountId" => String.t() | atom(),
+        "sourceViewCount" => [integer()],
+        "updatedAt" => [non_neg_integer()],
+        "viewDefinitionLastUpdatedAt" => [non_neg_integer()]
       }
       
   """
@@ -333,6 +385,18 @@ defmodule AWS.Billing do
 
   ## Example:
       
+      time_range() :: %{
+        "beginDateInclusive" => [non_neg_integer()],
+        "endDateInclusive" => [non_neg_integer()]
+      }
+      
+  """
+  @type time_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       access_denied_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -357,8 +421,10 @@ defmodule AWS.Billing do
         "arn" => String.t() | atom(),
         "billingViewType" => list(any()),
         "description" => String.t() | atom(),
+        "healthStatus" => billing_view_health_status(),
         "name" => String.t() | atom(),
-        "ownerAccountId" => String.t() | atom()
+        "ownerAccountId" => String.t() | atom(),
+        "sourceAccountId" => String.t() | atom()
       }
       
   """
@@ -392,6 +458,18 @@ defmodule AWS.Billing do
 
   ## Example:
       
+      billing_view_health_status() :: %{
+        "statusCode" => list(any()),
+        "statusReasons" => list(list(any())())
+      }
+      
+  """
+  @type billing_view_health_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       throttling_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -405,7 +483,8 @@ defmodule AWS.Billing do
       
       expression() :: %{
         "dimensions" => dimension_values(),
-        "tags" => tag_values()
+        "tags" => tag_values(),
+        "timeRange" => time_range()
       }
       
   """
@@ -421,6 +500,18 @@ defmodule AWS.Billing do
       
   """
   @type get_billing_view_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_source_views_request() :: %{
+        required("arn") => String.t() | atom(),
+        required("sourceViews") => list(String.t() | atom())
+      }
+      
+  """
+  @type associate_source_views_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -446,12 +537,24 @@ defmodule AWS.Billing do
   """
   @type create_billing_view_response() :: %{(String.t() | atom()) => any()}
 
+  @type associate_source_views_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | billing_view_health_status_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_billing_view_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | billing_view_health_status_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
           | conflict_exception()
 
   @type delete_billing_view_errors() ::
@@ -459,6 +562,15 @@ defmodule AWS.Billing do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | conflict_exception()
+
+  @type disassociate_source_views_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | billing_view_health_status_exception()
+          | resource_not_found_exception()
           | conflict_exception()
 
   @type get_billing_view_errors() ::
@@ -514,6 +626,7 @@ defmodule AWS.Billing do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | billing_view_health_status_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
@@ -532,6 +645,23 @@ defmodule AWS.Billing do
       signing_name: "billing",
       target_prefix: "AWSBilling"
     }
+  end
+
+  @doc """
+  Associates one or more source billing views with an existing billing view.
+
+  This allows creating aggregate billing views that combine data from multiple
+  sources.
+  """
+  @spec associate_source_views(map(), associate_source_views_request(), list()) ::
+          {:ok, associate_source_views_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_source_views_errors()}
+  def associate_source_views(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateSourceViews", input, options)
   end
 
   @doc """
@@ -560,6 +690,23 @@ defmodule AWS.Billing do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteBillingView", input, options)
+  end
+
+  @doc """
+  Removes the association between one or more source billing views and an existing
+  billing view.
+
+  This allows modifying the composition of aggregate billing views.
+  """
+  @spec disassociate_source_views(map(), disassociate_source_views_request(), list()) ::
+          {:ok, disassociate_source_views_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_source_views_errors()}
+  def disassociate_source_views(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateSourceViews", input, options)
   end
 
   @doc """

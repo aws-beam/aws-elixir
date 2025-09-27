@@ -273,7 +273,9 @@ defmodule AWS.BedrockAgentRuntime do
 
       node_output_field() :: %{
         "content" => list(),
-        "name" => String.t() | atom()
+        "name" => String.t() | atom(),
+        "next" => list(node_output_next()),
+        "type" => list(any())
       }
 
   """
@@ -867,6 +869,8 @@ defmodule AWS.BedrockAgentRuntime do
       flow_trace_node_action_event() :: %{
         "nodeName" => String.t() | atom(),
         "operationName" => [String.t() | atom()],
+        "operationRequest" => [any()],
+        "operationResponse" => [any()],
         "requestId" => [String.t() | atom()],
         "serviceName" => [String.t() | atom()],
         "timestamp" => non_neg_integer()
@@ -983,8 +987,12 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       flow_trace_node_input_field() :: %{
+        "category" => list(any()),
         "content" => list(),
-        "nodeInputName" => String.t() | atom()
+        "executionChain" => list(flow_trace_node_input_execution_chain_item()),
+        "nodeInputName" => String.t() | atom(),
+        "source" => flow_trace_node_input_source(),
+        "type" => list(any())
       }
 
   """
@@ -1125,6 +1133,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type guardrail_word_policy_assessment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      node_input_source() :: %{
+        "expression" => String.t() | atom(),
+        "nodeName" => String.t() | atom(),
+        "outputFieldName" => String.t() | atom()
+      }
+
+  """
+  @type node_input_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1370,6 +1391,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      flow_trace_node_input_execution_chain_item() :: %{
+        "index" => [integer()],
+        "nodeName" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type flow_trace_node_input_execution_chain_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       knowledge_base_retrieval_configuration() :: %{
         "vectorSearchConfiguration" => knowledge_base_vector_search_configuration()
       }
@@ -1455,6 +1489,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      flow_trace_node_output_next() :: %{
+        "inputFieldName" => String.t() | atom(),
+        "nodeName" => String.t() | atom()
+      }
+
+  """
+  @type flow_trace_node_output_next() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       text_response_part() :: %{
         "span" => span(),
         "text" => [String.t() | atom()]
@@ -1517,6 +1563,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type invoke_inline_agent_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_trace_node_input_source() :: %{
+        "expression" => String.t() | atom(),
+        "nodeName" => String.t() | atom(),
+        "outputFieldName" => String.t() | atom()
+      }
+
+  """
+  @type flow_trace_node_input_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1857,8 +1916,12 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       node_input_field() :: %{
+        "category" => list(any()),
         "content" => list(),
-        "name" => String.t() | atom()
+        "executionChain" => list(node_input_execution_chain_item()),
+        "name" => String.t() | atom(),
+        "source" => node_input_source(),
+        "type" => list(any())
       }
 
   """
@@ -1920,7 +1983,9 @@ defmodule AWS.BedrockAgentRuntime do
 
       flow_trace_node_output_field() :: %{
         "content" => list(),
-        "nodeOutputName" => String.t() | atom()
+        "next" => list(flow_trace_node_output_next()),
+        "nodeOutputName" => String.t() | atom(),
+        "type" => list(any())
       }
 
   """
@@ -1951,6 +2016,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type function_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      node_output_next() :: %{
+        "inputFieldName" => String.t() | atom(),
+        "nodeName" => String.t() | atom()
+      }
+
+  """
+  @type node_output_next() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2162,6 +2239,23 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type attribution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      node_action_event() :: %{
+        "nodeName" => String.t() | atom(),
+        "operationName" => [String.t() | atom()],
+        "operationRequest" => [any()],
+        "operationResponse" => [any()],
+        "requestId" => [String.t() | atom()],
+        "serviceName" => [String.t() | atom()],
+        "timestamp" => non_neg_integer()
+      }
+
+  """
+  @type node_action_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2442,6 +2536,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type generated_query() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_trace_dependency_event() :: %{
+        "nodeName" => String.t() | atom(),
+        "timestamp" => non_neg_integer(),
+        "traceElements" => list()
+      }
+
+  """
+  @type flow_trace_dependency_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3183,6 +3290,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      node_dependency_event() :: %{
+        "nodeName" => String.t() | atom(),
+        "timestamp" => non_neg_integer(),
+        "traceElements" => list()
+      }
+
+  """
+  @type node_dependency_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_topic() :: %{
         "action" => list(any()),
         "name" => [String.t() | atom()],
@@ -3286,6 +3406,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      node_input_execution_chain_item() :: %{
+        "index" => [integer()],
+        "nodeName" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type node_input_execution_chain_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

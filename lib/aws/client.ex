@@ -156,10 +156,10 @@ defmodule AWS.Client do
   ## Examples
 
       iex> put_endpoint(%Client{}, "example.com")
-      %Client{endpoint: "example.com}
+      %Client{endpoint: "example.com"}
 
       iex> put_endpoint(%Client{}, {:keep_prefixes, "example.com"})
-      %Client{endpoint: {:keep_prefixes, "example.com}}
+      %Client{endpoint: {:keep_prefixes, "example.com"}}
 
       iex> put_endpoint(%Client{}, fn opts -> Enum.join(["baz", opts.region, "foo.com"], ".") end)
       %Client{endpoint: #Function<>}

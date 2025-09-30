@@ -4,14 +4,12 @@
 defmodule AWS.VPCLattice do
   @moduledoc """
   Amazon VPC Lattice is a fully managed application networking service that you
-  use to connect, secure,
-  and monitor all of your services across multiple accounts and virtual private
-  clouds (VPCs).
+  use to connect, secure, and monitor all of your services across multiple
+  accounts and virtual private clouds (VPCs).
 
   Amazon VPC Lattice interconnects your microservices and legacy services within a
-  logical boundary, so that
-  you can discover and manage them more efficiently. For more information, see the
-  [Amazon VPC Lattice User Guide](https://docs.aws.amazon.com/vpc-lattice/latest/ug/)
+  logical boundary, so that you can discover and manage them more efficiently. For
+  more information, see the [Amazon VPC Lattice User Guide](https://docs.aws.amazon.com/vpc-lattice/latest/ug/)
   """
 
   alias AWS.Client
@@ -309,6 +307,7 @@ defmodule AWS.VPCLattice do
         "createdAt" => non_neg_integer(),
         "id" => String.t() | atom(),
         "ipAddressType" => String.t() | atom(),
+        "ipv4AddressesPerEni" => integer(),
         "lastUpdatedAt" => non_neg_integer(),
         "name" => String.t() | atom(),
         "securityGroupIds" => list(String.t() | atom()),
@@ -591,11 +590,12 @@ defmodule AWS.VPCLattice do
       create_resource_gateway_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("ipAddressType") => String.t() | atom(),
+        optional("ipv4AddressesPerEni") => integer(),
         optional("securityGroupIds") => list(String.t() | atom()),
+        optional("subnetIds") => list(String.t() | atom()),
         optional("tags") => map(),
-        required("name") => String.t() | atom(),
-        required("subnetIds") => list(String.t() | atom()),
-        required("vpcIdentifier") => String.t() | atom()
+        optional("vpcIdentifier") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
 
   """
@@ -823,6 +823,7 @@ defmodule AWS.VPCLattice do
         "arn" => String.t() | atom(),
         "id" => String.t() | atom(),
         "ipAddressType" => String.t() | atom(),
+        "ipv4AddressesPerEni" => integer(),
         "name" => String.t() | atom(),
         "securityGroupIds" => list(String.t() | atom()),
         "status" => String.t() | atom(),
@@ -1057,6 +1058,7 @@ defmodule AWS.VPCLattice do
         "createdAt" => non_neg_integer(),
         "id" => String.t() | atom(),
         "ipAddressType" => String.t() | atom(),
+        "ipv4AddressesPerEni" => integer(),
         "lastUpdatedAt" => non_neg_integer(),
         "name" => String.t() | atom(),
         "securityGroupIds" => list(String.t() | atom()),
@@ -2075,6 +2077,7 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       list_service_network_resource_associations_request() :: %{
+        optional("includeChildren") => [boolean()],
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
         optional("resourceConfigurationIdentifier") => String.t() | atom(),
@@ -2908,6 +2911,7 @@ defmodule AWS.VPCLattice do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   @type update_rule_errors() ::
           throttling_exception()
@@ -2971,11 +2975,10 @@ defmodule AWS.VPCLattice do
   @doc """
   Updates the listener rules in a batch.
 
-  You can use this operation to change the priority of
-  listener rules. This can be useful when bulk updating or swapping rule priority.
+  You can use this operation to change the priority of listener rules. This can be
+  useful when bulk updating or swapping rule priority.
 
-  ## Required permissions:
-  `vpc-lattice:UpdateRule`
+  **Required permissions:** `vpc-lattice:UpdateRule`
 
   For more information, see [How Amazon VPC Lattice works with IAM](https://docs.aws.amazon.com/vpc-lattice/latest/ug/security_iam_service-with-iam.html)
   in the *Amazon VPC Lattice User Guide*.
@@ -3024,16 +3027,12 @@ defmodule AWS.VPCLattice do
   Enables access logs to be sent to Amazon CloudWatch, Amazon S3, and Amazon
   Kinesis Data Firehose.
 
-  The service network owner
-  can use the access logs to audit the services in the network. The service
-  network owner can only
-  see access logs from clients and services that are associated with their service
-  network. Access
-  log entries represent traffic originated from VPCs associated with that network.
-  For more
+  The service network owner can use the access logs to audit the services in the
+  network. The service network owner can only see access logs from clients and
+  services that are associated with their service network. Access log entries
+  represent traffic originated from VPCs associated with that network. For more
   information, see [Access logs](https://docs.aws.amazon.com/vpc-lattice/latest/ug/monitoring-access-logs.html)
-  in the
-  *Amazon VPC Lattice User Guide*.
+  in the *Amazon VPC Lattice User Guide*.
   """
   @spec create_access_log_subscription(map(), create_access_log_subscription_request(), list()) ::
           {:ok, create_access_log_subscription_response(), any()}
@@ -3064,13 +3063,11 @@ defmodule AWS.VPCLattice do
   @doc """
   Creates a listener for a service.
 
-  Before you start using your Amazon VPC Lattice service, you must
-  add one or more listeners. A listener is a process that checks for connection
-  requests to your
+  Before you start using your Amazon VPC Lattice service, you must add one or more
+  listeners. A listener is a process that checks for connection requests to your
   services. For more information, see
   [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html) in
-  the
-  *Amazon VPC Lattice User Guide*.
+  the *Amazon VPC Lattice User Guide*.
   """
   @spec create_listener(map(), String.t() | atom(), create_listener_request(), list()) ::
           {:ok, create_listener_response(), any()}
@@ -3101,8 +3098,8 @@ defmodule AWS.VPCLattice do
   @doc """
   Creates a resource configuration.
 
-  A resource configuration defines a specific resource. You
-  can associate a resource configuration with a service network or a VPC endpoint.
+  A resource configuration defines a specific resource. You can associate a
+  resource configuration with a service network or a VPC endpoint.
   """
   @spec create_resource_configuration(map(), create_resource_configuration_request(), list()) ::
           {:ok, create_resource_configuration_response(), any()}
@@ -3131,7 +3128,11 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Creates a resource gateway.
+  A resource gateway is a point of ingress into the VPC where a resource resides.
+
+  It spans multiple Availability Zones. For your resource to be accessible from
+  all Availability Zones, you should create your resource gateways to span as many
+  Availability Zones as possible. A VPC can have multiple resource gateways.
   """
   @spec create_resource_gateway(map(), create_resource_gateway_request(), list()) ::
           {:ok, create_resource_gateway_response(), any()}
@@ -3162,12 +3163,10 @@ defmodule AWS.VPCLattice do
   @doc """
   Creates a listener rule.
 
-  Each listener has a default rule for checking connection requests,
-  but you can define additional rules. Each rule consists of a priority, one or
-  more actions, and
-  one or more conditions. For more information, see [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules)
-  in the
-  *Amazon VPC Lattice User Guide*.
+  Each listener has a default rule for checking connection requests, but you can
+  define additional rules. Each rule consists of a priority, one or more actions,
+  and one or more conditions. For more information, see [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules)
+  in the *Amazon VPC Lattice User Guide*.
   """
   @spec create_rule(
           map(),
@@ -3212,14 +3211,12 @@ defmodule AWS.VPCLattice do
   @doc """
   Creates a service.
 
-  A service is any software application that can run on instances
-  containers, or serverless functions within an account or virtual private cloud
-  (VPC).
+  A service is any software application that can run on instances containers, or
+  serverless functions within an account or virtual private cloud (VPC).
 
   For more information, see
   [Services](https://docs.aws.amazon.com/vpc-lattice/latest/ug/services.html) in
-  the
-  *Amazon VPC Lattice User Guide*.
+  the *Amazon VPC Lattice User Guide*.
   """
   @spec create_service(map(), create_service_request(), list()) ::
           {:ok, create_service_response(), any()}
@@ -3250,12 +3247,11 @@ defmodule AWS.VPCLattice do
   @doc """
   Creates a service network.
 
-  A service network is a logical boundary for a collection of
-  services. You can associate services and VPCs with a service network.
+  A service network is a logical boundary for a collection of services. You can
+  associate services and VPCs with a service network.
 
   For more information, see [Service networks](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html)
-  in the
-  *Amazon VPC Lattice User Guide*.
+  in the *Amazon VPC Lattice User Guide*.
   """
   @spec create_service_network(map(), create_service_network_request(), list()) ::
           {:ok, create_service_network_response(), any()}
@@ -3288,8 +3284,7 @@ defmodule AWS.VPCLattice do
   configuration.
 
   This allows the resource configuration to receive connections through the
-  service network,
-  including through a service network VPC endpoint.
+  service network, including through a service network VPC endpoint.
   """
   @spec create_service_network_resource_association(
           map(),
@@ -3324,23 +3319,19 @@ defmodule AWS.VPCLattice do
   @doc """
   Associates the specified service with the specified service network.
 
-  For more information, see
-  [Manage service associations](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-network-associations.html#service-network-service-associations)
+  For more information, see [Manage service associations](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-network-associations.html#service-network-service-associations)
   in the *Amazon VPC Lattice User Guide*.
 
   You can't use this operation if the service and service network are already
-  associated or if
-  there is a disassociation or deletion in progress. If the association fails, you
-  can retry the
-  operation by deleting the association and recreating it.
+  associated or if there is a disassociation or deletion in progress. If the
+  association fails, you can retry the operation by deleting the association and
+  recreating it.
 
   You cannot associate a service and service network that are shared with a
-  caller. The caller
-  must own either the service or the service network.
+  caller. The caller must own either the service or the service network.
 
   As a result of this operation, the association is created in the service network
-  account and
-  the association owner account.
+  account and the association owner account.
   """
   @spec create_service_network_service_association(
           map(),
@@ -3375,27 +3366,21 @@ defmodule AWS.VPCLattice do
   @doc """
   Associates a VPC with a service network.
 
-  When you associate a VPC with the service network,
-  it enables all the resources within that VPC to be clients and communicate with
-  other services in
-  the service network. For more information, see [Manage VPC associations](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-network-associations.html#service-network-vpc-associations)
+  When you associate a VPC with the service network, it enables all the resources
+  within that VPC to be clients and communicate with other services in the service
+  network. For more information, see [Manage VPC associations](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-network-associations.html#service-network-vpc-associations)
   in the *Amazon VPC Lattice User Guide*.
 
   You can't use this operation if there is a disassociation in progress. If the
-  association
-  fails, retry by deleting the association and recreating it.
+  association fails, retry by deleting the association and recreating it.
 
   As a result of this operation, the association gets created in the service
-  network account
-  and the VPC owner account.
+  network account and the VPC owner account.
 
   If you add a security group to the service network and VPC association, the
-  association must
-  continue to always have at least one security group. You can add or edit
-  security groups at any
-  time. However, to remove all security groups, you must first delete the
-  association and recreate
-  it without security groups.
+  association must continue to always have at least one security group. You can
+  add or edit security groups at any time. However, to remove all security groups,
+  you must first delete the association and recreate it without security groups.
   """
   @spec create_service_network_vpc_association(
           map(),
@@ -3430,13 +3415,11 @@ defmodule AWS.VPCLattice do
   @doc """
   Creates a target group.
 
-  A target group is a collection of targets, or compute resources,
-  that run your application or service. A target group can only be used by a
-  single service.
+  A target group is a collection of targets, or compute resources, that run your
+  application or service. A target group can only be used by a single service.
 
   For more information, see [Target groups](https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html) in
-  the
-  *Amazon VPC Lattice User Guide*.
+  the *Amazon VPC Lattice User Guide*.
   """
   @spec create_target_group(map(), create_target_group_request(), list()) ::
           {:ok, create_target_group_response(), any()}
@@ -3508,12 +3491,10 @@ defmodule AWS.VPCLattice do
   @doc """
   Deletes the specified auth policy.
 
-  If an auth is set to `AWS_IAM` and the auth
-  policy is deleted, all requests are denied. If you are trying to remove the auth
-  policy
-  completely, you must set the auth type to `NONE`. If auth is enabled on the
-  resource,
-  but no auth policy is set, all requests are denied.
+  If an auth is set to `AWS_IAM` and the auth policy is deleted, all requests are
+  denied. If you are trying to remove the auth policy completely, you must set the
+  auth type to `NONE`. If auth is enabled on the resource, but no auth policy is
+  set, all requests are denied.
   """
   @spec delete_auth_policy(map(), String.t() | atom(), delete_auth_policy_request(), list()) ::
           {:ok, delete_auth_policy_response(), any()}
@@ -3740,16 +3721,13 @@ defmodule AWS.VPCLattice do
   @doc """
   Deletes a listener rule.
 
-  Each listener has a default rule for checking connection requests,
-  but you can define additional rules. Each rule consists of a priority, one or
-  more actions, and
-  one or more conditions. You can delete additional listener rules, but you cannot
-  delete the
-  default rule.
+  Each listener has a default rule for checking connection requests, but you can
+  define additional rules. Each rule consists of a priority, one or more actions,
+  and one or more conditions. You can delete additional listener rules, but you
+  cannot delete the default rule.
 
   For more information, see [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules)
-  in the
-  *Amazon VPC Lattice User Guide*.
+  in the *Amazon VPC Lattice User Guide*.
   """
   @spec delete_rule(
           map(),
@@ -3796,14 +3774,11 @@ defmodule AWS.VPCLattice do
   @doc """
   Deletes a service.
 
-  A service can't be deleted if it's associated with a service network. If
-  you delete a service, all resources related to the service, such as the resource
-  policy, auth
-  policy, listeners, listener rules, and access log subscriptions, are also
-  deleted. For more
-  information, see [Delete a service](https://docs.aws.amazon.com/vpc-lattice/latest/ug/services.html#delete-service)
-  in the
-  *Amazon VPC Lattice User Guide*.
+  A service can't be deleted if it's associated with a service network. If you
+  delete a service, all resources related to the service, such as the resource
+  policy, auth policy, listeners, listener rules, and access log subscriptions,
+  are also deleted. For more information, see [Delete a service](https://docs.aws.amazon.com/vpc-lattice/latest/ug/services.html#delete-service)
+  in the *Amazon VPC Lattice User Guide*.
   """
   @spec delete_service(map(), String.t() | atom(), delete_service_request(), list()) ::
           {:ok, delete_service_response(), any()}
@@ -3834,12 +3809,10 @@ defmodule AWS.VPCLattice do
   @doc """
   Deletes a service network.
 
-  You can only delete the service network if there is no service or
-  VPC associated with it. If you delete a service network, all resources related
-  to the service
+  You can only delete the service network if there is no service or VPC associated
+  with it. If you delete a service network, all resources related to the service
   network, such as the resource policy, auth policy, and access log subscriptions,
-  are also
-  deleted. For more information, see [Delete a service network](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#delete-service-network)
+  are also deleted. For more information, see [Delete a service network](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#delete-service-network)
   in the *Amazon VPC Lattice User Guide*.
   """
   @spec delete_service_network(
@@ -3917,8 +3890,7 @@ defmodule AWS.VPCLattice do
   @doc """
   Deletes the association between a service and a service network.
 
-  This
-  operation fails if an association is still in progress.
+  This operation fails if an association is still in progress.
   """
   @spec delete_service_network_service_association(
           map(),
@@ -3961,8 +3933,8 @@ defmodule AWS.VPCLattice do
   @doc """
   Disassociates the VPC from the service network.
 
-  You can't disassociate the VPC if there is a
-  create or update association in progress.
+  You can't disassociate the VPC if there is a create or update association in
+  progress.
   """
   @spec delete_service_network_vpc_association(
           map(),
@@ -4005,8 +3977,8 @@ defmodule AWS.VPCLattice do
   @doc """
   Deletes a target group.
 
-  You can't delete a target group if it is used in a listener rule or
-  if the target group creation is in progress.
+  You can't delete a target group if it is used in a listener rule or if the
+  target group creation is in progress.
   """
   @spec delete_target_group(map(), String.t() | atom(), delete_target_group_request(), list()) ::
           {:ok, delete_target_group_response(), any()}
@@ -4169,8 +4141,8 @@ defmodule AWS.VPCLattice do
   @doc """
   Retrieves information about the specified resource policy.
 
-  The resource policy is an IAM policy
-  created on behalf of the resource owner when they share a resource.
+  The resource policy is an IAM policy created on behalf of the resource owner
+  when they share a resource.
   """
   @spec get_resource_policy(map(), String.t() | atom(), list()) ::
           {:ok, get_resource_policy_response(), any()}
@@ -4190,10 +4162,9 @@ defmodule AWS.VPCLattice do
   @doc """
   Retrieves information about the specified listener rules.
 
-  You can also retrieve information about the
-  default listener rule. For more information, see [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules)
-  in the
-  *Amazon VPC Lattice User Guide*.
+  You can also retrieve information about the default listener rule. For more
+  information, see [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules)
+  in the *Amazon VPC Lattice User Guide*.
   """
   @spec get_rule(map(), String.t() | atom(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_rule_response(), any()}
@@ -4685,6 +4656,7 @@ defmodule AWS.VPCLattice do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_service_network_resource_associations_response(), any()}
@@ -4693,6 +4665,7 @@ defmodule AWS.VPCLattice do
           | {:error, list_service_network_resource_associations_errors()}
   def list_service_network_resource_associations(
         %Client{} = client,
+        include_children \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         resource_configuration_identifier \\ nil,
@@ -4731,6 +4704,13 @@ defmodule AWS.VPCLattice do
         query_params
       end
 
+    query_params =
+      if !is_nil(include_children) do
+        [{"includeChildren", include_children} | query_params]
+      else
+        query_params
+      end
+
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
@@ -4739,18 +4719,14 @@ defmodule AWS.VPCLattice do
   @doc """
   Lists the associations between a service network and a service.
 
-  You can filter the list
-  either by service or service network. You must provide either the service
-  network identifier or
-  the service identifier.
+  You can filter the list either by service or service network. You must provide
+  either the service network identifier or the service identifier.
 
   Every association in Amazon VPC Lattice has a unique Amazon Resource Name (ARN),
-  such as when a
-  service network is associated with a VPC or when a service is associated with a
-  service network.
-  If the association is for a resource is shared with another account, the
-  association
-  includes the local account ID as the prefix in the ARN.
+  such as when a service network is associated with a VPC or when a service is
+  associated with a service network. If the association is for a resource is
+  shared with another account, the association includes the local account ID as
+  the prefix in the ARN.
   """
   @spec list_service_network_service_associations(
           map(),
@@ -4812,9 +4788,8 @@ defmodule AWS.VPCLattice do
   @doc """
   Lists the associations between a service network and a VPC.
 
-  You can filter the list either by VPC or
-  service network. You must provide either the ID of the service network
-  identifier or the ID of the VPC.
+  You can filter the list either by VPC or service network. You must provide
+  either the ID of the service network identifier or the ID of the VPC.
   """
   @spec list_service_network_vpc_associations(
           map(),
@@ -4927,8 +4902,7 @@ defmodule AWS.VPCLattice do
   @doc """
   Lists the service networks owned by or shared with this account.
 
-  The account ID in the ARN
-  shows which account owns the service network.
+  The account ID in the ARN shows which account owns the service network.
   """
   @spec list_service_networks(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_service_networks_response(), any()}
@@ -5018,8 +4992,7 @@ defmodule AWS.VPCLattice do
   @doc """
   Lists your target groups.
 
-  You can narrow your search by using the filters below in your
-  request.
+  You can narrow your search by using the filters below in your request.
   """
   @spec list_target_groups(
           map(),
@@ -5081,9 +5054,8 @@ defmodule AWS.VPCLattice do
   @doc """
   Lists the targets for the target group.
 
-  By default, all targets are included. You can use
-  this API to check the health status of targets. You can also ﬁlter the results
-  by target.
+  By default, all targets are included. You can use this API to check the health
+  status of targets. You can also ﬁlter the results by target.
   """
   @spec list_targets(map(), String.t() | atom(), list_targets_request(), list()) ::
           {:ok, list_targets_response(), any()}
@@ -5120,12 +5092,10 @@ defmodule AWS.VPCLattice do
   @doc """
   Creates or updates the auth policy.
 
-  The policy string in JSON must not contain newlines or
-  blank lines.
+  The policy string in JSON must not contain newlines or blank lines.
 
   For more information, see [Auth policies](https://docs.aws.amazon.com/vpc-lattice/latest/ug/auth-policies.html)
-  in the *Amazon VPC
-  Lattice User Guide*.
+  in the *Amazon VPC Lattice User Guide*.
   """
   @spec put_auth_policy(map(), String.t() | atom(), put_auth_policy_request(), list()) ::
           {:ok, put_auth_policy_response(), any()}
@@ -5156,10 +5126,9 @@ defmodule AWS.VPCLattice do
   @doc """
   Attaches a resource-based permission policy to a service or service network.
 
-  The policy must
-  contain the same actions and condition statements as the Amazon Web Services
-  Resource Access
-  Manager permission for sharing services and service networks.
+  The policy must contain the same actions and condition statements as the Amazon
+  Web Services Resource Access Manager permission for sharing services and service
+  networks.
   """
   @spec put_resource_policy(map(), String.t() | atom(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_response(), any()}
@@ -5190,8 +5159,7 @@ defmodule AWS.VPCLattice do
   @doc """
   Registers the targets with the target group.
 
-  If it's a Lambda target, you can only have one
-  target in a target group.
+  If it's a Lambda target, you can only have one target in a target group.
   """
   @spec register_targets(map(), String.t() | atom(), register_targets_request(), list()) ::
           {:ok, register_targets_response(), any()}
@@ -5447,8 +5415,8 @@ defmodule AWS.VPCLattice do
   @doc """
   Updates a specified rule for the listener.
 
-  You can't modify a default listener rule. To modify a
-  default listener rule, use `UpdateListener`.
+  You can't modify a default listener rule. To modify a default listener rule, use
+  `UpdateListener`.
   """
   @spec update_rule(
           map(),
@@ -5558,13 +5526,10 @@ defmodule AWS.VPCLattice do
   @doc """
   Updates the service network and VPC association.
 
-  If you add a security group to the service
-  network and VPC association, the association must continue to have at least one
-  security
-  group. You can add or edit security groups at any time. However, to remove all
-  security groups,
-  you must first delete the association and then recreate it without security
-  groups.
+  If you add a security group to the service network and VPC association, the
+  association must continue to have at least one security group. You can add or
+  edit security groups at any time. However, to remove all security groups, you
+  must first delete the association and then recreate it without security groups.
   """
   @spec update_service_network_vpc_association(
           map(),

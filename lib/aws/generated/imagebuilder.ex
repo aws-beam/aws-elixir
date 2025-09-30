@@ -156,6 +156,7 @@ defmodule AWS.Imagebuilder do
 
       import_vm_image_request() :: %{
         optional("description") => String.t() | atom(),
+        optional("loggingConfiguration") => image_logging_configuration(),
         optional("osVersion") => String.t() | atom(),
         optional("tags") => map(),
         required("clientToken") => String.t() | atom(),
@@ -530,6 +531,7 @@ defmodule AWS.Imagebuilder do
 
       image_pipeline() :: %{
         "arn" => String.t() | atom(),
+        "consecutiveFailures" => integer(),
         "containerRecipeArn" => String.t() | atom(),
         "dateCreated" => String.t() | atom(),
         "dateLastRun" => String.t() | atom(),
@@ -543,6 +545,8 @@ defmodule AWS.Imagebuilder do
         "imageScanningConfiguration" => image_scanning_configuration(),
         "imageTestsConfiguration" => image_tests_configuration(),
         "infrastructureConfigurationArn" => String.t() | atom(),
+        "lastRunStatus" => list(any()),
+        "loggingConfiguration" => pipeline_logging_configuration(),
         "name" => String.t() | atom(),
         "platform" => list(any()),
         "schedule" => schedule(),
@@ -614,6 +618,17 @@ defmodule AWS.Imagebuilder do
 
   """
   @type update_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auto_disable_policy() :: %{
+        "failureCount" => integer()
+      }
+
+  """
+  @type auto_disable_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -718,6 +733,18 @@ defmodule AWS.Imagebuilder do
 
   """
   @type get_image_recipe_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipeline_logging_configuration() :: %{
+        "imageLogGroupName" => String.t() | atom(),
+        "pipelineLogGroupName" => String.t() | atom()
+      }
+
+  """
+  @type pipeline_logging_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -861,6 +888,7 @@ defmodule AWS.Imagebuilder do
 
       create_image_recipe_request() :: %{
         optional("additionalInstanceConfiguration") => additional_instance_configuration(),
+        optional("amiTags") => map(),
         optional("blockDeviceMappings") => list(instance_block_device_mapping()),
         optional("description") => String.t() | atom(),
         optional("tags") => map(),
@@ -1505,6 +1533,17 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
+      image_logging_configuration() :: %{
+        "logGroupName" => String.t() | atom()
+      }
+
+  """
+  @type image_logging_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_container_recipe_request() :: %{
         optional("description") => String.t() | atom(),
         optional("dockerfileTemplateData") => String.t() | atom(),
@@ -1574,6 +1613,7 @@ defmodule AWS.Imagebuilder do
         optional("imageRecipeArn") => String.t() | atom(),
         optional("imageScanningConfiguration") => image_scanning_configuration(),
         optional("imageTestsConfiguration") => image_tests_configuration(),
+        optional("loggingConfiguration") => image_logging_configuration(),
         optional("tags") => map(),
         optional("workflows") => list(workflow_configuration()),
         required("clientToken") => String.t() | atom(),
@@ -2055,6 +2095,7 @@ defmodule AWS.Imagebuilder do
         "arn" => String.t() | atom(),
         "containerType" => list(any()),
         "dateCreated" => String.t() | atom(),
+        "instanceImage" => String.t() | atom(),
         "name" => String.t() | atom(),
         "owner" => String.t() | atom(),
         "parentImage" => String.t() | atom(),
@@ -2182,6 +2223,7 @@ defmodule AWS.Imagebuilder do
         optional("imageRecipeArn") => String.t() | atom(),
         optional("imageScanningConfiguration") => image_scanning_configuration(),
         optional("imageTestsConfiguration") => image_tests_configuration(),
+        optional("loggingConfiguration") => pipeline_logging_configuration(),
         optional("schedule") => schedule(),
         optional("status") => list(any()),
         optional("tags") => map(),
@@ -2433,6 +2475,7 @@ defmodule AWS.Imagebuilder do
 
       image_recipe() :: %{
         "additionalInstanceConfiguration" => additional_instance_configuration(),
+        "amiTags" => map(),
         "arn" => String.t() | atom(),
         "blockDeviceMappings" => list(instance_block_device_mapping()),
         "components" => list(component_configuration()),
@@ -2525,6 +2568,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       schedule() :: %{
+        "autoDisablePolicy" => auto_disable_policy(),
         "pipelineExecutionStartCondition" => list(any()),
         "scheduleExpression" => String.t() | atom(),
         "timezone" => String.t() | atom()
@@ -2686,6 +2730,7 @@ defmodule AWS.Imagebuilder do
         "imageTestsConfiguration" => image_tests_configuration(),
         "infrastructureConfiguration" => infrastructure_configuration(),
         "lifecycleExecutionId" => String.t() | atom(),
+        "loggingConfiguration" => image_logging_configuration(),
         "name" => String.t() | atom(),
         "osVersion" => String.t() | atom(),
         "outputResources" => output_resources(),
@@ -3254,6 +3299,7 @@ defmodule AWS.Imagebuilder do
         optional("imageRecipeArn") => String.t() | atom(),
         optional("imageScanningConfiguration") => image_scanning_configuration(),
         optional("imageTestsConfiguration") => image_tests_configuration(),
+        optional("loggingConfiguration") => pipeline_logging_configuration(),
         optional("schedule") => schedule(),
         optional("status") => list(any()),
         optional("workflows") => list(workflow_configuration()),
@@ -3324,6 +3370,7 @@ defmodule AWS.Imagebuilder do
       import_disk_image_request() :: %{
         optional("description") => String.t() | atom(),
         optional("executionRole") => String.t() | atom(),
+        optional("loggingConfiguration") => image_logging_configuration(),
         optional("tags") => map(),
         required("clientToken") => String.t() | atom(),
         required("infrastructureConfigurationArn") => String.t() | atom(),
@@ -3373,6 +3420,7 @@ defmodule AWS.Imagebuilder do
         "deprecationTime" => non_neg_integer(),
         "imageSource" => list(any()),
         "lifecycleExecutionId" => String.t() | atom(),
+        "loggingConfiguration" => image_logging_configuration(),
         "name" => String.t() | atom(),
         "osVersion" => String.t() | atom(),
         "outputResources" => output_resources(),
@@ -3518,6 +3566,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       start_image_pipeline_execution_request() :: %{
+        optional("tags") => map(),
         required("clientToken") => String.t() | atom(),
         required("imagePipelineArn") => String.t() | atom()
       }

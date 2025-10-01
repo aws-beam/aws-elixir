@@ -249,6 +249,7 @@ defmodule AWS.Transfer do
         optional("EndpointType") => list(any()),
         optional("HostKey") => String.t() | atom(),
         optional("IdentityProviderDetails") => identity_provider_details(),
+        optional("IdentityProviderType") => list(any()),
         optional("IpAddressType") => list(any()),
         optional("LoggingRole") => String.t() | atom(),
         optional("PostAuthenticationLoginBanner") => String.t() | atom(),
@@ -3504,6 +3505,12 @@ defmodule AWS.Transfer do
 
   @doc """
   Describes the certificate that's identified by the `CertificateId`.
+
+  Transfer Family automatically publishes a Amazon CloudWatch metric called
+  `DaysUntilExpiry` for imported certificates. This metric tracks the number of
+  days until the certificate expires based on the `InactiveDate`. The metric is
+  available in the `AWS/Transfer` namespace and includes the `CertificateId` as a
+  dimension.
   """
   @spec describe_certificate(map(), describe_certificate_request(), list()) ::
           {:ok, describe_certificate_response(), any()}
@@ -3684,8 +3691,29 @@ defmodule AWS.Transfer do
   You can import both the certificate and its chain in the `Certificate`
   parameter.
 
+  After importing a certificate, Transfer Family automatically creates a Amazon
+  CloudWatch metric called `DaysUntilExpiry` that tracks the number of days until
+  the certificate expires. The metric is based on the `InactiveDate` parameter and
+  is published daily in the `AWS/Transfer` namespace.
+
+  It can take up to a full day after importing a certificate for Transfer Family
+  to emit the `DaysUntilExpiry` metric to your account.
+
   If you use the `Certificate` parameter to upload both the certificate and its
   chain, don't use the `CertificateChain` parameter.
+
+  ## CloudWatch monitoring
+
+  The `DaysUntilExpiry` metric includes the following specifications:
+
+    * **Units:** Count (days)
+
+    * **Dimensions:** `CertificateId` (always present), `Description`
+  (if provided during certificate import)
+
+    * **Statistics:** Minimum, Maximum, Average
+
+    * **Frequency:** Published daily
   """
   @spec import_certificate(map(), import_certificate_request(), list()) ::
           {:ok, import_certificate_response(), any()}

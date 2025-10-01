@@ -442,6 +442,7 @@ defmodule AWS.FSx do
         "DeploymentType" => list(any()),
         "DiskIopsConfiguration" => disk_iops_configuration(),
         "EndpointIpAddressRange" => String.t() | atom(),
+        "EndpointIpv6AddressRange" => String.t() | atom(),
         "FsxAdminPassword" => String.t() | atom(),
         "HAPairs" => integer(),
         "PreferredSubnetId" => String.t() | atom(),
@@ -941,6 +942,7 @@ defmodule AWS.FSx do
         "AutomaticBackupRetentionDays" => integer(),
         "DailyAutomaticBackupStartTime" => String.t() | atom(),
         "DiskIopsConfiguration" => disk_iops_configuration(),
+        "EndpointIpv6AddressRange" => String.t() | atom(),
         "FsxAdminPassword" => String.t() | atom(),
         "HAPairs" => integer(),
         "RemoveRouteTableIds" => list(String.t() | atom()),
@@ -1079,7 +1081,8 @@ defmodule AWS.FSx do
       
       file_system_endpoint() :: %{
         "DNSName" => String.t() | atom(),
-        "IpAddresses" => list(String.t() | atom())
+        "IpAddresses" => list(String.t() | atom()),
+        "Ipv6Addresses" => list(String.t() | atom())
       }
       
   """
@@ -1632,7 +1635,8 @@ defmodule AWS.FSx do
       
       svm_endpoint() :: %{
         "DNSName" => String.t() | atom(),
-        "IpAddresses" => list(String.t() | atom())
+        "IpAddresses" => list(String.t() | atom()),
+        "Ipv6Addresses" => list(String.t() | atom())
       }
       
   """
@@ -2469,6 +2473,7 @@ defmodule AWS.FSx do
         "DeploymentType" => list(any()),
         "DiskIopsConfiguration" => disk_iops_configuration(),
         "EndpointIpAddressRange" => String.t() | atom(),
+        "EndpointIpv6AddressRange" => String.t() | atom(),
         "Endpoints" => file_system_endpoints(),
         "FsxAdminPassword" => String.t() | atom(),
         "HAPairs" => integer(),
@@ -2762,6 +2767,7 @@ defmodule AWS.FSx do
         "DiskIopsConfiguration" => disk_iops_configuration(),
         "MaintenanceOperationsInProgress" => list(list(any())()),
         "PreferredFileServerIp" => String.t() | atom(),
+        "PreferredFileServerIpv6" => String.t() | atom(),
         "PreferredSubnetId" => String.t() | atom(),
         "RemoteAdministrationEndpoint" => String.t() | atom(),
         "SelfManagedActiveDirectoryConfiguration" => self_managed_active_directory_attributes(),
@@ -5243,6 +5249,10 @@ defmodule AWS.FSx do
     *
 
   `DiskIopsConfiguration`
+
+    *
+
+  `EndpointIpv6AddressRange`
 
     *
 

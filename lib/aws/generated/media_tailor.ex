@@ -422,6 +422,7 @@ defmodule AWS.MediaTailor do
         "DelayAfterAvailEndSeconds" => integer(),
         "DynamicVariables" => map(),
         "TrafficShapingRetrievalWindow" => traffic_shaping_retrieval_window(),
+        "TrafficShapingTpsConfiguration" => traffic_shaping_tps_configuration(),
         "TrafficShapingType" => list(any())
       }
 
@@ -577,6 +578,18 @@ defmodule AWS.MediaTailor do
 
   """
   @type clip_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      traffic_shaping_tps_configuration() :: %{
+        "PeakConcurrentUsers" => integer(),
+        "PeakTps" => integer()
+      }
+
+  """
+  @type traffic_shaping_tps_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -937,6 +950,7 @@ defmodule AWS.MediaTailor do
         "EndTime" => non_neg_integer(),
         "StartTime" => non_neg_integer(),
         "TrafficShapingRetrievalWindow" => traffic_shaping_retrieval_window(),
+        "TrafficShapingTpsConfiguration" => traffic_shaping_tps_configuration(),
         "TrafficShapingType" => list(any())
       }
 

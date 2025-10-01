@@ -1706,6 +1706,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("exceptionLevel") => list(any()),
         optional("kmsKeyArn") => String.t() | atom(),
         optional("protocolConfiguration") => list(),
+        optional("tags") => map(),
         required("authorizerConfiguration") => list(),
         required("authorizerType") => list(any()),
         required("name") => String.t() | atom(),
@@ -4251,6 +4252,9 @@ defmodule AWS.BedrockAgentCoreControl do
 
   @doc """
   Lists the tags associated with the specified resource.
+
+  This feature is currently available only for AgentCore Runtime, Browser, Code
+  Interpreter tool, and Gateway.
   """
   @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -4331,6 +4335,9 @@ defmodule AWS.BedrockAgentCoreControl do
   If existing tags on a resource are not specified in the request parameters, they
   are not changed. When a resource is deleted, the tags associated with that
   resource are also deleted.
+
+  This feature is currently available only for AgentCore Runtime, Browser, Code
+  Interpreter tool, and Gateway.
   """
   @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -4360,6 +4367,9 @@ defmodule AWS.BedrockAgentCoreControl do
 
   @doc """
   Removes the specified tags from the specified resource.
+
+  This feature is currently available only for AgentCore Runtime, Browser, Code
+  Interpreter tool, and Gateway.
   """
   @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}

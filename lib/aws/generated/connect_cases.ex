@@ -72,6 +72,17 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      connect_case_filter() :: %{
+        "caseId" => String.t() | atom()
+      }
+
+  """
+  @type connect_case_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_request() :: %{
         required("tags") => map()
       }
@@ -631,6 +642,17 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      connect_case_content() :: %{
+        "caseId" => String.t() | atom()
+      }
+
+  """
+  @type connect_case_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       audit_event_field() :: %{
         "eventFieldId" => String.t() | atom(),
         "newValue" => list(),
@@ -1153,6 +1175,17 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      custom_input_content() :: %{
+        "fields" => list(field_value())
+      }
+
+  """
+  @type custom_input_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       field_value() :: %{
         "id" => String.t() | atom(),
         "value" => list()
@@ -1198,6 +1231,17 @@ defmodule AWS.ConnectCases do
 
   """
   @type layout_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connect_case_input_content() :: %{
+        "caseId" => String.t() | atom()
+      }
+
+  """
+  @type connect_case_input_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1285,6 +1329,17 @@ defmodule AWS.ConnectCases do
 
   """
   @type create_domain_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_filter() :: %{
+        "fields" => list()
+      }
+
+  """
+  @type custom_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1515,6 +1570,17 @@ defmodule AWS.ConnectCases do
 
   """
   @type case_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_content() :: %{
+        "fields" => list(field_value())
+      }
+
+  """
+  @type custom_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2332,7 +2398,7 @@ defmodule AWS.ConnectCases do
 
     * Perform any operations that require the CaseID
 
-  This action is irreversible. Once you delete a case, you cannot recover its
+  This action is irreversible. After you delete a case, you cannot recover its
   data.
   """
   @spec delete_case(

@@ -1541,6 +1541,7 @@ defmodule AWS.ChimeSDKVoice do
       create_voice_connector_request() :: %{
         optional("AwsRegion") => list(any()),
         optional("IntegrationType") => list(any()),
+        optional("NetworkType") => list(any()),
         optional("Tags") => list(tag()),
         required("Name") => String.t() | atom(),
         required("RequireEncryption") => boolean()
@@ -1701,6 +1702,7 @@ defmodule AWS.ChimeSDKVoice do
         "CreatedTimestamp" => non_neg_integer(),
         "IntegrationType" => list(any()),
         "Name" => String.t() | atom(),
+        "NetworkType" => list(any()),
         "OutboundHostName" => String.t() | atom(),
         "RequireEncryption" => boolean(),
         "UpdatedTimestamp" => non_neg_integer(),

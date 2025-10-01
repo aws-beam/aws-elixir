@@ -61,6 +61,7 @@ defmodule AWS.Directory do
         "AvailabilityZone" => String.t() | atom(),
         "DirectoryId" => String.t() | atom(),
         "DnsIpAddr" => String.t() | atom(),
+        "DnsIpv6Addr" => String.t() | atom(),
         "DomainControllerId" => String.t() | atom(),
         "LaunchTime" => non_neg_integer(),
         "Status" => list(any()),
@@ -147,6 +148,7 @@ defmodule AWS.Directory do
       
       create_directory_request() :: %{
         optional("Description") => String.t() | atom(),
+        optional("NetworkType") => list(any()),
         optional("ShortName") => String.t() | atom(),
         optional("Tags") => list(tag()),
         optional("VpcSettings") => directory_vpc_settings(),
@@ -223,8 +225,9 @@ defmodule AWS.Directory do
   ## Example:
       
       update_conditional_forwarder_request() :: %{
+        optional("DnsIpAddrs") => list(String.t() | atom()),
+        optional("DnsIpv6Addrs") => list(String.t() | atom()),
         required("DirectoryId") => String.t() | atom(),
-        required("DnsIpAddrs") => list(String.t() | atom()),
         required("RemoteDomainName") => String.t() | atom()
       }
       
@@ -249,6 +252,7 @@ defmodule AWS.Directory do
       
       ip_route() :: %{
         "CidrIp" => String.t() | atom(),
+        "CidrIpv6" => String.t() | atom(),
         "Description" => String.t() | atom()
       }
       
@@ -356,6 +360,7 @@ defmodule AWS.Directory do
       
       create_trust_request() :: %{
         optional("ConditionalForwarderIpAddrs") => list(String.t() | atom()),
+        optional("ConditionalForwarderIpv6Addrs") => list(String.t() | atom()),
         optional("SelectiveAuth") => list(any()),
         optional("TrustType") => list(any()),
         required("DirectoryId") => String.t() | atom(),
@@ -522,9 +527,22 @@ defmodule AWS.Directory do
 
   ## Example:
       
+      network_update_settings() :: %{
+        "CustomerDnsIpsV6" => list(String.t() | atom()),
+        "NetworkType" => list(any())
+      }
+      
+  """
+  @type network_update_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_conditional_forwarder_request() :: %{
+        optional("DnsIpAddrs") => list(String.t() | atom()),
+        optional("DnsIpv6Addrs") => list(String.t() | atom()),
         required("DirectoryId") => String.t() | atom(),
-        required("DnsIpAddrs") => list(String.t() | atom()),
         required("RemoteDomainName") => String.t() | atom()
       }
       
@@ -1046,6 +1064,8 @@ defmodule AWS.Directory do
         "AccountId" => String.t() | atom(),
         "DirectoryId" => String.t() | atom(),
         "DnsIpAddrs" => list(String.t() | atom()),
+        "DnsIpv6Addrs" => list(String.t() | atom()),
+        "NetworkType" => list(any()),
         "RadiusSettings" => radius_settings(),
         "RadiusStatus" => list(any()),
         "VpcSettings" => directory_vpc_settings_description()
@@ -1214,6 +1234,7 @@ defmodule AWS.Directory do
         "RadiusPort" => integer(),
         "RadiusRetries" => integer(),
         "RadiusServers" => list(String.t() | atom()),
+        "RadiusServersIpv6" => list(String.t() | atom()),
         "RadiusTimeout" => integer(),
         "SharedSecret" => String.t() | atom(),
         "UseSameUsername" => boolean()
@@ -1478,6 +1499,7 @@ defmodule AWS.Directory do
       
       connect_directory_request() :: %{
         optional("Description") => String.t() | atom(),
+        optional("NetworkType") => list(any()),
         optional("ShortName") => String.t() | atom(),
         optional("Tags") => list(tag()),
         required("ConnectSettings") => directory_connect_settings(),
@@ -1595,10 +1617,12 @@ defmodule AWS.Directory do
         "DesiredNumberOfDomainControllers" => integer(),
         "DirectoryId" => String.t() | atom(),
         "DnsIpAddrs" => list(String.t() | atom()),
+        "DnsIpv6Addrs" => list(String.t() | atom()),
         "Edition" => list(any()),
         "HybridSettings" => hybrid_settings_description(),
         "LaunchTime" => non_neg_integer(),
         "Name" => String.t() | atom(),
+        "NetworkType" => list(any()),
         "OsVersion" => list(any()),
         "OwnerDirectoryDescription" => owner_directory_description(),
         "RadiusSettings" => radius_settings(),
@@ -1680,6 +1704,7 @@ defmodule AWS.Directory do
       
       conditional_forwarder() :: %{
         "DnsIpAddrs" => list(String.t() | atom()),
+        "DnsIpv6Addrs" => list(String.t() | atom()),
         "RemoteDomainName" => String.t() | atom(),
         "ReplicationScope" => list(any())
       }
@@ -2443,7 +2468,8 @@ defmodule AWS.Directory do
   ## Example:
       
       remove_ip_routes_request() :: %{
-        required("CidrIps") => list(String.t() | atom()),
+        optional("CidrIps") => list(String.t() | atom()),
+        optional("CidrIpv6s") => list(String.t() | atom()),
         required("DirectoryId") => String.t() | atom()
       }
       
@@ -2633,6 +2659,7 @@ defmodule AWS.Directory do
       directory_connect_settings_description() :: %{
         "AvailabilityZones" => list(String.t() | atom()),
         "ConnectIps" => list(String.t() | atom()),
+        "ConnectIpsV6" => list(String.t() | atom()),
         "CustomerUserName" => String.t() | atom(),
         "SecurityGroupId" => String.t() | atom(),
         "SubnetIds" => list(String.t() | atom()),
@@ -2716,6 +2743,7 @@ defmodule AWS.Directory do
       create_microsoft_ad_request() :: %{
         optional("Description") => String.t() | atom(),
         optional("Edition") => list(any()),
+        optional("NetworkType") => list(any()),
         optional("ShortName") => String.t() | atom(),
         optional("Tags") => list(tag()),
         required("Name") => String.t() | atom(),
@@ -2792,9 +2820,21 @@ defmodule AWS.Directory do
 
   ## Example:
       
+      directory_size_update_settings() :: %{
+        "DirectorySize" => list(any())
+      }
+      
+  """
+  @type directory_size_update_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       ip_route_info() :: %{
         "AddedDateTime" => non_neg_integer(),
         "CidrIp" => String.t() | atom(),
+        "CidrIpv6" => String.t() | atom(),
         "Description" => String.t() | atom(),
         "DirectoryId" => String.t() | atom(),
         "IpRouteStatusMsg" => list(any()),
@@ -2917,6 +2957,7 @@ defmodule AWS.Directory do
       
       directory_connect_settings() :: %{
         "CustomerDnsIps" => list(String.t() | atom()),
+        "CustomerDnsIpsV6" => list(String.t() | atom()),
         "CustomerUserName" => String.t() | atom(),
         "SubnetIds" => list(String.t() | atom()),
         "VpcId" => String.t() | atom()
@@ -2981,6 +3022,8 @@ defmodule AWS.Directory do
       
       update_directory_setup_request() :: %{
         optional("CreateSnapshotBeforeUpdate") => boolean(),
+        optional("DirectorySizeUpdateSettings") => directory_size_update_settings(),
+        optional("NetworkUpdateSettings") => network_update_settings(),
         optional("OSUpdateSettings") => o_s_update_settings(),
         required("DirectoryId") => String.t() | atom(),
         required("UpdateType") => list(any())
@@ -4477,8 +4520,7 @@ defmodule AWS.Directory do
 
   @doc """
   Deactivates access to directory data via the Directory Service Data API for the
-  specified
-  directory.
+  specified directory.
 
   For
   more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
@@ -4510,8 +4552,8 @@ defmodule AWS.Directory do
 
   @doc """
   Disables multi-factor authentication (MFA) with the Remote Authentication Dial
-  In
-  User Service (RADIUS) server for an AD Connector or Microsoft AD directory.
+  In User
+  Service (RADIUS) server for an AD Connector or Microsoft AD directory.
   """
   @spec disable_radius(map(), disable_radius_request(), list()) ::
           {:ok, disable_radius_result(), any()}
@@ -5048,7 +5090,7 @@ defmodule AWS.Directory do
   end
 
   @doc """
-  Updates the directory for a particular update type.
+  Updates directory configuration for the specified update type.
   """
   @spec update_directory_setup(map(), update_directory_setup_request(), list()) ::
           {:ok, update_directory_setup_result(), any()}
@@ -5121,8 +5163,8 @@ defmodule AWS.Directory do
 
   @doc """
   Updates the Remote Authentication Dial In User Service (RADIUS) server
-  information
-  for an AD Connector or Microsoft AD directory.
+  information for
+  an AD Connector or Microsoft AD directory.
   """
   @spec update_radius(map(), update_radius_request(), list()) ::
           {:ok, update_radius_result(), any()}

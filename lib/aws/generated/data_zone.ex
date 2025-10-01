@@ -620,6 +620,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      managed_endpoint_credentials() :: %{
+        "id" => [String.t() | atom()],
+        "token" => [String.t() | atom()]
+      }
+
+  """
+  @type managed_endpoint_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       unauthorized_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -5773,6 +5785,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       spark_emr_properties_output() :: %{
+        "certificateData" => [String.t() | atom()],
         "computeArn" => [String.t() | atom()],
         "credentials" => username_password(),
         "credentialsExpiration" => [non_neg_integer()],
@@ -5781,6 +5794,8 @@ defmodule AWS.DataZone do
         "javaVirtualEnv" => [String.t() | atom()],
         "livyEndpoint" => [String.t() | atom()],
         "logUri" => [String.t() | atom()],
+        "managedEndpointArn" => [String.t() | atom()],
+        "managedEndpointCredentials" => managed_endpoint_credentials(),
         "pythonVirtualEnv" => [String.t() | atom()],
         "runtimeRole" => [String.t() | atom()],
         "trustedCertificatesS3Uri" => [String.t() | atom()]
@@ -6739,6 +6754,7 @@ defmodule AWS.DataZone do
         "instanceProfileArn" => [String.t() | atom()],
         "javaVirtualEnv" => [String.t() | atom()],
         "logUri" => [String.t() | atom()],
+        "managedEndpointArn" => [String.t() | atom()],
         "pythonVirtualEnv" => [String.t() | atom()],
         "runtimeRole" => [String.t() | atom()],
         "trustedCertificatesS3Uri" => [String.t() | atom()]
@@ -7177,6 +7193,7 @@ defmodule AWS.DataZone do
         "instanceProfileArn" => [String.t() | atom()],
         "javaVirtualEnv" => [String.t() | atom()],
         "logUri" => [String.t() | atom()],
+        "managedEndpointArn" => [String.t() | atom()],
         "pythonVirtualEnv" => [String.t() | atom()],
         "runtimeRole" => [String.t() | atom()],
         "trustedCertificatesS3Uri" => [String.t() | atom()]
@@ -9903,8 +9920,8 @@ defmodule AWS.DataZone do
   [create-asset-type](https://docs.aws.amazon.com/cli/latest/reference/datazone/create-asset-type.html).     * `--type-revision` (if used) must match a valid revision of the
   asset type.
 
-    * Form type must exist and be associated with the asset type. Use
-  `create-form-type` to define. For more information, see
+    * `formsInput` is required when it is associated as required in the
+  `asset-type`. For more information, see
   [create-form-type](https://docs.aws.amazon.com/cli/latest/reference/datazone/create-form-type.html).
 
     * Form content must include all required fields as per the form
@@ -10020,8 +10037,8 @@ defmodule AWS.DataZone do
 
     * Asset must already exist in the domain with identifier.
 
-    * The form type with correct revision must be registered in the same
-  domain.
+    * `formsInput` is required when asset has the form type.
+  `typeRevision` should be the latest version of form type.
 
     * The form content must include all required fields (e.g.,
   `bucketArn` for `S3ObjectCollectionForm`).
@@ -10076,8 +10093,8 @@ defmodule AWS.DataZone do
 
   Prerequisites:
 
-    * The form type with `typeIdentifier` and `typeRevision` must exist
-  and be published.
+    * The `formsInput` field is required, however, can be passed as
+  empty (e.g. `-forms-input {})`.
 
     * You must have `CreateAssetType` permissions.
 
@@ -10169,8 +10186,6 @@ defmodule AWS.DataZone do
 
     * User must have create permissions for data products in the
   project.
-
-    * The domain must have Amazon DataZone publishing enabled.
   """
   @spec create_data_product(map(), String.t() | atom(), create_data_product_input(), list()) ::
           {:ok, create_data_product_output(), any()}
@@ -10490,6 +10505,22 @@ defmodule AWS.DataZone do
     * The owning project must exist and be accessible.
 
     * The name must be unique within the domain.
+
+  For custom form types, to indicate that a field should be searchable, annotate
+  it with `@amazon.datazone#searchable`. By default, searchable fields are indexed
+  for semantic search, where related query terms will match the attribute value
+  even if they are not stemmed or keyword matches. To indicate that a field should
+  be indexed for lexical search (which disables semantic search but supports
+  stemmed and partial matches), annotate it with
+  `@amazon.datazone#searchable(modes:["LEXICAL"])`. To indicate that a field should be indexed for technical identifier search (for more information on
+  technical identifier search, see:
+  [https://aws.amazon.com/blogs/big-data/streamline-data-discovery-with-precise-technical-identifier-search-in-amazon-sagemaker-unified-studio/](https://aws.amazon.com/blogs/big-data/streamline-data-discovery-with-precise-technical-identifier-search-in-amazon-sagemaker-unified-studio/)),
+  annotate it with `@amazon.datazone#searchable(modes:["TECHNICAL"])`.
+
+  To denote that a field will store glossary term ids (which are filterable via
+  the Search/SearchListings APIs), annotate it with
+  `@amazon.datazone#glossaryterm("${GLOSSARY_ID}")`, where `${GLOSSARY_ID}` is the
+  id of the glossary that the glossary terms stored in the field belong to.
   """
   @spec create_form_type(map(), String.t() | atom(), create_form_type_input(), list()) ::
           {:ok, create_form_type_output(), any()}
@@ -10581,7 +10612,7 @@ defmodule AWS.DataZone do
 
     * Domain must exist.
 
-    * Glossary must exist and be in an ENABLED state.
+    * Glossary must exist.
 
     * The term name must be unique within the glossary.
 
@@ -11191,9 +11222,6 @@ defmodule AWS.DataZone do
 
     * The user must have delete permissions for the data product.
 
-    * Ensure there are no active dependencies (e.g., published links,
-  assets using the product).
-
     * Domain and project must be active.
   """
   @spec delete_data_product(
@@ -11627,8 +11655,7 @@ defmodule AWS.DataZone do
     * The caller must have the `datazone:DeleteGlossary` permission in
   the domain and glossary.
 
-    * There should be no active assets or metadata linked to the
-  glossary.
+    * Glossary should not be linked to any active metadata forms.
   """
   @spec delete_glossary(
           map(),
@@ -12693,6 +12720,20 @@ defmodule AWS.DataZone do
     * User must have permission on the form type.
 
     * The form type should not be deleted or in an invalid state.
+
+  One use case for this API is to determine whether a form field is indexed for
+  search.
+
+  A searchable field will be annotated with `@amazon.datazone#searchable`. By
+  default, searchable fields are indexed for semantic search, where related query
+  terms will match the attribute value even if they are not stemmed or keyword
+  matches. If a field is indexed technical identifier search, it will be annotated
+  with `@amazon.datazone#searchable(modes:["TECHNICAL"])`. If a field is indexed for lexical search (supports stemmed and prefix matches but not semantic
+  matches), it will be annotated with
+  `@amazon.datazone#searchable(modes:["LEXICAL"])`.
+
+  A field storing glossary term IDs (which is filterable) will be annotated with
+  `@amazon.datazone#glossaryterm("${glossaryId}")`.
   """
   @spec get_form_type(
           map(),
@@ -16069,7 +16110,40 @@ defmodule AWS.DataZone do
   end
 
   @doc """
-  Searches listings (records of an asset at a given time) in Amazon DataZone.
+  Searches listings in Amazon DataZone.
+
+  SearchListings is a powerful capability that enables users to discover and
+  explore published assets and data products across their organization. It
+  provides both basic and advanced search functionality, allowing users to find
+  resources based on names, descriptions, metadata, and other attributes.
+  SearchListings also supports filtering using various criteria such as creation
+  date, owner, or status. This API is essential for making the wealth of data
+  resources in an organization discoverable and usable, helping users find the
+  right data for their needs quickly and efficiently.
+
+  SearchListings returns results in a paginated format. When the result set is
+  large, the response will include a nextToken, which can be used to retrieve the
+  next page of results.
+
+  The SearchListings API gives users flexibility in specifying what kind of search
+  is run.
+
+  To run a free-text search, the `searchText` parameter must be supplied. By
+  default, all searchable fields are indexed for semantic search and will return
+  semantic matches for SearchListings queries. To prevent semantic search indexing
+  for a custom form attribute, see the [CreateFormType API documentation](https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateFormType.html).
+  To run a lexical search query, enclose the query with double quotes (""). This
+  will disable semantic search even for fields that have semantic search enabled
+  and will only return results that contain the keywords wrapped by double quotes
+  (order of tokens in the query is not enforced). Free-text search is supported
+  for all attributes annotated with @amazon.datazone#searchable.
+
+  To run a filtered search, provide filter clause using the filters parameter. To
+  filter on glossary terms, use the special attribute `__DataZoneGlossaryTerms`.
+
+  To find out whether an attribute has been annotated and indexed for a given
+  search type, use the GetFormType API to retrieve the form containing the
+  attribute.
   """
   @spec search_listings(map(), String.t() | atom(), search_listings_input(), list()) ::
           {:ok, search_listings_output(), any()}

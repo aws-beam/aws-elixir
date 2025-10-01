@@ -529,6 +529,23 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      profile_history_record() :: %{
+        "ActionType" => list(any()),
+        "CreatedAt" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "ObjectTypeName" => String.t() | atom(),
+        "PerformedBy" => String.t() | atom(),
+        "ProfileObjectUniqueKey" => String.t() | atom()
+      }
+
+  """
+  @type profile_history_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_profile_request() :: %{
         required("ProfileId") => String.t() | atom()
       }
@@ -1156,6 +1173,15 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type list_event_triggers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_profile_history_record_request() :: %{}
+
+  """
+  @type get_profile_history_record_request() :: %{}
 
   @typedoc """
 
@@ -2374,6 +2400,22 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      list_profile_history_records_request() :: %{
+        optional("ActionType") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ObjectTypeName") => String.t() | atom(),
+        optional("PerformedBy") => String.t() | atom(),
+        required("ProfileId") => String.t() | atom()
+      }
+
+  """
+  @type list_profile_history_records_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       segment_group() :: %{
         "Groups" => list(group()),
         "Include" => list(any())
@@ -3042,6 +3084,24 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      get_profile_history_record_response() :: %{
+        "ActionType" => list(any()),
+        "Content" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "ObjectTypeName" => String.t() | atom(),
+        "PerformedBy" => String.t() | atom(),
+        "ProfileObjectUniqueKey" => String.t() | atom()
+      }
+
+  """
+  @type get_profile_history_record_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       detected_profile_object_type() :: %{
         "Fields" => map(),
         "Keys" => map(),
@@ -3178,6 +3238,18 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type put_profile_object_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_profile_history_records_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ProfileHistoryRecords" => list(profile_history_record())
+      }
+
+  """
+  @type list_profile_history_records_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3970,6 +4042,13 @@ defmodule AWS.CustomerProfiles do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_profile_history_record_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_profile_object_type_errors() ::
           bad_request_exception()
           | throttling_exception()
@@ -4118,6 +4197,13 @@ defmodule AWS.CustomerProfiles do
           | resource_not_found_exception()
 
   @type list_profile_attribute_values_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_profile_history_records_errors() ::
           bad_request_exception()
           | throttling_exception()
           | access_denied_exception()
@@ -5712,6 +5798,32 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
+  Returns a history record for a specific profile, for a specific domain.
+  """
+  @spec get_profile_history_record(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, get_profile_history_record_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_profile_history_record_errors()}
+  def get_profile_history_record(%Client{} = client, domain_name, id, profile_id, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/#{AWS.Util.encode_uri(profile_id)}/history-records/#{AWS.Util.encode_uri(id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns the object types for a specific domain.
   """
   @spec get_profile_object_type(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -6492,6 +6604,46 @@ defmodule AWS.CustomerProfiles do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of history records for a specific profile, for a specific domain.
+  """
+  @spec list_profile_history_records(
+          map(),
+          String.t() | atom(),
+          list_profile_history_records_request(),
+          list()
+        ) ::
+          {:ok, list_profile_history_records_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_profile_history_records_errors()}
+  def list_profile_history_records(%Client{} = client, domain_name, input, options \\ []) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/history-records"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"MaxResults", "max-results"},
+        {"NextToken", "next-token"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

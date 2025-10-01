@@ -7,31 +7,26 @@ defmodule AWS.ApplicationSignals do
   cloud-based applications.
 
   It enables real-time service health dashboards and helps you track long-term
-  performance trends against your business goals.
-  The application-centric view provides you with unified visibility across your
-  applications, services, and
+  performance trends against your business goals. The application-centric view
+  provides you with unified visibility across your applications, services, and
   dependencies, so you can proactively monitor and efficiently triage any issues
-  that may arise,
-  ensuring optimal customer experience.
+  that may arise, ensuring optimal customer experience.
 
   Application Signals provides the following benefits:
 
-    *
-  Automatically collect metrics and traces from your applications, and display key
-  metrics such as call volume, availability, latency, faults, and errors.
+    * Automatically collect metrics and traces from your applications,
+  and display key metrics such as call volume, availability, latency, faults, and
+  errors.
 
-    *
-  Create and monitor service level objectives (SLOs).
+    * Create and monitor service level objectives (SLOs).
 
-    *
-  See a map of your application topology that Application Signals automatically
-  discovers, that gives you a visual representation of your applications,
-  dependencies, and their connectivity.
+    * See a map of your application topology that Application Signals
+  automatically discovers, that gives you a visual representation of your
+  applications, dependencies, and their connectivity.
 
   Application Signals works with CloudWatch RUM, CloudWatch Synthetics canaries,
   and Amazon Web Services Service Catalog AppRegistry, to display your client
-  pages, Synthetics canaries,
-  and application names within dashboards and maps.
+  pages, Synthetics canaries, and application names within dashboards and maps.
   """
 
   alias AWS.Client
@@ -64,6 +59,19 @@ defmodule AWS.ApplicationSignals do
 
   """
   @type get_service_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auditor_result() :: %{
+        "Auditor" => [String.t() | atom()],
+        "Description" => [String.t() | atom()],
+        "Severity" => list(any())
+      }
+
+  """
+  @type auditor_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -110,6 +118,22 @@ defmodule AWS.ApplicationSignals do
 
   ## Example:
 
+      audit_finding() :: %{
+        "AuditorResults" => list(auditor_result()),
+        "DependencyGraph" => dependency_graph(),
+        "KeyAttributes" => map(),
+        "MetricGraph" => metric_graph(),
+        "Operation" => [String.t() | atom()],
+        "Type" => [String.t() | atom()]
+      }
+
+  """
+  @type audit_finding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_service_dependencies_output() :: %{
         "EndTime" => [non_neg_integer()],
         "NextToken" => String.t() | atom(),
@@ -136,6 +160,19 @@ defmodule AWS.ApplicationSignals do
 
   ## Example:
 
+      grouping_attribute_definition() :: %{
+        "DefaultGroupingValue" => String.t() | atom(),
+        "GroupingName" => String.t() | atom(),
+        "GroupingSourceKeys" => list(String.t() | atom())
+      }
+
+  """
+  @type grouping_attribute_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       calendar_interval() :: %{
         "Duration" => integer(),
         "DurationUnit" => list(any()),
@@ -153,6 +190,22 @@ defmodule AWS.ApplicationSignals do
 
   """
   @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_audit_findings_input() :: %{
+        optional("Auditors") => list([String.t() | atom()]()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("AuditTargets") => list(audit_target()),
+        required("EndTime") => [non_neg_integer()],
+        required("StartTime") => [non_neg_integer()]
+      }
+
+  """
+  @type list_audit_findings_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -198,6 +251,20 @@ defmodule AWS.ApplicationSignals do
 
   ## Example:
 
+      service_entity() :: %{
+        "AwsAccountId" => [String.t() | atom()],
+        "Environment" => [String.t() | atom()],
+        "Name" => [String.t() | atom()],
+        "Type" => [String.t() | atom()]
+      }
+
+  """
+  @type service_entity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_level_objective_summary() :: %{
         "Arn" => String.t() | atom(),
         "CreatedTime" => [non_neg_integer()],
@@ -229,6 +296,7 @@ defmodule AWS.ApplicationSignals do
         "DependencyConfig" => dependency_config(),
         "KeyAttributes" => map(),
         "MetricDataQueries" => list(metric_data_query()),
+        "MetricName" => String.t() | atom(),
         "MetricType" => list(any()),
         "OperationName" => String.t() | atom(),
         "PeriodSeconds" => integer(),
@@ -237,6 +305,20 @@ defmodule AWS.ApplicationSignals do
 
   """
   @type service_level_indicator_metric_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_group() :: %{
+        "GroupIdentifier" => String.t() | atom(),
+        "GroupName" => String.t() | atom(),
+        "GroupSource" => String.t() | atom(),
+        "GroupValue" => String.t() | atom()
+      }
+
+  """
+  @type service_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -275,11 +357,23 @@ defmodule AWS.ApplicationSignals do
 
   ## Example:
 
+      list_grouping_attribute_definitions_input() :: %{
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_grouping_attribute_definitions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service() :: %{
         "AttributeMaps" => list(map()),
         "KeyAttributes" => map(),
         "LogGroupReferences" => list(map()),
-        "MetricReferences" => list(metric_reference())
+        "MetricReferences" => list(metric_reference()),
+        "ServiceGroups" => list(service_group())
       }
 
   """
@@ -301,6 +395,35 @@ defmodule AWS.ApplicationSignals do
 
   """
   @type create_service_level_objective_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dependency_graph() :: %{
+        "Edges" => list(edge()),
+        "Nodes" => list(node())
+      }
+
+  """
+  @type dependency_graph() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_states_input() :: %{
+        optional("AttributeFilters") => list(attribute_filter()),
+        optional("AwsAccountId") => String.t() | atom(),
+        optional("IncludeLinkedAccounts") => [boolean()],
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("EndTime") => [non_neg_integer()],
+        required("StartTime") => [non_neg_integer()]
+      }
+
+  """
+  @type list_service_states_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -431,12 +554,39 @@ defmodule AWS.ApplicationSignals do
 
   ## Example:
 
+      list_service_states_output() :: %{
+        "EndTime" => [non_neg_integer()],
+        "NextToken" => String.t() | atom(),
+        "ServiceStates" => list(service_state()),
+        "StartTime" => [non_neg_integer()]
+      }
+
+  """
+  @type list_service_states_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conflict_exception() :: %{
         "Message" => [String.t() | atom()]
       }
 
   """
   @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_graph() :: %{
+        "EndTime" => [non_neg_integer()],
+        "MetricDataQueries" => list(metric_data_query()),
+        "StartTime" => [non_neg_integer()]
+      }
+
+  """
+  @type metric_graph() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -509,7 +659,8 @@ defmodule AWS.ApplicationSignals do
       service_summary() :: %{
         "AttributeMaps" => list(map()),
         "KeyAttributes" => map(),
-        "MetricReferences" => list(metric_reference())
+        "MetricReferences" => list(metric_reference()),
+        "ServiceGroups" => list(service_group())
       }
 
   """
@@ -531,6 +682,18 @@ defmodule AWS.ApplicationSignals do
 
   """
   @type metric_data_query() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_level_objective_entity() :: %{
+        "SloArn" => [String.t() | atom()],
+        "SloName" => [String.t() | atom()]
+      }
+
+  """
+  @type service_level_objective_entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -577,6 +740,19 @@ defmodule AWS.ApplicationSignals do
 
   """
   @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_grouping_attribute_definitions_output() :: %{
+        "GroupingAttributeDefinitions" => list(grouping_attribute_definition()),
+        "NextToken" => String.t() | atom(),
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type list_grouping_attribute_definitions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -680,6 +856,15 @@ defmodule AWS.ApplicationSignals do
 
   ## Example:
 
+      delete_grouping_configuration_output() :: %{}
+
+  """
+  @type delete_grouping_configuration_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       request_based_service_level_indicator() :: %{
         "ComparisonOperator" => list(any()),
         "MetricThreshold" => float(),
@@ -688,6 +873,19 @@ defmodule AWS.ApplicationSignals do
 
   """
   @type request_based_service_level_indicator() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_operation_entity() :: %{
+        "MetricType" => [String.t() | atom()],
+        "Operation" => [String.t() | atom()],
+        "Service" => service_entity()
+      }
+
+  """
+  @type service_operation_entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -736,6 +934,23 @@ defmodule AWS.ApplicationSignals do
 
   """
   @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      applicationsignals_node() :: %{
+        "Duration" => [float()],
+        "KeyAttributes" => map(),
+        "Name" => [String.t() | atom()],
+        "NodeId" => [String.t() | atom()],
+        "Operation" => [String.t() | atom()],
+        "Status" => [String.t() | atom()],
+        "Type" => [String.t() | atom()]
+      }
+
+  """
+  @type applicationsignals_node() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -807,6 +1022,17 @@ defmodule AWS.ApplicationSignals do
 
   ## Example:
 
+      put_grouping_configuration_output() :: %{
+        "GroupingConfiguration" => grouping_configuration()
+      }
+
+  """
+  @type put_grouping_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_service_level_objective_exclusion_windows_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -855,12 +1081,36 @@ defmodule AWS.ApplicationSignals do
 
   ## Example:
 
+      list_audit_findings_output() :: %{
+        "AuditFindings" => list(audit_finding()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_audit_findings_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       throttling_exception() :: %{
         "Message" => [String.t() | atom()]
       }
 
   """
   @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attribute_filter() :: %{
+        "AttributeFilterName" => String.t() | atom(),
+        "AttributeFilterValues" => list(String.t() | atom())
+      }
+
+  """
+  @type attribute_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -891,12 +1141,68 @@ defmodule AWS.ApplicationSignals do
 
   ## Example:
 
+      audit_target() :: %{
+        "Data" => list(),
+        "Type" => [String.t() | atom()]
+      }
+
+  """
+  @type audit_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      change_event() :: %{
+        "AccountId" => String.t() | atom(),
+        "ChangeEventType" => list(any()),
+        "Entity" => map(),
+        "EventId" => [String.t() | atom()],
+        "EventName" => [String.t() | atom()],
+        "Region" => [String.t() | atom()],
+        "Timestamp" => [non_neg_integer()],
+        "UserName" => [String.t() | atom()]
+      }
+
+  """
+  @type change_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      edge() :: %{
+        "ConnectionType" => list(any()),
+        "DestinationNodeId" => [String.t() | atom()],
+        "Duration" => [float()],
+        "SourceNodeId" => [String.t() | atom()]
+      }
+
+  """
+  @type edge() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_service_level_objective_output() :: %{
         "Slo" => service_level_objective()
       }
 
   """
   @type create_service_level_objective_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      grouping_configuration() :: %{
+        "GroupingAttributeDefinitions" => list(grouping_attribute_definition()),
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type grouping_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -978,6 +1284,17 @@ defmodule AWS.ApplicationSignals do
 
   ## Example:
 
+      put_grouping_configuration_input() :: %{
+        required("GroupingAttributeDefinitions") => list(grouping_attribute_definition())
+      }
+
+  """
+  @type put_grouping_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       request_based_service_level_indicator_config() :: %{
         "ComparisonOperator" => list(any()),
         "MetricThreshold" => float(),
@@ -986,6 +1303,19 @@ defmodule AWS.ApplicationSignals do
 
   """
   @type request_based_service_level_indicator_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_state() :: %{
+        "AttributeFilters" => list(attribute_filter()),
+        "LatestChangeEvents" => list(change_event()),
+        "Service" => map()
+      }
+
+  """
+  @type service_state() :: %{(String.t() | atom()) => any()}
 
   @type batch_get_service_level_objective_budget_report_errors() ::
           throttling_exception() | validation_exception()
@@ -1000,6 +1330,9 @@ defmodule AWS.ApplicationSignals do
           | service_quota_exceeded_exception()
           | conflict_exception()
 
+  @type delete_grouping_configuration_errors() ::
+          throttling_exception() | validation_exception() | access_denied_exception()
+
   @type delete_service_level_objective_errors() ::
           throttling_exception() | validation_exception() | resource_not_found_exception()
 
@@ -1007,6 +1340,11 @@ defmodule AWS.ApplicationSignals do
 
   @type get_service_level_objective_errors() ::
           throttling_exception() | validation_exception() | resource_not_found_exception()
+
+  @type list_audit_findings_errors() :: throttling_exception() | validation_exception()
+
+  @type list_grouping_attribute_definitions_errors() ::
+          throttling_exception() | validation_exception() | access_denied_exception()
 
   @type list_service_dependencies_errors() :: throttling_exception() | validation_exception()
 
@@ -1019,9 +1357,14 @@ defmodule AWS.ApplicationSignals do
 
   @type list_service_operations_errors() :: throttling_exception() | validation_exception()
 
+  @type list_service_states_errors() :: throttling_exception() | validation_exception()
+
   @type list_services_errors() :: throttling_exception() | validation_exception()
 
   @type list_tags_for_resource_errors() :: throttling_exception() | resource_not_found_exception()
+
+  @type put_grouping_configuration_errors() ::
+          throttling_exception() | validation_exception() | access_denied_exception()
 
   @type start_discovery_errors() ::
           throttling_exception() | validation_exception() | access_denied_exception()
@@ -1057,20 +1400,15 @@ defmodule AWS.ApplicationSignals do
   reports*.
 
   An *error budget* is the amount of time or requests in an unhealthy state that
-  your service can
-  accumulate during an interval before your overall SLO budget health is breached
-  and the SLO is considered to be
-  unmet. For example, an SLO with a threshold of 99.95% and a monthly interval
-  translates to an error budget of 21.9 minutes of
-  downtime in a 30-day month.
+  your service can accumulate during an interval before your overall SLO budget
+  health is breached and the SLO is considered to be unmet. For example, an SLO
+  with a threshold of 99.95% and a monthly interval translates to an error budget
+  of 21.9 minutes of downtime in a 30-day month.
 
-  Budget reports include a health indicator, the attainment value, and
-  remaining budget.
+  Budget reports include a health indicator, the attainment value, and remaining
+  budget.
 
-  For more information about SLO error budgets, see
-  [
-  SLO
-  concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html#CloudWatch-ServiceLevelObjectives-concepts).
+  For more information about SLO error budgets, see [ SLO concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html#CloudWatch-ServiceLevelObjectives-concepts).
   """
   @spec batch_get_service_level_objective_budget_report(
           map(),
@@ -1134,110 +1472,87 @@ defmodule AWS.ApplicationSignals do
 
   @doc """
   Creates a service level objective (SLO), which can help you ensure that your
-  critical business operations are
-  meeting customer expectations.
+  critical business operations are meeting customer expectations.
 
-  Use SLOs to set and track specific target levels for the
-  reliability and availability of your applications and services. SLOs use service
-  level indicators (SLIs) to
-  calculate whether the application is performing at the level that you want.
+  Use SLOs to set and track specific target levels for the reliability and
+  availability of your applications and services. SLOs use service level
+  indicators (SLIs) to calculate whether the application is performing at the
+  level that you want.
 
   Create an SLO to set a target for a service or operation’s availability or
-  latency. CloudWatch
-  measures this target frequently you can find whether it has been breached.
+  latency. CloudWatch measures this target frequently you can find whether it has
+  been breached.
 
   The target performance quality that is defined for an SLO is the *attainment
   goal*.
 
   You can set SLO targets for your applications that are discovered by Application
-  Signals, using critical metrics such as latency and availability.
-  You can also set SLOs against any CloudWatch metric or math expression that
-  produces a time series.
+  Signals, using critical metrics such as latency and availability. You can also
+  set SLOs against any CloudWatch metric or math expression that produces a time
+  series.
 
   You can't create an SLO for a service operation that was discovered by
-  Application Signals until after that operation has reported standard
-  metrics to Application Signals.
+  Application Signals until after that operation has reported standard metrics to
+  Application Signals.
 
-  When you create an SLO, you specify whether it is a *period-based SLO*
-  or a *request-based SLO*. Each type of SLO has a different way of evaluating
-  your application's performance against its attainment goal.
+  When you create an SLO, you specify whether it is a *period-based SLO* or a
+  *request-based SLO*. Each type of SLO has a different way of evaluating your
+  application's performance against its attainment goal.
 
-    *
-  A *period-based SLO* uses defined *periods* of time within
-  a specified total time interval. For each period of time, Application Signals
-  determines whether the
-  application met its goal. The attainment rate is calculated as the `number of
-  good periods/number of total periods`.
+    * A *period-based SLO* uses defined *periods* of time within a
+  specified total time interval. For each period of time, Application Signals
+  determines whether the application met its goal. The attainment rate is
+  calculated as the `number of good periods/number of total periods`.
 
   For example, for a period-based SLO, meeting an attainment goal of 99.9% means
-  that within your interval, your application must meet its
-  performance goal during at least 99.9% of the
-  time periods.
+  that within your interval, your application must meet its performance goal
+  during at least 99.9% of the time periods.
 
-    *
-  A *request-based SLO* doesn't use pre-defined periods of time. Instead,
-  the SLO measures `number of good requests/number of total requests` during the
-  interval. At any time, you can find the ratio of
-  good requests to total requests for the interval up to the time stamp that you
-  specify, and measure that ratio against the goal set in your SLO.
+    * A *request-based SLO* doesn't use pre-defined periods of time.
+  Instead, the SLO measures `number of good requests/number of total requests`
+  during the interval. At any time, you can find the ratio of good requests to
+  total requests for the interval up to the time stamp that you specify, and
+  measure that ratio against the goal set in your SLO.
 
-  After you have created an SLO, you can retrieve error budget reports for it.
-  An *error budget* is the amount of time or amount of requests that your
-  application can be non-compliant
-  with the SLO's goal, and still have your application meet the goal.
+  After you have created an SLO, you can retrieve error budget reports for it. An
+  *error budget* is the amount of time or amount of requests that your application
+  can be non-compliant with the SLO's goal, and still have your application meet
+  the goal.
 
-    *
-  For a period-based SLO, the error budget starts at a number defined by the
-  highest number of periods that can fail to meet the threshold,
+    * For a period-based SLO, the error budget starts at a number
+  defined by the highest number of periods that can fail to meet the threshold,
   while still meeting the overall goal. The *remaining error budget* decreases
-  with every failed period
-  that is recorded. The error budget within one interval can never increase.
+  with every failed period that is recorded. The error budget within one interval
+  can never increase.
 
   For example, an SLO with a threshold that 99.95% of requests must be completed
-  under 2000ms every month
-  translates to an error budget of 21.9 minutes of downtime per month.
+  under 2000ms every month translates to an error budget of 21.9 minutes of
+  downtime per month.
 
-    *
-  For a request-based SLO, the remaining error budget is dynamic and can increase
-  or decrease, depending on
-  the ratio of good requests to total requests.
+    * For a request-based SLO, the remaining error budget is dynamic and
+  can increase or decrease, depending on the ratio of good requests to total
+  requests.
 
-  For more information about SLOs, see [
-  Service level objectives
-  (SLOs)](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html).
+  For more information about SLOs, see [ Service level objectives (SLOs)](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html).
 
   When you perform a `CreateServiceLevelObjective` operation, Application Signals
   creates the *AWSServiceRoleForCloudWatchApplicationSignals* service-linked role,
-  if it doesn't already exist in your account. This service-
-  linked role has the following permissions:
+  if it doesn't already exist in your account. This service- linked role has the
+  following permissions:
 
-    *
+    * `xray:GetServiceGraph`
 
-  `xray:GetServiceGraph`
+    * `logs:StartQuery`
 
-    *
+    * `logs:GetQueryResults`
 
-  `logs:StartQuery`
+    * `cloudwatch:GetMetricData`
 
-    *
+    * `cloudwatch:ListMetrics`
 
-  `logs:GetQueryResults`
+    * `tag:GetResources`
 
-    *
-
-  `cloudwatch:GetMetricData`
-
-    *
-
-  `cloudwatch:ListMetrics`
-
-    *
-
-  `tag:GetResources`
-
-    *
-
-  `autoscaling:DescribeAutoScalingGroups`
+    * `autoscaling:DescribeAutoScalingGroups`
   """
   @spec create_service_level_objective(map(), create_service_level_objective_input(), list()) ::
           {:ok, create_service_level_objective_output(), any()}
@@ -1256,6 +1571,38 @@ defmodule AWS.ApplicationSignals do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes the grouping configuration for this account.
+
+  This removes all custom grouping attribute definitions that were previously
+  configured.
+  """
+  @spec delete_grouping_configuration(map(), %{}, list()) ::
+          {:ok, delete_grouping_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_grouping_configuration_errors()}
+  def delete_grouping_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/grouping-configuration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -1353,12 +1700,94 @@ defmodule AWS.ApplicationSignals do
   end
 
   @doc """
+  Returns a list of audit findings that provide automated analysis of service
+  behavior and root cause analysis.
+
+  These findings help identify the most significant observations about your
+  services, including performance issues, anomalies, and potential problems. The
+  findings are generated using heuristic algorithms based on established
+  troubleshooting patterns.
+  """
+  @spec list_audit_findings(map(), list_audit_findings_input(), list()) ::
+          {:ok, list_audit_findings_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_audit_findings_errors()}
+  def list_audit_findings(%Client{} = client, input, options \\ []) do
+    url_path = "/auditFindings"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"EndTime", "EndTime"},
+        {"StartTime", "StartTime"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the current grouping configuration for this account, including all
+  custom grouping attribute definitions that have been configured.
+
+  These definitions determine how services are logically grouped based on
+  telemetry attributes, Amazon Web Services tags, or predefined mappings.
+  """
+  @spec list_grouping_attribute_definitions(
+          map(),
+          list_grouping_attribute_definitions_input(),
+          list()
+        ) ::
+          {:ok, list_grouping_attribute_definitions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_grouping_attribute_definitions_errors()}
+  def list_grouping_attribute_definitions(%Client{} = client, input, options \\ []) do
+    url_path = "/grouping-attribute-definitions"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"NextToken", "NextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns a list of service dependencies of the service that you specify.
 
-  A dependency is an infrastructure
-  component that an operation of this service connects with. Dependencies can
-  include Amazon Web Services
-  services, Amazon Web Services resources, and third-party services.
+  A dependency is an infrastructure component that an operation of this service
+  connects with. Dependencies can include Amazon Web Services services, Amazon Web
+  Services resources, and third-party services.
   """
   @spec list_service_dependencies(map(), list_service_dependencies_input(), list()) ::
           {:ok, list_service_dependencies_output(), any()}
@@ -1398,9 +1827,8 @@ defmodule AWS.ApplicationSignals do
   Returns the list of dependents that invoked the specified service during the
   provided time range.
 
-  Dependents include
-  other services, CloudWatch Synthetics canaries, and clients that are
-  instrumented with CloudWatch RUM app monitors.
+  Dependents include other services, CloudWatch Synthetics canaries, and clients
+  that are instrumented with CloudWatch RUM app monitors.
   """
   @spec list_service_dependents(map(), list_service_dependents_input(), list()) ::
           {:ok, list_service_dependents_output(), any()}
@@ -1560,11 +1988,44 @@ defmodule AWS.ApplicationSignals do
   end
 
   @doc """
+  Returns information about the last deployment and other change states of
+  services.
+
+  This API provides visibility into recent changes that may have affected service
+  performance, helping with troubleshooting and change correlation.
+  """
+  @spec list_service_states(map(), list_service_states_input(), list()) ::
+          {:ok, list_service_states_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_service_states_errors()}
+  def list_service_states(%Client{} = client, input, options \\ []) do
+    url_path = "/service/states"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns a list of services that have been discovered by Application Signals.
 
   A service represents a minimum logical and transactional unit that completes a
-  business function. Services
-  are discovered through Application Signals instrumentation.
+  business function. Services are discovered through Application Signals
+  instrumentation.
   """
   @spec list_services(
           map(),
@@ -1669,46 +2130,63 @@ defmodule AWS.ApplicationSignals do
   end
 
   @doc """
+  Creates or updates the grouping configuration for this account.
+
+  This operation allows you to define custom grouping attributes that determine
+  how services are logically grouped based on telemetry attributes, Amazon Web
+  Services tags, or predefined mappings. These grouping attributes can then be
+  used to organize and filter services in the Application Signals console and
+  APIs.
+  """
+  @spec put_grouping_configuration(map(), put_grouping_configuration_input(), list()) ::
+          {:ok, put_grouping_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_grouping_configuration_errors()}
+  def put_grouping_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/grouping-configuration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Enables this Amazon Web Services account to be able to use CloudWatch
-  Application Signals
-  by creating the *AWSServiceRoleForCloudWatchApplicationSignals* service-linked
-  role.
+  Application Signals by creating the
+  *AWSServiceRoleForCloudWatchApplicationSignals* service-linked role.
 
-  This service-
-  linked role has the following permissions:
+  This service- linked role has the following permissions:
 
-    *
+    * `xray:GetServiceGraph`
 
-  `xray:GetServiceGraph`
+    * `logs:StartQuery`
 
-    *
+    * `logs:GetQueryResults`
 
-  `logs:StartQuery`
+    * `cloudwatch:GetMetricData`
 
-    *
+    * `cloudwatch:ListMetrics`
 
-  `logs:GetQueryResults`
+    * `tag:GetResources`
 
-    *
-
-  `cloudwatch:GetMetricData`
-
-    *
-
-  `cloudwatch:ListMetrics`
-
-    *
-
-  `tag:GetResources`
-
-    *
-
-  `autoscaling:DescribeAutoScalingGroups`
+    * `autoscaling:DescribeAutoScalingGroups`
 
   After completing this step, you still need to instrument your Java and Python
-  applications to send data
-  to Application Signals. For more information, see
-  [
+  applications to send data to Application Signals. For more information, see [
   Enabling Application
   Signals](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable.html).
   """
@@ -1743,19 +2221,17 @@ defmodule AWS.ApplicationSignals do
   such as a service level objective.
 
   Tags can help you organize and categorize your resources. You can also use them
-  to scope user
-  permissions by granting a user
-  permission to access or change only resources with certain tag values.
+  to scope user permissions by granting a user permission to access or change only
+  resources with certain tag values.
 
   Tags don't have any semantic meaning to Amazon Web Services and are interpreted
   strictly as strings of characters.
 
   You can use the `TagResource` action with an alarm that already has tags. If you
-  specify a new tag key for the alarm,
-  this tag is appended to the list of tags associated
-  with the alarm. If you specify a tag key that is already associated with the
-  alarm, the new tag value that you specify replaces
-  the previous value for that tag.
+  specify a new tag key for the alarm, this tag is appended to the list of tags
+  associated with the alarm. If you specify a tag key that is already associated
+  with the alarm, the new tag value that you specify replaces the previous value
+  for that tag.
 
   You can associate as many as 50 tags with a CloudWatch resource.
   """
@@ -1817,11 +2293,10 @@ defmodule AWS.ApplicationSignals do
   @doc """
   Updates an existing service level objective (SLO).
 
-  If you omit parameters, the previous values
-  of those parameters are retained.
+  If you omit parameters, the previous values of those parameters are retained.
 
-  You cannot change from a period-based SLO to a request-based SLO,
-  or change from a request-based SLO to a period-based SLO.
+  You cannot change from a period-based SLO to a request-based SLO, or change from
+  a request-based SLO to a period-based SLO.
   """
   @spec update_service_level_objective(
           map(),

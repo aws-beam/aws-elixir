@@ -240,6 +240,19 @@ defmodule AWS.CleanRoomsML do
 
   ## Example:
 
+      access_budget() :: %{
+        "aggregateRemainingBudget" => integer(),
+        "details" => list(access_budget_details()),
+        "resourceArn" => String.t() | atom()
+      }
+
+  """
+  @type access_budget() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       log_redaction_configuration() :: %{
         "customEntityConfig" => custom_entity_config(),
         "entitiesToRedact" => list(list(any())())
@@ -448,6 +461,7 @@ defmodule AWS.CleanRoomsML do
         "name" => String.t() | atom(),
         "numberOfFiles" => [float()],
         "numberOfRecords" => [float()],
+        "privacyBudgets" => list(),
         "protectedQueryIdentifier" => String.t() | atom(),
         "retentionInDays" => [integer()],
         "sizeInGb" => [float()],
@@ -1922,6 +1936,7 @@ defmodule AWS.CleanRoomsML do
         "mlInputChannelArn" => String.t() | atom(),
         "name" => String.t() | atom(),
         "numberOfRecords" => [float()],
+        "privacyBudgets" => list(),
         "retentionInDays" => [integer()],
         "status" => list(any()),
         "statusDetails" => status_details(),
@@ -2117,6 +2132,22 @@ defmodule AWS.CleanRoomsML do
 
   """
   @type audience_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_budget_details() :: %{
+        "autoRefresh" => list(any()),
+        "budget" => integer(),
+        "budgetType" => list(any()),
+        "endTime" => [non_neg_integer()],
+        "remainingBudget" => integer(),
+        "startTime" => [non_neg_integer()]
+      }
+
+  """
+  @type access_budget_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

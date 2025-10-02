@@ -442,6 +442,19 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      access_budget() :: %{
+        "aggregateRemainingBudget" => integer(),
+        "details" => list(access_budget_details()),
+        "resourceArn" => String.t() | atom()
+      }
+
+  """
+  @type access_budget() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_analysis_templates_output() :: %{
         optional("nextToken") => String.t() | atom(),
         required("analysisTemplateSummaries") => list(analysis_template_summary())
@@ -458,6 +471,19 @@ defmodule AWS.CleanRooms do
 
   """
   @type delete_id_namespace_association_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      budget_parameter() :: %{
+        "autoRefresh" => list(any()),
+        "budget" => integer(),
+        "type" => list(any())
+      }
+
+  """
+  @type budget_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1034,6 +1060,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       list_collaboration_privacy_budgets_input() :: %{
+        optional("accessBudgetResourceArn") => String.t() | atom(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
         required("privacyBudgetType") => list(any())
@@ -1846,6 +1873,18 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      access_budgets_privacy_template_parameters_output() :: %{
+        "budgetParameters" => list(budget_parameter()),
+        "resourceArn" => String.t() | atom()
+      }
+
+  """
+  @type access_budgets_privacy_template_parameters_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       membership_query_compute_payment_config() :: %{
         "isResponsible" => [boolean()]
       }
@@ -1876,6 +1915,7 @@ defmodule AWS.CleanRooms do
         "createTime" => [non_neg_integer()],
         "creatorAccountId" => String.t() | atom(),
         "name" => String.t() | atom(),
+        "resourceArn" => String.t() | atom(),
         "selectedAnalysisMethods" => list(list(any())()),
         "type" => list(any()),
         "updateTime" => [non_neg_integer()]
@@ -2068,6 +2108,7 @@ defmodule AWS.CleanRooms do
         "description" => String.t() | atom(),
         "name" => String.t() | atom(),
         "partitionKeys" => list(column()),
+        "resourceArn" => String.t() | atom(),
         "schemaStatusDetails" => list(schema_status_detail()),
         "schemaTypeProperties" => list(),
         "selectedAnalysisMethods" => list(list(any())()),
@@ -2140,6 +2181,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       list_privacy_budgets_input() :: %{
+        optional("accessBudgetResourceArn") => String.t() | atom(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
         required("privacyBudgetType") => list(any())
@@ -2421,8 +2463,8 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       create_privacy_budget_template_input() :: %{
+        optional("autoRefresh") => list(any()),
         optional("tags") => map(),
-        required("autoRefresh") => list(any()),
         required("parameters") => list(),
         required("privacyBudgetType") => list(any())
       }
@@ -3334,6 +3376,18 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      access_budgets_privacy_template_parameters_input() :: %{
+        "budgetParameters" => list(budget_parameter()),
+        "resourceArn" => String.t() | atom()
+      }
+
+  """
+  @type access_budgets_privacy_template_parameters_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_collaboration_output() :: %{
         required("collaboration") => collaboration()
       }
@@ -3768,6 +3822,22 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      access_budget_details() :: %{
+        "autoRefresh" => list(any()),
+        "budget" => integer(),
+        "budgetType" => list(any()),
+        "endTime" => [non_neg_integer()],
+        "remainingBudget" => integer(),
+        "startTime" => [non_neg_integer()]
+      }
+
+  """
+  @type access_budget_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       aggregate_column() :: %{
         "columnNames" => list(String.t() | atom()),
         "function" => String.t() | atom()
@@ -3910,6 +3980,17 @@ defmodule AWS.CleanRooms do
 
   """
   @type data_encryption_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_budgets_privacy_template_update_parameters() :: %{
+        "budgetParameters" => list(budget_parameter())
+      }
+
+  """
+  @type access_budgets_privacy_template_update_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6713,6 +6794,7 @@ defmodule AWS.CleanRooms do
           String.t() | atom(),
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           String.t() | atom(),
           list()
         ) ::
@@ -6723,6 +6805,7 @@ defmodule AWS.CleanRooms do
   def list_collaboration_privacy_budgets(
         %Client{} = client,
         collaboration_identifier,
+        access_budget_resource_arn \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         privacy_budget_type,
@@ -6749,6 +6832,13 @@ defmodule AWS.CleanRooms do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(access_budget_resource_arn) do
+        [{"accessBudgetResourceArn", access_budget_resource_arn} | query_params]
       else
         query_params
       end
@@ -7182,6 +7272,7 @@ defmodule AWS.CleanRooms do
           String.t() | atom(),
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           String.t() | atom(),
           list()
         ) ::
@@ -7192,6 +7283,7 @@ defmodule AWS.CleanRooms do
   def list_privacy_budgets(
         %Client{} = client,
         membership_identifier,
+        access_budget_resource_arn \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         privacy_budget_type,
@@ -7218,6 +7310,13 @@ defmodule AWS.CleanRooms do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(access_budget_resource_arn) do
+        [{"accessBudgetResourceArn", access_budget_resource_arn} | query_params]
       else
         query_params
       end

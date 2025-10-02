@@ -9,7 +9,7 @@ defmodule AWS.ChimeSDKMeetings do
   receive meeting notifications.
 
   For more information about the meeting APIs, see
-  [Amazon Chime SDK meetings](https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Meetings.html).
+  [Amazon Chime SDK meetings](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_Operations_Amazon_Chime_SDK_Meetings.html).
   """
 
   alias AWS.Client
@@ -89,6 +89,7 @@ defmodule AWS.ChimeSDKMeetings do
   ## Example:
 
       create_meeting_with_attendees_request() :: %{
+        optional("MediaPlacementNetworkType") => list(any()),
         optional("MeetingFeatures") => meeting_features_configuration(),
         optional("MeetingHostId") => String.t() | atom(),
         optional("NotificationsConfiguration") => notifications_configuration(),
@@ -346,6 +347,7 @@ defmodule AWS.ChimeSDKMeetings do
   ## Example:
 
       create_meeting_request() :: %{
+        optional("MediaPlacementNetworkType") => list(any()),
         optional("MeetingFeatures") => meeting_features_configuration(),
         optional("MeetingHostId") => String.t() | atom(),
         optional("NotificationsConfiguration") => notifications_configuration(),
@@ -899,7 +901,7 @@ defmodule AWS.ChimeSDKMeetings do
   Creates up to 100 attendees for an active Amazon Chime SDK meeting.
 
   For more information about the Amazon Chime SDK, see
-  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
+  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
   *Amazon Chime Developer Guide*.
   """
   @spec batch_create_attendee(map(), String.t() | atom(), batch_create_attendee_request(), list()) ::
@@ -959,6 +961,15 @@ defmodule AWS.ChimeSDKMeetings do
   to receive and you set your `content` capability to not receive.
 
     *
+  If meeting features is defined as `Video:MaxResolution:None` but
+  `Content:MaxResolution` is defined as something other than
+  `None` and attendee capabilities are not defined in the API
+  request, then the default attendee video capability is set to
+  `Receive` and attendee content capability is set to
+  `SendReceive`. This is because content `SendReceive`
+  requires video to be at least `Receive`.
+
+    *
   When you change an `audio` capability from `None` or `Receive` to `Send` or
   `SendReceive` ,
   and if the attendee left their microphone unmuted, audio will flow from the
@@ -1014,7 +1025,7 @@ defmodule AWS.ChimeSDKMeetings do
   Creates a new attendee for an active Amazon Chime SDK meeting.
 
   For more information about the Amazon Chime SDK, see
-  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html)
+  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html)
   in the
   *Amazon Chime Developer Guide*.
   """
@@ -1049,12 +1060,25 @@ defmodule AWS.ChimeSDKMeetings do
   initial attendees.
 
   For more information about specifying media Regions, see
-  [Amazon Chime SDK Media Regions](https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html)
-  in the *Amazon Chime Developer Guide*. For more information about the Amazon
+  [Available Regions](https://docs.aws.amazon.com/chime-sdk/latest/dg/sdk-available-regions)
+  and
+  [Using meeting Regions](https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html),
+  both
+  in the *Amazon Chime SDK Developer Guide*. For more information about the Amazon
   Chime SDK, see
-  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html)
+  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html)
   in the
-  *Amazon Chime Developer Guide*.
+  *Amazon Chime SDK Developer Guide*.
+
+  If you use this API in conjuction with the and APIs, and you don't specify the
+  `MeetingFeatures.Content.MaxResolution` or `MeetingFeatures.Video.MaxResolution`
+  parameters, the following defaults are used:
+
+    
+  Content.MaxResolution: FHD
+
+    
+  Video.MaxResolution: HD
   """
   @spec create_meeting(map(), create_meeting_request(), list()) ::
           {:ok, create_meeting_response(), any()}
@@ -1088,11 +1112,25 @@ defmodule AWS.ChimeSDKMeetings do
   attendees.
 
   For more information about specifying media Regions, see
-  [Amazon Chime SDK Media Regions](https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html)
-  in the *Amazon Chime Developer Guide*. For more information about the Amazon
+  [Available Regions](https://docs.aws.amazon.com/chime-sdk/latest/dg/sdk-available-regions)
+  and
+  [Using meeting Regions](https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html),
+  both
+  in the *Amazon Chime SDK Developer Guide*. For more information about the Amazon
   Chime SDK, see
-  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html)
-  in the *Amazon Chime Developer Guide*.
+  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html)
+  in the
+  *Amazon Chime SDK Developer Guide*.
+
+  If you use this API in conjuction with the and APIs, and you don't specify the
+  `MeetingFeatures.Content.MaxResolution` or `MeetingFeatures.Video.MaxResolution`
+  parameters, the following defaults are used:
+
+    
+  Content.MaxResolution: FHD
+
+    
+  Video.MaxResolution: HD
   """
   @spec create_meeting_with_attendees(map(), create_meeting_with_attendees_request(), list()) ::
           {:ok, create_meeting_with_attendees_response(), any()}
@@ -1127,7 +1165,7 @@ defmodule AWS.ChimeSDKMeetings do
 
   Attendees are automatically deleted when a Amazon Chime SDK meeting is deleted.
   For more information about the Amazon Chime SDK, see
-  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html)
+  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html)
   in the *Amazon Chime Developer Guide*.
   """
   @spec delete_attendee(
@@ -1170,7 +1208,7 @@ defmodule AWS.ChimeSDKMeetings do
   The operation deletes all attendees, disconnects all clients, and prevents new
   clients from
   joining the meeting. For more information about the Amazon Chime SDK, see
-  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
+  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
   *Amazon Chime Developer Guide*.
   """
   @spec delete_meeting(map(), String.t() | atom(), delete_meeting_request(), list()) ::
@@ -1205,7 +1243,7 @@ defmodule AWS.ChimeSDKMeetings do
   attendee ID.
 
   For more information about the Amazon Chime SDK, see
-  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html)
+  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html)
   in the *Amazon Chime Developer Guide*.
   """
   @spec get_attendee(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -1229,7 +1267,7 @@ defmodule AWS.ChimeSDKMeetings do
   Gets the Amazon Chime SDK meeting details for the specified meeting ID.
 
   For more information about the Amazon Chime SDK, see
-  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html)
+  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html)
   in the *Amazon Chime Developer Guide*.
   """
   @spec get_meeting(map(), String.t() | atom(), list()) ::
@@ -1252,7 +1290,7 @@ defmodule AWS.ChimeSDKMeetings do
   Lists the attendees for the specified Amazon Chime SDK meeting.
 
   For more information about the Amazon Chime SDK, see
-  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html)
+  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html)
   in the *Amazon Chime Developer Guide*.
   """
   @spec list_attendees(
@@ -1548,6 +1586,15 @@ defmodule AWS.ChimeSDKMeetings do
   will contain an HTTP 400 Bad Request status code. However, you can set your
   `video` capability
   to receive and you set your `content` capability to not receive.
+
+    *
+  If meeting features is defined as `Video:MaxResolution:None` but
+  `Content:MaxResolution` is defined as something other than
+  `None` and attendee capabilities are not defined in the API
+  request, then the default attendee video capability is set to
+  `Receive` and attendee content capability is set to
+  `SendReceive`. This is because content `SendReceive`
+  requires video to be at least `Receive`.
 
     *
   When you change an `audio` capability from `None` or `Receive` to `Send` or

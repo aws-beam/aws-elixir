@@ -121,6 +121,19 @@ defmodule AWS.PCS do
 
   ## Example:
       
+      update_cluster_slurm_configuration_request() :: %{
+        "accounting" => update_accounting_request(),
+        "scaleDownIdleTimeInSeconds" => [integer()],
+        "slurmCustomSettings" => list(slurm_custom_setting())
+      }
+      
+  """
+  @type update_cluster_slurm_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       compute_node_group_configuration() :: %{
         "computeNodeGroupId" => [String.t() | atom()]
       }
@@ -140,6 +153,18 @@ defmodule AWS.PCS do
       
   """
   @type networking() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_accounting_request() :: %{
+        "defaultPurgeTimeInDays" => [integer()],
+        "mode" => list(any())
+      }
+      
+  """
+  @type update_accounting_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -165,6 +190,7 @@ defmodule AWS.PCS do
         "id" => [String.t() | atom()],
         "modifiedAt" => [non_neg_integer()],
         "name" => String.t() | atom(),
+        "slurmConfiguration" => queue_slurm_configuration(),
         "status" => list(any())
       }
       
@@ -201,6 +227,7 @@ defmodule AWS.PCS do
       update_queue_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("computeNodeGroupConfigurations") => list(compute_node_group_configuration()),
+        optional("slurmConfiguration") => update_queue_slurm_configuration_request(),
         required("clusterIdentifier") => String.t() | atom(),
         required("queueIdentifier") => String.t() | atom()
       }
@@ -221,6 +248,30 @@ defmodule AWS.PCS do
       
   """
   @type cluster_slurm_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      queue_slurm_configuration() :: %{
+        "slurmCustomSettings" => list(slurm_custom_setting())
+      }
+      
+  """
+  @type queue_slurm_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_cluster_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("slurmConfiguration") => update_cluster_slurm_configuration_request(),
+        required("clusterIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type update_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -544,6 +595,7 @@ defmodule AWS.PCS do
       create_queue_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("computeNodeGroupConfigurations") => list(compute_node_group_configuration()),
+        optional("slurmConfiguration") => queue_slurm_configuration_request(),
         optional("tags") => map(),
         required("clusterIdentifier") => String.t() | atom(),
         required("queueName") => String.t() | atom()
@@ -709,6 +761,17 @@ defmodule AWS.PCS do
 
   ## Example:
       
+      update_queue_slurm_configuration_request() :: %{
+        "slurmCustomSettings" => list(slurm_custom_setting())
+      }
+      
+  """
+  @type update_queue_slurm_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_compute_node_group_response() :: %{
         "computeNodeGroup" => compute_node_group()
       }
@@ -762,6 +825,17 @@ defmodule AWS.PCS do
       
   """
   @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      queue_slurm_configuration_request() :: %{
+        "slurmCustomSettings" => list(slurm_custom_setting())
+      }
+      
+  """
+  @type queue_slurm_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -929,6 +1003,17 @@ defmodule AWS.PCS do
   """
   @type create_queue_response() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      update_cluster_response() :: %{
+        "cluster" => cluster()
+      }
+      
+  """
+  @type update_cluster_response() :: %{(String.t() | atom()) => any()}
+
   @type create_cluster_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1036,6 +1121,14 @@ defmodule AWS.PCS do
           service_quota_exceeded_exception() | resource_not_found_exception()
 
   @type untag_resource_errors() :: resource_not_found_exception()
+
+  @type update_cluster_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type update_compute_node_group_errors() ::
           throttling_exception()
@@ -1349,6 +1442,27 @@ defmodule AWS.PCS do
     meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
+  end
+
+  @doc """
+  Updates a cluster configuration.
+
+  You can modify Slurm scheduler settings, accounting configuration, and security
+  groups for an existing cluster.
+
+  You can only update clusters that are in `ACTIVE`, `UPDATE_FAILED`, or
+  `SUSPENDED` state. All associated resources (queues and compute node groups)
+  must be in `ACTIVE` state before you can update the cluster.
+  """
+  @spec update_cluster(map(), update_cluster_request(), list()) ::
+          {:ok, update_cluster_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_cluster_errors()}
+  def update_cluster(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateCluster", input, options)
   end
 
   @doc """

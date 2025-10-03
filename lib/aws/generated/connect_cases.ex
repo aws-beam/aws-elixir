@@ -585,6 +585,32 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      search_all_related_items_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "relatedItems" => list(search_all_related_items_response_item())
+      }
+
+  """
+  @type search_all_related_items_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_all_related_items_request() :: %{
+        optional("filters") => list(list()),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("sorts") => list(search_all_related_items_sort())
+      }
+
+  """
+  @type search_all_related_items_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conflict_exception() :: %{
         "message" => [String.t() | atom()]
       }
@@ -1198,6 +1224,23 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      search_all_related_items_response_item() :: %{
+        "associationTime" => non_neg_integer(),
+        "caseId" => String.t() | atom(),
+        "content" => list(),
+        "performedBy" => list(),
+        "relatedItemId" => String.t() | atom(),
+        "tags" => map(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type search_all_related_items_response_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_field_request() :: %{
         optional("description") => String.t() | atom(),
         optional("name") => String.t() | atom()
@@ -1370,6 +1413,18 @@ defmodule AWS.ConnectCases do
 
   """
   @type search_cases_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_all_related_items_sort() :: %{
+        "sortOrder" => String.t() | atom(),
+        "sortProperty" => String.t() | atom()
+      }
+
+  """
+  @type search_all_related_items_sort() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1919,6 +1974,13 @@ defmodule AWS.ConnectCases do
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type search_all_related_items_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type search_cases_errors() ::
           throttling_exception()
@@ -3259,6 +3321,73 @@ defmodule AWS.ConnectCases do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Searches for related items across all cases within a domain.
+
+  This is a global search operation that returns related items from multiple
+  cases, unlike the case-specific
+  [SearchRelatedItems](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_SearchRelatedItems.html) API.
+
+  ## Use cases
+
+  Following are common uses cases for this API:
+
+    * Find cases with similar issues across the domain. For example,
+  search for all cases containing comments about "product defect" to identify
+  patterns and existing solutions.
+
+    * Locate all cases associated with specific contacts or orders. For
+  example, find all cases linked to a contactArn to understand the complete
+  customer journey.
+
+    * Monitor SLA compliance across cases. For example, search for all
+  cases with "Active" SLA status to prioritize remediation efforts.
+
+  ## Important things to know
+
+    * This API returns case IDs, not complete case objects. To retrieve
+  full case details, you must make additional calls to the
+  [GetCase](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_GetCase.html)
+  API for each returned case ID.
+
+    * This API searches across related items content, not case fields.
+  Use the
+  [SearchCases](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_SearchCases.html) API to search within case field values.
+
+  **Endpoints**: See [Amazon Connect endpoints and
+  quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  """
+  @spec search_all_related_items(
+          map(),
+          String.t() | atom(),
+          search_all_related_items_request(),
+          list()
+        ) ::
+          {:ok, search_all_related_items_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, search_all_related_items_errors()}
+  def search_all_related_items(%Client{} = client, domain_id, input, options \\ []) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/related-items-search"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,

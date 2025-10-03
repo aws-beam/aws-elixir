@@ -614,6 +614,7 @@ defmodule AWS.Synthetics do
   ## Example:
 
       canary_code_output() :: %{
+        "BlueprintTypes" => list(String.t() | atom()),
         "Dependencies" => list(dependency()),
         "Handler" => String.t() | atom(),
         "SourceLocationArn" => String.t() | atom()
@@ -1048,6 +1049,7 @@ defmodule AWS.Synthetics do
   ## Example:
 
       canary_code_input() :: %{
+        "BlueprintTypes" => list(String.t() | atom()),
         "Dependencies" => list(dependency()),
         "Handler" => String.t() | atom(),
         "S3Bucket" => String.t() | atom(),

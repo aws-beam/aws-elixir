@@ -40,6 +40,19 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      email_generative_answer_chunk_data_details() :: %{
+        "completion" => String.t() | atom(),
+        "nextChunkToken" => String.t() | atom(),
+        "references" => list(data_summary())
+      }
+
+  """
+  @type email_generative_answer_chunk_data_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_content_upload_response() :: %{
         required("headersToInclude") => map(),
         required("uploadId") => String.t() | atom(),
@@ -525,6 +538,17 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      dependency_failed_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type dependency_failed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_next_message_response() :: %{
         "conversationSessionData" => list(runtime_session_data()),
         "conversationState" => conversation_state(),
@@ -671,6 +695,20 @@ defmodule AWS.QConnect do
 
   """
   @type delete_a_i_agent_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      email_generative_answer_a_i_agent_configuration() :: %{
+        "associationConfigurations" => list(association_configuration()),
+        "emailGenerativeAnswerAIPromptId" => String.t() | atom(),
+        "emailQueryReformulationAIPromptId" => String.t() | atom(),
+        "locale" => String.t() | atom()
+      }
+
+  """
+  @type email_generative_answer_a_i_agent_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1328,6 +1366,7 @@ defmodule AWS.QConnect do
       create_session_request() :: %{
         optional("aiAgentConfiguration") => map(),
         optional("clientToken") => String.t() | atom(),
+        optional("contactArn") => String.t() | atom(),
         optional("description") => String.t() | atom(),
         optional("tagFilter") => list(),
         optional("tags") => map(),
@@ -1998,6 +2037,18 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      email_response_chunk_data_details() :: %{
+        "completion" => String.t() | atom(),
+        "nextChunkToken" => String.t() | atom()
+      }
+
+  """
+  @type email_response_chunk_data_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_quota_exceeded_exception() :: %{
         "message" => [String.t() | atom()]
       }
@@ -2355,6 +2406,20 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      email_response_a_i_agent_configuration() :: %{
+        "associationConfigurations" => list(association_configuration()),
+        "emailQueryReformulationAIPromptId" => String.t() | atom(),
+        "emailResponseAIPromptId" => String.t() | atom(),
+        "locale" => String.t() | atom()
+      }
+
+  """
+  @type email_response_a_i_agent_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_assistant_associations_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
@@ -2469,6 +2534,18 @@ defmodule AWS.QConnect do
 
   """
   @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      email_overview_chunk_data_details() :: %{
+        "completion" => String.t() | atom(),
+        "nextChunkToken" => String.t() | atom()
+      }
+
+  """
+  @type email_overview_chunk_data_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3952,6 +4029,18 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      email_overview_a_i_agent_configuration() :: %{
+        "emailOverviewAIPromptId" => String.t() | atom(),
+        "locale" => String.t() | atom()
+      }
+
+  """
+  @type email_overview_a_i_agent_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       answer_recommendation_a_i_agent_configuration() :: %{
         "answerGenerationAIGuardrailId" => String.t() | atom(),
         "answerGenerationAIPromptId" => String.t() | atom(),
@@ -4328,6 +4417,7 @@ defmodule AWS.QConnect do
           | access_denied_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | dependency_failed_exception()
           | unauthorized_exception()
 
   @type deactivate_message_template_errors() ::
@@ -4970,9 +5060,6 @@ defmodule AWS.QConnect do
 
   @doc """
   Creates an Amazon Q in Connect AI Prompt.
-
-  For more information on supported models, see [Supported models for system and custom
-  prompts](https://docs.aws.amazon.com/connect/latest/adminguide/create-ai-prompts.html#cli-create-aiprompt).
   """
   @spec create_a_iprompt(map(), String.t() | atom(), create_a_iprompt_request(), list()) ::
           {:ok, create_a_iprompt_response(), any()}

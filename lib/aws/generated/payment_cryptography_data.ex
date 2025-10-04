@@ -244,6 +244,17 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Example:
 
+      outgoing_tr31_key_block() :: %{
+        "WrappingKeyIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type outgoing_tr31_key_block() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       ecdh_derivation_attributes() :: %{
         "CertificateAuthorityPublicKeyIdentifier" => String.t() | atom(),
         "KeyAlgorithm" => list(any()),
@@ -398,11 +409,11 @@ defmodule AWS.PaymentCryptographyData do
       generate_pin_data_input() :: %{
         optional("EncryptionWrappedKey") => wrapped_key(),
         optional("PinDataLength") => integer(),
+        optional("PrimaryAccountNumber") => String.t() | atom(),
         required("EncryptionKeyIdentifier") => String.t() | atom(),
         required("GenerationAttributes") => list(),
         required("GenerationKeyIdentifier") => String.t() | atom(),
-        required("PinBlockFormat") => list(any()),
-        required("PrimaryAccountNumber") => String.t() | atom()
+        required("PinBlockFormat") => list(any())
       }
 
   """
@@ -653,6 +664,32 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Example:
 
+      wrapped_working_key() :: %{
+        "KeyCheckValue" => String.t() | atom(),
+        "WrappedKeyMaterial" => String.t() | atom(),
+        "WrappedKeyMaterialFormat" => String.t() | atom()
+      }
+
+  """
+  @type wrapped_working_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      translate_key_material_input() :: %{
+        optional("KeyCheckValueAlgorithm") => String.t() | atom(),
+        required("IncomingKeyMaterial") => list(),
+        required("OutgoingKeyMaterial") => list()
+      }
+
+  """
+  @type translate_key_material_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       emv_common_attributes() :: %{
         "ApplicationCryptogram" => String.t() | atom(),
         "MajorKeyDerivationMode" => list(any()),
@@ -697,10 +734,10 @@ defmodule AWS.PaymentCryptographyData do
         optional("DukptAttributes") => dukpt_attributes(),
         optional("EncryptionWrappedKey") => wrapped_key(),
         optional("PinDataLength") => integer(),
+        optional("PrimaryAccountNumber") => String.t() | atom(),
         required("EncryptedPinBlock") => String.t() | atom(),
         required("EncryptionKeyIdentifier") => String.t() | atom(),
         required("PinBlockFormat") => list(any()),
-        required("PrimaryAccountNumber") => String.t() | atom(),
         required("VerificationAttributes") => list(),
         required("VerificationKeyIdentifier") => String.t() | atom()
       }
@@ -817,6 +854,17 @@ defmodule AWS.PaymentCryptographyData do
 
   """
   @type decrypt_data_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      translate_key_material_output() :: %{
+        "WrappedKey" => wrapped_working_key()
+      }
+
+  """
+  @type translate_key_material_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -964,6 +1012,24 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Example:
 
+      incoming_diffie_hellman_tr31_key_block() :: %{
+        "CertificateAuthorityPublicKeyIdentifier" => String.t() | atom(),
+        "DerivationData" => list(),
+        "DeriveKeyAlgorithm" => list(any()),
+        "KeyDerivationFunction" => list(any()),
+        "KeyDerivationHashAlgorithm" => list(any()),
+        "PrivateKeyIdentifier" => String.t() | atom(),
+        "PublicKeyCertificate" => String.t() | atom(),
+        "WrappedKeyBlock" => String.t() | atom()
+      }
+
+  """
+  @type incoming_diffie_hellman_tr31_key_block() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       generate_mac_output() :: %{
         "KeyArn" => String.t() | atom(),
         "KeyCheckValue" => String.t() | atom(),
@@ -1044,6 +1110,13 @@ defmodule AWS.PaymentCryptographyData do
           | resource_not_found_exception()
 
   @type re_encrypt_data_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type translate_key_material_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1341,8 +1414,8 @@ defmodule AWS.PaymentCryptographyData do
   You can use this operation to generate a DUPKT, CMAC, HMAC or EMV MAC by setting
   generation attributes and algorithm to the associated values. The MAC generation
   encryption key must have valid values for `KeyUsage` such as `TR31_M7_HMAC_KEY`
-  for HMAC generation, and they key must have `KeyModesOfUse` set to `Generate`
-  and `Verify`.
+  for HMAC generation, and the key must have `KeyModesOfUse` set to `Generate` and
+  `Verify`.
 
   For information about valid keys for this operation, see [Understanding key attributes](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html)
   and [Key types for specific data operations](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/crypto-ops-validkeys-ops.html)
@@ -1577,6 +1650,69 @@ defmodule AWS.PaymentCryptographyData do
   end
 
   @doc """
+  Translates an encryption key between different wrapping keys without importing
+  the key into Amazon Web Services Payment Cryptography.
+
+  This operation can be used when key material is frequently rotated, such as
+  during every card transaction, and there is a need to avoid importing
+  short-lived keys into Amazon Web Services Payment Cryptography. It translates
+  short-lived transaction keys such as Pin Encryption Key (PEK) generated for each
+  transaction and wrapped with an ECDH (Elliptic Curve Diffie-Hellman) derived
+  wrapping key to another KEK (Key Encryption Key) wrapping key.
+
+  Before using this operation, you must first request the public key certificate
+  of the ECC key pair generated within Amazon Web Services Payment Cryptography to
+  establish an ECDH key agreement. In `TranslateKeyData`, the service uses its own
+  ECC key pair, public certificate of receiving ECC key pair, and the key
+  derivation parameters to generate a derived key. The service uses this derived
+  key to unwrap the incoming transaction key received as a TR31WrappedKeyBlock and
+  re-wrap using a user provided KEK to generate an outgoing Tr31WrappedKeyBlock.
+  For more information on establishing ECDH derived keys, see the [Creating keys](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/create-keys.html)
+  in the *Amazon Web Services Payment Cryptography User Guide*.
+
+  For information about valid keys for this operation, see [Understanding key attributes](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html)
+  and [Key types for specific data operations](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/crypto-ops-validkeys-ops.html)
+  in the *Amazon Web Services Payment Cryptography User Guide*.
+
+  **Cross-account use**: This operation can't be used across different Amazon Web
+  Services accounts.
+
+  ## Related operations:
+
+    *
+  [CreateKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html)     *
+  [GetPublicCertificate](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetPublicKeyCertificate.html)
+
+    *
+  [ImportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html)
+  """
+  @spec translate_key_material(map(), translate_key_material_input(), list()) ::
+          {:ok, translate_key_material_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, translate_key_material_errors()}
+  def translate_key_material(%Client{} = client, input, options \\ []) do
+    url_path = "/keymaterial/translate"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Translates encrypted PIN block from and to ISO 9564 formats 0,1,3,4.
 
   For more information, see [Translate PIN data](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/translate-pin-data.html)
@@ -1606,7 +1742,7 @@ defmodule AWS.PaymentCryptographyData do
   PIN block, which is translated to a PEK encrypted PIN block for use within the
   service. You can also use ECDH for reveal PIN, wherein the service translates
   the PIN block from PEK to a ECDH derived encryption key. For more information on
-  establishing ECDH derived keys, see the [Generating keys](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/create-keys.html)
+  establishing ECDH derived keys, see the [Creating keys](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/create-keys.html)
   in the *Amazon Web Services Payment Cryptography User Guide*.
 
   The allowed combinations of PIN block format translations are guided by PCI. It

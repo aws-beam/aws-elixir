@@ -911,6 +911,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       collaboration() :: %{
+        "allowedResultRegions" => list(list(any())()),
         "analyticsEngine" => list(any()),
         "arn" => String.t() | atom(),
         "autoApprovedChangeTypes" => list(list(any())()),
@@ -1367,6 +1368,7 @@ defmodule AWS.CleanRooms do
       athena_table_reference() :: %{
         "databaseName" => String.t() | atom(),
         "outputLocation" => String.t() | atom(),
+        "region" => list(any()),
         "tableName" => String.t() | atom(),
         "workGroup" => String.t() | atom()
       }
@@ -2566,6 +2568,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       create_collaboration_input() :: %{
+        optional("allowedResultRegions") => list(list(any())()),
         optional("analyticsEngine") => list(any()),
         optional("autoApprovedChangeRequestTypes") => list(list(any())()),
         optional("creatorMLMemberAbilities") => ml_member_abilities(),
@@ -3539,6 +3542,7 @@ defmodule AWS.CleanRooms do
 
       glue_table_reference() :: %{
         "databaseName" => String.t() | atom(),
+        "region" => list(any()),
         "tableName" => String.t() | atom()
       }
 

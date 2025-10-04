@@ -4944,7 +4944,16 @@ defmodule AWS.MediaLive do
   ## Example:
 
       media_package_v2_group_settings() :: %{
-        "CaptionLanguageMappings" => list(caption_language_mapping())
+        "CaptionLanguageMappings" => list(caption_language_mapping()),
+        "Id3Behavior" => list(any()),
+        "KlvBehavior" => list(any()),
+        "NielsenId3Behavior" => list(any()),
+        "Scte35Type" => list(any()),
+        "SegmentLength" => integer(),
+        "SegmentLengthUnits" => list(any()),
+        "TimedMetadataId3Frame" => list(any()),
+        "TimedMetadataId3Period" => integer(),
+        "TimedMetadataPassthrough" => list(any())
       }
 
   """

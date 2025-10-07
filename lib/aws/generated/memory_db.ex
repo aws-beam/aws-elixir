@@ -67,6 +67,18 @@ defmodule AWS.MemoryDB do
 
   ## Example:
       
+      describe_multi_region_parameters_response() :: %{
+        "MultiRegionParameters" => list(multi_region_parameter()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_multi_region_parameters_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       snapshot_quota_exceeded_fault() :: %{
         "message" => String.t() | atom()
       }
@@ -129,6 +141,18 @@ defmodule AWS.MemoryDB do
       
   """
   @type multi_region_cluster_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_multi_region_parameter_groups_response() :: %{
+        "MultiRegionParameterGroups" => list(multi_region_parameter_group()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_multi_region_parameter_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -437,6 +461,20 @@ defmodule AWS.MemoryDB do
       
   """
   @type recurring_charge() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      multi_region_parameter_group() :: %{
+        "ARN" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Family" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type multi_region_parameter_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -805,6 +843,23 @@ defmodule AWS.MemoryDB do
       
   """
   @type update_cluster_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      multi_region_parameter() :: %{
+        "AllowedValues" => String.t() | atom(),
+        "DataType" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "MinimumEngineVersion" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Source" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type multi_region_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1674,6 +1729,19 @@ defmodule AWS.MemoryDB do
 
   ## Example:
       
+      describe_multi_region_parameter_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("MultiRegionParameterGroupName") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_multi_region_parameter_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       service_linked_role_not_found_fault() :: %{
         "message" => String.t() | atom()
       }
@@ -1838,6 +1906,20 @@ defmodule AWS.MemoryDB do
       
   """
   @type reserved_nodes_offering_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_multi_region_parameters_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Source") => String.t() | atom(),
+        required("MultiRegionParameterGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_multi_region_parameters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2469,6 +2551,18 @@ defmodule AWS.MemoryDB do
           | cluster_not_found_fault()
           | multi_region_cluster_not_found_fault()
 
+  @type describe_multi_region_parameter_groups_errors() ::
+          multi_region_parameter_group_not_found_fault()
+          | service_linked_role_not_found_fault()
+          | invalid_parameter_value_exception()
+          | invalid_parameter_combination_exception()
+
+  @type describe_multi_region_parameters_errors() ::
+          multi_region_parameter_group_not_found_fault()
+          | service_linked_role_not_found_fault()
+          | invalid_parameter_value_exception()
+          | invalid_parameter_combination_exception()
+
   @type describe_parameter_groups_errors() ::
           parameter_group_not_found_fault()
           | service_linked_role_not_found_fault()
@@ -3000,6 +3094,43 @@ defmodule AWS.MemoryDB do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeMultiRegionClusters", input, options)
+  end
+
+  @doc """
+  Returns a list of multi-region parameter groups.
+  """
+  @spec describe_multi_region_parameter_groups(
+          map(),
+          describe_multi_region_parameter_groups_request(),
+          list()
+        ) ::
+          {:ok, describe_multi_region_parameter_groups_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_multi_region_parameter_groups_errors()}
+  def describe_multi_region_parameter_groups(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMultiRegionParameterGroups", input, options)
+  end
+
+  @doc """
+  Returns the detailed parameter list for a particular multi-region parameter
+  group.
+  """
+  @spec describe_multi_region_parameters(
+          map(),
+          describe_multi_region_parameters_request(),
+          list()
+        ) ::
+          {:ok, describe_multi_region_parameters_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_multi_region_parameters_errors()}
+  def describe_multi_region_parameters(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMultiRegionParameters", input, options)
   end
 
   @doc """

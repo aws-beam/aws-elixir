@@ -19998,8 +19998,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Creates Amazon QuickSight customizations for the current Amazon Web Services
-  Region.
+  Creates Amazon QuickSight customizations.
 
   Currently, you can add a custom default theme by using the
   `CreateAccountCustomization` or `UpdateAccountCustomization`
@@ -21119,16 +21118,12 @@ defmodule AWS.QuickSight do
   @doc """
 
   This API permanently deletes all QuickSight customizations for the specified
-  Amazon Web Services account and namespace in this Amazon Web Services Region.
+  Amazon Web Services account and namespace.
 
   When you delete account customizations:
 
     
   All customizations are removed including themes, branding, and visual settings
-
-    
-  The deletion affects only the specified Amazon Web Services Region -
-  customizations in other regions remain unchanged
 
     
   This action cannot be undone through the API
@@ -21139,9 +21134,8 @@ defmodule AWS.QuickSight do
   **Before proceeding:** Ensure you have backups of any custom themes or branding
   elements you may want to recreate.
 
-  Deletes all Amazon QuickSight customizations in this Amazon Web Services Region
-  for the specified
-  Amazon Web Services account and QuickSight namespace.
+  Deletes all Amazon QuickSight customizations for the specified Amazon Web
+  Services account and QuickSight namespace.
   """
   @spec delete_account_customization(
           map(),
@@ -22556,7 +22550,7 @@ defmodule AWS.QuickSight do
   @doc """
   Describes the customizations associated with the provided Amazon Web Services
   account and Amazon
-  QuickSight namespace in an Amazon Web Services Region.
+  QuickSight namespace.
 
   The QuickSight console evaluates which
   customizations to apply by running this API operation with the `Resolved` flag
@@ -22579,10 +22573,9 @@ defmodule AWS.QuickSight do
 
     *
 
-  `Amazon Web Services Region` - In each Amazon Web Services Region where you sign
-  in to QuickSight
-  at least once, QuickSight acts as a separate instance of the same service. If
-  you have a user directory, it resides in us-east-1, which is the US East (N.
+  `Amazon Web Services Region` - You can sign in to QuickSight in any Amazon Web
+  Services Region. If
+  you have a user directory, it resides in us-east-1, which is US East (N.
   Virginia). Generally speaking, these users have access to QuickSight in any
   Amazon Web Services Region, unless they are constrained to a namespace.
 
@@ -22613,15 +22606,10 @@ defmodule AWS.QuickSight do
 
     *
 
-  `Applied customizations` - Within an Amazon Web Services Region, a set of
-  QuickSight customizations can apply to an Amazon Web Services account or to a
-  namespace.
+  `Applied customizations` - QuickSight customizations can apply to an Amazon Web
+  Services account or to a namespace.
   Settings that you apply to a namespace override settings that you apply to an
-  Amazon Web Services account. All settings are isolated to a single Amazon Web
-  Services Region. To apply them in
-  other Amazon Web Services Regions, run the `CreateAccountCustomization` command
-  in
-  each Amazon Web Services Region where you want to apply the same customizations.
+  Amazon Web Services account.
   """
   @spec describe_account_customization(
           map(),
@@ -26939,8 +26927,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Updates Amazon QuickSight customizations for the current Amazon Web Services
-  Region.
+  Updates Amazon QuickSight customizations.
 
   Currently, the only customization that you can use is a theme.
 

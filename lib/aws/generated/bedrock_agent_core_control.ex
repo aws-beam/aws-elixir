@@ -215,6 +215,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("encryptionKeyArn") => String.t() | atom(),
         optional("memoryExecutionRoleArn") => String.t() | atom(),
         optional("memoryStrategies") => list(list()),
+        optional("tags") => map(),
         required("eventExpiryDuration") => [integer()],
         required("name") => String.t() | atom()
       }
@@ -369,6 +370,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type delete_gateway_target_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lifecycle_configuration() :: %{
+        "idleRuntimeSessionTimeout" => [integer()],
+        "maxLifetime" => [integer()]
+      }
+
+  """
+  @type lifecycle_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -820,6 +833,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
         optional("environmentVariables") => map(),
+        optional("lifecycleConfiguration") => lifecycle_configuration(),
         optional("protocolConfiguration") => protocol_configuration(),
         optional("requestHeaderConfiguration") => list(),
         optional("tags") => map(),
@@ -891,6 +905,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
         optional("environmentVariables") => map(),
+        optional("lifecycleConfiguration") => lifecycle_configuration(),
         optional("protocolConfiguration") => protocol_configuration(),
         optional("requestHeaderConfiguration") => list(),
         required("agentRuntimeArtifact") => list(),
@@ -1732,6 +1747,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "description" => String.t() | atom(),
         "environmentVariables" => map(),
         "lastUpdatedAt" => non_neg_integer(),
+        "lifecycleConfiguration" => lifecycle_configuration(),
         "networkConfiguration" => network_configuration(),
         "protocolConfiguration" => protocol_configuration(),
         "requestHeaderConfiguration" => list(),

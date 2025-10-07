@@ -426,6 +426,7 @@ defmodule AWS.Backup do
   ## Example:
 
       get_backup_plan_input() :: %{
+        optional("MaxScheduledRunsPreview") => integer(),
         optional("VersionId") => String.t() | atom()
       }
 
@@ -626,6 +627,7 @@ defmodule AWS.Backup do
         "CreatorRequestId" => String.t() | atom(),
         "DeletionDate" => non_neg_integer(),
         "LastExecutionDate" => non_neg_integer(),
+        "ScheduledRunsPreview" => list(scheduled_plan_execution_member()),
         "VersionId" => String.t() | atom()
       }
 
@@ -1679,6 +1681,19 @@ defmodule AWS.Backup do
 
   """
   @type dependency_failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scheduled_plan_execution_member() :: %{
+        "ExecutionTime" => non_neg_integer(),
+        "RuleExecutionType" => list(any()),
+        "RuleId" => String.t() | atom()
+      }
+
+  """
+  @type scheduled_plan_execution_member() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5235,12 +5250,24 @@ defmodule AWS.Backup do
   details are the body of a backup plan in JSON format, in addition to plan
   metadata.
   """
-  @spec get_backup_plan(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
+  @spec get_backup_plan(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_backup_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_backup_plan_errors()}
-  def get_backup_plan(%Client{} = client, backup_plan_id, version_id \\ nil, options \\ []) do
+  def get_backup_plan(
+        %Client{} = client,
+        backup_plan_id,
+        max_scheduled_runs_preview \\ nil,
+        version_id \\ nil,
+        options \\ []
+      ) do
     url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}"
     headers = []
     query_params = []
@@ -5248,6 +5275,13 @@ defmodule AWS.Backup do
     query_params =
       if !is_nil(version_id) do
         [{"versionId", version_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_scheduled_runs_preview) do
+        [{"MaxScheduledRunsPreview", max_scheduled_runs_preview} | query_params]
       else
         query_params
       end
@@ -7630,6 +7664,11 @@ defmodule AWS.Backup do
   Starts a job to create a one-time copy of the specified resource.
 
   Does not support continuous backups.
+
+  See [Copy job
+  retry](https://docs.aws.amazon.com/aws-backup/latest/devguide/recov-point-create-a-copy.html#backup-copy-retry)
+  for information on how Backup retries copy job
+  operations.
   """
   @spec start_copy_job(map(), start_copy_job_input(), list()) ::
           {:ok, start_copy_job_output(), any()}

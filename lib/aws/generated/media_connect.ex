@@ -47,6 +47,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       update_flow_request() :: %{
+        optional("FlowSize") => list(any()),
         optional("Maintenance") => update_maintenance(),
         optional("NdiConfig") => ndi_config(),
         optional("SourceFailoverConfig") => update_failover_config(),
@@ -213,6 +214,7 @@ defmodule AWS.MediaConnect do
         optional("AvailabilityZone") => [String.t() | atom()],
         optional("Entitlements") => list(grant_entitlement_request()),
         optional("FlowSize") => list(any()),
+        optional("FlowTags") => map(),
         optional("Maintenance") => add_maintenance(),
         optional("MediaStreams") => list(add_media_stream_request()),
         optional("NdiConfig") => ndi_config(),
@@ -748,6 +750,7 @@ defmodule AWS.MediaConnect do
         "Description" => [String.t() | atom()],
         "MediaStreamId" => [integer()],
         "MediaStreamName" => [String.t() | atom()],
+        "MediaStreamTags" => map(),
         "MediaStreamType" => list(any()),
         "VideoFormat" => [String.t() | atom()]
       }
@@ -1834,7 +1837,8 @@ defmodule AWS.MediaConnect do
         "NetworkInterfaceType" => list(any()),
         "RoleArn" => [String.t() | atom()],
         "SecurityGroupIds" => list([String.t() | atom()]()),
-        "SubnetId" => [String.t() | atom()]
+        "SubnetId" => [String.t() | atom()],
+        "VpcInterfaceTags" => map()
       }
 
   """
@@ -2063,6 +2067,7 @@ defmodule AWS.MediaConnect do
         "Description" => [String.t() | atom()],
         "Encryption" => encryption(),
         "EntitlementStatus" => list(any()),
+        "EntitlementTags" => map(),
         "Name" => [String.t() | atom()],
         "Subscribers" => list([String.t() | atom()]())
       }
@@ -2337,6 +2342,7 @@ defmodule AWS.MediaConnect do
         "SenderIpAddress" => [String.t() | atom()],
         "SourceListenerAddress" => [String.t() | atom()],
         "SourceListenerPort" => [integer()],
+        "SourceTags" => map(),
         "StreamId" => [String.t() | atom()],
         "VpcInterfaceName" => [String.t() | atom()],
         "WhitelistCidr" => [String.t() | atom()]
@@ -2639,6 +2645,7 @@ defmodule AWS.MediaConnect do
         "NdiProgramName" => [String.t() | atom()],
         "NdiSpeedHqQuality" => [integer()],
         "OutputStatus" => list(any()),
+        "OutputTags" => map(),
         "Port" => [integer()],
         "Protocol" => list(any()),
         "RemoteId" => [String.t() | atom()],

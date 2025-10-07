@@ -5494,6 +5494,7 @@ defmodule AWS.Glue do
         "EvaluatedMetrics" => map(),
         "EvaluatedRule" => String.t() | atom(),
         "EvaluationMessage" => String.t() | atom(),
+        "Labels" => map(),
         "Name" => String.t() | atom(),
         "Result" => list(any()),
         "RuleMetrics" => map()

@@ -52,6 +52,17 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      batch_update_memory_records_input() :: %{
+        required("records") => list(memory_record_update_input())
+      }
+
+  """
+  @type batch_update_memory_records_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       retrieve_memory_records_output() :: %{
         "memoryRecordSummaries" => list(memory_record_summary()),
         "nextToken" => String.t() | atom()
@@ -76,6 +87,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      batch_create_memory_records_input() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        required("records") => list(memory_record_create_input())
+      }
+
+  """
+  @type batch_create_memory_records_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       session_summary() :: %{
         "actorId" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
@@ -95,6 +118,21 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      memory_record_output() :: %{
+        "errorCode" => [integer()],
+        "errorMessage" => [String.t() | atom()],
+        "memoryRecordId" => String.t() | atom(),
+        "requestIdentifier" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type memory_record_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -138,6 +176,32 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      memory_record_create_input() :: %{
+        "content" => list(),
+        "memoryStrategyId" => String.t() | atom(),
+        "namespaces" => list(String.t() | atom()),
+        "requestIdentifier" => String.t() | atom(),
+        "timestamp" => [non_neg_integer()]
+      }
+
+  """
+  @type memory_record_create_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_memory_records_input() :: %{
+        required("records") => list(memory_record_delete_input())
+      }
+
+  """
+  @type batch_delete_memory_records_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_workload_access_token_for_j_w_t_response() :: %{
         "workloadAccessToken" => String.t() | atom()
       }
@@ -155,6 +219,19 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type get_workload_access_token_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_metadata_filter_expression() :: %{
+        "left" => list(),
+        "operator" => list(any()),
+        "right" => list()
+      }
+
+  """
+  @type event_metadata_filter_expression() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -188,6 +265,21 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      memory_record_update_input() :: %{
+        "content" => list(),
+        "memoryRecordId" => String.t() | atom(),
+        "memoryStrategyId" => String.t() | atom(),
+        "namespaces" => list(String.t() | atom()),
+        "timestamp" => [non_neg_integer()]
+      }
+
+  """
+  @type memory_record_update_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       stop_browser_session_request() :: %{
         optional("clientToken") => String.t() | atom(),
         required("sessionId") => String.t() | atom()
@@ -204,6 +296,18 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type delete_memory_record_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_runtime_session_response() :: %{
+        "runtimeSessionId" => String.t() | atom(),
+        "statusCode" => integer()
+      }
+
+  """
+  @type stop_runtime_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -289,6 +393,18 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type input_content_block() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_memory_records_output() :: %{
+        "failedRecords" => list(memory_record_output()),
+        "successfulRecords" => list(memory_record_output())
+      }
+
+  """
+  @type batch_update_memory_records_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -432,7 +548,8 @@ defmodule AWS.BedrockAgentCore do
   ## Example:
 
       filter_input() :: %{
-        "branch" => branch_filter()
+        "branch" => branch_filter(),
+        "eventMetadata" => list(event_metadata_filter_expression())
       }
 
   """
@@ -505,6 +622,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      get_agent_card_request() :: %{
+        optional("qualifier") => [String.t() | atom()],
+        optional("runtimeSessionId") => String.t() | atom()
+      }
+
+  """
+  @type get_agent_card_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       memory_record_summary() :: %{
         "content" => list(),
         "createdAt" => [non_neg_integer()],
@@ -539,6 +668,18 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type service_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_memory_records_output() :: %{
+        "failedRecords" => list(memory_record_output()),
+        "successfulRecords" => list(memory_record_output())
+      }
+
+  """
+  @type batch_create_memory_records_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -691,12 +832,26 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      stop_runtime_session_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("qualifier") => [String.t() | atom()],
+        required("runtimeSessionId") => String.t() | atom()
+      }
+
+  """
+  @type stop_runtime_session_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       event() :: %{
         "actorId" => String.t() | atom(),
         "branch" => branch(),
         "eventId" => String.t() | atom(),
         "eventTimestamp" => [non_neg_integer()],
         "memoryId" => String.t() | atom(),
+        "metadata" => map(),
         "payload" => list(list()),
         "sessionId" => String.t() | atom()
       }
@@ -740,6 +895,7 @@ defmodule AWS.BedrockAgentCore do
       create_event_input() :: %{
         optional("branch") => branch(),
         optional("clientToken") => [String.t() | atom()],
+        optional("metadata") => map(),
         optional("sessionId") => String.t() | atom(),
         required("actorId") => String.t() | atom(),
         required("eventTimestamp") => [non_neg_integer()],
@@ -839,6 +995,17 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      memory_record_delete_input() :: %{
+        "memoryRecordId" => String.t() | atom()
+      }
+
+  """
+  @type memory_record_delete_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resource_content() :: %{
         "blob" => [binary()],
         "mimeType" => [String.t() | atom()],
@@ -896,6 +1063,19 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type get_event_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_card_response() :: %{
+        "agentCard" => any(),
+        "runtimeSessionId" => String.t() | atom(),
+        "statusCode" => integer()
+      }
+
+  """
+  @type get_agent_card_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1106,11 +1286,23 @@ defmodule AWS.BedrockAgentCore do
   ## Example:
 
       delete_memory_record_output() :: %{
-        "memoryRecordId" => [String.t() | atom()]
+        "memoryRecordId" => String.t() | atom()
       }
 
   """
   @type delete_memory_record_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_memory_records_output() :: %{
+        "failedRecords" => list(memory_record_output()),
+        "successfulRecords" => list(memory_record_output())
+      }
+
+  """
+  @type batch_delete_memory_records_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1134,6 +1326,30 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type runtime_client_error() :: %{(String.t() | atom()) => any()}
+
+  @type batch_create_memory_records_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | throttled_exception()
+
+  @type batch_delete_memory_records_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | throttled_exception()
+
+  @type batch_update_memory_records_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | throttled_exception()
 
   @type create_event_errors() ::
           validation_exception()
@@ -1161,6 +1377,15 @@ defmodule AWS.BedrockAgentCore do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | throttled_exception()
+
+  @type get_agent_card_errors() ::
+          runtime_client_error()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
 
   @type get_browser_session_errors() ::
           throttling_exception()
@@ -1347,6 +1572,17 @@ defmodule AWS.BedrockAgentCore do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type stop_runtime_session_errors() ::
+          runtime_client_error()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | unauthorized_exception()
+
   @type update_browser_stream_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1370,6 +1606,111 @@ defmodule AWS.BedrockAgentCore do
       signing_name: "bedrock-agentcore",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Creates multiple memory records in a single batch operation for the specified
+  memory with custom content.
+  """
+  @spec batch_create_memory_records(
+          map(),
+          String.t() | atom(),
+          batch_create_memory_records_input(),
+          list()
+        ) ::
+          {:ok, batch_create_memory_records_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_create_memory_records_errors()}
+  def batch_create_memory_records(%Client{} = client, memory_id, input, options \\ []) do
+    url_path = "/memories/#{AWS.Util.encode_uri(memory_id)}/memoryRecords/batchCreate"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes multiple memory records in a single batch operation from the specified
+  memory.
+  """
+  @spec batch_delete_memory_records(
+          map(),
+          String.t() | atom(),
+          batch_delete_memory_records_input(),
+          list()
+        ) ::
+          {:ok, batch_delete_memory_records_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_delete_memory_records_errors()}
+  def batch_delete_memory_records(%Client{} = client, memory_id, input, options \\ []) do
+    url_path = "/memories/#{AWS.Util.encode_uri(memory_id)}/memoryRecords/batchDelete"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates multiple memory records with custom content in a single batch operation
+  within the specified memory.
+  """
+  @spec batch_update_memory_records(
+          map(),
+          String.t() | atom(),
+          batch_update_memory_records_input(),
+          list()
+        ) ::
+          {:ok, batch_update_memory_records_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_update_memory_records_errors()}
+  def batch_update_memory_records(%Client{} = client, memory_id, input, options \\ []) do
+    url_path = "/memories/#{AWS.Util.encode_uri(memory_id)}/memoryRecords/batchUpdate"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1501,6 +1842,60 @@ defmodule AWS.BedrockAgentCore do
       options,
       200
     )
+  end
+
+  @doc """
+  Retrieves the A2A agent card associated with an AgentCore Runtime agent.
+  """
+  @spec get_agent_card(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, get_agent_card_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_agent_card_errors()}
+  def get_agent_card(
+        %Client{} = client,
+        agent_runtime_arn,
+        qualifier \\ nil,
+        runtime_session_id \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/runtimes/#{AWS.Util.encode_uri(agent_runtime_arn)}/invocations/.well-known/agent-card.json"
+
+    headers = []
+
+    headers =
+      if !is_nil(runtime_session_id) do
+        [{"X-Amzn-Bedrock-AgentCore-Runtime-Session-Id", runtime_session_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(qualifier) do
+        [{"qualifier", qualifier} | query_params]
+      else
+        query_params
+      end
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"X-Amzn-Bedrock-AgentCore-Runtime-Session-Id", "runtimeSessionId"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1648,7 +2043,7 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Retrieves an API Key associated with an API Key Credential Provider
+  Retrieves the API key associated with an API key credential provider.
   """
   @spec get_resource_api_key(map(), get_resource_api_key_request(), list()) ::
           {:ok, get_resource_api_key_response(), any()}
@@ -1677,7 +2072,7 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Returns the OAuth 2.0 token of the provided resource
+  Returns the OAuth 2.0 token of the provided resource.
   """
   @spec get_resource_oauth2_token(map(), get_resource_oauth2_token_request(), list()) ::
           {:ok, get_resource_oauth2_token_response(), any()}
@@ -1706,7 +2101,7 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Obtains an Workload access token for agentic workloads not acting on behalf of
+  Obtains a workload access token for agentic workloads not acting on behalf of a
   user.
   """
   @spec get_workload_access_token(map(), get_workload_access_token_request(), list()) ::
@@ -1736,8 +2131,8 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Obtains an Workload access token for agentic workloads acting on behalf of user
-  with JWT token
+  Obtains a workload access token for agentic workloads acting on behalf of a
+  user, using a JWT token.
   """
   @spec get_workload_access_token_for_j_w_t(
           map(),
@@ -1770,8 +2165,8 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Obtains an Workload access token for agentic workloads acting on behalf of user
-  with User Id.
+  Obtains a workload access token for agentic workloads acting on behalf of a
+  user, using the user's ID.
   """
   @spec get_workload_access_token_for_user_id(
           map(),
@@ -2461,6 +2856,53 @@ defmodule AWS.BedrockAgentCore do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Stops a session that is running in an running AgentCore Runtime agent.
+  """
+  @spec stop_runtime_session(map(), String.t() | atom(), stop_runtime_session_request(), list()) ::
+          {:ok, stop_runtime_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_runtime_session_errors()}
+  def stop_runtime_session(%Client{} = client, agent_runtime_arn, input, options \\ []) do
+    url_path = "/runtimes/#{AWS.Util.encode_uri(agent_runtime_arn)}/stopruntimesession"
+
+    {headers, input} =
+      [
+        {"runtimeSessionId", "X-Amzn-Bedrock-AgentCore-Runtime-Session-Id"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"qualifier", "qualifier"}
+      ]
+      |> Request.build_params(input)
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"X-Amzn-Bedrock-AgentCore-Runtime-Session-Id", "runtimeSessionId"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,

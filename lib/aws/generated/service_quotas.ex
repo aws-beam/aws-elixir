@@ -94,6 +94,15 @@ defmodule AWS.ServiceQuotas do
 
   ## Example:
       
+      stop_auto_management_request() :: %{}
+      
+  """
+  @type stop_auto_management_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       list_aws_default_service_quotas_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
@@ -102,6 +111,15 @@ defmodule AWS.ServiceQuotas do
       
   """
   @type list_aws_default_service_quotas_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_auto_management_response() :: %{}
+      
+  """
+  @type start_auto_management_response() :: %{}
 
   @typedoc """
 
@@ -272,6 +290,20 @@ defmodule AWS.ServiceQuotas do
 
   ## Example:
       
+      start_auto_management_request() :: %{
+        optional("ExclusionList") => map(),
+        optional("NotificationArn") => String.t() | atom(),
+        required("OptInLevel") => list(any()),
+        required("OptInType") => list(any())
+      }
+      
+  """
+  @type start_auto_management_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_requested_service_quota_change_history_response() :: %{
         "NextToken" => String.t() | atom(),
         "RequestedQuotas" => list(requested_service_quota_change())
@@ -320,6 +352,15 @@ defmodule AWS.ServiceQuotas do
       
   """
   @type metric_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_auto_management_response() :: %{}
+      
+  """
+  @type stop_auto_management_response() :: %{}
 
   @typedoc """
 
@@ -511,6 +552,15 @@ defmodule AWS.ServiceQuotas do
 
   ## Example:
       
+      update_auto_management_response() :: %{}
+      
+  """
+  @type update_auto_management_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       disassociate_service_quota_template_request() :: %{}
       
   """
@@ -542,12 +592,33 @@ defmodule AWS.ServiceQuotas do
 
   ## Example:
       
+      get_auto_management_configuration_request() :: %{}
+      
+  """
+  @type get_auto_management_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       no_such_resource_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
   @type no_such_resource_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      quota_info() :: %{
+        "QuotaCode" => String.t() | atom(),
+        "QuotaName" => String.t() | atom()
+      }
+      
+  """
+  @type quota_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -673,6 +744,19 @@ defmodule AWS.ServiceQuotas do
 
   ## Example:
       
+      update_auto_management_request() :: %{
+        optional("ExclusionList") => map(),
+        optional("NotificationArn") => String.t() | atom(),
+        optional("OptInType") => list(any())
+      }
+      
+  """
+  @type update_auto_management_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       service_quota_template_not_in_use_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -727,6 +811,21 @@ defmodule AWS.ServiceQuotas do
   @type get_service_quota_increase_request_from_template_request() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+      
+      get_auto_management_configuration_response() :: %{
+        "ExclusionList" => map(),
+        "NotificationArn" => String.t() | atom(),
+        "OptInLevel" => list(any()),
+        "OptInStatus" => list(any()),
+        "OptInType" => list(any())
+      }
+      
+  """
+  @type get_auto_management_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -890,6 +989,13 @@ defmodule AWS.ServiceQuotas do
           | too_many_requests_exception()
           | dependency_access_denied_exception()
 
+  @type get_auto_management_configuration_errors() ::
+          access_denied_exception()
+          | no_such_resource_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | illegal_argument_exception()
+
   @type get_aws_default_service_quota_errors() ::
           access_denied_exception()
           | no_such_resource_exception()
@@ -1001,6 +1107,20 @@ defmodule AWS.ServiceQuotas do
           | quota_exceeded_exception()
           | dependency_access_denied_exception()
 
+  @type start_auto_management_errors() ::
+          access_denied_exception()
+          | no_such_resource_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | illegal_argument_exception()
+
+  @type stop_auto_management_errors() ::
+          access_denied_exception()
+          | no_such_resource_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | illegal_argument_exception()
+
   @type tag_resource_errors() ::
           tag_policy_violation_exception()
           | too_many_tags_exception()
@@ -1011,6 +1131,13 @@ defmodule AWS.ServiceQuotas do
           | illegal_argument_exception()
 
   @type untag_resource_errors() ::
+          access_denied_exception()
+          | no_such_resource_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | illegal_argument_exception()
+
+  @type update_auto_management_errors() ::
           access_denied_exception()
           | no_such_resource_exception()
           | service_exception()
@@ -1147,6 +1274,29 @@ defmodule AWS.ServiceQuotas do
   end
 
   @doc """
+  Retrieves information about your [Service Quotas Automatic Management](https://docs.aws.amazon.com/servicequotas/latest/userguide/automatic-management.html)
+  configuration.
+
+  Automatic Management monitors your Service Quotas utilization and notifies you
+  before you
+  run out of your allocated quotas.
+  """
+  @spec get_auto_management_configuration(
+          map(),
+          get_auto_management_configuration_request(),
+          list()
+        ) ::
+          {:ok, get_auto_management_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_auto_management_configuration_errors()}
+  def get_auto_management_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAutoManagementConfiguration", input, options)
+  end
+
+  @doc """
   Retrieves the default value for the specified quota.
 
   The default value does not
@@ -1183,12 +1333,11 @@ defmodule AWS.ServiceQuotas do
 
   @doc """
   Retrieves the applied quota value for the specified account-level or
-  resource-level quota.
+  resource-level
+  quota.
 
-  For some quotas, only the
-  default values are available. If the applied quota value is not available for a
-  quota,
-  the quota is not retrieved.
+  For some quotas, only the default values are available. If the applied quota
+  value is not available for a quota, the quota is not retrieved.
   """
   @spec get_service_quota(map(), get_service_quota_request(), list()) ::
           {:ok, get_service_quota_response(), any()}
@@ -1249,9 +1398,10 @@ defmodule AWS.ServiceQuotas do
   Retrieves the quota increase requests for the specified Amazon Web Services
   service.
 
-  Filter responses to return quota requests at
-  either the account level, resource level, or all levels. Responses include any
-  open or closed requests within 90 days.
+  Filter
+  responses to return quota requests at either the account level, resource level,
+  or all
+  levels. Responses include any open or closed requests within 90 days.
   """
   @spec list_requested_service_quota_change_history(
           map(),
@@ -1271,8 +1421,9 @@ defmodule AWS.ServiceQuotas do
   @doc """
   Retrieves the quota increase requests for the specified quota.
 
-  Filter responses to return quota requests at either the
-  account level, resource level, or all levels.
+  Filter responses to
+  return quota requests at either the account level, resource level, or all
+  levels.
   """
   @spec list_requested_service_quota_change_history_by_quota(
           map(),
@@ -1330,8 +1481,8 @@ defmodule AWS.ServiceQuotas do
   the default values are available. If the applied quota value is not available
   for a
   quota, the quota is not retrieved. Filter responses to return applied quota
-  values at either the account level,
-  resource level, or all levels.
+  values at
+  either the account level, resource level, or all levels.
   """
   @spec list_service_quotas(map(), list_service_quotas_request(), list()) ::
           {:ok, list_service_quotas_response(), any()}
@@ -1399,7 +1550,8 @@ defmodule AWS.ServiceQuotas do
 
   @doc """
   Submits a quota increase request for the specified quota at the account or
-  resource level.
+  resource
+  level.
   """
   @spec request_service_quota_increase(map(), request_service_quota_increase_request(), list()) ::
           {:ok, request_service_quota_increase_response(), any()}
@@ -1410,6 +1562,46 @@ defmodule AWS.ServiceQuotas do
     meta = metadata()
 
     Request.request_post(client, meta, "RequestServiceQuotaIncrease", input, options)
+  end
+
+  @doc """
+  Starts [Service Quotas Automatic Management](https://docs.aws.amazon.com/servicequotas/latest/userguide/automatic-management.html)
+  for an Amazon Web Services account, including notification preferences
+  and excluded quotas configurations.
+
+  Automatic Management monitors your Service Quotas utilization and notifies you
+  before you
+  run out of your allocated quotas.
+  """
+  @spec start_auto_management(map(), start_auto_management_request(), list()) ::
+          {:ok, start_auto_management_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_auto_management_errors()}
+  def start_auto_management(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartAutoManagement", input, options)
+  end
+
+  @doc """
+  Stops [Service Quotas Automatic Management](https://docs.aws.amazon.com/servicequotas/latest/userguide/automatic-management.html)
+  for an Amazon Web Services account and removes all associated
+  configurations.
+
+  Automatic Management monitors your Service Quotas utilization and notifies you
+  before you
+  run out of your allocated quotas.
+  """
+  @spec stop_auto_management(map(), stop_auto_management_request(), list()) ::
+          {:ok, stop_auto_management_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_auto_management_errors()}
+  def stop_auto_management(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopAutoManagement", input, options)
   end
 
   @doc """
@@ -1444,5 +1636,25 @@ defmodule AWS.ServiceQuotas do
     meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
+  end
+
+  @doc """
+  Updates your [Service Quotas Automatic Management](https://docs.aws.amazon.com/servicequotas/latest/userguide/automatic-management.html)
+  configuration, including notification preferences and
+  excluded quotas.
+
+  Automatic Management monitors your Service Quotas utilization and notifies you
+  before you
+  run out of your allocated quotas.
+  """
+  @spec update_auto_management(map(), update_auto_management_request(), list()) ::
+          {:ok, update_auto_management_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_auto_management_errors()}
+  def update_auto_management(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateAutoManagement", input, options)
   end
 end

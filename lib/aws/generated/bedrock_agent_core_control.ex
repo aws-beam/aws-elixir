@@ -18,11 +18,11 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       update_gateway_request() :: %{
+        optional("authorizerConfiguration") => list(),
         optional("description") => String.t() | atom(),
         optional("exceptionLevel") => list(any()),
         optional("kmsKeyArn") => String.t() | atom(),
         optional("protocolConfiguration") => list(),
-        required("authorizerConfiguration") => list(),
         required("authorizerType") => list(any()),
         required("name") => String.t() | atom(),
         required("protocolType") => list(any()),
@@ -1716,13 +1716,13 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       create_gateway_request() :: %{
+        optional("authorizerConfiguration") => list(),
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
         optional("exceptionLevel") => list(any()),
         optional("kmsKeyArn") => String.t() | atom(),
         optional("protocolConfiguration") => list(),
         optional("tags") => map(),
-        required("authorizerConfiguration") => list(),
         required("authorizerType") => list(any()),
         required("name") => String.t() | atom(),
         required("protocolType") => list(any()),

@@ -467,6 +467,17 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      start_outpost_decommission_input() :: %{
+        optional("ValidateOnly") => boolean()
+      }
+
+  """
+  @type start_outpost_decommission_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       asset_instance_type_capacity() :: %{
         "Count" => integer(),
         "InstanceType" => String.t() | atom()
@@ -623,6 +634,18 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      start_outpost_decommission_output() :: %{
+        "BlockingResourceTypes" => list(list(any())()),
+        "Status" => list(any())
+      }
+
+  """
+  @type start_outpost_decommission_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_order_output() :: %{
         "Order" => order()
       }
@@ -635,8 +658,8 @@ defmodule AWS.Outposts do
   ## Example:
 
       create_order_input() :: %{
+        optional("LineItems") => list(line_item_request()),
         optional("PaymentTerm") => list(any()),
-        required("LineItems") => list(line_item_request()),
         required("OutpostIdentifier") => String.t() | atom(),
         required("PaymentOption") => list(any())
       }
@@ -1458,6 +1481,13 @@ defmodule AWS.Outposts do
           | access_denied_exception()
           | internal_server_exception()
           | not_found_exception()
+
+  @type start_outpost_decommission_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | not_found_exception()
+          | conflict_exception()
 
   @type tag_resource_errors() ::
           validation_exception() | internal_server_exception() | not_found_exception()
@@ -2660,6 +2690,40 @@ defmodule AWS.Outposts do
           | {:error, start_connection_errors()}
   def start_connection(%Client{} = client, input, options \\ []) do
     url_path = "/connections"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Starts the decommission process to return the Outposts racks or servers.
+  """
+  @spec start_outpost_decommission(
+          map(),
+          String.t() | atom(),
+          start_outpost_decommission_input(),
+          list()
+        ) ::
+          {:ok, start_outpost_decommission_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_outpost_decommission_errors()}
+  def start_outpost_decommission(%Client{} = client, outpost_identifier, input, options \\ []) do
+    url_path = "/outposts/#{AWS.Util.encode_uri(outpost_identifier)}/decommission"
     headers = []
     custom_headers = []
     query_params = []

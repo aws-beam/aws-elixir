@@ -187,6 +187,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       active_directory_settings() :: %{
         "DomainCredentialsProvider" => list(),
         "DomainIpv4List" => list(String.t() | atom()),
+        "DomainIpv6List" => list(String.t() | atom()),
         "DomainName" => [String.t() | atom()],
         "DomainNetworkSettings" => domain_network_settings()
       }
@@ -682,6 +683,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       license_server() :: %{
         "HealthStatus" => String.t() | atom(),
         "Ipv4Address" => [String.t() | atom()],
+        "Ipv6Address" => [String.t() | atom()],
         "ProvisioningStatus" => String.t() | atom()
       }
 

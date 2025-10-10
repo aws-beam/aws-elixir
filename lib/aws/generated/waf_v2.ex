@@ -3403,7 +3403,8 @@ defmodule AWS.WAFV2 do
   @type client_side_action_config() :: %{(String.t() | atom()) => any()}
 
   @type associate_web_acl_errors() ::
-          w_a_f_invalid_operation_exception()
+          w_a_f_limits_exceeded_exception()
+          | w_a_f_invalid_operation_exception()
           | w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
           | w_a_f_unavailable_entity_exception()

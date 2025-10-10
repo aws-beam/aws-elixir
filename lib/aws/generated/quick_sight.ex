@@ -5,14 +5,14 @@ defmodule AWS.QuickSight do
   @moduledoc """
   Amazon QuickSight API Reference
 
-  Amazon QuickSight is a fully managed, serverless business intelligence service
+  Amazon Quick Sight is a fully managed, serverless business intelligence service
   for the
   Amazon Web Services Cloud that makes it easy to extend data and insights to
   every user in your
   organization.
 
   This API reference contains documentation for a programming interface that
-  you can use to manage Amazon QuickSight.
+  you can use to manage Amazon Quick Sight.
   """
 
   alias AWS.Client
@@ -270,6 +270,20 @@ defmodule AWS.QuickSight do
 
   """
   @type geospatial_layer_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      contextual_accent_palette() :: %{
+        "Automation" => palette(),
+        "Connection" => palette(),
+        "Insight" => palette(),
+        "Visualization" => palette()
+      }
+
+  """
+  @type contextual_accent_palette() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -641,6 +655,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_action_connector_permissions_request() :: %{
+        optional("GrantPermissions") => list(resource_permission()),
+        optional("RevokePermissions") => list(resource_permission())
+      }
+
+  """
+  @type update_action_connector_permissions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_stories_configurations() :: %{
         "Enabled" => boolean()
       }
@@ -678,6 +704,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      search_flows_filter() :: %{
+        "Name" => list(any()),
+        "Operator" => list(any()),
+        "Value" => [String.t() | atom()]
+      }
+
+  """
+  @type search_flows_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_dashboard_snapshot_job_request() :: %{
         required("SnapshotConfiguration") => snapshot_configuration(),
         required("SnapshotJobId") => String.t() | atom(),
@@ -686,6 +725,15 @@ defmodule AWS.QuickSight do
 
   """
   @type start_dashboard_snapshot_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_action_connector_permissions_request() :: %{}
+
+  """
+  @type describe_action_connector_permissions_request() :: %{}
 
   @typedoc """
 
@@ -888,6 +936,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      list_action_connectors_response() :: %{
+        "ActionConnectorSummaries" => list(action_connector_summary()),
+        "NextToken" => [String.t() | atom()],
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type list_action_connectors_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       snapshot_file_sheet_selection() :: %{
         "SelectionScope" => list(any()),
         "SheetId" => String.t() | atom(),
@@ -985,6 +1047,18 @@ defmodule AWS.QuickSight do
 
   """
   @type waterfall_chart_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_action_connectors_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_action_connectors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1739,6 +1813,21 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      create_action_connector_response() :: %{
+        "ActionConnectorId" => [String.t() | atom()],
+        "Arn" => String.t() | atom(),
+        "CreationStatus" => list(any()),
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type create_action_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       analysis_source_template() :: %{
         "Arn" => String.t() | atom(),
         "DataSetReferences" => list(data_set_reference())
@@ -1905,6 +1994,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      none_connection_metadata() :: %{
+        "BaseEndpoint" => String.t() | atom()
+      }
+
+  """
+  @type none_connection_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       search_folders_response() :: %{
         "FolderSummaryList" => list(folder_summary()),
         "NextToken" => String.t() | atom(),
@@ -2020,6 +2120,18 @@ defmodule AWS.QuickSight do
 
   """
   @type sheet_text_box() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      read_auth_config() :: %{
+        "AuthenticationMetadata" => list(),
+        "AuthenticationType" => list(any())
+      }
+
+  """
+  @type read_auth_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2253,6 +2365,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      read_iam_connection_metadata() :: %{
+        "RoleArn" => String.t() | atom(),
+        "SourceArn" => String.t() | atom()
+      }
+
+  """
+  @type read_iam_connection_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       asset_bundle_import_job_theme_override_parameters() :: %{
         "Name" => String.t() | atom(),
         "ThemeId" => String.t() | atom()
@@ -2363,6 +2487,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      list_flows_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_flows_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       k_p_i_conditional_formatting_option() :: %{
         "ActualValue" => k_p_i_actual_value_conditional_formatting(),
         "ComparisonValue" => k_p_i_comparison_value_conditional_formatting(),
@@ -2429,6 +2565,19 @@ defmodule AWS.QuickSight do
 
   """
   @type create_theme_alias_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      read_client_credentials_grant_metadata() :: %{
+        "BaseEndpoint" => String.t() | atom(),
+        "ClientCredentialsSource" => list(any()),
+        "ReadClientCredentialsDetails" => list()
+      }
+
+  """
+  @type read_client_credentials_grant_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2639,6 +2788,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      search_action_connectors_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()],
+        required("Filters") => list(action_connector_search_filter())
+      }
+
+  """
+  @type search_action_connectors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       forecast_computation() :: %{
         "ComputationId" => String.t() | atom(),
         "CustomSeasonalityValue" => integer(),
@@ -2655,6 +2817,19 @@ defmodule AWS.QuickSight do
 
   """
   @type forecast_computation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      action_connector_search_filter() :: %{
+        "Name" => list(any()),
+        "Operator" => list(any()),
+        "Value" => [String.t() | atom()]
+      }
+
+  """
+  @type action_connector_search_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3754,6 +3929,21 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      describe_action_connector_permissions_response() :: %{
+        "ActionConnectorId" => String.t() | atom(),
+        "Arn" => [String.t() | atom()],
+        "Permissions" => list(resource_permission()),
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type describe_action_connector_permissions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       histogram_field_wells() :: %{
         "HistogramAggregatedFieldWells" => histogram_aggregated_field_wells()
       }
@@ -4380,10 +4570,34 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      describe_action_connector_request() :: %{}
+
+  """
+  @type describe_action_connector_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_user_custom_permission_request() :: %{}
 
   """
   @type delete_user_custom_permission_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_flow_permissions_output() :: %{
+        "Arn" => [String.t() | atom()],
+        "FlowId" => String.t() | atom(),
+        "Permissions" => list(permission()),
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type update_flow_permissions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4486,6 +4700,15 @@ defmodule AWS.QuickSight do
 
   """
   @type create_vpc_connection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_flow_permissions_input() :: %{}
+
+  """
+  @type get_flow_permissions_input() :: %{}
 
   @typedoc """
 
@@ -4604,6 +4827,18 @@ defmodule AWS.QuickSight do
 
   """
   @type parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      read_client_credentials_grant_details() :: %{
+        "ClientId" => String.t() | atom(),
+        "TokenEndpoint" => String.t() | atom()
+      }
+
+  """
+  @type read_client_credentials_grant_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4973,6 +5208,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      client_credentials_grant_metadata() :: %{
+        "BaseEndpoint" => String.t() | atom(),
+        "ClientCredentialsDetails" => list(),
+        "ClientCredentialsSource" => list(any())
+      }
+
+  """
+  @type client_credentials_grant_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       word_cloud_chart_configuration() :: %{
         "CategoryLabelOptions" => chart_axis_label_options(),
         "FieldWells" => word_cloud_field_wells(),
@@ -5021,6 +5269,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      client_credentials_grant_details() :: %{
+        "ClientId" => String.t() | atom(),
+        "ClientSecret" => String.t() | atom(),
+        "TokenEndpoint" => String.t() | atom()
+      }
+
+  """
+  @type client_credentials_grant_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_analysis_request() :: %{
         optional("ForceDeleteWithoutRecovery") => boolean(),
         optional("RecoveryWindowInDays") => float()
@@ -5044,6 +5305,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      iam_connection_metadata() :: %{
+        "RoleArn" => String.t() | atom()
+      }
+
+  """
+  @type iam_connection_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       custom_sql() :: %{
         "Columns" => list(input_column()),
         "DataSourceArn" => String.t() | atom(),
@@ -5053,6 +5325,21 @@ defmodule AWS.QuickSight do
 
   """
   @type custom_sql() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_flow_permissions_output() :: %{
+        "Arn" => String.t() | atom(),
+        "FlowId" => String.t() | atom(),
+        "Permissions" => list(permission()),
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type get_flow_permissions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5180,6 +5467,19 @@ defmodule AWS.QuickSight do
 
   """
   @type image_interaction_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_flows_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()],
+        required("Filters") => list(search_flows_filter())
+      }
+
+  """
+  @type search_flows_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6386,6 +6686,35 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_action_connector_response() :: %{
+        "ActionConnectorId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer(),
+        "UpdateStatus" => list(any())
+      }
+
+  """
+  @type update_action_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      authorization_code_grant_details() :: %{
+        "AuthorizationEndpoint" => String.t() | atom(),
+        "ClientId" => String.t() | atom(),
+        "ClientSecret" => String.t() | atom(),
+        "TokenEndpoint" => String.t() | atom()
+      }
+
+  """
+  @type authorization_code_grant_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       nested_filter() :: %{
         "Column" => column_identifier(),
         "FilterId" => String.t() | atom(),
@@ -6549,6 +6878,24 @@ defmodule AWS.QuickSight do
 
   """
   @type body_section_repeat_page_break_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      web_crawler_parameters() :: %{
+        "LoginPageUrl" => String.t() | atom(),
+        "PasswordButtonXpath" => String.t() | atom(),
+        "PasswordFieldXpath" => String.t() | atom(),
+        "UsernameButtonXpath" => String.t() | atom(),
+        "UsernameFieldXpath" => String.t() | atom(),
+        "WebCrawlerAuthType" => list(any()),
+        "WebProxyHostName" => String.t() | atom(),
+        "WebProxyPortNumber" => integer()
+      }
+
+  """
+  @type web_crawler_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6736,6 +7083,19 @@ defmodule AWS.QuickSight do
 
   """
   @type cluster_marker_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      basic_auth_connection_metadata() :: %{
+        "BaseEndpoint" => String.t() | atom(),
+        "Password" => String.t() | atom(),
+        "Username" => String.t() | atom()
+      }
+
+  """
+  @type basic_auth_connection_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7092,6 +7452,19 @@ defmodule AWS.QuickSight do
 
   """
   @type pivot_table_field_collapse_state_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      api_key_connection_metadata() :: %{
+        "ApiKey" => String.t() | atom(),
+        "BaseEndpoint" => String.t() | atom(),
+        "Email" => String.t() | atom()
+      }
+
+  """
+  @type api_key_connection_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7852,6 +8225,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      authorization_code_grant_metadata() :: %{
+        "AuthorizationCodeGrantCredentialsDetails" => list(),
+        "AuthorizationCodeGrantCredentialsSource" => list(any()),
+        "BaseEndpoint" => String.t() | atom(),
+        "RedirectUrl" => String.t() | atom()
+      }
+
+  """
+  @type authorization_code_grant_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_path_label_type() :: %{
         "FieldId" => String.t() | atom(),
         "FieldValue" => String.t() | atom(),
@@ -8046,12 +8433,36 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      q_business_parameters() :: %{
+        "ApplicationArn" => String.t() | atom()
+      }
+
+  """
+  @type q_business_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       executive_summary_configurations() :: %{
         "Enabled" => boolean()
       }
 
   """
   @type executive_summary_configurations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_knowledge_base_parameters() :: %{
+        "BucketUrl" => String.t() | atom(),
+        "MetadataFilesLocation" => String.t() | atom(),
+        "RoleArn" => String.t() | atom()
+      }
+
+  """
+  @type s3_knowledge_base_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8101,6 +8512,20 @@ defmodule AWS.QuickSight do
 
   """
   @type search_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_action_connectors_response() :: %{
+        "ActionConnectorSummaries" => list(action_connector_summary()),
+        "NextToken" => [String.t() | atom()],
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type search_action_connectors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8584,6 +9009,17 @@ defmodule AWS.QuickSight do
 
   """
   @type describe_template_permissions_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      quick_suite_actions_option() :: %{
+        "AvailabilityStatus" => list(any())
+      }
+
+  """
+  @type quick_suite_actions_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9543,6 +9979,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      confluence_parameters() :: %{
+        "ConfluenceUrl" => String.t() | atom()
+      }
+
+  """
+  @type confluence_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       visual_interaction_options() :: %{
         "ContextMenuOption" => context_menu_option(),
         "VisualMenuOption" => visual_menu_option()
@@ -9654,6 +10101,24 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      action_connector_summary() :: %{
+        "ActionConnectorId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "CreatedTime" => [non_neg_integer()],
+        "Error" => action_connector_error(),
+        "LastUpdatedTime" => [non_neg_integer()],
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type action_connector_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_key_registration_response() :: %{
         "FailedKeyRegistration" => list(failed_key_registration_entry()),
         "RequestId" => String.t() | atom(),
@@ -9697,6 +10162,20 @@ defmodule AWS.QuickSight do
 
   """
   @type start_asset_bundle_import_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_flows_output() :: %{
+        "FlowSummaryList" => list(flow_summary()),
+        "NextToken" => [String.t() | atom()],
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type search_flows_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9783,7 +10262,8 @@ defmodule AWS.QuickSight do
       data_source_credentials() :: %{
         "CopySourceArn" => String.t() | atom(),
         "CredentialPair" => credential_pair(),
-        "SecretArn" => String.t() | atom()
+        "SecretArn" => String.t() | atom(),
+        "WebProxyCredentials" => web_proxy_credentials()
       }
 
   """
@@ -11275,6 +11755,29 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      flow_summary() :: %{
+        "Arn" => [String.t() | atom()],
+        "CreatedBy" => [String.t() | atom()],
+        "CreatedTime" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "FlowId" => String.t() | atom(),
+        "LastPublishedAt" => non_neg_integer(),
+        "LastPublishedBy" => [String.t() | atom()],
+        "LastUpdatedBy" => [String.t() | atom()],
+        "LastUpdatedTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "PublishState" => list(any()),
+        "RunCount" => integer(),
+        "UserCount" => integer()
+      }
+
+  """
+  @type flow_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_dashboards_q_a_configuration_request() :: %{
         required("DashboardsQAStatus") => list(any())
       }
@@ -11551,6 +12054,28 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      action_connector() :: %{
+        "ActionConnectorId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "AuthenticationConfig" => read_auth_config(),
+        "CreatedTime" => [non_neg_integer()],
+        "Description" => String.t() | atom(),
+        "EnabledActions" => list(String.t() | atom()),
+        "Error" => action_connector_error(),
+        "LastUpdatedTime" => [non_neg_integer()],
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "Type" => list(any()),
+        "VpcConnectionArn" => String.t() | atom()
+      }
+
+  """
+  @type action_connector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       anonymous_user_snapshot_job_result() :: %{
         "FileGroups" => list(snapshot_job_result_file_group())
       }
@@ -11578,6 +12103,27 @@ defmodule AWS.QuickSight do
 
   """
   @type delete_identity_propagation_config_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_flow_metadata_output() :: %{
+        "Arn" => [String.t() | atom()],
+        "CreatedTime" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "FlowId" => String.t() | atom(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "PublishState" => list(any()),
+        "RequestId" => [String.t() | atom()],
+        "RunCount" => integer(),
+        "Status" => integer(),
+        "UserCount" => integer()
+      }
+
+  """
+  @type get_flow_metadata_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12080,6 +12626,7 @@ defmodule AWS.QuickSight do
         "ExecutiveSummaryOption" => executive_summary_option(),
         "ExportToCSVOption" => export_to_csv_option(),
         "ExportWithHiddenFieldsOption" => export_with_hidden_fields_option(),
+        "QuickSuiteActionsOption" => quick_suite_actions_option(),
         "SheetControlsOption" => sheet_controls_option(),
         "SheetLayoutElementMaximizationOption" => sheet_layout_element_maximization_option(),
         "VisualAxisSortOption" => visual_axis_sort_option(),
@@ -12130,6 +12677,19 @@ defmodule AWS.QuickSight do
 
   """
   @type delete_role_membership_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_action_connector_response() :: %{
+        "ActionConnector" => action_connector(),
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type describe_action_connector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12396,6 +12956,21 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_action_connector_permissions_response() :: %{
+        "ActionConnectorId" => String.t() | atom(),
+        "Arn" => [String.t() | atom()],
+        "Permissions" => list(resource_permission()),
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type update_action_connector_permissions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       table_conditional_formatting_option() :: %{
         "Cell" => table_cell_conditional_formatting(),
         "Row" => table_row_conditional_formatting()
@@ -12617,6 +13192,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_action_connector_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("VpcConnectionArn") => String.t() | atom(),
+        required("AuthenticationConfig") => auth_config(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_action_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_response() :: %{
         "RequestId" => String.t() | atom(),
         "Status" => integer()
@@ -12794,6 +13383,17 @@ defmodule AWS.QuickSight do
 
   """
   @type default_slider_control_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      read_none_connection_metadata() :: %{
+        "BaseEndpoint" => String.t() | atom()
+      }
+
+  """
+  @type read_none_connection_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13158,6 +13758,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      list_flows_output() :: %{
+        "FlowSummaryList" => list(flow_summary()),
+        "NextToken" => [String.t() | atom()],
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type list_flows_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_user_request() :: %{
         optional("CustomFederationProviderUrl") => String.t() | atom(),
         optional("CustomPermissionsName") => String.t() | atom(),
@@ -13238,6 +13852,18 @@ defmodule AWS.QuickSight do
 
   """
   @type update_data_source_permissions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auth_config() :: %{
+        "AuthenticationMetadata" => list(),
+        "AuthenticationType" => list(any())
+      }
+
+  """
+  @type auth_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13382,6 +14008,15 @@ defmodule AWS.QuickSight do
 
   """
   @type list_folders_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_action_connector_request() :: %{}
+
+  """
+  @type delete_action_connector_request() :: %{}
 
   @typedoc """
 
@@ -14062,6 +14697,18 @@ defmodule AWS.QuickSight do
 
   """
   @type describe_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      web_proxy_credentials() :: %{
+        "WebProxyPassword" => String.t() | atom(),
+        "WebProxyUsername" => String.t() | atom()
+      }
+
+  """
+  @type web_proxy_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15085,7 +15732,8 @@ defmodule AWS.QuickSight do
 
       application_theme() :: %{
         "BrandColorPalette" => brand_color_palette(),
-        "BrandElementStyle" => brand_element_style()
+        "BrandElementStyle" => brand_element_style(),
+        "ContextualAccentPalette" => contextual_accent_palette()
       }
 
   """
@@ -15198,6 +15846,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_flow_permissions_input() :: %{
+        optional("GrantPermissions") => list(permission()),
+        optional("RevokePermissions") => list(permission())
+      }
+
+  """
+  @type update_flow_permissions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_data_set_permissions_request() :: %{
         optional("GrantPermissions") => list(resource_permission()),
         optional("RevokePermissions") => list(resource_permission())
@@ -15218,6 +15878,15 @@ defmodule AWS.QuickSight do
 
   """
   @type custom_color() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_flow_metadata_input() :: %{}
+
+  """
+  @type get_flow_metadata_input() :: %{}
 
   @typedoc """
 
@@ -15461,6 +16130,20 @@ defmodule AWS.QuickSight do
 
   """
   @type redshift_iam_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_action_connector_response() :: %{
+        "ActionConnectorId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type delete_action_connector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15942,6 +16625,24 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      create_action_connector_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Permissions") => list(resource_permission()),
+        optional("Tags") => list(tag()),
+        optional("VpcConnectionArn") => String.t() | atom(),
+        required("ActionConnectorId") => String.t() | atom(),
+        required("AuthenticationConfig") => auth_config(),
+        required("Name") => String.t() | atom(),
+        required("Type") => list(any())
+      }
+
+  """
+  @type create_action_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       sql_server_parameters() :: %{
         "Database" => String.t() | atom(),
         "Host" => String.t() | atom(),
@@ -15978,6 +16679,18 @@ defmodule AWS.QuickSight do
 
   """
   @type start_asset_bundle_export_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      action_connector_error() :: %{
+        "Message" => [String.t() | atom()],
+        "Type" => list(any())
+      }
+
+  """
+  @type action_connector_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16160,6 +16873,18 @@ defmodule AWS.QuickSight do
 
   """
   @type snapshot_file() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      read_api_key_connection_metadata() :: %{
+        "BaseEndpoint" => String.t() | atom(),
+        "Email" => String.t() | atom()
+      }
+
+  """
+  @type read_api_key_connection_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16584,6 +17309,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      read_authorization_code_grant_metadata() :: %{
+        "AuthorizationCodeGrantCredentialsSource" => list(any()),
+        "BaseEndpoint" => String.t() | atom(),
+        "ReadAuthorizationCodeGrantCredentialsDetails" => list(),
+        "RedirectUrl" => String.t() | atom()
+      }
+
+  """
+  @type read_authorization_code_grant_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       sankey_diagram_chart_configuration() :: %{
         "DataLabels" => data_label_options(),
         "FieldWells" => sankey_diagram_field_wells(),
@@ -16944,6 +17683,18 @@ defmodule AWS.QuickSight do
 
   """
   @type top_bottom_ranked_computation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      read_basic_auth_connection_metadata() :: %{
+        "BaseEndpoint" => String.t() | atom(),
+        "Username" => String.t() | atom()
+      }
+
+  """
+  @type read_basic_auth_connection_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17324,6 +18075,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      permission() :: %{
+        "Actions" => list(String.t() | atom()),
+        "Principal" => String.t() | atom()
+      }
+
+  """
+  @type permission() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       decimal_places_configuration() :: %{
         "DecimalPlaces" => float()
       }
@@ -17526,31 +18289,43 @@ defmodule AWS.QuickSight do
   ## Example:
 
       capabilities() :: %{
-        "AddOrRunAnomalyDetectionForAnalyses" => list(any()),
-        "Analysis" => list(any()),
-        "CreateAndUpdateDashboardEmailReports" => list(any()),
-        "CreateAndUpdateDataSources" => list(any()),
-        "CreateAndUpdateDatasets" => list(any()),
-        "CreateAndUpdateThemes" => list(any()),
-        "CreateAndUpdateThresholdAlerts" => list(any()),
-        "CreateSPICEDataset" => list(any()),
-        "CreateSharedFolders" => list(any()),
-        "Dashboard" => list(any()),
-        "ExportToCsv" => list(any()),
-        "ExportToCsvInScheduledReports" => list(any()),
+        "ChatAgent" => list(any()),
         "ExportToExcel" => list(any()),
-        "ExportToExcelInScheduledReports" => list(any()),
-        "ExportToPdf" => list(any()),
+        "KnowledgeBase" => list(any()),
+        "CreateSPICEDataset" => list(any()),
+        "Automate" => list(any()),
         "ExportToPdfInScheduledReports" => list(any()),
+        "ExportToExcelInScheduledReports" => list(any()),
+        "ExportToCsv" => list(any()),
+        "CreateAndUpdateDashboardEmailReports" => list(any()),
+        "AddOrRunAnomalyDetectionForAnalyses" => list(any()),
         "IncludeContentInScheduledReportsEmail" => list(any()),
-        "PrintReports" => list(any()),
-        "RenameSharedFolders" => list(any()),
-        "ShareAnalyses" => list(any()),
-        "ShareDashboards" => list(any()),
+        "Analysis" => list(any()),
+        "UseAgentWebSearch" => list(any()),
+        "PublishWithoutApproval" => list(any()),
         "ShareDataSources" => list(any()),
+        "PrintReports" => list(any()),
+        "CreateAndUpdateDataSources" => list(any()),
+        "UseBedrockModels" => list(any()),
+        "CreateSharedFolders" => list(any()),
+        "ViewAccountSPICECapacity" => list(any()),
+        "CreateAndUpdateDatasets" => list(any()),
         "ShareDatasets" => list(any()),
+        "ExportToCsvInScheduledReports" => list(any()),
+        "Dashboard" => list(any()),
+        "CreateAndUpdateThresholdAlerts" => list(any()),
+        "ShareAnalyses" => list(any()),
+        "RenameSharedFolders" => list(any()),
+        "PerformFlowUiTask" => list(any()),
+        "Action" => list(any()),
+        "ExportToPdf" => list(any()),
+        "Research" => list(any()),
+        "CreateChatAgents" => list(any()),
+        "Flow" => list(any()),
+        "CreateAndUpdateThemes" => list(any()),
+        "Space" => list(any()),
         "SubscribeDashboardEmailReports" => list(any()),
-        "ViewAccountSPICECapacity" => list(any())
+        "ShareDashboards" => list(any())
       }
 
   """
@@ -17964,6 +18739,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      read_authorization_code_grant_details() :: %{
+        "AuthorizationEndpoint" => String.t() | atom(),
+        "ClientId" => String.t() | atom(),
+        "TokenEndpoint" => String.t() | atom()
+      }
+
+  """
+  @type read_authorization_code_grant_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_brand_published_version_request() :: %{
         required("VersionId") => String.t() | atom()
       }
@@ -18059,6 +18847,14 @@ defmodule AWS.QuickSight do
           | resource_not_found_exception()
           | conflict_exception()
           | resource_unavailable_exception()
+          | internal_failure_exception()
+
+  @type create_action_connector_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | resource_exists_exception()
+          | invalid_parameter_value_exception()
+          | conflict_exception()
           | internal_failure_exception()
 
   @type create_analysis_errors() ::
@@ -18308,6 +19104,13 @@ defmodule AWS.QuickSight do
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | resource_unavailable_exception()
+          | internal_failure_exception()
+
+  @type delete_action_connector_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
           | internal_failure_exception()
 
   @type delete_analysis_errors() ::
@@ -18587,6 +19390,20 @@ defmodule AWS.QuickSight do
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | resource_unavailable_exception()
+          | internal_failure_exception()
+
+  @type describe_action_connector_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type describe_action_connector_permissions_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
           | internal_failure_exception()
 
   @type describe_analysis_errors() ::
@@ -19017,6 +19834,18 @@ defmodule AWS.QuickSight do
           | quick_sight_user_not_found_exception()
           | internal_failure_exception()
 
+  @type get_flow_metadata_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+
+  @type get_flow_permissions_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+
   @type get_session_embed_url_errors() ::
           throttling_exception()
           | access_denied_exception()
@@ -19026,6 +19855,13 @@ defmodule AWS.QuickSight do
           | resource_not_found_exception()
           | unsupported_user_edition_exception()
           | quick_sight_user_not_found_exception()
+          | internal_failure_exception()
+
+  @type list_action_connectors_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | invalid_next_token_exception()
           | internal_failure_exception()
 
   @type list_analyses_errors() ::
@@ -19089,6 +19925,12 @@ defmodule AWS.QuickSight do
           | access_denied_exception()
           | invalid_parameter_value_exception()
           | invalid_next_token_exception()
+          | internal_failure_exception()
+
+  @type list_flows_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
           | internal_failure_exception()
 
   @type list_folder_members_errors() ::
@@ -19345,6 +20187,12 @@ defmodule AWS.QuickSight do
           | unsupported_user_edition_exception()
           | internal_failure_exception()
 
+  @type search_action_connectors_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | invalid_next_token_exception()
+
   @type search_analyses_errors() ::
           throttling_exception()
           | invalid_parameter_value_exception()
@@ -19375,6 +20223,12 @@ defmodule AWS.QuickSight do
           | invalid_parameter_value_exception()
           | invalid_next_token_exception()
           | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type search_flows_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
           | internal_failure_exception()
 
   @type search_folders_errors() ::
@@ -19480,6 +20334,24 @@ defmodule AWS.QuickSight do
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | resource_unavailable_exception()
+          | internal_failure_exception()
+
+  @type update_action_connector_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | internal_failure_exception()
+
+  @type update_action_connector_permissions_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | unsupported_user_edition_exception()
           | internal_failure_exception()
 
   @type update_analysis_errors() ::
@@ -19627,6 +20499,12 @@ defmodule AWS.QuickSight do
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | internal_failure_exception()
+
+  @type update_flow_permissions_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
           | internal_failure_exception()
 
   @type update_folder_errors() ::
@@ -19998,17 +20876,18 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Creates Amazon QuickSight customizations.
+  Creates Amazon Quick Sight customizations.
 
   Currently, you can add a custom default theme by using the
   `CreateAccountCustomization` or `UpdateAccountCustomization`
-  API operation. To further customize QuickSight by removing QuickSight
-  sample assets and videos for all new users, see [Customizing QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/customizing-quicksight.html)
-  in the *Amazon QuickSight User Guide.*
+  API operation. To further customize Amazon Quick Sight by removing Amazon Quick
+  Sight
+  sample assets and videos for all new users, see [Customizing Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/customizing-quicksight.html)
+  in the *Amazon Quick Sight User Guide.*
 
   You can create customizations for your Amazon Web Services account or, if you
   specify a namespace, for
-  a QuickSight namespace instead. Customizations that apply to a namespace always
+  a Quick Sight namespace instead. Customizations that apply to a namespace always
   override
   customizations that apply to an Amazon Web Services account. To find out which
   customizations apply, use
@@ -20073,7 +20952,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Creates an QuickSight account, or subscribes to QuickSight Q.
+  Creates an Amazon Quick Sight account, or subscribes to Amazon Quick Sight Q.
 
   The Amazon Web Services Region for the account is derived from what is
   configured in the
@@ -20083,12 +20962,12 @@ defmodule AWS.QuickSight do
   Amazon Web Services account. If you don't have an Amazon Web Services account,
   see [Sign up for Amazon Web
   Services](https://docs.aws.amazon.com/quicksight/latest/user/setting-up-aws-sign-up.html)
-  in the *Amazon QuickSight User
-  Guide*. The person who signs up for QuickSight needs to have the
+  in the *Amazon Quick Sight User
+  Guide*. The person who signs up for Amazon Quick Sight needs to have the
   correct Identity and Access Management (IAM) permissions. For more information,
-  see [IAM Policy Examples for QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/iam-policy-examples.html)
+  see [IAM Policy Examples for Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/iam-policy-examples.html)
   in the
-  *QuickSight User Guide*.
+  *Amazon Quick Sight User Guide*.
 
   If your IAM policy includes both the `Subscribe` and
   `CreateAccountSubscription` actions, make sure that both actions are set
@@ -20097,17 +20976,19 @@ defmodule AWS.QuickSight do
 
   You can't pass an existing IAM role to access other Amazon Web Services services
   using this API operation. To pass your existing IAM role to
-  QuickSight, see [Passing IAM roles to QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html#security-create-iam-role)
+  Amazon Quick Sight, see [Passing IAM roles to Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html#security-create-iam-role)
   in the
-  *QuickSight User Guide*.
+  *Amazon Quick Sight User Guide*.
 
-  You can't set default resource access on the new account from the QuickSight
-  API. Instead, add default resource access from the QuickSight console. For more
+  You can't set default resource access on the new account from the Amazon Quick
+  Sight
+  API. Instead, add default resource access from the Amazon Quick Sight console.
+  For more
   information about setting default resource access to Amazon Web Services
   services, see
   [Setting default resource access to Amazon Web Services
   services](https://docs.aws.amazon.com/quicksight/latest/user/scoping-policies-defaults.html)
-  in the *QuickSight
+  in the *Amazon Quick Sight
   User Guide*.
   """
   @spec create_account_subscription(
@@ -20142,7 +21023,46 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Creates an analysis in Amazon QuickSight.
+  Creates an action connector that enables Amazon Quick Sight to connect to
+  external services and perform actions.
+
+  Action connectors support various authentication methods and can be configured
+  with specific actions from supported connector types
+  like Amazon S3, Salesforce, JIRA.
+  """
+  @spec create_action_connector(
+          map(),
+          String.t() | atom(),
+          create_action_connector_request(),
+          list()
+        ) ::
+          {:ok, create_action_connector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_action_connector_errors()}
+  def create_action_connector(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/action-connectors"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates an analysis in Amazon Quick Sight.
 
   Analyses can be created either from a template or from an `AnalysisDefinition`.
   """
@@ -20181,7 +21101,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Creates an QuickSight brand.
+  Creates an Quick Sight brand.
   """
   @spec create_brand(
           map(),
@@ -20265,14 +21185,14 @@ defmodule AWS.QuickSight do
 
   API operation.
 
-  A dashboard is an entity in QuickSight that identifies QuickSight reports,
-  created
-  from analyses. You can share QuickSight dashboards. With the right permissions,
-  you can
-  create scheduled email reports from them. If you have the correct permissions,
-  you can
-  create a dashboard from a template that exists in a different Amazon Web
-  Services account.
+  A dashboard is an entity in Amazon Quick Sight that identifies Amazon Quick
+  Sight
+  reports, created from analyses. You can share Amazon Quick Sight dashboards.
+  With the
+  right permissions, you can create scheduled email reports from them. If you have
+  the
+  correct permissions, you can create a dashboard from a template that exists in a
+  different Amazon Web Services account.
   """
   @spec create_dashboard(
           map(),
@@ -20311,7 +21231,8 @@ defmodule AWS.QuickSight do
   @doc """
   Creates a dataset.
 
-  This operation doesn't support datasets that include uploaded files as a source.
+  This operation doesn't support datasets that include uploaded files
+  as a source.
   """
   @spec create_data_set(map(), String.t() | atom(), create_data_set_request(), list()) ::
           {:ok, create_data_set_response(), any()}
@@ -20453,7 +21374,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Use the `CreateGroup` operation to create a group in QuickSight.
+  Use the `CreateGroup` operation to create a group in Quick Sight.
 
   You can create up to 10,000 groups in a namespace. If you want to create more
   than 10,000 groups in a namespace, contact Amazon Web Services Support.
@@ -20504,7 +21425,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Adds an Amazon QuickSight user to an Amazon QuickSight group.
+  Adds an Amazon Quick Sight user to an Amazon Quick Sight group.
   """
   @spec create_group_membership(
           map(),
@@ -20555,7 +21476,7 @@ defmodule AWS.QuickSight do
   Amazon Resource Name (ARN).
 
   This policy assignment is attached to the specified groups
-  or users of Amazon QuickSight. Assignment names are unique per Amazon Web
+  or users of Amazon Quick Sight. Assignment names are unique per Amazon Web
   Services
   account. To avoid overwriting rules in other namespaces, use assignment names
   that are
@@ -20662,17 +21583,17 @@ defmodule AWS.QuickSight do
 
   @doc """
   (Enterprise edition only) Creates a new namespace for you to use with Amazon
-  QuickSight.
+  Quick Sight.
 
-  A namespace allows you to isolate the QuickSight users and groups that are
+  A namespace allows you to isolate the Quick Sight users and groups that are
   registered
   for that namespace. Users that access the namespace can share assets only with
   other
   users or groups in the same namespace. They can't see users and groups in other
   namespaces. You can create a namespace after your Amazon Web Services account is
   subscribed to
-  QuickSight. The namespace must be unique within the Amazon Web Services account.
-  By default, there is a
+  Quick Sight. The namespace must be unique within the Amazon Web Services
+  account. By default, there is a
   limit of 100 namespaces per Amazon Web Services account. To increase your limit,
   create a ticket with
   Amazon Web Services Support.
@@ -20749,7 +21670,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Use `CreateRoleMembership` to add an existing QuickSight group to an existing
+  Use `CreateRoleMembership` to add an existing Quick Sight group to an existing
   role.
   """
   @spec create_role_membership(
@@ -20797,13 +21718,13 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Creates a template either from a `TemplateDefinition` or from an existing
-  QuickSight analysis or template.
+  Creates a template either from a `TemplateDefinition` or from an existing Quick
+  Sight analysis or template.
 
   You can use the resulting
   template to create additional dashboards, templates, or analyses.
 
-  A *template* is an entity in QuickSight that encapsulates the metadata
+  A *template* is an entity in Quick Sight that encapsulates the metadata
   required to create an analysis and that you can use to create s dashboard. A
   template adds
   a layer of abstraction by using placeholders to replace the dataset associated
@@ -20897,9 +21818,9 @@ defmodule AWS.QuickSight do
   Creates a theme.
 
   A *theme* is set of configuration options for color and layout.
-  Themes apply to analyses and dashboards. For more information, see [Using Themes in Amazon
-  QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html)
-  in the *Amazon QuickSight User Guide*.
+  Themes apply to analyses and dashboards. For more information, see [Using Themes in Amazon Quick
+  Sight](https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html)
+  in the *Amazon Quick Sight User Guide*.
   """
   @spec create_theme(
           map(),
@@ -21117,7 +22038,7 @@ defmodule AWS.QuickSight do
 
   @doc """
 
-  This API permanently deletes all QuickSight customizations for the specified
+  This API permanently deletes all Quick Sight customizations for the specified
   Amazon Web Services account and namespace.
 
   When you delete account customizations:
@@ -21129,13 +22050,13 @@ defmodule AWS.QuickSight do
   This action cannot be undone through the API
 
     
-  Users will see default QuickSight styling after customizations are deleted
+  Users will see default Quick Sight styling after customizations are deleted
 
   **Before proceeding:** Ensure you have backups of any custom themes or branding
   elements you may want to recreate.
 
-  Deletes all Amazon QuickSight customizations for the specified Amazon Web
-  Services account and QuickSight namespace.
+  Deletes all Amazon Quick Sight customizations for the specified Amazon Web
+  Services account and Quick Sight namespace.
   """
   @spec delete_account_customization(
           map(),
@@ -21175,13 +22096,13 @@ defmodule AWS.QuickSight do
 
   @doc """
 
-  Deleting your QuickSight account subscription has permanent, irreversible
+  Deleting your Quick Sight account subscription has permanent, irreversible
   consequences across all Amazon Web Services regions:
 
     
   Global deletion – Running this operation from any single region will delete your
-  QuickSight account and all data in every Amazon Web Services region where you
-  have QuickSight resources.
+  Quick Sight account and all data in every Amazon Web Services region where you
+  have Quick Sight resources.
 
     
   Complete data loss – All dashboards, analyses, datasets, data sources, and
@@ -21196,18 +22117,18 @@ defmodule AWS.QuickSight do
   become inaccessible to other users and external recipients.
 
     
-  User access terminated – All QuickSight users in your account will lose access
+  User access terminated – All Quick Sight users in your account will lose access
   immediately, including authors, readers, and administrators.
 
     
 
-  **No recovery possible** – Once deleted, your QuickSight account and all
+  **No recovery possible** – Once deleted, your Quick Sight account and all
   associated data cannot be restored.
 
   Consider exporting critical dashboards and data before proceeding with account
   deletion.
 
-  Use the `DeleteAccountSubscription` operation to delete an QuickSight account.
+  Use the `DeleteAccountSubscription` operation to delete an Quick Sight account.
   This operation will result in an error message if you have configured your
   account termination protection settings to `True`. To change this setting and
   delete your account, call the `UpdateAccountSettings` API and set the value of
@@ -21246,15 +22167,63 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Deletes an analysis from Amazon QuickSight.
+  Hard deletes an action connector, making it unrecoverable.
+
+  This operation removes the connector and all its associated configurations. Any
+  resources currently using this action connector will no longer be able to
+  perform actions through it.
+  """
+  @spec delete_action_connector(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_action_connector_request(),
+          list()
+        ) ::
+          {:ok, delete_action_connector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_action_connector_errors()}
+  def delete_action_connector(
+        %Client{} = client,
+        action_connector_id,
+        aws_account_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/action-connectors/#{AWS.Util.encode_uri(action_connector_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes an analysis from Amazon Quick Sight.
 
   You can optionally include a recovery window during
   which you can restore the analysis. If you don't specify a recovery window
   value, the
-  operation defaults to 30 days. QuickSight attaches a `DeletionTime` stamp to
+  operation defaults to 30 days. Amazon Quick Sight attaches a `DeletionTime`
+  stamp to
   the response that specifies the end of the recovery window. At the end of the
   recovery
-  window, QuickSight deletes the analysis permanently.
+  window, Amazon Quick Sight deletes the analysis permanently.
 
   At any time before recovery window ends, you can use the `RestoreAnalysis`
   API operation to remove the `DeletionTime` stamp and cancel the deletion of
@@ -21262,8 +22231,8 @@ defmodule AWS.QuickSight do
   can
   describe it but you can't make a template from it.
 
-  An analysis that's scheduled for deletion isn't accessible in the QuickSight
-  console.
+  An analysis that's scheduled for deletion isn't accessible in the Amazon Quick
+  Sight console.
   To access it in the console, restore it. Deleting an analysis doesn't delete the
   dashboards that you publish from it.
   """
@@ -21309,7 +22278,7 @@ defmodule AWS.QuickSight do
 
   @doc """
 
-  This API permanently deletes the specified QuickSight brand.
+  This API permanently deletes the specified Quick Sight brand.
 
   When you delete a brand:
 
@@ -21325,7 +22294,7 @@ defmodule AWS.QuickSight do
   **Before proceeding:** Verify that the brand is no longer needed and consider
   the impact on any applications currently using this brand.
 
-  Deletes an QuickSight brand.
+  Deletes an Quick Sight brand.
   """
   @spec delete_brand(
           map(),
@@ -21563,8 +22532,8 @@ defmodule AWS.QuickSight do
   @doc """
   Deletes the data source permanently.
 
-  This operation breaks
-  all the datasets that reference the deleted data source.
+  This operation breaks all the datasets that
+  reference the deleted data source.
   """
   @spec delete_data_source(
           map(),
@@ -21601,7 +22570,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Deletes a linked Amazon Q Business application from an QuickSight account
+  Deletes a linked Amazon Q Business application from an Quick Sight account
   """
   @spec delete_default_q_business_application(
           map(),
@@ -21729,7 +22698,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Removes a user group from Amazon QuickSight.
+  Removes a user group from Amazon Quick Sight.
   """
   @spec delete_group(
           map(),
@@ -21867,9 +22836,9 @@ defmodule AWS.QuickSight do
 
   @doc """
   Deletes all access scopes and authorized targets that are associated with a
-  service from the QuickSight IAM Identity Center application.
+  service from the Quick Sight IAM Identity Center application.
 
-  This operation is only supported for QuickSight accounts that use IAM Identity
+  This operation is only supported for Quick Sight accounts that use IAM Identity
   Center.
   """
   @spec delete_identity_propagation_config(
@@ -22355,7 +23324,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Deletes the Amazon QuickSight user that is associated with the identity of the
+  Deletes the Amazon Quick Sight user that is associated with the identity of the
   IAM user or role that's making the call.
 
   The IAM user
@@ -22550,9 +23519,9 @@ defmodule AWS.QuickSight do
   @doc """
   Describes the customizations associated with the provided Amazon Web Services
   account and Amazon
-  QuickSight namespace.
+  Quick Sight namespace.
 
-  The QuickSight console evaluates which
+  The Quick Sight console evaluates which
   customizations to apply by running this API operation with the `Resolved` flag
   included.
 
@@ -22566,17 +23535,17 @@ defmodule AWS.QuickSight do
   top of the hierarchy.
   It has the potential to use all of the Amazon Web Services Regions and Amazon
   Web Services Services. When you
-  subscribe to QuickSight, you choose one Amazon Web Services Region to use as
+  subscribe to Quick Sight, you choose one Amazon Web Services Region to use as
   your home Region.
-  That's where your free SPICE capacity is located. You can use QuickSight in any
+  That's where your free SPICE capacity is located. You can use Quick Sight in any
   supported Amazon Web Services Region.
 
     *
 
-  `Amazon Web Services Region` - You can sign in to QuickSight in any Amazon Web
+  `Amazon Web Services Region` - You can sign in to Quick Sight in any Amazon Web
   Services Region. If
   you have a user directory, it resides in us-east-1, which is US East (N.
-  Virginia). Generally speaking, these users have access to QuickSight in any
+  Virginia). Generally speaking, these users have access to Quick Sight in any
   Amazon Web Services Region, unless they are constrained to a namespace.
 
   To run the command in a different Amazon Web Services Region, you change your
@@ -22596,7 +23565,7 @@ defmodule AWS.QuickSight do
 
     *
 
-  `Namespace` - A QuickSight namespace is a partition that contains
+  `Namespace` - A Quick Sight namespace is a partition that contains
   users and assets (data sources, datasets, dashboards, and so on). To access
   assets that are in a specific namespace, users and groups must also be part of
   the same namespace. People who share a namespace are completely isolated from
@@ -22606,7 +23575,7 @@ defmodule AWS.QuickSight do
 
     *
 
-  `Applied customizations` - QuickSight customizations can apply to an Amazon Web
+  `Applied customizations` - Quick Sight customizations can apply to an Amazon Web
   Services account or to a namespace.
   Settings that you apply to a namespace override settings that you apply to an
   Amazon Web Services account.
@@ -22653,7 +23622,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Describes the settings that were used when your QuickSight subscription was
+  Describes the settings that were used when your Quick Sight subscription was
   first
   created in this Amazon Web Services account.
   """
@@ -22674,7 +23643,7 @@ defmodule AWS.QuickSight do
 
   @doc """
   Use the DescribeAccountSubscription operation to receive a description of an
-  QuickSight account's subscription.
+  Quick Sight account's subscription.
 
   A successful API call returns an `AccountInfo` object that includes an account's
   name, subscription status, authentication type, edition, and notification email
@@ -22687,6 +23656,63 @@ defmodule AWS.QuickSight do
           | {:error, describe_account_subscription_errors()}
   def describe_account_subscription(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/account/#{AWS.Util.encode_uri(aws_account_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves detailed information about an action connector, including its
+  configuration, authentication settings, enabled actions, and current status.
+  """
+  @spec describe_action_connector(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, describe_action_connector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_action_connector_errors()}
+  def describe_action_connector(
+        %Client{} = client,
+        action_connector_id,
+        aws_account_id,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/action-connectors/#{AWS.Util.encode_uri(action_connector_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the permissions configuration for an action connector, showing which
+  users, groups, and namespaces have access and what operations they can perform.
+  """
+  @spec describe_action_connector_permissions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, describe_action_connector_permissions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_action_connector_permissions_errors()}
+  def describe_action_connector_permissions(
+        %Client{} = client,
+        action_connector_id,
+        aws_account_id,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/action-connectors/#{AWS.Util.encode_uri(action_connector_id)}/permissions"
+
     headers = []
     query_params = []
 
@@ -22773,9 +23799,11 @@ defmodule AWS.QuickSight do
   Describes an existing export job.
 
   Poll job descriptions after a job starts to know the status of the job. When a
-  job succeeds, a URL is provided to download the exported assets' data from.
-  Download URLs are valid for five minutes after they are generated. You can call
-  the `DescribeAssetBundleExportJob` API for a new download URL as needed.
+  job
+  succeeds, a URL is provided to download the exported assets' data from. Download
+  URLs
+  are valid for five minutes after they are generated. You can call the
+  `DescribeAssetBundleExportJob` API for a new download URL as needed.
 
   Job descriptions are available for 14 days after the job starts.
   """
@@ -22805,7 +23833,8 @@ defmodule AWS.QuickSight do
   Describes an existing import job.
 
   Poll job descriptions after starting a job to know when it has succeeded or
-  failed. Job descriptions are available for 14 days after job starts.
+  failed. Job
+  descriptions are available for 14 days after job starts.
   """
   @spec describe_asset_bundle_import_job(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_asset_bundle_import_job_response(), any()}
@@ -22988,10 +24017,10 @@ defmodule AWS.QuickSight do
   Provides a detailed description of the definition of a dashboard.
 
   If you do not need to know details about the content of a dashboard, for
-  instance if you
-  are trying to check the status of a recently created or updated dashboard, use
-  the
-  [
+  instance
+  if you are trying to check the status of a recently created or updated
+  dashboard,
+  use the [
   `DescribeDashboard`
   ](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeDashboard.html)
   instead.
@@ -23160,7 +24189,8 @@ defmodule AWS.QuickSight do
   @doc """
   Describes a dataset.
 
-  This operation doesn't support datasets that include uploaded files as a source.
+  This operation doesn't support datasets that include uploaded
+  files as a source.
   """
   @spec describe_data_set(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_data_set_response(), any()}
@@ -23283,7 +24313,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Describes a Amazon Q Business application that is linked to an QuickSight
+  Describes a Amazon Q Business application that is linked to an Quick Sight
   account.
   """
   @spec describe_default_q_business_application(
@@ -23456,7 +24486,8 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Returns an Amazon QuickSight group's description and Amazon Resource Name (ARN).
+  Returns an Amazon Quick Sight group's description and Amazon Resource Name
+  (ARN).
   """
   @spec describe_group(
           map(),
@@ -23603,7 +24634,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Describes all customer managed key registrations in a QuickSight account.
+  Describes all customer managed key registrations in a Quick Sight account.
   """
   @spec describe_key_registration(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, describe_key_registration_response(), any()}
@@ -23671,7 +24702,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Describes the state of a QuickSight Q Search configuration.
+  Describes the state of a Quick Sight Q Search configuration.
   """
   @spec describe_quick_sight_q_search_configuration(map(), String.t() | atom(), list()) ::
           {:ok, describe_quick_sight_q_search_configuration_response(), any()}
@@ -24177,10 +25208,11 @@ defmodule AWS.QuickSight do
 
   @doc """
   Generates an embed URL that you can use to embed an Amazon QuickSight dashboard
-  or visual in your website, without having to register any reader users.
+  or
+  visual in your website, without having to register any reader users.
 
-  Before you use this action, make sure that you have configured the dashboards
-  and permissions.
+  Before you use this
+  action, make sure that you have configured the dashboards and permissions.
 
   The following rules apply to the generated URL:
 
@@ -24189,15 +25221,16 @@ defmodule AWS.QuickSight do
   generated. Once redeemed within this period, it cannot be re-used again.
 
     *
-  The URL validity period should not be confused with the actual session lifetime
-  that can be customized using the
+  The URL validity period should not be confused with the actual session
+  lifetime that can be customized using the
 
   ```
 
   [SessionLifetimeInMinutes](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForAnonymousUser.html#QS-GenerateEmbedUrlForAnonymousUser-request-SessionLifetimeInMinutes)   ```
 
-  parameter. The resulting user session is valid for 15 minutes (minimum) to 10
-  hours (maximum). The default session duration is 10 hours.
+  parameter. The resulting user
+  session is valid for 15 minutes (minimum) to 10 hours (maximum). The default
+  session duration is 10 hours.
 
     *
   You are charged only when the URL is used or there is interaction with Amazon
@@ -24205,11 +25238,12 @@ defmodule AWS.QuickSight do
 
   For more information, see [Embedded
   Analytics](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html)
-  in the *Amazon QuickSight User
-  Guide*.
+  in
+  the *Amazon QuickSight User Guide*.
 
   For more information about the high-level steps for embedding and for an
-  interactive demo of the ways you can customize embedding, visit the [Amazon QuickSight Developer
+  interactive
+  demo of the ways you can customize embedding, visit the [Amazon QuickSight Developer
   Portal](https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html).
   """
   @spec generate_embed_url_for_anonymous_user(
@@ -24253,9 +25287,8 @@ defmodule AWS.QuickSight do
   in your website.
 
   This action can be used for any type of user registered in an Amazon QuickSight
-  account.
-  Before you use this action, make sure that you have configured the relevant
-  Amazon QuickSight resource and permissions.
+  account. Before you use this action, make sure that you have
+  configured the relevant Amazon QuickSight resource and permissions.
 
   The following rules apply to the generated URL:
 
@@ -24264,8 +25297,8 @@ defmodule AWS.QuickSight do
   generated. Once redeemed within this period, it cannot be re-used again.
 
     *
-  The URL validity period should not be confused with the actual session lifetime
-  that can be customized using the
+  The URL validity period should not be confused with the actual session
+  lifetime that can be customized using the
 
   ```
 
@@ -24282,11 +25315,12 @@ defmodule AWS.QuickSight do
 
   For more information, see [Embedded
   Analytics](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html)
-  in the *Amazon QuickSight User
-  Guide*.
+  in
+  the *Amazon QuickSight User Guide*.
 
   For more information about the high-level steps for embedding and for an
-  interactive demo of the ways you can customize embedding, visit the [Amazon QuickSight Developer
+  interactive
+  demo of the ways you can customize embedding, visit the [Amazon QuickSight Developer
   Portal](https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html).
   """
   @spec generate_embed_url_for_registered_user(
@@ -24326,20 +25360,26 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Generates an embed URL that you can use to embed an QuickSight experience in
+  Generates an embed URL that you can use to embed an Amazon Quick Sight
+  experience in
   your website.
 
-  This action can be used for any type of user that is registered in an QuickSight
-  account that uses IAM Identity Center for authentication. This API requires
-  [identity-enhanced IAM Role sessions](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overview.html#types-identity-enhanced-iam-role-sessions)
-  for the authenticated user that the API call is being made for.
+  This action can be used for any type of user that is registered in an
+  Amazon Quick Sight account that uses IAM Identity Center for authentication.
+  This API
+  requires [identity-enhanced IAM Role sessions](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overview.html#types-identity-enhanced-iam-role-sessions)
+  for the authenticated
+  user that the API call is being made for.
 
   This API uses [trusted identity propagation](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation.html)
-  to ensure that an end user is authenticated and receives the embed URL that is
-  specific to that user. The IAM Identity Center application that the user has
-  logged into needs to have [trusted Identity Propagation enabled for QuickSight](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-using-customermanagedapps-specify-trusted-apps.html)
-  with the scope value set to `quicksight:read`. Before you use this action, make
-  sure that you have configured the relevant QuickSight resource and permissions.
+  to ensure that an end user is authenticated and receives the
+  embed URL that is specific to that user. The IAM Identity Center application
+  that the
+  user has logged into needs to have [trusted Identity Propagation enabled for Amazon Quick
+  Sight](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-using-customermanagedapps-specify-trusted-apps.html)
+  with the scope
+  value set to `quicksight:read`. Before you use this action, make sure that
+  you have configured the relevant Amazon Quick Sight resource and permissions.
   """
   @spec generate_embed_url_for_registered_user_with_identity(
           map(),
@@ -24381,14 +25421,16 @@ defmodule AWS.QuickSight do
 
   @doc """
   Generates a temporary session URL and authorization code(bearer token) that you
-  can use to embed an QuickSight read-only dashboard in your website or
+  can
+  use to embed an Amazon Quick Sight read-only dashboard in your website or
   application.
 
   Before you use this command, make sure that you have configured the dashboards
-  and permissions.
+  and
+  permissions.
 
-  Currently, you can use `GetDashboardEmbedURL` only from the server, not from the
-  user's browser. The following rules apply to the generated URL:
+  Currently, you can use `GetDashboardEmbedURL` only from the server, not
+  from the user's browser. The following rules apply to the generated URL:
 
     *
   They must be used together.
@@ -24405,15 +25447,17 @@ defmodule AWS.QuickSight do
 
     *
   The resulting user session is valid for 15 minutes (default) up to 10 hours
-  (maximum). You can use the optional `SessionLifetimeInMinutes` parameter to
-  customize session duration.
+  (maximum). You can use the optional `SessionLifetimeInMinutes`
+  parameter to customize session duration.
 
-  For more information, see [Embedding Analytics Using GetDashboardEmbedUrl](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-deprecated.html)
+  For more information, see [Embedding Analytics Using
+  GetDashboardEmbedUrl](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-deprecated.html)
   in the *Amazon QuickSight User
   Guide*.
 
   For more information about the high-level steps for embedding and for an
-  interactive demo of the ways you can customize embedding, visit the [Amazon QuickSight Developer
+  interactive
+  demo of the ways you can customize embedding, visit the [Amazon QuickSight Developer
   Portal](https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html).
   """
   @spec get_dashboard_embed_url(
@@ -24516,18 +25560,60 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Retrieves the metadata of a flow, not including its definition specifying the
+  steps.
+  """
+  @spec get_flow_metadata(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_flow_metadata_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_flow_metadata_errors()}
+  def get_flow_metadata(%Client{} = client, aws_account_id, flow_id, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/flows/#{AWS.Util.encode_uri(flow_id)}/metadata"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Get permissions for a flow.
+  """
+  @spec get_flow_permissions(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_flow_permissions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_flow_permissions_errors()}
+  def get_flow_permissions(%Client{} = client, aws_account_id, flow_id, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/flows/#{AWS.Util.encode_uri(flow_id)}/permissions"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Generates a session URL and authorization code that you can use to embed the
   Amazon
-  QuickSight console in your web server code.
+  Amazon Quick Sight console in your web server code.
 
-  Use `GetSessionEmbedUrl` where
-  you want to provide an authoring portal that allows users to create data
-  sources,
-  datasets, analyses, and dashboards. The users who access an embedded QuickSight
-  console
-  need belong to the author or admin security cohort. If you want to restrict
-  permissions
-  to some of these features, add a custom permissions profile to the user with the
+  Use
+  `GetSessionEmbedUrl` where you want to provide an authoring portal that
+  allows users to create data sources, datasets, analyses, and dashboards. The
+  users who
+  access an embedded Amazon Quick Sight console need belong to the author or admin
+  security
+  cohort. If you want to restrict permissions to some of these features, add a
+  custom
+  permissions profile to the user with the
 
   ```
 
@@ -24541,10 +25627,10 @@ defmodule AWS.QuickSight do
 
   ```
 
-  API operation to add a new user with a custom permission profile attached. For
-  more
-  information, see the following sections in the *Amazon QuickSight User
-  Guide*:
+  API operation to add a new user with a custom
+  permission profile attached. For more information, see the following sections in
+  the
+  *Amazon QuickSight User Guide*:
 
     *
 
@@ -24605,8 +25691,55 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Lists Amazon QuickSight analyses that exist in the specified Amazon Web Services
-  account.
+  Lists all action connectors in the specified Amazon Web Services account.
+
+  Returns summary information for each connector including its name, type,
+  creation time, and status.
+  """
+  @spec list_action_connectors(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_action_connectors_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_action_connectors_errors()}
+  def list_action_connectors(
+        %Client{} = client,
+        aws_account_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/action-connectors"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists Amazon Quick Sight analyses that exist in the specified Amazon Web
+  Services account.
   """
   @spec list_analyses(
           map(),
@@ -24653,9 +25786,11 @@ defmodule AWS.QuickSight do
   Lists all asset bundle export jobs that have been taken place in the last 14
   days.
 
-  Jobs created more than 14 days ago are deleted forever and are not returned. If
-  you are using the same job ID for multiple jobs, `ListAssetBundleExportJobs`
-  only returns the most recent job that uses the repeated job ID.
+  Jobs
+  created more than 14 days ago are deleted forever and are not returned. If you
+  are using
+  the same job ID for multiple jobs, `ListAssetBundleExportJobs` only returns the
+  most recent job that uses the repeated job ID.
   """
   @spec list_asset_bundle_export_jobs(
           map(),
@@ -24701,9 +25836,11 @@ defmodule AWS.QuickSight do
   @doc """
   Lists all asset bundle import jobs that have taken place in the last 14 days.
 
-  Jobs created more than 14 days ago are deleted forever and are not returned. If
-  you are using the same job ID for multiple jobs, `ListAssetBundleImportJobs`
-  only returns the most recent job that uses the repeated job ID.
+  Jobs
+  created more than 14 days ago are deleted forever and are not returned. If you
+  are using
+  the same job ID for multiple jobs, `ListAssetBundleImportJobs` only returns the
+  most recent job that uses the repeated job ID.
   """
   @spec list_asset_bundle_import_jobs(
           map(),
@@ -24747,7 +25884,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Lists all brands in an QuickSight account.
+  Lists all brands in an Quick Sight account.
   """
   @spec list_brands(
           map(),
@@ -24835,7 +25972,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Lists all the versions of the dashboards in the QuickSight subscription.
+  Lists all the versions of the dashboards in the Amazon Quick Sight subscription.
   """
   @spec list_dashboard_versions(
           map(),
@@ -24928,7 +26065,8 @@ defmodule AWS.QuickSight do
 
   @doc """
   Lists all of the datasets belonging to the current Amazon Web Services account
-  in an Amazon Web Services Region.
+  in an
+  Amazon Web Services Region.
 
   The permissions resource is
   `arn:aws:quicksight:region:aws-account-id:dataset/*`.
@@ -24997,6 +26135,50 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sources"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists flows in an Amazon Web Services account.
+  """
+  @spec list_flows(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_flows_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_flows_errors()}
+  def list_flows(
+        %Client{} = client,
+        aws_account_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/flows"
     headers = []
     query_params = []
 
@@ -25210,7 +26392,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Lists all user groups in Amazon QuickSight.
+  Lists all user groups in Amazon Quick Sight.
   """
   @spec list_groups(
           map(),
@@ -25259,7 +26441,7 @@ defmodule AWS.QuickSight do
 
   @doc """
   Lists the
-  IAM policy assignments in the current Amazon QuickSight
+  IAM policy assignments in the current Amazon Quick Sight
   account.
   """
   @spec list_iam_policy_assignments(
@@ -25373,10 +26555,10 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Lists all services and authorized targets that the QuickSight IAM Identity
+  Lists all services and authorized targets that the Quick Sight IAM Identity
   Center application can access.
 
-  This operation is only supported for QuickSight accounts that use IAM Identity
+  This operation is only supported for Quick Sight accounts that use IAM Identity
   Center.
   """
   @spec list_identity_propagation_configs(
@@ -25655,7 +26837,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Lists all the versions of the templates in the current Amazon QuickSight
+  Lists all the versions of the templates in the current Amazon Quick Sight
   account.
   """
   @spec list_template_versions(
@@ -25704,7 +26886,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Lists all the templates in the current Amazon QuickSight account.
+  Lists all the templates in the current Amazon Quick Sight account.
   """
   @spec list_templates(
           map(),
@@ -25981,7 +27163,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Lists the Amazon QuickSight groups that an Amazon QuickSight user is a member
+  Lists the Amazon Quick Sight groups that an Amazon Quick Sight user is a member
   of.
   """
   @spec list_user_groups(
@@ -26032,7 +27214,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Returns a list of all of the Amazon QuickSight users belonging to this account.
+  Returns a list of all of the Amazon Quick Sight users belonging to this account.
   """
   @spec list_users(
           map(),
@@ -26212,16 +27394,16 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Creates an Amazon QuickSight user whose identity is associated with the Identity
-  and Access Management (IAM) identity or role specified in the request.
+  Creates an Amazon Quick Sight user whose identity is associated with the
+  Identity and Access Management (IAM) identity or role specified in the request.
 
-  When you register a new user from the QuickSight API, QuickSight generates a
+  When you register a new user from the Quick Sight API, Quick Sight generates a
   registration URL. The user accesses this registration URL to create their
-  account. QuickSight doesn't send a registration email to users who are
-  registered from the QuickSight API. If you want new users to receive a
-  registration email, then add those users in the QuickSight console. For more
-  information on registering a new user in the QuickSight console, see [ Inviting users to access
-  QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/managing-users.html#inviting-users).
+  account. Quick Sight doesn't send a registration email to users who are
+  registered from the Quick Sight API. If you want new users to receive a
+  registration email, then add those users in the Quick Sight console. For more
+  information on registering a new user in the Quick Sight console, see [ Inviting users to access Quick
+  Sight](https://docs.aws.amazon.com/quicksight/latest/user/managing-users.html#inviting-users).
   """
   @spec register_user(
           map(),
@@ -26281,6 +27463,49 @@ defmodule AWS.QuickSight do
     {query_params, input} =
       [
         {"RestoreToFolders", "restore-to-folders"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Searches for action connectors in the specified Amazon Web Services account
+  using filters.
+
+  You can search by connector name, type, or user permissions.
+  """
+  @spec search_action_connectors(
+          map(),
+          String.t() | atom(),
+          search_action_connectors_request(),
+          list()
+        ) ::
+          {:ok, search_action_connectors_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, search_action_connectors_errors()}
+  def search_action_connectors(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/action-connectors"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"MaxResults", "max-results"},
+        {"NextToken", "next-token"}
       ]
       |> Request.build_params(input)
 
@@ -26394,8 +27619,8 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Use the `SearchDataSources` operation to search for data sources that belong to
-  an account.
+  Use the `SearchDataSources` operation to search for data sources that
+  belong to an account.
   """
   @spec search_data_sources(map(), String.t() | atom(), search_data_sources_request(), list()) ::
           {:ok, search_data_sources_response(), any()}
@@ -26404,6 +27629,35 @@ defmodule AWS.QuickSight do
           | {:error, search_data_sources_errors()}
   def search_data_sources(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/data-sources"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Search for the flows in an Amazon Web Services account.
+  """
+  @spec search_flows(map(), String.t() | atom(), search_flows_input(), list()) ::
+          {:ok, search_flows_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, search_flows_errors()}
+  def search_flows(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/flows/searchFlows"
     headers = []
     custom_headers = []
     query_params = []
@@ -26453,7 +27707,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Use the `SearchGroups` operation to search groups in a specified QuickSight
+  Use the `SearchGroups` operation to search groups in a specified Quick Sight
   namespace using the supplied filters.
   """
   @spec search_groups(
@@ -26528,16 +27782,19 @@ defmodule AWS.QuickSight do
   @doc """
   Starts an Asset Bundle export job.
 
-  An Asset Bundle export job exports specified QuickSight assets. You can also
-  choose to export any asset dependencies in the same job. Export jobs run
-  asynchronously and can be polled with a `DescribeAssetBundleExportJob` API call.
-  When a job is successfully completed, a download URL that contains the exported
-  assets is returned. The URL is valid for 5 minutes and can be refreshed with a
-  `DescribeAssetBundleExportJob` API call. Each QuickSight account can run up to 5
-  export jobs concurrently.
+  An Asset Bundle export job exports specified Amazon Quick Sight assets. You can
+  also choose to
+  export any asset dependencies in the same job. Export jobs run asynchronously
+  and can be
+  polled with a `DescribeAssetBundleExportJob` API call. When a job is
+  successfully completed, a download URL that contains the exported assets is
+  returned. The
+  URL is valid for 5 minutes and can be refreshed with a
+  `DescribeAssetBundleExportJob` API call. Each Amazon Quick Sight account can
+  run up to 5 export jobs concurrently.
 
-  The API caller must have the necessary permissions in their IAM role to access
-  each resource before the resources can be exported.
+  The API caller must have the necessary permissions in their IAM role to
+  access each resource before the resources can be exported.
   """
   @spec start_asset_bundle_export_job(
           map(),
@@ -26573,16 +27830,20 @@ defmodule AWS.QuickSight do
   @doc """
   Starts an Asset Bundle import job.
 
-  An Asset Bundle import job imports specified QuickSight assets into an
-  QuickSight account. You can also choose to import a naming prefix and specified
-  configuration overrides. The assets that are contained in the bundle file that
-  you provide are used to create or update a new or existing asset in your
-  QuickSight account. Each QuickSight account can run up to 5 import jobs
-  concurrently.
+  An Asset Bundle import job imports specified Amazon Quick Sight assets into an
+  Amazon Quick
+  Sight account. You can also choose to import a naming prefix and specified
+  configuration
+  overrides. The assets that are contained in the bundle file that you provide are
+  used to
+  create or update a new or existing asset in your Amazon Quick Sight account.
+  Each Amazon
+  Quick Sight account can run up to 5 import jobs concurrently.
 
-  The API caller must have the necessary `"create"`, `"describe"`, and `"update"`
-  permissions in their IAM role to access each resource type that is contained in
-  the bundle file before the resources can be imported.
+  The API caller must have the necessary `"create"`, `"describe"`,
+  and `"update"` permissions in their IAM role to access each
+  resource type that is contained in the bundle file before the resources can be
+  imported.
   """
   @spec start_asset_bundle_import_job(
           map(),
@@ -26640,13 +27901,13 @@ defmodule AWS.QuickSight do
 
   ## StartDashboardSnapshotJob API throttling
 
-  QuickSight utilizes API throttling to create a more consistent user experience
+  Quick Sight utilizes API throttling to create a more consistent user experience
   within a time span for customers when they call the `StartDashboardSnapshotJob`.
   By default, 12 jobs can run simlutaneously in one Amazon Web Services account
   and users can submit up 10 API requests per second before an account is
   throttled. If an overwhelming number of API requests are made by the same user
-  in a short period of time, QuickSight throttles the API calls to maintin an
-  optimal experience and reliability for all QuickSight users.
+  in a short period of time, Quick Sight throttles the API calls to maintin an
+  optimal experience and reliability for all Quick Sight users.
 
   ## Common throttling scenarios
 
@@ -26664,8 +27925,8 @@ defmodule AWS.QuickSight do
     *
 
   **A large number of API requests are submitted on an Amazon Web Services
-  account.** When a user makes more than 10 API calls to the QuickSight API in one
-  second, a `ThrottlingException` is returned.
+  account.** When a user makes more than 10 API calls to the Quick Sight API in
+  one second, a `ThrottlingException` is returned.
 
   If your use case requires a higher throttling limit, contact your account admin
   or [Amazon Web ServicesSupport](http://aws.amazon.com/contact-us/) to explore
@@ -26677,7 +27938,7 @@ defmodule AWS.QuickSight do
   of frequency and parallelism of API calls as much as you can to avoid
   throttling. You can also perform a timing test to calculate an estimate for the
   total processing time of your projected load that stays within the throttling
-  limits of the QuickSight APIs. For example, if your projected traffic is 100
+  limits of the Quick Sight APIs. For example, if your projected traffic is 100
   snapshot jobs before 12:00 PM per day, start 12 jobs in parallel and measure the
   amount of time it takes to proccess all 12 jobs. Once you obtain the result,
   multiply the duration by 9, for example `(12 minutes * 9 = 108 minutes)`. Use
@@ -26755,9 +28016,9 @@ defmodule AWS.QuickSight do
   Only one job can run simultaneously in a given schedule. Repeated requests are
   skipped with a `202` HTTP status code.
 
-  For more information, see [Scheduling and sending QuickSight reports by email](https://docs.aws.amazon.com/quicksight/latest/user/sending-reports.html)
-  and [Configuring email report settings for a QuickSight dashboard](https://docs.aws.amazon.com/quicksight/latest/user/email-reports-from-dashboard.html)
-  in the *Amazon QuickSight User Guide*.
+  For more information, see [Scheduling and sending Amazon Quick Sight reports by email](https://docs.aws.amazon.com/quicksight/latest/user/sending-reports.html)
+  and [Configuring email report settings for a Amazon Quick Sight dashboard](https://docs.aws.amazon.com/quicksight/latest/user/email-reports-from-dashboard.html)
+  in the *Amazon Quick Sight User Guide*.
   """
   @spec start_dashboard_snapshot_job_schedule(
           map(),
@@ -26802,7 +28063,8 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Assigns one or more tags (key-value pairs) to the specified QuickSight resource.
+  Assigns one or more tags (key-value pairs) to the specified Amazon Quick Sight
+  resource.
 
   Tags can help you organize and categorize your resources. You can also use them
   to
@@ -26816,21 +28078,20 @@ defmodule AWS.QuickSight do
   that is already associated with the resource, the new tag value that you specify
   replaces the previous value for that tag.
 
-  You can associate as many as 50 tags with a resource. QuickSight supports
-  tagging on data
-  set, data source, dashboard, template, topic, and user.
+  You can associate as many as 50 tags with a resource. Amazon Quick Sight
+  supports
+  tagging on data set, data source, dashboard, template, topic, and user.
 
-  Tagging for QuickSight works in a similar way to tagging for other Amazon Web
-  Services services, except for
-  the following:
-
-    *
-  Tags are used to track costs for users in QuickSight. You can't tag other
-  resources that QuickSight costs are based on, such as storage capacoty (SPICE),
-  session usage, alert consumption, or reporting units.
+  Tagging for Amazon Quick Sight works in a similar way to tagging for other
+  Amazon Web Services services, except for the following:
 
     *
-  QuickSight doesn't currently support the tag editor for Resource Groups.
+  Tags are used to track costs for users in Amazon Quick Sight. You can't
+  tag other resources that Amazon Quick Sight costs are based on, such as storage
+  capacoty (SPICE), session usage, alert consumption, or reporting units.
+
+    *
+  Amazon Quick Sight doesn't currently support the tag editor for Resource Groups.
   """
   @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -26927,13 +28188,13 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Updates Amazon QuickSight customizations.
+  Updates Amazon Quick Sight customizations.
 
   Currently, the only customization that you can use is a theme.
 
   You can use customizations for your Amazon Web Services account or, if you
   specify a namespace, for a
-  QuickSight namespace instead. Customizations that apply to a namespace override
+  Quick Sight namespace instead. Customizations that apply to a namespace override
   customizations that apply to an Amazon Web Services account. To find out which
   customizations apply, use
   the `DescribeAccountCustomization` API operation.
@@ -26975,7 +28236,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Updates the Amazon QuickSight settings in your Amazon Web Services account.
+  Updates the Amazon Quick Sight settings in your Amazon Web Services account.
   """
   @spec update_account_settings(
           map(),
@@ -27009,7 +28270,101 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Updates an analysis in Amazon QuickSight
+  Updates an existing action connector with new configuration details,
+  authentication settings, or enabled actions.
+
+  You can modify the connector's name, description, authentication configuration,
+  and which actions are enabled. For more information,
+  [https://docs.aws.amazon.com/quicksuite/latest/userguide/quick-action-auth.html](https://docs.aws.amazon.com/quicksuite/latest/userguide/quick-action-auth.html).
+  """
+  @spec update_action_connector(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_action_connector_request(),
+          list()
+        ) ::
+          {:ok, update_action_connector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_action_connector_errors()}
+  def update_action_connector(
+        %Client{} = client,
+        action_connector_id,
+        aws_account_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/action-connectors/#{AWS.Util.encode_uri(action_connector_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the permissions for an action connector by granting or revoking access
+  for specific users and groups.
+
+  You can control who can view, use, or manage the action connector.
+  """
+  @spec update_action_connector_permissions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_action_connector_permissions_request(),
+          list()
+        ) ::
+          {:ok, update_action_connector_permissions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_action_connector_permissions_errors()}
+  def update_action_connector_permissions(
+        %Client{} = client,
+        action_connector_id,
+        aws_account_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/action-connectors/#{AWS.Util.encode_uri(action_connector_id)}/permissions"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an analysis in Amazon Quick Sight
   """
   @spec update_analysis(
           map(),
@@ -27298,8 +28653,7 @@ defmodule AWS.QuickSight do
   Updates a dashboard in an Amazon Web Services account.
 
   Updating a Dashboard creates a new dashboard version but does not immediately
-  publish
-  the new version. You can update the published version of a dashboard by
+  publish the new version. You can update the published version of a dashboard by
   using the
 
   ```
@@ -27517,8 +28871,8 @@ defmodule AWS.QuickSight do
   @doc """
   Updates a dataset.
 
-  This operation doesn't support datasets that include uploaded files as a source.
-  Partial updates are not supported by this operation.
+  This operation doesn't support datasets that include uploaded files
+  as a source. Partial updates are not supported by this operation.
   """
   @spec update_data_set(
           map(),
@@ -27681,7 +29035,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Updates a Amazon Q Business application that is linked to a QuickSight account.
+  Updates a Amazon Q Business application that is linked to a Quick Sight account.
   """
   @spec update_default_q_business_application(
           map(),
@@ -27708,6 +29062,43 @@ defmodule AWS.QuickSight do
         {"Namespace", "namespace"}
       ]
       |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates permissions against principals on a flow.
+  """
+  @spec update_flow_permissions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_flow_permissions_input(),
+          list()
+        ) ::
+          {:ok, update_flow_permissions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_flow_permissions_errors()}
+  def update_flow_permissions(%Client{} = client, aws_account_id, flow_id, input, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/flows/#{AWS.Util.encode_uri(flow_id)}/permissions"
+
+    headers = []
+    custom_headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -27900,10 +29291,10 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Adds or updates services and authorized targets to configure what the QuickSight
-  IAM Identity Center application can access.
+  Adds or updates services and authorized targets to configure what the Quick
+  Sight IAM Identity Center application can access.
 
-  This operation is only supported for QuickSight accounts using IAM Identity
+  This operation is only supported for Quick Sight accounts using IAM Identity
   Center
   """
   @spec update_identity_propagation_config(
@@ -27981,7 +29372,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Updates a customer managed key in a QuickSight account.
+  Updates a customer managed key in a Quick Sight account.
   """
   @spec update_key_registration(
           map(),
@@ -28016,8 +29407,9 @@ defmodule AWS.QuickSight do
 
   @doc """
 
-  This API controls public sharing settings for your entire QuickSight account,
-  affecting data security and access.
+  This API controls public sharing settings for your entire Quick Sight account,
+  affecting
+  data security and access.
 
   When you enable public sharing:
 
@@ -28025,25 +29417,25 @@ defmodule AWS.QuickSight do
   Dashboards can be shared publicly
 
     
-  This setting affects your entire Amazon Web Services account and all QuickSight
+  This setting affects your entire Amazon Web Services account and all Quick Sight
   users
 
-  **Before proceeding:** Ensure you understand the security implications and have
-  proper IAM permissions configured.
+  **Before proceeding:** Ensure you understand the
+  security implications and have proper IAM permissions
+  configured.
 
   Use the `UpdatePublicSharingSettings` operation to turn on or turn off the
-  public sharing settings of an QuickSight dashboard.
+  public sharing settings of an Amazon Quick Sight dashboard.
 
-  To use this operation, turn on session capacity pricing for your QuickSight
+  To use this operation, turn on session capacity pricing for your Amazon Quick
+  Sight
   account.
 
   Before you can turn on public sharing on your account, make sure to give public
-  sharing
-  permissions to an administrative user in the Identity and Access Management
-  (IAM)
-  console. For more information on using IAM with QuickSight, see
-  [Using QuickSight with IAM](https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html)
-  in the *QuickSight
+  sharing permissions to an administrative user in the Identity and Access
+  Management (IAM) console. For more information on using IAM with Amazon
+  Quick Sight, see [Using QuickSight with IAM](https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html)
+  in the *Amazon Quick Sight
   User Guide*.
   """
   @spec update_public_sharing_settings(
@@ -28117,7 +29509,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Updates the state of a QuickSight Q Search configuration.
+  Updates the state of a Quick Sight Q Search configuration.
   """
   @spec update_quick_sight_q_search_configuration(
           map(),
@@ -28246,7 +29638,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Updates the SPICE capacity configuration for a QuickSight account.
+  Updates the SPICE capacity configuration for a Quick Sight account.
   """
   @spec update_s_p_i_c_e_capacity_configuration(
           map(),
@@ -28285,7 +29677,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Updates a template from an existing Amazon QuickSight analysis or another
+  Updates a template from an existing Amazon Quick Sight analysis or another
   template.
   """
   @spec update_template(
@@ -28725,7 +30117,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Updates an Amazon QuickSight user.
+  Updates an Amazon Quick Sight user.
   """
   @spec update_user(
           map(),

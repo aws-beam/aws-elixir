@@ -2548,6 +2548,7 @@ defmodule AWS.Glue do
   ## Example:
       
       get_table_request() :: %{
+        optional("AuditContext") => audit_context(),
         optional("CatalogId") => String.t() | atom(),
         optional("IncludeStatusDetails") => boolean(),
         optional("QueryAsOfTime") => non_neg_integer(),
@@ -3864,6 +3865,7 @@ defmodule AWS.Glue do
       
       get_tables_request() :: %{
         optional("AttributesToGet") => list(list(any())()),
+        optional("AuditContext") => audit_context(),
         optional("CatalogId") => String.t() | atom(),
         optional("Expression") => String.t() | atom(),
         optional("IncludeStatusDetails") => boolean(),

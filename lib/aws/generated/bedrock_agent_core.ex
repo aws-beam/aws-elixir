@@ -153,6 +153,8 @@ defmodule AWS.BedrockAgentCore do
       invoke_code_interpreter_request() :: %{
         optional("arguments") => tool_arguments(),
         optional("sessionId") => String.t() | atom(),
+        optional("traceId") => [String.t() | atom()],
+        optional("traceParent") => [String.t() | atom()],
         required("name") => list(any())
       }
 
@@ -282,6 +284,8 @@ defmodule AWS.BedrockAgentCore do
 
       stop_browser_session_request() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("traceId") => [String.t() | atom()],
+        optional("traceParent") => [String.t() | atom()],
         required("sessionId") => String.t() | atom()
       }
 
@@ -412,6 +416,8 @@ defmodule AWS.BedrockAgentCore do
 
       stop_code_interpreter_session_request() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("traceId") => [String.t() | atom()],
+        optional("traceParent") => [String.t() | atom()],
         required("sessionId") => String.t() | atom()
       }
 
@@ -451,6 +457,8 @@ defmodule AWS.BedrockAgentCore do
         optional("clientToken") => String.t() | atom(),
         optional("name") => String.t() | atom(),
         optional("sessionTimeoutSeconds") => integer(),
+        optional("traceId") => [String.t() | atom()],
+        optional("traceParent") => [String.t() | atom()],
         optional("viewPort") => view_port()
       }
 
@@ -601,7 +609,9 @@ defmodule AWS.BedrockAgentCore do
       start_code_interpreter_session_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("name") => String.t() | atom(),
-        optional("sessionTimeoutSeconds") => integer()
+        optional("sessionTimeoutSeconds") => integer(),
+        optional("traceId") => [String.t() | atom()],
+        optional("traceParent") => [String.t() | atom()]
       }
 
   """
@@ -1639,7 +1649,7 @@ defmodule AWS.BedrockAgentCore do
       custom_headers ++ headers,
       input,
       options,
-      200
+      201
     )
   end
 
@@ -1746,7 +1756,7 @@ defmodule AWS.BedrockAgentCore do
       custom_headers ++ headers,
       input,
       options,
-      200
+      201
     )
   end
 
@@ -2218,7 +2228,10 @@ defmodule AWS.BedrockAgentCore do
   Auth](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-oauth.html).
 
   To use this operation, you must have the `bedrock-agentcore:InvokeAgentRuntime`
-  permission.
+  permission. If you are making a call to `InvokeAgentRuntime` on behalf of a user
+  ID with the `X-Amzn-Bedrock-AgentCore-Runtime-User-Id` header, You require
+  permissions to both actions (`bedrock-agentcore:InvokeAgentRuntime` and
+  `bedrock-agentcore:InvokeAgentRuntimeForUser`).
   """
   @spec invoke_agent_runtime(map(), String.t() | atom(), invoke_agent_runtime_request(), list()) ::
           {:ok, invoke_agent_runtime_response(), any()}
@@ -2324,7 +2337,9 @@ defmodule AWS.BedrockAgentCore do
 
     {headers, input} =
       [
-        {"sessionId", "x-amzn-code-interpreter-session-id"}
+        {"sessionId", "x-amzn-code-interpreter-session-id"},
+        {"traceId", "X-Amzn-Trace-Id"},
+        {"traceParent", "traceparent"}
       ]
       |> Request.build_params(input)
 
@@ -2682,7 +2697,14 @@ defmodule AWS.BedrockAgentCore do
           | {:error, start_browser_session_errors()}
   def start_browser_session(%Client{} = client, browser_identifier, input, options \\ []) do
     url_path = "/browsers/#{AWS.Util.encode_uri(browser_identifier)}/sessions/start"
-    headers = []
+
+    {headers, input} =
+      [
+        {"traceId", "X-Amzn-Trace-Id"},
+        {"traceParent", "traceparent"}
+      ]
+      |> Request.build_params(input)
+
     custom_headers = []
     query_params = []
 
@@ -2740,7 +2762,13 @@ defmodule AWS.BedrockAgentCore do
     url_path =
       "/code-interpreters/#{AWS.Util.encode_uri(code_interpreter_identifier)}/sessions/start"
 
-    headers = []
+    {headers, input} =
+      [
+        {"traceId", "X-Amzn-Trace-Id"},
+        {"traceParent", "traceparent"}
+      ]
+      |> Request.build_params(input)
+
     custom_headers = []
     query_params = []
 
@@ -2782,7 +2810,14 @@ defmodule AWS.BedrockAgentCore do
           | {:error, stop_browser_session_errors()}
   def stop_browser_session(%Client{} = client, browser_identifier, input, options \\ []) do
     url_path = "/browsers/#{AWS.Util.encode_uri(browser_identifier)}/sessions/stop"
-    headers = []
+
+    {headers, input} =
+      [
+        {"traceId", "X-Amzn-Trace-Id"},
+        {"traceParent", "traceparent"}
+      ]
+      |> Request.build_params(input)
+
     custom_headers = []
 
     {query_params, input} =
@@ -2841,7 +2876,13 @@ defmodule AWS.BedrockAgentCore do
     url_path =
       "/code-interpreters/#{AWS.Util.encode_uri(code_interpreter_identifier)}/sessions/stop"
 
-    headers = []
+    {headers, input} =
+      [
+        {"traceId", "X-Amzn-Trace-Id"},
+        {"traceParent", "traceparent"}
+      ]
+      |> Request.build_params(input)
+
     custom_headers = []
 
     {query_params, input} =

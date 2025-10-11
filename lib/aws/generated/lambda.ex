@@ -2647,6 +2647,7 @@ defmodule AWS.Lambda do
       add_permission_request() :: %{
         optional("EventSourceToken") => String.t() | atom(),
         optional("FunctionUrlAuthType") => list(any()),
+        optional("InvokedViaFunctionUrl") => boolean(),
         optional("PrincipalOrgID") => String.t() | atom(),
         optional("Qualifier") => String.t() | atom(),
         optional("RevisionId") => String.t() | atom(),

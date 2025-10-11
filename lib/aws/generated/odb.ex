@@ -10,7 +10,7 @@ defmodule AWS.Odb do
   You can migrate your Oracle Exadata workloads, establish low-latency
   connectivity with applications running on Amazon Web Services, and integrate
   with Amazon Web Services services. For example, you can run application servers
-  in a virtual private cloud (VPC) and access an Oracle Exadata system running in
+  in a Virtual Private Cloud (VPC) and access an Oracle Exadata system running in
   Oracle Database@Amazon Web Services. You can get started with Oracle
   Database@Amazon Web Services by using the familiar Amazon Web Services
   Management Console, APIs, or CLI.
@@ -22,18 +22,15 @@ defmodule AWS.Odb do
   as polling or callback functions to determine when a command has been applied.
   The reference structure is as follows.
 
-  In this preview release documentation, the links in the "See Also" sections do
-  not work.
-
   ## Oracle Database@Amazon Web Services API Reference
 
-    * For the alphabetical list of API actions, see .
+    * For the alphabetical list of API actions, see [API Actions](https://docs.aws.amazon.com/odb/latest/APIReference/API_Operations.html).
 
-    * For the alphabetical list of data types, see .
+    * For the alphabetical list of data types, see [Data Types](https://docs.aws.amazon.com/odb/latest/APIReference/API_Types.html).
 
-    * For a list of common parameters, see `CommonParameters`.
+    * For a list of common query parameters, see [Common Parameters](https://docs.aws.amazon.com/odb/latest/APIReference/CommonParameters.html).
 
-    * For descriptions of the error codes, see `CommonErrors`.
+    * For descriptions of the error codes, see [Common Errors](https://docs.aws.amazon.com/odb/latest/APIReference/CommonErrors.html).
   """
 
   alias AWS.Client
@@ -494,6 +491,19 @@ defmodule AWS.Odb do
 
   ## Example:
       
+      update_odb_peering_connection_input() :: %{
+        optional("displayName") => String.t() | atom(),
+        optional("peerNetworkCidrsToBeAdded") => list(String.t() | atom()),
+        optional("peerNetworkCidrsToBeRemoved") => list(String.t() | atom())
+      }
+      
+  """
+  @type update_odb_peering_connection_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t() | atom())
       }
@@ -597,6 +607,7 @@ defmodule AWS.Odb do
         "odbPeeringConnectionId" => String.t() | atom(),
         "odbPeeringConnectionType" => [String.t() | atom()],
         "peerNetworkArn" => [String.t() | atom()],
+        "peerNetworkCidrs" => list(String.t() | atom()),
         "percentProgress" => [float()],
         "status" => list(any()),
         "statusReason" => [String.t() | atom()]
@@ -822,6 +833,7 @@ defmodule AWS.Odb do
         "odbPeeringConnectionId" => String.t() | atom(),
         "odbPeeringConnectionType" => [String.t() | atom()],
         "peerNetworkArn" => [String.t() | atom()],
+        "peerNetworkCidrs" => list(String.t() | atom()),
         "percentProgress" => [float()],
         "status" => list(any()),
         "statusReason" => [String.t() | atom()]
@@ -1810,6 +1822,20 @@ defmodule AWS.Odb do
 
   ## Example:
       
+      update_odb_peering_connection_output() :: %{
+        "displayName" => [String.t() | atom()],
+        "odbPeeringConnectionId" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type update_odb_peering_connection_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       cloud_exadata_infrastructure_unallocated_resources() :: %{
         "cloudAutonomousVmClusters" => list(cloud_autonomous_vm_cluster_resource_details()),
         "cloudExadataInfrastructureDisplayName" => [String.t() | atom()],
@@ -1920,6 +1946,7 @@ defmodule AWS.Odb do
       create_odb_peering_connection_input() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("displayName") => String.t() | atom(),
+        optional("peerNetworkCidrsToBeAdded") => list(String.t() | atom()),
         optional("tags") => map(),
         required("odbNetworkId") => String.t() | atom(),
         required("peerNetworkId") => String.t() | atom()
@@ -2216,6 +2243,14 @@ defmodule AWS.Odb do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type update_odb_peering_connection_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   def metadata do
     %{
       api_version: "2024-08-20",
@@ -2312,8 +2347,7 @@ defmodule AWS.Odb do
   end
 
   @doc """
-  Creates a peering connection between an ODB network and either another ODB
-  network or a customer-owned VPC.
+  Creates a peering connection between an ODB network and a VPC.
 
   A peering connection enables private connectivity between the networks for
   application-tier communication.
@@ -2853,5 +2887,23 @@ defmodule AWS.Odb do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateOdbNetwork", input, options)
+  end
+
+  @doc """
+  Modifies the settings of an Oracle Database@Amazon Web Services peering
+  connection.
+
+  You can update the display name and add or remove CIDR blocks from the peering
+  connection.
+  """
+  @spec update_odb_peering_connection(map(), update_odb_peering_connection_input(), list()) ::
+          {:ok, update_odb_peering_connection_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_odb_peering_connection_errors()}
+  def update_odb_peering_connection(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateOdbPeeringConnection", input, options)
   end
 end

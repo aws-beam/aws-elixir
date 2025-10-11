@@ -38,7 +38,8 @@ defmodule AWS.BedrockAgentCoreControl do
 
       modify_strategy_configuration() :: %{
         "consolidation" => list(),
-        "extraction" => list()
+        "extraction" => list(),
+        "selfManagedConfiguration" => modify_self_managed_configuration()
       }
 
   """
@@ -79,6 +80,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type delete_gateway_target_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      time_based_trigger_input() :: %{
+        "idleSessionTimeout" => [integer()]
+      }
+
+  """
+  @type time_based_trigger_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -361,6 +373,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      message_based_trigger_input() :: %{
+        "messageCount" => [integer()]
+      }
+
+  """
+  @type message_based_trigger_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_gateway_target_response() :: %{
         "gatewayArn" => String.t() | atom(),
         "status" => list(any()),
@@ -438,6 +461,19 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type create_browser_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      modify_self_managed_configuration() :: %{
+        "historicalContextWindowSize" => [integer()],
+        "invocationConfiguration" => modify_invocation_configuration_input(),
+        "triggerConditions" => list(list())
+      }
+
+  """
+  @type modify_self_managed_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -580,6 +616,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "credentialProviderConfigurations" => list(credential_provider_configuration()),
         "description" => String.t() | atom(),
         "gatewayArn" => String.t() | atom(),
+        "lastSynchronizedAt" => non_neg_integer(),
         "name" => String.t() | atom(),
         "status" => list(any()),
         "statusReasons" => list(String.t() | atom()),
@@ -643,6 +680,19 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      self_managed_configuration_input() :: %{
+        "historicalContextWindowSize" => [integer()],
+        "invocationConfiguration" => invocation_configuration_input(),
+        "triggerConditions" => list(list())
+      }
+
+  """
+  @type self_managed_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_api_key_credential_provider_request() :: %{
         required("apiKey") => String.t() | atom(),
         required("name") => String.t() | atom()
@@ -698,10 +748,21 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      synchronize_gateway_targets_request() :: %{
+        required("targetIdList") => list(String.t() | atom())
+      }
+
+  """
+  @type synchronize_gateway_targets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_gateway_target_request() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("credentialProviderConfigurations") => list(credential_provider_configuration()),
         optional("description") => String.t() | atom(),
-        required("credentialProviderConfigurations") => list(credential_provider_configuration()),
         required("name") => String.t() | atom(),
         required("targetConfiguration") => list()
       }
@@ -756,6 +817,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "credentialProviderConfigurations" => list(credential_provider_configuration()),
         "description" => String.t() | atom(),
         "gatewayArn" => String.t() | atom(),
+        "lastSynchronizedAt" => non_neg_integer(),
         "name" => String.t() | atom(),
         "status" => list(any()),
         "statusReasons" => list(String.t() | atom()),
@@ -993,6 +1055,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "credentialProviderConfigurations" => list(credential_provider_configuration()),
         "description" => String.t() | atom(),
         "gatewayArn" => String.t() | atom(),
+        "lastSynchronizedAt" => non_neg_integer(),
         "name" => String.t() | atom(),
         "status" => list(any()),
         "statusReasons" => list(String.t() | atom()),
@@ -1300,6 +1363,31 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      self_managed_configuration() :: %{
+        "historicalContextWindowSize" => [integer()],
+        "invocationConfiguration" => invocation_configuration(),
+        "triggerConditions" => list(list())
+      }
+
+  """
+  @type self_managed_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invocation_configuration_input() :: %{
+        "payloadDeliveryBucketName" => [String.t() | atom()],
+        "topicArn" => String.t() | atom()
+      }
+
+  """
+  @type invocation_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       secret() :: %{
         "secretArn" => String.t() | atom()
       }
@@ -1375,6 +1463,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type user_preference_extraction_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      token_based_trigger() :: %{
+        "tokenCount" => [integer()]
+      }
+
+  """
+  @type token_based_trigger() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1736,6 +1835,27 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      gateway_target() :: %{
+        "createdAt" => non_neg_integer(),
+        "credentialProviderConfigurations" => list(credential_provider_configuration()),
+        "description" => String.t() | atom(),
+        "gatewayArn" => String.t() | atom(),
+        "lastSynchronizedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "targetConfiguration" => list(),
+        "targetId" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type gateway_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_agent_runtime_response() :: %{
         "agentRuntimeArn" => String.t() | atom(),
         "agentRuntimeArtifact" => list(),
@@ -1794,6 +1914,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type network_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_based_trigger() :: %{
+        "messageCount" => [integer()]
+      }
+
+  """
+  @type message_based_trigger() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1886,6 +2017,7 @@ defmodule AWS.BedrockAgentCoreControl do
       strategy_configuration() :: %{
         "consolidation" => list(),
         "extraction" => list(),
+        "selfManagedConfiguration" => self_managed_configuration(),
         "type" => list(any())
       }
 
@@ -2038,6 +2170,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      time_based_trigger() :: %{
+        "idleSessionTimeout" => [integer()]
+      }
+
+  """
+  @type time_based_trigger() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_oauth2_credential_provider_response() :: %{}
 
   """
@@ -2176,12 +2319,35 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      invocation_configuration() :: %{
+        "payloadDeliveryBucketName" => [String.t() | atom()],
+        "topicArn" => String.t() | atom()
+      }
+
+  """
+  @type invocation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       protocol_configuration() :: %{
         "serverProtocol" => list(any())
       }
 
   """
   @type protocol_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mcp_server_target_configuration() :: %{
+        "endpoint" => [String.t() | atom()]
+      }
+
+  """
+  @type mcp_server_target_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2217,6 +2383,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type user_preference_consolidation_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      synchronize_gateway_targets_response() :: %{
+        "targets" => list(gateway_target())
+      }
+
+  """
+  @type synchronize_gateway_targets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2371,8 +2548,8 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       update_gateway_target_request() :: %{
+        optional("credentialProviderConfigurations") => list(credential_provider_configuration()),
         optional("description") => String.t() | atom(),
-        required("credentialProviderConfigurations") => list(credential_provider_configuration()),
         required("name") => String.t() | atom(),
         required("targetConfiguration") => list()
       }
@@ -2474,6 +2651,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      token_based_trigger_input() :: %{
+        "tokenCount" => [integer()]
+      }
+
+  """
+  @type token_based_trigger_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       google_oauth2_provider_config_input() :: %{
         "clientId" => String.t() | atom(),
         "clientSecret" => String.t() | atom()
@@ -2493,6 +2681,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type list_gateway_targets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      modify_invocation_configuration_input() :: %{
+        "payloadDeliveryBucketName" => [String.t() | atom()],
+        "topicArn" => String.t() | atom()
+      }
+
+  """
+  @type modify_invocation_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2873,6 +3073,15 @@ defmodule AWS.BedrockAgentCoreControl do
           | resource_not_found_exception()
           | unauthorized_exception()
 
+  @type synchronize_gateway_targets_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type tag_resource_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3141,9 +3350,8 @@ defmodule AWS.BedrockAgentCoreControl do
   A gateway serves as an integration point between your agent and external
   services.
 
-  To create a gateway, you must specify a name, protocol type, and IAM role. The
-  role grants the gateway permission to access Amazon Web Services services and
-  resources.
+  If you specify `CUSTOM_JWT` as the `authorizerType`, you must provide an
+  `authorizerConfiguration`.
   """
   @spec create_gateway(map(), create_gateway_request(), list()) ::
           {:ok, create_gateway_response(), any()}
@@ -3227,7 +3435,7 @@ defmodule AWS.BedrockAgentCoreControl do
       custom_headers ++ headers,
       input,
       options,
-      200
+      202
     )
   end
 
@@ -3578,7 +3786,7 @@ defmodule AWS.BedrockAgentCoreControl do
       custom_headers ++ headers,
       input,
       options,
-      200
+      202
     )
   end
 
@@ -4346,6 +4554,40 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
+  The gateway targets.
+  """
+  @spec synchronize_gateway_targets(
+          map(),
+          String.t() | atom(),
+          synchronize_gateway_targets_request(),
+          list()
+        ) ::
+          {:ok, synchronize_gateway_targets_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, synchronize_gateway_targets_errors()}
+  def synchronize_gateway_targets(%Client{} = client, gateway_identifier, input, options \\ []) do
+    url_path = "/gateways/#{AWS.Util.encode_uri(gateway_identifier)}/synchronizeTargets"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Associates the specified tags to a resource with the specified resourceArn.
 
   If existing tags on a resource are not specified in the request parameters, they
@@ -4620,7 +4862,7 @@ defmodule AWS.BedrockAgentCoreControl do
       custom_headers ++ headers,
       input,
       options,
-      200
+      202
     )
   end
 

@@ -267,6 +267,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      complete_resource_token_auth_request() :: %{
+        required("sessionUri") => String.t() | atom(),
+        required("userIdentifier") => list()
+      }
+
+  """
+  @type complete_resource_token_auth_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       memory_record_update_input() :: %{
         "content" => list(),
         "memoryRecordId" => String.t() | atom(),
@@ -483,8 +495,10 @@ defmodule AWS.BedrockAgentCore do
 
       get_resource_oauth2_token_request() :: %{
         optional("customParameters") => map(),
+        optional("customState") => String.t() | atom(),
         optional("forceAuthentication") => [boolean()],
         optional("resourceOauth2ReturnUrl") => String.t() | atom(),
+        optional("sessionUri") => String.t() | atom(),
         required("oauth2Flow") => list(any()),
         required("resourceCredentialProviderName") => String.t() | atom(),
         required("scopes") => list(String.t() | atom()),
@@ -582,7 +596,9 @@ defmodule AWS.BedrockAgentCore do
 
       get_resource_oauth2_token_response() :: %{
         "accessToken" => String.t() | atom(),
-        "authorizationUrl" => [String.t() | atom()]
+        "authorizationUrl" => String.t() | atom(),
+        "sessionStatus" => list(any()),
+        "sessionUri" => String.t() | atom()
       }
 
   """
@@ -952,6 +968,7 @@ defmodule AWS.BedrockAgentCore do
 
       invoke_agent_runtime_request() :: %{
         optional("accept") => String.t() | atom(),
+        optional("accountId") => [String.t() | atom()],
         optional("baggage") => [String.t() | atom()],
         optional("contentType") => String.t() | atom(),
         optional("mcpProtocolVersion") => String.t() | atom(),
@@ -1000,6 +1017,15 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type get_browser_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      complete_resource_token_auth_response() :: %{}
+
+  """
+  @type complete_resource_token_auth_response() :: %{}
 
   @typedoc """
 
@@ -1361,6 +1387,14 @@ defmodule AWS.BedrockAgentCore do
           | resource_not_found_exception()
           | throttled_exception()
 
+  @type complete_resource_token_auth_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
+
   @type create_event_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -1704,6 +1738,36 @@ defmodule AWS.BedrockAgentCore do
           | {:error, batch_update_memory_records_errors()}
   def batch_update_memory_records(%Client{} = client, memory_id, input, options \\ []) do
     url_path = "/memories/#{AWS.Util.encode_uri(memory_id)}/memoryRecords/batchUpdate"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Confirms the user authentication session for obtaining OAuth2.0 tokens for a
+  resource.
+  """
+  @spec complete_resource_token_auth(map(), complete_resource_token_auth_request(), list()) ::
+          {:ok, complete_resource_token_auth_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, complete_resource_token_auth_errors()}
+  def complete_resource_token_auth(%Client{} = client, input, options \\ []) do
+    url_path = "/identities/CompleteResourceTokenAuth"
     headers = []
     custom_headers = []
     query_params = []
@@ -2260,6 +2324,7 @@ defmodule AWS.BedrockAgentCore do
 
     {query_params, input} =
       [
+        {"accountId", "accountId"},
         {"qualifier", "qualifier"}
       ]
       |> Request.build_params(input)

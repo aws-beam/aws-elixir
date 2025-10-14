@@ -3,7 +3,6 @@
 
 defmodule AWS.ObservabilityAdmin do
   @moduledoc """
-
   You can use Amazon CloudWatch Observability Admin to discover and understand the
   state of telemetry configuration in CloudWatch for your Amazon Web Services
   Organization or account.
@@ -12,8 +11,8 @@ defmodule AWS.ObservabilityAdmin do
   across multiple resource types within your Amazon Web Services Organization or
   account. By providing a consolidated view, it allows you to easily review and
   manage telemetry settings, helping you ensure proper monitoring and data
-  collection across your Amazon Web Services environment.
-  For more information, see [Auditing CloudWatch telemetry conﬁgurations](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/telemetry-config-cloudwatch.html)
+  collection across your Amazon Web Services environment. For more information,
+  see [Auditing CloudWatch telemetry conﬁgurations](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/telemetry-config-cloudwatch.html)
   in the CloudWatch User Guide.
 
   For information on the permissions you need to use this API, see [Identity and access management for Amazon
@@ -272,6 +271,18 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      get_telemetry_enrichment_status_output() :: %{
+        "AwsResourceExplorerManagedViewArn" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type get_telemetry_enrichment_status_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       telemetry_configuration() :: %{
         "AccountIdentifier" => String.t() | atom(),
         "LastUpdateTimeStamp" => [float()],
@@ -517,6 +528,17 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      stop_telemetry_enrichment_output() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type stop_telemetry_enrichment_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       internal_server_exception() :: %{
         "Message" => [String.t() | atom()],
         "amznErrorType" => [String.t() | atom()]
@@ -597,6 +619,18 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type list_telemetry_rules_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_telemetry_enrichment_output() :: %{
+        "AwsResourceExplorerManagedViewArn" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type start_telemetry_enrichment_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -800,6 +834,12 @@ defmodule AWS.ObservabilityAdmin do
           | resource_not_found_exception()
           | too_many_requests_exception()
 
+  @type get_telemetry_enrichment_status_errors() ::
+          access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
   @type get_telemetry_evaluation_status_errors() ::
           access_denied_exception() | internal_server_exception() | too_many_requests_exception()
 
@@ -860,6 +900,12 @@ defmodule AWS.ObservabilityAdmin do
           | internal_server_exception()
           | too_many_requests_exception()
 
+  @type start_telemetry_enrichment_errors() ::
+          access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
   @type start_telemetry_evaluation_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -870,6 +916,12 @@ defmodule AWS.ObservabilityAdmin do
           validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | too_many_requests_exception()
+
+  @type stop_telemetry_enrichment_errors() ::
+          access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
           | too_many_requests_exception()
 
   @type stop_telemetry_evaluation_errors() ::
@@ -977,7 +1029,6 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
-
   Creates a telemetry rule that defines how telemetry should be configured for
   Amazon Web Services resources in your account.
 
@@ -1012,7 +1063,6 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
-
   Creates a telemetry rule that applies across an Amazon Web Services
   Organization.
 
@@ -1086,7 +1136,6 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
-
   Deletes a telemetry rule from your account.
 
   Any telemetry configurations previously created by the rule will remain but no
@@ -1119,7 +1168,6 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
-
   Deletes an organization-wide telemetry rule.
 
   This operation can only be called by the organization's management account or a
@@ -1192,7 +1240,37 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
+  Returns the current status of the resource tags for telemetry feature, which
+  enhances telemetry data with additional resource metadata from Amazon Web
+  Services Resource Explorer.
+  """
+  @spec get_telemetry_enrichment_status(map(), %{}, list()) ::
+          {:ok, get_telemetry_enrichment_status_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_telemetry_enrichment_status_errors()}
+  def get_telemetry_enrichment_status(%Client{} = client, input, options \\ []) do
+    url_path = "/GetTelemetryEnrichmentStatus"
+    headers = []
+    custom_headers = []
+    query_params = []
 
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns the current onboarding status of the telemetry config feature, including
   the status of the feature and reason the feature failed to start or stop.
   """
@@ -1223,7 +1301,6 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
-
   This returns the onboarding status of the telemetry configuration feature for
   the organization.
 
@@ -1258,7 +1335,6 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
-
   Retrieves the details of a specific telemetry rule in your account.
   """
   @spec get_telemetry_rule(map(), get_telemetry_rule_input(), list()) ::
@@ -1288,7 +1364,6 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
-
   Retrieves the details of a specific organization telemetry rule.
 
   This operation can only be called by the organization's management account or a
@@ -1361,7 +1436,6 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
-
   Returns a list of telemetry configurations for Amazon Web Services resources
   supported by telemetry config.
 
@@ -1394,7 +1468,6 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
-
   Returns a list of telemetry configurations for Amazon Web Services resources
   supported by telemetry config in the organization.
   """
@@ -1429,7 +1502,6 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
-
   Lists all tags attached to the specified telemetry rule resource.
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
@@ -1459,7 +1531,6 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
-
   Lists all telemetry rules in your account.
 
   You can filter the results by specifying a rule name prefix.
@@ -1491,7 +1562,6 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
-
   Lists all telemetry rules in your organization.
 
   This operation can only be called by the organization's management account or a
@@ -1528,7 +1598,37 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
+  Enables the resource tags for telemetry feature for your account, which enhances
+  telemetry data with additional resource metadata from Amazon Web Services
+  Resource Explorer to provide richer context for monitoring and observability.
+  """
+  @spec start_telemetry_enrichment(map(), %{}, list()) ::
+          {:ok, start_telemetry_enrichment_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_telemetry_enrichment_errors()}
+  def start_telemetry_enrichment(%Client{} = client, input, options \\ []) do
+    url_path = "/StartTelemetryEnrichment"
+    headers = []
+    custom_headers = []
+    query_params = []
 
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   This action begins onboarding the caller Amazon Web Services account to the
   telemetry config feature.
   """
@@ -1559,7 +1659,6 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
-
   This actions begins onboarding the organization and all member accounts to the
   telemetry config feature.
   """
@@ -1590,7 +1689,36 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
+  Disables the resource tags for telemetry feature for your account, stopping the
+  enhancement of telemetry data with additional resource metadata.
+  """
+  @spec stop_telemetry_enrichment(map(), %{}, list()) ::
+          {:ok, stop_telemetry_enrichment_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_telemetry_enrichment_errors()}
+  def stop_telemetry_enrichment(%Client{} = client, input, options \\ []) do
+    url_path = "/StopTelemetryEnrichment"
+    headers = []
+    custom_headers = []
+    query_params = []
 
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   This action begins offboarding the caller Amazon Web Services account from the
   telemetry config feature.
   """
@@ -1621,7 +1749,6 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
-
   This action offboards the Organization of the caller Amazon Web Services account
   from the telemetry config feature.
   """
@@ -1652,7 +1779,6 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
-
   Adds or updates tags for a telemetry rule resource.
   """
   @spec tag_resource(map(), tag_resource_input(), list()) ::
@@ -1682,7 +1808,6 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
-
   Removes tags from a telemetry rule resource.
   """
   @spec untag_resource(map(), untag_resource_input(), list()) ::
@@ -1749,7 +1874,6 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
-
   Updates an existing telemetry rule in your account.
   """
   @spec update_telemetry_rule(map(), update_telemetry_rule_input(), list()) ::
@@ -1779,7 +1903,6 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
-
   Updates an existing telemetry rule that applies across an Amazon Web Services
   Organization.
 

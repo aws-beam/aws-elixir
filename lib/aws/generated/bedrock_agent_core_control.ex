@@ -97,9 +97,11 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       create_oauth2_credential_provider_response() :: %{
+        "callbackUrl" => [String.t() | atom()],
         "clientSecretArn" => secret(),
         "credentialProviderArn" => String.t() | atom(),
-        "name" => String.t() | atom()
+        "name" => String.t() | atom(),
+        "oauth2ProviderConfigOutput" => list()
       }
 
   """
@@ -149,6 +151,21 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type get_api_key_credential_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      included_oauth2_provider_config_input() :: %{
+        "authorizationEndpoint" => String.t() | atom(),
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom(),
+        "issuer" => String.t() | atom(),
+        "tokenEndpoint" => String.t() | atom()
+      }
+
+  """
+  @type included_oauth2_provider_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -653,6 +670,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      linkedin_oauth2_provider_config_output() :: %{
+        "clientId" => String.t() | atom(),
+        "oauthDiscovery" => list()
+      }
+
+  """
+  @type linkedin_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       semantic_override_consolidation_configuration_input() :: %{
         "appendToPrompt" => String.t() | atom(),
         "modelId" => [String.t() | atom()]
@@ -668,7 +697,9 @@ defmodule AWS.BedrockAgentCoreControl do
       create_agent_runtime_endpoint_response() :: %{
         "agentRuntimeArn" => String.t() | atom(),
         "agentRuntimeEndpointArn" => String.t() | atom(),
+        "agentRuntimeId" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
+        "endpointName" => String.t() | atom(),
         "status" => list(any()),
         "targetVersion" => String.t() | atom()
       }
@@ -694,6 +725,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       create_api_key_credential_provider_request() :: %{
+        optional("tags") => map(),
         required("apiKey") => String.t() | atom(),
         required("name") => String.t() | atom()
       }
@@ -849,7 +881,8 @@ defmodule AWS.BedrockAgentCoreControl do
         "authorizationEndpoint" => String.t() | atom(),
         "issuer" => String.t() | atom(),
         "responseTypes" => list(String.t() | atom()),
-        "tokenEndpoint" => String.t() | atom()
+        "tokenEndpoint" => String.t() | atom(),
+        "tokenEndpointAuthMethods" => list(String.t() | atom())
       }
 
   """
@@ -869,6 +902,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       github_oauth2_provider_config_output() :: %{
+        "clientId" => String.t() | atom(),
         "oauthDiscovery" => list()
       }
 
@@ -1095,6 +1129,7 @@ defmodule AWS.BedrockAgentCoreControl do
 
       create_workload_identity_request() :: %{
         optional("allowedResourceOauth2ReturnUrls") => list(String.t() | atom()),
+        optional("tags") => map(),
         required("name") => String.t() | atom()
       }
 
@@ -1127,6 +1162,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type get_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      included_oauth2_provider_config_output() :: %{
+        "clientId" => String.t() | atom(),
+        "oauthDiscovery" => list()
+      }
+
+  """
+  @type included_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1246,6 +1293,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       create_oauth2_credential_provider_request() :: %{
+        optional("tags") => map(),
         required("credentialProviderVendor") => list(any()),
         required("name") => String.t() | atom(),
         required("oauth2ProviderConfigInput") => list()
@@ -1297,6 +1345,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       custom_oauth2_provider_config_output() :: %{
+        "clientId" => String.t() | atom(),
         "oauthDiscovery" => list()
       }
 
@@ -1564,6 +1613,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       salesforce_oauth2_provider_config_output() :: %{
+        "clientId" => String.t() | atom(),
         "oauthDiscovery" => list()
       }
 
@@ -1575,6 +1625,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       update_oauth2_credential_provider_response() :: %{
+        "callbackUrl" => [String.t() | atom()],
         "clientSecretArn" => secret(),
         "createdTime" => [non_neg_integer()],
         "credentialProviderArn" => String.t() | atom(),
@@ -1606,6 +1657,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       microsoft_oauth2_provider_config_output() :: %{
+        "clientId" => String.t() | atom(),
         "oauthDiscovery" => list()
       }
 
@@ -1739,7 +1791,8 @@ defmodule AWS.BedrockAgentCoreControl do
 
       microsoft_oauth2_provider_config_input() :: %{
         "clientId" => String.t() | atom(),
-        "clientSecret" => String.t() | atom()
+        "clientSecret" => String.t() | atom(),
+        "tenantId" => String.t() | atom()
       }
 
   """
@@ -1830,6 +1883,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type create_gateway_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      atlassian_oauth2_provider_config_output() :: %{
+        "clientId" => String.t() | atom(),
+        "oauthDiscovery" => list()
+      }
+
+  """
+  @type atlassian_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1931,6 +1996,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       slack_oauth2_provider_config_output() :: %{
+        "clientId" => String.t() | atom(),
         "oauthDiscovery" => list()
       }
 
@@ -1954,6 +2020,8 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       delete_agent_runtime_endpoint_response() :: %{
+        "agentRuntimeId" => String.t() | atom(),
+        "endpointName" => String.t() | atom(),
         "status" => list(any())
       }
 
@@ -1965,6 +2033,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       get_oauth2_credential_provider_response() :: %{
+        "callbackUrl" => [String.t() | atom()],
         "clientSecretArn" => secret(),
         "createdTime" => [non_neg_integer()],
         "credentialProviderArn" => String.t() | atom(),
@@ -2160,6 +2229,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       delete_agent_runtime_response() :: %{
+        "agentRuntimeId" => String.t() | atom(),
         "status" => list(any())
       }
 
@@ -2218,6 +2288,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      atlassian_oauth2_provider_config_input() :: %{
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom()
+      }
+
+  """
+  @type atlassian_oauth2_provider_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2354,6 +2436,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       google_oauth2_provider_config_output() :: %{
+        "clientId" => String.t() | atom(),
         "oauthDiscovery" => list()
       }
 
@@ -2693,6 +2776,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type modify_invocation_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      linkedin_oauth2_provider_config_input() :: %{
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom()
+      }
+
+  """
+  @type linkedin_oauth2_provider_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3215,7 +3310,7 @@ defmodule AWS.BedrockAgentCoreControl do
       custom_headers ++ headers,
       input,
       options,
-      201
+      202
     )
   end
 
@@ -3249,7 +3344,7 @@ defmodule AWS.BedrockAgentCoreControl do
       custom_headers ++ headers,
       input,
       options,
-      200
+      202
     )
   end
 
@@ -3282,7 +3377,7 @@ defmodule AWS.BedrockAgentCoreControl do
       custom_headers ++ headers,
       input,
       options,
-      200
+      201
     )
   end
 
@@ -3311,7 +3406,7 @@ defmodule AWS.BedrockAgentCoreControl do
       custom_headers ++ headers,
       input,
       options,
-      201
+      202
     )
   end
 
@@ -3340,7 +3435,7 @@ defmodule AWS.BedrockAgentCoreControl do
       custom_headers ++ headers,
       input,
       options,
-      201
+      202
     )
   end
 
@@ -3468,7 +3563,7 @@ defmodule AWS.BedrockAgentCoreControl do
       custom_headers ++ headers,
       input,
       options,
-      200
+      201
     )
   end
 
@@ -3497,7 +3592,7 @@ defmodule AWS.BedrockAgentCoreControl do
       custom_headers ++ headers,
       input,
       options,
-      200
+      201
     )
   end
 
@@ -3526,7 +3621,7 @@ defmodule AWS.BedrockAgentCoreControl do
       custom_headers ++ headers,
       input,
       options,
-      200
+      202
     )
   end
 
@@ -3574,7 +3669,7 @@ defmodule AWS.BedrockAgentCoreControl do
       custom_headers ++ headers,
       input,
       options,
-      200
+      202
     )
   end
 
@@ -3607,7 +3702,7 @@ defmodule AWS.BedrockAgentCoreControl do
       custom_headers ++ headers,
       input,
       options,
-      200
+      204
     )
   end
 
@@ -3641,7 +3736,7 @@ defmodule AWS.BedrockAgentCoreControl do
       custom_headers ++ headers,
       input,
       options,
-      200
+      202
     )
   end
 
@@ -3680,7 +3775,7 @@ defmodule AWS.BedrockAgentCoreControl do
       custom_headers ++ headers,
       input,
       options,
-      200
+      202
     )
   end
 
@@ -3819,7 +3914,7 @@ defmodule AWS.BedrockAgentCoreControl do
       custom_headers ++ headers,
       input,
       options,
-      200
+      204
     )
   end
 
@@ -3848,7 +3943,7 @@ defmodule AWS.BedrockAgentCoreControl do
       custom_headers ++ headers,
       input,
       options,
-      200
+      204
     )
   end
 
@@ -4685,7 +4780,7 @@ defmodule AWS.BedrockAgentCoreControl do
       custom_headers ++ headers,
       input,
       options,
-      201
+      202
     )
   end
 
@@ -4728,7 +4823,7 @@ defmodule AWS.BedrockAgentCoreControl do
       custom_headers ++ headers,
       input,
       options,
-      200
+      202
     )
   end
 

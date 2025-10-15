@@ -1328,6 +1328,19 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      amazon_q_properties_input() :: %{
+        "authMode" => [String.t() | atom()],
+        "isEnabled" => [boolean()],
+        "profileArn" => [String.t() | atom()]
+      }
+
+  """
+  @type amazon_q_properties_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_account_pools_input() :: %{
         optional("maxResults") => integer(),
         optional("name") => String.t() | atom(),
@@ -2052,6 +2065,7 @@ defmodule AWS.DataZone do
         "physicalEndpoints" => list(physical_endpoint()),
         "projectId" => String.t() | atom(),
         "props" => list(),
+        "scope" => list(any()),
         "type" => list(any())
       }
 
@@ -3825,6 +3839,7 @@ defmodule AWS.DataZone do
         "physicalEndpoints" => list(physical_endpoint()),
         "projectId" => String.t() | atom(),
         "props" => list(),
+        "scope" => list(any()),
         "type" => list(any())
       }
 
@@ -6237,6 +6252,7 @@ defmodule AWS.DataZone do
         "physicalEndpoints" => list(physical_endpoint()),
         "projectId" => String.t() | atom(),
         "props" => list(),
+        "scope" => list(any()),
         "type" => list(any())
       }
 
@@ -6965,6 +6981,19 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      amazon_q_properties_patch() :: %{
+        "authMode" => [String.t() | atom()],
+        "isEnabled" => [boolean()],
+        "profileArn" => [String.t() | atom()]
+      }
+
+  """
+  @type amazon_q_properties_patch() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       time_series_data_point_summary_form_output() :: %{
         "contentSummary" => [String.t() | atom()],
         "formName" => String.t() | atom(),
@@ -7073,6 +7102,7 @@ defmodule AWS.DataZone do
 
       physical_endpoint() :: %{
         "awsLocation" => aws_location(),
+        "enableTrustedIdentityPropagation" => [boolean()],
         "glueConnection" => glue_connection(),
         "glueConnectionName" => [String.t() | atom()],
         "host" => [String.t() | atom()],
@@ -7240,10 +7270,11 @@ defmodule AWS.DataZone do
         optional("maxResults") => integer(),
         optional("name") => String.t() | atom(),
         optional("nextToken") => String.t() | atom(),
+        optional("projectIdentifier") => String.t() | atom(),
+        optional("scope") => list(any()),
         optional("sortBy") => list(any()),
         optional("sortOrder") => list(any()),
-        optional("type") => list(any()),
-        required("projectIdentifier") => String.t() | atom()
+        optional("type") => list(any())
       }
 
   """
@@ -7440,8 +7471,10 @@ defmodule AWS.DataZone do
         optional("awsLocation") => aws_location(),
         optional("clientToken") => [String.t() | atom()],
         optional("description") => String.t() | atom(),
+        optional("enableTrustedIdentityPropagation") => [boolean()],
+        optional("environmentIdentifier") => String.t() | atom(),
         optional("props") => list(),
-        required("environmentIdentifier") => String.t() | atom(),
+        optional("scope") => list(any()),
         required("name") => String.t() | atom()
       }
 
@@ -7978,6 +8011,7 @@ defmodule AWS.DataZone do
         "physicalEndpoints" => list(physical_endpoint()),
         "projectId" => String.t() | atom(),
         "props" => list(),
+        "scope" => list(any()),
         "type" => list(any())
       }
 
@@ -8173,6 +8207,19 @@ defmodule AWS.DataZone do
 
   """
   @type configurable_action_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      amazon_q_properties_output() :: %{
+        "authMode" => [String.t() | atom()],
+        "isEnabled" => [boolean()],
+        "profileArn" => [String.t() | atom()]
+      }
+
+  """
+  @type amazon_q_properties_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13563,7 +13610,8 @@ defmodule AWS.DataZone do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
-          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
@@ -13580,7 +13628,8 @@ defmodule AWS.DataZone do
         max_results \\ nil,
         name \\ nil,
         next_token \\ nil,
-        project_identifier,
+        project_identifier \\ nil,
+        scope \\ nil,
         sort_by \\ nil,
         sort_order \\ nil,
         type \\ nil,
@@ -13607,6 +13656,13 @@ defmodule AWS.DataZone do
     query_params =
       if !is_nil(sort_by) do
         [{"sortBy", sort_by} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(scope) do
+        [{"scope", scope} | query_params]
       else
         query_params
       end

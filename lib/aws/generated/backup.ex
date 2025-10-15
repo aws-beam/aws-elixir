@@ -196,8 +196,12 @@ defmodule AWS.Backup do
       recovery_point_creator() :: %{
         "BackupPlanArn" => String.t() | atom(),
         "BackupPlanId" => String.t() | atom(),
+        "BackupPlanName" => String.t() | atom(),
         "BackupPlanVersion" => String.t() | atom(),
-        "BackupRuleId" => String.t() | atom()
+        "BackupRuleCron" => String.t() | atom(),
+        "BackupRuleId" => String.t() | atom(),
+        "BackupRuleName" => String.t() | atom(),
+        "BackupRuleTimezone" => String.t() | atom()
       }
 
   """
@@ -237,7 +241,11 @@ defmodule AWS.Backup do
         "CreatedBy" => recovery_point_creator(),
         "CreationDate" => non_neg_integer(),
         "DestinationBackupVaultArn" => String.t() | atom(),
+        "DestinationEncryptionKeyArn" => String.t() | atom(),
         "DestinationRecoveryPointArn" => String.t() | atom(),
+        "DestinationRecoveryPointLifecycle" => lifecycle(),
+        "DestinationVaultLockState" => String.t() | atom(),
+        "DestinationVaultType" => String.t() | atom(),
         "IamRoleArn" => String.t() | atom(),
         "IsParent" => boolean(),
         "MessageCategory" => String.t() | atom(),
@@ -751,6 +759,7 @@ defmodule AWS.Backup do
       restore_jobs_list_member() :: %{
         "AccountId" => String.t() | atom(),
         "BackupSizeInBytes" => float(),
+        "BackupVaultArn" => String.t() | atom(),
         "CompletionDate" => non_neg_integer(),
         "CreatedBy" => restore_job_creator(),
         "CreatedResourceArn" => String.t() | atom(),
@@ -764,6 +773,7 @@ defmodule AWS.Backup do
         "RecoveryPointCreationDate" => non_neg_integer(),
         "ResourceType" => String.t() | atom(),
         "RestoreJobId" => String.t() | atom(),
+        "SourceResourceArn" => String.t() | atom(),
         "Status" => list(any()),
         "StatusMessage" => String.t() | atom(),
         "ValidationStatus" => list(any()),
@@ -1463,6 +1473,7 @@ defmodule AWS.Backup do
       describe_restore_job_output() :: %{
         "AccountId" => String.t() | atom(),
         "BackupSizeInBytes" => float(),
+        "BackupVaultArn" => String.t() | atom(),
         "CompletionDate" => non_neg_integer(),
         "CreatedBy" => restore_job_creator(),
         "CreatedResourceArn" => String.t() | atom(),
@@ -1476,6 +1487,7 @@ defmodule AWS.Backup do
         "RecoveryPointCreationDate" => non_neg_integer(),
         "ResourceType" => String.t() | atom(),
         "RestoreJobId" => String.t() | atom(),
+        "SourceResourceArn" => String.t() | atom(),
         "Status" => list(any()),
         "StatusMessage" => String.t() | atom(),
         "ValidationStatus" => list(any()),
@@ -1555,21 +1567,26 @@ defmodule AWS.Backup do
         "CompletionDate" => non_neg_integer(),
         "CreatedBy" => recovery_point_creator(),
         "CreationDate" => non_neg_integer(),
+        "EncryptionKeyArn" => String.t() | atom(),
         "ExpectedCompletionDate" => non_neg_integer(),
         "IamRoleArn" => String.t() | atom(),
         "InitiationDate" => non_neg_integer(),
+        "IsEncrypted" => boolean(),
         "IsParent" => boolean(),
         "MessageCategory" => String.t() | atom(),
         "NumberOfChildJobs" => float(),
         "ParentJobId" => String.t() | atom(),
         "PercentDone" => String.t() | atom(),
         "RecoveryPointArn" => String.t() | atom(),
+        "RecoveryPointLifecycle" => lifecycle(),
         "ResourceArn" => String.t() | atom(),
         "ResourceName" => String.t() | atom(),
         "ResourceType" => String.t() | atom(),
         "StartBy" => non_neg_integer(),
         "State" => list(any()),
-        "StatusMessage" => String.t() | atom()
+        "StatusMessage" => String.t() | atom(),
+        "VaultLockState" => String.t() | atom(),
+        "VaultType" => String.t() | atom()
       }
 
   """
@@ -2798,20 +2815,25 @@ defmodule AWS.Backup do
         "CompletionDate" => non_neg_integer(),
         "CreatedBy" => recovery_point_creator(),
         "CreationDate" => non_neg_integer(),
+        "EncryptionKeyArn" => String.t() | atom(),
         "ExpectedCompletionDate" => non_neg_integer(),
         "IamRoleArn" => String.t() | atom(),
         "InitiationDate" => non_neg_integer(),
+        "IsEncrypted" => boolean(),
         "IsParent" => boolean(),
         "MessageCategory" => String.t() | atom(),
         "ParentJobId" => String.t() | atom(),
         "PercentDone" => String.t() | atom(),
         "RecoveryPointArn" => String.t() | atom(),
+        "RecoveryPointLifecycle" => lifecycle(),
         "ResourceArn" => String.t() | atom(),
         "ResourceName" => String.t() | atom(),
         "ResourceType" => String.t() | atom(),
         "StartBy" => non_neg_integer(),
         "State" => list(any()),
-        "StatusMessage" => String.t() | atom()
+        "StatusMessage" => String.t() | atom(),
+        "VaultLockState" => String.t() | atom(),
+        "VaultType" => String.t() | atom()
       }
 
   """

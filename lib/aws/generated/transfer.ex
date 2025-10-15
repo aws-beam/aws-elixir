@@ -117,6 +117,18 @@ defmodule AWS.Transfer do
 
   ## Example:
       
+      described_connector_vpc_lattice_egress_config() :: %{
+        "PortNumber" => integer(),
+        "ResourceConfigurationArn" => String.t() | atom()
+      }
+      
+  """
+  @type described_connector_vpc_lattice_egress_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_access_response() :: %{
         "Access" => described_access(),
         "ServerId" => String.t() | atom()
@@ -496,6 +508,7 @@ defmodule AWS.Transfer do
       update_connector_request() :: %{
         optional("AccessRole") => String.t() | atom(),
         optional("As2Config") => as2_connector_config(),
+        optional("EgressConfig") => list(),
         optional("LoggingRole") => String.t() | atom(),
         optional("SecurityPolicyName") => String.t() | atom(),
         optional("SftpConfig") => sftp_connector_config(),
@@ -1164,6 +1177,18 @@ defmodule AWS.Transfer do
       
   """
   @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connector_vpc_lattice_egress_config() :: %{
+        "PortNumber" => integer(),
+        "ResourceConfigurationArn" => String.t() | atom()
+      }
+      
+  """
+  @type connector_vpc_lattice_egress_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1910,12 +1935,13 @@ defmodule AWS.Transfer do
       
       create_connector_request() :: %{
         optional("As2Config") => as2_connector_config(),
+        optional("EgressConfig") => list(),
         optional("LoggingRole") => String.t() | atom(),
         optional("SecurityPolicyName") => String.t() | atom(),
         optional("SftpConfig") => sftp_connector_config(),
         optional("Tags") => list(tag()),
-        required("AccessRole") => String.t() | atom(),
-        required("Url") => String.t() | atom()
+        optional("Url") => String.t() | atom(),
+        required("AccessRole") => String.t() | atom()
       }
       
   """
@@ -2298,6 +2324,18 @@ defmodule AWS.Transfer do
 
   ## Example:
       
+      update_connector_vpc_lattice_egress_config() :: %{
+        "PortNumber" => integer(),
+        "ResourceConfigurationArn" => String.t() | atom()
+      }
+      
+  """
+  @type update_connector_vpc_lattice_egress_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_host_key_request() :: %{
         required("Description") => String.t() | atom(),
         required("HostKeyId") => String.t() | atom(),
@@ -2528,10 +2566,14 @@ defmodule AWS.Transfer do
         "Arn" => String.t() | atom(),
         "As2Config" => as2_connector_config(),
         "ConnectorId" => String.t() | atom(),
+        "EgressConfig" => list(),
+        "EgressType" => list(any()),
+        "ErrorMessage" => String.t() | atom(),
         "LoggingRole" => String.t() | atom(),
         "SecurityPolicyName" => String.t() | atom(),
         "ServiceManagedEgressIpAddresses" => list(String.t() | atom()),
         "SftpConfig" => sftp_connector_config(),
+        "Status" => list(any()),
         "Tags" => list(tag()),
         "Url" => String.t() | atom()
       }

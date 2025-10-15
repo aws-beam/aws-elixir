@@ -1885,6 +1885,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      copy_volumes_result() :: %{
+        "Volumes" => list(volume())
+      }
+      
+  """
+  @type copy_volumes_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_spot_datafeed_subscription_request() :: %{
         optional("DryRun") => boolean(),
         optional("Prefix") => String.t() | atom(),
@@ -10384,6 +10395,25 @@ defmodule AWS.EC2 do
       
   """
   @type placement_group_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      copy_volumes_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("Iops") => integer(),
+        optional("MultiAttachEnabled") => boolean(),
+        optional("Size") => integer(),
+        optional("TagSpecifications") => list(tag_specification()),
+        optional("Throughput") => integer(),
+        optional("VolumeType") => list(any()),
+        required("SourceVolumeId") => String.t() | atom()
+      }
+      
+  """
+  @type copy_volumes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -21008,6 +21038,7 @@ defmodule AWS.EC2 do
         "OutpostArn" => String.t() | atom(),
         "Size" => integer(),
         "SnapshotId" => String.t() | atom(),
+        "SourceVolumeId" => String.t() | atom(),
         "SseType" => list(any()),
         "State" => list(any()),
         "Tags" => list(tag()),
@@ -32239,6 +32270,24 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "CopySnapshot", input, options)
+  end
+
+  @doc """
+  Creates a crash-consistent, point-in-time copy of an existing Amazon EBS volume
+  within the same
+  Availability Zone.
+
+  The volume copy can be attached to an Amazon EC2 instance once it reaches the
+  `available` state. For more information, see [Copy an Amazon EBS volume](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-copying-volume.html).
+  """
+  @spec copy_volumes(map(), copy_volumes_request(), list()) ::
+          {:ok, copy_volumes_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def copy_volumes(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CopyVolumes", input, options)
   end
 
   @doc """

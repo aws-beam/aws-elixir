@@ -109,6 +109,19 @@ defmodule AWS.AppStream do
 
   ## Example:
       
+      describe_app_license_usage_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("BillingPeriod") => String.t() | atom()
+      }
+      
+  """
+  @type describe_app_license_usage_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       start_image_builder_result() :: %{
         "ImageBuilder" => image_builder()
       }
@@ -254,6 +267,15 @@ defmodule AWS.AppStream do
 
   ## Example:
       
+      disassociate_software_from_image_builder_result() :: %{}
+      
+  """
+  @type disassociate_software_from_image_builder_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       create_app_block_builder_request() :: %{
         optional("AccessEndpoints") => list(access_endpoint()),
         optional("Description") => String.t() | atom(),
@@ -278,6 +300,18 @@ defmodule AWS.AppStream do
       
   """
   @type stop_fleet_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_app_license_usage_result() :: %{
+        "AppLicenseUsages" => list(admin_app_license_usage_record()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_app_license_usage_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1041,6 +1075,19 @@ defmodule AWS.AppStream do
 
   ## Example:
       
+      software_associations() :: %{
+        "DeploymentError" => list(error_details()),
+        "SoftwareName" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type software_associations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       stop_image_builder_request() :: %{
         required("Name") => String.t() | atom()
       }
@@ -1102,6 +1149,30 @@ defmodule AWS.AppStream do
       
   """
   @type associate_application_fleet_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_software_to_image_builder_request() :: %{
+        required("ImageBuilderName") => String.t() | atom(),
+        required("SoftwareNames") => list(String.t() | atom())
+      }
+      
+  """
+  @type associate_software_to_image_builder_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_software_from_image_builder_request() :: %{
+        required("ImageBuilderName") => String.t() | atom(),
+        required("SoftwareNames") => list(String.t() | atom())
+      }
+      
+  """
+  @type disassociate_software_from_image_builder_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1313,6 +1384,8 @@ defmodule AWS.AppStream do
         optional("IamRoleArn") => String.t() | atom(),
         optional("ImageArn") => String.t() | atom(),
         optional("ImageName") => String.t() | atom(),
+        optional("SoftwaresToInstall") => list(String.t() | atom()),
+        optional("SoftwaresToUninstall") => list(String.t() | atom()),
         optional("Tags") => map(),
         optional("VpcConfig") => vpc_config(),
         required("InstanceType") => String.t() | atom(),
@@ -1743,6 +1816,19 @@ defmodule AWS.AppStream do
 
   ## Example:
       
+      describe_software_associations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("AssociatedResource") => String.t() | atom()
+      }
+      
+  """
+  @type describe_software_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       entitlement_not_found_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -2012,6 +2098,7 @@ defmodule AWS.AppStream do
         "ImagePermissions" => image_permissions(),
         "ImageSharedWithOthers" => list(any()),
         "LatestAppstreamAgentVersion" => list(any()),
+        "ManagedSoftwareIncluded" => boolean(),
         "Name" => String.t() | atom(),
         "Platform" => list(any()),
         "PublicBaseImageReleasedDate" => non_neg_integer(),
@@ -2023,6 +2110,15 @@ defmodule AWS.AppStream do
       
   """
   @type image() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_software_to_image_builder_result() :: %{}
+      
+  """
+  @type associate_software_to_image_builder_result() :: %{}
 
   @typedoc """
 
@@ -2093,6 +2189,19 @@ defmodule AWS.AppStream do
       
   """
   @type create_fleet_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_software_associations_result() :: %{
+        "AssociatedResource" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "SoftwareAssociations" => list(software_associations())
+      }
+      
+  """
+  @type describe_software_associations_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2352,6 +2461,15 @@ defmodule AWS.AppStream do
 
   ## Example:
       
+      start_software_deployment_to_image_builder_result() :: %{}
+      
+  """
+  @type start_software_deployment_to_image_builder_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       create_directory_config_result() :: %{
         "DirectoryConfig" => directory_config()
       }
@@ -2576,6 +2694,23 @@ defmodule AWS.AppStream do
 
   ## Example:
       
+      admin_app_license_usage_record() :: %{
+        "BillingPeriod" => String.t() | atom(),
+        "LicenseType" => String.t() | atom(),
+        "OwnerAWSAccountId" => String.t() | atom(),
+        "SubscriptionFirstUsedDate" => non_neg_integer(),
+        "SubscriptionLastUsedDate" => non_neg_integer(),
+        "UserArn" => String.t() | atom(),
+        "UserId" => String.t() | atom()
+      }
+      
+  """
+  @type admin_app_license_usage_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_image_permissions_result() :: %{}
       
   """
@@ -2758,6 +2893,18 @@ defmodule AWS.AppStream do
 
   ## Example:
       
+      start_software_deployment_to_image_builder_request() :: %{
+        optional("RetryFailedDeployments") => boolean(),
+        required("ImageBuilderName") => String.t() | atom()
+      }
+      
+  """
+  @type start_software_deployment_to_image_builder_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_application_request() :: %{
         required("Name") => String.t() | atom()
       }
@@ -2847,6 +2994,13 @@ defmodule AWS.AppStream do
           | invalid_account_status_exception()
           | operation_not_permitted_exception()
           | resource_not_found_exception()
+
+  @type associate_software_to_image_builder_errors() ::
+          concurrent_modification_exception()
+          | incompatible_image_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_combination_exception()
 
   @type batch_associate_user_stack_errors() ::
           operation_not_permitted_exception() | invalid_parameter_combination_exception()
@@ -3048,6 +3202,11 @@ defmodule AWS.AppStream do
   @type describe_app_blocks_errors() ::
           operation_not_permitted_exception() | resource_not_found_exception()
 
+  @type describe_app_license_usage_errors() ::
+          operation_not_permitted_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_combination_exception()
+
   @type describe_application_fleet_associations_errors() ::
           operation_not_permitted_exception() | invalid_parameter_combination_exception()
 
@@ -3071,6 +3230,9 @@ defmodule AWS.AppStream do
           resource_not_found_exception() | invalid_parameter_combination_exception()
 
   @type describe_sessions_errors() :: invalid_parameter_combination_exception()
+
+  @type describe_software_associations_errors() ::
+          operation_not_permitted_exception() | resource_not_found_exception()
 
   @type describe_stacks_errors() :: resource_not_found_exception()
 
@@ -3112,6 +3274,12 @@ defmodule AWS.AppStream do
           | resource_not_found_exception()
           | resource_in_use_exception()
 
+  @type disassociate_software_from_image_builder_errors() ::
+          concurrent_modification_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_combination_exception()
+
   @type enable_user_errors() ::
           invalid_account_status_exception() | resource_not_found_exception()
 
@@ -3147,6 +3315,11 @@ defmodule AWS.AppStream do
           | invalid_account_status_exception()
           | resource_not_found_exception()
           | resource_not_available_exception()
+
+  @type start_software_deployment_to_image_builder_errors() ::
+          concurrent_modification_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
 
   @type stop_app_block_builder_errors() ::
           concurrent_modification_exception()
@@ -3316,6 +3489,25 @@ defmodule AWS.AppStream do
     meta = metadata()
 
     Request.request_post(client, meta, "AssociateFleet", input, options)
+  end
+
+  @doc """
+  Associates license included application(s) with an existing image builder
+  instance.
+  """
+  @spec associate_software_to_image_builder(
+          map(),
+          associate_software_to_image_builder_request(),
+          list()
+        ) ::
+          {:ok, associate_software_to_image_builder_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_software_to_image_builder_errors()}
+  def associate_software_to_image_builder(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateSoftwareToImageBuilder", input, options)
   end
 
   @doc """
@@ -3902,6 +4094,20 @@ defmodule AWS.AppStream do
   end
 
   @doc """
+  Retrieves license included application usage information.
+  """
+  @spec describe_app_license_usage(map(), describe_app_license_usage_request(), list()) ::
+          {:ok, describe_app_license_usage_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_app_license_usage_errors()}
+  def describe_app_license_usage(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAppLicenseUsage", input, options)
+  end
+
+  @doc """
   Retrieves a list that describes one or more application fleet associations.
 
   Either ApplicationArn or FleetName must be specified.
@@ -4055,6 +4261,20 @@ defmodule AWS.AppStream do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeSessions", input, options)
+  end
+
+  @doc """
+  Retrieves license included application associations for a specified resource.
+  """
+  @spec describe_software_associations(map(), describe_software_associations_request(), list()) ::
+          {:ok, describe_software_associations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_software_associations_errors()}
+  def describe_software_associations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSoftwareAssociations", input, options)
   end
 
   @doc """
@@ -4232,6 +4452,25 @@ defmodule AWS.AppStream do
   end
 
   @doc """
+  Removes license included application(s) association(s) from an image builder
+  instance.
+  """
+  @spec disassociate_software_from_image_builder(
+          map(),
+          disassociate_software_from_image_builder_request(),
+          list()
+        ) ::
+          {:ok, disassociate_software_from_image_builder_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_software_from_image_builder_errors()}
+  def disassociate_software_from_image_builder(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateSoftwareFromImageBuilder", input, options)
+  end
+
+  @doc """
   Enables a user in the user pool.
 
   After being enabled, users can sign in to AppStream 2.0 and open applications
@@ -4367,6 +4606,24 @@ defmodule AWS.AppStream do
     meta = metadata()
 
     Request.request_post(client, meta, "StartImageBuilder", input, options)
+  end
+
+  @doc """
+  Initiates license included applications deployment to an image builder instance.
+  """
+  @spec start_software_deployment_to_image_builder(
+          map(),
+          start_software_deployment_to_image_builder_request(),
+          list()
+        ) ::
+          {:ok, start_software_deployment_to_image_builder_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_software_deployment_to_image_builder_errors()}
+  def start_software_deployment_to_image_builder(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartSoftwareDeploymentToImageBuilder", input, options)
   end
 
   @doc """

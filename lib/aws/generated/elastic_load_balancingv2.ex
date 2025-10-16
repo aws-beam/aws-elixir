@@ -66,6 +66,19 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
+      rule_transform() :: %{
+        "HostHeaderRewriteConfig" => host_header_rewrite_config(),
+        "Type" => list(any()),
+        "UrlRewriteConfig" => url_rewrite_config()
+      }
+      
+  """
+  @type rule_transform() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       target_health() :: %{
         "Description" => String.t() | atom(),
         "Reason" => list(any()),
@@ -124,6 +137,18 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
   """
   @type describe_capacity_reservation_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rewrite_config() :: %{
+        "Regex" => String.t() | atom(),
+        "Replace" => String.t() | atom()
+      }
+      
+  """
+  @type rewrite_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -768,6 +793,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       host_header_condition_config() :: %{
+        "RegexValues" => list(String.t() | atom()),
         "Values" => list(String.t() | atom())
       }
       
@@ -837,6 +863,17 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
   """
   @type redirect_action_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      url_rewrite_config() :: %{
+        "Rewrites" => list(rewrite_config())
+      }
+      
+  """
+  @type url_rewrite_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1339,7 +1376,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
         "Conditions" => list(rule_condition()),
         "IsDefault" => boolean(),
         "Priority" => String.t() | atom(),
-        "RuleArn" => String.t() | atom()
+        "RuleArn" => String.t() | atom(),
+        "Transforms" => list(rule_transform())
       }
       
   """
@@ -1351,6 +1389,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
       create_rule_input() :: %{
         optional("Tags") => list(tag()),
+        optional("Transforms") => list(rule_transform()),
         required("Actions") => list(action()),
         required("Conditions") => list(rule_condition()),
         required("ListenerArn") => String.t() | atom(),
@@ -1542,6 +1581,17 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
   """
   @type remove_trust_store_revocations_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      host_header_rewrite_config() :: %{
+        "Rewrites" => list(rewrite_config())
+      }
+      
+  """
+  @type host_header_rewrite_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1757,6 +1807,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
         "HttpRequestMethodConfig" => http_request_method_condition_config(),
         "PathPatternConfig" => path_pattern_condition_config(),
         "QueryStringConfig" => query_string_condition_config(),
+        "RegexValues" => list(String.t() | atom()),
         "SourceIpConfig" => source_ip_condition_config(),
         "Values" => list(String.t() | atom())
       }
@@ -2154,6 +2205,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
       modify_rule_input() :: %{
         optional("Actions") => list(action()),
         optional("Conditions") => list(rule_condition()),
+        optional("ResetTransforms") => boolean(),
+        optional("Transforms") => list(rule_transform()),
         required("RuleArn") => String.t() | atom()
       }
       
@@ -2318,6 +2371,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
       http_header_condition_config() :: %{
         "HttpHeaderName" => String.t() | atom(),
+        "RegexValues" => list(String.t() | atom()),
         "Values" => list(String.t() | atom())
       }
       
@@ -2340,6 +2394,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       path_pattern_condition_config() :: %{
+        "RegexValues" => list(String.t() | atom()),
         "Values" => list(String.t() | atom())
       }
       
@@ -3020,14 +3075,15 @@ defmodule AWS.ElasticLoadBalancingv2 do
   The listener must be associated with an
   Application Load Balancer.
 
-  Each rule consists of a priority, one or more actions, and one or more
-  conditions. Rules
-  are evaluated in priority order, from the lowest value to the highest value.
-  When the
-  conditions for a rule are met, its actions are performed. If the conditions for
-  no rules are
-  met, the actions for the default rule are performed. For more information, see
-  [Listener rules](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules)
+  Each rule consists of a priority, one or more actions, one or more conditions,
+  and
+  up to two optional transforms. Rules are evaluated in priority order, from the
+  lowest value
+  to the highest value. When the conditions for a rule are met, its actions are
+  performed.
+  If the conditions for no rules are met, the actions for the default rule are
+  performed.
+  For more information, see [Listener rules](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules)
   in the *Application Load Balancers Guide*.
   """
   @spec create_rule(map(), create_rule_input(), list()) ::
@@ -3961,13 +4017,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
   specified
   Application Load Balancer, Network Load Balancer or Gateway Load Balancer.
 
-  The specified subnets replace the
-  previously enabled subnets.
-
-  When you specify subnets for a Network Load Balancer, or Gateway Load Balancer
-  you must include all subnets that
-  were enabled previously, with their existing configurations, plus any additional
-  subnets.
+  The specified subnets
+  replace the previously enabled subnets.
   """
   @spec set_subnets(map(), set_subnets_input(), list()) ::
           {:ok, set_subnets_output(), any()}

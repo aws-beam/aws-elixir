@@ -1379,6 +1379,7 @@ defmodule AWS.Lightsail do
       get_buckets_request() :: %{
         optional("bucketName") => String.t() | atom(),
         optional("includeConnectedResources") => boolean(),
+        optional("includeCors") => boolean(),
         optional("pageToken") => String.t() | atom()
       }
       
@@ -2263,6 +2264,17 @@ defmodule AWS.Lightsail do
 
   ## Example:
       
+      bucket_cors_config() :: %{
+        "rules" => list(bucket_cors_rule())
+      }
+      
+  """
+  @type bucket_cors_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       container_service_deployment() :: %{
         "containers" => map(),
         "createdAt" => non_neg_integer(),
@@ -2605,6 +2617,22 @@ defmodule AWS.Lightsail do
 
   ## Example:
       
+      bucket_cors_rule() :: %{
+        "allowedHeaders" => list(String.t() | atom()),
+        "allowedMethods" => list(String.t() | atom()),
+        "allowedOrigins" => list(String.t() | atom()),
+        "exposeHeaders" => list(String.t() | atom()),
+        "id" => String.t() | atom(),
+        "maxAgeSeconds" => integer()
+      }
+      
+  """
+  @type bucket_cors_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tag() :: %{
         "key" => String.t() | atom(),
         "value" => String.t() | atom()
@@ -2777,6 +2805,7 @@ defmodule AWS.Lightsail do
       update_bucket_request() :: %{
         optional("accessLogConfig") => bucket_access_log_config(),
         optional("accessRules") => access_rules(),
+        optional("cors") => bucket_cors_config(),
         optional("readonlyAccessAccounts") => list(String.t() | atom()),
         optional("versioning") => String.t() | atom(),
         required("bucketName") => String.t() | atom()
@@ -3869,6 +3898,7 @@ defmodule AWS.Lightsail do
         "accessRules" => access_rules(),
         "arn" => String.t() | atom(),
         "bundleId" => String.t() | atom(),
+        "cors" => bucket_cors_config(),
         "createdAt" => non_neg_integer(),
         "location" => resource_location(),
         "name" => String.t() | atom(),
@@ -8116,7 +8146,7 @@ defmodule AWS.Lightsail do
 
   To learn more about deciding whether to load balance
   your application, see [Configure your Lightsail instances for load balancing](https://docs.aws.amazon.com/lightsail/latest/userguide/configure-lightsail-instances-for-load-balancing).
-  You can create up to 5
+  You can create up to 10
   load balancers per AWS Region in your account.
 
   When you create a load balancer, you can specify a unique name and port

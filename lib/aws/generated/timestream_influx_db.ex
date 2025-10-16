@@ -21,6 +21,68 @@ defmodule AWS.TimestreamInfluxDB do
 
   ## Example:
       
+      influx_dbv3_enterprise_parameters() :: %{
+        "forceSnapshotMemThreshold" => list(),
+        "maxHttpRequestSize" => [float()],
+        "queryOnlyInstances" => [integer()],
+        "walReplayConcurrencyLimit" => [integer()],
+        "gen1Duration" => duration(),
+        "parquetMemCachePrunePercentage" => [float()],
+        "catalogSyncInterval" => duration(),
+        "dataFusionUseCachedParquetLoader" => [boolean()],
+        "compactionMaxNumFilesPerPlan" => [integer()],
+        "walReplayFailOnError" => [boolean()],
+        "deleteGracePeriod" => duration(),
+        "compactionMultipliers" => [String.t() | atom()],
+        "execMemPoolBytes" => list(),
+        "dataFusionRuntimeMaxIoEventsPerTick" => [integer()],
+        "gen1LookbackDuration" => duration(),
+        "logFilter" => [String.t() | atom()],
+        "walMaxWriteBufferSize" => [integer()],
+        "disableParquetMemCache" => [boolean()],
+        "walSnapshotSize" => [integer()],
+        "parquetMemCacheSize" => list(),
+        "dataFusionRuntimeThreadKeepAlive" => duration(),
+        "dataFusionRuntimeDisableLifoSlot" => [boolean()],
+        "distinctCacheEvictionInterval" => duration(),
+        "tableIndexCacheMaxEntries" => [integer()],
+        "lastCacheEvictionInterval" => duration(),
+        "dataFusionRuntimeThreadPriority" => [integer()],
+        "compactionGen2Duration" => duration(),
+        "compactionCheckInterval" => duration(),
+        "dataFusionRuntimeType" => list(any()),
+        "dedicatedCompactor" => [boolean()],
+        "snapshottedWalFilesToKeep" => [integer()],
+        "dataFusionRuntimeMaxBlockingThreads" => [integer()],
+        "replicationInterval" => duration(),
+        "dataFusionRuntimeEventInterval" => [integer()],
+        "preemptiveCacheAge" => duration(),
+        "dataFusionMaxParquetFanout" => [integer()],
+        "parquetMemCacheQueryPathDuration" => duration(),
+        "parquetMemCachePruneInterval" => duration(),
+        "compactionRowLimit" => [integer()],
+        "dataFusionNumThreads" => [integer()],
+        "tableIndexCacheConcurrencyLimit" => [integer()],
+        "retentionCheckInterval" => duration(),
+        "logFormat" => list(any()),
+        "dataFusionRuntimeGlobalQueueInterval" => [integer()],
+        "queryLogSize" => [integer()],
+        "queryFileLimit" => [integer()],
+        "compactionCleanupWait" => duration(),
+        "ingestQueryInstances" => [integer()],
+        "lastValueCacheDisableFromHistory" => [boolean()],
+        "distinctValueCacheDisableFromHistory" => [boolean()],
+        "hardDeleteDefaultDuration" => duration(),
+        "dataFusionConfig" => [String.t() | atom()]
+      }
+      
+  """
+  @type influx_dbv3_enterprise_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tag_resource_request() :: %{
         required("resourceArn") => String.t() | atom(),
         required("tags") => map()
@@ -87,6 +149,7 @@ defmodule AWS.TimestreamInfluxDB do
         "id" => String.t() | atom(),
         "influxAuthParametersSecretArn" => [String.t() | atom()],
         "instanceMode" => list(any()),
+        "instanceModes" => list(list(any())()),
         "logDeliveryConfiguration" => log_delivery_configuration(),
         "name" => String.t() | atom(),
         "networkType" => list(any()),
@@ -222,6 +285,7 @@ defmodule AWS.TimestreamInfluxDB do
         "id" => String.t() | atom(),
         "influxAuthParametersSecretArn" => [String.t() | atom()],
         "instanceMode" => list(any()),
+        "instanceModes" => list(list(any())()),
         "logDeliveryConfiguration" => log_delivery_configuration(),
         "name" => String.t() | atom(),
         "networkType" => list(any()),
@@ -288,22 +352,22 @@ defmodule AWS.TimestreamInfluxDB do
   ## Example:
       
       create_db_cluster_input() :: %{
+        optional("allocatedStorage") => integer(),
         optional("bucket") => String.t() | atom(),
         optional("dbParameterGroupIdentifier") => String.t() | atom(),
         optional("dbStorageType") => list(any()),
+        optional("deploymentType") => list(any()),
         optional("failoverMode") => list(any()),
         optional("logDeliveryConfiguration") => log_delivery_configuration(),
         optional("networkType") => list(any()),
         optional("organization") => String.t() | atom(),
+        optional("password") => String.t() | atom(),
         optional("port") => integer(),
         optional("publiclyAccessible") => [boolean()],
         optional("tags") => map(),
         optional("username") => String.t() | atom(),
-        required("allocatedStorage") => integer(),
         required("dbInstanceType") => list(any()),
-        required("deploymentType") => list(any()),
         required("name") => String.t() | atom(),
-        required("password") => String.t() | atom(),
         required("vpcSecurityGroupIds") => list(String.t() | atom()),
         required("vpcSubnetIds") => list(String.t() | atom())
       }
@@ -402,6 +466,7 @@ defmodule AWS.TimestreamInfluxDB do
         "dbStorageType" => list(any()),
         "deploymentType" => list(any()),
         "endpoint" => [String.t() | atom()],
+        "engineType" => list(any()),
         "failoverMode" => list(any()),
         "id" => String.t() | atom(),
         "influxAuthParametersSecretArn" => [String.t() | atom()],
@@ -470,6 +535,7 @@ defmodule AWS.TimestreamInfluxDB do
         "id" => String.t() | atom(),
         "influxAuthParametersSecretArn" => [String.t() | atom()],
         "instanceMode" => list(any()),
+        "instanceModes" => list(list(any())()),
         "logDeliveryConfiguration" => log_delivery_configuration(),
         "name" => String.t() | atom(),
         "networkType" => list(any()),
@@ -497,6 +563,7 @@ defmodule AWS.TimestreamInfluxDB do
         "endpoint" => [String.t() | atom()],
         "id" => String.t() | atom(),
         "instanceMode" => list(any()),
+        "instanceModes" => list(list(any())()),
         "name" => String.t() | atom(),
         "networkType" => list(any()),
         "port" => integer(),
@@ -594,6 +661,7 @@ defmodule AWS.TimestreamInfluxDB do
         "id" => String.t() | atom(),
         "influxAuthParametersSecretArn" => [String.t() | atom()],
         "instanceMode" => list(any()),
+        "instanceModes" => list(list(any())()),
         "logDeliveryConfiguration" => log_delivery_configuration(),
         "name" => String.t() | atom(),
         "networkType" => list(any()),
@@ -722,6 +790,7 @@ defmodule AWS.TimestreamInfluxDB do
         "dbStorageType" => list(any()),
         "deploymentType" => list(any()),
         "endpoint" => [String.t() | atom()],
+        "engineType" => list(any()),
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
         "networkType" => list(any()),
@@ -747,6 +816,55 @@ defmodule AWS.TimestreamInfluxDB do
       
   """
   @type create_db_parameter_group_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      influx_dbv3_core_parameters() :: %{
+        "forceSnapshotMemThreshold" => list(),
+        "maxHttpRequestSize" => [float()],
+        "walReplayConcurrencyLimit" => [integer()],
+        "gen1Duration" => duration(),
+        "parquetMemCachePrunePercentage" => [float()],
+        "dataFusionUseCachedParquetLoader" => [boolean()],
+        "walReplayFailOnError" => [boolean()],
+        "deleteGracePeriod" => duration(),
+        "execMemPoolBytes" => list(),
+        "dataFusionRuntimeMaxIoEventsPerTick" => [integer()],
+        "gen1LookbackDuration" => duration(),
+        "logFilter" => [String.t() | atom()],
+        "walMaxWriteBufferSize" => [integer()],
+        "disableParquetMemCache" => [boolean()],
+        "walSnapshotSize" => [integer()],
+        "parquetMemCacheSize" => list(),
+        "dataFusionRuntimeThreadKeepAlive" => duration(),
+        "dataFusionRuntimeDisableLifoSlot" => [boolean()],
+        "distinctCacheEvictionInterval" => duration(),
+        "tableIndexCacheMaxEntries" => [integer()],
+        "lastCacheEvictionInterval" => duration(),
+        "dataFusionRuntimeThreadPriority" => [integer()],
+        "dataFusionRuntimeType" => list(any()),
+        "snapshottedWalFilesToKeep" => [integer()],
+        "dataFusionRuntimeMaxBlockingThreads" => [integer()],
+        "dataFusionRuntimeEventInterval" => [integer()],
+        "preemptiveCacheAge" => duration(),
+        "dataFusionMaxParquetFanout" => [integer()],
+        "parquetMemCacheQueryPathDuration" => duration(),
+        "parquetMemCachePruneInterval" => duration(),
+        "dataFusionNumThreads" => [integer()],
+        "tableIndexCacheConcurrencyLimit" => [integer()],
+        "retentionCheckInterval" => duration(),
+        "logFormat" => list(any()),
+        "dataFusionRuntimeGlobalQueueInterval" => [integer()],
+        "queryLogSize" => [integer()],
+        "queryFileLimit" => [integer()],
+        "hardDeleteDefaultDuration" => duration(),
+        "dataFusionConfig" => [String.t() | atom()]
+      }
+      
+  """
+  @type influx_dbv3_core_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

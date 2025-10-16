@@ -1086,6 +1086,7 @@ defmodule AWS.Bedrock do
         "createdAt" => non_neg_integer(),
         "definitionHash" => String.t() | atom(),
         "description" => String.t() | atom(),
+        "kmsKeyArn" => String.t() | atom(),
         "name" => String.t() | atom(),
         "policyArn" => String.t() | atom(),
         "policyId" => String.t() | atom(),
@@ -1760,6 +1761,7 @@ defmodule AWS.Bedrock do
       create_automated_reasoning_policy_request() :: %{
         optional("clientRequestToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
+        optional("kmsKeyId") => String.t() | atom(),
         optional("policyDefinition") => automated_reasoning_policy_definition(),
         optional("tags") => list(tag()),
         required("name") => String.t() | atom()
@@ -3104,10 +3106,12 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      delete_automated_reasoning_policy_request() :: %{}
+      delete_automated_reasoning_policy_request() :: %{
+        optional("force") => [boolean()]
+      }
 
   """
-  @type delete_automated_reasoning_policy_request() :: %{}
+  @type delete_automated_reasoning_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5256,6 +5260,8 @@ defmodule AWS.Bedrock do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | conflict_exception()
+          | resource_in_use_exception()
 
   @type delete_automated_reasoning_policy_build_workflow_errors() ::
           throttling_exception()
@@ -6564,7 +6570,12 @@ defmodule AWS.Bedrock do
     url_path = "/automated-reasoning-policies/#{AWS.Util.encode_uri(policy_arn)}"
     headers = []
     custom_headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"force", "force"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 

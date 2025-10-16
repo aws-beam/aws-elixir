@@ -436,6 +436,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      disable_capacity_manager_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("DryRun") => boolean()
+      }
+      
+  """
+  @type disable_capacity_manager_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_flow_logs_integration_template_request() :: %{
         optional("DryRun") => boolean(),
         required("ConfigDeliveryS3DestinationArn") => String.t() | atom(),
@@ -5441,6 +5453,23 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      get_capacity_manager_attributes_result() :: %{
+        "CapacityManagerStatus" => list(any()),
+        "DataExportCount" => integer(),
+        "EarliestDatapointTimestamp" => non_neg_integer(),
+        "IngestionStatus" => list(any()),
+        "IngestionStatusMessage" => String.t() | atom(),
+        "LatestDatapointTimestamp" => non_neg_integer(),
+        "OrganizationsAccess" => boolean()
+      }
+      
+  """
+  @type get_capacity_manager_attributes_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_transit_gateway_vpc_attachment_request_options() :: %{
         "ApplianceModeSupport" => list(any()),
         "DnsSupport" => list(any()),
@@ -6745,6 +6774,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      enable_capacity_manager_result() :: %{
+        "CapacityManagerStatus" => list(any()),
+        "OrganizationsAccess" => boolean()
+      }
+      
+  """
+  @type enable_capacity_manager_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_spot_datafeed_subscription_request() :: %{
         optional("DryRun") => boolean()
       }
@@ -7166,6 +7207,17 @@ defmodule AWS.EC2 do
       
   """
   @type describe_placement_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_capacity_manager_data_export_result() :: %{
+        "CapacityManagerDataExportId" => String.t() | atom()
+      }
+      
+  """
+  @type delete_capacity_manager_data_export_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10872,6 +10924,21 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      update_capacity_manager_organizations_access_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        required("OrganizationsAccess") => boolean()
+      }
+      
+  """
+  @type update_capacity_manager_organizations_access_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       spot_fleet_launch_specification() :: %{
         "AddressingType" => String.t() | atom(),
         "BlockDeviceMappings" => list(block_device_mapping()),
@@ -11736,6 +11803,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_capacity_manager_data_exports_result() :: %{
+        "CapacityManagerDataExports" => list(capacity_manager_data_export_response()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_capacity_manager_data_exports_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_vpn_connections_result() :: %{
         "VpnConnections" => list(vpn_connection())
       }
@@ -12421,6 +12500,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      dimension_condition() :: %{
+        "Comparison" => list(any()),
+        "Dimension" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type dimension_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_export_tasks_result() :: %{
         "ExportTasks" => list(export_task())
       }
@@ -12924,6 +13016,17 @@ defmodule AWS.EC2 do
       
   """
   @type describe_host_reservation_offerings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_capacity_manager_data_export_result() :: %{
+        "CapacityManagerDataExportId" => String.t() | atom()
+      }
+      
+  """
+  @type create_capacity_manager_data_export_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13647,6 +13750,27 @@ defmodule AWS.EC2 do
       
   """
   @type instance_requirements_with_metadata_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_manager_data_export_response() :: %{
+        "CapacityManagerDataExportId" => String.t() | atom(),
+        "CreateTime" => non_neg_integer(),
+        "LatestDeliveryS3LocationUri" => String.t() | atom(),
+        "LatestDeliveryStatus" => list(any()),
+        "LatestDeliveryStatusMessage" => String.t() | atom(),
+        "LatestDeliveryTime" => non_neg_integer(),
+        "OutputFormat" => list(any()),
+        "S3BucketName" => String.t() | atom(),
+        "S3BucketPrefix" => String.t() | atom(),
+        "Schedule" => list(any()),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type capacity_manager_data_export_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17033,6 +17157,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      delete_capacity_manager_data_export_request() :: %{
+        optional("DryRun") => boolean(),
+        required("CapacityManagerDataExportId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_capacity_manager_data_export_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       ipam_discovered_public_address() :: %{
         "Address" => String.t() | atom(),
         "AddressAllocationId" => String.t() | atom(),
@@ -17383,6 +17519,23 @@ defmodule AWS.EC2 do
       
   """
   @type transit_gateway_connect_peer_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_capacity_manager_data_export_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("S3BucketPrefix") => String.t() | atom(),
+        optional("TagSpecifications") => list(tag_specification()),
+        required("OutputFormat") => list(any()),
+        required("S3BucketName") => String.t() | atom(),
+        required("Schedule") => list(any())
+      }
+      
+  """
+  @type create_capacity_manager_data_export_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -19952,6 +20105,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      enable_capacity_manager_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("OrganizationsAccess") => boolean()
+      }
+      
+  """
+  @type enable_capacity_manager_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       iam_instance_profile_specification() :: %{
         "Arn" => String.t() | atom(),
         "Name" => String.t() | atom()
@@ -20142,6 +20308,24 @@ defmodule AWS.EC2 do
       
   """
   @type image_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_capacity_manager_metric_dimensions_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("FilterBy") => list(capacity_manager_condition()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("EndTime") => non_neg_integer(),
+        required("GroupBy") => list(list(any())()),
+        required("MetricNames") => list(list(any())()),
+        required("StartTime") => non_neg_integer()
+      }
+      
+  """
+  @type get_capacity_manager_metric_dimensions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -22769,6 +22953,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      metric_value() :: %{
+        "Metric" => list(any()),
+        "Value" => float()
+      }
+      
+  """
+  @type metric_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       reset_ebs_default_kms_key_id_request() :: %{
         optional("DryRun") => boolean()
       }
@@ -23324,6 +23520,17 @@ defmodule AWS.EC2 do
       
   """
   @type describe_ipam_scopes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_capacity_manager_attributes_request() :: %{
+        optional("DryRun") => boolean()
+      }
+      
+  """
+  @type get_capacity_manager_attributes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -26090,6 +26297,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      update_capacity_manager_organizations_access_result() :: %{
+        "CapacityManagerStatus" => list(any()),
+        "OrganizationsAccess" => boolean()
+      }
+      
+  """
+  @type update_capacity_manager_organizations_access_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       release_hosts_request() :: %{
         required("HostIds") => list(String.t() | atom())
       }
@@ -26132,6 +26351,18 @@ defmodule AWS.EC2 do
       
   """
   @type destination_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_capacity_manager_result() :: %{
+        "CapacityManagerStatus" => list(any()),
+        "OrganizationsAccess" => boolean()
+      }
+      
+  """
+  @type disable_capacity_manager_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -26587,6 +26818,30 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      get_capacity_manager_metric_data_result() :: %{
+        "MetricDataResults" => list(metric_data_result()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_capacity_manager_metric_data_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_capacity_manager_metric_dimensions_result() :: %{
+        "MetricDimensionResults" => list(capacity_manager_dimension()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_capacity_manager_metric_dimensions_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       fleet_launch_template_overrides_request() :: %{
         "AvailabilityZone" => String.t() | atom(),
         "BlockDeviceMappings" => list(fleet_block_device_mapping_request()),
@@ -26923,6 +27178,33 @@ defmodule AWS.EC2 do
   @type describe_vpc_endpoint_service_configurations_request() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_manager_dimension() :: %{
+        "AccountId" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
+        "InstanceFamily" => String.t() | atom(),
+        "InstancePlatform" => String.t() | atom(),
+        "InstanceType" => String.t() | atom(),
+        "ReservationArn" => String.t() | atom(),
+        "ReservationCreateTimestamp" => non_neg_integer(),
+        "ReservationEndDateType" => list(any()),
+        "ReservationEndTimestamp" => non_neg_integer(),
+        "ReservationId" => String.t() | atom(),
+        "ReservationInstanceMatchCriteria" => String.t() | atom(),
+        "ReservationStartTimestamp" => non_neg_integer(),
+        "ReservationState" => list(any()),
+        "ReservationType" => list(any()),
+        "ReservationUnusedFinancialOwner" => String.t() | atom(),
+        "ResourceRegion" => String.t() | atom(),
+        "Tenancy" => list(any())
+      }
+      
+  """
+  @type capacity_manager_dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -27507,6 +27789,21 @@ defmodule AWS.EC2 do
       
   """
   @type get_capacity_reservation_usage_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_capacity_manager_data_exports_request() :: %{
+        optional("CapacityManagerDataExportIds") => list(String.t() | atom()),
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_capacity_manager_data_exports_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -29397,6 +29694,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      metric_data_result() :: %{
+        "Dimension" => capacity_manager_dimension(),
+        "MetricValues" => list(metric_value()),
+        "Timestamp" => non_neg_integer()
+      }
+      
+  """
+  @type metric_data_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       connection_log_options() :: %{
         "CloudwatchLogGroup" => String.t() | atom(),
         "CloudwatchLogStream" => String.t() | atom(),
@@ -29740,6 +30050,25 @@ defmodule AWS.EC2 do
       
   """
   @type describe_vpc_endpoints_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_capacity_manager_metric_data_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("FilterBy") => list(capacity_manager_condition()),
+        optional("GroupBy") => list(list(any())()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("EndTime") => non_neg_integer(),
+        required("MetricNames") => list(list(any())()),
+        required("Period") => integer(),
+        required("StartTime") => non_neg_integer()
+      }
+      
+  """
+  @type get_capacity_manager_metric_data_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -30388,6 +30717,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      capacity_manager_condition() :: %{
+        "DimensionCondition" => dimension_condition()
+      }
+      
+  """
+  @type capacity_manager_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       vpn_tunnel_log_options() :: %{
         "CloudWatchLogOptions" => cloud_watch_log_options()
       }
@@ -30895,12 +31235,27 @@ defmodule AWS.EC2 do
   address, it is released to the IP address
   pool and can be allocated to a different Amazon Web Services account.
 
-  You can allocate an Elastic IP address from an address pool owned by Amazon Web
-  Services or from an address pool created
-  from a public IPv4 address range that you have brought to Amazon Web Services
-  for use with your Amazon Web Services resources using bring your own
-  IP addresses (BYOIP). For more information, see [Bring Your Own IP Addresses (BYOIP)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html) in
-  the *Amazon EC2 User Guide*.
+  You can allocate an Elastic IP address from one of the following address pools:
+
+    *
+  Amazon's pool of IPv4 addresses
+
+    *
+  Public IPv4 address range that you own and bring to your Amazon Web Services
+  account using
+  [Bring Your Own IP Addresses (BYOIP)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html)
+
+    *
+  An IPv4 IPAM pool with an Amazon-provided or BYOIP public IPv4 address range
+
+    *
+  IPv4 addresses from your on-premises network made available for use with an
+  Outpost
+  using a [customer-owned IP address pool](https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing)
+  (CoIP pool)
+
+  For more information, see [Elastic IP Addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)
+  in the *Amazon EC2 User Guide*.
 
   If you release an Elastic IP address, you might be able to recover it. You
   cannot recover
@@ -30908,9 +31263,6 @@ defmodule AWS.EC2 do
   Web Services account. To attempt to recover an Elastic IP address that you
   released, specify
   it in this operation.
-
-  For more information, see [Elastic IP Addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)
-  in the *Amazon EC2 User Guide*.
 
   You can allocate a carrier IP address which is a public IP address from a
   telecommunication carrier,
@@ -32288,6 +32640,29 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "CopyVolumes", input, options)
+  end
+
+  @doc """
+
+  Creates a new data export configuration for EC2 Capacity Manager.
+
+  This allows you to automatically export capacity usage data to an S3 bucket on a
+  scheduled basis.
+  The exported data includes metrics for On-Demand, Spot, and Capacity
+  Reservations usage across your organization.
+  """
+  @spec create_capacity_manager_data_export(
+          map(),
+          create_capacity_manager_data_export_request(),
+          list()
+        ) ::
+          {:ok, create_capacity_manager_data_export_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def create_capacity_manager_data_export(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCapacityManagerDataExport", input, options)
   end
 
   @doc """
@@ -34786,6 +35161,27 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+
+  Deletes an existing Capacity Manager data export configuration.
+
+  This stops future scheduled exports but does not delete previously exported
+  files from S3.
+  """
+  @spec delete_capacity_manager_data_export(
+          map(),
+          delete_capacity_manager_data_export_request(),
+          list()
+        ) ::
+          {:ok, delete_capacity_manager_data_export_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def delete_capacity_manager_data_export(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCapacityManagerDataExport", input, options)
+  end
+
+  @doc """
   Deletes a carrier gateway.
 
   If you do not delete the route that contains the carrier gateway as the
@@ -36839,6 +37235,27 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeCapacityBlocks", input, options)
+  end
+
+  @doc """
+
+  Describes one or more Capacity Manager data export configurations.
+
+  Returns information about export settings, delivery status, and recent export
+  activity.
+  """
+  @spec describe_capacity_manager_data_exports(
+          map(),
+          describe_capacity_manager_data_exports_request(),
+          list()
+        ) ::
+          {:ok, describe_capacity_manager_data_exports_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_capacity_manager_data_exports(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCapacityManagerDataExports", input, options)
   end
 
   @doc """
@@ -40507,6 +40924,24 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+
+  Disables EC2 Capacity Manager for your account.
+
+  This stops data ingestion and removes access to capacity analytics and
+  optimization recommendations.
+  Previously collected data is retained but no new data will be processed.
+  """
+  @spec disable_capacity_manager(map(), disable_capacity_manager_request(), list()) ::
+          {:ok, disable_capacity_manager_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def disable_capacity_manager(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableCapacityManager", input, options)
+  end
+
+  @doc """
   Disables EBS encryption by default for your account in the current Region.
 
   After you disable encryption by default, you can still create encrypted volumes
@@ -41376,6 +41811,24 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+
+  Enables EC2 Capacity Manager for your account.
+
+  This starts data ingestion for your EC2 capacity usage across On-Demand, Spot,
+  and Capacity Reservations.
+  Initial data processing may take several hours to complete.
+  """
+  @spec enable_capacity_manager(map(), enable_capacity_manager_request(), list()) ::
+          {:ok, enable_capacity_manager_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def enable_capacity_manager(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableCapacityManager", input, options)
+  end
+
+  @doc """
   Enables EBS encryption by default for your account in the current Region.
 
   After you enable encryption by default, the EBS volumes that you create are
@@ -42011,6 +42464,68 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "GetAwsNetworkPerformanceData", input, options)
+  end
+
+  @doc """
+
+  Retrieves the current configuration and status of EC2 Capacity Manager for your
+  account, including enablement status, Organizations access settings, and data
+  ingestion status.
+  """
+  @spec get_capacity_manager_attributes(map(), get_capacity_manager_attributes_request(), list()) ::
+          {:ok, get_capacity_manager_attributes_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_capacity_manager_attributes(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCapacityManagerAttributes", input, options)
+  end
+
+  @doc """
+
+  Retrieves capacity usage metrics for your EC2 resources.
+
+  Returns time-series data for metrics like unused capacity, utilization rates,
+  and costs
+  across On-Demand, Spot, and Capacity Reservations. Data can be grouped and
+  filtered by various dimensions such as region, account, and instance family.
+  """
+  @spec get_capacity_manager_metric_data(
+          map(),
+          get_capacity_manager_metric_data_request(),
+          list()
+        ) ::
+          {:ok, get_capacity_manager_metric_data_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_capacity_manager_metric_data(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCapacityManagerMetricData", input, options)
+  end
+
+  @doc """
+
+  Retrieves the available dimension values for capacity metrics within a specified
+  time range.
+
+  This is useful for discovering what accounts,
+  regions, instance families, and other dimensions have data available for
+  filtering and grouping.
+  """
+  @spec get_capacity_manager_metric_dimensions(
+          map(),
+          get_capacity_manager_metric_dimensions_request(),
+          list()
+        ) ::
+          {:ok, get_capacity_manager_metric_dimensions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_capacity_manager_metric_dimensions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCapacityManagerMetricDimensions", input, options)
   end
 
   @doc """
@@ -47072,6 +47587,28 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "UnmonitorInstances", input, options)
+  end
+
+  @doc """
+
+  Updates the Organizations access setting for EC2 Capacity Manager.
+
+  This controls whether Capacity Manager can aggregate
+  data from all accounts in your Amazon Web Services Organization or only from the
+  current account.
+  """
+  @spec update_capacity_manager_organizations_access(
+          map(),
+          update_capacity_manager_organizations_access_request(),
+          list()
+        ) ::
+          {:ok, update_capacity_manager_organizations_access_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def update_capacity_manager_organizations_access(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateCapacityManagerOrganizationsAccess", input, options)
   end
 
   @doc """

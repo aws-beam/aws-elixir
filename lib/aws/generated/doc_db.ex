@@ -26,6 +26,7 @@ defmodule AWS.DocDB do
         optional("EnableCloudwatchLogsExports") => list(String.t() | atom()),
         optional("EngineVersion") => String.t() | atom(),
         optional("KmsKeyId") => String.t() | atom(),
+        optional("NetworkType") => String.t() | atom(),
         optional("Port") => integer(),
         optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
         optional("StorageType") => String.t() | atom(),
@@ -623,6 +624,7 @@ defmodule AWS.DocDB do
         optional("DeletionProtection") => boolean(),
         optional("EnableCloudwatchLogsExports") => list(String.t() | atom()),
         optional("KmsKeyId") => String.t() | atom(),
+        optional("NetworkType") => String.t() | atom(),
         optional("Port") => integer(),
         optional("RestoreToTime") => non_neg_integer(),
         optional("RestoreType") => String.t() | atom(),
@@ -1172,6 +1174,17 @@ defmodule AWS.DocDB do
 
   ## Example:
       
+      network_type_not_supported() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type network_type_not_supported() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       orderable_db_instance_option() :: %{
         "AvailabilityZones" => list(availability_zone()),
         "DBInstanceClass" => String.t() | atom(),
@@ -1586,6 +1599,7 @@ defmodule AWS.DocDB do
         optional("MasterUserPassword") => String.t() | atom(),
         optional("MasterUserSecretKmsKeyId") => String.t() | atom(),
         optional("MasterUsername") => String.t() | atom(),
+        optional("NetworkType") => String.t() | atom(),
         optional("Port") => integer(),
         optional("PreSignedUrl") => String.t() | atom(),
         optional("PreferredBackupWindow") => String.t() | atom(),
@@ -1914,6 +1928,7 @@ defmodule AWS.DocDB do
         "MasterUserSecret" => cluster_master_user_secret(),
         "Engine" => String.t() | atom(),
         "VpcSecurityGroups" => list(vpc_security_group_membership()),
+        "NetworkType" => String.t() | atom(),
         "MultiAZ" => boolean(),
         "EarliestRestorableTime" => non_neg_integer(),
         "PreferredMaintenanceWindow" => String.t() | atom(),
@@ -1941,6 +1956,7 @@ defmodule AWS.DocDB do
         "EngineVersion" => String.t() | atom(),
         "HostedZoneId" => String.t() | atom(),
         "AssociatedRoles" => list(db_cluster_role()),
+        "IOOptimizedNextAllowedModificationTime" => non_neg_integer(),
         "StorageEncrypted" => boolean(),
         "Endpoint" => String.t() | atom()
       }
@@ -2294,6 +2310,7 @@ defmodule AWS.DocDB do
         "DBSubnetGroupName" => String.t() | atom(),
         "SubnetGroupStatus" => String.t() | atom(),
         "Subnets" => list(subnet()),
+        "SupportedNetworkTypes" => list(String.t() | atom()),
         "VpcId" => String.t() | atom()
       }
       
@@ -2397,6 +2414,7 @@ defmodule AWS.DocDB do
         optional("ManageMasterUserPassword") => boolean(),
         optional("MasterUserPassword") => String.t() | atom(),
         optional("MasterUserSecretKmsKeyId") => String.t() | atom(),
+        optional("NetworkType") => String.t() | atom(),
         optional("NewDBClusterIdentifier") => String.t() | atom(),
         optional("Port") => integer(),
         optional("PreferredBackupWindow") => String.t() | atom(),
@@ -2658,6 +2676,7 @@ defmodule AWS.DocDB do
           | storage_quota_exceeded_fault()
           | db_subnet_group_not_found_fault()
           | db_instance_not_found_fault()
+          | network_type_not_supported()
           | db_subnet_group_does_not_cover_enough_a_zs()
           | invalid_vpc_network_state_fault()
           | invalid_global_cluster_state_fault()
@@ -2792,6 +2811,7 @@ defmodule AWS.DocDB do
           | db_cluster_parameter_group_not_found_fault()
           | storage_quota_exceeded_fault()
           | db_subnet_group_not_found_fault()
+          | network_type_not_supported()
           | invalid_vpc_network_state_fault()
           | invalid_subnet()
           | invalid_db_subnet_group_state_fault()
@@ -2867,6 +2887,7 @@ defmodule AWS.DocDB do
           | storage_quota_exceeded_fault()
           | db_subnet_group_not_found_fault()
           | invalid_db_cluster_snapshot_state_fault()
+          | network_type_not_supported()
           | invalid_vpc_network_state_fault()
           | invalid_subnet()
           | invalid_restore_fault()
@@ -2884,6 +2905,7 @@ defmodule AWS.DocDB do
           | storage_quota_exceeded_fault()
           | db_subnet_group_not_found_fault()
           | invalid_db_cluster_snapshot_state_fault()
+          | network_type_not_supported()
           | invalid_vpc_network_state_fault()
           | invalid_subnet()
           | invalid_restore_fault()
@@ -3155,13 +3177,14 @@ defmodule AWS.DocDB do
   Amazon Web Services Regions.
 
   The global cluster contains one primary cluster with read-write capability, and
-  up-to give read-only secondary clusters. Global clusters uses storage-based fast
+  up-to 10 read-only secondary clusters. Global clusters uses storage-based fast
   replication across regions with latencies less than one second, using dedicated
   infrastructure with no impact to your workload’s performance.
 
   You can create a global cluster that is initially empty, and then add a primary
-  and a secondary to it. Or you can specify an existing cluster during the create
-  operation, and this cluster becomes the primary of the global cluster.
+  and a secondary to it.
+  Or you can specify an existing cluster during the create operation, and this
+  cluster becomes the primary of the global cluster.
 
   This action only applies to Amazon DocumentDB clusters.
   """

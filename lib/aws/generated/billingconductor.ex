@@ -3,31 +3,23 @@
 
 defmodule AWS.Billingconductor do
   @moduledoc """
-  Amazon Web Services Billing Conductor is a fully managed service that you can
-  use to
-  customize a
-  [proforma](https://docs.aws.amazon.com/billingconductor/latest/userguide/understanding-eb.html#eb-other-definitions) version of your billing data each month, to accurately show or chargeback
-  your end customers.
+  Billing Conductor is a fully managed service that you can use to customize a
+  [pro forma](https://docs.aws.amazon.com/billingconductor/latest/userguide/understanding-eb.html#eb-other-definitions)
+  version of your billing data each month, to accurately show or chargeback your
+  end customers.
 
-  Amazon Web Services Billing Conductor doesn't change the way you're billed
-  by Amazon Web Services each month by design. Instead, it provides you with a
-  mechanism to
-  configure, generate, and display rates to certain customers over a given billing
-  period. You
-  can also analyze the difference between the rates you apply to your accounting
-  groupings
-  relative to your actual rates from Amazon Web Services. As a result of your
-  Amazon Web Services
-  Billing Conductor configuration, the payer account can also see the custom rate
-  applied on the
-  billing details page of the [Amazon Web Services Billing
-  console](https://console.aws.amazon.com/billing), or configure a cost and usage
+  Billing Conductor doesn't change the way you're billed by Amazon Web Services
+  each month by design. Instead, it provides you with a mechanism to configure,
+  generate, and display rates to certain customers over a given billing period.
+  You can also analyze the difference between the rates you apply to your
+  accounting groupings relative to your actual rates from Amazon Web Services. As
+  a result of your Billing Conductor configuration, the payer account can also see
+  the custom rate applied on the billing details page of the [Billing console](https://console.aws.amazon.com/billing), or configure a cost and usage
   report per billing group.
 
-  This documentation shows how you can configure Amazon Web Services Billing
-  Conductor using its
-  API. For more information about using the [Amazon Web Services Billing Conductor](https://console.aws.amazon.com/billingconductor/) user
-  interface, see the [ Amazon Web Services Billing Conductor User Guide](https://docs.aws.amazon.com/billingconductor/latest/userguide/what-is-billingconductor.html).
+  This documentation shows how you can configure Billing Conductor by using its
+  API. For more information about using the [Billing Conductor](https://console.aws.amazon.com/billingconductor/) user interface, see
+  the [ Billing Conductor User Guide](https://docs.aws.amazon.com/billingconductor/latest/userguide/what-is-billingconductor.html).
   """
 
   alias AWS.Client
@@ -142,7 +134,7 @@ defmodule AWS.Billingconductor do
         optional("ComputationPreference") => computation_preference(),
         optional("Description") => String.t() | atom(),
         optional("Name") => String.t() | atom(),
-        optional("Status") => String.t() | atom(),
+        optional("Status") => list(any()),
         required("Arn") => String.t() | atom()
       }
 
@@ -243,7 +235,7 @@ defmodule AWS.Billingconductor do
 
       get_billing_group_cost_report_input() :: %{
         optional("BillingPeriodRange") => billing_period_range(),
-        optional("GroupBy") => list(String.t() | atom()),
+        optional("GroupBy") => list(list(any())()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
         required("Arn") => String.t() | atom()
@@ -260,7 +252,7 @@ defmodule AWS.Billingconductor do
         "Flat" => list_custom_line_item_flat_charge_details(),
         "LineItemFilters" => list(line_item_filter()),
         "Percentage" => list_custom_line_item_percentage_charge_details(),
-        "Type" => String.t() | atom()
+        "Type" => list(any())
       }
 
   """
@@ -297,8 +289,8 @@ defmodule AWS.Billingconductor do
         optional("Tiering") => create_tiering_input(),
         optional("UsageType") => String.t() | atom(),
         required("Name") => String.t() | atom(),
-        required("Scope") => String.t() | atom(),
-        required("Type") => String.t() | atom()
+        required("Scope") => list(any()),
+        required("Type") => list(any())
       }
 
   """
@@ -368,7 +360,7 @@ defmodule AWS.Billingconductor do
 
       associate_resource_error() :: %{
         "Message" => String.t() | atom(),
-        "Reason" => String.t() | atom()
+        "Reason" => list(any())
       }
 
   """
@@ -393,7 +385,7 @@ defmodule AWS.Billingconductor do
         "Flat" => custom_line_item_flat_charge_details(),
         "LineItemFilters" => list(line_item_filter()),
         "Percentage" => custom_line_item_percentage_charge_details(),
-        "Type" => String.t() | atom()
+        "Type" => list(any())
       }
 
   """
@@ -489,6 +481,17 @@ defmodule AWS.Billingconductor do
 
   ## Example:
 
+      presentation_object() :: %{
+        "Service" => String.t() | atom()
+      }
+
+  """
+  @type presentation_object() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_pricing_plan_output() :: %{
         optional("Arn") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
@@ -513,7 +516,7 @@ defmodule AWS.Billingconductor do
         optional("PricingPlanArn") => String.t() | atom(),
         optional("PrimaryAccountId") => String.t() | atom(),
         optional("Size") => float(),
-        optional("Status") => String.t() | atom(),
+        optional("Status") => list(any()),
         optional("StatusReason") => String.t() | atom()
       }
 
@@ -568,7 +571,7 @@ defmodule AWS.Billingconductor do
       list_resources_associated_to_custom_line_item_response_element() :: %{
         "Arn" => String.t() | atom(),
         "EndBillingPeriod" => String.t() | atom(),
-        "Relationship" => String.t() | atom()
+        "Relationship" => list(any())
       }
 
   """
@@ -604,7 +607,7 @@ defmodule AWS.Billingconductor do
 
       conflict_exception() :: %{
         "Message" => String.t() | atom(),
-        "Reason" => String.t() | atom(),
+        "Reason" => list(any()),
         "ResourceId" => String.t() | atom(),
         "ResourceType" => String.t() | atom()
       }
@@ -964,10 +967,10 @@ defmodule AWS.Billingconductor do
         optional("ModifierPercentage") => float(),
         optional("Name") => String.t() | atom(),
         optional("Operation") => String.t() | atom(),
-        optional("Scope") => String.t() | atom(),
+        optional("Scope") => list(any()),
         optional("Service") => String.t() | atom(),
         optional("Tiering") => update_tiering_input(),
-        optional("Type") => String.t() | atom(),
+        optional("Type") => list(any()),
         optional("UsageType") => String.t() | atom()
       }
 
@@ -991,9 +994,9 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       line_item_filter() :: %{
-        "Attribute" => String.t() | atom(),
-        "MatchOption" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
+        "Attribute" => list(any()),
+        "MatchOption" => list(any()),
+        "Values" => list(list(any())())
       }
 
   """
@@ -1031,7 +1034,7 @@ defmodule AWS.Billingconductor do
         "Arns" => list(String.t() | atom()),
         "AutoAssociate" => [boolean()],
         "PricingPlan" => String.t() | atom(),
-        "Statuses" => list(String.t() | atom())
+        "Statuses" => list(list(any())())
       }
 
   """
@@ -1147,7 +1150,7 @@ defmodule AWS.Billingconductor do
       validation_exception() :: %{
         "Fields" => list(validation_exception_field()),
         "Message" => String.t() | atom(),
-        "Reason" => String.t() | atom()
+        "Reason" => list(any())
       }
 
   """
@@ -1216,11 +1219,13 @@ defmodule AWS.Billingconductor do
         "AssociationSize" => float(),
         "BillingGroupArn" => String.t() | atom(),
         "ChargeDetails" => list_custom_line_item_charge_details(),
+        "ComputationRule" => list(any()),
         "CreationTime" => float(),
-        "CurrencyCode" => String.t() | atom(),
+        "CurrencyCode" => list(any()),
         "Description" => String.t() | atom(),
         "LastModifiedTime" => float(),
         "Name" => String.t() | atom(),
+        "PresentationDetails" => presentation_object(),
         "ProductCode" => String.t() | atom()
       }
 
@@ -1237,12 +1242,14 @@ defmodule AWS.Billingconductor do
         "AssociationSize" => float(),
         "BillingGroupArn" => String.t() | atom(),
         "ChargeDetails" => list_custom_line_item_charge_details(),
+        "ComputationRule" => list(any()),
         "CreationTime" => float(),
-        "CurrencyCode" => String.t() | atom(),
+        "CurrencyCode" => list(any()),
         "Description" => String.t() | atom(),
         "EndBillingPeriod" => String.t() | atom(),
         "LastModifiedTime" => float(),
         "Name" => String.t() | atom(),
+        "PresentationDetails" => presentation_object(),
         "ProductCode" => String.t() | atom(),
         "StartBillingPeriod" => String.t() | atom(),
         "StartTime" => float()
@@ -1304,7 +1311,7 @@ defmodule AWS.Billingconductor do
         "Name" => String.t() | atom(),
         "PrimaryAccountId" => String.t() | atom(),
         "Size" => float(),
-        "Status" => String.t() | atom(),
+        "Status" => list(any()),
         "StatusReason" => String.t() | atom()
       }
 
@@ -1320,7 +1327,7 @@ defmodule AWS.Billingconductor do
         optional("ModifierPercentage") => float(),
         optional("Name") => String.t() | atom(),
         optional("Tiering") => update_tiering_input(),
-        optional("Type") => String.t() | atom(),
+        optional("Type") => list(any()),
         required("Arn") => String.t() | atom()
       }
 
@@ -1377,7 +1384,7 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       list_resources_associated_to_custom_line_item_filter() :: %{
-        "Relationship" => String.t() | atom()
+        "Relationship" => list(any())
       }
 
   """
@@ -1410,10 +1417,10 @@ defmodule AWS.Billingconductor do
         "ModifierPercentage" => float(),
         "Name" => String.t() | atom(),
         "Operation" => String.t() | atom(),
-        "Scope" => String.t() | atom(),
+        "Scope" => list(any()),
         "Service" => String.t() | atom(),
         "Tiering" => tiering(),
-        "Type" => String.t() | atom(),
+        "Type" => list(any()),
         "UsageType" => String.t() | atom()
       }
 
@@ -1528,8 +1535,10 @@ defmodule AWS.Billingconductor do
         "BillingPeriodRange" => custom_line_item_billing_period_range(),
         "ChargeDetails" => custom_line_item_charge_details(),
         "ClientToken" => String.t() | atom(),
+        "ComputationRule" => list(any()),
         "Description" => String.t() | atom(),
         "Name" => String.t() | atom(),
+        "PresentationDetails" => presentation_object(),
         "Tags" => map()
       }
 
@@ -1824,13 +1833,11 @@ defmodule AWS.Billingconductor do
 
   @doc """
   Connects an array of account IDs in a consolidated billing family to a
-  predefined
-  billing group.
+  predefined billing group.
 
   The account IDs must be a part of the consolidated billing family during the
   current month, and not already associated with another billing group. The
-  maximum number of
-  accounts that can be associated in one call is 30.
+  maximum number of accounts that can be associated in one call is 30.
   """
   @spec associate_accounts(map(), associate_accounts_input(), list()) ::
           {:ok, associate_accounts_output(), any()}
@@ -1890,7 +1897,6 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Associates a batch of resources to a percentage custom line item.
   """
   @spec batch_associate_resources_to_custom_line_item(
@@ -1924,7 +1930,6 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Disassociates a batch of resources from a percentage custom line item.
   """
   @spec batch_disassociate_resources_from_custom_line_item(
@@ -1958,7 +1963,6 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Creates a billing group that resembles a consolidated billing family that Amazon
   Web Services charges, based off of the predefined pricing plan computation.
   """
@@ -1996,11 +2000,10 @@ defmodule AWS.Billingconductor do
 
   @doc """
   Creates a custom line item that can be used to create a one-time fixed charge
-  that can be
-  applied to a single billing group for the current or previous billing period.
+  that can be applied to a single billing group for the current or previous
+  billing period.
 
-  The one-time
-  fixed charge is either a fee or discount.
+  The one-time fixed charge is either a fee or discount.
   """
   @spec create_custom_line_item(map(), create_custom_line_item_input(), list()) ::
           {:ok, create_custom_line_item_output(), any()}
@@ -2071,7 +2074,6 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Creates a pricing rule can be associated to a pricing plan, or a set of pricing
   plans.
   """
@@ -2108,7 +2110,6 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Deletes a billing group.
   """
   @spec delete_billing_group(map(), delete_billing_group_input(), list()) ::
@@ -2138,7 +2139,6 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Deletes the custom line item identified by the given ARN in the current, or
   previous billing period.
   """
@@ -2171,8 +2171,8 @@ defmodule AWS.Billingconductor do
   @doc """
   Deletes a pricing plan.
 
-  The pricing plan must not be associated with any billing groups to
-  delete successfully.
+  The pricing plan must not be associated with any billing groups to delete
+  successfully.
   """
   @spec delete_pricing_plan(map(), delete_pricing_plan_input(), list()) ::
           {:ok, delete_pricing_plan_output(), any()}
@@ -2260,7 +2260,6 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Disassociates a list of pricing rules from a pricing plan.
   """
   @spec disassociate_pricing_rules(map(), disassociate_pricing_rules_input(), list()) ::
@@ -2291,8 +2290,8 @@ defmodule AWS.Billingconductor do
 
   @doc """
   Retrieves the margin summary report, which includes the Amazon Web Services cost
-  and charged
-  amount (pro forma cost) by Amazon Web Service for a specific billing group.
+  and charged amount (pro forma cost) by Amazon Web Services service for a
+  specific billing group.
   """
   @spec get_billing_group_cost_report(map(), get_billing_group_cost_report_input(), list()) ::
           {:ok, get_billing_group_cost_report_output(), any()}
@@ -2322,12 +2321,10 @@ defmodule AWS.Billingconductor do
 
   @doc """
   This is a paginated call to list linked accounts that are linked to the payer
-  account for
-  the specified time period.
+  account for the specified time period.
 
-  If no information is provided, the current billing period is used.
-  The response will optionally include the billing group that's associated with
-  the linked
+  If no information is provided, the current billing period is used. The response
+  will optionally include the billing group that's associated with the linked
   account.
   """
   @spec list_account_associations(map(), list_account_associations_input(), list()) ::
@@ -2358,9 +2355,8 @@ defmodule AWS.Billingconductor do
 
   @doc """
   A paginated call to retrieve a summary report of actual Amazon Web Services
-  charges and the calculated
-  Amazon Web Services charges based on the associated pricing plan of a billing
-  group.
+  charges and the calculated Amazon Web Services charges based on the associated
+  pricing plan of a billing group.
   """
   @spec list_billing_group_cost_reports(map(), list_billing_group_cost_reports_input(), list()) ::
           {:ok, list_billing_group_cost_reports_output(), any()}
@@ -2450,7 +2446,6 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   A paginated call to get a list of all custom line items (FFLIs) for the given
   billing period.
 
@@ -2514,7 +2509,6 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   A list of the pricing plans that are associated with a pricing rule.
   """
   @spec list_pricing_plans_associated_with_pricing_rule(
@@ -2548,7 +2542,6 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Describes a pricing rule that can be associated to a pricing plan, or set of
   pricing plans.
   """
@@ -2579,7 +2572,6 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Lists the pricing rules that are associated with a pricing plan.
   """
   @spec list_pricing_rules_associated_to_pricing_plan(
@@ -2613,7 +2605,6 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   List the resources that are associated to a custom line item.
   """
   @spec list_resources_associated_to_custom_line_item(
@@ -2647,7 +2638,6 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   A list the tags for a resource.
   """
   @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
@@ -2669,8 +2659,7 @@ defmodule AWS.Billingconductor do
   Associates the specified tags to a resource with the specified `resourceArn`.
 
   If existing tags on a resource are not specified in the request parameters, they
-  are not
-  changed.
+  are not changed.
   """
   @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -2699,7 +2688,6 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Deletes specified tags from a resource.
   """
   @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
@@ -2763,7 +2751,6 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Update an existing custom line item in the current or previous billing period.
   """
   @spec update_custom_line_item(map(), update_custom_line_item_input(), list()) ::
@@ -2822,7 +2809,6 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Updates an existing pricing rule.
   """
   @spec update_pricing_rule(map(), update_pricing_rule_input(), list()) ::

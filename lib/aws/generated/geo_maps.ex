@@ -137,8 +137,12 @@ defmodule AWS.GeoMaps do
 
       get_style_descriptor_request() :: %{
         optional("ColorScheme") => String.t() | atom(),
+        optional("ContourDensity") => String.t() | atom(),
         optional("Key") => String.t() | atom(),
-        optional("PoliticalView") => String.t() | atom()
+        optional("PoliticalView") => String.t() | atom(),
+        optional("Terrain") => String.t() | atom(),
+        optional("Traffic") => String.t() | atom(),
+        optional("TravelModes") => list(String.t() | atom())
       }
 
   """
@@ -273,6 +277,9 @@ defmodule AWS.GeoMaps do
 
   @doc """
   `GetGlyphs` returns the map's glyphs.
+
+  For more information, see [Style labels with glyphs](https://docs.aws.amazon.com/location/latest/developerguide/styling-labels-with-glyphs.html)
+  in the *Amazon Location Service Developer Guide*.
   """
   @spec get_glyphs(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_glyphs_response(), any()}
@@ -303,6 +310,9 @@ defmodule AWS.GeoMaps do
 
   @doc """
   `GetSprites` returns the map's sprites.
+
+  For more information, see [Style iconography with sprites](https://docs.aws.amazon.com/location/latest/developerguide/styling-iconography-with-sprites.html)
+  in the *Amazon Location Service Developer Guide*.
   """
   @spec get_sprites(
           map(),
@@ -344,6 +354,15 @@ defmodule AWS.GeoMaps do
 
   You can modify the map's appearance and overlay additional information. It's an
   ideal solution for applications requiring tailored static map snapshots.
+
+  For more information, see the following topics in the *Amazon Location Service
+  Developer Guide*:
+
+    * [Static maps](https://docs.aws.amazon.com/location/latest/developerguide/static-maps.html)
+
+    * [Customize static maps](https://docs.aws.amazon.com/location/latest/developerguide/customizing-static-maps.html)
+
+    * [Overlay on the static map](https://docs.aws.amazon.com/location/latest/developerguide/overlaying-static-map.html)
   """
   @spec get_static_map(
           map(),
@@ -553,10 +572,17 @@ defmodule AWS.GeoMaps do
 
   @doc """
   `GetStyleDescriptor` returns information about the style.
+
+  For more information, see [Style dynamic maps](https://docs.aws.amazon.com/location/latest/developerguide/styling-dynamic-maps.html)
+  in the *Amazon Location Service Developer Guide*.
   """
   @spec get_style_descriptor(
           map(),
           String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
@@ -569,13 +595,38 @@ defmodule AWS.GeoMaps do
         %Client{} = client,
         style,
         color_scheme \\ nil,
+        contour_density \\ nil,
         key \\ nil,
         political_view \\ nil,
+        terrain \\ nil,
+        traffic \\ nil,
+        travel_modes \\ nil,
         options \\ []
       ) do
     url_path = "/styles/#{AWS.Util.encode_uri(style)}/descriptor"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(travel_modes) do
+        [{"travel-modes", travel_modes} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(traffic) do
+        [{"traffic", traffic} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(terrain) do
+        [{"terrain", terrain} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(political_view) do
@@ -587,6 +638,13 @@ defmodule AWS.GeoMaps do
     query_params =
       if !is_nil(key) do
         [{"key", key} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(contour_density) do
+        [{"contour-density", contour_density} | query_params]
       else
         query_params
       end
@@ -619,6 +677,10 @@ defmodule AWS.GeoMaps do
 
   Map tiles are used by clients to render a map. they're addressed using a grid
   arrangement with an X coordinate, Y coordinate, and Z (zoom) level.
+
+  For more information, see
+  [Tiles](https://docs.aws.amazon.com/location/latest/developerguide/tiles.html)
+  in the *Amazon Location Service Developer Guide*.
   """
   @spec get_tile(
           map(),

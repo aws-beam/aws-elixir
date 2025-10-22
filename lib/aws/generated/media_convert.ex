@@ -401,6 +401,20 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
+      start_jobs_query_request() :: %{
+        optional("FilterList") => list(jobs_query_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Order") => list(any())
+      }
+
+  """
+  @type start_jobs_query_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       mp2_settings() :: %{
         "AudioDescriptionMix" => list(any()),
         "Bitrate" => integer(),
@@ -410,6 +424,18 @@ defmodule AWS.MediaConvert do
 
   """
   @type mp2_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      jobs_query_filter() :: %{
+        "Key" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+
+  """
+  @type jobs_query_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -511,6 +537,19 @@ defmodule AWS.MediaConvert do
 
   """
   @type list_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_jobs_query_results_response() :: %{
+        "Jobs" => list(job()),
+        "NextToken" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type get_jobs_query_results_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -748,7 +787,9 @@ defmodule AWS.MediaConvert do
         "Duration" => integer(),
         "FramerateDenominator" => integer(),
         "FramerateNumerator" => integer(),
-        "SampleRate" => integer()
+        "Height" => integer(),
+        "SampleRate" => integer(),
+        "Width" => integer()
       }
 
   """
@@ -1700,6 +1741,17 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       motion_image_insertion_offset() :: %{
         "ImageX" => integer(),
         "ImageY" => integer()
@@ -2612,6 +2664,7 @@ defmodule AWS.MediaConvert do
       video_properties() :: %{
         "BitDepth" => integer(),
         "BitRate" => float(),
+        "CodecMetadata" => codec_metadata(),
         "ColorPrimaries" => list(any()),
         "FrameRate" => frame_rate(),
         "Height" => integer(),
@@ -2655,6 +2708,27 @@ defmodule AWS.MediaConvert do
 
   """
   @type queue_transition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      codec_metadata() :: %{
+        "BitDepth" => integer(),
+        "ChromaSubsampling" => String.t() | atom(),
+        "CodedFrameRate" => frame_rate(),
+        "ColorPrimaries" => list(any()),
+        "Height" => integer(),
+        "Level" => String.t() | atom(),
+        "MatrixCoefficients" => list(any()),
+        "Profile" => String.t() | atom(),
+        "ScanType" => String.t() | atom(),
+        "TransferCharacteristics" => list(any()),
+        "Width" => integer()
+      }
+
+  """
+  @type codec_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3221,6 +3295,17 @@ defmodule AWS.MediaConvert do
 
   """
   @type get_preset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_jobs_query_response() :: %{
+        "Id" => String.t() | atom()
+      }
+
+  """
+  @type start_jobs_query_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3985,6 +4070,15 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
+      get_jobs_query_results_request() :: %{}
+
+  """
+  @type get_jobs_query_results_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       create_queue_response() :: %{
         "Queue" => queue()
       }
@@ -4139,6 +4233,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4147,6 +4242,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4155,6 +4251,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4163,6 +4260,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4171,6 +4269,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4179,6 +4278,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4187,6 +4287,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4195,6 +4296,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4203,6 +4305,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4211,6 +4314,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4219,6 +4323,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4227,6 +4332,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4235,6 +4341,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4243,6 +4350,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4251,6 +4359,16 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type get_jobs_query_results_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4259,6 +4377,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4267,6 +4386,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4275,6 +4395,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4283,6 +4404,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4291,6 +4413,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4299,6 +4422,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4307,6 +4431,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4315,6 +4440,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4323,6 +4449,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4331,6 +4458,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4339,6 +4467,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4347,6 +4476,16 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type start_jobs_query_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4355,6 +4494,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4363,6 +4503,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4371,6 +4512,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4379,6 +4521,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4387,6 +4530,7 @@ defmodule AWS.MediaConvert do
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -4838,6 +4982,25 @@ defmodule AWS.MediaConvert do
           | {:error, get_job_template_errors()}
   def get_job_template(%Client{} = client, name, options \\ []) do
     url_path = "/2017-08-29/jobTemplates/#{AWS.Util.encode_uri(name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieve a JSON array of up to twenty of your most recent jobs matched by a jobs
+  query.
+  """
+  @spec get_jobs_query_results(map(), String.t() | atom(), list()) ::
+          {:ok, get_jobs_query_results_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_jobs_query_results_errors()}
+  def get_jobs_query_results(%Client{} = client, id, options \\ []) do
+    url_path = "/2017-08-29/jobsQueries/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -5378,6 +5541,38 @@ defmodule AWS.MediaConvert do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Start an asynchronous jobs query using the provided filters.
+
+  To receive the list of jobs that match your query, call the GetJobsQueryResults
+  API using the query ID returned by this API.
+  """
+  @spec start_jobs_query(map(), start_jobs_query_request(), list()) ::
+          {:ok, start_jobs_query_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_jobs_query_errors()}
+  def start_jobs_query(%Client{} = client, input, options \\ []) do
+    url_path = "/2017-08-29/jobsQueries"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """

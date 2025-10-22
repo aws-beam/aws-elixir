@@ -208,6 +208,17 @@ defmodule AWS.MarketplaceMetering do
 
   ## Example:
       
+      idempotency_conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type idempotency_conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       internal_service_error_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -319,6 +330,7 @@ defmodule AWS.MarketplaceMetering do
   ## Example:
       
       meter_usage_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
         optional("DryRun") => boolean(),
         optional("UsageAllocations") => list(usage_allocation()),
         optional("UsageQuantity") => integer(),
@@ -496,6 +508,7 @@ defmodule AWS.MarketplaceMetering do
           | invalid_product_code_exception()
           | invalid_endpoint_region_exception()
           | internal_service_error_exception()
+          | idempotency_conflict_exception()
           | duplicate_request_exception()
           | customer_not_entitled_exception()
 
@@ -535,7 +548,8 @@ defmodule AWS.MarketplaceMetering do
   @doc """
 
 
-  The `CustomerIdentifier` parameter is scheduled for deprecation.
+  The `CustomerIdentifier` parameter is scheduled for deprecation on March 31,
+  2026.
 
   Use `CustomerAWSAccountID` instead.
 
@@ -599,9 +613,19 @@ defmodule AWS.MarketplaceMetering do
   the
   customer to define).
 
-  Usage records are expected to be submitted as quickly as possible after the
-  event that
-  is being recorded, and are not accepted more than 6 hours after the event.
+  Submit usage records to report events from the previous hour. If you submit
+  records that
+  are greater than six hours after events occur, the records won’t be accepted.
+  The timestamp
+  in your request determines when an event is recorded. You can only report usage
+  once per hour
+  for each dimension. For AMI-based products, this is per dimension and per EC2
+  instance. For
+  container products, this is per dimension and per ECS task or EKS pod. You can’t
+  modify values
+  after they’re recorded. If you report usage before the current hour ends, you
+  will be unable to
+  report additional usage until the next hour begins.
 
   For Amazon Web Services Regions that support `MeterUsage`, see [MeterUsage Region support for Amazon
   EC2](https://docs.aws.amazon.com/marketplace/latest/APIReference/metering-regions.html#meterusage-region-support-ec2)

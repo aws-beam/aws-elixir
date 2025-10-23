@@ -829,6 +829,17 @@ defmodule AWS.ConnectCampaignsV2 do
 
   ## Example:
 
+      timeout_config() :: %{
+        "durationInSeconds" => integer()
+      }
+
+  """
+  @type timeout_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       time_range() :: %{
         "endTime" => String.t() | atom(),
         "startTime" => String.t() | atom()
@@ -1122,6 +1133,19 @@ defmodule AWS.ConnectCampaignsV2 do
 
   """
   @type successful_campaign_state_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      preview_config() :: %{
+        "agentActions" => list(String.t() | atom()),
+        "bandwidthAllocation" => float(),
+        "timeoutConfig" => timeout_config()
+      }
+
+  """
+  @type preview_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

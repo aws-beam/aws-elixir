@@ -4624,15 +4624,14 @@ defmodule AWS.Route53 do
   internet
   search on "free DNS service."
 
-  You can delete a hosted zone only if it contains only the default SOA record and
-  NS
-  resource record sets. If the hosted zone contains other resource record sets,
-  you must
-  delete them before you can delete the hosted zone. If you try to delete a hosted
-  zone
-  that contains other resource record sets, the request fails, and Route 53
-  returns a `HostedZoneNotEmpty` error. For information about deleting records
-  from your hosted zone, see
+  You can delete a hosted zone only if it contains only the default SOA and NS
+  records
+  and has DNSSEC signing disabled. If the hosted zone contains other records or
+  has DNSSEC
+  enabled, you must delete the records and disable DNSSEC before deletion.
+  Attempting to
+  delete a hosted zone with additional records or DNSSEC enabled returns a
+  `HostedZoneNotEmpty` error. For information about deleting records, see
   [ChangeResourceRecordSets](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html).
 
   To verify that the hosted zone has been deleted, do one of the following:

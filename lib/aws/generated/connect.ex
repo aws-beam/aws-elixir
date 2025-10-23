@@ -1265,6 +1265,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      post_accept_timeout_config() :: %{
+        "DurationInSeconds" => integer()
+      }
+
+  """
+  @type post_accept_timeout_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_prompt_file_response() :: %{
         "LastModifiedRegion" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
@@ -4446,6 +4457,7 @@ defmodule AWS.Connect do
   ## Example:
 
       agent_info() :: %{
+        "AcceptedByAgentTimestamp" => non_neg_integer(),
         "AfterContactWorkDuration" => integer(),
         "AfterContactWorkEndTimestamp" => non_neg_integer(),
         "AfterContactWorkStartTimestamp" => non_neg_integer(),
@@ -4456,6 +4468,7 @@ defmodule AWS.Connect do
         "DeviceInfo" => device_info(),
         "HierarchyGroups" => hierarchy_groups(),
         "Id" => String.t() | atom(),
+        "PreviewEndTimestamp" => non_neg_integer(),
         "StateTransitions" => list(state_transition())
       }
 
@@ -4804,12 +4817,35 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      alias_configuration() :: %{
+        "EmailAddressId" => String.t() | atom()
+      }
+
+  """
+  @type alias_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_contact_flow_content_request() :: %{
         required("Content") => String.t() | atom()
       }
 
   """
   @type update_contact_flow_content_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_email_address_alias_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("AliasConfiguration") => alias_configuration()
+      }
+
+  """
+  @type associate_email_address_alias_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5571,6 +5607,7 @@ defmodule AWS.Connect do
   ## Example:
 
       describe_email_address_response() :: %{
+        "AliasConfigurations" => list(alias_configuration()),
         "CreateTimestamp" => String.t() | atom(),
         "Description" => String.t() | atom(),
         "DisplayName" => String.t() | atom(),
@@ -5637,6 +5674,18 @@ defmodule AWS.Connect do
 
   """
   @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_email_address_alias_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("AliasConfiguration") => alias_configuration()
+      }
+
+  """
+  @type disassociate_email_address_alias_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5770,6 +5819,7 @@ defmodule AWS.Connect do
         "Attributes" => map(),
         "Campaign" => campaign(),
         "CustomerEndpoint" => endpoint(),
+        "OutboundStrategy" => outbound_strategy(),
         "QueueId" => String.t() | atom(),
         "RequestIdentifier" => String.t() | atom(),
         "SystemEndpoint" => endpoint()
@@ -6090,6 +6140,7 @@ defmodule AWS.Connect do
   ## Example:
 
       email_address_metadata() :: %{
+        "AliasConfigurations" => list(alias_configuration()),
         "Description" => String.t() | atom(),
         "DisplayName" => String.t() | atom(),
         "EmailAddress" => String.t() | atom(),
@@ -6300,6 +6351,15 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      associate_email_address_alias_response() :: %{}
+
+  """
+  @type associate_email_address_alias_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       flow_association_summary() :: %{
         "FlowId" => String.t() | atom(),
         "ResourceId" => String.t() | atom(),
@@ -6366,6 +6426,7 @@ defmodule AWS.Connect do
         "AnsweringMachineDetectionStatus" => list(any()),
         "AgentInfo" => agent_info(),
         "LastPausedTimestamp" => non_neg_integer(),
+        "OutboundStrategy" => outbound_strategy(),
         "Channel" => list(any()),
         "DisconnectReason" => String.t() | atom(),
         "LastResumedTimestamp" => non_neg_integer(),
@@ -6807,6 +6868,18 @@ defmodule AWS.Connect do
 
   """
   @type resume_contact_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      preview() :: %{
+        "AllowedUserActions" => list(list(any())()),
+        "PostAcceptTimeoutConfig" => post_accept_timeout_config()
+      }
+
+  """
+  @type preview() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8075,6 +8148,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      agent_first() :: %{
+        "Preview" => preview()
+      }
+
+  """
+  @type agent_first() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       submit_contact_evaluation_request() :: %{
         optional("Answers") => map(),
         optional("Notes") => map()
@@ -8525,6 +8609,18 @@ defmodule AWS.Connect do
 
   """
   @type delete_quick_connect_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      outbound_strategy() :: %{
+        "Config" => outbound_strategy_config(),
+        "Type" => list(any())
+      }
+
+  """
+  @type outbound_strategy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9138,6 +9234,7 @@ defmodule AWS.Connect do
         optional("ClientToken") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
         optional("Name") => String.t() | atom(),
+        optional("OutboundStrategy") => outbound_strategy(),
         optional("QueueId") => String.t() | atom(),
         optional("References") => map(),
         optional("RelatedContactId") => String.t() | atom(),
@@ -9905,6 +10002,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      outbound_strategy_config() :: %{
+        "AgentFirst" => agent_first()
+      }
+
+  """
+  @type outbound_strategy_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_attached_file_upload_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         optional("CreatedBy") => list(),
@@ -10052,6 +10160,15 @@ defmodule AWS.Connect do
 
   """
   @type task_template_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_email_address_alias_response() :: %{}
+
+  """
+  @type disassociate_email_address_alias_response() :: %{}
 
   @typedoc """
 
@@ -11344,6 +11461,16 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type associate_email_address_alias_errors() ::
+          resource_conflict_exception()
+          | throttling_exception()
+          | idempotency_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type associate_flow_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
@@ -12151,6 +12278,15 @@ defmodule AWS.Connect do
 
   @type disassociate_bot_errors() ::
           throttling_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type disassociate_email_address_alias_errors() ::
+          resource_conflict_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
@@ -13728,6 +13864,146 @@ defmodule AWS.Connect do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Associates an email address alias with an existing email address in an Amazon
+  Connect
+  instance.
+
+  This creates a forwarding relationship where emails sent to the alias email
+  address are
+  automatically forwarded to the primary email address.
+
+  ## Use cases
+
+  Following are common uses cases for this API:
+
+    *
+
+  **Unified customer support**: Create multiple entry points (for example,
+  support@example.com,
+  help@example.com, customercare@example.com) that all forward to a single agent
+  queue for
+  streamlined management.
+
+    *
+
+  **Department consolidation**: Forward emails from legacy department addresses
+  (for example,
+  sales@example.com, info@example.com) to a centralized customer service email
+  during
+  organizational restructuring.
+
+    *
+
+  **Brand management**: Enable you to use familiar brand-specific email addresses
+  that forward
+  to the appropriate Amazon Connect instance email address.
+
+  ## Important things to know
+
+    *
+  Each email address can have a maximum of one alias. You cannot create multiple
+  aliases for
+  the same email address.
+
+    *
+  If the alias email address already receives direct emails, it continues to
+  receive direct
+  emails plus forwarded emails.
+
+    *
+  You cannot chain email aliases together (that is, create an alias of an alias).
+
+  `AssociateEmailAddressAlias` does not return the following information:
+
+    *
+  A confirmation of the alias relationship details (you must call
+  [DescribeEmailAddress](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeEmailAddress.html) to verify).
+
+    *
+  The timestamp of when the association occurred.
+
+    *
+  The status of the forwarding configuration.
+
+  **Endpoints**: See
+  [Amazon Connect endpoints and
+  quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+
+  ## Related operations
+
+    *
+
+  [DisassociateEmailAddressAlias](https://docs.aws.amazon.com/connect/latest/APIReference/API_DisassociateEmailAddressAlias.html): Removes the alias association between two email
+  addresses in an Amazon Connect instance.
+
+    *
+
+  [DescribeEmailAddress](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeEmailAddress.html):
+
+  View current alias configurations for an email address.
+
+    *
+
+  [SearchEmailAddresses](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchEmailAddresses.html):  Find email addresses and their alias relationships across an instance.
+
+    *
+
+  [CreateEmailAddress](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateEmailAddress.html):
+  Create new email addresses that can participate in alias
+  relationships.
+
+    *
+
+  [DeleteEmailAddress](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteEmailAddress.html): Remove email addresses (automatically removes any alias
+  relationships).
+
+    *
+
+  [UpdateEmailAddressMetadata](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateEmailAddressMetadata.html):
+  Modify email address properties (does not affect alias
+  relationships).
+  """
+  @spec associate_email_address_alias(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          associate_email_address_alias_request(),
+          list()
+        ) ::
+          {:ok, associate_email_address_alias_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_email_address_alias_errors()}
+  def associate_email_address_alias(
+        %Client{} = client,
+        email_address_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/email-addresses/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(email_address_id)}/associate-alias"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -16870,7 +17146,7 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   To
-  request access to this API, contact Amazon Web Services Support.
+  request access to this API, contact Amazon Web ServicesSupport.
 
   Describes the target authentication profile.
   """
@@ -16915,7 +17191,8 @@ defmodule AWS.Connect do
   Detect when a customer chat session disconnects due to a network issue on the
   agent's end.
   Use the DisconnectReason field in the
-  [ContactTraceRecord](https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord) to detect this event and then re-queue the chat for followup.
+  [ContactTraceRecord](https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord) to detect this event and then re-queue the chat for
+  followup.
 
     *
   Identify after contact work (ACW) duration and call recordings information when
@@ -17683,6 +17960,149 @@ defmodule AWS.Connect do
           | {:error, disassociate_bot_errors()}
   def disassociate_bot(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/bot"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Removes the alias association between two email addresses in an Amazon Connect
+  instance.
+
+  After disassociation, emails sent to the former alias email address are no
+  longer forwarded to
+  the primary email address. Both email addresses continue to exist independently
+  and can receive
+  emails directly.
+
+  ## Use cases
+
+  Following are common uses cases for this API:
+
+    *
+
+  **Department separation**: Remove alias relationships when splitting a
+  consolidated support
+  queue back into separate department-specific queues.
+
+    *
+
+  **Email address retirement**: Cleanly remove forwarding relationships before
+  decommissioning
+  old email addresses.
+
+    *
+
+  **Organizational restructuring**: Reconfigure email routing when business
+  processes change and
+  aliases are no longer needed.
+
+  ## Important things to know
+
+    *
+  Concurrent operations: This API uses distributed locking, so concurrent
+  operations on the
+  same email addresses may be temporarily blocked.
+
+    *
+  Emails sent to the former alias address are still delivered directly to that
+  address if it
+  exists.
+
+    *
+  You do not need to delete the email addresses after disassociation. Both
+  addresses remain
+  active independently.
+
+    *
+  After a successful disassociation, you can immediately create a new alias
+  relationship
+  with the same addresses.
+
+    *
+  200 status means alias was successfully disassociated.
+
+  `DisassociateEmailAddressAlias` does not return the following information:
+
+    *
+  Details in the response about the email that was disassociated. The response
+  returns an empty body.
+
+    *
+  The timestamp of when the disassociation occurred.
+
+  **Endpoints**: See
+  [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+
+  ## Related operations
+
+    *
+
+  [AssociateEmailAddressAlias](https://docs.aws.amazon.com/connect/latest/APIReference/API_AssociateEmailAddressAlias.html): Associates an email address alias with an existing email
+  address in an Amazon Connect instance.
+
+    *
+
+  [DescribeEmailAddress](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeEmailAddress.html):
+
+  View current alias configurations for an email address.
+
+    *
+
+  [SearchEmailAddresses](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchEmailAddresses.html):  Find email addresses and their alias relationships across an instance.
+
+    *
+
+  [CreateEmailAddress](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateEmailAddress.html):
+  Create new email addresses that can participate in alias
+  relationships.
+
+    *
+
+  [DeleteEmailAddress](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteEmailAddress.html): Remove email addresses (automatically removes any alias
+  relationships).
+
+    *
+
+  [UpdateEmailAddressMetadata](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateEmailAddressMetadata.html):
+  Modify email address properties (does not affect alias
+  relationships).
+  """
+  @spec disassociate_email_address_alias(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          disassociate_email_address_alias_request(),
+          list()
+        ) ::
+          {:ok, disassociate_email_address_alias_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_email_address_alias_errors()}
+  def disassociate_email_address_alias(
+        %Client{} = client,
+        email_address_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/email-addresses/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(email_address_id)}/disassociate-alias"
+
     headers = []
     custom_headers = []
     query_params = []
@@ -18809,7 +19229,7 @@ defmodule AWS.Connect do
   release 99, you
   will have exceeded the 200% limit. At that point you are blocked from claiming
   any more numbers
-  until you open an Amazon Web Services Support ticket.
+  until you open an Amazon Web ServicesSupport ticket.
   """
   @spec import_phone_number(map(), import_phone_number_request(), list()) ::
           {:ok, import_phone_number_response(), any()}
@@ -19095,7 +19515,7 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   To
-  request access to this API, contact Amazon Web Services Support.
+  request access to this API, contact Amazon Web ServicesSupport.
 
   Provides summary information about the authentication profiles in a specified
   Amazon Connect instance.
@@ -21533,7 +21953,7 @@ defmodule AWS.Connect do
   for up to
   180 days. It cannot be searched for or claimed again until the period has ended.
   If you
-  accidentally release a phone number, contact Amazon Web Services Support.
+  accidentally release a phone number, contact Amazon Web ServicesSupport.
 
   If you plan to claim and release numbers frequently,
   contact us for a service quota exception. Otherwise, it is possible you will be
@@ -22425,7 +22845,7 @@ defmodule AWS.Connect do
   If you use the `ChatDurationInMinutes` parameter and receive a 400 error, your
   account may not support the ability to configure custom chat durations. For more
   information,
-  contact Amazon Web Services Support.
+  contact Amazon Web ServicesSupport.
 
   For more information about chat, see the following topics in the *Amazon Connect
   Administrator Guide*:
@@ -23409,7 +23829,7 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   To
-  request access to this API, contact Amazon Web Services Support.
+  request access to this API, contact Amazon Web ServicesSupport.
 
   Updates the selected authentication profile.
   """

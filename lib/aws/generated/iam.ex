@@ -4250,6 +4250,7 @@ defmodule AWS.IAM do
 
   @type add_client_id_to_open_id_connect_provider_errors() ::
           limit_exceeded_exception()
+          | concurrent_modification_exception()
           | invalid_input_exception()
           | service_failure_exception()
           | no_such_entity_exception()
@@ -4756,7 +4757,10 @@ defmodule AWS.IAM do
           | no_such_entity_exception()
 
   @type remove_client_id_from_open_id_connect_provider_errors() ::
-          invalid_input_exception() | service_failure_exception() | no_such_entity_exception()
+          concurrent_modification_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
 
   @type remove_role_from_instance_profile_errors() ::
           limit_exceeded_exception()
@@ -4925,7 +4929,10 @@ defmodule AWS.IAM do
           | no_such_entity_exception()
 
   @type update_open_id_connect_provider_thumbprint_errors() ::
-          invalid_input_exception() | service_failure_exception() | no_such_entity_exception()
+          concurrent_modification_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
 
   @type update_role_errors() ::
           unmodifiable_entity_exception()
@@ -4939,6 +4946,7 @@ defmodule AWS.IAM do
 
   @type update_saml_provider_errors() ::
           limit_exceeded_exception()
+          | concurrent_modification_exception()
           | invalid_input_exception()
           | service_failure_exception()
           | no_such_entity_exception()

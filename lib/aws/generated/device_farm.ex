@@ -73,6 +73,7 @@ defmodule AWS.DeviceFarm do
   ## Example:
       
       create_remote_access_session_configuration() :: %{
+        "auxiliaryApps" => list(String.t() | atom()),
         "billingMethod" => list(any()),
         "deviceProxy" => device_proxy(),
         "vpceConfigurationArns" => list(String.t() | atom())
@@ -194,6 +195,7 @@ defmodule AWS.DeviceFarm do
   ## Example:
       
       create_remote_access_session_request() :: %{
+        optional("appArn") => String.t() | atom(),
         optional("clientId") => String.t() | atom(),
         optional("configuration") => create_remote_access_session_configuration(),
         optional("instanceArn") => String.t() | atom(),
@@ -1941,6 +1943,7 @@ defmodule AWS.DeviceFarm do
   ## Example:
       
       remote_access_session() :: %{
+        "appUpload" => String.t() | atom(),
         "arn" => String.t() | atom(),
         "billingMethod" => list(any()),
         "clientId" => String.t() | atom(),

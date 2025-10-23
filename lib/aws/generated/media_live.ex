@@ -37,6 +37,23 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      multiplex_alert() :: %{
+        "AlertType" => String.t() | atom(),
+        "ClearedTimestamp" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "PipelineId" => String.t() | atom(),
+        "SetTimestamp" => non_neg_integer(),
+        "State" => list(any())
+      }
+
+  """
+  @type multiplex_alert() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_cloud_watch_alarm_template_group_request() :: %{}
 
   """
@@ -1302,6 +1319,19 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      list_alerts_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StateFilter") => String.t() | atom()
+      }
+
+  """
+  @type list_alerts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       event_bridge_rule_template_group_summary() :: %{
         "Arn" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
@@ -2214,6 +2244,23 @@ defmodule AWS.MediaLive do
 
   """
   @type update_cluster_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_alert() :: %{
+        "AlertType" => String.t() | atom(),
+        "ClearedTimestamp" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "PipelineId" => String.t() | atom(),
+        "SetTimestamp" => non_neg_integer(),
+        "State" => list(any())
+      }
+
+  """
+  @type channel_alert() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5204,6 +5251,18 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      list_cluster_alerts_response() :: %{
+        "Alerts" => list(cluster_alert()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_cluster_alerts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_input_security_group_request() :: %{}
 
   """
@@ -5306,6 +5365,24 @@ defmodule AWS.MediaLive do
 
   """
   @type update_event_bridge_rule_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cluster_alert() :: %{
+        "AlertType" => String.t() | atom(),
+        "ChannelId" => String.t() | atom(),
+        "ClearedTimestamp" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "NodeId" => String.t() | atom(),
+        "SetTimestamp" => non_neg_integer(),
+        "State" => list(any())
+      }
+
+  """
+  @type cluster_alert() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6497,6 +6574,18 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      list_alerts_response() :: %{
+        "Alerts" => list(channel_alert()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_alerts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       schedule_action_start_settings() :: %{
         "FixedModeScheduleActionStartSettings" => fixed_mode_schedule_action_start_settings(),
         "FollowModeScheduleActionStartSettings" => follow_mode_schedule_action_start_settings(),
@@ -6561,6 +6650,19 @@ defmodule AWS.MediaLive do
 
   """
   @type delete_schedule_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_multiplex_alerts_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StateFilter") => String.t() | atom()
+      }
+
+  """
+  @type list_multiplex_alerts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7083,6 +7185,31 @@ defmodule AWS.MediaLive do
 
   """
   @type scte35_segmentation_descriptor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_multiplex_alerts_response() :: %{
+        "Alerts" => list(multiplex_alert()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_multiplex_alerts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_cluster_alerts_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StateFilter") => String.t() | atom()
+      }
+
+  """
+  @type list_cluster_alerts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8533,6 +8660,15 @@ defmodule AWS.MediaLive do
           | too_many_requests_exception()
           | forbidden_exception()
 
+  @type list_alerts_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
+
   @type list_channel_placement_groups_errors() ::
           bad_request_exception()
           | gateway_timeout_exception()
@@ -8562,6 +8698,15 @@ defmodule AWS.MediaLive do
           | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+
+  @type list_cluster_alerts_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
 
   @type list_clusters_errors() ::
           bad_request_exception()
@@ -8614,6 +8759,15 @@ defmodule AWS.MediaLive do
           bad_request_exception()
           | gateway_timeout_exception()
           | internal_server_error_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
+
+  @type list_multiplex_alerts_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
@@ -10941,6 +11095,59 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
+  List the alerts for a channel with optional filtering based on alert state.
+  """
+  @spec list_alerts(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_alerts_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_alerts_errors()}
+  def list_alerts(
+        %Client{} = client,
+        channel_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        state_filter \\ nil,
+        options \\ []
+      ) do
+    url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/alerts"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(state_filter) do
+        [{"stateFilter", state_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieve the list of ChannelPlacementGroups in the specified Cluster.
   """
   @spec list_channel_placement_groups(
@@ -11136,6 +11343,59 @@ defmodule AWS.MediaLive do
     query_params =
       if !is_nil(group_identifier) do
         [{"groupIdentifier", group_identifier} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  List the alerts for a cluster with optional filtering based on alert state.
+  """
+  @spec list_cluster_alerts(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_cluster_alerts_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_cluster_alerts_errors()}
+  def list_cluster_alerts(
+        %Client{} = client,
+        cluster_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        state_filter \\ nil,
+        options \\ []
+      ) do
+    url_path = "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}/alerts"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(state_filter) do
+        [{"stateFilter", state_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -11428,6 +11688,59 @@ defmodule AWS.MediaLive do
     url_path = "/prod/inputs"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  List the alerts for a multiplex with optional filtering based on alert state.
+  """
+  @spec list_multiplex_alerts(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_multiplex_alerts_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_multiplex_alerts_errors()}
+  def list_multiplex_alerts(
+        %Client{} = client,
+        multiplex_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        state_filter \\ nil,
+        options \\ []
+      ) do
+    url_path = "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}/alerts"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(state_filter) do
+        [{"stateFilter", state_filter} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do

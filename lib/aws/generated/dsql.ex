@@ -23,12 +23,87 @@ defmodule AWS.DSQL do
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
+      update_cluster_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("deletionProtectionEnabled") => boolean(),
+        optional("kmsEncryptionKey") => String.t() | atom(),
+        optional("multiRegionProperties") => multi_region_properties()
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type update_cluster_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_cluster_policy_output() :: %{
+        "policy" => String.t() | atom(),
+        "policyVersion" => String.t() | atom()
+      }
+
+  """
+  @type get_cluster_policy_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_cluster_input() :: %{
+        optional("bypassPolicyLockoutSafetyCheck") => boolean(),
+        optional("clientToken") => String.t() | atom(),
+        optional("deletionProtectionEnabled") => boolean(),
+        optional("kmsEncryptionKey") => String.t() | atom(),
+        optional("multiRegionProperties") => multi_region_properties(),
+        optional("policy") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_cluster_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_cluster_input() :: %{}
+
+  """
+  @type get_cluster_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_output() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_clusters_output() :: %{
+        "clusters" => list(cluster_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_clusters_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_vpc_endpoint_service_name_output() :: %{
+        "serviceName" => String.t() | atom()
+      }
+
+  """
+  @type get_vpc_endpoint_service_name_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -59,44 +134,25 @@ defmodule AWS.DSQL do
 
   ## Example:
 
-      create_cluster_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("deletionProtectionEnabled") => boolean(),
-        optional("kmsEncryptionKey") => String.t() | atom(),
-        optional("multiRegionProperties") => multi_region_properties(),
-        optional("tags") => map()
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
       }
 
   """
-  @type create_cluster_input() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_cluster_output() :: %{
-        "arn" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "deletionProtectionEnabled" => boolean(),
-        "encryptionDetails" => encryption_details(),
-        "identifier" => String.t() | atom(),
-        "multiRegionProperties" => multi_region_properties(),
-        "status" => list(any())
+      delete_cluster_policy_output() :: %{
+        "policyVersion" => String.t() | atom()
       }
 
   """
-  @type create_cluster_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_cluster_input() :: %{
-        optional("clientToken") => String.t() | atom()
-      }
-
-  """
-  @type delete_cluster_input() :: %{(String.t() | atom()) => any()}
+  @type delete_cluster_policy_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -116,23 +172,16 @@ defmodule AWS.DSQL do
 
   ## Example:
 
-      encryption_details() :: %{
-        "encryptionStatus" => list(any()),
-        "encryptionType" => list(any()),
-        "kmsKeyArn" => String.t() | atom()
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()],
+        "serviceCode" => [String.t() | atom()]
       }
 
   """
-  @type encryption_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_cluster_input() :: %{}
-
-  """
-  @type get_cluster_input() :: %{}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -156,38 +205,6 @@ defmodule AWS.DSQL do
 
   ## Example:
 
-      get_vpc_endpoint_service_name_input() :: %{}
-
-  """
-  @type get_vpc_endpoint_service_name_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_vpc_endpoint_service_name_output() :: %{
-        "serviceName" => String.t() | atom()
-      }
-
-  """
-  @type get_vpc_endpoint_service_name_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       list_clusters_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
@@ -200,73 +217,13 @@ defmodule AWS.DSQL do
 
   ## Example:
 
-      list_clusters_output() :: %{
-        "clusters" => list(cluster_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_clusters_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_input() :: %{}
-
-  """
-  @type list_tags_for_resource_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_output() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multi_region_properties() :: %{
-        "clusters" => list(String.t() | atom()),
-        "witnessRegion" => String.t() | atom()
-      }
-
-  """
-  @type multi_region_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
+      validation_exception_field() :: %{
         "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()],
-        "quotaCode" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()],
-        "serviceCode" => [String.t() | atom()]
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -278,45 +235,6 @@ defmodule AWS.DSQL do
 
   """
   @type tag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()],
-        "quotaCode" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()],
-        "serviceCode" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_input() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_cluster_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("deletionProtectionEnabled") => boolean(),
-        optional("kmsEncryptionKey") => String.t() | atom(),
-        optional("multiRegionProperties") => multi_region_properties()
-      }
-
-  """
-  @type update_cluster_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -336,6 +254,94 @@ defmodule AWS.DSQL do
 
   ## Example:
 
+      delete_cluster_input() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_cluster_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_cluster_output() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "deletionProtectionEnabled" => boolean(),
+        "encryptionDetails" => encryption_details(),
+        "identifier" => String.t() | atom(),
+        "multiRegionProperties" => multi_region_properties(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_cluster_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_cluster_policy_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("expectedPolicyVersion") => String.t() | atom()
+      }
+
+  """
+  @type delete_cluster_policy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_input() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_cluster_policy_input() :: %{
+        optional("bypassPolicyLockoutSafetyCheck") => boolean(),
+        optional("clientToken") => String.t() | atom(),
+        optional("expectedPolicyVersion") => String.t() | atom(),
+        required("policy") => String.t() | atom()
+      }
+
+  """
+  @type put_cluster_policy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
         "message" => [String.t() | atom()],
@@ -349,30 +355,103 @@ defmodule AWS.DSQL do
 
   ## Example:
 
-      validation_exception_field() :: %{
+      list_tags_for_resource_input() :: %{}
+
+  """
+  @type list_tags_for_resource_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
         "message" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
+        "quotaCode" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()],
+        "serviceCode" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encryption_details() :: %{
+        "encryptionStatus" => list(any()),
+        "encryptionType" => list(any()),
+        "kmsKeyArn" => String.t() | atom()
+      }
+
+  """
+  @type encryption_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multi_region_properties() :: %{
+        "clusters" => list(String.t() | atom()),
+        "witnessRegion" => String.t() | atom()
+      }
+
+  """
+  @type multi_region_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_cluster_policy_output() :: %{
+        "policyVersion" => String.t() | atom()
+      }
+
+  """
+  @type put_cluster_policy_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_vpc_endpoint_service_name_input() :: %{}
+
+  """
+  @type get_vpc_endpoint_service_name_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_cluster_policy_input() :: %{}
+
+  """
+  @type get_cluster_policy_input() :: %{}
 
   @type create_cluster_errors() ::
           validation_exception() | service_quota_exceeded_exception() | conflict_exception()
 
   @type delete_cluster_errors() :: resource_not_found_exception() | conflict_exception()
 
+  @type delete_cluster_policy_errors() ::
+          validation_exception() | resource_not_found_exception() | conflict_exception()
+
   @type get_cluster_errors() :: resource_not_found_exception()
 
+  @type get_cluster_policy_errors() :: validation_exception() | resource_not_found_exception()
+
   @type get_vpc_endpoint_service_name_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
+          throttling_exception()
+          | validation_exception()
           | internal_server_exception()
+          | resource_not_found_exception()
 
   @type list_clusters_errors() :: resource_not_found_exception()
 
   @type list_tags_for_resource_errors() :: resource_not_found_exception()
+
+  @type put_cluster_policy_errors() ::
+          validation_exception() | resource_not_found_exception() | conflict_exception()
 
   @type tag_resource_errors() ::
           service_quota_exceeded_exception() | resource_not_found_exception()
@@ -399,7 +478,7 @@ defmodule AWS.DSQL do
   end
 
   @doc """
-  The CreateCluster API allows you to create both single-region clusters and
+  The CreateCluster API allows you to create both single-Region clusters and
   multi-Region
   clusters.
 
@@ -431,7 +510,7 @@ defmodule AWS.DSQL do
 
   ### dsql:PutMultiRegionProperties
 
-  Permission to configure multi-region properties for a cluster.
+  Permission to configure multi-Region properties for a cluster.
 
   Resources: `arn:aws:dsql:region:account-id:cluster/*`
 
@@ -525,6 +604,44 @@ defmodule AWS.DSQL do
   end
 
   @doc """
+  Deletes the resource-based policy attached to a cluster.
+
+  This removes all access permissions defined by the policy, reverting to default
+  access controls.
+  """
+  @spec delete_cluster_policy(map(), String.t() | atom(), delete_cluster_policy_input(), list()) ::
+          {:ok, delete_cluster_policy_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_cluster_policy_errors()}
+  def delete_cluster_policy(%Client{} = client, identifier, input, options \\ []) do
+    url_path = "/cluster/#{AWS.Util.encode_uri(identifier)}/policy"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "client-token"},
+        {"expectedPolicyVersion", "expected-policy-version"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves information about a cluster.
   """
   @spec get_cluster(map(), String.t() | atom(), list()) ::
@@ -534,6 +651,26 @@ defmodule AWS.DSQL do
           | {:error, get_cluster_errors()}
   def get_cluster(%Client{} = client, identifier, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the resource-based policy document attached to a cluster.
+
+  This policy defines the access permissions and conditions for the cluster.
+  """
+  @spec get_cluster_policy(map(), String.t() | atom(), list()) ::
+          {:ok, get_cluster_policy_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_cluster_policy_errors()}
+  def get_cluster_policy(%Client{} = client, identifier, options \\ []) do
+    url_path = "/cluster/#{AWS.Util.encode_uri(identifier)}/policy"
     headers = []
     query_params = []
 
@@ -611,6 +748,38 @@ defmodule AWS.DSQL do
   end
 
   @doc """
+  Attaches a resource-based policy to a cluster.
+
+  This policy defines access permissions and conditions for the cluster, allowing
+  you to control which principals can perform actions on the cluster.
+  """
+  @spec put_cluster_policy(map(), String.t() | atom(), put_cluster_policy_input(), list()) ::
+          {:ok, put_cluster_policy_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_cluster_policy_errors()}
+  def put_cluster_policy(%Client{} = client, identifier, input, options \\ []) do
+    url_path = "/cluster/#{AWS.Util.encode_uri(identifier)}/policy"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Tags a resource with a map of key and value pairs.
   """
   @spec tag_resource(map(), String.t() | atom(), tag_resource_input(), list()) ::
@@ -680,7 +849,7 @@ defmodule AWS.DSQL do
   With the *multiRegionProperties* parameter, you can add or modify witness Region
   support and manage peer relationships with clusters in other Regions.
 
-  Note that updating multi-region clusters requires additional IAM permissions
+  Note that updating multi-Region clusters requires additional IAM permissions
   beyond those needed for standard cluster updates, as detailed in the Permissions
   section.
 

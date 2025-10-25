@@ -2106,6 +2106,18 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      ocsf_ip_filter() :: %{
+        "FieldName" => list(any()),
+        "Filter" => ip_filter()
+      }
+
+  """
+  @type ocsf_ip_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       organization_configuration() :: %{
         "ConfigurationType" => list(any()),
         "Status" => list(any()),
@@ -5361,6 +5373,7 @@ defmodule AWS.SecurityHub do
       resources_composite_filter() :: %{
         "DateFilters" => list(resources_date_filter()),
         "MapFilters" => list(resources_map_filter()),
+        "NestedCompositeFilters" => list(resources_composite_filter()),
         "NumberFilters" => list(resources_number_filter()),
         "Operator" => list(any()),
         "StringFilters" => list(resources_string_filter())
@@ -8899,7 +8912,9 @@ defmodule AWS.SecurityHub do
       composite_filter() :: %{
         "BooleanFilters" => list(ocsf_boolean_filter()),
         "DateFilters" => list(ocsf_date_filter()),
+        "IpFilters" => list(ocsf_ip_filter()),
         "MapFilters" => list(ocsf_map_filter()),
+        "NestedCompositeFilters" => list(composite_filter()),
         "NumberFilters" => list(ocsf_number_filter()),
         "Operator" => list(any()),
         "StringFilters" => list(ocsf_string_filter())
@@ -11338,11 +11353,11 @@ defmodule AWS.SecurityHub do
         "AccountId" => String.t() | atom(),
         "FindingsSummary" => list(resource_findings_summary()),
         "Region" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom(),
         "ResourceCategory" => list(any()),
         "ResourceConfig" => any(),
         "ResourceCreationTimeDt" => String.t() | atom(),
         "ResourceDetailCaptureTimeDt" => String.t() | atom(),
+        "ResourceGuid" => String.t() | atom(),
         "ResourceId" => String.t() | atom(),
         "ResourceName" => String.t() | atom(),
         "ResourceTags" => list(resource_tag()),
@@ -14886,7 +14901,7 @@ defmodule AWS.SecurityHub do
   action.
   Updates from `BatchUpdateFindingsV2` don't affect the value of
   f`inding_info.modified_time`, `finding_info.modified_time_dt`, `time`, `time_dt
-  for a finding`. This API is in private preview and subject to change.
+  for a finding`. This API is in public preview and subject to change.
   """
   @spec batch_update_findings_v2(map(), batch_update_findings_v2_request(), list()) ::
           {:ok, batch_update_findings_v2_response(), any()}
@@ -15016,7 +15031,7 @@ defmodule AWS.SecurityHub do
   @doc """
   Enables aggregation across Amazon Web Services Regions.
 
-  This API is in private preview and subject to change.
+  This API is in public preview and subject to change.
   """
   @spec create_aggregator_v2(map(), create_aggregator_v2_request(), list()) ::
           {:ok, create_aggregator_v2_response(), any()}
@@ -15077,7 +15092,7 @@ defmodule AWS.SecurityHub do
   @doc """
   Creates a V2 automation rule.
 
-  This API is in private preview and subject to change.
+  This API is in public preview and subject to change.
   """
   @spec create_automation_rule_v2(map(), create_automation_rule_v2_request(), list()) ::
           {:ok, create_automation_rule_v2_response(), any()}
@@ -15433,7 +15448,7 @@ defmodule AWS.SecurityHub do
   @doc """
   Deletes the Aggregator V2.
 
-  This API is in private preview and subject to change.
+  This API is in public preview and subject to change.
   """
   @spec delete_aggregator_v2(map(), String.t() | atom(), delete_aggregator_v2_request(), list()) ::
           {:ok, delete_aggregator_v2_response(), any()}
@@ -15464,7 +15479,7 @@ defmodule AWS.SecurityHub do
   @doc """
   Deletes a V2 automation rule.
 
-  This API is in private preview and subject to change.
+  This API is in public preview and subject to change.
   """
   @spec delete_automation_rule_v2(
           map(),
@@ -15860,7 +15875,7 @@ defmodule AWS.SecurityHub do
   @doc """
   Gets information about the product integration.
 
-  This API is in private preview and subject to change.
+  This API is in public preview and subject to change.
   """
   @spec describe_products_v2(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, describe_products_v2_response(), any()}
@@ -15899,7 +15914,7 @@ defmodule AWS.SecurityHub do
   @doc """
   Returns details about the service resource in your account.
 
-  This API is in private preview and subject to change.
+  This API is in public preview and subject to change.
   """
   @spec describe_security_hub_v2(map(), list()) ::
           {:ok, describe_security_hub_v2_response(), any()}
@@ -16136,7 +16151,7 @@ defmodule AWS.SecurityHub do
   Disable the service for the current Amazon Web Services Region or specified
   Amazon Web Services Region.
 
-  This API is in private preview and subject to change.
+  This API is in public preview and subject to change.
   """
   @spec disable_security_hub_v2(map(), disable_security_hub_v2_request(), list()) ::
           {:ok, disable_security_hub_v2_response(), any()}
@@ -16427,7 +16442,7 @@ defmodule AWS.SecurityHub do
   Enables the service in account for the current Amazon Web Services Region or
   specified Amazon Web Services Region.
 
-  This API is in private preview and subject to change.
+  This API is in public preview and subject to change.
   """
   @spec enable_security_hub_v2(map(), enable_security_hub_v2_request(), list()) ::
           {:ok, enable_security_hub_v2_response(), any()}
@@ -16481,7 +16496,7 @@ defmodule AWS.SecurityHub do
   @doc """
   Returns the configuration of the specified Aggregator V2.
 
-  This API is in private preview and subject to change.
+  This API is in public preview and subject to change.
   """
   @spec get_aggregator_v2(map(), String.t() | atom(), list()) ::
           {:ok, get_aggregator_v2_response(), any()}
@@ -16501,7 +16516,7 @@ defmodule AWS.SecurityHub do
   @doc """
   Returns an automation rule for the V2 service.
 
-  This API is in private preview and subject to change.
+  This API is in public preview and subject to change.
   """
   @spec get_automation_rule_v2(map(), String.t() | atom(), list()) ::
           {:ok, get_automation_rule_v2_response(), any()}
@@ -16704,7 +16719,7 @@ defmodule AWS.SecurityHub do
 
   `GetFindingStatisticsV2` use `securityhub:GetAdhocInsightResults` in the
   `Action` element of an IAM policy statement.
-  You must have permission to perform the `s` action. This API is in private
+  You must have permission to perform the `s` action. This API is in public
   preview and subject to change.
   """
   @spec get_finding_statistics_v2(map(), get_finding_statistics_v2_request(), list()) ::
@@ -16772,7 +16787,7 @@ defmodule AWS.SecurityHub do
   `GetFindings` and `GetFindingsV2` both use `securityhub:GetFindings` in the
   `Action` element of an IAM policy statement.
   You must have permission to perform the `securityhub:GetFindings` action. This
-  API is in private preview and subject to change.
+  API is in public preview and subject to change.
   """
   @spec get_findings_v2(map(), get_findings_v2_request(), list()) ::
           {:ok, get_findings_v2_response(), any()}
@@ -16951,7 +16966,7 @@ defmodule AWS.SecurityHub do
   Retrieves statistical information about Amazon Web Services resources and their
   associated security findings.
 
-  This API is in private preview and subject to change.
+  This API is in public preview and subject to change.
   """
   @spec get_resources_statistics_v2(map(), get_resources_statistics_v2_request(), list()) ::
           {:ok, get_resources_statistics_v2_response(), any()}
@@ -16982,7 +16997,7 @@ defmodule AWS.SecurityHub do
   @doc """
   Returns a list of resources.
 
-  This API is in private preview and subject to change.
+  This API is in public preview and subject to change.
   """
   @spec get_resources_v2(map(), get_resources_v2_request(), list()) ::
           {:ok, get_resources_v2_response(), any()}
@@ -17093,7 +17108,7 @@ defmodule AWS.SecurityHub do
   @doc """
   Retrieves a list of V2 aggregators.
 
-  This API is in private preview and subject to change.
+  This API is in public preview and subject to change.
   """
   @spec list_aggregators_v2(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_aggregators_v2_response(), any()}
@@ -17170,7 +17185,7 @@ defmodule AWS.SecurityHub do
   @doc """
   Returns a list of automation rules and metadata for the calling account.
 
-  This API is in private preview and subject to change.
+  This API is in public preview and subject to change.
   """
   @spec list_automation_rules_v2(
           map(),
@@ -17911,7 +17926,7 @@ defmodule AWS.SecurityHub do
   @doc """
   Udpates the configuration for the Aggregator V2.
 
-  This API is in private preview and subject to change.
+  This API is in public preview and subject to change.
   """
   @spec update_aggregator_v2(map(), String.t() | atom(), update_aggregator_v2_request(), list()) ::
           {:ok, update_aggregator_v2_response(), any()}
@@ -17942,7 +17957,7 @@ defmodule AWS.SecurityHub do
   @doc """
   Updates a V2 automation rule.
 
-  This API is in private preview and subject to change.
+  This API is in public preview and subject to change.
   """
   @spec update_automation_rule_v2(
           map(),

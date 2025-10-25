@@ -167,6 +167,7 @@ defmodule AWS.GeoMaps do
   ## Example:
 
       get_tile_request() :: %{
+        optional("AdditionalFeatures") => list(String.t() | atom()),
         optional("Key") => String.t() | atom()
       }
 
@@ -689,13 +690,23 @@ defmodule AWS.GeoMaps do
           String.t() | atom(),
           String.t() | atom(),
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_tile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_tile_errors()}
-  def get_tile(%Client{} = client, tileset, x, y, z, key \\ nil, options \\ []) do
+  def get_tile(
+        %Client{} = client,
+        tileset,
+        x,
+        y,
+        z,
+        additional_features \\ nil,
+        key \\ nil,
+        options \\ []
+      ) do
     url_path =
       "/tiles/#{AWS.Util.encode_uri(tileset)}/#{AWS.Util.encode_uri(z)}/#{AWS.Util.encode_uri(x)}/#{AWS.Util.encode_uri(y)}"
 
@@ -705,6 +716,13 @@ defmodule AWS.GeoMaps do
     query_params =
       if !is_nil(key) do
         [{"key", key} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(additional_features) do
+        [{"additional-features", additional_features} | query_params]
       else
         query_params
       end

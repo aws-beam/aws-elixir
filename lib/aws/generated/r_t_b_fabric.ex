@@ -885,6 +885,17 @@ defmodule AWS.RTBFabric do
 
   ## Example:
 
+      rate_limiter_module_parameters() :: %{
+        "tps" => [float()]
+      }
+
+  """
+  @type rate_limiter_module_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_outbound_external_link_response() :: %{
         "gatewayId" => String.t() | atom(),
         "linkId" => String.t() | atom(),

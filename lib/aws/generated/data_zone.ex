@@ -2165,6 +2165,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      mlflow_properties_patch() :: %{
+        "trackingServerArn" => [String.t() | atom()],
+        "trackingServerName" => [String.t() | atom()]
+      }
+
+  """
+  @type mlflow_properties_patch() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       post_time_series_data_points_input() :: %{
         optional("clientToken") => String.t() | atom(),
         required("forms") => list(time_series_data_point_form_input())
@@ -4507,6 +4519,18 @@ defmodule AWS.DataZone do
 
   """
   @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mlflow_properties_input() :: %{
+        "trackingServerArn" => [String.t() | atom()],
+        "trackingServerName" => [String.t() | atom()]
+      }
+
+  """
+  @type mlflow_properties_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8170,6 +8194,18 @@ defmodule AWS.DataZone do
 
   """
   @type create_glossary_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mlflow_properties_output() :: %{
+        "trackingServerArn" => [String.t() | atom()],
+        "trackingServerName" => [String.t() | atom()]
+      }
+
+  """
+  @type mlflow_properties_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

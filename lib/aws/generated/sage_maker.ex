@@ -668,6 +668,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      inference_component_data_cache_config_summary() :: %{
+        "EnableCaching" => boolean()
+      }
+      
+  """
+  @type inference_component_data_cache_config_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       metric_data() :: %{
         "MetricName" => String.t() | atom(),
         "Timestamp" => non_neg_integer(),
@@ -5087,6 +5098,17 @@ defmodule AWS.SageMaker do
       
   """
   @type import_hub_content_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      inference_component_data_cache_config() :: %{
+        "EnableCaching" => boolean()
+      }
+      
+  """
+  @type inference_component_data_cache_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11484,6 +11506,7 @@ defmodule AWS.SageMaker do
         "BaseInferenceComponentName" => String.t() | atom(),
         "ComputeResourceRequirements" => inference_component_compute_resource_requirements(),
         "Container" => inference_component_container_specification_summary(),
+        "DataCacheConfig" => inference_component_data_cache_config_summary(),
         "ModelName" => String.t() | atom(),
         "StartupParameters" => inference_component_startup_parameters()
       }
@@ -17591,6 +17614,7 @@ defmodule AWS.SageMaker do
         "BaseInferenceComponentName" => String.t() | atom(),
         "ComputeResourceRequirements" => inference_component_compute_resource_requirements(),
         "Container" => inference_component_container_specification(),
+        "DataCacheConfig" => inference_component_data_cache_config(),
         "ModelName" => String.t() | atom(),
         "StartupParameters" => inference_component_startup_parameters()
       }

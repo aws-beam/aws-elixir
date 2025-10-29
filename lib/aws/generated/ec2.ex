@@ -4100,6 +4100,21 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_capacity_reservation_topology_request() :: %{
+        optional("CapacityReservationIds") => list(String.t() | atom()),
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_capacity_reservation_topology_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       launch_template_license_configuration() :: %{
         "LicenseConfigurationArn" => String.t() | atom()
       }
@@ -13971,6 +13986,24 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      capacity_reservation_topology() :: %{
+        "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
+        "CapacityBlockId" => String.t() | atom(),
+        "CapacityReservationId" => String.t() | atom(),
+        "GroupName" => String.t() | atom(),
+        "InstanceType" => String.t() | atom(),
+        "NetworkNodes" => list(String.t() | atom()),
+        "State" => String.t() | atom()
+      }
+      
+  """
+  @type capacity_reservation_topology() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       reject_capacity_reservation_billing_ownership_result() :: %{
         "Return" => boolean()
       }
@@ -16378,6 +16411,18 @@ defmodule AWS.EC2 do
       
   """
   @type security_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_capacity_reservation_topology_result() :: %{
+        "CapacityReservations" => list(capacity_reservation_topology()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_capacity_reservation_topology_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -37304,6 +37349,54 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Describes a tree-based hierarchy that represents the physical host placement of
+  your
+  pending or active Capacity Reservations within an Availability Zone or Local
+  Zone.
+
+  You
+  can use this information to determine the relative proximity of your capacity
+  within the
+  Amazon Web Services network before it is launched and use this information to
+  allocate capacity
+  together to support your tightly coupled workloads.
+
+  Capacity Reservation topology is supported for specific instance types only. For
+  more
+  information, see [Prerequisites for Amazon EC2 instance
+  topology](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology-prerequisites.html)
+  in the
+  *Amazon EC2 User Guide*.
+
+  The Amazon EC2 API follows an eventual consistency model due to the
+  distributed nature of the system supporting it. As a result, when you call the
+  DescribeCapacityReservationTopology API command immediately after launching
+  instances, the response might return a `null` value for
+  `capacityBlockId` because the data might not have fully propagated
+  across all subsystems. For more information, see [Eventual consistency in the Amazon EC2
+  API](https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html)
+  in the *Amazon EC2 Developer
+  Guide*.
+
+  For more information, see [Amazon EC2 topology](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology.html)
+  in
+  the *Amazon EC2 User Guide*.
+  """
+  @spec describe_capacity_reservation_topology(
+          map(),
+          describe_capacity_reservation_topology_request(),
+          list()
+        ) ::
+          {:ok, describe_capacity_reservation_topology_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_capacity_reservation_topology(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCapacityReservationTopology", input, options)
+  end
+
+  @doc """
   Describes one or more of your Capacity Reservations.
 
   The results describe only the
@@ -38312,10 +38405,10 @@ defmodule AWS.EC2 do
 
   Instance topology is supported for specific instance types only. For more
   information,
-  see [
-  Prerequisites for Amazon EC2 instance
+  see [Prerequisites for Amazon EC2 instance
   topology](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology-prerequisites.html)
-  in the *Amazon EC2 User Guide*.
+  in the
+  *Amazon EC2 User Guide*.
 
   The Amazon EC2 API follows an eventual consistency model due to the
   distributed nature of the system supporting it. As a result, when you call the
@@ -38327,8 +38420,9 @@ defmodule AWS.EC2 do
   in the *Amazon EC2 Developer
   Guide*.
 
-  For more information, see [Amazon EC2 instance topology](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology.html)
-  in the *Amazon EC2 User Guide*.
+  For more information, see [Amazon EC2 topology](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology.html)
+  in
+  the *Amazon EC2 User Guide*.
   """
   @spec describe_instance_topology(map(), describe_instance_topology_request(), list()) ::
           {:ok, describe_instance_topology_result(), any()}

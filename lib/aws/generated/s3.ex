@@ -3111,6 +3111,7 @@ defmodule AWS.S3 do
 
       copy_object_request() :: %{
         optional("GrantRead") => String.t() | atom(),
+        optional("IfNoneMatch") => String.t() | atom(),
         optional("Expires") => String.t() | atom(),
         optional("CopySourceIfNoneMatch") => String.t() | atom(),
         optional("CopySourceSSECustomerKeyMD5") => String.t() | atom(),
@@ -3131,6 +3132,7 @@ defmodule AWS.S3 do
         optional("ContentDisposition") => String.t() | atom(),
         optional("TaggingDirective") => list(any()),
         optional("ContentLanguage") => String.t() | atom(),
+        optional("IfMatch") => String.t() | atom(),
         optional("CopySourceSSECustomerKey") => String.t() | atom(),
         optional("GrantReadACP") => String.t() | atom(),
         optional("ChecksumAlgorithm") => list(any()),
@@ -4818,6 +4820,10 @@ defmodule AWS.S3 do
     *
 
   [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec abort_multipart_upload(
           map(),
@@ -5076,6 +5082,10 @@ defmodule AWS.S3 do
     *
 
   [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec complete_multipart_upload(
           map(),
@@ -5147,23 +5157,17 @@ defmodule AWS.S3 do
   end
 
   @doc """
+  Creates a copy of an object that is already stored in Amazon S3.
 
-  End of support notice: Beginning October 1, 2025, Amazon S3 will discontinue
-  support for creating new Email Grantee Access Control Lists (ACL).
-
-  Email Grantee ACLs created prior to this date will continue to work and remain
-  accessible through the Amazon Web Services Management Console, Command Line
-  Interface (CLI), SDKs,
-  and REST API. However, you will no longer be able to create new Email Grantee
-  ACLs.
+  End of support notice: As of October 1, 2025, Amazon S3 has discontinued support
+  for Email Grantee Access Control Lists (ACLs). If you attempt to use an Email
+  Grantee ACL in a request after October 1, 2025,
+  the request will receive an `HTTP 405` (Method Not Allowed) error.
 
   This change affects the following Amazon Web Services Regions: US East (N.
-  Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia
-  Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
-  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São
-  Paulo) Region.
-
-  Creates a copy of an object that is already stored in Amazon S3.
+  Virginia), US West (N. California), US West (Oregon), Asia Pacific (Singapore),
+  Asia Pacific (Sydney), Asia Pacific (Tokyo), Europe (Ireland), and South America
+  (São Paulo).
 
   You can store individual objects of up to 5 TB in Amazon S3. You create a copy
   of your object up to 5
@@ -5404,6 +5408,10 @@ defmodule AWS.S3 do
     *
 
   [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec copy_object(
           map(),
@@ -5444,9 +5452,11 @@ defmodule AWS.S3 do
         {"ContentEncoding", "Content-Encoding"},
         {"CopySourceSSECustomerKeyMD5",
          "x-amz-copy-source-server-side-encryption-customer-key-MD5"},
+        {"IfMatch", "If-Match"},
         {"CopySourceIfMatch", "x-amz-copy-source-if-match"},
         {"CopySourceIfUnmodifiedSince", "x-amz-copy-source-if-unmodified-since"},
         {"Expires", "Expires"},
+        {"IfNoneMatch", "If-None-Match"},
         {"GrantWriteACP", "x-amz-grant-write-acp"},
         {"SSEKMSEncryptionContext", "x-amz-server-side-encryption-context"},
         {"CacheControl", "Cache-Control"},
@@ -5508,33 +5518,16 @@ defmodule AWS.S3 do
 
   @doc """
 
-  End of support notice: Beginning October 1, 2025, Amazon S3 will discontinue
-  support for creating new Email Grantee Access Control Lists (ACL).
+  End of support notice: As of October 1, 2025, Amazon S3 has discontinued support
+  for Email Grantee Access Control Lists (ACLs).
 
-  Email Grantee ACLs created prior to this date will continue to work and remain
-  accessible through the Amazon Web Services Management Console, Command Line
-  Interface (CLI), SDKs,
-  and REST API. However, you will no longer be able to create new Email Grantee
-  ACLs.
+  If you attempt to use an Email Grantee ACL in a request after October 1, 2025,
+  the request will receive an `HTTP 405` (Method Not Allowed) error.
 
   This change affects the following Amazon Web Services Regions: US East (N.
-  Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia
-  Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
-  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São
-  Paulo) Region.
-
-  End of support notice: Beginning October 1, 2025, Amazon S3 will stop returning
-  `DisplayName`. Update your applications to use canonical IDs (unique identifier
-  for
-  Amazon Web Services accounts), Amazon Web Services account ID (12 digit
-  identifier) or IAM ARNs (full resource naming) as a direct replacement of
-  `DisplayName`.
-
-  This change affects the following Amazon Web Services Regions: US East (N.
-  Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia
-  Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
-  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São
-  Paulo) Region.
+  Virginia), US West (N. California), US West (Oregon), Asia Pacific (Singapore),
+  Asia Pacific (Sydney), Asia Pacific (Tokyo), Europe (Ireland), and South America
+  (São Paulo).
 
   This action creates an Amazon S3 bucket. To create an Amazon S3 on Outposts
   bucket, see [
@@ -5701,6 +5694,10 @@ defmodule AWS.S3 do
     *
 
   [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec create_bucket(map(), String.t() | atom(), create_bucket_request(), list()) ::
           {:ok, create_bucket_output(), any()}
@@ -5842,6 +5839,10 @@ defmodule AWS.S3 do
     *
 
   [UpdateBucketMetadataJournalTableConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataJournalTableConfiguration.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec create_bucket_metadata_configuration(
           map(),
@@ -5960,6 +5961,10 @@ defmodule AWS.S3 do
     *
 
   [GetBucketMetadataTableConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetadataTableConfiguration.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec create_bucket_metadata_table_configuration(
           map(),
@@ -6001,20 +6006,16 @@ defmodule AWS.S3 do
 
   @doc """
 
-  End of support notice: Beginning October 1, 2025, Amazon S3 will discontinue
-  support for creating new Email Grantee Access Control Lists (ACL).
+  End of support notice: As of October 1, 2025, Amazon S3 has discontinued support
+  for Email Grantee Access Control Lists (ACLs).
 
-  Email Grantee ACLs created prior to this date will continue to work and remain
-  accessible through the Amazon Web Services Management Console, Command Line
-  Interface (CLI), SDKs,
-  and REST API. However, you will no longer be able to create new Email Grantee
-  ACLs.
+  If you attempt to use an Email Grantee ACL in a request after October 1, 2025,
+  the request will receive an `HTTP 405` (Method Not Allowed) error.
 
   This change affects the following Amazon Web Services Regions: US East (N.
-  Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia
-  Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
-  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São
-  Paulo) Region.
+  Virginia), US West (N. California), US West (Oregon), Asia Pacific (Singapore),
+  Asia Pacific (Sydney), Asia Pacific (Tokyo), Europe (Ireland), and South America
+  (São Paulo).
 
   This action initiates a multipart upload and returns an upload ID. This upload
   ID is used to
@@ -6329,6 +6330,10 @@ defmodule AWS.S3 do
     *
 
   [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec create_multipart_upload(
           map(),
@@ -6601,6 +6606,10 @@ defmodule AWS.S3 do
   ```
 
   .
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec create_session(
           map(),
@@ -6750,6 +6759,10 @@ defmodule AWS.S3 do
     *
 
   [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_bucket(map(), String.t() | atom(), delete_bucket_request(), list()) ::
           {:ok, nil, any()}
@@ -6813,6 +6826,10 @@ defmodule AWS.S3 do
     *
 
   [PutBucketAnalyticsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAnalyticsConfiguration.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_bucket_analytics_configuration(
           map(),
@@ -6878,6 +6895,10 @@ defmodule AWS.S3 do
     *
 
   [RESTOPTIONSobject](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTOPTIONSobject.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_bucket_cors(map(), String.t() | atom(), delete_bucket_cors_request(), list()) ::
           {:ok, nil, any()}
@@ -6970,6 +6991,10 @@ defmodule AWS.S3 do
     *
 
   [GetBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_bucket_encryption(
           map(),
@@ -7043,6 +7068,10 @@ defmodule AWS.S3 do
     *
 
   [ListBucketIntelligentTieringConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketIntelligentTieringConfigurations.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_bucket_intelligent_tiering_configuration(
           map(),
@@ -7119,6 +7148,10 @@ defmodule AWS.S3 do
     *
 
   [ListBucketInventoryConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketInventoryConfigurations.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_bucket_inventory_configuration(
           map(),
@@ -7243,6 +7276,10 @@ defmodule AWS.S3 do
     *
 
   [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_bucket_lifecycle(
           map(),
@@ -7325,6 +7362,10 @@ defmodule AWS.S3 do
     *
 
   [UpdateBucketMetadataJournalTableConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataJournalTableConfiguration.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_bucket_metadata_configuration(
           map(),
@@ -7416,6 +7457,10 @@ defmodule AWS.S3 do
     *
 
   [GetBucketMetadataTableConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetadataTableConfiguration.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_bucket_metadata_table_configuration(
           map(),
@@ -7491,6 +7536,10 @@ defmodule AWS.S3 do
   [Monitoring
   Metrics with Amazon
   CloudWatch](https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_bucket_metrics_configuration(
           map(),
@@ -7555,6 +7604,10 @@ defmodule AWS.S3 do
     *
 
   `PutBucketOwnershipControls`
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_bucket_ownership_controls(
           map(),
@@ -7683,6 +7736,10 @@ defmodule AWS.S3 do
     *
 
   [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_bucket_policy(map(), String.t() | atom(), delete_bucket_policy_request(), list()) ::
           {:ok, nil, any()}
@@ -7744,6 +7801,10 @@ defmodule AWS.S3 do
     *
 
   [GetBucketReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketReplication.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_bucket_replication(
           map(),
@@ -7801,6 +7862,10 @@ defmodule AWS.S3 do
     *
 
   [PutBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_bucket_tagging(map(), String.t() | atom(), delete_bucket_tagging_request(), list()) ::
           {:ok, nil, any()}
@@ -7866,6 +7931,10 @@ defmodule AWS.S3 do
     *
 
   [PutBucketWebsite](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketWebsite.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_bucket_website(map(), String.t() | atom(), delete_bucket_website_request(), list()) ::
           {:ok, nil, any()}
@@ -8046,6 +8115,14 @@ defmodule AWS.S3 do
     *
 
   [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
+
+  The `If-Match` header is supported for both general purpose and directory
+  buckets. `IfMatchLastModifiedTime` and `IfMatchSize` is only supported for
+  directory buckets.
   """
   @spec delete_object(
           map(),
@@ -8133,6 +8210,10 @@ defmodule AWS.S3 do
     *
 
   [GetObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_object_tagging(
           map(),
@@ -8343,6 +8424,10 @@ defmodule AWS.S3 do
     *
 
   [AbortMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_objects(map(), String.t() | atom(), delete_objects_request(), list()) ::
           {:ok, delete_objects_output(), any()}
@@ -8422,6 +8507,10 @@ defmodule AWS.S3 do
     *
 
   [GetBucketPolicyStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicyStatus.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_public_access_block(
           map(),
@@ -8499,6 +8588,10 @@ defmodule AWS.S3 do
     *
 
   [PutBucketAccelerateConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAccelerateConfiguration.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_bucket_accelerate_configuration(
           map(),
@@ -8550,8 +8643,8 @@ defmodule AWS.S3 do
 
   @doc """
 
-  End of support notice: Beginning October 1, 2025, Amazon S3 will stop returning
-  `DisplayName`.
+  End of support notice: Beginning November 21, 2025, Amazon S3 will stop
+  returning `DisplayName`.
 
   Update your applications to use canonical IDs (unique identifier for
   Amazon Web Services accounts), Amazon Web Services account ID (12 digit
@@ -8594,6 +8687,10 @@ defmodule AWS.S3 do
   disabling
   ACLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html)
   in the *Amazon S3 User Guide*.
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
 
   The following operations are related to `GetBucketAcl`:
 
@@ -8656,6 +8753,10 @@ defmodule AWS.S3 do
     *
 
   [PutBucketAnalyticsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAnalyticsConfiguration.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_bucket_analytics_configuration(
           map(),
@@ -8732,6 +8833,10 @@ defmodule AWS.S3 do
     *
 
   [DeleteBucketCors](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketCors.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_bucket_cors(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_bucket_cors_output(), any()}
@@ -8817,6 +8922,10 @@ defmodule AWS.S3 do
     *
 
   [DeleteBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_bucket_encryption(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_bucket_encryption_output(), any()}
@@ -8881,6 +8990,10 @@ defmodule AWS.S3 do
     *
 
   [ListBucketIntelligentTieringConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketIntelligentTieringConfigurations.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_bucket_intelligent_tiering_configuration(
           map(),
@@ -8955,6 +9068,10 @@ defmodule AWS.S3 do
     *
 
   [PutBucketInventoryConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketInventoryConfiguration.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_bucket_inventory_configuration(
           map(),
@@ -9105,6 +9222,10 @@ defmodule AWS.S3 do
     *
 
   [DeleteBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_bucket_lifecycle_configuration(
           map(),
@@ -9149,36 +9270,56 @@ defmodule AWS.S3 do
 
   @doc """
 
-  This operation is not supported for directory buckets.
+  Using the `GetBucketLocation` operation is no longer a best practice.
+
+  To return the
+  Region that a bucket resides in, we recommend that you use the
+  [HeadBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadBucket.html)  operation instead. For backward compatibility, Amazon S3 continues to support
+  the
+  `GetBucketLocation` operation.
 
   Returns the Region the bucket resides in. You set the bucket's Region using the
   `LocationConstraint` request parameter in a `CreateBucket` request. For more
   information, see
-  [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html).   When you use this API operation with an access point, provide the alias of the
+  [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html).
+
+  In a bucket's home Region, calls to the `GetBucketLocation` operation are
+  governed
+  by the bucket's policy. In other Regions, the bucket policy doesn't apply, which
+  means that
+  cross-account access won't be authorized. However, calls to the `HeadBucket`
+  operation
+  always return the bucket’s location through an HTTP response header, whether
+  access to the bucket
+  is authorized or not. Therefore, we recommend using the `HeadBucket` operation
+  for
+  bucket Region discovery and to avoid using the `GetBucketLocation` operation.
+
+  When you use this API operation with an access point, provide the alias of the
   access point in place of the bucket name.
 
   When you use this API operation with an Object Lambda access point, provide the
   alias of the Object Lambda access point in place of the bucket name.
   If the Object Lambda access point alias in a request is not valid, the error
   code `InvalidAccessPointAliasError` is returned.
-  For more information about `InvalidAccessPointAliasError`, see [List of
-  Error
+  For more information about `InvalidAccessPointAliasError`, see [List of Error
   Codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList).
 
-  We recommend that you use
-  [HeadBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadBucket.html) to return the Region that a bucket
-  resides in. For backward compatibility, Amazon S3 continues to support
-  GetBucketLocation.
+  This operation is not supported for directory buckets.
 
   The following operations are related to `GetBucketLocation`:
 
     *
 
-  [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
+  [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html) 
 
     *
 
   [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_bucket_location(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_bucket_location_output(), any()}
@@ -9204,8 +9345,8 @@ defmodule AWS.S3 do
 
   @doc """
 
-  End of support notice: Beginning October 1, 2025, Amazon S3 will stop returning
-  `DisplayName`.
+  End of support notice: Beginning November 21, 2025, Amazon S3 will stop
+  returning `DisplayName`.
 
   Update your applications to use canonical IDs (unique identifier for
   Amazon Web Services accounts), Amazon Web Services account ID (12 digit
@@ -9233,6 +9374,10 @@ defmodule AWS.S3 do
     *
 
   [PutBucketLogging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLogging.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_bucket_logging(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_bucket_logging_output(), any()}
@@ -9298,6 +9443,10 @@ defmodule AWS.S3 do
     *
 
   [UpdateBucketMetadataJournalTableConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataJournalTableConfiguration.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_bucket_metadata_configuration(
           map(),
@@ -9381,6 +9530,10 @@ defmodule AWS.S3 do
     *
 
   [DeleteBucketMetadataTableConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetadataTableConfiguration.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_bucket_metadata_table_configuration(
           map(),
@@ -9451,6 +9604,10 @@ defmodule AWS.S3 do
   [Monitoring
   Metrics with Amazon
   CloudWatch](https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_bucket_metrics_configuration(
           map(),
@@ -9529,6 +9686,10 @@ defmodule AWS.S3 do
     *
 
   [PutBucketNotification](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketNotification.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_bucket_notification_configuration(
           map(),
@@ -9596,6 +9757,10 @@ defmodule AWS.S3 do
     *
 
   `DeleteBucketOwnershipControls`
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_bucket_ownership_controls(
           map(),
@@ -9724,6 +9889,10 @@ defmodule AWS.S3 do
     *
 
   [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_bucket_policy(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_bucket_policy_output(), any()}
@@ -9777,6 +9946,10 @@ defmodule AWS.S3 do
     *
 
   [DeletePublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeletePublicAccessBlock.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_bucket_policy_status(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_bucket_policy_status_output(), any()}
@@ -9843,6 +10016,10 @@ defmodule AWS.S3 do
     *
 
   [DeleteBucketReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketReplication.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_bucket_replication(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_bucket_replication_output(), any()}
@@ -9884,6 +10061,10 @@ defmodule AWS.S3 do
     *
 
   [ListObjects](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_bucket_request_payment(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_bucket_request_payment_output(), any()}
@@ -9940,6 +10121,10 @@ defmodule AWS.S3 do
     *
 
   [DeleteBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_bucket_tagging(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_bucket_tagging_output(), any()}
@@ -9990,6 +10175,10 @@ defmodule AWS.S3 do
     *
 
   [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_bucket_versioning(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_bucket_versioning_output(), any()}
@@ -10043,6 +10232,10 @@ defmodule AWS.S3 do
     *
 
   [PutBucketWebsite](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketWebsite.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_bucket_website(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_bucket_website_output(), any()}
@@ -10278,6 +10471,10 @@ defmodule AWS.S3 do
     *
 
   [GetObjectAcl](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_object(
           map(),
@@ -10531,6 +10728,20 @@ defmodule AWS.S3 do
 
   @doc """
 
+  End of support notice: Beginning November 21, 2025, Amazon S3 will stop
+  returning `DisplayName`.
+
+  Update your applications to use canonical IDs (unique identifier for
+  Amazon Web Services accounts), Amazon Web Services account ID (12 digit
+  identifier) or IAM ARNs (full resource naming) as a direct replacement of
+  `DisplayName`.
+
+  This change affects the following Amazon Web Services Regions: US East (N.
+  Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia
+  Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
+  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São
+  Paulo) Region.
+
   This operation is not supported for directory buckets.
 
   Returns the access control list (ACL) of an object. To use this operation, you
@@ -10573,6 +10784,10 @@ defmodule AWS.S3 do
     *
 
   [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_object_acl(
           map(),
@@ -10872,6 +11087,10 @@ defmodule AWS.S3 do
     *
 
   [ListParts](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_object_attributes(
           map(),
@@ -11007,6 +11226,10 @@ defmodule AWS.S3 do
     *
 
   [GetObjectAttributes](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_object_legal_hold(
           map(),
@@ -11077,6 +11300,10 @@ defmodule AWS.S3 do
     *
 
   [GetObjectAttributes](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_object_lock_configuration(
           map(),
@@ -11123,6 +11350,10 @@ defmodule AWS.S3 do
     *
 
   [GetObjectAttributes](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_object_retention(
           map(),
@@ -11214,6 +11445,10 @@ defmodule AWS.S3 do
     *
 
   [PutObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_object_tagging(
           map(),
@@ -11295,6 +11530,10 @@ defmodule AWS.S3 do
     *
 
   [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_object_torrent(
           map(),
@@ -11393,6 +11632,10 @@ defmodule AWS.S3 do
     *
 
   [DeletePublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeletePublicAccessBlock.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_public_access_block(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_public_access_block_output(), any()}
@@ -11425,22 +11668,21 @@ defmodule AWS.S3 do
   You can use this operation to determine if a bucket exists and if you have
   permission to access it.
 
-  The action returns a `200 OK` if the bucket exists and you have permission to
-  access
-  it.
+  The action returns a `200 OK` HTTP status code if the bucket exists and you have
+  permission to access it. You can make a `HeadBucket` call on any bucket name to
+  any
+  Region in the partition, and regardless of the permissions on the bucket, you
+  will receive a
+  response header with the correct bucket location so that you can then make a
+  proper, signed request
+  to the appropriate Regional endpoint.
 
-  If the bucket does not exist or you do not have permission to access it, the
+  If the bucket doesn't exist or you don't have permission to access it, the
   `HEAD`
-  request returns a generic `400 Bad Request`, `403 Forbidden` or
-
-  ```
-  404 Not
-  Found
-  ```
-
-  code. A message body is not included, so you cannot determine the exception
-  beyond
-  these HTTP response codes.
+  request returns a generic `400 Bad Request`, `403 Forbidden`, or
+  `404 Not Found` HTTP status code. A message body isn't included, so you can't
+  determine
+  the exception beyond these HTTP response codes.
 
   ## Definitions
 
@@ -11515,6 +11757,10 @@ defmodule AWS.S3 do
   [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec head_bucket(map(), String.t() | atom(), head_bucket_request(), list()) ::
           {:ok, head_bucket_output(), any()}
@@ -11756,6 +12002,10 @@ defmodule AWS.S3 do
     *
 
   [GetObjectAttributes](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec head_object(
           map(),
@@ -11905,6 +12155,10 @@ defmodule AWS.S3 do
     *
 
   [PutBucketAnalyticsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAnalyticsConfiguration.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec list_bucket_analytics_configurations(
           map(),
@@ -11983,6 +12237,10 @@ defmodule AWS.S3 do
     *
 
   [GetBucketIntelligentTieringConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketIntelligentTieringConfiguration.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec list_bucket_intelligent_tiering_configurations(
           map(),
@@ -12032,7 +12290,7 @@ defmodule AWS.S3 do
   This operation is not supported for directory buckets.
 
   Returns a list of S3 Inventory configurations for the bucket. You can have up to
-  1,000 analytics
+  1,000 inventory
   configurations per bucket.
 
   This action supports list pagination and does not return more than 100
@@ -12068,6 +12326,10 @@ defmodule AWS.S3 do
     *
 
   [PutBucketInventoryConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketInventoryConfiguration.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec list_bucket_inventory_configurations(
           map(),
@@ -12155,6 +12417,10 @@ defmodule AWS.S3 do
     *
 
   [DeleteBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetricsConfiguration.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec list_bucket_metrics_configurations(
           map(),
@@ -12199,8 +12465,8 @@ defmodule AWS.S3 do
 
   @doc """
 
-  End of support notice: Beginning October 1, 2025, Amazon S3 will stop returning
-  `DisplayName`.
+  End of support notice: Beginning November 21, 2025, Amazon S3 will stop
+  returning `DisplayName`.
 
   Update your applications to use canonical IDs (unique identifier for
   Amazon Web Services accounts), Amazon Web Services account ID (12 digit
@@ -12233,6 +12499,10 @@ defmodule AWS.S3 do
   `ListBuckets` requests will be rejected for Amazon Web Services accounts with a
   general purpose bucket
   quota greater than 10,000.
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec list_buckets(
           map(),
@@ -12336,6 +12606,10 @@ defmodule AWS.S3 do
 
   The `BucketRegion` response element is not part of the
   `ListDirectoryBuckets` Response Syntax.
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec list_directory_buckets(
           map(),
@@ -12377,8 +12651,8 @@ defmodule AWS.S3 do
 
   @doc """
 
-  End of support notice: Beginning October 1, 2025, Amazon S3 will stop returning
-  `DisplayName`.
+  End of support notice: Beginning November 21, 2025, Amazon S3 will stop
+  returning `DisplayName`.
 
   Update your applications to use canonical IDs (unique identifier for
   Amazon Web Services accounts), Amazon Web Services account ID (12 digit
@@ -12545,6 +12819,10 @@ defmodule AWS.S3 do
     *
 
   [AbortMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec list_multipart_uploads(
           map(),
@@ -12650,8 +12928,8 @@ defmodule AWS.S3 do
 
   @doc """
 
-  End of support notice: Beginning October 1, 2025, Amazon S3 will stop returning
-  `DisplayName`.
+  End of support notice: Beginning November 21, 2025, Amazon S3 will stop
+  returning `DisplayName`.
 
   Update your applications to use canonical IDs (unique identifier for
   Amazon Web Services accounts), Amazon Web Services account ID (12 digit
@@ -12697,6 +12975,10 @@ defmodule AWS.S3 do
     *
 
   [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec list_object_versions(
           map(),
@@ -12811,8 +13093,8 @@ defmodule AWS.S3 do
 
   @doc """
 
-  End of support notice: Beginning October 1, 2025, Amazon S3 will stop returning
-  `DisplayName`.
+  End of support notice: Beginning November 21, 2025, Amazon S3 will stop
+  returning `DisplayName`.
 
   Update your applications to use canonical IDs (unique identifier for
   Amazon Web Services accounts), Amazon Web Services account ID (12 digit
@@ -12862,6 +13144,10 @@ defmodule AWS.S3 do
     *
 
   [ListBuckets](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec list_objects(
           map(),
@@ -12967,8 +13253,22 @@ defmodule AWS.S3 do
   end
 
   @doc """
-  Returns some or all (up to 1,000) of the objects in a bucket with each request.
 
+  End of support notice: Beginning November 21, 2025, Amazon S3 will stop
+  returning `DisplayName`.
+
+  Update your applications to use canonical IDs (unique identifier for
+  Amazon Web Services accounts), Amazon Web Services account ID (12 digit
+  identifier) or IAM ARNs (full resource naming) as a direct replacement of
+  `DisplayName`.
+
+  This change affects the following Amazon Web Services Regions: US East (N.
+  Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia
+  Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
+  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São
+  Paulo) Region.
+
+  Returns some or all (up to 1,000) of the objects in a bucket with each request.
   You can use the
   request parameters as selection criteria to return a subset of the objects in a
   bucket. A
@@ -13102,6 +13402,10 @@ defmodule AWS.S3 do
     *
 
   [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec list_objects_v2(
           map(),
@@ -13226,8 +13530,8 @@ defmodule AWS.S3 do
 
   @doc """
 
-  End of support notice: Beginning October 1, 2025, Amazon S3 will stop returning
-  `DisplayName`.
+  End of support notice: Beginning November 21, 2025, Amazon S3 will stop
+  returning `DisplayName`.
 
   Update your applications to use canonical IDs (unique identifier for
   Amazon Web Services accounts), Amazon Web Services account ID (12 digit
@@ -13355,6 +13659,10 @@ defmodule AWS.S3 do
     *
 
   [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec list_parts(
           map(),
@@ -13515,6 +13823,10 @@ defmodule AWS.S3 do
     *
 
   [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_bucket_accelerate_configuration(
           map(),
@@ -13555,20 +13867,16 @@ defmodule AWS.S3 do
 
   @doc """
 
-  End of support notice: Beginning October 1, 2025, Amazon S3 will discontinue
-  support for creating new Email Grantee Access Control Lists (ACL).
+  End of support notice: As of October 1, 2025, Amazon S3 has discontinued support
+  for Email Grantee Access Control Lists (ACLs).
 
-  Email Grantee ACLs created prior to this date will continue to work and remain
-  accessible through the Amazon Web Services Management Console, Command Line
-  Interface (CLI), SDKs,
-  and REST API. However, you will no longer be able to create new Email Grantee
-  ACLs.
+  If you attempt to use an Email Grantee ACL in a request after October 1, 2025,
+  the request will receive an `HTTP 405` (Method Not Allowed) error.
 
   This change affects the following Amazon Web Services Regions: US East (N.
-  Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia
-  Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
-  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São
-  Paulo) Region.
+  Virginia), US West (N. California), US West (Oregon), Asia Pacific (Singapore),
+  Asia Pacific (Sydney), Asia Pacific (Tokyo), Europe (Ireland), and South America
+  (São Paulo).
 
   This operation is not supported for directory buckets.
 
@@ -13774,6 +14082,10 @@ defmodule AWS.S3 do
     *
 
   [GetObjectAcl](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_bucket_acl(map(), String.t() | atom(), put_bucket_acl_request(), list()) ::
           {:ok, nil, any()}
@@ -13911,6 +14223,10 @@ defmodule AWS.S3 do
     *
 
   [ListBucketAnalyticsConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketAnalyticsConfigurations.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_bucket_analytics_configuration(
           map(),
@@ -14015,6 +14331,10 @@ defmodule AWS.S3 do
     *
 
   [RESTOPTIONSobject](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTOPTIONSobject.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_bucket_cors(map(), String.t() | atom(), put_bucket_cors_request(), list()) ::
           {:ok, nil, any()}
@@ -14207,6 +14527,10 @@ defmodule AWS.S3 do
     *
 
   [DeleteBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_bucket_encryption(map(), String.t() | atom(), put_bucket_encryption_request(), list()) ::
           {:ok, nil, any()}
@@ -14309,6 +14633,10 @@ defmodule AWS.S3 do
   the `s3:PutIntelligentTieringConfiguration` bucket permission to set the
   configuration
   on the bucket.
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_bucket_intelligent_tiering_configuration(
           map(),
@@ -14452,6 +14780,10 @@ defmodule AWS.S3 do
     *
 
   [ListBucketInventoryConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketInventoryConfigurations.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_bucket_inventory_configuration(
           map(),
@@ -14652,6 +14984,10 @@ defmodule AWS.S3 do
     
 
   [DeleteBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_bucket_lifecycle_configuration(
           map(),
@@ -14702,20 +15038,16 @@ defmodule AWS.S3 do
 
   @doc """
 
-  End of support notice: Beginning October 1, 2025, Amazon S3 will discontinue
-  support for creating new Email Grantee Access Control Lists (ACL).
+  End of support notice: As of October 1, 2025, Amazon S3 has discontinued support
+  for Email Grantee Access Control Lists (ACLs).
 
-  Email Grantee ACLs created prior to this date will continue to work and remain
-  accessible through the Amazon Web Services Management Console, Command Line
-  Interface (CLI), SDKs,
-  and REST API. However, you will no longer be able to create new Email Grantee
-  ACLs.
+  If you attempt to use an Email Grantee ACL in a request after October 1, 2025,
+  the request will receive an `HTTP 405` (Method Not Allowed) error.
 
   This change affects the following Amazon Web Services Regions: US East (N.
-  Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia
-  Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
-  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São
-  Paulo) Region.
+  Virginia), US West (N. California), US West (Oregon), Asia Pacific (Singapore),
+  Asia Pacific (Sydney), Asia Pacific (Tokyo), Europe (Ireland), and South America
+  (São Paulo).
 
   This operation is not supported for directory buckets.
 
@@ -14807,6 +15139,10 @@ defmodule AWS.S3 do
     *
 
   [GetBucketLogging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLogging.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_bucket_logging(map(), String.t() | atom(), put_bucket_logging_request(), list()) ::
           {:ok, nil, any()}
@@ -14889,6 +15225,10 @@ defmodule AWS.S3 do
 
       *
   HTTP Status Code: HTTP 400 Bad Request
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_bucket_metrics_configuration(
           map(),
@@ -15002,6 +15342,10 @@ defmodule AWS.S3 do
     *
 
   [GetBucketNotificationConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketNotificationConfiguration.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_bucket_notification_configuration(
           map(),
@@ -15061,6 +15405,10 @@ defmodule AWS.S3 do
     *
 
   `DeleteBucketOwnershipControls`
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_bucket_ownership_controls(
           map(),
@@ -15199,6 +15547,10 @@ defmodule AWS.S3 do
     *
 
   [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_bucket_policy(map(), String.t() | atom(), put_bucket_policy_request(), list()) ::
           {:ok, nil, any()}
@@ -15317,6 +15669,10 @@ defmodule AWS.S3 do
     *
 
   [DeleteBucketReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketReplication.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_bucket_replication(
           map(),
@@ -15377,6 +15733,10 @@ defmodule AWS.S3 do
     *
 
   [GetBucketRequestPayment](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketRequestPayment.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_bucket_request_payment(
           map(),
@@ -15479,6 +15839,10 @@ defmodule AWS.S3 do
     *
 
   [DeleteBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_bucket_tagging(map(), String.t() | atom(), put_bucket_tagging_request(), list()) ::
           {:ok, nil, any()}
@@ -15585,6 +15949,10 @@ defmodule AWS.S3 do
     *
 
   [GetBucketVersioning](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_bucket_versioning(map(), String.t() | atom(), put_bucket_versioning_request(), list()) ::
           {:ok, nil, any()}
@@ -15742,6 +16110,10 @@ defmodule AWS.S3 do
   *Amazon S3 User Guide*.
 
   The maximum request length is limited to 128 KB.
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_bucket_website(map(), String.t() | atom(), put_bucket_website_request(), list()) ::
           {:ok, nil, any()}
@@ -15778,20 +16150,16 @@ defmodule AWS.S3 do
 
   @doc """
 
-  End of support notice: Beginning October 1, 2025, Amazon S3 will discontinue
-  support for creating new Email Grantee Access Control Lists (ACL).
+  End of support notice: As of October 1, 2025, Amazon S3 has discontinued support
+  for Email Grantee Access Control Lists (ACLs).
 
-  Email Grantee ACLs created prior to this date will continue to work and remain
-  accessible through the Amazon Web Services Management Console, Command Line
-  Interface (CLI), SDKs,
-  and REST API. However, you will no longer be able to create new Email Grantee
-  ACLs.
+  If you attempt to use an Email Grantee ACL in a request after October 1, 2025,
+  the request will receive an `HTTP 405` (Method Not Allowed) error.
 
   This change affects the following Amazon Web Services Regions: US East (N.
-  Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia
-  Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
-  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São
-  Paulo) Region.
+  Virginia), US West (N. California), US West (Oregon), Asia Pacific (Singapore),
+  Asia Pacific (Sydney), Asia Pacific (Tokyo), Europe (Ireland), and South America
+  (São Paulo).
 
   Adds an object to a bucket.
 
@@ -15979,6 +16347,10 @@ defmodule AWS.S3 do
     *
 
   [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_object(map(), String.t() | atom(), String.t() | atom(), put_object_request(), list()) ::
           {:ok, put_object_output(), any()}
@@ -16087,6 +16459,17 @@ defmodule AWS.S3 do
   end
 
   @doc """
+
+  End of support notice: As of October 1, 2025, Amazon S3 has discontinued support
+  for Email Grantee Access Control Lists (ACLs).
+
+  If you attempt to use an Email Grantee ACL in a request after October 1, 2025,
+  the request will receive an `HTTP 405` (Method Not Allowed) error.
+
+  This change affects the following Amazon Web Services Regions: US East (N.
+  Virginia), US West (N. California), US West (Oregon), Asia Pacific (Singapore),
+  Asia Pacific (Sydney), Asia Pacific (Tokyo), Europe (Ireland), and South America
+  (São Paulo).
 
   This operation is not supported for directory buckets.
 
@@ -16288,6 +16671,10 @@ defmodule AWS.S3 do
     *
 
   [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_object_acl(
           map(),
@@ -16356,6 +16743,10 @@ defmodule AWS.S3 do
   information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
 
   This functionality is not supported for Amazon S3 on Outposts.
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_object_legal_hold(
           map(),
@@ -16432,6 +16823,10 @@ defmodule AWS.S3 do
   You can enable Object Lock for new or existing buckets. For more information,
   see [Configuring Object
   Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html).
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_object_lock_configuration(
           map(),
@@ -16494,6 +16889,10 @@ defmodule AWS.S3 do
   `s3:BypassGovernanceRetention` permission.
 
   This functionality is not supported for Amazon S3 on Outposts.
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_object_retention(
           map(),
@@ -16606,6 +17005,10 @@ defmodule AWS.S3 do
     *
 
   [DeleteObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_object_tagging(
           map(),
@@ -16699,6 +17102,10 @@ defmodule AWS.S3 do
 
   [Using Amazon S3 Block Public
   Access](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_public_access_block(
           map(),
@@ -16813,6 +17220,10 @@ defmodule AWS.S3 do
   ```
 
   .
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec rename_object(
           map(),
@@ -17094,6 +17505,10 @@ defmodule AWS.S3 do
     *
 
   [GetBucketNotificationConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketNotificationConfiguration.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec restore_object(
           map(),
@@ -17282,6 +17697,10 @@ defmodule AWS.S3 do
     *
 
   [PutBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec select_object_content(
           map(),
@@ -17404,6 +17823,10 @@ defmodule AWS.S3 do
     *
 
   [UpdateBucketMetadataJournalTableConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataJournalTableConfiguration.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec update_bucket_metadata_inventory_table_configuration(
           map(),
@@ -17486,6 +17909,10 @@ defmodule AWS.S3 do
     *
 
   [UpdateBucketMetadataInventoryTableConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataInventoryTableConfiguration.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec update_bucket_metadata_journal_table_configuration(
           map(),
@@ -17761,6 +18188,10 @@ defmodule AWS.S3 do
     *
 
   [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec upload_part(
           map(),
@@ -18087,6 +18518,10 @@ defmodule AWS.S3 do
     *
 
   [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec upload_part_copy(
           map(),
@@ -18234,6 +18669,10 @@ defmodule AWS.S3 do
   functions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-examples.html)
   in the
   *Amazon S3 User Guide*.
+
+  You must URL encode any signed header values that contain spaces. For example,
+  if your header value is `my file.txt`, containing two spaces after `my`, you
+  must URL encode this value to `my%20%20file.txt`.
   """
   @spec write_get_object_response(map(), write_get_object_response_request(), list()) ::
           {:ok, nil, any()}

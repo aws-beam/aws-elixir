@@ -5,11 +5,10 @@ defmodule AWS.GroundStation do
   @moduledoc """
   Welcome to the AWS Ground Station API Reference.
 
-  AWS Ground Station is a fully managed service that
-  enables you to control satellite communications, downlink and process satellite
-  data, and
-  scale your satellite operations efficiently and cost-effectively without having
-  to build or manage your own ground station infrastructure.
+  AWS Ground Station is a fully managed service that enables you to control
+  satellite communications, downlink and process satellite data, and scale your
+  satellite operations efficiently and cost-effectively without having to build or
+  manage your own ground station infrastructure.
   """
 
   alias AWS.Client
@@ -20,8 +19,8 @@ defmodule AWS.GroundStation do
   ## Example:
 
       list_configs_request() :: %{
-        "maxResults" => integer(),
-        "nextToken" => String.t() | atom()
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
@@ -32,7 +31,7 @@ defmodule AWS.GroundStation do
   ## Example:
 
       register_agent_response() :: %{
-        optional("agentId") => String.t() | atom()
+        "agentId" => String.t() | atom()
       }
 
   """
@@ -73,9 +72,9 @@ defmodule AWS.GroundStation do
   ## Example:
 
       create_config_request() :: %{
-        "configData" => list(),
-        "name" => String.t() | atom(),
-        "tags" => map()
+        optional("tags") => map(),
+        required("configData") => list(),
+        required("name") => String.t() | atom()
       }
 
   """
@@ -86,8 +85,8 @@ defmodule AWS.GroundStation do
   ## Example:
 
       get_minute_usage_request() :: %{
-        "month" => integer(),
-        "year" => integer()
+        required("month") => integer(),
+        required("year") => integer()
       }
 
   """
@@ -122,11 +121,23 @@ defmodule AWS.GroundStation do
   ## Example:
 
       tag_resource_request() :: %{
-        "tags" => map()
+        required("tags") => map()
       }
 
   """
   @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      i_s_o8601_time_range() :: %{
+        "endTime" => [non_neg_integer()],
+        "startTime" => [non_neg_integer()]
+      }
+
+  """
+  @type i_s_o8601_time_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -139,6 +150,17 @@ defmodule AWS.GroundStation do
 
   """
   @type dataflow_endpoint_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tracking_overrides() :: %{
+        "programTrackSettings" => list()
+      }
+
+  """
+  @type tracking_overrides() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -163,8 +185,8 @@ defmodule AWS.GroundStation do
   ## Example:
 
       get_agent_configuration_response() :: %{
-        optional("agentId") => String.t() | atom(),
-        optional("taskingDocument") => [String.t() | atom()]
+        "agentId" => String.t() | atom(),
+        "taskingDocument" => [String.t() | atom()]
       }
 
   """
@@ -210,6 +232,7 @@ defmodule AWS.GroundStation do
         "contactStatus" => list(any()),
         "dataflowList" => list(dataflow_detail()),
         "endTime" => [non_neg_integer()],
+        "ephemeris" => ephemeris_response_data(),
         "errorMessage" => [String.t() | atom()],
         "groundStation" => [String.t() | atom()],
         "maximumElevation" => elevation(),
@@ -220,6 +243,7 @@ defmodule AWS.GroundStation do
         "satelliteArn" => String.t() | atom(),
         "startTime" => [non_neg_integer()],
         "tags" => map(),
+        "trackingOverrides" => tracking_overrides(),
         "visibilityEndTime" => [non_neg_integer()],
         "visibilityStartTime" => [non_neg_integer()]
       }
@@ -232,8 +256,8 @@ defmodule AWS.GroundStation do
   ## Example:
 
       update_config_request() :: %{
-        "configData" => list(),
-        "name" => String.t() | atom()
+        required("configData") => list(),
+        required("name") => String.t() | atom()
       }
 
   """
@@ -262,6 +286,28 @@ defmodule AWS.GroundStation do
 
   """
   @type tracking_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_in_use_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      az_el_program_track_settings() :: %{
+        "ephemerisId" => String.t() | atom()
+      }
+
+  """
+  @type az_el_program_track_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -339,6 +385,7 @@ defmodule AWS.GroundStation do
         "creationTime" => [non_neg_integer()],
         "enabled" => [boolean()],
         "ephemerisId" => String.t() | atom(),
+        "ephemerisType" => list(any()),
         "name" => String.t() | atom(),
         "priority" => integer(),
         "sourceS3Object" => s3_object(),
@@ -479,12 +526,13 @@ defmodule AWS.GroundStation do
   ## Example:
 
       reserve_contact_request() :: %{
-        "endTime" => [non_neg_integer()],
-        "groundStation" => String.t() | atom(),
-        "missionProfileArn" => String.t() | atom(),
-        "satelliteArn" => String.t() | atom(),
-        "startTime" => [non_neg_integer()],
-        "tags" => map()
+        optional("satelliteArn") => String.t() | atom(),
+        optional("tags") => map(),
+        optional("trackingOverrides") => tracking_overrides(),
+        required("endTime") => [non_neg_integer()],
+        required("groundStation") => String.t() | atom(),
+        required("missionProfileArn") => String.t() | atom(),
+        required("startTime") => [non_neg_integer()]
       }
 
   """
@@ -495,7 +543,7 @@ defmodule AWS.GroundStation do
   ## Example:
 
       untag_resource_request() :: %{
-        "tagKeys" => list(String.t() | atom())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
@@ -556,6 +604,19 @@ defmodule AWS.GroundStation do
 
   ## Example:
 
+      time_az_el() :: %{
+        "az" => [float()],
+        "dt" => [float()],
+        "el" => [float()]
+      }
+
+  """
+  @type time_az_el() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       config_id_response() :: %{
         "configArn" => String.t() | atom(),
         "configId" => [String.t() | atom()],
@@ -588,6 +649,18 @@ defmodule AWS.GroundStation do
 
   """
   @type frequency() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      az_el_segments() :: %{
+        "angleUnit" => list(any()),
+        "azElSegmentList" => list(az_el_segment())
+      }
+
+  """
+  @type az_el_segments() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -640,8 +713,8 @@ defmodule AWS.GroundStation do
   ## Example:
 
       list_mission_profiles_request() :: %{
-        "maxResults" => integer(),
-        "nextToken" => String.t() | atom()
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
@@ -652,7 +725,7 @@ defmodule AWS.GroundStation do
   ## Example:
 
       update_agent_status_response() :: %{
-        required("agentId") => String.t() | atom()
+        "agentId" => String.t() | atom()
       }
 
   """
@@ -666,6 +739,7 @@ defmodule AWS.GroundStation do
         "contactId" => String.t() | atom(),
         "contactStatus" => list(any()),
         "endTime" => [non_neg_integer()],
+        "ephemeris" => ephemeris_response_data(),
         "errorMessage" => [String.t() | atom()],
         "groundStation" => [String.t() | atom()],
         "maximumElevation" => elevation(),
@@ -808,6 +882,18 @@ defmodule AWS.GroundStation do
 
   ## Example:
 
+      ephemeris_error_reason() :: %{
+        "errorCode" => list(any()),
+        "errorMessage" => String.t() | atom()
+      }
+
+  """
+  @type ephemeris_error_reason() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       dataflow_endpoint() :: %{
         "address" => socket_address(),
         "mtu" => [integer()],
@@ -854,9 +940,9 @@ defmodule AWS.GroundStation do
         optional("expirationTime") => [non_neg_integer()],
         optional("kmsKeyArn") => String.t() | atom(),
         optional("priority") => integer(),
+        optional("satelliteId") => String.t() | atom(),
         optional("tags") => map(),
-        required("name") => String.t() | atom(),
-        required("satelliteId") => String.t() | atom()
+        required("name") => String.t() | atom()
       }
 
   """
@@ -903,8 +989,8 @@ defmodule AWS.GroundStation do
   ## Example:
 
       list_ephemerides_response() :: %{
-        optional("ephemerides") => list(ephemeris_item()),
-        optional("nextToken") => String.t() | atom()
+        "ephemerides" => list(ephemeris_item()),
+        "nextToken" => String.t() | atom()
       }
 
   """
@@ -929,14 +1015,15 @@ defmodule AWS.GroundStation do
   ## Example:
 
       list_contacts_request() :: %{
-        "endTime" => [non_neg_integer()],
-        "groundStation" => String.t() | atom(),
-        "maxResults" => integer(),
-        "missionProfileArn" => String.t() | atom(),
-        "nextToken" => String.t() | atom(),
-        "satelliteArn" => String.t() | atom(),
-        "startTime" => [non_neg_integer()],
-        "statusList" => list(list(any())())
+        optional("ephemeris") => list(),
+        optional("groundStation") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("missionProfileArn") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("satelliteArn") => String.t() | atom(),
+        required("endTime") => [non_neg_integer()],
+        required("startTime") => [non_neg_integer()],
+        required("statusList") => list(list(any())())
       }
 
   """
@@ -1092,6 +1179,18 @@ defmodule AWS.GroundStation do
 
   ## Example:
 
+      ephemeris_response_data() :: %{
+        "ephemerisId" => String.t() | atom(),
+        "ephemerisType" => list(any())
+      }
+
+  """
+  @type ephemeris_response_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_tags_for_resource_request() :: %{}
 
   """
@@ -1154,11 +1253,12 @@ defmodule AWS.GroundStation do
   ## Example:
 
       list_ephemerides_request() :: %{
+        optional("ephemerisType") => list(any()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
+        optional("satelliteId") => String.t() | atom(),
         optional("statusList") => list(list(any())()),
         required("endTime") => [non_neg_integer()],
-        required("satelliteId") => String.t() | atom(),
         required("startTime") => [non_neg_integer()]
       }
 
@@ -1228,9 +1328,21 @@ defmodule AWS.GroundStation do
 
   ## Example:
 
+      az_el_ephemeris() :: %{
+        "data" => list(),
+        "groundStation" => String.t() | atom()
+      }
+
+  """
+  @type az_el_ephemeris() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_dataflow_endpoint_groups_request() :: %{
-        "maxResults" => integer(),
-        "nextToken" => String.t() | atom()
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
@@ -1247,6 +1359,19 @@ defmodule AWS.GroundStation do
 
   """
   @type eirp() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      az_el_segment() :: %{
+        "azElList" => list(time_az_el()),
+        "referenceEpoch" => [non_neg_integer()],
+        "validTimeRange" => i_s_o8601_time_range()
+      }
+
+  """
+  @type az_el_segment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1315,6 +1440,7 @@ defmodule AWS.GroundStation do
         "creationTime" => [non_neg_integer()],
         "enabled" => [boolean()],
         "ephemerisId" => String.t() | atom(),
+        "errorReasons" => list(ephemeris_error_reason()),
         "invalidReason" => list(any()),
         "name" => String.t() | atom(),
         "priority" => integer(),
@@ -1332,8 +1458,8 @@ defmodule AWS.GroundStation do
   ## Example:
 
       list_satellites_request() :: %{
-        "maxResults" => integer(),
-        "nextToken" => String.t() | atom()
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
@@ -1344,14 +1470,25 @@ defmodule AWS.GroundStation do
   ## Example:
 
       create_dataflow_endpoint_group_request() :: %{
-        "contactPostPassDurationSeconds" => integer(),
-        "contactPrePassDurationSeconds" => integer(),
-        "endpointDetails" => list(endpoint_details()),
-        "tags" => map()
+        optional("contactPostPassDurationSeconds") => integer(),
+        optional("contactPrePassDurationSeconds") => integer(),
+        optional("tags") => map(),
+        required("endpointDetails") => list(endpoint_details())
       }
 
   """
   @type create_dataflow_endpoint_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      az_el_ephemeris_filter() :: %{
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type az_el_ephemeris_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1388,15 +1525,15 @@ defmodule AWS.GroundStation do
   ## Example:
 
       create_mission_profile_request() :: %{
-        "contactPostPassDurationSeconds" => integer(),
-        "contactPrePassDurationSeconds" => integer(),
-        "dataflowEdges" => list(list(String.t() | atom())()),
-        "minimumViableContactDurationSeconds" => integer(),
-        "name" => String.t() | atom(),
-        "streamsKmsKey" => list(),
-        "streamsKmsRole" => String.t() | atom(),
-        "tags" => map(),
-        "trackingConfigArn" => String.t() | atom()
+        optional("contactPostPassDurationSeconds") => integer(),
+        optional("contactPrePassDurationSeconds") => integer(),
+        optional("streamsKmsKey") => list(),
+        optional("streamsKmsRole") => String.t() | atom(),
+        optional("tags") => map(),
+        required("dataflowEdges") => list(list(String.t() | atom())()),
+        required("minimumViableContactDurationSeconds") => integer(),
+        required("name") => String.t() | atom(),
+        required("trackingConfigArn") => String.t() | atom()
       }
 
   """
@@ -1407,14 +1544,14 @@ defmodule AWS.GroundStation do
   ## Example:
 
       update_mission_profile_request() :: %{
-        "contactPostPassDurationSeconds" => integer(),
-        "contactPrePassDurationSeconds" => integer(),
-        "dataflowEdges" => list(list(String.t() | atom())()),
-        "minimumViableContactDurationSeconds" => integer(),
-        "name" => String.t() | atom(),
-        "streamsKmsKey" => list(),
-        "streamsKmsRole" => String.t() | atom(),
-        "trackingConfigArn" => String.t() | atom()
+        optional("contactPostPassDurationSeconds") => integer(),
+        optional("contactPrePassDurationSeconds") => integer(),
+        optional("dataflowEdges") => list(list(String.t() | atom())()),
+        optional("minimumViableContactDurationSeconds") => integer(),
+        optional("name") => String.t() | atom(),
+        optional("streamsKmsKey") => list(),
+        optional("streamsKmsRole") => String.t() | atom(),
+        optional("trackingConfigArn") => String.t() | atom()
       }
 
   """
@@ -1445,7 +1582,10 @@ defmodule AWS.GroundStation do
           invalid_parameter_exception() | resource_not_found_exception() | dependency_exception()
 
   @type delete_ephemeris_errors() ::
-          invalid_parameter_exception() | resource_not_found_exception() | dependency_exception()
+          invalid_parameter_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+          | dependency_exception()
 
   @type delete_mission_profile_errors() ::
           invalid_parameter_exception() | resource_not_found_exception() | dependency_exception()
@@ -1502,7 +1642,10 @@ defmodule AWS.GroundStation do
           invalid_parameter_exception() | resource_not_found_exception() | dependency_exception()
 
   @type reserve_contact_errors() ::
-          invalid_parameter_exception() | resource_not_found_exception() | dependency_exception()
+          invalid_parameter_exception()
+          | resource_limit_exceeded_exception()
+          | resource_not_found_exception()
+          | dependency_exception()
 
   @type tag_resource_errors() ::
           invalid_parameter_exception() | resource_not_found_exception() | dependency_exception()
@@ -1603,8 +1746,7 @@ defmodule AWS.GroundStation do
   `DataflowEndpoint` objects.
 
   The `name` field in each endpoint is used in your mission profile
-  `DataflowEndpointConfig`
-  to specify which endpoints to use during a contact.
+  `DataflowEndpointConfig` to specify which endpoints to use during a contact.
 
   When a contact uses multiple `DataflowEndpointConfig` objects, each `Config`
   must match a `DataflowEndpoint` in the same group.
@@ -1636,7 +1778,7 @@ defmodule AWS.GroundStation do
   end
 
   @doc """
-  Creates an Ephemeris with the specified `EphemerisData`.
+  Create an ephemeris with your specified `EphemerisData`.
   """
   @spec create_ephemeris(map(), create_ephemeris_request(), list()) ::
           {:ok, ephemeris_id_response(), any()}
@@ -1771,7 +1913,7 @@ defmodule AWS.GroundStation do
   end
 
   @doc """
-  Deletes an ephemeris
+  Delete an ephemeris.
   """
   @spec delete_ephemeris(map(), String.t() | atom(), delete_ephemeris_request(), list()) ::
           {:ok, ephemeris_id_response(), any()}
@@ -1852,7 +1994,7 @@ defmodule AWS.GroundStation do
   end
 
   @doc """
-  Describes an existing ephemeris.
+  Retrieve information about an existing ephemeris.
   """
   @spec describe_ephemeris(map(), String.t() | atom(), list()) ::
           {:ok, describe_ephemeris_response(), any()}
@@ -1870,7 +2012,6 @@ defmodule AWS.GroundStation do
   end
 
   @doc """
-
   For use by AWS Ground Station Agent and shouldn't be called directly.
 
   Gets the latest configuration information for a registered agent.
@@ -2028,8 +2169,8 @@ defmodule AWS.GroundStation do
   @doc """
   Returns a list of contacts.
 
-  If `statusList` contains AVAILABLE, the request must include
-  `groundStation`, `missionprofileArn`, and `satelliteArn`.
+  If `statusList` contains AVAILABLE, the request must include `groundStation`,
+  `missionprofileArn`, and `satelliteArn`.
   """
   @spec list_contacts(map(), list_contacts_request(), list()) ::
           {:ok, list_contacts_response(), any()}
@@ -2100,7 +2241,7 @@ defmodule AWS.GroundStation do
   end
 
   @doc """
-  List existing ephemerides.
+  List your existing ephemerides.
   """
   @spec list_ephemerides(map(), list_ephemerides_request(), list()) ::
           {:ok, list_ephemerides_response(), any()}
@@ -2273,7 +2414,6 @@ defmodule AWS.GroundStation do
   end
 
   @doc """
-
   For use by AWS Ground Station Agent and shouldn't be called directly.
 
   Registers a new agent with AWS Ground Station.
@@ -2397,7 +2537,6 @@ defmodule AWS.GroundStation do
   end
 
   @doc """
-
   For use by AWS Ground Station Agent and shouldn't be called directly.
 
   Update the status of the agent.
@@ -2431,8 +2570,8 @@ defmodule AWS.GroundStation do
   @doc """
   Updates the `Config` used when scheduling contacts.
 
-  Updating a `Config` will not update the execution parameters
-  for existing future contacts scheduled with this `Config`.
+  Updating a `Config` will not update the execution parameters for existing future
+  contacts scheduled with this `Config`.
   """
   @spec update_config(
           map(),
@@ -2467,7 +2606,7 @@ defmodule AWS.GroundStation do
   end
 
   @doc """
-  Updates an existing ephemeris
+  Update an existing ephemeris.
   """
   @spec update_ephemeris(map(), String.t() | atom(), update_ephemeris_request(), list()) ::
           {:ok, ephemeris_id_response(), any()}
@@ -2498,8 +2637,8 @@ defmodule AWS.GroundStation do
   @doc """
   Updates a mission profile.
 
-  Updating a mission profile will not update the execution parameters
-  for existing future contacts.
+  Updating a mission profile will not update the execution parameters for existing
+  future contacts.
   """
   @spec update_mission_profile(
           map(),

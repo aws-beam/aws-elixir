@@ -2224,6 +2224,7 @@ defmodule AWS.WorkSpaces do
         "ErrorCode" => String.t() | atom(),
         "ErrorMessage" => String.t() | atom(),
         "IpAddress" => String.t() | atom(),
+        "Ipv6Address" => String.t() | atom(),
         "ModificationStates" => list(modification_state()),
         "RelatedWorkspaces" => list(related_workspace_properties()),
         "RootVolumeEncryptionEnabled" => boolean(),
@@ -2682,6 +2683,7 @@ defmodule AWS.WorkSpaces do
         "DirectoryName" => String.t() | atom(),
         "DirectoryType" => list(any()),
         "DnsIpAddresses" => list(String.t() | atom()),
+        "DnsIpv6Addresses" => list(String.t() | atom()),
         "EndpointEncryptionMode" => list(any()),
         "ErrorMessage" => String.t() | atom(),
         "IDCConfig" => id_c_config(),
@@ -3312,6 +3314,7 @@ defmodule AWS.WorkSpaces do
       workspace_request() :: %{
         "BundleId" => String.t() | atom(),
         "DirectoryId" => String.t() | atom(),
+        "Ipv6Address" => String.t() | atom(),
         "RootVolumeEncryptionEnabled" => boolean(),
         "Tags" => list(tag()),
         "UserName" => String.t() | atom(),

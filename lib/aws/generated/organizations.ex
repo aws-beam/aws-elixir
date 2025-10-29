@@ -12,11 +12,9 @@ defmodule AWS.Organizations do
 
   ## Support and feedback for Organizations
 
-  We welcome your feedback. Send your comments to
-  [feedback-awsorganizations@amazon.com](mailto:feedback-awsorganizations@amazon.com) or post your feedback and questions in
-  the [Organizations support
-  forum](http://forums.aws.amazon.com/forum.jspa?forumID=219). For
-  more information about the Amazon Web Services support forums, see [Forums Help](http://forums.aws.amazon.com/help.jspa).
+  We welcome your feedback. You can post your feedback and questions in the
+  [Organizations support forum](https://forums.aws.amazon.com/forum.jspa?forumID=219). For more
+  information about the Amazon Web Services Support forums, see [Forums Help](https://forums.aws.amazon.com/help.jspa).
 
   ## Endpoint to call When using the CLI or the Amazon Web Services
   SDK
@@ -1983,6 +1981,7 @@ defmodule AWS.Organizations do
         "JoinedMethod" => list(any()),
         "JoinedTimestamp" => non_neg_integer(),
         "Name" => String.t() | atom(),
+        "State" => list(any()),
         "Status" => list(any())
       }
       
@@ -3883,7 +3882,7 @@ defmodule AWS.Organizations do
 
     
   A newly created account has a waiting period before it can be removed from
-  its organization. You must wait until at least seven days after the account
+  its organization. You must wait until at least four days after the account
   was created. Invited accounts aren't subject to this waiting period.
 
     

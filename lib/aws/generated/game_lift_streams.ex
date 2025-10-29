@@ -216,6 +216,7 @@ defmodule AWS.GameLiftStreams do
         "CreatedAt" => [non_neg_integer()],
         "DefaultApplication" => default_application(),
         "Description" => String.t() | atom(),
+        "ExpiresAt" => [non_neg_integer()],
         "Id" => String.t() | atom(),
         "LastUpdatedAt" => [non_neg_integer()],
         "LocationStates" => list(location_state()),
@@ -535,6 +536,7 @@ defmodule AWS.GameLiftStreams do
         "CreatedAt" => [non_neg_integer()],
         "DefaultApplication" => default_application(),
         "Description" => String.t() | atom(),
+        "ExpiresAt" => [non_neg_integer()],
         "Id" => String.t() | atom(),
         "LastUpdatedAt" => [non_neg_integer()],
         "Status" => list(any()),
@@ -633,6 +635,7 @@ defmodule AWS.GameLiftStreams do
         "CreatedAt" => [non_neg_integer()],
         "DefaultApplication" => default_application(),
         "Description" => String.t() | atom(),
+        "ExpiresAt" => [non_neg_integer()],
         "Id" => String.t() | atom(),
         "LastUpdatedAt" => [non_neg_integer()],
         "LocationStates" => list(location_state()),
@@ -726,6 +729,7 @@ defmodule AWS.GameLiftStreams do
         "CreatedAt" => [non_neg_integer()],
         "DefaultApplication" => default_application(),
         "Description" => String.t() | atom(),
+        "ExpiresAt" => [non_neg_integer()],
         "Id" => String.t() | atom(),
         "LastUpdatedAt" => [non_neg_integer()],
         "LocationStates" => list(location_state()),
@@ -1038,9 +1042,10 @@ defmodule AWS.GameLiftStreams do
   @doc """
   Add locations that can host stream sessions.
 
-  You configure locations and their corresponding capacity for each stream group.
-  Creating a stream group in a location that's nearest to your end users can help
-  minimize latency and improve quality.
+  To add a location, the stream group must be in `ACTIVE` status. You configure
+  locations and their corresponding capacity for each stream group. Creating a
+  stream group in a location that's nearest to your end users can help minimize
+  latency and improve quality.
 
   This operation provisions stream capacity at the specified locations. By
   default, all locations have 1 or 2 capacity, depending on the stream class
@@ -1165,16 +1170,14 @@ defmodule AWS.GameLiftStreams do
   end
 
   @doc """
-  Manage how Amazon GameLift Streams streams your applications by using a stream
-  group.
+  Stream groups manage how Amazon GameLift Streams allocates resources and handles
+  concurrent streams, allowing you to effectively manage capacity and costs.
 
-  A stream group is a collection of resources that Amazon GameLift Streams uses to
-  stream your application to end-users. When you create a stream group, you
-  specify an application to stream by default and the type of hardware to use,
-  such as the graphical processing unit (GPU). You can also link additional
-  applications, which allows you to stream those applications using this stream
-  group. Depending on your expected users, you also scale the number of concurrent
-  streams you want to support at one time, and in what locations.
+  Within a stream group, you specify an application to stream, streaming locations
+  and their capacity, and the stream class you want to use when streaming
+  applications to your end-users. A stream class defines the hardware
+  configuration of the compute resources that Amazon GameLift Streams will use
+  when streaming, such as the CPU, GPU, and memory.
 
   Stream capacity represents the number of concurrent streams that can be active
   at a time. You set stream capacity per location, per stream group. There are two
@@ -1196,13 +1199,21 @@ defmodule AWS.GameLiftStreams do
   stream group's stream class.
 
   To adjust the capacity of any `ACTIVE` stream group, call
-  [UpdateStreamGroup](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_UpdateStreamGroup.html).  If the request is successful, Amazon GameLift Streams begins creating the stream
-  group. Amazon GameLift Streams assigns a unique ID to the stream group resource
-  and sets the status to `ACTIVATING`. When the stream group reaches `ACTIVE`
-  status, you can start stream sessions by using
+  [UpdateStreamGroup](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_UpdateStreamGroup.html).  If the `CreateStreamGroup` request is successful, Amazon GameLift Streams
+  assigns a unique ID to the stream group resource and sets the status to
+  `ACTIVATING`. It can take a few minutes for Amazon GameLift Streams to finish
+  creating the stream group while it searches for unallocated compute resources
+  and provisions them. When complete, the stream group status will be `ACTIVE` and
+  you can start stream sessions by using
   [StartStreamSession](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_StartStreamSession.html).
   To check the stream group's status, call
   [GetStreamGroup](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamGroup.html).
+
+  Stream groups should be recreated every 3-4 weeks to pick up important service
+  updates and fixes. Stream groups that are older than 180 days can no longer be
+  updated with new application associations. Stream groups expire when they are
+  365 days old, at which point they can no longer stream sessions. The exact
+  expiration date is indicated by the date value in the `ExpiresAt` field.
   """
   @spec create_stream_group(map(), create_stream_group_input(), list()) ::
           {:ok, create_stream_group_output(), any()}
@@ -1415,7 +1426,8 @@ defmodule AWS.GameLiftStreams do
   Any streams in process will continue until they terminate, which helps avoid
   interrupting an end-user's stream. Amazon GameLift Streams will not initiate new
   streams in the stream group using the disassociated application. The
-  disassociate action does not affect the stream capacity of a stream group.
+  disassociate action does not affect the stream capacity of a stream group. To
+  disassociate an application, the stream group must be in `ACTIVE` status.
 
   If you disassociate the default application, Amazon GameLift Streams will
   automatically choose a new default application from the remaining associated
@@ -1830,14 +1842,17 @@ defmodule AWS.GameLiftStreams do
   @doc """
   Removes a set of remote locations from this stream group.
 
-  Amazon GameLift Streams works to release allocated compute resources in these
-  location. Thus, stream sessions can no longer start from these locations by
-  using this stream group. Amazon GameLift Streams also deletes the content files
-  of all associated applications that were in Amazon GameLift Streams's internal
+  To remove a location, the stream group must be in `ACTIVE` status. When you
+  remove a location, Amazon GameLift Streams releases allocated compute resources
+  in that location. Stream sessions can no longer start from removed locations in
+  a stream group. Amazon GameLift Streams also deletes the content files of all
+  associated applications that were in Amazon GameLift Streams's internal Amazon
   S3 bucket at this location.
 
-  You cannot remove the region where you initially created this stream group,
-  known as the primary location. However, you can set the stream capacity to zero.
+  You cannot remove the Amazon Web Services Region location where you initially
+  created this stream group, known as the primary location. However, you can set
+  the stream capacity to zero to avoid incurring costs for allocated compute
+  resources in that location.
   """
   @spec remove_stream_group_locations(
           map(),
@@ -1886,7 +1901,7 @@ defmodule AWS.GameLiftStreams do
 
     1. Prerequisites:
 
-      * You must have a stream group in `ACTIVE` state
+      * You must have a stream group in `ACTIVE` status
 
       * You must have idle or on-demand capacity in a stream
   group in the location you want to stream from
@@ -2170,9 +2185,9 @@ defmodule AWS.GameLiftStreams do
   Updates the configuration settings for an Amazon GameLift Streams stream group
   resource.
 
-  You can change the description, the set of locations, and the requested capacity
-  of a stream group per location. If you want to change the stream class, create a
-  new stream group.
+  To update a stream group, it must be in `ACTIVE` status. You can change the
+  description, the set of locations, and the requested capacity of a stream group
+  per location. If you want to change the stream class, create a new stream group.
 
   Stream capacity represents the number of concurrent streams that can be active
   at a time. You set stream capacity per location, per stream group. There are two
@@ -2195,7 +2210,8 @@ defmodule AWS.GameLiftStreams do
 
   To update a stream group, specify the stream group's Amazon Resource Name (ARN)
   and provide the new values. If the request is successful, Amazon GameLift
-  Streams returns the complete updated metadata for the stream group.
+  Streams returns the complete updated metadata for the stream group. Expired
+  stream groups cannot be updated.
   """
   @spec update_stream_group(map(), String.t() | atom(), update_stream_group_input(), list()) ::
           {:ok, update_stream_group_output(), any()}

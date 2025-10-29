@@ -2086,6 +2086,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      delete_processing_job_request() :: %{
+        required("ProcessingJobName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_processing_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       oidc_member_definition() :: %{
         "Groups" => list(String.t() | atom())
       }
@@ -15432,6 +15443,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      delete_training_job_request() :: %{
+        required("TrainingJobName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_training_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_mlflow_tracking_server_request() :: %{
         required("TrackingServerName") => String.t() | atom()
       }
@@ -19533,11 +19555,15 @@ defmodule AWS.SageMaker do
 
   @type delete_pipeline_errors() :: conflict_exception() | resource_not_found()
 
+  @type delete_processing_job_errors() :: resource_in_use() | resource_not_found()
+
   @type delete_project_errors() :: conflict_exception()
 
   @type delete_space_errors() :: resource_in_use() | resource_not_found()
 
   @type delete_studio_lifecycle_config_errors() :: resource_in_use() | resource_not_found()
+
+  @type delete_training_job_errors() :: resource_in_use() | resource_not_found()
 
   @type delete_trial_errors() :: resource_not_found()
 
@@ -22589,6 +22615,26 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Deletes a processing job.
+
+  After Amazon SageMaker deletes a processing job, all of the metadata for the
+  processing job is lost. You can delete only processing jobs that are in a
+  terminal state (`Stopped`, `Failed`, or `Completed`). You cannot delete a job
+  that is in the `InProgress` or `Stopping` state. After deleting the job, you can
+  reuse its name to create another processing job.
+  """
+  @spec delete_processing_job(map(), delete_processing_job_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_processing_job_errors()}
+  def delete_processing_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteProcessingJob", input, options)
+  end
+
+  @doc """
   Delete the specified project.
   """
   @spec delete_project(map(), delete_project_input(), list()) ::
@@ -22655,6 +22701,27 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteTags", input, options)
+  end
+
+  @doc """
+  Deletes a training job.
+
+  After SageMaker deletes a training job, all of the metadata for the training job
+  is lost. You can delete only training jobs that are in a terminal state
+  (`Stopped`, `Failed`, or `Completed`) and don't retain an `Available` [managed warm
+  pool](https://docs.aws.amazon.com/sagemaker/latest/dg/train-warm-pools.html).
+  You cannot delete a job that is in the `InProgress` or `Stopping` state. After
+  deleting the job, you can reuse its name to create another training job.
+  """
+  @spec delete_training_job(map(), delete_training_job_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_training_job_errors()}
+  def delete_training_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteTrainingJob", input, options)
   end
 
   @doc """

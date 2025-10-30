@@ -515,6 +515,18 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      web_location() :: %{
+        "domain" => [String.t() | atom()],
+        "url" => [String.t() | atom()]
+      }
+
+  """
+  @type web_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       bidirectional_input_payload_part() :: %{
         "bytes" => binary()
       }
@@ -584,6 +596,19 @@ defmodule AWS.BedrockRuntime do
   @type guardrail_automated_reasoning_translation_ambiguous_finding() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      tool_result_block_start() :: %{
+        "status" => list(any()),
+        "toolUseId" => String.t() | atom(),
+        "type" => [String.t() | atom()]
+      }
+
+  """
+  @type tool_result_block_start() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -723,7 +748,8 @@ defmodule AWS.BedrockRuntime do
 
       tool_use_block_start() :: %{
         "name" => String.t() | atom(),
-        "toolUseId" => String.t() | atom()
+        "toolUseId" => String.t() | atom(),
+        "type" => list(any())
       }
 
   """
@@ -1055,6 +1081,17 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      system_tool() :: %{
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type system_tool() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_invocation_metrics() :: %{
         "guardrailCoverage" => guardrail_coverage(),
         "guardrailProcessingLatency" => float(),
@@ -1103,7 +1140,8 @@ defmodule AWS.BedrockRuntime do
       tool_result_block() :: %{
         "content" => list(list()),
         "status" => list(any()),
-        "toolUseId" => String.t() | atom()
+        "toolUseId" => String.t() | atom(),
+        "type" => [String.t() | atom()]
       }
 
   """
@@ -1127,7 +1165,8 @@ defmodule AWS.BedrockRuntime do
       tool_use_block() :: %{
         "input" => [any()],
         "name" => String.t() | atom(),
-        "toolUseId" => String.t() | atom()
+        "toolUseId" => String.t() | atom(),
+        "type" => list(any())
       }
 
   """

@@ -3,10 +3,9 @@
 
 defmodule AWS.BedrockAgentCoreControl do
   @moduledoc """
-  is in preview release and is subject to change.
+  Welcome to the Amazon Bedrock AgentCore Control plane API reference.
 
-  Welcome to the Amazon Bedrock AgentCore Control plane API reference. Control
-  plane actions configure, create, modify, and monitor Amazon Web Services
+  Control plane actions configure, create, modify, and monitor Amazon Web Services
   resources.
   """
 
@@ -740,6 +739,7 @@ defmodule AWS.BedrockAgentCoreControl do
       get_browser_response() :: %{
         "browserArn" => String.t() | atom(),
         "browserId" => String.t() | atom(),
+        "browserSigning" => browser_signing_config_output(),
         "createdAt" => non_neg_integer(),
         "description" => String.t() | atom(),
         "executionRoleArn" => String.t() | atom(),
@@ -1056,6 +1056,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       create_browser_request() :: %{
+        optional("browserSigning") => browser_signing_config_input(),
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
         optional("executionRoleArn") => String.t() | atom(),
@@ -2108,6 +2109,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      browser_signing_config_output() :: %{
+        "enabled" => [boolean()]
+      }
+
+  """
+  @type browser_signing_config_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       semantic_override_extraction_configuration_input() :: %{
         "appendToPrompt" => String.t() | atom(),
         "modelId" => [String.t() | atom()]
@@ -2498,6 +2510,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type get_browser_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      browser_signing_config_input() :: %{
+        "enabled" => [boolean()]
+      }
+
+  """
+  @type browser_signing_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

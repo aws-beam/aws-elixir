@@ -1452,6 +1452,18 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
+      get_managed_thing_certificate_response() :: %{
+        "CertificatePem" => String.t() | atom(),
+        "ManagedThingId" => String.t() | atom()
+      }
+
+  """
+  @type get_managed_thing_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_unavailable_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -2655,6 +2667,15 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
+      get_managed_thing_certificate_request() :: %{}
+
+  """
+  @type get_managed_thing_certificate_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       managed_thing_schema_list_item() :: %{
         "CapabilityId" => String.t() | atom(),
         "EndpointId" => String.t() | atom(),
@@ -2735,6 +2756,7 @@ defmodule AWS.IoTManagedIntegrations do
           | service_unavailable_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | unauthorized_exception()
 
   @type create_cloud_connector_errors() ::
           throttling_exception()
@@ -2748,7 +2770,9 @@ defmodule AWS.IoTManagedIntegrations do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | resource_not_found_exception()
           | conflict_exception()
+          | unauthorized_exception()
 
   @type create_credential_locker_errors() ::
           throttling_exception()
@@ -2831,6 +2855,7 @@ defmodule AWS.IoTManagedIntegrations do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type delete_connector_destination_errors() ::
           throttling_exception()
@@ -2998,6 +3023,15 @@ defmodule AWS.IoTManagedIntegrations do
           | unauthorized_exception()
 
   @type get_managed_thing_capabilities_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
+
+  @type get_managed_thing_certificate_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -3317,6 +3351,7 @@ defmodule AWS.IoTManagedIntegrations do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type update_connector_destination_errors() ::
           throttling_exception()
@@ -3468,10 +3503,9 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
-  Create a product credential locker.
+  Create a credential locker.
 
-  This operation will trigger the creation of all the manufacturing resources
-  including the Wi-Fi setup key pair and device certificate.
+  This operation will not trigger the creation of all the manufacturing resources.
   """
   @spec create_credential_locker(map(), create_credential_locker_request(), list()) ::
           {:ok, create_credential_locker_response(), any()}
@@ -3500,10 +3534,11 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
-  Create a destination.
+  Create a notification destination such as Kinesis Data Streams that receive
+  events and notifications from Managed integrations.
 
-  IoT managed integrations uses the destination to determine where to deliver
-  notifications for a device.
+  Managed integrations uses the destination to determine where to deliver
+  notifications.
   """
   @spec create_destination(map(), create_destination_request(), list()) ::
           {:ok, create_destination_response(), any()}
@@ -3565,7 +3600,8 @@ defmodule AWS.IoTManagedIntegrations do
   Creates a managed thing.
 
   A managed thing contains the device identifier, protocol supported, and
-  capabilities of the device in a protocol-specific format.
+  capabilities of the device in a data model format defined by Managed
+  integrations.
   """
   @spec create_managed_thing(map(), create_managed_thing_request(), list()) ::
           {:ok, create_managed_thing_response(), any()}
@@ -3630,7 +3666,7 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
-  Create an over-the-air (OTA) task to update a device.
+  Create an over-the-air (OTA) task to target a device.
   """
   @spec create_ota_task(map(), create_ota_task_request(), list()) ::
           {:ok, create_ota_task_response(), any()}
@@ -3721,7 +3757,11 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
-  Remove a third party account and related devices from an end user.
+  Remove a third-party account association for an end user.
+
+  You must first call the `DeregisterAccountAssociation` to remove the connection
+  between the managed thing and the third-party account before calling the
+  `DeleteAccountAssociation` API.
   """
   @spec delete_account_association(
           map(),
@@ -3789,8 +3829,10 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
-  Delete a connector destination for connecting a cloud-to-cloud (C2C) connector
-  to the customer's Amazon Web Services account.
+  Delete a connector destination linked to a cloud-to-cloud (C2C) connector.
+
+  Deletion can't be done if the account association has used this connector
+  destination.
   """
   @spec delete_connector_destination(
           map(),
@@ -3861,7 +3903,7 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
-  Deletes a customer-managed destination specified by id.
+  Deletes a notification destination specified by name.
   """
   @spec delete_destination(map(), String.t() | atom(), delete_destination_request(), list()) ::
           {:ok, nil, any()}
@@ -3926,8 +3968,10 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   Delete a managed thing.
 
-  If a controller is deleted, all of the devices connected to it will have their
-  status changed to `PENDING`. It is not possible to remove a cloud device.
+  For direct-connected and hub-connected devices connecting with Managed
+  integrations via a controller, all of the devices connected to it will have
+  their status changed to `PENDING`. It is not possible to remove a cloud-to-cloud
+  device.
   """
   @spec delete_managed_thing(map(), String.t() | atom(), delete_managed_thing_request(), list()) ::
           {:ok, nil, any()}
@@ -4092,8 +4136,7 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
-  Deregisters an account association, removing the connection between a managed
-  thing and a third-party account.
+  Deregister an account association from a managed thing.
   """
   @spec deregister_account_association(map(), deregister_account_association_request(), list()) ::
           {:ok, nil, any()}
@@ -4141,7 +4184,7 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
-  Gets all the information about a connector for a connector developer.
+  Get configuration details for a cloud connector.
   """
   @spec get_cloud_connector(map(), String.t() | atom(), list()) ::
           {:ok, get_cloud_connector_response(), any()}
@@ -4159,8 +4202,7 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
-  Get a connector destination of a cloud-to-cloud (C2C) connector connecting to a
-  customer's Amazon Web Services account.
+  Get connector destination details linked to a cloud-to-cloud (C2C) connector.
   """
   @spec get_connector_destination(map(), String.t() | atom(), list()) ::
           {:ok, get_connector_destination_response(), any()}
@@ -4236,7 +4278,7 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
-  Gets a destination by ID.
+  Gets a destination by name.
   """
   @spec get_destination(map(), String.t() | atom(), list()) ::
           {:ok, get_destination_response(), any()}
@@ -4308,7 +4350,7 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
-  Get the attributes and capabilities associated with a managed thing.
+  Get details of a managed thing including its attributes and capabilities.
   """
   @spec get_managed_thing(map(), String.t() | atom(), list()) ::
           {:ok, get_managed_thing_response(), any()}
@@ -4335,6 +4377,24 @@ defmodule AWS.IoTManagedIntegrations do
           | {:error, get_managed_thing_capabilities_errors()}
   def get_managed_thing_capabilities(%Client{} = client, identifier, options \\ []) do
     url_path = "/managed-things-capabilities/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the certificate PEM for a managed IoT thing.
+  """
+  @spec get_managed_thing_certificate(map(), String.t() | atom(), list()) ::
+          {:ok, get_managed_thing_certificate_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_managed_thing_certificate_errors()}
+  def get_managed_thing_certificate(%Client{} = client, identifier, options \\ []) do
+    url_path = "/managed-things-certificate/#{AWS.Util.encode_uri(identifier)}"
     headers = []
     query_params = []
 
@@ -4419,7 +4479,7 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
-  Get a notification configuration.
+  Get a notification configuration for a specified event type.
   """
   @spec get_notification_configuration(map(), String.t() | atom(), list()) ::
           {:ok, get_notification_configuration_response(), any()}
@@ -4437,7 +4497,7 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
-  Get the over-the-air (OTA) task.
+  Get details of the over-the-air (OTA) task by its task id.
   """
   @spec get_ota_task(map(), String.t() | atom(), list()) ::
           {:ok, get_ota_task_response(), any()}
@@ -4491,8 +4551,7 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
-  Get the runtime log configuration for a specific managed thing or for all
-  managed things as a group.
+  Get the runtime log configuration for a specific managed thing.
   """
   @spec get_runtime_log_configuration(map(), String.t() | atom(), list()) ::
           {:ok, get_runtime_log_configuration_response(), any()}
@@ -4601,7 +4660,8 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
-  Returns a list of connectors based on permissions.
+  Returns a list of connectors filtered by its Lambda Amazon Resource Name (ARN)
+  and `type`.
   """
   @spec list_cloud_connectors(
           map(),
@@ -4754,7 +4814,7 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
-  List all destination names under one Amazon Web Services account.
+  List all notification destinations.
   """
   @spec list_destinations(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_destinations_response(), any()}
@@ -5639,8 +5699,7 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
-  Reset a runtime log configuration for a specific managed thing or for all
-  managed things as a group.
+  Reset a runtime log configuration for a specific managed thing.
   """
   @spec reset_runtime_log_configuration(
           map(),
@@ -5781,8 +5840,8 @@ defmodule AWS.IoTManagedIntegrations do
   This API is used to start device discovery for hub-connected and
   third-party-connected devices.
 
-  The authentication material (install code) is passed as a message to the
-  controller telling it to start the discovery.
+  The authentication material (install code) is delivered as a message to the
+  controller instructing it to start the discovery.
   """
   @spec start_device_discovery(map(), start_device_discovery_request(), list()) ::
           {:ok, start_device_discovery_response(), any()}
@@ -5976,7 +6035,7 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
-  Update a destination specified by id.
+  Update a destination specified by name.
   """
   @spec update_destination(map(), String.t() | atom(), update_destination_request(), list()) ::
           {:ok, nil, any()}

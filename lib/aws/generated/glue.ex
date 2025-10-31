@@ -4229,7 +4229,8 @@ defmodule AWS.Glue do
       get_glue_identity_center_configuration_response() :: %{
         "ApplicationArn" => String.t() | atom(),
         "InstanceArn" => String.t() | atom(),
-        "Scopes" => list(String.t() | atom())
+        "Scopes" => list(String.t() | atom()),
+        "UserBackgroundSessionsEnabled" => boolean()
       }
       
   """
@@ -9131,7 +9132,8 @@ defmodule AWS.Glue do
   ## Example:
       
       update_glue_identity_center_configuration_request() :: %{
-        optional("Scopes") => list(String.t() | atom())
+        optional("Scopes") => list(String.t() | atom()),
+        optional("UserBackgroundSessionsEnabled") => boolean()
       }
       
   """
@@ -13015,6 +13017,7 @@ defmodule AWS.Glue do
       
       create_glue_identity_center_configuration_request() :: %{
         optional("Scopes") => list(String.t() | atom()),
+        optional("UserBackgroundSessionsEnabled") => boolean(),
         required("InstanceArn") => String.t() | atom()
       }
       

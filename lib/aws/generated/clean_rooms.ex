@@ -2135,7 +2135,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       differential_privacy_column() :: %{
-        "name" => [String.t() | atom()]
+        "name" => String.t() | atom()
       }
 
   """
@@ -3009,6 +3009,7 @@ defmodule AWS.CleanRooms do
 
       worker_compute_configuration() :: %{
         "number" => [integer()],
+        "properties" => list(),
         "type" => list(any())
       }
 

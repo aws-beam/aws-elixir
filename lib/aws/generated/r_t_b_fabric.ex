@@ -1233,11 +1233,11 @@ defmodule AWS.RTBFabric do
   end
 
   @doc """
-  Accepts a link request between RTB applications.
+  Accepts a link request between gateways.
 
-  When a requester RTB application requests to link with a responder RTB
-  application, the responder can use this operation to accept the link request and
-  establish the connection.
+  When a requester gateway requests to link with a responder gateway, the
+  responder can use this operation to accept the link request and establish the
+  connection.
   """
   @spec accept_link(
           map(),
@@ -1308,10 +1308,10 @@ defmodule AWS.RTBFabric do
   end
 
   @doc """
-  Creates a new link between RTB applications.
+  Creates a new link between gateways.
 
-  Establishes a connection that allows RTB applications to communicate and
-  exchange bid requests and responses.
+  Establishes a connection that allows gateways to communicate and exchange bid
+  requests and responses.
   """
   @spec create_link(map(), String.t() | atom(), create_link_request(), list()) ::
           {:ok, create_link_response(), any()}
@@ -1404,6 +1404,8 @@ defmodule AWS.RTBFabric do
 
   @doc """
   Creates a responder gateway.
+
+  A domain name or managed endpoint is required.
   """
   @spec create_responder_gateway(map(), create_responder_gateway_request(), list()) ::
           {:ok, create_responder_gateway_response(), any()}
@@ -1469,10 +1471,10 @@ defmodule AWS.RTBFabric do
   end
 
   @doc """
-  Deletes a link between RTB applications.
+  Deletes a link between gateways.
 
-  Permanently removes the connection between RTB applications. This action cannot
-  be undone.
+  Permanently removes the connection between gateways. This action cannot be
+  undone.
   """
   @spec delete_link(
           map(),
@@ -1632,10 +1634,10 @@ defmodule AWS.RTBFabric do
   end
 
   @doc """
-  Retrieves information about a link between RTB applications.
+  Retrieves information about a link between gateways.
 
   Returns detailed information about the link configuration, status, and
-  associated RTB applications.
+  associated gateways.
   """
   @spec get_link(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_link_response(), any()}
@@ -1709,10 +1711,10 @@ defmodule AWS.RTBFabric do
   end
 
   @doc """
-  Lists links associated with an RTB application.
+  Lists links associated with gateways.
 
-  Returns a list of all links for the specified RTB application, including their
-  status and configuration details.
+  Returns a list of all links for the specified gateways, including their status
+  and configuration details.
   """
   @spec list_links(
           map(),
@@ -1858,10 +1860,10 @@ defmodule AWS.RTBFabric do
   end
 
   @doc """
-  Rejects a link request between RTB applications.
+  Rejects a link request between gateways.
 
-  When a requester RTB application requests to link with a responder RTB
-  application, the responder can use this operation to decline the link request.
+  When a requester gateway requests to link with a responder gateway, the
+  responder can use this operation to decline the link request.
   """
   @spec reject_link(
           map(),
@@ -1961,7 +1963,7 @@ defmodule AWS.RTBFabric do
   end
 
   @doc """
-  Updates the configuration of a link between RTB applications.
+  Updates the configuration of a link between gateways.
 
   Allows you to modify settings and parameters for an existing link.
   """

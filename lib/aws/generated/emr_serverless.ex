@@ -317,7 +317,8 @@ defmodule AWS.EMRServerless do
   ## Example:
 
       identity_center_configuration_input() :: %{
-        "identityCenterInstanceArn" => String.t() | atom()
+        "identityCenterInstanceArn" => String.t() | atom(),
+        "userBackgroundSessionsEnabled" => [boolean()]
       }
 
   """
@@ -802,7 +803,8 @@ defmodule AWS.EMRServerless do
 
       identity_center_configuration() :: %{
         "identityCenterApplicationArn" => String.t() | atom(),
-        "identityCenterInstanceArn" => String.t() | atom()
+        "identityCenterInstanceArn" => String.t() | atom(),
+        "userBackgroundSessionsEnabled" => [boolean()]
       }
 
   """

@@ -789,6 +789,7 @@ defmodule AWS.KMS do
         optional("XksProxyUriEndpoint") => String.t() | atom(),
         optional("XksProxyUriPath") => String.t() | atom(),
         optional("XksProxyVpcEndpointServiceName") => String.t() | atom(),
+        optional("XksProxyVpcEndpointServiceOwner") => String.t() | atom(),
         required("CustomKeyStoreName") => String.t() | atom()
       }
       
@@ -1120,6 +1121,7 @@ defmodule AWS.KMS do
         optional("XksProxyUriEndpoint") => String.t() | atom(),
         optional("XksProxyUriPath") => String.t() | atom(),
         optional("XksProxyVpcEndpointServiceName") => String.t() | atom(),
+        optional("XksProxyVpcEndpointServiceOwner") => String.t() | atom(),
         required("CustomKeyStoreId") => String.t() | atom()
       }
       
@@ -2103,7 +2105,8 @@ defmodule AWS.KMS do
         "Connectivity" => list(any()),
         "UriEndpoint" => String.t() | atom(),
         "UriPath" => String.t() | atom(),
-        "VpcEndpointServiceName" => String.t() | atom()
+        "VpcEndpointServiceName" => String.t() | atom(),
+        "VpcEndpointServiceOwner" => String.t() | atom()
       }
       
   """
@@ -3683,8 +3686,8 @@ defmodule AWS.KMS do
 
   You must use an asymmetric NIST-recommended elliptic curve (ECC) or SM2 (China
   Regions
-  only) KMS key pair with a `KeyUsage`
-  value of `KEY_AGREEMENT` to call DeriveSharedSecret.
+  only) KMS key pair with a `KeyUsage` value of `KEY_AGREEMENT` to call
+  DeriveSharedSecret.
 
   DeriveSharedSecret uses the [Elliptic Curve Cryptography Cofactor Diffie-Hellman Primitive](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Ar3.pdf#page=60)
   (ECDH) to establish a

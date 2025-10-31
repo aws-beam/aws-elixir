@@ -558,7 +558,8 @@ defmodule AWS.DocDB do
       global_cluster_member() :: %{
         "DBClusterArn" => String.t() | atom(),
         "IsWriter" => boolean(),
-        "Readers" => list(String.t() | atom())
+        "Readers" => list(String.t() | atom()),
+        "SynchronizationStatus" => list(any())
       }
       
   """
@@ -1282,12 +1283,14 @@ defmodule AWS.DocDB do
         "DeletionProtection" => boolean(),
         "Engine" => String.t() | atom(),
         "EngineVersion" => String.t() | atom(),
+        "FailoverState" => failover_state(),
         "GlobalClusterArn" => String.t() | atom(),
         "GlobalClusterIdentifier" => String.t() | atom(),
         "GlobalClusterMembers" => list(global_cluster_member()),
         "GlobalClusterResourceId" => String.t() | atom(),
         "Status" => String.t() | atom(),
-        "StorageEncrypted" => boolean()
+        "StorageEncrypted" => boolean(),
+        "TagList" => list(tag())
       }
       
   """
@@ -1396,6 +1399,20 @@ defmodule AWS.DocDB do
       
   """
   @type remove_from_global_cluster_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      failover_state() :: %{
+        "FromDbClusterArn" => String.t() | atom(),
+        "IsDataLossAllowed" => boolean(),
+        "Status" => list(any()),
+        "ToDbClusterArn" => String.t() | atom()
+      }
+      
+  """
+  @type failover_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

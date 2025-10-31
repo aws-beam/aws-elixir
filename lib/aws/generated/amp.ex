@@ -320,6 +320,27 @@ defmodule AWS.Amp do
 
   ## Example:
 
+      anomaly_detector_description() :: %{
+        "alias" => String.t() | atom(),
+        "anomalyDetectorId" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "configuration" => list(),
+        "createdAt" => [non_neg_integer()],
+        "evaluationIntervalInSeconds" => integer(),
+        "labels" => map(),
+        "missingDataAction" => list(),
+        "modifiedAt" => [non_neg_integer()],
+        "status" => anomaly_detector_status(),
+        "tags" => map()
+      }
+
+  """
+  @type anomaly_detector_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       query_logging_configuration_status() :: %{
         "statusCode" => String.t() | atom(),
         "statusReason" => [String.t() | atom()]
@@ -341,6 +362,18 @@ defmodule AWS.Amp do
 
   """
   @type create_rule_groups_namespace_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      anomaly_detector_status() :: %{
+        "statusCode" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+
+  """
+  @type anomaly_detector_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -436,6 +469,21 @@ defmodule AWS.Amp do
 
   """
   @type update_workspace_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_anomaly_detector_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("evaluationIntervalInSeconds") => integer(),
+        optional("labels") => map(),
+        optional("missingDataAction") => list(),
+        required("configuration") => list()
+      }
+
+  """
+  @type put_anomaly_detector_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -549,6 +597,17 @@ defmodule AWS.Amp do
 
   """
   @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_anomaly_detector_response() :: %{
+        "anomalyDetector" => anomaly_detector_description()
+      }
+
+  """
+  @type describe_anomaly_detector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -703,6 +762,20 @@ defmodule AWS.Amp do
 
   ## Example:
 
+      create_anomaly_detector_response() :: %{
+        "anomalyDetectorId" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "status" => anomaly_detector_status(),
+        "tags" => map()
+      }
+
+  """
+  @type create_anomaly_detector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_workspace_request() :: %{
         "clientToken" => String.t() | atom()
       }
@@ -796,6 +869,23 @@ defmodule AWS.Amp do
 
   """
   @type create_workspace_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      anomaly_detector_summary() :: %{
+        "alias" => String.t() | atom(),
+        "anomalyDetectorId" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "modifiedAt" => [non_neg_integer()],
+        "status" => anomaly_detector_status(),
+        "tags" => map()
+      }
+
+  """
+  @type anomaly_detector_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1007,6 +1097,19 @@ defmodule AWS.Amp do
 
   ## Example:
 
+      list_anomaly_detectors_request() :: %{
+        optional("alias") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_anomaly_detectors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       scraper_logging_configuration_status() :: %{
         "statusCode" => String.t() | atom(),
         "statusReason" => [String.t() | atom()]
@@ -1014,6 +1117,17 @@ defmodule AWS.Amp do
 
   """
   @type scraper_logging_configuration_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_anomaly_detector_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_anomaly_detector_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1195,6 +1309,32 @@ defmodule AWS.Amp do
 
   ## Example:
 
+      put_anomaly_detector_response() :: %{
+        "anomalyDetectorId" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "status" => anomaly_detector_status(),
+        "tags" => map()
+      }
+
+  """
+  @type put_anomaly_detector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_anomaly_detectors_response() :: %{
+        "anomalyDetectors" => list(anomaly_detector_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_anomaly_detectors_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_rule_groups_namespace_request() :: %{
         "clientToken" => String.t() | atom(),
         "data" => binary()
@@ -1214,6 +1354,21 @@ defmodule AWS.Amp do
 
   """
   @type create_query_logging_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      random_cut_forest_configuration() :: %{
+        "ignoreNearExpectedFromAbove" => list(),
+        "ignoreNearExpectedFromBelow" => list(),
+        "query" => String.t() | atom(),
+        "sampleSize" => [integer()],
+        "shingleSize" => [integer()]
+      }
+
+  """
+  @type random_cut_forest_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1242,6 +1397,23 @@ defmodule AWS.Amp do
 
   ## Example:
 
+      create_anomaly_detector_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("evaluationIntervalInSeconds") => integer(),
+        optional("labels") => map(),
+        optional("missingDataAction") => list(),
+        optional("tags") => map(),
+        required("alias") => String.t() | atom(),
+        required("configuration") => list()
+      }
+
+  """
+  @type create_anomaly_detector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_rule_groups_namespaces_request() :: %{
         "maxResults" => [integer()],
         "name" => String.t() | atom(),
@@ -1262,6 +1434,15 @@ defmodule AWS.Amp do
 
   """
   @type alert_manager_definition_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_anomaly_detector_request() :: %{}
+
+  """
+  @type describe_anomaly_detector_request() :: %{}
 
   @typedoc """
 
@@ -1329,6 +1510,14 @@ defmodule AWS.Amp do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type create_anomaly_detector_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
   @type create_logging_configuration_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -1368,6 +1557,14 @@ defmodule AWS.Amp do
           | conflict_exception()
 
   @type delete_alert_manager_definition_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_anomaly_detector_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1435,6 +1632,13 @@ defmodule AWS.Amp do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type describe_anomaly_detector_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type describe_logging_configuration_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -1491,6 +1695,13 @@ defmodule AWS.Amp do
   @type get_default_scraper_configuration_errors() ::
           throttling_exception() | access_denied_exception() | internal_server_exception()
 
+  @type list_anomaly_detectors_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_rule_groups_namespaces_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1524,6 +1735,14 @@ defmodule AWS.Amp do
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | conflict_exception()
+
+  @type put_anomaly_detector_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
 
   @type put_resource_policy_errors() ::
@@ -1640,6 +1859,44 @@ defmodule AWS.Amp do
           | {:error, create_alert_manager_definition_errors()}
   def create_alert_manager_definition(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/alertmanager/definition"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Creates an anomaly detector within a workspace using the Random Cut Forest
+  algorithm for time-series analysis.
+
+  The anomaly detector analyzes Amazon Managed Service for Prometheus metrics to
+  identify unusual patterns and behaviors.
+  """
+  @spec create_anomaly_detector(
+          map(),
+          String.t() | atom(),
+          create_anomaly_detector_request(),
+          list()
+        ) ::
+          {:ok, create_anomaly_detector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_anomaly_detector_errors()}
+  def create_anomaly_detector(%Client{} = client, workspace_id, input, options \\ []) do
+    url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/anomalydetectors"
     headers = []
     custom_headers = []
     query_params = []
@@ -1878,6 +2135,56 @@ defmodule AWS.Amp do
           | {:error, delete_alert_manager_definition_errors()}
   def delete_alert_manager_definition(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/alertmanager/definition"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Removes an anomaly detector from a workspace.
+
+  This operation is idempotent.
+  """
+  @spec delete_anomaly_detector(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_anomaly_detector_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_anomaly_detector_errors()}
+  def delete_anomaly_detector(
+        %Client{} = client,
+        anomaly_detector_id,
+        workspace_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/anomalydetectors/#{AWS.Util.encode_uri(anomaly_detector_id)}"
+
     headers = []
     custom_headers = []
 
@@ -2197,6 +2504,32 @@ defmodule AWS.Amp do
   end
 
   @doc """
+  Retrieves detailed information about a specific anomaly detector, including its
+  status and configuration.
+  """
+  @spec describe_anomaly_detector(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, describe_anomaly_detector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_anomaly_detector_errors()}
+  def describe_anomaly_detector(
+        %Client{} = client,
+        anomaly_detector_id,
+        workspace_id,
+        options \\ []
+      ) do
+    url_path =
+      "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/anomalydetectors/#{AWS.Util.encode_uri(anomaly_detector_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns complete information about the current rules and alerting logging
   configuration of the workspace.
 
@@ -2366,6 +2699,60 @@ defmodule AWS.Amp do
     url_path = "/scraperconfiguration"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a paginated list of anomaly detectors for a workspace with optional
+  filtering by alias.
+  """
+  @spec list_anomaly_detectors(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_anomaly_detectors_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_anomaly_detectors_errors()}
+  def list_anomaly_detectors(
+        %Client{} = client,
+        workspace_id,
+        alias \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/anomalydetectors"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(alias) do
+        [{"alias", alias} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -2573,6 +2960,57 @@ defmodule AWS.Amp do
           | {:error, put_alert_manager_definition_errors()}
   def put_alert_manager_definition(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/alertmanager/definition"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  When you call `PutAnomalyDetector`, the operation creates a new anomaly detector
+  if one doesn't exist, or updates an existing one.
+
+  Each call to this operation triggers a complete retraining of the detector,
+  which includes querying the minimum required samples and backfilling the
+  detector with historical data. This process occurs regardless of whether you're
+  making a minor change like updating the evaluation interval or making more
+  substantial modifications. The operation serves as the single method for
+  creating, updating, and retraining anomaly detectors.
+  """
+  @spec put_anomaly_detector(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          put_anomaly_detector_request(),
+          list()
+        ) ::
+          {:ok, put_anomaly_detector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_anomaly_detector_errors()}
+  def put_anomaly_detector(
+        %Client{} = client,
+        anomaly_detector_id,
+        workspace_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/anomalydetectors/#{AWS.Util.encode_uri(anomaly_detector_id)}"
+
     headers = []
     custom_headers = []
     query_params = []

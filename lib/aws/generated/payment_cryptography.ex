@@ -1317,11 +1317,12 @@ defmodule AWS.PaymentCryptography do
   Payment Cryptography key, enabling the key to be used for cryptographic
   operations in additional Amazon Web Services Regions.
 
-  Multi-region keys allow you to use the same key material across multiple Amazon
-  Web Services Regions, providing lower latency for applications distributed
-  across regions. When you add Replication Regions, Amazon Web Services Payment
-  Cryptography securely replicates the key material to the specified Amazon Web
-  Services Regions.
+  [Multi-Region key replication](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-multi-region-replication.html)
+  allow you to use the same key material across multiple Amazon Web Services
+  Regions, providing lower latency for applications distributed across regions.
+  When you add Replication Regions, Amazon Web Services Payment Cryptography
+  securely replicates the key material to the specified Amazon Web Services
+  Regions.
 
   The key must be in an active state to add Replication Regions. You can add
   multiple regions in a single operation, and the key will be available for use in
@@ -1538,14 +1539,16 @@ defmodule AWS.PaymentCryptography do
   end
 
   @doc """
-  Disables multi-region key replication settings for the specified Amazon Web
-  Services Regions in your account, preventing new keys from being automatically
-  replicated to those regions.
+  Disables [Multi-Region key replication](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-multi-region-replication.html)
+  settings for the specified Amazon Web Services Regions in your Amazon Web
+  Services account, preventing new keys from being automatically replicated to
+  those regions.
 
-  After disabling default replication for specific regions, new keys created in
-  your account will not be automatically replicated to those regions. You can
-  still manually add replication to those regions for individual keys using the
-  AddKeyReplicationRegions operation.
+  After disabling Multi-Region key replication for specific regions, new keys
+  created in your account will not be automatically replicated to those regions.
+  You can still manually add replication to those regions for individual keys
+  using the
+  [AddKeyReplicationRegions](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_AddKeyReplicationRegions.html) operation.
 
   This operation does not affect existing keys or their current replication
   configuration.
@@ -1556,7 +1559,9 @@ defmodule AWS.PaymentCryptography do
   ## Related operations:
 
     *
-  [EnableDefaultKeyReplicationRegions](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_EnableDefaultKeyReplicationRegions.html)     *
+  [EnableDefaultKeyReplicationRegions](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_EnableDefaultKeyReplicationRegions.html)
+
+    *
   [GetDefaultKeyReplicationRegions](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetDefaultKeyReplicationRegions.html)
   """
   @spec disable_default_key_replication_regions(
@@ -1575,11 +1580,12 @@ defmodule AWS.PaymentCryptography do
   end
 
   @doc """
-  Enables multi-region key replication settings for your account, causing new keys
-  to be automatically replicated to the specified Amazon Web Services Regions when
+  Enables [Multi-Region key replication](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-multi-region-replication.html)
+  settings for your Amazon Web Services account, causing new keys to be
+  automatically replicated to the specified Amazon Web Services Regions when
   created.
 
-  When default Replication Regions are enabled, any new keys created in your
+  When Multi-Region key replication are enabled, any new keys created in your
   account will automatically be replicated to these regions unless you explicitly
   override this behavior during key creation. This simplifies key management for
   applications that operate across multiple regions.
@@ -1839,7 +1845,7 @@ defmodule AWS.PaymentCryptography do
   end
 
   @doc """
-  Used to retrieve the public key for a keypair.
+  Creates a certificate signing request (CSR) from a key pair.
   """
   @spec get_certificate_signing_request(map(), get_certificate_signing_request_input(), list()) ::
           {:ok, get_certificate_signing_request_output(), any()}
@@ -1853,10 +1859,10 @@ defmodule AWS.PaymentCryptography do
   end
 
   @doc """
-  Retrieves the list of regions where default key replication is currently enabled
-  for your account.
+  Retrieves the list of Amazon Web Services Regions where [Multi-Region key replication](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-multi-region-replication.html)
+  is currently enabled for your Amazon Web Services account.
 
-  This operation returns the current configuration of default Replication Regions.
+  This operation returns the current Multi-Region key replication configuration.
   New keys created in your account will be automatically replicated to these
   regions unless explicitly overridden during key creation.
 
@@ -2312,7 +2318,8 @@ defmodule AWS.PaymentCryptography do
 
   When you remove Replication Regions, the key material is securely deleted from
   those regions and can no longer be used for cryptographic operations there. This
-  operation is irreversible for the specified Amazon Web Services Regions.
+  operation is irreversible for the specified Amazon Web Services Regions. For
+  more information, see [Multi-Region key replication](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-multi-region-replication.html).
 
   Ensure that no active cryptographic operations or applications depend on the key
   in the regions you're removing before performing this operation.

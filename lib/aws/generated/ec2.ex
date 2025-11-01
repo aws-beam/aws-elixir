@@ -707,6 +707,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_ipam_prefix_list_resolver_result() :: %{
+        "IpamPrefixListResolver" => ipam_prefix_list_resolver()
+      }
+      
+  """
+  @type create_ipam_prefix_list_resolver_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       peering_attachment_status() :: %{
         "Code" => String.t() | atom(),
         "Message" => String.t() | atom()
@@ -1455,6 +1466,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_ipam_prefix_list_resolver_targets_result() :: %{
+        "IpamPrefixListResolverTargets" => list(ipam_prefix_list_resolver_target()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_ipam_prefix_list_resolver_targets_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       launch_template_instance_maintenance_options() :: %{
         "AutoRecovery" => list(any())
       }
@@ -1726,6 +1749,18 @@ defmodule AWS.EC2 do
       
   """
   @type get_route_server_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ipam_prefix_list_resolver_rules_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "Rules" => list(ipam_prefix_list_resolver_rule())
+      }
+      
+  """
+  @type get_ipam_prefix_list_resolver_rules_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5641,6 +5676,23 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_ipam_prefix_list_resolver_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("Rules") => list(ipam_prefix_list_resolver_rule_request()),
+        optional("TagSpecifications") => list(tag_specification()),
+        required("AddressFamily") => list(any()),
+        required("IpamId") => String.t() | atom()
+      }
+      
+  """
+  @type create_ipam_prefix_list_resolver_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       verified_access_endpoint_target() :: %{
         "VerifiedAccessEndpointId" => String.t() | atom(),
         "VerifiedAccessEndpointTargetDns" => String.t() | atom(),
@@ -5656,6 +5708,8 @@ defmodule AWS.EC2 do
       
       managed_prefix_list() :: %{
         "AddressFamily" => String.t() | atom(),
+        "IpamPrefixListResolverSyncEnabled" => boolean(),
+        "IpamPrefixListResolverTargetId" => String.t() | atom(),
         "MaxEntries" => integer(),
         "OwnerId" => String.t() | atom(),
         "PrefixListArn" => String.t() | atom(),
@@ -8399,6 +8453,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      delete_ipam_prefix_list_resolver_request() :: %{
+        optional("DryRun") => boolean(),
+        required("IpamPrefixListResolverId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_ipam_prefix_list_resolver_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_traffic_mirror_filter_network_services_request() :: %{
         optional("AddNetworkServices") => list(list(any())()),
         optional("DryRun") => boolean(),
@@ -9543,6 +9609,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      ipam_prefix_list_resolver_version() :: %{
+        "Version" => float()
+      }
+      
+  """
+  @type ipam_prefix_list_resolver_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_key_pair_request() :: %{
         optional("DryRun") => boolean(),
         optional("KeyName") => String.t() | atom(),
@@ -9759,6 +9836,7 @@ defmodule AWS.EC2 do
         optional("AddEntries") => list(add_prefix_list_entry()),
         optional("CurrentVersion") => float(),
         optional("DryRun") => boolean(),
+        optional("IpamPrefixListResolverSyncEnabled") => boolean(),
         optional("MaxEntries") => integer(),
         optional("PrefixListName") => String.t() | atom(),
         optional("RemoveEntries") => list(remove_prefix_list_entry()),
@@ -11353,6 +11431,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      delete_ipam_prefix_list_resolver_target_request() :: %{
+        optional("DryRun") => boolean(),
+        required("IpamPrefixListResolverTargetId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_ipam_prefix_list_resolver_target_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_transit_gateway_policy_tables_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()),
@@ -12599,6 +12689,21 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      modify_ipam_prefix_list_resolver_target_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("DesiredVersion") => float(),
+        optional("DryRun") => boolean(),
+        optional("TrackLatestVersion") => boolean(),
+        required("IpamPrefixListResolverTargetId") => String.t() | atom()
+      }
+      
+  """
+  @type modify_ipam_prefix_list_resolver_target_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_dhcp_options_result() :: %{
         "DhcpOptions" => list(dhcp_options()),
         "NextToken" => String.t() | atom()
@@ -12758,6 +12863,17 @@ defmodule AWS.EC2 do
       
   """
   @type delete_subnet_cidr_reservation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_ipam_prefix_list_resolver_result() :: %{
+        "IpamPrefixListResolver" => ipam_prefix_list_resolver()
+      }
+      
+  """
+  @type modify_ipam_prefix_list_resolver_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13865,6 +13981,22 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_ipam_prefix_list_resolver_targets_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("IpamPrefixListResolverId") => String.t() | atom(),
+        optional("IpamPrefixListResolverTargetIds") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_ipam_prefix_list_resolver_targets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       capacity_reservation_target_response() :: %{
         "CapacityReservationId" => String.t() | atom(),
         "CapacityReservationResourceGroupArn" => String.t() | atom()
@@ -14477,6 +14609,17 @@ defmodule AWS.EC2 do
       
   """
   @type associate_address_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_ipam_prefix_list_resolver_target_result() :: %{
+        "IpamPrefixListResolverTarget" => ipam_prefix_list_resolver_target()
+      }
+      
+  """
+  @type create_ipam_prefix_list_resolver_target_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15501,6 +15644,28 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      ipam_prefix_list_resolver_target() :: %{
+        "DesiredVersion" => float(),
+        "IpamPrefixListResolverId" => String.t() | atom(),
+        "IpamPrefixListResolverTargetArn" => String.t() | atom(),
+        "IpamPrefixListResolverTargetId" => String.t() | atom(),
+        "LastSyncedVersion" => float(),
+        "OwnerId" => String.t() | atom(),
+        "PrefixListId" => String.t() | atom(),
+        "PrefixListRegion" => String.t() | atom(),
+        "State" => list(any()),
+        "StateMessage" => String.t() | atom(),
+        "Tags" => list(tag()),
+        "TrackLatestVersion" => boolean()
+      }
+      
+  """
+  @type ipam_prefix_list_resolver_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       traffic_mirror_port_range_request() :: %{
         "FromPort" => integer(),
         "ToPort" => integer()
@@ -15833,6 +15998,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      ipam_prefix_list_resolver_version_entry() :: %{
+        "Cidr" => String.t() | atom()
+      }
+      
+  """
+  @type ipam_prefix_list_resolver_version_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       export_client_vpn_client_configuration_result() :: %{
         "ClientConfiguration" => String.t() | atom()
       }
@@ -15851,6 +16027,27 @@ defmodule AWS.EC2 do
       
   """
   @type delete_transit_gateway_route_table_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ipam_prefix_list_resolver() :: %{
+        "AddressFamily" => list(any()),
+        "Description" => String.t() | atom(),
+        "IpamArn" => String.t() | atom(),
+        "IpamPrefixListResolverArn" => String.t() | atom(),
+        "IpamPrefixListResolverId" => String.t() | atom(),
+        "IpamRegion" => String.t() | atom(),
+        "LastVersionCreationStatus" => list(any()),
+        "LastVersionCreationStatusMessage" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "State" => list(any()),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type ipam_prefix_list_resolver() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16025,6 +16222,23 @@ defmodule AWS.EC2 do
       
   """
   @type spot_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ipam_prefix_list_resolver_rule_condition_request() :: %{
+        "Cidr" => String.t() | atom(),
+        "IpamPoolId" => String.t() | atom(),
+        "Operation" => list(any()),
+        "ResourceId" => String.t() | atom(),
+        "ResourceOwner" => String.t() | atom(),
+        "ResourceRegion" => String.t() | atom(),
+        "ResourceTag" => request_ipam_resource_tag()
+      }
+      
+  """
+  @type ipam_prefix_list_resolver_rule_condition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16767,6 +16981,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_ipam_prefix_list_resolvers_result() :: %{
+        "IpamPrefixListResolvers" => list(ipam_prefix_list_resolver()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_ipam_prefix_list_resolvers_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_volume_status_result() :: %{
         "NextToken" => String.t() | atom(),
         "VolumeStatuses" => list(volume_status_item())
@@ -16976,6 +17202,23 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      ipam_prefix_list_resolver_rule_condition() :: %{
+        "Cidr" => String.t() | atom(),
+        "IpamPoolId" => String.t() | atom(),
+        "Operation" => list(any()),
+        "ResourceId" => String.t() | atom(),
+        "ResourceOwner" => String.t() | atom(),
+        "ResourceRegion" => String.t() | atom(),
+        "ResourceTag" => ipam_resource_tag()
+      }
+      
+  """
+  @type ipam_prefix_list_resolver_rule_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       snapshot_disk_container() :: %{
         "Description" => String.t() | atom(),
         "Format" => String.t() | atom(),
@@ -17147,6 +17390,17 @@ defmodule AWS.EC2 do
       
   """
   @type carrier_gateway() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_ipam_prefix_list_resolver_target_result() :: %{
+        "IpamPrefixListResolverTarget" => ipam_prefix_list_resolver_target()
+      }
+      
+  """
+  @type delete_ipam_prefix_list_resolver_target_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17407,6 +17661,20 @@ defmodule AWS.EC2 do
       
   """
   @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ipam_prefix_list_resolver_version_entries_result() :: %{
+        "Entries" => list(ipam_prefix_list_resolver_version_entry()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_ipam_prefix_list_resolver_version_entries_result() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -17693,6 +17961,23 @@ defmodule AWS.EC2 do
       
   """
   @type enable_address_transfer_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ipam_prefix_list_resolver_version_entries_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("IpamPrefixListResolverId") => String.t() | atom(),
+        required("IpamPrefixListResolverVersion") => float()
+      }
+      
+  """
+  @type get_ipam_prefix_list_resolver_version_entries_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -19438,6 +19723,17 @@ defmodule AWS.EC2 do
       
   """
   @type export_image_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_ipam_prefix_list_resolver_target_result() :: %{
+        "IpamPrefixListResolverTarget" => ipam_prefix_list_resolver_target()
+      }
+      
+  """
+  @type modify_ipam_prefix_list_resolver_target_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -21711,6 +22007,21 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_ipam_prefix_list_resolvers_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("IpamPrefixListResolverIds") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_ipam_prefix_list_resolvers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       disassociate_enclave_certificate_iam_role_request() :: %{
         optional("DryRun") => boolean(),
         required("CertificateArn") => String.t() | atom(),
@@ -22758,6 +23069,21 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      get_ipam_prefix_list_resolver_rules_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("IpamPrefixListResolverId") => String.t() | atom()
+      }
+      
+  """
+  @type get_ipam_prefix_list_resolver_rules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_transit_gateway_multicast_domain_request() :: %{
         optional("DryRun") => boolean(),
         optional("Options") => create_transit_gateway_multicast_domain_request_options(),
@@ -22865,9 +23191,12 @@ defmodule AWS.EC2 do
       
       vpc_encryption_control_exclusions() :: %{
         optional("EgressOnlyInternetGateway") => vpc_encryption_control_exclusion(),
+        optional("ElasticFileSystem") => vpc_encryption_control_exclusion(),
         optional("InternetGateway") => vpc_encryption_control_exclusion(),
+        optional("Lambda") => vpc_encryption_control_exclusion(),
         optional("NatGateway") => vpc_encryption_control_exclusion(),
         optional("VirtualPrivateGateway") => vpc_encryption_control_exclusion(),
+        optional("VpcLattice") => vpc_encryption_control_exclusion(),
         optional("VpcPeering") => vpc_encryption_control_exclusion()
       }
       
@@ -23744,6 +24073,22 @@ defmodule AWS.EC2 do
       
   """
   @type delete_route_server_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ipam_prefix_list_resolver_versions_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("IpamPrefixListResolverVersions") => list(float()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("IpamPrefixListResolverId") => String.t() | atom()
+      }
+      
+  """
+  @type get_ipam_prefix_list_resolver_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -25461,6 +25806,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      delete_ipam_prefix_list_resolver_result() :: %{
+        "IpamPrefixListResolver" => ipam_prefix_list_resolver()
+      }
+      
+  """
+  @type delete_ipam_prefix_list_resolver_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_vpc_endpoint_service_permissions_result() :: %{
         "AllowedPrincipals" => list(allowed_principal()),
         "NextToken" => String.t() | atom()
@@ -26134,6 +26490,24 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_ipam_prefix_list_resolver_target_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("DesiredVersion") => float(),
+        optional("DryRun") => boolean(),
+        optional("TagSpecifications") => list(tag_specification()),
+        required("IpamPrefixListResolverId") => String.t() | atom(),
+        required("PrefixListId") => String.t() | atom(),
+        required("PrefixListRegion") => String.t() | atom(),
+        required("TrackLatestVersion") => boolean()
+      }
+      
+  """
+  @type create_ipam_prefix_list_resolver_target_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       vpn_connection_options() :: %{
         "EnableAcceleration" => boolean(),
         "LocalIpv4NetworkCidr" => String.t() | atom(),
@@ -26149,6 +26523,18 @@ defmodule AWS.EC2 do
       
   """
   @type vpn_connection_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ipam_prefix_list_resolver_versions_result() :: %{
+        "IpamPrefixListResolverVersions" => list(ipam_prefix_list_resolver_version()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_ipam_prefix_list_resolver_versions_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -28807,6 +29193,20 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      modify_ipam_prefix_list_resolver_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("Rules") => list(ipam_prefix_list_resolver_rule_request()),
+        required("IpamPrefixListResolverId") => String.t() | atom()
+      }
+      
+  """
+  @type modify_ipam_prefix_list_resolver_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       vpn_connection_options_specification() :: %{
         "EnableAcceleration" => boolean(),
         "LocalIpv4NetworkCidr" => String.t() | atom(),
@@ -29004,6 +29404,21 @@ defmodule AWS.EC2 do
       
   """
   @type delete_transit_gateway_connect_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ipam_prefix_list_resolver_rule_request() :: %{
+        "Conditions" => list(ipam_prefix_list_resolver_rule_condition_request()),
+        "IpamScopeId" => String.t() | atom(),
+        "ResourceType" => list(any()),
+        "RuleType" => list(any()),
+        "StaticCidr" => String.t() | atom()
+      }
+      
+  """
+  @type ipam_prefix_list_resolver_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -30652,6 +31067,21 @@ defmodule AWS.EC2 do
       
   """
   @type disk_image_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ipam_prefix_list_resolver_rule() :: %{
+        "Conditions" => list(ipam_prefix_list_resolver_rule_condition()),
+        "IpamScopeId" => String.t() | atom(),
+        "ResourceType" => list(any()),
+        "RuleType" => list(any()),
+        "StaticCidr" => String.t() | atom()
+      }
+      
+  """
+  @type ipam_prefix_list_resolver_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -32447,6 +32877,22 @@ defmodule AWS.EC2 do
   the `cancelled_running` state and the instances continue to run until they
   are interrupted or you terminate them manually.
 
+  ## Terminating an instance is permanent and irreversible.
+
+  After you terminate an instance, you can no longer connect to it, and it can't
+  be recovered.
+  All attached Amazon EBS volumes that are configured to be deleted on termination
+  are also permanently
+  deleted and can't be recovered. All data stored on instance store volumes is
+  permanently lost.
+  For more information, see [
+  How instance termination
+  works](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-ec2-instance-termination-works.html).
+
+  Before you terminate an instance, ensure that you have backed up all data that
+  you need to
+  retain after the termination to persistent storage.
+
   ## Restrictions
 
     *
@@ -33386,6 +33832,60 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateIpamPool", input, options)
+  end
+
+  @doc """
+  Creates an IPAM prefix list resolver.
+
+  An IPAM prefix list resolver is a component that manages the synchronization
+  between IPAM's CIDR selection rules and customer-managed prefix lists. It
+  automates connectivity configurations by selecting CIDRs from IPAM's database
+  based on your business logic and synchronizing them with prefix lists used in
+  resources such as VPC route tables and security groups.
+
+  For more information about IPAM prefix list resolver, see [Automate prefix list updates with
+  IPAM](https://docs.aws.amazon.com/vpc/latest/ipam/automate-prefix-list-updates.html)
+  in the *Amazon VPC IPAM User Guide*.
+  """
+  @spec create_ipam_prefix_list_resolver(
+          map(),
+          create_ipam_prefix_list_resolver_request(),
+          list()
+        ) ::
+          {:ok, create_ipam_prefix_list_resolver_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def create_ipam_prefix_list_resolver(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateIpamPrefixListResolver", input, options)
+  end
+
+  @doc """
+  Creates an IPAM prefix list resolver target.
+
+  An IPAM prefix list resolver target is an association between a specific
+  customer-managed prefix list and an IPAM prefix list resolver. The target
+  enables the resolver to synchronize CIDRs selected by its rules into the
+  specified prefix list, which can then be referenced in Amazon Web Services
+  resources.
+
+  For more information about IPAM prefix list resolver, see [Automate prefix list updates with
+  IPAM](https://docs.aws.amazon.com/vpc/latest/ipam/automate-prefix-list-updates.html)
+  in the *Amazon VPC IPAM User Guide*.
+  """
+  @spec create_ipam_prefix_list_resolver_target(
+          map(),
+          create_ipam_prefix_list_resolver_target_request(),
+          list()
+        ) ::
+          {:ok, create_ipam_prefix_list_resolver_target_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def create_ipam_prefix_list_resolver_target(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateIpamPrefixListResolverTarget", input, options)
   end
 
   @doc """
@@ -34949,27 +35449,28 @@ defmodule AWS.EC2 do
   @doc """
   Creates a VPC with the specified CIDR blocks.
 
-  For more information, see [IP addressing for your VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html)
-  in the
-  *Amazon VPC User Guide*.
+  A VPC must have an associated IPv4 CIDR block. You can choose an IPv4 CIDR block
+  or an
+  IPAM-allocated IPv4 CIDR block. You can optionally associate an IPv6 CIDR block
+  with a
+  VPC. You can choose an IPv6 CIDR block, an Amazon-provided IPv6 CIDR block, an
+  IPAM-allocated IPv6 CIDR block, or an IPv6 CIDR block that you brought to Amazon
+  Web Services. For
+  more information, see [IP addressing for your VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html)
+  in the *Amazon VPC User Guide*.
 
-  You can optionally request an IPv6 CIDR block for the VPC. You can request an
-  Amazon-provided IPv6 CIDR block from Amazon's pool of IPv6 addresses or an IPv6
-  CIDR
-  block from an IPv6 address pool that you provisioned through bring your own IP
-  addresses
-  ([BYOIP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html)).   By default, each instance that you launch in the VPC has the default DHCP
+  By default, each instance that you launch in the VPC has the default DHCP
   options, which
   include only a default DNS server that we provide (AmazonProvidedDNS). For more
-  information, see [DHCP option
-  sets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html) in
+  information, see [DHCP option sets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html) in
   the *Amazon VPC User Guide*.
 
-  You can specify the instance tenancy value for the VPC when you create it. You
-  can't change
-  this value for the VPC after you create it. For more information, see [Dedicated Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html)
+  You can specify DNS options and tenancy for a VPC when you create it. You can't
+  change
+  the tenancy of a VPC after you create it. For more information, see [VPC configuration
+  options](https://docs.aws.amazon.com/vpc/latest/userguide/create-vpc-options.html)
   in the
-  *Amazon EC2 User Guide*.
+  *Amazon VPC User Guide*.
   """
   @spec create_vpc(map(), create_vpc_request(), list()) ::
           {:ok, create_vpc_result(), any()}
@@ -35379,6 +35880,22 @@ defmodule AWS.EC2 do
   fewer. Then delete the fleet, and the remaining instances will be terminated
   automatically.
 
+  ## Terminating an instance is permanent and irreversible.
+
+  After you terminate an instance, you can no longer connect to it, and it can't
+  be recovered.
+  All attached Amazon EBS volumes that are configured to be deleted on termination
+  are also permanently
+  deleted and can't be recovered. All data stored on instance store volumes is
+  permanently lost.
+  For more information, see [
+  How instance termination
+  works](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-ec2-instance-termination-works.html).
+
+  Before you terminate an instance, ensure that you have backed up all data that
+  you need to
+  retain after the termination to persistent storage.
+
   ## Restrictions
 
     *
@@ -35571,6 +36088,50 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteIpamPool", input, options)
+  end
+
+  @doc """
+  Deletes an IPAM prefix list resolver.
+
+  Before deleting a resolver, you must first delete all resolver targets
+  associated with it.
+  """
+  @spec delete_ipam_prefix_list_resolver(
+          map(),
+          delete_ipam_prefix_list_resolver_request(),
+          list()
+        ) ::
+          {:ok, delete_ipam_prefix_list_resolver_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def delete_ipam_prefix_list_resolver(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteIpamPrefixListResolver", input, options)
+  end
+
+  @doc """
+  Deletes an IPAM prefix list resolver target.
+
+  This removes the association between the resolver and the managed prefix list,
+  stopping automatic CIDR synchronization.
+
+  For more information about IPAM prefix list resolver, see [Automate prefix list updates with
+  IPAM](https://docs.aws.amazon.com/vpc/latest/ipam/automate-prefix-list-updates.html)
+  in the *Amazon VPC IPAM User Guide*.
+  """
+  @spec delete_ipam_prefix_list_resolver_target(
+          map(),
+          delete_ipam_prefix_list_resolver_target_request(),
+          list()
+        ) ::
+          {:ok, delete_ipam_prefix_list_resolver_target_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def delete_ipam_prefix_list_resolver_target(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteIpamPrefixListResolverTarget", input, options)
   end
 
   @doc """
@@ -38609,6 +39170,45 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeIpamPools", input, options)
+  end
+
+  @doc """
+  Describes one or more IPAM prefix list resolver Targets.
+
+  Use this operation to view the configuration and status of resolver targets.
+  """
+  @spec describe_ipam_prefix_list_resolver_targets(
+          map(),
+          describe_ipam_prefix_list_resolver_targets_request(),
+          list()
+        ) ::
+          {:ok, describe_ipam_prefix_list_resolver_targets_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_ipam_prefix_list_resolver_targets(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeIpamPrefixListResolverTargets", input, options)
+  end
+
+  @doc """
+  Describes one or more IPAM prefix list resolvers.
+
+  Use this operation to view the configuration, status, and properties of your
+  resolvers.
+  """
+  @spec describe_ipam_prefix_list_resolvers(
+          map(),
+          describe_ipam_prefix_list_resolvers_request(),
+          list()
+        ) ::
+          {:ok, describe_ipam_prefix_list_resolvers_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_ipam_prefix_list_resolvers(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeIpamPrefixListResolvers", input, options)
   end
 
   @doc """
@@ -43101,6 +43701,95 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Retrieves the CIDR selection rules for an IPAM prefix list resolver.
+
+  Use this operation to view the business logic that determines which CIDRs are
+  selected for synchronization with prefix lists.
+  """
+  @spec get_ipam_prefix_list_resolver_rules(
+          map(),
+          get_ipam_prefix_list_resolver_rules_request(),
+          list()
+        ) ::
+          {:ok, get_ipam_prefix_list_resolver_rules_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_ipam_prefix_list_resolver_rules(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetIpamPrefixListResolverRules", input, options)
+  end
+
+  @doc """
+  Retrieves the CIDR entries for a specific version of an IPAM prefix list
+  resolver.
+
+  This shows the actual CIDRs that were selected and synchronized at a particular
+  point in time.
+  """
+  @spec get_ipam_prefix_list_resolver_version_entries(
+          map(),
+          get_ipam_prefix_list_resolver_version_entries_request(),
+          list()
+        ) ::
+          {:ok, get_ipam_prefix_list_resolver_version_entries_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_ipam_prefix_list_resolver_version_entries(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetIpamPrefixListResolverVersionEntries", input, options)
+  end
+
+  @doc """
+  Retrieves version information for an IPAM prefix list resolver.
+
+  Each version is a snapshot of what CIDRs matched your rules at that moment in
+  time. The version number increments every time the CIDR list
+  changes due to infrastructure changes.
+
+  ## Version example:
+
+  ## Initial State (Version 1)
+
+  Production environment:
+
+    *
+  vpc-prod-web (10.1.0.0/16) - tagged env=prod
+
+    *
+  vpc-prod-db (10.2.0.0/16) - tagged env=prod
+
+  Resolver rule: Include all VPCs tagged env=prod
+
+  **Version 1 CIDRs:** 10.1.0.0/16, 10.2.0.0/16
+
+  ## Infrastructure Change (Version 2)
+
+  New VPC added:
+
+    *
+  vpc-prod-api (10.3.0.0/16) - tagged env=prod
+
+  IPAM automatically detects the change and creates a new version.
+
+  **Version 2 CIDRs:** 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16
+  """
+  @spec get_ipam_prefix_list_resolver_versions(
+          map(),
+          get_ipam_prefix_list_resolver_versions_request(),
+          list()
+        ) ::
+          {:ok, get_ipam_prefix_list_resolver_versions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_ipam_prefix_list_resolver_versions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetIpamPrefixListResolverVersions", input, options)
+  end
+
+  @doc """
   Returns resource CIDRs managed by IPAM in a given scope.
 
   If an IPAM is associated with more than one resource discovery, the resource
@@ -44704,6 +45393,46 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "ModifyIpamPool", input, options)
+  end
+
+  @doc """
+  Modifies an IPAM prefix list resolver.
+
+  You can update the description and CIDR selection rules. Changes to rules will
+  trigger re-evaluation and potential updates to associated prefix lists.
+  """
+  @spec modify_ipam_prefix_list_resolver(
+          map(),
+          modify_ipam_prefix_list_resolver_request(),
+          list()
+        ) ::
+          {:ok, modify_ipam_prefix_list_resolver_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def modify_ipam_prefix_list_resolver(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyIpamPrefixListResolver", input, options)
+  end
+
+  @doc """
+  Modifies an IPAM prefix list resolver target.
+
+  You can update version tracking settings and the desired version of the target
+  prefix list.
+  """
+  @spec modify_ipam_prefix_list_resolver_target(
+          map(),
+          modify_ipam_prefix_list_resolver_target_request(),
+          list()
+        ) ::
+          {:ok, modify_ipam_prefix_list_resolver_target_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def modify_ipam_prefix_list_resolver_target(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyIpamPrefixListResolverTarget", input, options)
   end
 
   @doc """
@@ -47485,11 +48214,27 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Shuts down the specified instances.
+  Terminates (deletes) the specified instances.
 
   This operation is
   [idempotent](https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html); if you
   terminate an instance more than once, each call succeeds.
+
+  ## Terminating an instance is permanent and irreversible.
+
+  After you terminate an instance, you can no longer connect to it, and it can't
+  be recovered.
+  All attached Amazon EBS volumes that are configured to be deleted on termination
+  are also permanently
+  deleted and can't be recovered. All data stored on instance store volumes is
+  permanently lost.
+  For more information, see [
+  How instance termination
+  works](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-ec2-instance-termination-works.html).
+
+  Before you terminate an instance, ensure that you have backed up all data that
+  you need to
+  retain after the termination to persistent storage.
 
   If you specify multiple instances and the request fails (for example, because of
   a
@@ -47558,8 +48303,7 @@ defmodule AWS.EC2 do
   attached
   EBS volumes with the `DeleteOnTermination` block device mapping parameter set
   to `true` are automatically deleted. For more information about the
-  differences between stopping and terminating instances, see [Amazon EC2
-  instance state
+  differences between stopping and terminating instances, see [Amazon EC2 instance state
   changes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html)
   in the *Amazon EC2 User Guide*.
 

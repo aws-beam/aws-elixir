@@ -813,6 +813,7 @@ defmodule AWS.MediaConvert do
 
       video_overlay_position() :: %{
         "Height" => integer(),
+        "Opacity" => integer(),
         "Unit" => list(any()),
         "Width" => integer(),
         "XPosition" => integer(),
@@ -952,6 +953,17 @@ defmodule AWS.MediaConvert do
 
   """
   @type ms_smooth_encryption_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_pitch_correction_settings() :: %{
+        "SlowPalPitchCorrection" => list(any())
+      }
+
+  """
+  @type audio_pitch_correction_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1647,6 +1659,7 @@ defmodule AWS.MediaConvert do
       audio_description() :: %{
         "AudioChannelTaggingSettings" => audio_channel_tagging_settings(),
         "AudioNormalizationSettings" => audio_normalization_settings(),
+        "AudioPitchCorrectionSettings" => audio_pitch_correction_settings(),
         "AudioSourceName" => String.t() | atom(),
         "AudioType" => integer(),
         "AudioTypeControl" => list(any()),
@@ -1726,6 +1739,7 @@ defmodule AWS.MediaConvert do
         "H264Settings" => h264_settings(),
         "H265Settings" => h265_settings(),
         "Mpeg2Settings" => mpeg2_settings(),
+        "PassthroughSettings" => passthrough_settings(),
         "ProresSettings" => prores_settings(),
         "UncompressedSettings" => uncompressed_settings(),
         "Vc3Settings" => vc3_settings(),
@@ -2424,6 +2438,7 @@ defmodule AWS.MediaConvert do
         "ProgramSelection" => integer(),
         "RemixSettings" => remix_settings(),
         "SelectorType" => list(any()),
+        "Streams" => list(integer()),
         "Tracks" => list(integer())
       }
 
@@ -3185,6 +3200,17 @@ defmodule AWS.MediaConvert do
 
   """
   @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      passthrough_settings() :: %{
+        "VideoSelectorMode" => list(any())
+      }
+
+  """
+  @type passthrough_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4036,6 +4062,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       track_source_settings() :: %{
+        "StreamNumber" => integer(),
         "TrackNumber" => integer()
       }
 

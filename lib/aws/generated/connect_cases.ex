@@ -270,6 +270,19 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      field_options_case_rule() :: %{
+        "childFieldId" => String.t() | atom(),
+        "parentChildFieldOptionsMappings" => list(parent_child_field_options_mapping()),
+        "parentFieldId" => String.t() | atom()
+      }
+
+  """
+  @type field_options_case_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_template_request() :: %{
         optional("description") => String.t() | atom(),
         optional("layoutConfiguration") => layout_configuration(),
@@ -428,6 +441,18 @@ defmodule AWS.ConnectCases do
 
   """
   @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hidden_case_rule() :: %{
+        "conditions" => list(list()),
+        "defaultValue" => [boolean()]
+      }
+
+  """
+  @type hidden_case_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -875,6 +900,18 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      parent_child_field_options_mapping() :: %{
+        "childFieldOptionValues" => list(String.t() | atom()),
+        "parentFieldOptionValue" => String.t() | atom()
+      }
+
+  """
+  @type parent_child_field_options_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       empty_operand_value() :: %{}
 
   """
@@ -1191,7 +1228,8 @@ defmodule AWS.ConnectCases do
 
       batch_get_case_rule_response() :: %{
         "caseRules" => list(get_case_rule_response()),
-        "errors" => list(case_rule_error())
+        "errors" => list(case_rule_error()),
+        "unprocessedCaseRules" => list(String.t() | atom())
       }
 
   """
@@ -2022,6 +2060,7 @@ defmodule AWS.ConnectCases do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -2047,6 +2086,7 @@ defmodule AWS.ConnectCases do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -2356,17 +2396,49 @@ defmodule AWS.ConnectCases do
   Creates a related item (comments, tasks, and contacts) and associates it with a
   case.
 
-     A Related Item is a resource that is associated with a case. It may
-  or may not have an external identifier linking it to an external resource (for
-  example, a `contactArn`). All Related Items have their own internal identifier,
-  the `relatedItemArn`. Examples of related items include `comments` and
-  `contacts`.
+  There's a quota for the number of fields allowed in a Custom type related item.
+  See [Amazon Connect Cases quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#cases-quotas).
 
-     If you provide a value for `performedBy.userArn` you must also have
+  ## Use cases
+
+  Following are examples of related items that you may want to associate with a
+  case:
+
+    * Related contacts, such as calls, chats, emails tasks
+
+    * Comments, for agent notes
+
+    * SLAs, to capture target resolution goals
+
+    * Cases, to capture related Amazon Connect Cases
+
+    * Files, such as policy documentation or customer-provided
+  attachments
+
+    * Custom related items, which provide flexibility for you to define
+  related items that such as bookings, orders, products, notices, and more
+
+  ## Important things to know
+
+    * If you are associating a contact to a case by passing in `Contact`
+  for a `type`, you must have
+  [DescribeContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeContact.html) permission on the ARN of the contact that you provide in
+  `content.contact.contactArn`.
+
+    * A Related Item is a resource that is associated with a case. It
+  may or may not have an external identifier linking it to an external resource
+  (for example, a `contactArn`). All Related Items have their own internal
+  identifier, the `relatedItemArn`. Examples of related items include `comments`
+  and `contacts`.
+
+    * If you provide a value for `performedBy.userArn` you must also
+  have
   [DescribeUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html)
   permission on the ARN of the user that you provide.
 
-     The `type` field is reserved for internal use only.
+    * The `type` field is reserved for internal use only.
+
+  **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
   @spec create_related_item(
           map(),
@@ -2585,10 +2657,11 @@ defmodule AWS.ConnectCases do
     * Deleted fields are not included in the `ListFields` response.
 
     * Calling `CreateCase` with a deleted field throws a
-  `ValidationException` denoting which field IDs in the request have been deleted.
+  `ValidationException` denoting which field identifiers in the request have been
+  deleted.
 
-    * Calling `GetCase` with a deleted field ID returns the deleted
-  field's value if one exists.
+    * Calling `GetCase` with a deleted field identifier returns the
+  deleted field's value if one exists.
 
     * Calling `UpdateCase` with a deleted field ID throws a
   `ValidationException` if the case does not already contain a value for the
@@ -3354,8 +3427,8 @@ defmodule AWS.ConnectCases do
 
   ## Important things to know
 
-    * This API returns case IDs, not complete case objects. To retrieve
-  full case details, you must make additional calls to the
+    * This API returns case identifiers, not complete case objects. To
+  retrieve full case details, you must make additional calls to the
   [GetCase](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_GetCase.html)
   API for each returned case ID.
 

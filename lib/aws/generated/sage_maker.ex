@@ -7695,6 +7695,7 @@ defmodule AWS.SageMaker do
         optional("InstanceType") => list(any()),
         optional("IpAddressType") => list(any()),
         optional("LifecycleConfigName") => String.t() | atom(),
+        optional("PlatformIdentifier") => String.t() | atom(),
         optional("RoleArn") => String.t() | atom(),
         optional("RootAccess") => list(any()),
         optional("VolumeSizeInGB") => integer(),

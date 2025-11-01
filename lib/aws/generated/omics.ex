@@ -4733,6 +4733,14 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Amazon Web Services HealthOmics variant stores and annotation stores will no
+  longer be open to new customers starting November 7, 2025.
+
+  If you would like to use variant stores or annotation stores, sign up prior to
+  that date. Existing customers can continue to use the service as normal. For
+  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
+
   Cancels an annotation import job.
   """
   @spec cancel_annotation_import_job(
@@ -4800,6 +4808,14 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Amazon Web Services HealthOmics variant stores and annotation stores will no
+  longer be open to new customers starting November 7, 2025.
+
+  If you would like to use variant stores or annotation stores, sign up prior to
+  that date. Existing customers can continue to use the service as normal. For
+  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
+
   Cancels a variant import job.
   """
   @spec cancel_variant_import_job(
@@ -4886,6 +4902,14 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Amazon Web Services HealthOmics variant stores and annotation stores will no
+  longer be open to new customers starting November 7, 2025.
+
+  If you would like to use variant stores or annotation stores, sign up prior to
+  that date. Existing customers can continue to use the service as normal. For
+  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
+
   Creates an annotation store.
   """
   @spec create_annotation_store(map(), create_annotation_store_request(), list()) ::
@@ -5214,6 +5238,14 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Amazon Web Services HealthOmics variant stores and annotation stores will no
+  longer be open to new customers starting November 7, 2025.
+
+  If you would like to use variant stores or annotation stores, sign up prior to
+  that date. Existing customers can continue to use the service as normal. For
+  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
+
   Creates a variant store.
   """
   @spec create_variant_store(map(), create_variant_store_request(), list()) ::
@@ -5248,23 +5280,31 @@ defmodule AWS.Omics do
   Before you create a private workflow, you must create and configure these
   required resources:
 
-    * *Workflow definition files*: Define your workflow in one or more
-  workflow definition files, written in WDL, Nextflow, or CWL. The workflow
-  definition specifies the inputs and outputs for runs that use the workflow. It
-  also includes specifications for the runs and run tasks for your workflow,
-  including compute and memory requirements. The workflow definition file must be
-  in .zip format.
+    * *Workflow definition file:* A workflow definition file written in
+  WDL, Nextflow, or CWL. The workflow definition specifies the inputs and outputs
+  for runs that use the workflow. It also includes specifications for the runs and
+  run tasks for your workflow, including compute and memory requirements. The
+  workflow definition file must be in `.zip` format. For more information, see
+  [Workflow definition files](https://docs.aws.amazon.com/omics/latest/dev/workflow-definition-files.html)
+  in Amazon Web Services HealthOmics.
 
-    * (Optional) *Parameter template*: You can create a parameter
-  template file that defines the run parameters, or Amazon Web Services
-  HealthOmics can generate the parameter template for you.
+      * You can use Amazon Q CLI to build and validate your
+  workflow definition files in WDL, Nextflow, and CWL. For more information, see
+  [Example prompts for Amazon Q CLI](https://docs.aws.amazon.com/omics/latest/dev/getting-started.html#omics-q-prompts)
+  and the [Amazon Web Services HealthOmics Agentic generative AI tutorial](https://github.com/aws-samples/aws-healthomics-tutorials/tree/main/generative-ai)
+  on GitHub.
 
-    * *ECR container images*: Create container images for the workflow
+    * *(Optional) Parameter template file:* A parameter template file
+  written in JSON. Create the file to define the run parameters, or Amazon Web
+  Services HealthOmics generates the parameter template for you. For more
+  information, see [Parameter template files for HealthOmics workflows](https://docs.aws.amazon.com/omics/latest/dev/parameter-templates.html).
+
+    * *ECR container images:* Create container images for the workflow
   in a private ECR repository, or synchronize images from a supported upstream
   registry with your Amazon ECR private repository.
 
-    * (Optional) *Sentieon licenses*: Request a Sentieon license if
-  using the Sentieon software in a private workflow.
+    * *(Optional) Sentieon licenses:* Request a Sentieon license to use
+  the Sentieon software in private workflows.
 
   For more information, see [Creating or updating a private workflow in Amazon Web Services
   HealthOmics](https://docs.aws.amazon.com/omics/latest/dev/creating-private-workflows.html)
@@ -5345,6 +5385,14 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Amazon Web Services HealthOmics variant stores and annotation stores will no
+  longer be open to new customers starting November 7, 2025.
+
+  If you would like to use variant stores or annotation stores, sign up prior to
+  that date. Existing customers can continue to use the service as normal. For
+  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
+
   Deletes an annotation store.
   """
   @spec delete_annotation_store(
@@ -5734,6 +5782,14 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Amazon Web Services HealthOmics variant stores and annotation stores will no
+  longer be open to new customers starting November 7, 2025.
+
+  If you would like to use variant stores or annotation stores, sign up prior to
+  that date. Existing customers can continue to use the service as normal. For
+  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
+
   Deletes a variant store.
   """
   @spec delete_variant_store(map(), String.t() | atom(), delete_variant_store_request(), list()) ::
@@ -5849,6 +5905,14 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Amazon Web Services HealthOmics variant stores and annotation stores will no
+  longer be open to new customers starting November 7, 2025.
+
+  If you would like to use variant stores or annotation stores, sign up prior to
+  that date. Existing customers can continue to use the service as normal. For
+  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
+
   Gets information about an annotation import job.
   """
   @spec get_annotation_import_job(map(), String.t() | atom(), list()) ::
@@ -5867,6 +5931,14 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Amazon Web Services HealthOmics variant stores and annotation stores will no
+  longer be open to new customers starting November 7, 2025.
+
+  If you would like to use variant stores or annotation stores, sign up prior to
+  that date. Existing customers can continue to use the service as normal. For
+  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
+
   Gets information about an annotation store.
   """
   @spec get_annotation_store(map(), String.t() | atom(), list()) ::
@@ -6316,6 +6388,14 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Amazon Web Services HealthOmics variant stores and annotation stores will no
+  longer be open to new customers starting November 7, 2025.
+
+  If you would like to use variant stores or annotation stores, sign up prior to
+  that date. Existing customers can continue to use the service as normal. For
+  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
+
   Gets information about a variant import job.
   """
   @spec get_variant_import_job(map(), String.t() | atom(), list()) ::
@@ -6334,6 +6414,14 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Amazon Web Services HealthOmics variant stores and annotation stores will no
+  longer be open to new customers starting November 7, 2025.
+
+  If you would like to use variant stores or annotation stores, sign up prior to
+  that date. Existing customers can continue to use the service as normal. For
+  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
+
   Gets information about a variant store.
   """
   @spec get_variant_store(map(), String.t() | atom(), list()) ::
@@ -6470,6 +6558,14 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Amazon Web Services HealthOmics variant stores and annotation stores will no
+  longer be open to new customers starting November 7, 2025.
+
+  If you would like to use variant stores or annotation stores, sign up prior to
+  that date. Existing customers can continue to use the service as normal. For
+  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
+
   Retrieves a list of annotation import jobs.
   """
   @spec list_annotation_import_jobs(map(), list_annotation_import_jobs_request(), list()) ::
@@ -6545,6 +6641,14 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Amazon Web Services HealthOmics variant stores and annotation stores will no
+  longer be open to new customers starting November 7, 2025.
+
+  If you would like to use variant stores or annotation stores, sign up prior to
+  that date. Existing customers can continue to use the service as normal. For
+  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
+
   Retrieves a list of annotation stores.
   """
   @spec list_annotation_stores(map(), list_annotation_stores_request(), list()) ::
@@ -7269,6 +7373,14 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Amazon Web Services HealthOmics variant stores and annotation stores will no
+  longer be open to new customers starting November 7, 2025.
+
+  If you would like to use variant stores or annotation stores, sign up prior to
+  that date. Existing customers can continue to use the service as normal. For
+  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
+
   Retrieves a list of variant import jobs.
   """
   @spec list_variant_import_jobs(map(), list_variant_import_jobs_request(), list()) ::
@@ -7304,6 +7416,14 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Amazon Web Services HealthOmics variant stores and annotation stores will no
+  longer be open to new customers starting November 7, 2025.
+
+  If you would like to use variant stores or annotation stores, sign up prior to
+  that date. Existing customers can continue to use the service as normal. For
+  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
+
   Retrieves a list of variant stores.
   """
   @spec list_variant_stores(map(), list_variant_stores_request(), list()) ::
@@ -7498,6 +7618,14 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Amazon Web Services HealthOmics variant stores and annotation stores will no
+  longer be open to new customers starting November 7, 2025.
+
+  If you would like to use variant stores or annotation stores, sign up prior to
+  that date. Existing customers can continue to use the service as normal. For
+  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
+
   Starts an annotation import job.
   """
   @spec start_annotation_import_job(map(), start_annotation_import_request(), list()) ::
@@ -7740,6 +7868,10 @@ defmodule AWS.Omics do
 
   To learn more about the retention modes, see [Run retention mode](https://docs.aws.amazon.com/omics/latest/dev/run-retention.html) in the
   *Amazon Web Services HealthOmics User Guide*.
+
+  You can use Amazon Q CLI to analyze run logs and make performance optimization
+  recommendations. To get started, see the [Amazon Web Services HealthOmics MCP server](https://github.com/awslabs/mcp/tree/main/src/aws-healthomics-mcp-server)
+  on GitHub.
   """
   @spec start_run(map(), start_run_request(), list()) ::
           {:ok, start_run_response(), any()}
@@ -7768,6 +7900,14 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Amazon Web Services HealthOmics variant stores and annotation stores will no
+  longer be open to new customers starting November 7, 2025.
+
+  If you would like to use variant stores or annotation stores, sign up prior to
+  that date. Existing customers can continue to use the service as normal. For
+  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
+
   Starts a variant import job.
   """
   @spec start_variant_import_job(map(), start_variant_import_request(), list()) ::
@@ -7860,6 +8000,14 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Amazon Web Services HealthOmics variant stores and annotation stores will no
+  longer be open to new customers starting November 7, 2025.
+
+  If you would like to use variant stores or annotation stores, sign up prior to
+  that date. Existing customers can continue to use the service as normal. For
+  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
+
   Updates an annotation store.
   """
   @spec update_annotation_store(
@@ -8049,6 +8197,14 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Amazon Web Services HealthOmics variant stores and annotation stores will no
+  longer be open to new customers starting November 7, 2025.
+
+  If you would like to use variant stores or annotation stores, sign up prior to
+  that date. Existing customers can continue to use the service as normal. For
+  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
+
   Updates a variant store.
   """
   @spec update_variant_store(map(), String.t() | atom(), update_variant_store_request(), list()) ::

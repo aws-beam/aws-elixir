@@ -174,6 +174,19 @@ defmodule AWS.Kinesis do
 
   ## Example:
       
+      update_stream_warm_throughput_input() :: %{
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom(),
+        required("WarmThroughputMiBps") => integer()
+      }
+      
+  """
+  @type update_stream_warm_throughput_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       kms_throttling_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -191,6 +204,19 @@ defmodule AWS.Kinesis do
       
   """
   @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_stream_warm_throughput_output() :: %{
+        "StreamARN" => String.t() | atom(),
+        "StreamName" => String.t() | atom(),
+        "WarmThroughput" => warm_throughput_object()
+      }
+      
+  """
+  @type update_stream_warm_throughput_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -268,7 +294,8 @@ defmodule AWS.Kinesis do
         "StreamCreationTimestamp" => non_neg_integer(),
         "StreamModeDetails" => stream_mode_details(),
         "StreamName" => String.t() | atom(),
-        "StreamStatus" => list(any())
+        "StreamStatus" => list(any()),
+        "WarmThroughput" => warm_throughput_object()
       }
       
   """
@@ -286,6 +313,15 @@ defmodule AWS.Kinesis do
       
   """
   @type deregister_stream_consumer_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_account_settings_input() :: %{}
+      
+  """
+  @type describe_account_settings_input() :: %{}
 
   @typedoc """
 
@@ -393,6 +429,18 @@ defmodule AWS.Kinesis do
 
   ## Example:
       
+      warm_throughput_object() :: %{
+        "CurrentMiBps" => integer(),
+        "TargetMiBps" => integer()
+      }
+      
+  """
+  @type warm_throughput_object() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       expired_next_token_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -482,6 +530,20 @@ defmodule AWS.Kinesis do
       
   """
   @type put_resource_policy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      minimum_throughput_billing_commitment_output() :: %{
+        "EarliestAllowedEndAt" => non_neg_integer(),
+        "EndedAt" => non_neg_integer(),
+        "StartedAt" => non_neg_integer(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type minimum_throughput_billing_commitment_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -688,6 +750,17 @@ defmodule AWS.Kinesis do
 
   ## Example:
       
+      update_account_settings_input() :: %{
+        required("MinimumThroughputBillingCommitment") => minimum_throughput_billing_commitment_input()
+      }
+      
+  """
+  @type update_account_settings_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_stream_output() :: %{
         "StreamDescription" => stream_description()
       }
@@ -732,6 +805,17 @@ defmodule AWS.Kinesis do
       
   """
   @type kms_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_account_settings_output() :: %{
+        "MinimumThroughputBillingCommitment" => minimum_throughput_billing_commitment_output()
+      }
+      
+  """
+  @type update_account_settings_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -822,6 +906,7 @@ defmodule AWS.Kinesis do
   ## Example:
       
       update_stream_mode_input() :: %{
+        optional("WarmThroughputMiBps") => integer(),
         required("StreamARN") => String.t() | atom(),
         required("StreamModeDetails") => stream_mode_details()
       }
@@ -953,6 +1038,7 @@ defmodule AWS.Kinesis do
         optional("ShardCount") => integer(),
         optional("StreamModeDetails") => stream_mode_details(),
         optional("Tags") => map(),
+        optional("WarmThroughputMiBps") => integer(),
         required("StreamName") => String.t() | atom()
       }
       
@@ -1050,6 +1136,17 @@ defmodule AWS.Kinesis do
 
   ## Example:
       
+      minimum_throughput_billing_commitment_input() :: %{
+        "Status" => list(any())
+      }
+      
+  """
+  @type minimum_throughput_billing_commitment_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       split_shard_input() :: %{
         optional("StreamARN") => String.t() | atom(),
         optional("StreamName") => String.t() | atom(),
@@ -1136,6 +1233,17 @@ defmodule AWS.Kinesis do
   """
   @type describe_stream_summary_output() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      describe_account_settings_output() :: %{
+        "MinimumThroughputBillingCommitment" => minimum_throughput_billing_commitment_output()
+      }
+      
+  """
+  @type describe_account_settings_output() :: %{(String.t() | atom()) => any()}
+
   @type add_tags_to_stream_errors() ::
           limit_exceeded_exception()
           | invalid_argument_exception()
@@ -1144,7 +1252,10 @@ defmodule AWS.Kinesis do
           | resource_in_use_exception()
 
   @type create_stream_errors() ::
-          limit_exceeded_exception() | invalid_argument_exception() | resource_in_use_exception()
+          limit_exceeded_exception()
+          | validation_exception()
+          | invalid_argument_exception()
+          | resource_in_use_exception()
 
   @type decrease_stream_retention_period_errors() ::
           limit_exceeded_exception()
@@ -1171,6 +1282,8 @@ defmodule AWS.Kinesis do
           limit_exceeded_exception()
           | invalid_argument_exception()
           | resource_not_found_exception()
+
+  @type describe_account_settings_errors() :: limit_exceeded_exception()
 
   @type describe_limits_errors() :: limit_exceeded_exception()
 
@@ -1376,6 +1489,9 @@ defmodule AWS.Kinesis do
           | resource_not_found_exception()
           | resource_in_use_exception()
 
+  @type update_account_settings_errors() ::
+          limit_exceeded_exception() | validation_exception() | invalid_argument_exception()
+
   @type update_max_record_size_errors() ::
           limit_exceeded_exception()
           | validation_exception()
@@ -1394,7 +1510,16 @@ defmodule AWS.Kinesis do
 
   @type update_stream_mode_errors() ::
           limit_exceeded_exception()
+          | validation_exception()
           | invalid_argument_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
+  @type update_stream_warm_throughput_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
           | resource_not_found_exception()
           | resource_in_use_exception()
 
@@ -1451,24 +1576,23 @@ defmodule AWS.Kinesis do
   identified groups of data records in a stream.
 
   You can create your data stream using either on-demand or provisioned capacity
-  mode.
-  Data streams with an on-demand mode require no capacity planning and
-  automatically scale
-  to handle gigabytes of write and read throughput per minute. With the on-demand
-  mode,
-  Kinesis Data Streams automatically manages the shards in order to provide the
-  necessary
-  throughput. For the data streams with a provisioned mode, you must specify the
-  number of
+  mode. Data streams with an on-demand mode require no capacity planning and
+  automatically scale to handle gigabytes of write and read throughput per minute.
+  With the on-demand mode, Kinesis Data Streams automatically manages the shards
+  in order to provide the necessary throughput.
+
+  If you'd still like to proactively scale your on-demand data stream’s capacity,
+  you can unlock the warm throughput feature for on-demand data streams by
+  enabling `MinimumThroughputBillingCommitment` for your account. Once your
+  account has `MinimumThroughputBillingCommitment` enabled, you can specify the
+  warm throughput in MiB per second that your stream can support in writes.
+
+  For the data streams with a provisioned mode, you must specify the number of
   shards for the data stream. Each shard can support reads up to five transactions
-  per
-  second, up to a maximum data read total of 2 MiB per second. Each shard can
-  support
-  writes up to 1,000 records per second, up to a maximum data write total of 1 MiB
-  per
-  second. If the amount of data input increases or decreases, you can add or
-  remove
-  shards.
+  per second, up to a maximum data read total of 2 MiB per second. Each shard can
+  support writes up to 1,000 records per second, up to a maximum data write total
+  of 1 MiB per second. If the amount of data input increases or decreases, you can
+  add or remove shards.
 
   The stream name identifies the stream. The name is scoped to the Amazon Web
   Services
@@ -1494,10 +1618,10 @@ defmodule AWS.Kinesis do
     *
   Create more shards than are authorized for your account.
 
-  For the default shard limit for an Amazon Web Services account, see [Amazon Kinesis Data Streams
-  Limits](https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html)
-  in the *Amazon Kinesis Data Streams
-  Developer Guide*. To increase this limit, [contact Amazon Web Services Support](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html).
+  For the default shard or on-demand throughput limits for an Amazon Web Services
+  account, see [Amazon Kinesis Data Streams Limits](https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html)
+  in the *Amazon Kinesis Data Streams Developer Guide*. To increase this limit,
+  [contact Amazon Web Services Support](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html).
 
   You can use `DescribeStreamSummary` to check the stream status, which
   is returned in `StreamStatus`.
@@ -1645,6 +1769,26 @@ defmodule AWS.Kinesis do
     meta = metadata()
 
     Request.request_post(client, meta, "DeregisterStreamConsumer", input, options)
+  end
+
+  @doc """
+  Describes the account-level settings for Amazon Kinesis Data Streams.
+
+  This operation returns information about the minimum throughput billing
+  commitments and other account-level configurations.
+
+  This API has a call limit of 5 transactions per second (TPS) for each Amazon Web
+  Services account. TPS over 5 will initiate the `LimitExceededException`.
+  """
+  @spec describe_account_settings(map(), describe_account_settings_input(), list()) ::
+          {:ok, describe_account_settings_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_account_settings_errors()}
+  def describe_account_settings(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAccountSettings", input, options)
   end
 
   @doc """
@@ -2746,6 +2890,35 @@ defmodule AWS.Kinesis do
   end
 
   @doc """
+  Updates the account-level settings for Amazon Kinesis Data Streams.
+
+  Updating account settings is a synchronous operation. Upon receiving the
+  request, Kinesis Data Streams will return immediately with your account’s
+  updated settings.
+
+  ## API limits
+
+    *
+  Certain account configurations have minimum commitment windows. Attempting to
+  update your settings prior to the end of the minimum commitment window might
+  have certain restrictions.
+
+    *
+  This API has a call limit of 5 transactions per second (TPS) for each Amazon Web
+  Services account. TPS over 5 will initiate the `LimitExceededException`.
+  """
+  @spec update_account_settings(map(), update_account_settings_input(), list()) ::
+          {:ok, update_account_settings_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_account_settings_errors()}
+  def update_account_settings(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateAccountSettings", input, options)
+  end
+
+  @doc """
   This allows you to update the `MaxRecordSize` of a single record that you can
   write to, and read from a stream.
 
@@ -2844,6 +3017,12 @@ defmodule AWS.Kinesis do
   Currently, in Kinesis Data Streams, you
   can choose between an **on-demand** capacity mode and a
   **provisioned** capacity mode for your data stream.
+
+  If you'd still like to proactively scale your on-demand data stream’s capacity,
+  you can unlock the warm throughput feature for on-demand data streams by
+  enabling `MinimumThroughputBillingCommitment` for your account. Once your
+  account has `MinimumThroughputBillingCommitment` enabled, you can specify the
+  warm throughput in MiB per second that your stream can support in writes.
   """
   @spec update_stream_mode(map(), update_stream_mode_input(), list()) ::
           {:ok, nil, any()}
@@ -2854,5 +3033,54 @@ defmodule AWS.Kinesis do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateStreamMode", input, options)
+  end
+
+  @doc """
+  Updates the warm throughput configuration for the specified Amazon Kinesis Data
+  Streams on-demand data stream.
+
+  This operation allows you to proactively scale your on-demand data stream to a
+  specified throughput level, enabling better performance for sudden traffic
+  spikes.
+
+  When invoking this API, you must use either the `StreamARN` or the `StreamName`
+  parameter, or both. It is recommended that you use the `StreamARN` input
+  parameter when you invoke this API.
+
+  Updating the warm throughput is an asynchronous operation. Upon receiving the
+  request, Kinesis Data Streams returns immediately and sets the status of the
+  stream to `UPDATING`. After the update is complete, Kinesis Data Streams sets
+  the status of the stream back to `ACTIVE`. Depending on the size of the stream,
+  the scaling action could take a few minutes to complete. You can continue to
+  read and write data to your stream while its status is `UPDATING`.
+
+  This operation is only supported for data streams with the on-demand capacity
+  mode in accounts that have `MinimumThroughputBillingCommitment` enabled.
+  Provisioned capacity mode streams do not support warm throughput configuration.
+
+  This operation has the following default limits. By default, you cannot do the
+  following:
+
+    *
+  Scale to more than 10 GiBps for an on-demand stream.
+
+    *
+  This API has a call limit of 5 transactions per second (TPS) for each Amazon Web
+  Services account. TPS over 5 will initiate the `LimitExceededException`.
+
+  For the default limits for an Amazon Web Services account, see [Streams Limits](https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html)
+  in the *Amazon Kinesis Data Streams Developer
+  Guide*. To request an increase in the call rate limit, the shard limit for this
+  API, or your overall shard limit, use the [limits form](https://console.aws.amazon.com/support/v1#/case/create?issueType=service-limit-increase&limitType=service-code-kinesis).
+  """
+  @spec update_stream_warm_throughput(map(), update_stream_warm_throughput_input(), list()) ::
+          {:ok, update_stream_warm_throughput_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_stream_warm_throughput_errors()}
+  def update_stream_warm_throughput(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateStreamWarmThroughput", input, options)
   end
 end

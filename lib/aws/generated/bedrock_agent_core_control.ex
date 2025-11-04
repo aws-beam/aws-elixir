@@ -214,6 +214,19 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      code_configuration() :: %{
+        "code" => list(),
+        "entryPoint" => list(String.t() | atom()),
+        "runtime" => list(any())
+      }
+
+  """
+  @type code_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       unauthorized_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -1543,7 +1556,8 @@ defmodule AWS.BedrockAgentCoreControl do
 
       s3_location() :: %{
         "bucket" => [String.t() | atom()],
-        "prefix" => [String.t() | atom()]
+        "prefix" => [String.t() | atom()],
+        "versionId" => [String.t() | atom()]
       }
 
   """
@@ -2075,10 +2089,12 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      delete_agent_runtime_request() :: %{}
+      delete_agent_runtime_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
 
   """
-  @type delete_agent_runtime_request() :: %{}
+  @type delete_agent_runtime_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3631,7 +3647,12 @@ defmodule AWS.BedrockAgentCoreControl do
     url_path = "/runtimes/#{AWS.Util.encode_uri(agent_runtime_id)}/"
     headers = []
     custom_headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 

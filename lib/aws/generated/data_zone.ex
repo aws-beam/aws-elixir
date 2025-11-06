@@ -834,6 +834,7 @@ defmodule AWS.DataZone do
         optional("glossaryTerms") => list(String.t() | atom()),
         optional("name") => String.t() | atom(),
         optional("projectProfileVersion") => [String.t() | atom()],
+        optional("resourceTags") => map(),
         optional("userParameters") => list(environment_configuration_user_parameter())
       }
 
@@ -1014,6 +1015,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       update_project_profile_output() :: %{
+        "allowCustomProjectResourceTags" => [boolean()],
         "createdAt" => [non_neg_integer()],
         "createdBy" => String.t() | atom(),
         "description" => String.t() | atom(),
@@ -1023,6 +1025,8 @@ defmodule AWS.DataZone do
         "id" => String.t() | atom(),
         "lastUpdatedAt" => [non_neg_integer()],
         "name" => String.t() | atom(),
+        "projectResourceTags" => list(resource_tag_parameter()),
+        "projectResourceTagsDescription" => String.t() | atom(),
         "status" => list(any())
       }
 
@@ -1419,6 +1423,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       get_project_profile_output() :: %{
+        "allowCustomProjectResourceTags" => [boolean()],
         "createdAt" => [non_neg_integer()],
         "createdBy" => String.t() | atom(),
         "description" => String.t() | atom(),
@@ -1428,6 +1433,8 @@ defmodule AWS.DataZone do
         "id" => String.t() | atom(),
         "lastUpdatedAt" => [non_neg_integer()],
         "name" => String.t() | atom(),
+        "projectResourceTags" => list(resource_tag_parameter()),
+        "projectResourceTagsDescription" => String.t() | atom(),
         "status" => list(any())
       }
 
@@ -1878,6 +1885,19 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      resource_tag_parameter() :: %{
+        "isValueEditable" => [boolean()],
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type resource_tag_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_subscription_request_input() :: %{
         required("requestReason") => String.t() | atom()
       }
@@ -1954,6 +1974,7 @@ defmodule AWS.DataZone do
         "name" => String.t() | atom(),
         "projectProfileId" => String.t() | atom(),
         "projectStatus" => list(any()),
+        "resourceTags" => list(resource_tag()),
         "userParameters" => list(environment_configuration_user_parameter())
       }
 
@@ -2252,10 +2273,13 @@ defmodule AWS.DataZone do
   ## Example:
 
       update_project_profile_input() :: %{
+        optional("allowCustomProjectResourceTags") => [boolean()],
         optional("description") => String.t() | atom(),
         optional("domainUnitIdentifier") => String.t() | atom(),
         optional("environmentConfigurations") => list(environment_configuration()),
         optional("name") => String.t() | atom(),
+        optional("projectResourceTags") => list(resource_tag_parameter()),
+        optional("projectResourceTagsDescription") => String.t() | atom(),
         optional("status") => list(any())
       }
 
@@ -5239,6 +5263,7 @@ defmodule AWS.DataZone do
         optional("domainUnitId") => String.t() | atom(),
         optional("glossaryTerms") => list(String.t() | atom()),
         optional("projectProfileId") => String.t() | atom(),
+        optional("resourceTags") => map(),
         optional("userParameters") => list(environment_configuration_user_parameter()),
         required("name") => String.t() | atom()
       }
@@ -5655,6 +5680,19 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      resource_tag() :: %{
+        "key" => String.t() | atom(),
+        "source" => list(any()),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type resource_tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_subscription_targets_output() :: %{
         "items" => list(subscription_target_summary()),
         "nextToken" => String.t() | atom()
@@ -5921,6 +5959,7 @@ defmodule AWS.DataZone do
         "name" => String.t() | atom(),
         "projectProfileId" => String.t() | atom(),
         "projectStatus" => list(any()),
+        "resourceTags" => list(resource_tag()),
         "userParameters" => list(environment_configuration_user_parameter())
       }
 
@@ -6633,6 +6672,7 @@ defmodule AWS.DataZone do
         "name" => String.t() | atom(),
         "projectProfileId" => String.t() | atom(),
         "projectStatus" => list(any()),
+        "resourceTags" => list(resource_tag()),
         "userParameters" => list(environment_configuration_user_parameter())
       }
 
@@ -6957,9 +6997,12 @@ defmodule AWS.DataZone do
   ## Example:
 
       create_project_profile_input() :: %{
+        optional("allowCustomProjectResourceTags") => [boolean()],
         optional("description") => String.t() | atom(),
         optional("domainUnitIdentifier") => String.t() | atom(),
         optional("environmentConfigurations") => list(environment_configuration()),
+        optional("projectResourceTags") => list(resource_tag_parameter()),
+        optional("projectResourceTagsDescription") => String.t() | atom(),
         optional("status") => list(any()),
         required("name") => String.t() | atom()
       }
@@ -7558,6 +7601,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       create_project_profile_output() :: %{
+        "allowCustomProjectResourceTags" => [boolean()],
         "createdAt" => [non_neg_integer()],
         "createdBy" => String.t() | atom(),
         "description" => String.t() | atom(),
@@ -7567,6 +7611,8 @@ defmodule AWS.DataZone do
         "id" => String.t() | atom(),
         "lastUpdatedAt" => [non_neg_integer()],
         "name" => String.t() | atom(),
+        "projectResourceTags" => list(resource_tag_parameter()),
+        "projectResourceTagsDescription" => String.t() | atom(),
         "status" => list(any())
       }
 

@@ -41,6 +41,18 @@ defmodule AWS.GroundStation do
 
   ## Example:
 
+      downlink_connection_details() :: %{
+        "agentIpAndPortAddress" => ranged_connection_details(),
+        "egressAddressAndPort" => connection_details()
+      }
+
+  """
+  @type downlink_connection_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       antenna_downlink_demod_decode_config() :: %{
         "decodeConfig" => decode_config(),
         "demodulationConfig" => demodulation_config(),
@@ -267,6 +279,19 @@ defmodule AWS.GroundStation do
 
   ## Example:
 
+      get_agent_task_response_url_response() :: %{
+        "agentId" => String.t() | atom(),
+        "presignedLogUrl" => [String.t() | atom()],
+        "taskId" => String.t() | atom()
+      }
+
+  """
+  @type get_agent_task_response_url_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       register_agent_request() :: %{
         optional("tags") => map(),
         required("agentDetails") => agent_details(),
@@ -352,10 +377,12 @@ defmodule AWS.GroundStation do
 
       endpoint_details() :: %{
         "awsGroundStationAgentEndpoint" => aws_ground_station_agent_endpoint(),
+        "downlinkAwsGroundStationAgentEndpoint" => downlink_aws_ground_station_agent_endpoint_details(),
         "endpoint" => dataflow_endpoint(),
         "healthReasons" => list(list(any())()),
         "healthStatus" => list(any()),
-        "securityDetails" => security_details()
+        "securityDetails" => security_details(),
+        "uplinkAwsGroundStationAgentEndpoint" => uplink_aws_ground_station_agent_endpoint_details()
       }
 
   """
@@ -445,6 +472,18 @@ defmodule AWS.GroundStation do
 
   """
   @type uplink_echo_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      uplink_connection_details() :: %{
+        "agentIpAndPortAddress" => ranged_connection_details(),
+        "ingressAddressAndPort" => connection_details()
+      }
+
+  """
+  @type uplink_connection_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -604,6 +643,29 @@ defmodule AWS.GroundStation do
 
   ## Example:
 
+      get_agent_task_response_url_request() :: %{}
+
+  """
+  @type get_agent_task_response_url_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dataflow_endpoint_group_v2_request() :: %{
+        optional("contactPostPassDurationSeconds") => integer(),
+        optional("contactPrePassDurationSeconds") => integer(),
+        optional("tags") => map(),
+        required("endpoints") => list(list())
+      }
+
+  """
+  @type create_dataflow_endpoint_group_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       time_az_el() :: %{
         "az" => [float()],
         "dt" => [float()],
@@ -625,6 +687,20 @@ defmodule AWS.GroundStation do
 
   """
   @type config_id_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      downlink_aws_ground_station_agent_endpoint_details() :: %{
+        "agentStatus" => list(any()),
+        "auditResults" => list(any()),
+        "dataflowDetails" => list(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type downlink_aws_ground_station_agent_endpoint_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -761,6 +837,18 @@ defmodule AWS.GroundStation do
 
   ## Example:
 
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()],
+        "parameterName" => [String.t() | atom()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       ground_station_data() :: %{
         "groundStationId" => String.t() | atom(),
         "groundStationName" => String.t() | atom(),
@@ -853,6 +941,17 @@ defmodule AWS.GroundStation do
 
   """
   @type aggregate_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dataflow_endpoint_group_v2_response() :: %{
+        "dataflowEndpointGroupId" => String.t() | atom()
+      }
+
+  """
+  @type create_dataflow_endpoint_group_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1117,6 +1216,18 @@ defmodule AWS.GroundStation do
 
   """
   @type time_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      downlink_aws_ground_station_agent_endpoint() :: %{
+        "dataflowDetails" => list(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type downlink_aws_ground_station_agent_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1436,6 +1547,20 @@ defmodule AWS.GroundStation do
 
   ## Example:
 
+      uplink_aws_ground_station_agent_endpoint_details() :: %{
+        "agentStatus" => list(any()),
+        "auditResults" => list(any()),
+        "dataflowDetails" => list(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type uplink_aws_ground_station_agent_endpoint_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_ephemeris_response() :: %{
         "creationTime" => [non_neg_integer()],
         "enabled" => [boolean()],
@@ -1478,6 +1603,18 @@ defmodule AWS.GroundStation do
 
   """
   @type create_dataflow_endpoint_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      uplink_aws_ground_station_agent_endpoint() :: %{
+        "dataflowDetails" => list(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type uplink_aws_ground_station_agent_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1569,6 +1706,12 @@ defmodule AWS.GroundStation do
   @type create_dataflow_endpoint_group_errors() ::
           invalid_parameter_exception() | resource_not_found_exception() | dependency_exception()
 
+  @type create_dataflow_endpoint_group_v2_errors() ::
+          invalid_parameter_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | dependency_exception()
+
   @type create_ephemeris_errors() ::
           invalid_parameter_exception() | resource_not_found_exception() | dependency_exception()
 
@@ -1597,6 +1740,9 @@ defmodule AWS.GroundStation do
           invalid_parameter_exception() | resource_not_found_exception() | dependency_exception()
 
   @type get_agent_configuration_errors() ::
+          invalid_parameter_exception() | resource_not_found_exception() | dependency_exception()
+
+  @type get_agent_task_response_url_errors() ::
           invalid_parameter_exception() | resource_not_found_exception() | dependency_exception()
 
   @type get_config_errors() ::
@@ -1758,6 +1904,46 @@ defmodule AWS.GroundStation do
           | {:error, create_dataflow_endpoint_group_errors()}
   def create_dataflow_endpoint_group(%Client{} = client, input, options \\ []) do
     url_path = "/dataflowEndpointGroup"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a `DataflowEndpointGroupV2` containing the specified list of
+  `DataflowEndpoint` objects.
+
+  The `name` field in each endpoint is used in your mission profile
+  `DataflowEndpointConfig` to specify which endpoints to use during a contact.
+
+  When a contact uses multiple `DataflowEndpointConfig` objects, each `Config`
+  must match a `DataflowEndpoint` in the same group.
+  """
+  @spec create_dataflow_endpoint_group_v2(
+          map(),
+          create_dataflow_endpoint_group_v2_request(),
+          list()
+        ) ::
+          {:ok, create_dataflow_endpoint_group_v2_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_dataflow_endpoint_group_v2_errors()}
+  def create_dataflow_endpoint_group_v2(%Client{} = client, input, options \\ []) do
+    url_path = "/dataflowEndpointGroupV2"
     headers = []
     custom_headers = []
     query_params = []
@@ -2023,6 +2209,28 @@ defmodule AWS.GroundStation do
           | {:error, get_agent_configuration_errors()}
   def get_agent_configuration(%Client{} = client, agent_id, options \\ []) do
     url_path = "/agent/#{AWS.Util.encode_uri(agent_id)}/configuration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  For use by AWS Ground Station Agent and shouldn't be called directly.
+
+  Gets a presigned URL for uploading agent task response logs.
+  """
+  @spec get_agent_task_response_url(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_agent_task_response_url_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_agent_task_response_url_errors()}
+  def get_agent_task_response_url(%Client{} = client, agent_id, task_id, options \\ []) do
+    url_path =
+      "/agentResponseUrl/#{AWS.Util.encode_uri(agent_id)}/#{AWS.Util.encode_uri(task_id)}"
+
     headers = []
     query_params = []
 

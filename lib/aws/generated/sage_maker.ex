@@ -10410,6 +10410,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       create_training_job_request() :: %{
+        optional("AlgorithmSpecification") => algorithm_specification(),
         optional("CheckpointConfig") => checkpoint_config(),
         optional("DebugHookConfig") => debug_hook_config(),
         optional("DebugRuleConfigurations") => list(debug_rule_configuration()),
@@ -10424,14 +10425,13 @@ defmodule AWS.SageMaker do
         optional("ProfilerConfig") => profiler_config(),
         optional("ProfilerRuleConfigurations") => list(profiler_rule_configuration()),
         optional("RemoteDebugConfig") => remote_debug_config(),
+        optional("ResourceConfig") => resource_config(),
         optional("RetryStrategy") => retry_strategy(),
         optional("SessionChainingConfig") => session_chaining_config(),
         optional("Tags") => list(tag()),
         optional("TensorBoardOutputConfig") => tensor_board_output_config(),
         optional("VpcConfig") => vpc_config(),
-        required("AlgorithmSpecification") => algorithm_specification(),
         required("OutputDataConfig") => output_data_config(),
-        required("ResourceConfig") => resource_config(),
         required("RoleArn") => String.t() | atom(),
         required("StoppingCondition") => stopping_condition(),
         required("TrainingJobName") => String.t() | atom()
@@ -18455,6 +18455,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       cluster_instance_group_details() :: %{
+        "ActiveSoftwareUpdateConfig" => deployment_configuration(),
         "CurrentCount" => integer(),
         "CurrentImageId" => String.t() | atom(),
         "DesiredImageId" => String.t() | atom(),
@@ -18466,8 +18467,10 @@ defmodule AWS.SageMaker do
         "OnStartDeepHealthChecks" => list(list(any())()),
         "OverrideVpcConfig" => vpc_config(),
         "ScheduledUpdateConfig" => scheduled_update_config(),
+        "SoftwareUpdateStatus" => list(any()),
         "Status" => list(any()),
         "TargetCount" => integer(),
+        "TargetStateCount" => integer(),
         "ThreadsPerCore" => integer(),
         "TrainingPlanArn" => String.t() | atom(),
         "TrainingPlanStatus" => String.t() | atom()

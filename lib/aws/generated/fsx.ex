@@ -1008,6 +1008,7 @@ defmodule AWS.FSx do
       
       self_managed_active_directory_attributes() :: %{
         "DnsIps" => list(String.t() | atom()),
+        "DomainJoinServiceAccountSecret" => String.t() | atom(),
         "DomainName" => String.t() | atom(),
         "FileSystemAdministratorsGroup" => String.t() | atom(),
         "OrganizationalUnitDistinguishedName" => String.t() | atom(),
@@ -1120,6 +1121,7 @@ defmodule AWS.FSx do
       
       self_managed_active_directory_configuration_updates() :: %{
         "DnsIps" => list(String.t() | atom()),
+        "DomainJoinServiceAccountSecret" => String.t() | atom(),
         "DomainName" => String.t() | atom(),
         "FileSystemAdministratorsGroup" => String.t() | atom(),
         "OrganizationalUnitDistinguishedName" => String.t() | atom(),
@@ -2652,6 +2654,7 @@ defmodule AWS.FSx do
       
       self_managed_active_directory_configuration() :: %{
         "DnsIps" => list(String.t() | atom()),
+        "DomainJoinServiceAccountSecret" => String.t() | atom(),
         "DomainName" => String.t() | atom(),
         "FileSystemAdministratorsGroup" => String.t() | atom(),
         "OrganizationalUnitDistinguishedName" => String.t() | atom(),

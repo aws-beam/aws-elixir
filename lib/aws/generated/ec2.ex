@@ -1780,6 +1780,7 @@ defmodule AWS.EC2 do
       
       disable_fast_snapshot_restore_state_error_item() :: %{
         "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
         "Error" => disable_fast_snapshot_restore_state_error()
       }
       
@@ -3267,6 +3268,7 @@ defmodule AWS.EC2 do
       
       enable_fast_snapshot_restore_state_error_item() :: %{
         "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
         "Error" => enable_fast_snapshot_restore_state_error()
       }
       
@@ -5653,8 +5655,9 @@ defmodule AWS.EC2 do
   ## Example:
       
       disable_fast_snapshot_restores_request() :: %{
+        optional("AvailabilityZoneIds") => list(String.t() | atom()),
+        optional("AvailabilityZones") => list(String.t() | atom()),
         optional("DryRun") => boolean(),
-        required("AvailabilityZones") => list(String.t() | atom()),
         required("SourceSnapshotIds") => list(String.t() | atom())
       }
       
@@ -10446,8 +10449,9 @@ defmodule AWS.EC2 do
   ## Example:
       
       enable_fast_snapshot_restores_request() :: %{
+        optional("AvailabilityZoneIds") => list(String.t() | atom()),
+        optional("AvailabilityZones") => list(String.t() | atom()),
         optional("DryRun") => boolean(),
-        required("AvailabilityZones") => list(String.t() | atom()),
         required("SourceSnapshotIds") => list(String.t() | atom())
       }
       
@@ -13703,6 +13707,7 @@ defmodule AWS.EC2 do
       
       enable_fast_snapshot_restore_success_item() :: %{
         "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
         "DisabledTime" => non_neg_integer(),
         "DisablingTime" => non_neg_integer(),
         "EnabledTime" => non_neg_integer(),
@@ -15113,6 +15118,7 @@ defmodule AWS.EC2 do
       
       describe_fast_snapshot_restore_success_item() :: %{
         "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
         "DisabledTime" => non_neg_integer(),
         "DisablingTime" => non_neg_integer(),
         "EnabledTime" => non_neg_integer(),
@@ -29610,6 +29616,7 @@ defmodule AWS.EC2 do
       
       disable_fast_snapshot_restore_success_item() :: %{
         "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
         "DisabledTime" => non_neg_integer(),
         "DisablingTime" => non_neg_integer(),
         "EnabledTime" => non_neg_integer(),

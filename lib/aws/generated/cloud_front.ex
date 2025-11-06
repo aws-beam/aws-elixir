@@ -728,6 +728,7 @@ defmodule AWS.CloudFront do
         "AnycastIps" => list(String.t() | atom()),
         "Arn" => String.t() | atom(),
         "Id" => String.t() | atom(),
+        "IpAddressType" => list(any()),
         "IpCount" => integer(),
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t() | atom(),
@@ -969,6 +970,17 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      put_resource_policy_result() :: %{
+        "ResourceArn" => String.t() | atom()
+      }
+
+  """
+  @type put_resource_policy_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_response_headers_policy_request() :: %{}
 
   """
@@ -1099,6 +1111,17 @@ defmodule AWS.CloudFront do
 
   """
   @type domain_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_distributions_by_owned_resource_result() :: %{
+        "DistributionList" => distribution_id_owner_list()
+      }
+
+  """
+  @type list_distributions_by_owned_resource_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1314,6 +1337,18 @@ defmodule AWS.CloudFront do
 
   """
   @type get_origin_request_policy_config_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_anycast_ip_list_result() :: %{
+        "AnycastIpList" => anycast_ip_list(),
+        "ETag" => String.t() | atom()
+      }
+
+  """
+  @type update_anycast_ip_list_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2151,7 +2186,9 @@ defmodule AWS.CloudFront do
 
       anycast_ip_list_summary() :: %{
         "Arn" => String.t() | atom(),
+        "ETag" => String.t() | atom(),
         "Id" => String.t() | atom(),
+        "IpAddressType" => list(any()),
         "IpCount" => integer(),
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t() | atom(),
@@ -2186,6 +2223,22 @@ defmodule AWS.CloudFront do
   @type response_headers_policy_access_control_allow_origins() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      distribution_id_owner_list() :: %{
+        "IsTruncated" => boolean(),
+        "Items" => list(distribution_id_owner()),
+        "Marker" => String.t() | atom(),
+        "MaxItems" => integer(),
+        "NextMarker" => String.t() | atom(),
+        "Quantity" => integer()
+      }
+
+  """
+  @type distribution_id_owner_list() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2884,6 +2937,18 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      distribution_id_owner() :: %{
+        "DistributionId" => String.t() | atom(),
+        "OwnerAccountId" => String.t() | atom()
+      }
+
+  """
+  @type distribution_id_owner() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       origin_access_control_in_use() :: %{
         "Message" => String.t() | atom()
       }
@@ -3319,6 +3384,7 @@ defmodule AWS.CloudFront do
       vpc_origin_config() :: %{
         "OriginKeepaliveTimeout" => integer(),
         "OriginReadTimeout" => integer(),
+        "OwnerAccountId" => String.t() | atom(),
         "VpcOriginId" => String.t() | atom()
       }
 
@@ -3592,6 +3658,30 @@ defmodule AWS.CloudFront do
 
   """
   @type tags() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_anycast_ip_list_request() :: %{
+        optional("IpAddressType") => list(any()),
+        required("IfMatch") => String.t() | atom()
+      }
+
+  """
+  @type update_anycast_ip_list_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_policy_result() :: %{
+        "PolicyDocument" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
+      }
+
+  """
+  @type get_resource_policy_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4084,6 +4174,17 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      get_resource_policy_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+
+  """
+  @type get_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       field_level_encryption_profile_summary() :: %{
         "Comment" => String.t() | atom(),
         "EncryptionEntities" => encryption_entities(),
@@ -4570,6 +4671,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       create_anycast_ip_list_request() :: %{
+        optional("IpAddressType") => list(any()),
         optional("Tags") => tags(),
         required("IpCount") => integer(),
         required("Name") => String.t() | atom()
@@ -4837,6 +4939,18 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      put_resource_policy_request() :: %{
+        required("PolicyDocument") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
+      }
+
+  """
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       too_many_realtime_log_configs() :: %{
         "Message" => String.t() | atom()
       }
@@ -4937,6 +5051,18 @@ defmodule AWS.CloudFront do
 
   """
   @type custom_error_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_distributions_by_owned_resource_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer()
+      }
+
+  """
+  @type list_distributions_by_owned_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5948,6 +6074,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       vpc_origin() :: %{
+        "AccountId" => String.t() | atom(),
         "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
         "Id" => String.t() | atom(),
@@ -6242,6 +6369,17 @@ defmodule AWS.CloudFront do
 
   """
   @type update_origin_access_control_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_policy_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6636,6 +6774,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       vpc_origin_summary() :: %{
+        "AccountId" => String.t() | atom(),
         "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
         "Id" => String.t() | atom(),
@@ -8066,6 +8205,14 @@ defmodule AWS.CloudFront do
           | invalid_argument()
           | access_denied()
 
+  @type delete_resource_policy_errors() ::
+          illegal_delete()
+          | precondition_failed()
+          | unsupported_operation()
+          | invalid_argument()
+          | access_denied()
+          | entity_not_found()
+
   @type delete_response_headers_policy_errors() ::
           no_such_response_headers_policy()
           | illegal_delete()
@@ -8190,6 +8337,9 @@ defmodule AWS.CloudFront do
   @type get_realtime_log_config_errors() ::
           no_such_realtime_log_config() | invalid_argument() | access_denied()
 
+  @type get_resource_policy_errors() ::
+          unsupported_operation() | invalid_argument() | access_denied() | entity_not_found()
+
   @type get_response_headers_policy_errors() ::
           no_such_response_headers_policy() | access_denied()
 
@@ -8240,6 +8390,9 @@ defmodule AWS.CloudFront do
 
   @type list_distributions_by_origin_request_policy_id_errors() ::
           no_such_origin_request_policy() | invalid_argument() | access_denied()
+
+  @type list_distributions_by_owned_resource_errors() ::
+          unsupported_operation() | invalid_argument() | access_denied() | entity_not_found()
 
   @type list_distributions_by_realtime_log_config_errors() :: invalid_argument()
 
@@ -8299,6 +8452,14 @@ defmodule AWS.CloudFront do
           | invalid_argument()
           | invalid_if_match_version()
 
+  @type put_resource_policy_errors() ::
+          precondition_failed()
+          | unsupported_operation()
+          | invalid_argument()
+          | access_denied()
+          | illegal_update()
+          | entity_not_found()
+
   @type tag_resource_errors() ::
           no_such_resource() | invalid_argument() | access_denied() | invalid_tagging()
 
@@ -8311,6 +8472,14 @@ defmodule AWS.CloudFront do
 
   @type untag_resource_errors() ::
           no_such_resource() | invalid_argument() | access_denied() | invalid_tagging()
+
+  @type update_anycast_ip_list_errors() ::
+          precondition_failed()
+          | unsupported_operation()
+          | invalid_argument()
+          | access_denied()
+          | entity_not_found()
+          | invalid_if_match_version()
 
   @type update_cache_policy_errors() ::
           cache_policy_already_exists()
@@ -10105,6 +10274,10 @@ defmodule AWS.CloudFront do
 
   @doc """
   Delete a distribution.
+
+  Before you can delete a distribution, you must disable it, which requires
+  permission to update the distribution. Once deleted, a distribution cannot be
+  recovered.
   """
   @spec delete_distribution(map(), String.t() | atom(), delete_distribution_request(), list()) ::
           {:ok, nil, any()}
@@ -10589,6 +10762,35 @@ defmodule AWS.CloudFront do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Deletes the resource policy attached to the CloudFront resource.
+  """
+  @spec delete_resource_policy(map(), delete_resource_policy_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_resource_policy_errors()}
+  def delete_resource_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/delete-resource-policy"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -11770,6 +11972,36 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Retrieves the resource policy for the specified CloudFront resource that you own
+  and have shared.
+  """
+  @spec get_resource_policy(map(), get_resource_policy_request(), list()) ::
+          {:ok, get_resource_policy_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_resource_policy_errors()}
+  def get_resource_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/get-resource-policy"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Gets a response headers policy, including metadata (the policy's identifier and
   the date and time when the policy was last modified).
 
@@ -12538,6 +12770,51 @@ defmodule AWS.CloudFront do
     url_path =
       "/2020-05-31/distributionsByOriginRequestPolicyId/#{AWS.Util.encode_uri(origin_request_policy_id)}"
 
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the CloudFront distributions that are associated with the specified
+  resource that you own.
+  """
+  @spec list_distributions_by_owned_resource(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_distributions_by_owned_resource_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_distributions_by_owned_resource_errors()}
+  def list_distributions_by_owned_resource(
+        %Client{} = client,
+        resource_arn,
+        marker \\ nil,
+        max_items \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2020-05-31/distributionsByOwnedResource/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -13539,6 +13816,35 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Creates a resource control policy for a given CloudFront resource.
+  """
+  @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
+          {:ok, put_resource_policy_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_resource_policy_errors()}
+  def put_resource_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/put-resource-policy"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Add tags to a CloudFront resource.
 
   For more information, see [Tagging a distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/tagging.html)
@@ -13656,6 +13962,53 @@ defmodule AWS.CloudFront do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Updates an Anycast static IP list.
+  """
+  @spec update_anycast_ip_list(
+          map(),
+          String.t() | atom(),
+          update_anycast_ip_list_request(),
+          list()
+        ) ::
+          {:ok, update_anycast_ip_list_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_anycast_ip_list_errors()}
+  def update_anycast_ip_list(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/anycast-ip-list/#{AWS.Util.encode_uri(id)}"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 

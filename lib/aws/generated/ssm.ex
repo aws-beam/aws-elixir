@@ -7329,6 +7329,17 @@ defmodule AWS.SSM do
 
   ## Example:
       
+      no_longer_supported_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type no_longer_supported_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       patch_baseline_identity() :: %{
         "BaselineDescription" => String.t() | atom(),
         "BaselineId" => String.t() | atom(),
@@ -8205,7 +8216,8 @@ defmodule AWS.SSM do
           | invalid_target()
 
   @type create_document_errors() ::
-          document_limit_exceeded()
+          no_longer_supported_exception()
+          | document_limit_exceeded()
           | too_many_updates()
           | internal_server_error()
           | document_already_exists()
@@ -8781,7 +8793,8 @@ defmodule AWS.SSM do
           | invalid_target()
 
   @type start_change_request_execution_errors() ::
-          automation_definition_not_approved_exception()
+          no_longer_supported_exception()
+          | automation_definition_not_approved_exception()
           | automation_definition_not_found_exception()
           | automation_execution_limit_exceeded_exception()
           | automation_definition_version_not_found_exception()
@@ -11091,6 +11104,15 @@ defmodule AWS.SSM do
   end
 
   @doc """
+
+  Amazon Web Services Systems Manager Change Manager will no longer be open to new
+  customers starting November 7, 2025.
+
+  If you would like to use Change Manager, sign up prior to that date. Existing
+  customers can
+  continue to use the service as normal. For more information, see
+  [Amazon Web Services Systems Manager Change Manager availability change](https://docs.aws.amazon.com/systems-manager/latest/userguide/change-manager-availability-change.html).
+
   Information about approval reviews for a version of a change template in Change
   Manager.
   """
@@ -11734,9 +11756,17 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Creates a change request for Change Manager.
 
-  The Automation runbooks specified in the
+  Amazon Web Services Systems Manager Change Manager will no longer be open to new
+  customers starting November 7, 2025.
+
+  If you would like to use Change Manager, sign up prior to that date. Existing
+  customers can
+  continue to use the service as normal. For more information, see
+  [Amazon Web Services Systems Manager Change Manager availability change](https://docs.aws.amazon.com/systems-manager/latest/userguide/change-manager-availability-change.html).
+
+  Creates a change request for Change Manager. The Automation runbooks specified
+  in the
   change request run only after all required approvals for the change request have
   been
   received.
@@ -11953,6 +11983,15 @@ defmodule AWS.SSM do
   end
 
   @doc """
+
+  Amazon Web Services Systems Manager Change Manager will no longer be open to new
+  customers starting November 7, 2025.
+
+  If you would like to use Change Manager, sign up prior to that date. Existing
+  customers can
+  continue to use the service as normal. For more information, see
+  [Amazon Web Services Systems Manager Change Manager availability change](https://docs.aws.amazon.com/systems-manager/latest/userguide/change-manager-availability-change.html).
+
   Updates information related to approval reviews for a specific version of a
   change template
   in Change Manager.

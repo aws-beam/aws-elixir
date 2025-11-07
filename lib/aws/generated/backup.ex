@@ -379,6 +379,7 @@ defmodule AWS.Backup do
         "CreatedBy" => recovery_point_creator(),
         "CreationDate" => non_neg_integer(),
         "EncryptionKeyArn" => String.t() | atom(),
+        "EncryptionKeyType" => list(any()),
         "IamRoleArn" => String.t() | atom(),
         "IndexStatus" => list(any()),
         "IndexStatusMessage" => String.t() | atom(),
@@ -835,6 +836,7 @@ defmodule AWS.Backup do
         "CreationDate" => non_neg_integer(),
         "CreatorRequestId" => String.t() | atom(),
         "EncryptionKeyArn" => String.t() | atom(),
+        "EncryptionKeyType" => list(any()),
         "LatestMpaApprovalTeamUpdate" => latest_mpa_approval_team_update(),
         "LockDate" => non_neg_integer(),
         "Locked" => boolean(),
@@ -2036,6 +2038,7 @@ defmodule AWS.Backup do
         "BackupVaultName" => String.t() | atom(),
         "CreationDate" => non_neg_integer(),
         "EncryptionKeyArn" => String.t() | atom(),
+        "EncryptionKeyType" => list(any()),
         "IndexStatus" => list(any()),
         "IndexStatusMessage" => String.t() | atom(),
         "IsParent" => boolean(),
@@ -2159,6 +2162,7 @@ defmodule AWS.Backup do
         "CreationDate" => non_neg_integer(),
         "CreatorRequestId" => String.t() | atom(),
         "EncryptionKeyArn" => String.t() | atom(),
+        "EncryptionKeyType" => list(any()),
         "LockDate" => non_neg_integer(),
         "Locked" => boolean(),
         "MaxRetentionDays" => float(),
@@ -2998,6 +3002,7 @@ defmodule AWS.Backup do
         "CreatedBy" => recovery_point_creator(),
         "CreationDate" => non_neg_integer(),
         "EncryptionKeyArn" => String.t() | atom(),
+        "EncryptionKeyType" => list(any()),
         "IamRoleArn" => String.t() | atom(),
         "IndexStatus" => list(any()),
         "IndexStatusMessage" => String.t() | atom(),
@@ -3250,6 +3255,7 @@ defmodule AWS.Backup do
       create_logically_air_gapped_backup_vault_input() :: %{
         optional("BackupVaultTags") => map(),
         optional("CreatorRequestId") => String.t() | atom(),
+        optional("EncryptionKeyArn") => String.t() | atom(),
         required("MaxRetentionDays") => float(),
         required("MinRetentionDays") => float()
       }

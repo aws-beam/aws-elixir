@@ -160,6 +160,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      evaluation_form_item_enablement_expression() :: %{
+        "Comparator" => list(any()),
+        "Source" => evaluation_form_item_enablement_source(),
+        "Values" => list(evaluation_form_item_enablement_source_value())
+      }
+
+  """
+  @type evaluation_form_item_enablement_expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       associate_default_vocabulary_request() :: %{
         optional("VocabularyId") => String.t() | atom()
       }
@@ -317,6 +330,7 @@ defmodule AWS.Connect do
   ## Example:
 
       update_evaluation_form_request() :: %{
+        optional("AutoEvaluationConfiguration") => evaluation_form_auto_evaluation_configuration(),
         optional("ClientToken") => String.t() | atom(),
         optional("CreateNewVersion") => boolean(),
         optional("Description") => String.t() | atom(),
@@ -339,6 +353,30 @@ defmodule AWS.Connect do
 
   """
   @type start_outbound_email_contact_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_contact_evaluations_response() :: %{
+        "ApproximateTotalCount" => float(),
+        "EvaluationSearchSummaryList" => list(evaluation_search_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type search_contact_evaluations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_form_question_automation_answer_source() :: %{
+        "SourceType" => list(any())
+      }
+
+  """
+  @type evaluation_form_question_automation_answer_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1056,6 +1094,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      evaluation_suggested_answer_transcript_millisecond_offsets() :: %{
+        "BeginOffsetMillis" => integer()
+      }
+
+  """
+  @type evaluation_suggested_answer_transcript_millisecond_offsets() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
       predefined_attribute_configuration() :: %{
         "EnableValueValidationOnAssociation" => boolean(),
         "IsReadOnly" => boolean()
@@ -1304,6 +1355,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      evaluation_form_auto_evaluation_configuration() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type evaluation_form_auto_evaluation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_flow_association_response() :: %{
         "FlowId" => String.t() | atom(),
         "ResourceId" => String.t() | atom(),
@@ -1312,6 +1374,17 @@ defmodule AWS.Connect do
 
   """
   @type get_flow_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_form_text_question_automation() :: %{
+        "AnswerSource" => evaluation_form_question_automation_answer_source()
+      }
+
+  """
+  @type evaluation_form_text_question_automation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2812,6 +2885,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      evaluation_form_item_enablement_source_value() :: %{
+        "RefId" => String.t() | atom(),
+        "Type" => list(any())
+      }
+
+  """
+  @type evaluation_form_item_enablement_source_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_email_address_request() :: %{}
 
   """
@@ -3090,6 +3175,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      evaluation_automation_rule_category() :: %{
+        "Category" => String.t() | atom(),
+        "Condition" => list(any()),
+        "PointsOfInterest" => list(evaluation_transcript_point_of_interest())
+      }
+
+  """
+  @type evaluation_automation_rule_category() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       search_contacts_additional_time_range_criteria() :: %{
         "TimeRange" => search_contacts_time_range(),
         "TimestampCondition" => search_contacts_timestamp_condition()
@@ -3097,6 +3195,18 @@ defmodule AWS.Connect do
 
   """
   @type search_contacts_additional_time_range_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      boolean_condition() :: %{
+        "ComparisonType" => list(any()),
+        "FieldName" => String.t() | atom()
+      }
+
+  """
+  @type boolean_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3220,6 +3330,7 @@ defmodule AWS.Connect do
   ## Example:
 
       evaluation_answer_output() :: %{
+        "SuggestedAnswers" => list(evaluation_suggested_answer()),
         "SystemSuggestedValue" => list(),
         "Value" => list()
       }
@@ -3363,6 +3474,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      auto_evaluation_details() :: %{
+        "AutoEvaluationEnabled" => boolean(),
+        "AutoEvaluationStatus" => list(any())
+      }
+
+  """
+  @type auto_evaluation_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       email_address_search_criteria() :: %{
         "AndConditions" => list(email_address_search_criteria()),
         "OrConditions" => list(email_address_search_criteria()),
@@ -3481,6 +3604,17 @@ defmodule AWS.Connect do
 
   """
   @type email_message_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_form_text_question_properties() :: %{
+        "Automation" => evaluation_form_text_question_automation()
+      }
+
+  """
+  @type evaluation_form_text_question_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3665,7 +3799,8 @@ defmodule AWS.Connect do
 
       update_contact_evaluation_request() :: %{
         optional("Answers") => map(),
-        optional("Notes") => map()
+        optional("Notes") => map(),
+        optional("UpdatedBy") => list()
       }
 
   """
@@ -3776,6 +3911,30 @@ defmodule AWS.Connect do
 
   """
   @type outbound_email_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_evaluation_forms_response() :: %{
+        "ApproximateTotalCount" => float(),
+        "EvaluationFormSearchSummaryList" => list(evaluation_form_search_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type search_evaluation_forms_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_form_search_filter() :: %{
+        "AttributeFilter" => control_plane_attribute_filter()
+      }
+
+  """
+  @type evaluation_form_search_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4277,6 +4436,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      auto_evaluation_configuration() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type auto_evaluation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_view_version_request() :: %{
         optional("VersionDescription") => String.t() | atom(),
         optional("ViewContentSha256") => String.t() | atom()
@@ -4509,6 +4679,18 @@ defmodule AWS.Connect do
 
   """
   @type create_prompt_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_form_item_enablement_source() :: %{
+        "RefId" => String.t() | atom(),
+        "Type" => list(any())
+      }
+
+  """
+  @type evaluation_form_item_enablement_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4888,6 +5070,7 @@ defmodule AWS.Connect do
   ## Example:
 
       evaluation_form() :: %{
+        "AutoEvaluationConfiguration" => evaluation_form_auto_evaluation_configuration(),
         "CreatedBy" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
         "Description" => String.t() | atom(),
@@ -4920,6 +5103,20 @@ defmodule AWS.Connect do
   @type real_time_contact_analysis_transcript_item_with_character_offsets() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      date_time_condition() :: %{
+        "ComparisonType" => list(any()),
+        "FieldName" => String.t() | atom(),
+        "MaxValue" => String.t() | atom(),
+        "MinValue" => String.t() | atom()
+      }
+
+  """
+  @type date_time_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5170,6 +5367,21 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      search_evaluation_forms_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SearchCriteria") => evaluation_form_search_criteria(),
+        optional("SearchFilter") => evaluation_form_search_filter(),
+        required("InstanceId") => String.t() | atom()
+      }
+
+  """
+  @type search_evaluation_forms_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_view_request() :: %{}
 
   """
@@ -5237,9 +5449,11 @@ defmodule AWS.Connect do
   ## Example:
 
       create_evaluation_form_request() :: %{
+        optional("AutoEvaluationConfiguration") => evaluation_form_auto_evaluation_configuration(),
         optional("ClientToken") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
         optional("ScoringStrategy") => evaluation_form_scoring_strategy(),
+        optional("Tags") => map(),
         required("Items") => list(list()),
         required("Title") => String.t() | atom()
       }
@@ -5370,6 +5584,18 @@ defmodule AWS.Connect do
 
   """
   @type integration_association_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_gen_a_i_answer_analysis_details() :: %{
+        "Justification" => String.t() | atom(),
+        "PointsOfInterest" => list(evaluation_transcript_point_of_interest())
+      }
+
+  """
+  @type evaluation_gen_a_i_answer_analysis_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5567,6 +5793,7 @@ defmodule AWS.Connect do
   ## Example:
 
       evaluation_form_question() :: %{
+        "Enablement" => evaluation_form_item_enablement_configuration(),
         "Instructions" => String.t() | atom(),
         "NotApplicableEnabled" => boolean(),
         "QuestionType" => list(any()),
@@ -5815,6 +6042,20 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      decimal_condition() :: %{
+        "ComparisonType" => list(any()),
+        "FieldName" => String.t() | atom(),
+        "MaxValue" => float(),
+        "MinValue" => float()
+      }
+
+  """
+  @type decimal_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       contact_data_request() :: %{
         "Attributes" => map(),
         "Campaign" => campaign(),
@@ -5951,6 +6192,7 @@ defmodule AWS.Connect do
 
       evaluation_form_numeric_question_option() :: %{
         "AutomaticFail" => boolean(),
+        "AutomaticFailConfiguration" => automatic_fail_configuration(),
         "MaxValue" => integer(),
         "MinValue" => integer(),
         "Score" => integer()
@@ -6346,6 +6588,28 @@ defmodule AWS.Connect do
 
   """
   @type contact_flow_module_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_search_metadata() :: %{
+        "AcknowledgedBy" => String.t() | atom(),
+        "AcknowledgedTime" => non_neg_integer(),
+        "AcknowledgerComment" => String.t() | atom(),
+        "AutoEvaluationEnabled" => boolean(),
+        "AutoEvaluationStatus" => list(any()),
+        "CalibrationSessionId" => String.t() | atom(),
+        "ContactAgentId" => String.t() | atom(),
+        "ContactId" => String.t() | atom(),
+        "EvaluatorArn" => String.t() | atom(),
+        "ScoreAutomaticFail" => boolean(),
+        "ScoreNotApplicable" => boolean(),
+        "ScorePercentage" => float()
+      }
+
+  """
+  @type evaluation_search_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7062,6 +7326,26 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      evaluation_search_summary() :: %{
+        "CreatedTime" => non_neg_integer(),
+        "EvaluationArn" => String.t() | atom(),
+        "EvaluationFormId" => String.t() | atom(),
+        "EvaluationFormVersion" => integer(),
+        "EvaluationId" => String.t() | atom(),
+        "EvaluationType" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "Metadata" => evaluation_search_metadata(),
+        "Status" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type evaluation_search_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_analytics_data_lake_data_sets_response() :: %{
         "NextToken" => String.t() | atom(),
         "Results" => list(analytics_data_sets_result())
@@ -7574,6 +7858,7 @@ defmodule AWS.Connect do
 
       evaluation_form_single_select_question_option() :: %{
         "AutomaticFail" => boolean(),
+        "AutomaticFailConfiguration" => automatic_fail_configuration(),
         "RefId" => String.t() | atom(),
         "Score" => integer(),
         "Text" => String.t() | atom()
@@ -7732,6 +8017,17 @@ defmodule AWS.Connect do
 
   """
   @type get_contact_attributes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_contact_lens_answer_analysis_details() :: %{
+        "MatchedRuleCategories" => list(evaluation_automation_rule_category())
+      }
+
+  """
+  @type evaluation_contact_lens_answer_analysis_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8161,7 +8457,8 @@ defmodule AWS.Connect do
 
       submit_contact_evaluation_request() :: %{
         optional("Answers") => map(),
-        optional("Notes") => map()
+        optional("Notes") => map(),
+        optional("SubmittedBy") => list()
       }
 
   """
@@ -8648,6 +8945,23 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      evaluation_search_criteria() :: %{
+        "AndConditions" => list(evaluation_search_criteria()),
+        "BooleanCondition" => boolean_condition(),
+        "DateTimeCondition" => date_time_condition(),
+        "DecimalCondition" => decimal_condition(),
+        "NumberCondition" => number_condition(),
+        "OrConditions" => list(evaluation_search_criteria()),
+        "StringCondition" => string_condition()
+      }
+
+  """
+  @type evaluation_search_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_integration_associations_response() :: %{
         "IntegrationAssociationSummaryList" => list(integration_association_summary()),
         "NextToken" => String.t() | atom()
@@ -8714,12 +9028,38 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      automatic_fail_configuration() :: %{
+        "TargetSection" => String.t() | atom()
+      }
+
+  """
+  @type automatic_fail_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       disassociate_security_key_request() :: %{
         optional("ClientToken") => String.t() | atom()
       }
 
   """
   @type disassociate_security_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_suggested_answer() :: %{
+        "AnalysisDetails" => list(),
+        "AnalysisType" => list(any()),
+        "Input" => evaluation_question_input_details(),
+        "Status" => list(any()),
+        "Value" => list()
+      }
+
+  """
+  @type evaluation_suggested_answer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8740,6 +9080,17 @@ defmodule AWS.Connect do
 
   """
   @type instance_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_search_filter() :: %{
+        "AttributeFilter" => control_plane_attribute_filter()
+      }
+
+  """
+  @type evaluation_search_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8767,12 +9118,37 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      evaluation_acknowledgement() :: %{
+        "AcknowledgedBy" => String.t() | atom(),
+        "AcknowledgedTime" => non_neg_integer(),
+        "AcknowledgerComment" => String.t() | atom()
+      }
+
+  """
+  @type evaluation_acknowledgement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_participant_role_config_request() :: %{
         required("ChannelConfiguration") => list()
       }
 
   """
   @type update_participant_role_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_transcript_point_of_interest() :: %{
+        "MillisecondOffsets" => evaluation_suggested_answer_transcript_millisecond_offsets(),
+        "TranscriptSegment" => String.t() | atom()
+      }
+
+  """
+  @type evaluation_transcript_point_of_interest() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9764,6 +10140,7 @@ defmodule AWS.Connect do
         "CreatedTime" => non_neg_integer(),
         "EvaluationArn" => String.t() | atom(),
         "EvaluationId" => String.t() | atom(),
+        "EvaluationType" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
         "Metadata" => evaluation_metadata(),
         "Notes" => map(),
@@ -9852,6 +10229,9 @@ defmodule AWS.Connect do
   ## Example:
 
       evaluation_metadata() :: %{
+        "Acknowledgement" => evaluation_acknowledgement(),
+        "AutoEvaluation" => auto_evaluation_details(),
+        "CalibrationSessionId" => String.t() | atom(),
         "ContactAgentId" => String.t() | atom(),
         "ContactId" => String.t() | atom(),
         "EvaluatorArn" => String.t() | atom(),
@@ -10110,6 +10490,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      evaluation_acknowledgement_summary() :: %{
+        "AcknowledgedBy" => String.t() | atom(),
+        "AcknowledgedTime" => non_neg_integer(),
+        "AcknowledgerComment" => String.t() | atom()
+      }
+
+  """
+  @type evaluation_acknowledgement_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       step() :: %{
         "Expiry" => expiry(),
         "Expression" => expression(),
@@ -10292,6 +10685,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      evaluation_form_item_enablement_configuration() :: %{
+        "Action" => list(any()),
+        "Condition" => evaluation_form_item_enablement_condition(),
+        "DefaultAction" => list(any())
+      }
+
+  """
+  @type evaluation_form_item_enablement_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_chat_contact_request() :: %{
         optional("Attributes") => map(),
         optional("ChatDurationInMinutes") => integer(),
@@ -10462,7 +10868,9 @@ defmodule AWS.Connect do
   ## Example:
 
       start_contact_evaluation_request() :: %{
+        optional("AutoEvaluationConfiguration") => auto_evaluation_configuration(),
         optional("ClientToken") => String.t() | atom(),
+        optional("Tags") => map(),
         required("ContactId") => String.t() | atom(),
         required("EvaluationFormId") => String.t() | atom()
       }
@@ -10490,6 +10898,18 @@ defmodule AWS.Connect do
 
   """
   @type claimed_phone_number_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_form_item_enablement_condition() :: %{
+        "Operands" => list(list()),
+        "Operator" => list(any())
+      }
+
+  """
+  @type evaluation_form_item_enablement_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10546,11 +10966,16 @@ defmodule AWS.Connect do
   ## Example:
 
       evaluation_summary() :: %{
+        "Acknowledgement" => evaluation_acknowledgement_summary(),
+        "AutoEvaluationEnabled" => boolean(),
+        "AutoEvaluationStatus" => list(any()),
+        "CalibrationSessionId" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
         "EvaluationArn" => String.t() | atom(),
         "EvaluationFormId" => String.t() | atom(),
         "EvaluationFormTitle" => String.t() | atom(),
         "EvaluationId" => String.t() | atom(),
+        "EvaluationType" => list(any()),
         "EvaluatorArn" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
         "Score" => evaluation_score(),
@@ -10618,6 +11043,7 @@ defmodule AWS.Connect do
   ## Example:
 
       evaluation_form_single_select_question_automation() :: %{
+        "AnswerSource" => evaluation_form_question_automation_answer_source(),
         "DefaultOptionRefId" => String.t() | atom(),
         "Options" => list(list())
       }
@@ -10735,6 +11161,31 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      evaluation_form_search_summary() :: %{
+        "ActiveVersion" => integer(),
+        "AutoEvaluationEnabled" => boolean(),
+        "CreatedBy" => String.t() | atom(),
+        "CreatedTime" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "EvaluationFormArn" => String.t() | atom(),
+        "EvaluationFormId" => String.t() | atom(),
+        "LastActivatedBy" => String.t() | atom(),
+        "LastActivatedTime" => non_neg_integer(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "LatestVersion" => integer(),
+        "Status" => list(any()),
+        "Tags" => map(),
+        "Title" => String.t() | atom()
+      }
+
+  """
+  @type evaluation_form_search_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_views_response() :: %{
         "NextToken" => String.t() | atom(),
         "ViewsSummaryList" => list(view_summary())
@@ -10753,6 +11204,17 @@ defmodule AWS.Connect do
 
   """
   @type duplicate_resource_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_question_input_details() :: %{
+        "TranscriptType" => list(any())
+      }
+
+  """
+  @type evaluation_question_input_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10818,6 +11280,22 @@ defmodule AWS.Connect do
 
   """
   @type resource_conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_form_search_criteria() :: %{
+        "AndConditions" => list(evaluation_form_search_criteria()),
+        "BooleanCondition" => boolean_condition(),
+        "DateTimeCondition" => date_time_condition(),
+        "NumberCondition" => number_condition(),
+        "OrConditions" => list(evaluation_form_search_criteria()),
+        "StringCondition" => string_condition()
+      }
+
+  """
+  @type evaluation_form_search_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11031,6 +11509,21 @@ defmodule AWS.Connect do
 
   """
   @type date_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_contact_evaluations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SearchCriteria") => evaluation_search_criteria(),
+        optional("SearchFilter") => evaluation_search_filter(),
+        required("InstanceId") => String.t() | atom()
+      }
+
+  """
+  @type search_contact_evaluations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11281,6 +11774,7 @@ defmodule AWS.Connect do
   ## Example:
 
       evaluation_form_content() :: %{
+        "AutoEvaluationConfiguration" => evaluation_form_auto_evaluation_configuration(),
         "Description" => String.t() | atom(),
         "EvaluationFormArn" => String.t() | atom(),
         "EvaluationFormId" => String.t() | atom(),
@@ -12887,6 +13381,13 @@ defmodule AWS.Connect do
           | access_denied_exception()
           | internal_service_exception()
 
+  @type search_contact_evaluations_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type search_contact_flow_modules_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
@@ -12912,6 +13413,13 @@ defmodule AWS.Connect do
           throttling_exception()
           | invalid_parameter_exception()
           | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type search_evaluation_forms_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
@@ -17146,7 +17654,7 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   To
-  request access to this API, contact Amazon Web ServicesSupport.
+  request access to this API, contact Amazon Web Services Support.
 
   Describes the target authentication profile.
   """
@@ -19229,7 +19737,7 @@ defmodule AWS.Connect do
   release 99, you
   will have exceeded the 200% limit. At that point you are blocked from claiming
   any more numbers
-  until you open an Amazon Web ServicesSupport ticket.
+  until you open an Amazon Web Services Support ticket.
   """
   @spec import_phone_number(map(), import_phone_number_request(), list()) ::
           {:ok, import_phone_number_response(), any()}
@@ -19515,7 +20023,7 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   To
-  request access to this API, contact Amazon Web ServicesSupport.
+  request access to this API, contact Amazon Web Services Support.
 
   Provides summary information about the authentication profiles in a specified
   Amazon Connect instance.
@@ -21953,7 +22461,7 @@ defmodule AWS.Connect do
   for up to
   180 days. It cannot be searched for or claimed again until the period has ended.
   If you
-  accidentally release a phone number, contact Amazon Web ServicesSupport.
+  accidentally release a phone number, contact Amazon Web Services Support.
 
   If you plan to claim and release numbers frequently,
   contact us for a service quota exception. Otherwise, it is possible you will be
@@ -22177,6 +22685,61 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Searches contact evaluations in an Amazon Connect instance, with optional
+  filtering.
+
+  ## Use cases
+
+  Following are common uses cases for this API:
+
+    *
+  Find contact evaluations by using specific search criteria.
+
+    *
+  Find contact evaluations that are tagged with a specific set of tags.
+
+  ## Important things to know
+
+    *
+  A Search operation, unlike a List operation, takes time to index changes to
+  resource
+  (create, update or delete). If you don't see updated information for recently
+  changed
+  contact evaluations, try calling the API again in a few seconds. Contact
+  Evaluations
+  may not be fully backfilled with historical data in all regions yet, however all
+  recently
+  created Contact Evaluations should be available for search.
+
+  **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  """
+  @spec search_contact_evaluations(map(), search_contact_evaluations_request(), list()) ::
+          {:ok, search_contact_evaluations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, search_contact_evaluations_errors()}
+  def search_contact_evaluations(%Client{} = client, input, options \\ []) do
+    url_path = "/search-contact-evaluations"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Searches the flow modules in an Amazon Connect instance, with optional
   filtering.
   """
@@ -22274,6 +22837,61 @@ defmodule AWS.Connect do
           | {:error, search_email_addresses_errors()}
   def search_email_addresses(%Client{} = client, input, options \\ []) do
     url_path = "/search-email-addresses"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Searches evaluation forms in an Amazon Connect instance, with optional
+  filtering.
+
+  ## Use cases
+
+  Following are common uses cases for this API:
+
+    *
+  List all evaluation forms in an instance.
+
+    *
+  Find all evaluation forms that meet specific criteria, such as Title,
+  Description, Status, and more.
+
+    *
+  Find all evaluation forms that are tagged with a specific set of tags.
+
+  ## Important things to know
+
+    *
+  A Search operation, unlike a List operation, takes time to index changes to
+  resource
+  (create, update or delete). If you don't see updated information for recently
+  changed
+  contact evaluations, try calling the API again in a few seconds.
+
+  **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  """
+  @spec search_evaluation_forms(map(), search_evaluation_forms_request(), list()) ::
+          {:ok, search_evaluation_forms_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, search_evaluation_forms_errors()}
+  def search_evaluation_forms(%Client{} = client, input, options \\ []) do
+    url_path = "/search-evaluation-forms"
     headers = []
     custom_headers = []
     query_params = []
@@ -22845,7 +23463,7 @@ defmodule AWS.Connect do
   If you use the `ChatDurationInMinutes` parameter and receive a 400 error, your
   account may not support the ability to configure custom chat durations. For more
   information,
-  contact Amazon Web ServicesSupport.
+  contact Amazon Web Services Support.
 
   For more information about chat, see the following topics in the *Amazon Connect
   Administrator Guide*:
@@ -23829,7 +24447,7 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   To
-  request access to this API, contact Amazon Web ServicesSupport.
+  request access to this API, contact Amazon Web Services Support.
 
   Updates the selected authentication profile.
   """

@@ -6,12 +6,12 @@ defmodule AWS.AccessAnalyzer do
   Identity and Access Management Access Analyzer helps you to set, verify, and
   refine your IAM policies by providing a suite of capabilities.
 
-  Its features include findings for external and unused access, basic and custom
-  policy checks for validating policies, and policy generation to generate
-  fine-grained policies. To start using IAM Access Analyzer to identify external
-  or unused access, you first need to create an analyzer.
+  Its features include findings for external, internal, and unused access, basic
+  and custom policy checks for validating policies, and policy generation to
+  generate fine-grained policies. To start using IAM Access Analyzer to identify
+  external, internal, or unused access, you first need to create an analyzer.
 
-  **External access analyzers** help identify potential risks of accessing
+  **External access analyzers** help you identify potential risks of accessing
   resources by enabling you to identify any resource policies that grant access to
   an external principal. It does this by using logic-based reasoning to analyze
   resource-based policies in your Amazon Web Services environment. An external
@@ -20,7 +20,13 @@ defmodule AWS.AccessAnalyzer do
   You can also use IAM Access Analyzer to preview public and cross-account access
   to your resources before deploying permissions changes.
 
-  **Unused access analyzers** help identify potential identity access risks by
+  **Internal access analyzers** help you identify which principals within your
+  organization or account have access to selected resources. This analysis
+  supports implementing the principle of least privilege by ensuring that your
+  specified resources can only be accessed by the intended principals within your
+  organization.
+
+  **Unused access analyzers** help you identify potential identity access risks by
   enabling you to identify unused IAM roles, unused access keys, unused console
   passwords, and IAM principals with unused service and action-level permissions.
 
@@ -30,8 +36,8 @@ defmodule AWS.AccessAnalyzer do
   activity logged in CloudTrail logs.
 
   This guide describes the IAM Access Analyzer operations that you can call
-  programmatically. For general information about IAM Access Analyzer, see
-  [Identity and Access Management Access Analyzer](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html)
+  programmatically. For general information about IAM Access Analyzer, see [Using Identity and Access Management Access
+  Analyzer](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html)
   in the **IAM User Guide**.
   """
 
@@ -1108,6 +1114,7 @@ defmodule AWS.AccessAnalyzer do
 
       resource_type_details() :: %{
         "totalActiveCrossAccount" => [integer()],
+        "totalActiveErrors" => [integer()],
         "totalActivePublic" => [integer()]
       }
 
@@ -2695,6 +2702,8 @@ defmodule AWS.AccessAnalyzer do
 
   @doc """
   Retrieves information about a resource that was analyzed.
+
+  This action is supported only for external access analyzers.
   """
   @spec get_analyzed_resource(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_analyzed_resource_response(), any()}
@@ -2773,6 +2782,9 @@ defmodule AWS.AccessAnalyzer do
   GetFinding and GetFindingV2 both use `access-analyzer:GetFinding` in the
   `Action` element of an IAM policy statement. You must have permission to perform
   the `access-analyzer:GetFinding` action.
+
+  GetFinding is supported only for external access analyzers. You must use
+  GetFindingV2 for internal and unused access analyzers.
   """
   @spec get_finding(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_finding_response(), any()}
@@ -3201,6 +3213,9 @@ defmodule AWS.AccessAnalyzer do
   To learn about filter keys that you can use to retrieve a list of findings, see
   [IAM Access Analyzer filter keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html)
   in the **IAM User Guide**.
+
+  ListFindings is supported only for external access analyzers. You must use
+  ListFindingsV2 for internal and unused access analyzers.
   """
   @spec list_findings(map(), list_findings_request(), list()) ::
           {:ok, list_findings_response(), any()}
@@ -3365,6 +3380,8 @@ defmodule AWS.AccessAnalyzer do
 
   @doc """
   Immediately starts a scan of the policies applied to the specified resource.
+
+  This action is supported only for external access analyzers.
   """
   @spec start_resource_scan(map(), start_resource_scan_request(), list()) ::
           {:ok, nil, any()}
@@ -3457,6 +3474,8 @@ defmodule AWS.AccessAnalyzer do
 
   @doc """
   Modifies the configuration of an existing analyzer.
+
+  This action is not supported for external access analyzers.
   """
   @spec update_analyzer(map(), String.t() | atom(), update_analyzer_request(), list()) ::
           {:ok, update_analyzer_response(), any()}

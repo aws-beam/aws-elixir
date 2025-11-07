@@ -68,6 +68,17 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       iceberg_snapshot_management_settings() :: %{
         "maxSnapshotAgeHours" => integer(),
         "minSnapshotsToKeep" => integer()
@@ -118,6 +129,15 @@ defmodule AWS.S3Tables do
 
   """
   @type get_table_bucket_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
@@ -258,6 +278,7 @@ defmodule AWS.S3Tables do
       create_table_request() :: %{
         optional("encryptionConfiguration") => encryption_configuration(),
         optional("metadata") => list(),
+        optional("tags") => map(),
         required("format") => list(any()),
         required("name") => String.t() | atom()
       }
@@ -320,6 +341,17 @@ defmodule AWS.S3Tables do
 
   """
   @type get_table_bucket_encryption_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -499,6 +531,17 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_table_bucket_request() :: %{}
 
   """
@@ -519,6 +562,7 @@ defmodule AWS.S3Tables do
 
       create_table_bucket_request() :: %{
         optional("encryptionConfiguration") => encryption_configuration(),
+        optional("tags") => map(),
         required("name") => String.t() | atom()
       }
 
@@ -610,6 +654,15 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       create_namespace_response() :: %{
         "namespace" => list(String.t() | atom()),
         "tableBucketARN" => String.t() | atom()
@@ -641,6 +694,15 @@ defmodule AWS.S3Tables do
 
   """
   @type iceberg_compaction_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
@@ -1009,6 +1071,14 @@ defmodule AWS.S3Tables do
           | too_many_requests_exception()
           | forbidden_exception()
 
+  @type list_tags_for_resource_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
   @type put_table_bucket_encryption_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
@@ -1050,6 +1120,22 @@ defmodule AWS.S3Tables do
           | forbidden_exception()
 
   @type rename_table_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type tag_resource_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type untag_resource_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
@@ -1140,6 +1226,9 @@ defmodule AWS.S3Tables do
   `encryptionConfiguration` request parameter you must have the
   `s3tables:PutTableEncryption` permission.
 
+     You must have the `s3tables:TagResource` permission in addition to
+  `s3tables:CreateTable` permission to create a table with tags.
+
   Additionally, If you choose SSE-KMS encryption you must grant the S3 Tables
   maintenance principal access to your KMS key. For more information, see
   [Permissions requirements for S3 Tables SSE-KMS encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-kms-permissions.html).
@@ -1194,6 +1283,9 @@ defmodule AWS.S3Tables do
      If you use this operation with the optional
   `encryptionConfiguration` parameter you must have the
   `s3tables:PutTableBucketEncryption` permission.
+
+     You must have the `s3tables:TagResource` permission in addition to
+  `s3tables:CreateTableBucket` permission to create a table bucket with tags.
   """
   @spec create_table_bucket(map(), create_table_bucket_request(), list()) ::
           {:ok, create_table_bucket_response(), any()}
@@ -2103,6 +2195,37 @@ defmodule AWS.S3Tables do
   end
 
   @doc """
+  Lists all of the tags applied to a specified Amazon S3 Tables resource.
+
+  Each tag is a label consisting of a key and value pair. Tags can help you
+  organize, track costs for, and control access to resources.
+
+  For a list of S3 resources that support tagging, see [Managing tags for Amazon S3
+  resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#manage-tags).
+
+  ## Definitions
+
+  ### Permissions
+
+  For tables and table buckets, you must have the `s3tables:ListTagsForResource`
+  permission to use this operation.
+  """
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_tags_for_resource_errors()}
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tag/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Sets the encryption configuration for a table bucket.
 
   ## Definitions
@@ -2203,8 +2326,8 @@ defmodule AWS.S3Tables do
   end
 
   @doc """
-  Creates a new maintenance configuration or replaces an existing table bucket
-  policy for a table bucket.
+  Creates a new table bucket policy or replaces an existing table bucket policy
+  for a table bucket.
 
   For more information, see [Adding a table bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-bucket-policy.html#table-bucket-policy-add)
   in the *Amazon Simple Storage Service User Guide*.
@@ -2306,8 +2429,7 @@ defmodule AWS.S3Tables do
   end
 
   @doc """
-  Creates a new maintenance configuration or replaces an existing table policy for
-  a table.
+  Creates a new table policy or replaces an existing table policy for a table.
 
   For more information, see [Adding a table policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-table-policy.html#table-policy-add)
   in the *Amazon Simple Storage Service User Guide*.
@@ -2398,6 +2520,96 @@ defmodule AWS.S3Tables do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Applies one or more user-defined tags to an Amazon S3 Tables resource or updates
+  existing tags.
+
+  Each tag is a label consisting of a key and value pair. Tags can help you
+  organize, track costs for, and control access to your resources. You can add up
+  to 50 tags for each S3 resource.
+
+  For a list of S3 resources that support tagging, see [Managing tags for Amazon S3
+  resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#manage-tags).
+
+  ## Definitions
+
+  ### Permissions
+
+  For tables and table buckets, you must have the `s3tables:TagResource`
+  permission to use this operation.
+  """
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, tag_resource_errors()}
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tag/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Removes the specified user-defined tags from an Amazon S3 Tables resource.
+
+  You can pass one or more tag keys.
+
+  For a list of S3 resources that support tagging, see [Managing tags for Amazon S3
+  resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#manage-tags).
+
+  ## Definitions
+
+  ### Permissions
+
+  For tables and table buckets, you must have the `s3tables:UntagResource`
+  permission to use this operation.
+  """
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, untag_resource_errors()}
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tag/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"tagKeys", "tagKeys"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
       url_path,
       query_params,
       custom_headers ++ headers,

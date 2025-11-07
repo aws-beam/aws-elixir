@@ -3,7 +3,7 @@
 
 defmodule AWS.QuickSight do
   @moduledoc """
-  Amazon QuickSight API Reference
+  Amazon Quick Suite API Reference
 
   Amazon Quick Sight is a fully managed, serverless business intelligence service
   for the
@@ -51,6 +51,18 @@ defmodule AWS.QuickSight do
 
   """
   @type theme() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_table() :: %{
+        "DataSet" => parent_data_set(),
+        "PhysicalTableId" => String.t() | atom()
+      }
+
+  """
+  @type source_table() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -451,6 +463,23 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      unpivot_operation() :: %{
+        "Alias" => String.t() | atom(),
+        "ColumnsToUnpivot" => list(column_to_unpivot()),
+        "Source" => transform_operation_source(),
+        "UnpivotedLabelColumnId" => String.t() | atom(),
+        "UnpivotedLabelColumnName" => String.t() | atom(),
+        "UnpivotedValueColumnId" => String.t() | atom(),
+        "UnpivotedValueColumnName" => String.t() | atom()
+      }
+
+  """
+  @type unpivot_operation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_dashboard_response() :: %{
         "Arn" => String.t() | atom(),
         "CreationStatus" => list(any()),
@@ -619,6 +648,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      table_path_element() :: %{
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type table_path_element() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_point_menu_label_option() :: %{
         "AvailabilityStatus" => list(any())
       }
@@ -752,6 +793,23 @@ defmodule AWS.QuickSight do
 
   """
   @type update_dashboard_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      join_operation() :: %{
+        "Alias" => String.t() | atom(),
+        "LeftOperand" => transform_operation_source(),
+        "LeftOperandProperties" => join_operand_properties(),
+        "OnClause" => String.t() | atom(),
+        "RightOperand" => transform_operation_source(),
+        "RightOperandProperties" => join_operand_properties(),
+        "Type" => list(any())
+      }
+
+  """
+  @type join_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -963,6 +1021,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      cast_column_types_operation() :: %{
+        "Alias" => String.t() | atom(),
+        "CastColumnTypeOperations" => list(cast_column_type_operation()),
+        "Source" => transform_operation_source()
+      }
+
+  """
+  @type cast_column_types_operation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_account_subscription_request() :: %{}
 
   """
@@ -999,7 +1070,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       create_columns_operation() :: %{
-        "Columns" => list(calculated_column())
+        "Alias" => String.t() | atom(),
+        "Columns" => list(calculated_column()),
+        "Source" => transform_operation_source()
       }
 
   """
@@ -1191,6 +1264,7 @@ defmodule AWS.QuickSight do
 
       upload_settings() :: %{
         "ContainsHeader" => boolean(),
+        "CustomCellAddressRange" => String.t() | atom(),
         "Delimiter" => String.t() | atom(),
         "Format" => list(any()),
         "StartFromRow" => integer(),
@@ -1342,6 +1416,20 @@ defmodule AWS.QuickSight do
 
   """
   @type describe_folder_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      data_set_numeric_range_filter_condition() :: %{
+        "IncludeMaximum" => boolean(),
+        "IncludeMinimum" => boolean(),
+        "RangeMaximum" => data_set_numeric_filter_value(),
+        "RangeMinimum" => data_set_numeric_filter_value()
+      }
+
+  """
+  @type data_set_numeric_range_filter_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1893,6 +1981,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      pivot_configuration() :: %{
+        "LabelColumnName" => String.t() | atom(),
+        "PivotedLabels" => list(pivoted_label())
+      }
+
+  """
+  @type pivot_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       dashboard_version_definition() :: %{
         "AnalysisDefaults" => analysis_defaults(),
         "CalculatedFields" => list(calculated_field()),
@@ -2377,6 +2477,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      row_level_permission_configuration() :: %{
+        "RowLevelPermissionDataSet" => row_level_permission_data_set(),
+        "TagConfiguration" => row_level_permission_tag_configuration()
+      }
+
+  """
+  @type row_level_permission_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       asset_bundle_import_job_theme_override_parameters() :: %{
         "Name" => String.t() | atom(),
         "ThemeId" => String.t() | atom()
@@ -2589,6 +2701,7 @@ defmodule AWS.QuickSight do
         "ColumnLevelPermissionRules" => list(column_level_permission_rule()),
         "ConsumedSpiceCapacityInBytes" => float(),
         "CreatedTime" => non_neg_integer(),
+        "DataPrepConfiguration" => data_prep_configuration(),
         "DataSetId" => String.t() | atom(),
         "DataSetUsageConfiguration" => data_set_usage_configuration(),
         "DatasetParameters" => list(dataset_parameter()),
@@ -2602,6 +2715,7 @@ defmodule AWS.QuickSight do
         "PhysicalTableMap" => map(),
         "RowLevelPermissionDataSet" => row_level_permission_data_set(),
         "RowLevelPermissionTagConfiguration" => row_level_permission_tag_configuration(),
+        "SemanticModelConfiguration" => semantic_model_configuration(),
         "UseAs" => list(any())
       }
 
@@ -3544,6 +3658,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       input_column() :: %{
+        "Id" => String.t() | atom(),
         "Name" => String.t() | atom(),
         "SubType" => list(any()),
         "Type" => list(any())
@@ -3611,6 +3726,18 @@ defmodule AWS.QuickSight do
 
   """
   @type axis_display_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_table_operation() :: %{
+        "Alias" => String.t() | atom(),
+        "Source" => import_table_operation_source()
+      }
+
+  """
+  @type import_table_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3899,6 +4026,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      destination_table() :: %{
+        "Alias" => String.t() | atom(),
+        "Source" => destination_table_source()
+      }
+
+  """
+  @type destination_table() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       global_table_border_options() :: %{
         "SideSpecificBorder" => table_side_border_options(),
         "UniformBorder" => table_border_options()
@@ -3944,12 +4083,35 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      data_set_string_list_filter_condition() :: %{
+        "Operator" => list(any()),
+        "Values" => data_set_string_list_filter_value()
+      }
+
+  """
+  @type data_set_string_list_filter_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       histogram_field_wells() :: %{
         "HistogramAggregatedFieldWells" => histogram_aggregated_field_wells()
       }
 
   """
   @type histogram_field_wells() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_set_date_filter_value() :: %{
+        "StaticValue" => non_neg_integer()
+      }
+
+  """
+  @type data_set_date_filter_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4149,6 +4311,30 @@ defmodule AWS.QuickSight do
 
   """
   @type put_data_set_refresh_properties_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_prep_simple_aggregation_function() :: %{
+        "FunctionType" => list(any()),
+        "InputColumnName" => String.t() | atom()
+      }
+
+  """
+  @type data_prep_simple_aggregation_function() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      appended_column() :: %{
+        "ColumnName" => String.t() | atom(),
+        "NewColumnId" => String.t() | atom()
+      }
+
+  """
+  @type appended_column() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4359,6 +4545,19 @@ defmodule AWS.QuickSight do
   @type update_application_with_token_exchange_grant_request() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      pivoted_label() :: %{
+        "LabelName" => String.t() | atom(),
+        "NewColumnId" => String.t() | atom(),
+        "NewColumnName" => String.t() | atom()
+      }
+
+  """
+  @type pivoted_label() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4722,6 +4921,18 @@ defmodule AWS.QuickSight do
 
   """
   @type geospatial_layer_join_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_prep_aggregation_function() :: %{
+        "ListAggregation" => data_prep_list_aggregation_function(),
+        "SimpleAggregation" => data_prep_simple_aggregation_function()
+      }
+
+  """
+  @type data_prep_aggregation_function() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5577,6 +5788,19 @@ defmodule AWS.QuickSight do
 
   """
   @type arc_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      saa_s_table() :: %{
+        "DataSourceArn" => String.t() | atom(),
+        "InputColumns" => list(input_column()),
+        "TablePath" => list(table_path_element())
+      }
+
+  """
+  @type saa_s_table() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6752,6 +6976,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      filters_operation() :: %{
+        "Alias" => String.t() | atom(),
+        "FilterOperations" => list(filter_operation()),
+        "Source" => transform_operation_source()
+      }
+
+  """
+  @type filters_operation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_data_set_request() :: %{}
 
   """
@@ -7235,6 +7472,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      semantic_model_configuration() :: %{
+        "TableMap" => map()
+      }
+
+  """
+  @type semantic_model_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       analysis_search_filter() :: %{
         "Name" => list(any()),
         "Operator" => list(any()),
@@ -7271,6 +7519,18 @@ defmodule AWS.QuickSight do
 
   """
   @type sheet_image_static_file_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_set_column_id_mapping() :: %{
+        "SourceColumnId" => String.t() | atom(),
+        "TargetColumnId" => String.t() | atom()
+      }
+
+  """
+  @type data_set_column_id_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7351,6 +7611,19 @@ defmodule AWS.QuickSight do
 
   """
   @type describe_template_permissions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_set_numeric_filter_condition() :: %{
+        "ColumnName" => String.t() | atom(),
+        "ComparisonFilterCondition" => data_set_numeric_comparison_filter_condition(),
+        "RangeFilterCondition" => data_set_numeric_range_filter_condition()
+      }
+
+  """
+  @type data_set_numeric_filter_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7485,6 +7758,7 @@ defmodule AWS.QuickSight do
       create_data_set_request() :: %{
         optional("ColumnGroups") => list(column_group()),
         optional("ColumnLevelPermissionRules") => list(column_level_permission_rule()),
+        optional("DataPrepConfiguration") => data_prep_configuration(),
         optional("DataSetUsageConfiguration") => data_set_usage_configuration(),
         optional("DatasetParameters") => list(dataset_parameter()),
         optional("FieldFolders") => map(),
@@ -7494,6 +7768,7 @@ defmodule AWS.QuickSight do
         optional("Permissions") => list(resource_permission()),
         optional("RowLevelPermissionDataSet") => row_level_permission_data_set(),
         optional("RowLevelPermissionTagConfiguration") => row_level_permission_tag_configuration(),
+        optional("SemanticModelConfiguration") => semantic_model_configuration(),
         optional("Tags") => list(tag()),
         optional("UseAs") => list(any()),
         required("DataSetId") => String.t() | atom(),
@@ -7527,7 +7802,10 @@ defmodule AWS.QuickSight do
   ## Example:
 
       filter_operation() :: %{
-        "ConditionExpression" => String.t() | atom()
+        "ConditionExpression" => String.t() | atom(),
+        "DateFilterCondition" => data_set_date_filter_condition(),
+        "NumericFilterCondition" => data_set_numeric_filter_condition(),
+        "StringFilterCondition" => data_set_string_filter_condition()
       }
 
   """
@@ -7712,6 +7990,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      column_to_unpivot() :: %{
+        "ColumnName" => String.t() | atom(),
+        "NewValue" => String.t() | atom()
+      }
+
+  """
+  @type column_to_unpivot() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       filled_map_sort_configuration() :: %{
         "CategorySort" => list(field_sort_options())
       }
@@ -7783,6 +8073,17 @@ defmodule AWS.QuickSight do
 
   """
   @type geospatial_window_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      destination_table_source() :: %{
+        "TransformOperationId" => String.t() | atom()
+      }
+
+  """
+  @type destination_table_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8027,6 +8328,19 @@ defmodule AWS.QuickSight do
 
   """
   @type visual_menu_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_prep_configuration() :: %{
+        "DestinationTableMap" => map(),
+        "SourceTableMap" => map(),
+        "TransformStepMap" => map()
+      }
+
+  """
+  @type data_prep_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8382,7 +8696,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       project_operation() :: %{
-        "ProjectedColumns" => list(String.t() | atom())
+        "Alias" => String.t() | atom(),
+        "ProjectedColumns" => list(String.t() | atom()),
+        "Source" => transform_operation_source()
       }
 
   """
@@ -8499,6 +8815,18 @@ defmodule AWS.QuickSight do
 
   """
   @type body_section_repeat_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_set_numeric_comparison_filter_condition() :: %{
+        "Operator" => list(any()),
+        "Value" => data_set_numeric_filter_value()
+      }
+
+  """
+  @type data_set_numeric_comparison_filter_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9045,6 +9373,7 @@ defmodule AWS.QuickSight do
         "LastUpdatedTime" => non_neg_integer(),
         "Name" => String.t() | atom(),
         "RowLevelPermissionDataSet" => row_level_permission_data_set(),
+        "RowLevelPermissionDataSetMap" => map(),
         "RowLevelPermissionTagConfigurationApplied" => boolean(),
         "UseAs" => list(any())
       }
@@ -9660,6 +9989,19 @@ defmodule AWS.QuickSight do
 
   """
   @type update_brand_assignment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_set_date_filter_condition() :: %{
+        "ColumnName" => String.t() | atom(),
+        "ComparisonFilterCondition" => data_set_date_comparison_filter_condition(),
+        "RangeFilterCondition" => data_set_date_range_filter_condition()
+      }
+
+  """
+  @type data_set_date_filter_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10748,6 +11090,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      data_set_string_filter_value() :: %{
+        "StaticValue" => String.t() | atom()
+      }
+
+  """
+  @type data_set_string_filter_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_dashboard_snapshot_job_result_request() :: %{}
 
   """
@@ -10848,6 +11201,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      data_set_string_comparison_filter_condition() :: %{
+        "Operator" => list(any()),
+        "Value" => data_set_string_filter_value()
+      }
+
+  """
+  @type data_set_string_comparison_filter_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       table_side_border_options() :: %{
         "Bottom" => table_border_options(),
         "InnerHorizontal" => table_border_options(),
@@ -10900,6 +11265,19 @@ defmodule AWS.QuickSight do
 
   """
   @type topic_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_prep_list_aggregation_function() :: %{
+        "Distinct" => boolean(),
+        "InputColumnName" => String.t() | atom(),
+        "Separator" => String.t() | atom()
+      }
+
+  """
+  @type data_prep_list_aggregation_function() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11778,6 +12156,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      data_set_date_comparison_filter_condition() :: %{
+        "Operator" => list(any()),
+        "Value" => data_set_date_filter_value()
+      }
+
+  """
+  @type data_set_date_comparison_filter_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_dashboards_q_a_configuration_request() :: %{
         required("DashboardsQAStatus") => list(any())
       }
@@ -12129,6 +12519,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      value_column_configuration() :: %{
+        "AggregationFunction" => data_prep_aggregation_function()
+      }
+
+  """
+  @type value_column_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cast_column_type_operation() :: %{
         "ColumnName" => String.t() | atom(),
         "Format" => String.t() | atom(),
@@ -12172,6 +12573,20 @@ defmodule AWS.QuickSight do
 
   """
   @type geospatial_null_data_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      append_operation() :: %{
+        "Alias" => String.t() | atom(),
+        "AppendedColumns" => list(appended_column()),
+        "FirstSource" => transform_operation_source(),
+        "SecondSource" => transform_operation_source()
+      }
+
+  """
+  @type append_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12664,6 +13079,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      invalid_data_set_parameter_value_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+
+  """
+  @type invalid_data_set_parameter_value_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_folder_membership_request() :: %{}
 
   """
@@ -13121,6 +13548,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      data_set_date_range_filter_condition() :: %{
+        "IncludeMaximum" => boolean(),
+        "IncludeMinimum" => boolean(),
+        "RangeMaximum" => data_set_date_filter_value(),
+        "RangeMinimum" => data_set_date_filter_value()
+      }
+
+  """
+  @type data_set_date_range_filter_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       date_time_value_when_unset_configuration() :: %{
         "CustomValue" => non_neg_integer(),
         "ValueWhenUnsetOption" => list(any())
@@ -13540,6 +13981,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      aggregation() :: %{
+        "AggregationFunction" => data_prep_aggregation_function(),
+        "NewColumnId" => String.t() | atom(),
+        "NewColumnName" => String.t() | atom()
+      }
+
+  """
+  @type aggregation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       chart_axis_label_options() :: %{
         "AxisLabelOptions" => list(axis_label_options()),
         "SortIconVisibility" => list(any()),
@@ -13625,6 +14079,20 @@ defmodule AWS.QuickSight do
 
   """
   @type plugin_visual_property() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aggregate_operation() :: %{
+        "Aggregations" => list(aggregation()),
+        "Alias" => String.t() | atom(),
+        "GroupByColumnNames" => list(String.t() | atom()),
+        "Source" => transform_operation_source()
+      }
+
+  """
+  @type aggregate_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13941,6 +14409,19 @@ defmodule AWS.QuickSight do
 
   """
   @type sheet() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_set_string_filter_condition() :: %{
+        "ColumnName" => String.t() | atom(),
+        "ComparisonFilterCondition" => data_set_string_comparison_filter_condition(),
+        "ListFilterCondition" => data_set_string_list_filter_condition()
+      }
+
+  """
+  @type data_set_string_filter_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14637,6 +15118,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      import_table_operation_source() :: %{
+        "ColumnIdMappings" => list(data_set_column_id_mapping()),
+        "SourceTableId" => String.t() | atom()
+      }
+
+  """
+  @type import_table_operation_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       user() :: %{
         "Active" => boolean(),
         "Arn" => String.t() | atom(),
@@ -14653,6 +15146,18 @@ defmodule AWS.QuickSight do
 
   """
   @type user() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      parent_data_set() :: %{
+        "DataSetArn" => String.t() | atom(),
+        "InputColumns" => list(input_column())
+      }
+
+  """
+  @type parent_data_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14993,6 +15498,28 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      join_operand_properties() :: %{
+        "OutputColumnNameOverrides" => list(output_column_name_override())
+      }
+
+  """
+  @type join_operand_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_set_string_list_filter_value() :: %{
+        "StaticValues" => list(String.t() | atom())
+      }
+
+  """
+  @type data_set_string_list_filter_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_group_request() :: %{}
 
   """
@@ -15326,6 +15853,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      transform_operation_source() :: %{
+        "ColumnIdMappings" => list(data_set_column_id_mapping()),
+        "TransformOperationId" => String.t() | atom()
+      }
+
+  """
+  @type transform_operation_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       asset_bundle_import_job_data_set_override_permissions() :: %{
         "DataSetIds" => list(String.t() | atom()),
         "Permissions" => asset_bundle_resource_permissions()
@@ -15601,6 +16140,19 @@ defmodule AWS.QuickSight do
 
   """
   @type describe_topic_refresh_schedule_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      rename_columns_operation() :: %{
+        "Alias" => String.t() | atom(),
+        "RenameColumnOperations" => list(rename_column_operation()),
+        "Source" => transform_operation_source()
+      }
+
+  """
+  @type rename_columns_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15918,6 +16470,21 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      pivot_operation() :: %{
+        "Alias" => String.t() | atom(),
+        "GroupByColumnNames" => list(String.t() | atom()),
+        "PivotConfiguration" => pivot_configuration(),
+        "Source" => transform_operation_source(),
+        "ValueColumnConfiguration" => value_column_configuration()
+      }
+
+  """
+  @type pivot_operation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       total_options() :: %{
         "CustomLabel" => String.t() | atom(),
         "Placement" => list(any()),
@@ -16067,6 +16634,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      output_column_name_override() :: %{
+        "OutputColumnName" => String.t() | atom(),
+        "SourceColumnName" => String.t() | atom()
+      }
+
+  """
+  @type output_column_name_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resource_permission() :: %{
         "Actions" => list(String.t() | atom()),
         "Principal" => String.t() | atom()
@@ -16168,6 +16747,27 @@ defmodule AWS.QuickSight do
 
   """
   @type update_folder_permissions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transform_step() :: %{
+        "AggregateStep" => aggregate_operation(),
+        "AppendStep" => append_operation(),
+        "CastColumnTypesStep" => cast_column_types_operation(),
+        "CreateColumnsStep" => create_columns_operation(),
+        "FiltersStep" => filters_operation(),
+        "ImportTableStep" => import_table_operation(),
+        "JoinStep" => join_operation(),
+        "PivotStep" => pivot_operation(),
+        "ProjectStep" => project_operation(),
+        "RenameColumnsStep" => rename_columns_operation(),
+        "UnpivotStep" => unpivot_operation()
+      }
+
+  """
+  @type transform_step() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17064,6 +17664,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      data_set_numeric_filter_value() :: %{
+        "StaticValue" => float()
+      }
+
+  """
+  @type data_set_numeric_filter_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       date_time_hierarchy() :: %{
         "DrillDownFilters" => list(drill_down_filter()),
         "HierarchyId" => String.t() | atom()
@@ -17392,6 +18003,7 @@ defmodule AWS.QuickSight do
 
       output_column() :: %{
         "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "Name" => String.t() | atom(),
         "SubType" => list(any()),
         "Type" => list(any())
@@ -18101,6 +18713,7 @@ defmodule AWS.QuickSight do
       update_data_set_request() :: %{
         optional("ColumnGroups") => list(column_group()),
         optional("ColumnLevelPermissionRules") => list(column_level_permission_rule()),
+        optional("DataPrepConfiguration") => data_prep_configuration(),
         optional("DataSetUsageConfiguration") => data_set_usage_configuration(),
         optional("DatasetParameters") => list(dataset_parameter()),
         optional("FieldFolders") => map(),
@@ -18108,6 +18721,7 @@ defmodule AWS.QuickSight do
         optional("PerformanceConfiguration") => performance_configuration(),
         optional("RowLevelPermissionDataSet") => row_level_permission_data_set(),
         optional("RowLevelPermissionTagConfiguration") => row_level_permission_tag_configuration(),
+        optional("SemanticModelConfiguration") => semantic_model_configuration(),
         required("ImportMode") => list(any()),
         required("Name") => String.t() | atom(),
         required("PhysicalTableMap") => map()
@@ -18194,6 +18808,19 @@ defmodule AWS.QuickSight do
 
   """
   @type geospatial_solid_color() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      semantic_table() :: %{
+        "Alias" => String.t() | atom(),
+        "DestinationTableId" => String.t() | atom(),
+        "RowLevelPermissionConfiguration" => row_level_permission_configuration()
+      }
+
+  """
+  @type semantic_table() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18901,6 +19528,7 @@ defmodule AWS.QuickSight do
           limit_exceeded_exception()
           | throttling_exception()
           | access_denied_exception()
+          | invalid_data_set_parameter_value_exception()
           | resource_exists_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
@@ -20462,6 +21090,7 @@ defmodule AWS.QuickSight do
           limit_exceeded_exception()
           | throttling_exception()
           | access_denied_exception()
+          | invalid_data_set_parameter_value_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | conflict_exception()
@@ -25207,7 +25836,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Generates an embed URL that you can use to embed an Amazon QuickSight dashboard
+  Generates an embed URL that you can use to embed an Amazon Quick Suite dashboard
   or
   visual in your website, without having to register any reader users.
 
@@ -25234,16 +25863,16 @@ defmodule AWS.QuickSight do
 
     *
   You are charged only when the URL is used or there is interaction with Amazon
-  QuickSight.
+  Quick Suite.
 
   For more information, see [Embedded
   Analytics](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html)
   in
-  the *Amazon QuickSight User Guide*.
+  the *Amazon Quick Suite User Guide*.
 
   For more information about the high-level steps for embedding and for an
   interactive
-  demo of the ways you can customize embedding, visit the [Amazon QuickSight Developer
+  demo of the ways you can customize embedding, visit the [Amazon Quick Suite Developer
   Portal](https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html).
   """
   @spec generate_embed_url_for_anonymous_user(
@@ -25283,12 +25912,13 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Generates an embed URL that you can use to embed an Amazon QuickSight experience
+  Generates an embed URL that you can use to embed an Amazon Quick Suite
+  experience
   in your website.
 
-  This action can be used for any type of user registered in an Amazon QuickSight
+  This action can be used for any type of user registered in an Amazon Quick Suite
   account. Before you use this action, make sure that you have
-  configured the relevant Amazon QuickSight resource and permissions.
+  configured the relevant Amazon Quick Suite resource and permissions.
 
   The following rules apply to the generated URL:
 
@@ -25311,16 +25941,16 @@ defmodule AWS.QuickSight do
 
     *
   You are charged only when the URL is used or there is interaction with Amazon
-  QuickSight.
+  Quick Suite.
 
   For more information, see [Embedded
   Analytics](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html)
   in
-  the *Amazon QuickSight User Guide*.
+  the *Amazon Quick Suite User Guide*.
 
   For more information about the high-level steps for embedding and for an
   interactive
-  demo of the ways you can customize embedding, visit the [Amazon QuickSight Developer
+  demo of the ways you can customize embedding, visit the [Amazon Quick Suite Developer
   Portal](https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html).
   """
   @spec generate_embed_url_for_registered_user(
@@ -25442,8 +26072,8 @@ defmodule AWS.QuickSight do
   They are valid for 5 minutes after you run this command.
 
     *
-  You are charged only when the URL is used or there is interaction with
-  QuickSight.
+  You are charged only when the URL is used or there is interaction with Quick
+  Suite.
 
     *
   The resulting user session is valid for 15 minutes (default) up to 10 hours
@@ -25452,12 +26082,12 @@ defmodule AWS.QuickSight do
 
   For more information, see [Embedding Analytics Using
   GetDashboardEmbedUrl](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-deprecated.html)
-  in the *Amazon QuickSight User
+  in the *Amazon Quick Suite User
   Guide*.
 
   For more information about the high-level steps for embedding and for an
   interactive
-  demo of the ways you can customize embedding, visit the [Amazon QuickSight Developer
+  demo of the ways you can customize embedding, visit the [Amazon Quick Suite Developer
   Portal](https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html).
   """
   @spec get_dashboard_embed_url(
@@ -25630,7 +26260,7 @@ defmodule AWS.QuickSight do
   API operation to add a new user with a custom
   permission profile attached. For more information, see the following sections in
   the
-  *Amazon QuickSight User Guide*:
+  *Amazon Quick Suite User Guide*:
 
     *
 
@@ -25638,7 +26268,7 @@ defmodule AWS.QuickSight do
 
     *
 
-  [Customizing Access to the Amazon QuickSight Console](https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html)
+  [Customizing Access to the Amazon Quick Suite Console](https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html)
   """
   @spec get_session_embed_url(
           map(),
@@ -27313,9 +27943,9 @@ defmodule AWS.QuickSight do
   This API uses [trusted identity propagation](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation.html)
   to ensure that an end user is authenticated and receives the embed URL that is
   specific to that user. The IAM Identity Center application that the user has
-  logged into needs to have [trusted Identity Propagation enabled for QuickSight](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-using-customermanagedapps-specify-trusted-apps.html)
+  logged into needs to have [trusted Identity Propagation enabled for Quick Suite](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-using-customermanagedapps-specify-trusted-apps.html)
   with the scope value set to `quicksight:read`. Before you use this action, make
-  sure that you have configured the relevant QuickSight resource and permissions.
+  sure that you have configured the relevant Quick Suite resource and permissions.
 
   We recommend enabling the `QSearchStatus` API to unlock the full potential of
   `PredictQnA`. When `QSearchStatus` is enabled, it first checks the specified
@@ -27751,7 +28381,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Searches for any Q topic that exists in an QuickSight account.
+  Searches for any Q topic that exists in an Quick Suite account.
   """
   @spec search_topics(map(), String.t() | atom(), search_topics_request(), list()) ::
           {:ok, search_topics_response(), any()}
@@ -28444,9 +29074,9 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Updates an QuickSight application with a token exchange grant.
+  Updates an Quick Suite application with a token exchange grant.
 
-  This operation only supports QuickSight applications that are registered with
+  This operation only supports Quick Suite applications that are registered with
   IAM Identity Center.
   """
   @spec update_application_with_token_exchange_grant(
@@ -29434,7 +30064,7 @@ defmodule AWS.QuickSight do
   Before you can turn on public sharing on your account, make sure to give public
   sharing permissions to an administrative user in the Identity and Access
   Management (IAM) console. For more information on using IAM with Amazon
-  Quick Sight, see [Using QuickSight with IAM](https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html)
+  Quick Sight, see [Using Quick Suite with IAM](https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html)
   in the *Amazon Quick Sight
   User Guide*.
   """

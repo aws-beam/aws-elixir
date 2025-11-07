@@ -4,19 +4,36 @@
 defmodule AWS.Identitystore do
   @moduledoc """
   The Identity Store service used by IAM Identity Center provides a single place
-  to retrieve all of
-  your identities (users and groups).
+  to retrieve all of your identities (users and groups).
 
-  For more information, see the [IAM Identity Center User Guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html).
+  For more information, see the [ IAM Identity Center User Guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html).
 
   This reference guide describes the identity store operations that you can call
   programmatically and includes detailed information about data types and errors.
 
-  IAM Identity Center uses the `sso` and `identitystore` API namespaces.
+  IAM Identity Center uses the `sso`, `sso-directory`, and `identitystore` API
+  namespaces. The `sso-directory` and `identitystore` namespaces authorize access
+  to data in the Identity Store. Make sure your policies with IAM actions from
+  these two namespaces are consistent to avoid conflicting authorization to the
+  same data.
   """
 
   alias AWS.Client
   alias AWS.Request
+
+  @typedoc """
+
+  ## Example:
+      
+      photo() :: %{
+        "Display" => String.t() | atom(),
+        "Primary" => boolean(),
+        "Type" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type photo() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -174,7 +191,7 @@ defmodule AWS.Identitystore do
       
       conflict_exception() :: %{
         "Message" => String.t() | atom(),
-        "Reason" => String.t() | atom(),
+        "Reason" => list(any()),
         "RequestId" => String.t() | atom()
       }
       
@@ -187,9 +204,10 @@ defmodule AWS.Identitystore do
       
       resource_not_found_exception() :: %{
         "Message" => String.t() | atom(),
+        "Reason" => list(any()),
         "RequestId" => String.t() | atom(),
         "ResourceId" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
+        "ResourceType" => list(any())
       }
       
   """
@@ -323,10 +341,14 @@ defmodule AWS.Identitystore do
   ## Example:
       
       group_membership() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "CreatedBy" => String.t() | atom(),
         "GroupId" => String.t() | atom(),
         "IdentityStoreId" => String.t() | atom(),
         "MemberId" => list(),
-        "MembershipId" => String.t() | atom()
+        "MembershipId" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer(),
+        "UpdatedBy" => String.t() | atom()
       }
       
   """
@@ -360,6 +382,9 @@ defmodule AWS.Identitystore do
       
       describe_user_response() :: %{
         optional("Addresses") => list(address()),
+        optional("Birthdate") => String.t() | atom(),
+        optional("CreatedAt") => non_neg_integer(),
+        optional("CreatedBy") => String.t() | atom(),
         optional("DisplayName") => String.t() | atom(),
         optional("Emails") => list(email()),
         optional("ExternalIds") => list(external_id()),
@@ -367,12 +392,17 @@ defmodule AWS.Identitystore do
         optional("Name") => name(),
         optional("NickName") => String.t() | atom(),
         optional("PhoneNumbers") => list(phone_number()),
+        optional("Photos") => list(photo()),
         optional("PreferredLanguage") => String.t() | atom(),
         optional("ProfileUrl") => String.t() | atom(),
         optional("Timezone") => String.t() | atom(),
         optional("Title") => String.t() | atom(),
+        optional("UpdatedAt") => non_neg_integer(),
+        optional("UpdatedBy") => String.t() | atom(),
         optional("UserName") => String.t() | atom(),
+        optional("UserStatus") => list(any()),
         optional("UserType") => String.t() | atom(),
+        optional("Website") => String.t() | atom(),
         required("IdentityStoreId") => String.t() | atom(),
         required("UserId") => String.t() | atom()
       }
@@ -385,6 +415,10 @@ defmodule AWS.Identitystore do
   ## Example:
       
       describe_group_membership_response() :: %{
+        optional("CreatedAt") => non_neg_integer(),
+        optional("CreatedBy") => String.t() | atom(),
+        optional("UpdatedAt") => non_neg_integer(),
+        optional("UpdatedBy") => String.t() | atom(),
         required("GroupId") => String.t() | atom(),
         required("IdentityStoreId") => String.t() | atom(),
         required("MemberId") => list(),
@@ -418,6 +452,7 @@ defmodule AWS.Identitystore do
       
       access_denied_exception() :: %{
         "Message" => String.t() | atom(),
+        "Reason" => list(any()),
         "RequestId" => String.t() | atom()
       }
       
@@ -455,6 +490,7 @@ defmodule AWS.Identitystore do
       
       validation_exception() :: %{
         "Message" => String.t() | atom(),
+        "Reason" => list(any()),
         "RequestId" => String.t() | atom()
       }
       
@@ -492,6 +528,7 @@ defmodule AWS.Identitystore do
       
       throttling_exception() :: %{
         "Message" => String.t() | atom(),
+        "Reason" => list(any()),
         "RequestId" => String.t() | atom(),
         "RetryAfterSeconds" => integer()
       }
@@ -504,11 +541,15 @@ defmodule AWS.Identitystore do
   ## Example:
       
       group() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "CreatedBy" => String.t() | atom(),
         "Description" => String.t() | atom(),
         "DisplayName" => String.t() | atom(),
         "ExternalIds" => list(external_id()),
         "GroupId" => String.t() | atom(),
-        "IdentityStoreId" => String.t() | atom()
+        "IdentityStoreId" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer(),
+        "UpdatedBy" => String.t() | atom()
       }
       
   """
@@ -520,6 +561,9 @@ defmodule AWS.Identitystore do
       
       user() :: %{
         "Addresses" => list(address()),
+        "Birthdate" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "CreatedBy" => String.t() | atom(),
         "DisplayName" => String.t() | atom(),
         "Emails" => list(email()),
         "ExternalIds" => list(external_id()),
@@ -528,13 +572,18 @@ defmodule AWS.Identitystore do
         "Name" => name(),
         "NickName" => String.t() | atom(),
         "PhoneNumbers" => list(phone_number()),
+        "Photos" => list(photo()),
         "PreferredLanguage" => String.t() | atom(),
         "ProfileUrl" => String.t() | atom(),
         "Timezone" => String.t() | atom(),
         "Title" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer(),
+        "UpdatedBy" => String.t() | atom(),
         "UserId" => String.t() | atom(),
         "UserName" => String.t() | atom(),
-        "UserType" => String.t() | atom()
+        "UserStatus" => list(any()),
+        "UserType" => String.t() | atom(),
+        "Website" => String.t() | atom()
       }
       
   """
@@ -583,9 +632,13 @@ defmodule AWS.Identitystore do
   ## Example:
       
       describe_group_response() :: %{
+        optional("CreatedAt") => non_neg_integer(),
+        optional("CreatedBy") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
         optional("DisplayName") => String.t() | atom(),
         optional("ExternalIds") => list(external_id()),
+        optional("UpdatedAt") => non_neg_integer(),
+        optional("UpdatedBy") => String.t() | atom(),
         required("GroupId") => String.t() | atom(),
         required("IdentityStoreId") => String.t() | atom()
       }
@@ -736,18 +789,21 @@ defmodule AWS.Identitystore do
       
       create_user_request() :: %{
         optional("Addresses") => list(address()),
+        optional("Birthdate") => String.t() | atom(),
         optional("DisplayName") => String.t() | atom(),
         optional("Emails") => list(email()),
         optional("Locale") => String.t() | atom(),
         optional("Name") => name(),
         optional("NickName") => String.t() | atom(),
         optional("PhoneNumbers") => list(phone_number()),
+        optional("Photos") => list(photo()),
         optional("PreferredLanguage") => String.t() | atom(),
         optional("ProfileUrl") => String.t() | atom(),
         optional("Timezone") => String.t() | atom(),
         optional("Title") => String.t() | atom(),
         optional("UserName") => String.t() | atom(),
         optional("UserType") => String.t() | atom(),
+        optional("Website") => String.t() | atom(),
         required("IdentityStoreId") => String.t() | atom()
       }
       
@@ -936,14 +992,12 @@ defmodule AWS.Identitystore do
   end
 
   @doc """
-  Retrieves the group metadata and attributes from `GroupId` in an identity
-  store.
+  Retrieves the group metadata and attributes from `GroupId` in an identity store.
 
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
+  If you have access to a member account, you can use this API operation from the
+  member account. For more information, see [Limiting access to the identity store from member
+  accounts](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts)
+  in the * IAM Identity Center User Guide*.
   """
   @spec describe_group(map(), describe_group_request(), list()) ::
           {:ok, describe_group_response(), any()}
@@ -960,11 +1014,10 @@ defmodule AWS.Identitystore do
   Retrieves membership metadata and attributes from `MembershipId` in an identity
   store.
 
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
+  If you have access to a member account, you can use this API operation from the
+  member account. For more information, see [Limiting access to the identity store from member
+  accounts](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts)
+  in the * IAM Identity Center User Guide*.
   """
   @spec describe_group_membership(map(), describe_group_membership_request(), list()) ::
           {:ok, describe_group_membership_response(), any()}
@@ -981,11 +1034,10 @@ defmodule AWS.Identitystore do
   Retrieves the user metadata and attributes from the `UserId` in an identity
   store.
 
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
+  If you have access to a member account, you can use this API operation from the
+  member account. For more information, see [Limiting access to the identity store from member
+  accounts](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts)
+  in the * IAM Identity Center User Guide*.
   """
   @spec describe_user(map(), describe_user_request(), list()) ::
           {:ok, describe_user_response(), any()}
@@ -1001,11 +1053,10 @@ defmodule AWS.Identitystore do
   @doc """
   Retrieves `GroupId` in an identity store.
 
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
+  If you have access to a member account, you can use this API operation from the
+  member account. For more information, see [Limiting access to the identity store from member
+  accounts](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts)
+  in the * IAM Identity Center User Guide*.
   """
   @spec get_group_id(map(), get_group_id_request(), list()) ::
           {:ok, get_group_id_response(), any()}
@@ -1021,11 +1072,10 @@ defmodule AWS.Identitystore do
   @doc """
   Retrieves the `MembershipId` in an identity store.
 
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
+  If you have access to a member account, you can use this API operation from the
+  member account. For more information, see [Limiting access to the identity store from member
+  accounts](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts)
+  in the * IAM Identity Center User Guide*.
   """
   @spec get_group_membership_id(map(), get_group_membership_id_request(), list()) ::
           {:ok, get_group_membership_id_response(), any()}
@@ -1041,11 +1091,10 @@ defmodule AWS.Identitystore do
   @doc """
   Retrieves the `UserId` in an identity store.
 
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
+  If you have access to a member account, you can use this API operation from the
+  member account. For more information, see [Limiting access to the identity store from member
+  accounts](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts)
+  in the * IAM Identity Center User Guide*.
   """
   @spec get_user_id(map(), get_user_id_request(), list()) ::
           {:ok, get_user_id_response(), any()}
@@ -1062,11 +1111,10 @@ defmodule AWS.Identitystore do
   Checks the user's membership in all requested groups and returns if the member
   exists in all queried groups.
 
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
+  If you have access to a member account, you can use this API operation from the
+  member account. For more information, see [Limiting access to the identity store from member
+  accounts](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts)
+  in the * IAM Identity Center User Guide*.
   """
   @spec is_member_in_groups(map(), is_member_in_groups_request(), list()) ::
           {:ok, is_member_in_groups_response(), any()}
@@ -1081,13 +1129,12 @@ defmodule AWS.Identitystore do
 
   @doc """
   For the specified group in the specified identity store, returns the list of all
-  `GroupMembership` objects and returns results in paginated form.
+  ` GroupMembership` objects and returns results in paginated form.
 
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
+  If you have access to a member account, you can use this API operation from the
+  member account. For more information, see [Limiting access to the identity store from member
+  accounts](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts)
+  in the * IAM Identity Center User Guide*.
   """
   @spec list_group_memberships(map(), list_group_memberships_request(), list()) ::
           {:ok, list_group_memberships_response(), any()}
@@ -1102,13 +1149,12 @@ defmodule AWS.Identitystore do
 
   @doc """
   For the specified member in the specified identity store, returns the list of
-  all `GroupMembership` objects and returns results in paginated form.
+  all ` GroupMembership` objects and returns results in paginated form.
 
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
+  If you have access to a member account, you can use this API operation from the
+  member account. For more information, see [Limiting access to the identity store from member
+  accounts](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts)
+  in the * IAM Identity Center User Guide*.
   """
   @spec list_group_memberships_for_member(
           map(),
@@ -1128,15 +1174,14 @@ defmodule AWS.Identitystore do
   @doc """
   Lists all groups in the identity store.
 
-  Returns a paginated list of complete `Group` objects.
-  Filtering for a `Group` by the `DisplayName` attribute is deprecated. Instead,
-  use the `GetGroupId` API action.
+  Returns a paginated list of complete `Group` objects. Filtering for a `Group` by
+  the `DisplayName` attribute is deprecated. Instead, use the `GetGroupId` API
+  action.
 
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
+  If you have access to a member account, you can use this API operation from the
+  member account. For more information, see [Limiting access to the identity store from member
+  accounts](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts)
+  in the * IAM Identity Center User Guide*.
   """
   @spec list_groups(map(), list_groups_request(), list()) ::
           {:ok, list_groups_response(), any()}
@@ -1152,15 +1197,13 @@ defmodule AWS.Identitystore do
   @doc """
   Lists all users in the identity store.
 
-  Returns a paginated list of complete `User` objects.
-  Filtering for a `User` by the `UserName` attribute is deprecated. Instead, use
-  the `GetUserId` API action.
+  Returns a paginated list of complete `User` objects. Filtering for a `User` by
+  the `UserName` attribute is deprecated. Instead, use the `GetUserId` API action.
 
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
+  If you have access to a member account, you can use this API operation from the
+  member account. For more information, see [Limiting access to the identity store from member
+  accounts](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts)
+  in the * IAM Identity Center User Guide*.
   """
   @spec list_users(map(), list_users_request(), list()) ::
           {:ok, list_users_response(), any()}
@@ -1174,8 +1217,8 @@ defmodule AWS.Identitystore do
   end
 
   @doc """
-  For the specified group in the specified identity store, updates the group
-  metadata and attributes.
+  Updates the specified group metadata and attributes in the specified identity
+  store.
   """
   @spec update_group(map(), update_group_request(), list()) ::
           {:ok, update_group_response(), any()}
@@ -1189,8 +1232,8 @@ defmodule AWS.Identitystore do
   end
 
   @doc """
-  For the specified user in the specified identity store, updates the user
-  metadata and attributes.
+  Updates the specified user metadata and attributes in the specified identity
+  store.
   """
   @spec update_user(map(), update_user_request(), list()) ::
           {:ok, update_user_response(), any()}

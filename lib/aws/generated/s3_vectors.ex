@@ -22,10 +22,12 @@ defmodule AWS.S3Vectors do
 
   ## Example:
 
-      create_index_output() :: %{}
+      create_index_output() :: %{
+        "indexArn" => String.t() | atom()
+      }
 
   """
-  @type create_index_output() :: %{}
+  @type create_index_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -96,6 +98,17 @@ defmodule AWS.S3Vectors do
 
   """
   @type get_vectors_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      request_timeout_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type request_timeout_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -230,6 +243,7 @@ defmodule AWS.S3Vectors do
   ## Example:
 
       query_vectors_output() :: %{
+        "distanceMetric" => list(any()),
         "vectors" => list(query_output_vector())
       }
 
@@ -358,10 +372,12 @@ defmodule AWS.S3Vectors do
 
   ## Example:
 
-      create_vector_bucket_output() :: %{}
+      create_vector_bucket_output() :: %{
+        "vectorBucketArn" => String.t() | atom()
+      }
 
   """
-  @type create_vector_bucket_output() :: %{}
+  @type create_vector_bucket_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -687,9 +703,15 @@ defmodule AWS.S3Vectors do
   @type query_output_vector() :: %{(String.t() | atom()) => any()}
 
   @type create_index_errors() ::
-          service_unavailable_exception() | not_found_exception() | conflict_exception()
+          service_unavailable_exception()
+          | not_found_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
 
-  @type create_vector_bucket_errors() :: service_unavailable_exception() | conflict_exception()
+  @type create_vector_bucket_errors() ::
+          service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
 
   @type delete_index_errors() :: service_unavailable_exception()
 
@@ -739,6 +761,7 @@ defmodule AWS.S3Vectors do
           | kms_not_found_exception()
           | service_unavailable_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
           | kms_disabled_exception()
 
   @type query_vectors_errors() ::

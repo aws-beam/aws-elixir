@@ -737,6 +737,7 @@ defmodule AWS.SageMaker do
         optional("DomainSettingsForUpdate") => domain_settings_for_update(),
         optional("SubnetIds") => list(String.t() | atom()),
         optional("TagPropagation") => list(any()),
+        optional("VpcId") => String.t() | atom(),
         required("DomainId") => String.t() | atom()
       }
       
@@ -5595,6 +5596,7 @@ defmodule AWS.SageMaker do
         optional("ClusterRole") => String.t() | atom(),
         optional("InstanceGroups") => list(cluster_instance_group_specification()),
         optional("InstanceGroupsToDelete") => list(String.t() | atom()),
+        optional("NodeProvisioningMode") => list(any()),
         optional("NodeRecovery") => list(any()),
         optional("RestrictedInstanceGroups") => list(cluster_restricted_instance_group_specification()),
         optional("TieredStorageConfig") => cluster_tiered_storage_config(),

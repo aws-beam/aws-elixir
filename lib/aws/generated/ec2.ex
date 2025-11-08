@@ -4604,6 +4604,7 @@ defmodule AWS.EC2 do
       
       ipam_scope() :: %{
         "Description" => String.t() | atom(),
+        "ExternalAuthorityConfiguration" => ipam_scope_external_authority_configuration(),
         "IpamArn" => String.t() | atom(),
         "IpamRegion" => String.t() | atom(),
         "IpamScopeArn" => String.t() | atom(),
@@ -4776,6 +4777,7 @@ defmodule AWS.EC2 do
         optional("ClientToken") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
         optional("DryRun") => boolean(),
+        optional("ExternalAuthorityConfiguration") => external_authority_configuration(),
         optional("TagSpecifications") => list(tag_specification()),
         required("IpamId") => String.t() | atom()
       }
@@ -9452,6 +9454,18 @@ defmodule AWS.EC2 do
       
   """
   @type modify_instance_event_window_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ipam_scope_external_authority_configuration() :: %{
+        "ExternalResourceIdentifier" => String.t() | atom(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type ipam_scope_external_authority_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -21165,6 +21179,8 @@ defmodule AWS.EC2 do
       modify_ipam_scope_request() :: %{
         optional("Description") => String.t() | atom(),
         optional("DryRun") => boolean(),
+        optional("ExternalAuthorityConfiguration") => external_authority_configuration(),
+        optional("RemoveExternalAuthorityConfiguration") => boolean(),
         required("IpamScopeId") => String.t() | atom()
       }
       
@@ -24063,7 +24079,9 @@ defmodule AWS.EC2 do
       
       dns_options_specification() :: %{
         "DnsRecordIpType" => list(any()),
-        "PrivateDnsOnlyForInboundResolverEndpoint" => boolean()
+        "PrivateDnsOnlyForInboundResolverEndpoint" => boolean(),
+        "PrivateDnsPreference" => String.t() | atom(),
+        "PrivateDnsSpecifiedDomains" => list(String.t() | atom())
       }
       
   """
@@ -26954,6 +26972,18 @@ defmodule AWS.EC2 do
       
   """
   @type get_ipam_resource_cidrs_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      external_authority_configuration() :: %{
+        "ExternalResourceIdentifier" => String.t() | atom(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type external_authority_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -30419,7 +30449,9 @@ defmodule AWS.EC2 do
       
       dns_options() :: %{
         "DnsRecordIpType" => list(any()),
-        "PrivateDnsOnlyForInboundResolverEndpoint" => boolean()
+        "PrivateDnsOnlyForInboundResolverEndpoint" => boolean(),
+        "PrivateDnsPreference" => String.t() | atom(),
+        "PrivateDnsSpecifiedDomains" => list(String.t() | atom())
       }
       
   """

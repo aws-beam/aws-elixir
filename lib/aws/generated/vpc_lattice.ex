@@ -88,10 +88,25 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      start_domain_verification_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("tags") => map(),
+        required("domainName") => String.t() | atom()
+      }
+
+  """
+  @type start_domain_verification_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_service_network_vpc_association_response() :: %{
         optional("arn") => String.t() | atom(),
         optional("createdBy") => String.t() | atom(),
+        optional("dnsOptions") => dns_options(),
         optional("id") => String.t() | atom(),
+        optional("privateDnsEnabled") => boolean(),
         optional("securityGroupIds") => list(String.t() | atom()),
         optional("status") => String.t() | atom()
       }
@@ -118,7 +133,11 @@ defmodule AWS.VPCLattice do
         "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "customDomainName" => String.t() | atom(),
+        "domainVerificationArn" => String.t() | atom(),
+        "domainVerificationId" => String.t() | atom(),
+        "domainVerificationStatus" => String.t() | atom(),
         "failureReason" => [String.t() | atom()],
+        "groupDomain" => String.t() | atom(),
         "id" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
         "name" => String.t() | atom(),
@@ -225,6 +244,7 @@ defmodule AWS.VPCLattice do
         "arn" => String.t() | atom(),
         "createdBy" => String.t() | atom(),
         "id" => String.t() | atom(),
+        "privateDnsEnabled" => boolean(),
         "status" => String.t() | atom()
       }
 
@@ -642,10 +662,12 @@ defmodule AWS.VPCLattice do
         optional("arn") => String.t() | atom(),
         optional("createdAt") => non_neg_integer(),
         optional("createdBy") => String.t() | atom(),
+        optional("dnsOptions") => dns_options(),
         optional("failureCode") => [String.t() | atom()],
         optional("failureMessage") => [String.t() | atom()],
         optional("id") => String.t() | atom(),
         optional("lastUpdatedAt") => non_neg_integer(),
+        optional("privateDnsEnabled") => boolean(),
         optional("securityGroupIds") => list(String.t() | atom()),
         optional("serviceNetworkArn") => String.t() | atom(),
         optional("serviceNetworkId") => String.t() | atom(),
@@ -677,6 +699,18 @@ defmodule AWS.VPCLattice do
 
   """
   @type list_access_log_subscriptions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domain_verifications_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_domain_verifications_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -899,6 +933,9 @@ defmodule AWS.VPCLattice do
         "amazonManaged" => boolean(),
         "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
+        "customDomainName" => String.t() | atom(),
+        "domainVerificationId" => String.t() | atom(),
+        "groupDomain" => String.t() | atom(),
         "id" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
         "name" => String.t() | atom(),
@@ -919,8 +956,10 @@ defmodule AWS.VPCLattice do
         "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
+        "dnsOptions" => dns_options(),
         "id" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
+        "privateDnsEnabled" => boolean(),
         "serviceNetworkArn" => String.t() | atom(),
         "serviceNetworkId" => String.t() | atom(),
         "serviceNetworkName" => String.t() | atom(),
@@ -1222,6 +1261,18 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      list_domain_verifications_response() :: %{
+        "items" => list(domain_verification_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_domain_verifications_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_resource_configuration_request() :: %{}
 
   """
@@ -1514,6 +1565,7 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       list_resource_configurations_request() :: %{
+        optional("domainVerificationIdentifier") => String.t() | atom(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
         optional("resourceConfigurationGroupIdentifier") => String.t() | atom(),
@@ -1538,8 +1590,27 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      domain_verification_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "domainName" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastVerifiedTime" => non_neg_integer(),
+        "status" => String.t() | atom(),
+        "tags" => map(),
+        "txtMethodConfig" => txt_method_config()
+      }
+
+  """
+  @type domain_verification_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_service_network_resource_association_request() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("privateDnsEnabled") => boolean(),
         optional("tags") => map(),
         required("resourceConfigurationIdentifier") => String.t() | atom(),
         required("serviceNetworkIdentifier") => String.t() | atom()
@@ -1594,6 +1665,24 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      get_domain_verification_response() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "domainName" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastVerifiedTime" => non_neg_integer(),
+        "status" => String.t() | atom(),
+        "tags" => map(),
+        "txtMethodConfig" => txt_method_config()
+      }
+
+  """
+  @type get_domain_verification_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_service_network_service_association_response() :: %{
         optional("arn") => String.t() | atom(),
         optional("createdAt") => non_neg_integer(),
@@ -1630,12 +1719,30 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      delete_domain_verification_request() :: %{}
+
+  """
+  @type delete_domain_verification_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       access_denied_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
   @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_verification_request() :: %{}
+
+  """
+  @type get_domain_verification_request() :: %{}
 
   @typedoc """
 
@@ -1733,6 +1840,15 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      delete_domain_verification_response() :: %{}
+
+  """
+  @type delete_domain_verification_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_resource_endpoint_associations_response() :: %{
         "items" => list(resource_endpoint_association_summary()),
         "nextToken" => String.t() | atom()
@@ -1762,6 +1878,21 @@ defmodule AWS.VPCLattice do
 
   """
   @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_domain_verification_response() :: %{
+        "arn" => String.t() | atom(),
+        "domainName" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "txtMethodConfig" => txt_method_config()
+      }
+
+  """
+  @type start_domain_verification_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1848,6 +1979,9 @@ defmodule AWS.VPCLattice do
       create_resource_configuration_request() :: %{
         optional("allowAssociationToShareableServiceNetwork") => boolean(),
         optional("clientToken") => String.t() | atom(),
+        optional("customDomainName") => String.t() | atom(),
+        optional("domainVerificationIdentifier") => String.t() | atom(),
+        optional("groupDomain") => String.t() | atom(),
         optional("portRanges") => list(String.t() | atom()),
         optional("protocol") => String.t() | atom(),
         optional("resourceConfigurationDefinition") => list(),
@@ -1968,6 +2102,18 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      txt_method_config() :: %{
+        "name" => [String.t() | atom()],
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type txt_method_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_auth_policy_request() :: %{}
 
   """
@@ -1991,11 +2137,13 @@ defmodule AWS.VPCLattice do
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
         "dnsEntry" => dns_entry(),
+        "domainVerificationStatus" => String.t() | atom(),
         "failureCode" => [String.t() | atom()],
         "failureReason" => [String.t() | atom()],
         "id" => String.t() | atom(),
         "isManagedAssociation" => boolean(),
         "lastUpdatedAt" => non_neg_integer(),
+        "privateDnsEnabled" => boolean(),
         "privateDnsEntry" => dns_entry(),
         "resourceConfigurationArn" => String.t() | atom(),
         "resourceConfigurationId" => String.t() | atom(),
@@ -2033,6 +2181,7 @@ defmodule AWS.VPCLattice do
         "failureCode" => [String.t() | atom()],
         "id" => String.t() | atom(),
         "isManagedAssociation" => boolean(),
+        "privateDnsEnabled" => boolean(),
         "privateDnsEntry" => dns_entry(),
         "resourceConfigurationArn" => String.t() | atom(),
         "resourceConfigurationId" => String.t() | atom(),
@@ -2289,6 +2438,8 @@ defmodule AWS.VPCLattice do
 
       create_service_network_vpc_association_request() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("dnsOptions") => dns_options(),
+        optional("privateDnsEnabled") => boolean(),
         optional("securityGroupIds") => list(String.t() | atom()),
         optional("tags") => map(),
         required("serviceNetworkIdentifier") => String.t() | atom(),
@@ -2372,6 +2523,18 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      dns_options() :: %{
+        "privateDnsPreference" => String.t() | atom(),
+        "privateDnsSpecifiedDomains" => list(String.t() | atom())
+      }
+
+  """
+  @type dns_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_service_network_service_association_request() :: %{}
 
   """
@@ -2424,7 +2587,11 @@ defmodule AWS.VPCLattice do
         "allowAssociationToShareableServiceNetwork" => boolean(),
         "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
+        "customDomainName" => String.t() | atom(),
+        "domainVerificationArn" => String.t() | atom(),
+        "domainVerificationId" => String.t() | atom(),
         "failureReason" => [String.t() | atom()],
+        "groupDomain" => String.t() | atom(),
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
         "portRanges" => list(String.t() | atom()),
@@ -2559,6 +2726,13 @@ defmodule AWS.VPCLattice do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type delete_domain_verification_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type delete_listener_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2674,6 +2848,13 @@ defmodule AWS.VPCLattice do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_domain_verification_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_listener_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2756,6 +2937,13 @@ defmodule AWS.VPCLattice do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+
+  @type list_domain_verifications_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type list_listeners_errors() ::
           throttling_exception()
@@ -2865,6 +3053,14 @@ defmodule AWS.VPCLattice do
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | conflict_exception()
+
+  @type start_domain_verification_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
 
   @type tag_resource_errors() ::
@@ -3523,6 +3719,45 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
+  Deletes the specified domain verification.
+  """
+  @spec delete_domain_verification(
+          map(),
+          String.t() | atom(),
+          delete_domain_verification_request(),
+          list()
+        ) ::
+          {:ok, delete_domain_verification_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_domain_verification_errors()}
+  def delete_domain_verification(
+        %Client{} = client,
+        domain_verification_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path = "/domainverifications/#{AWS.Util.encode_uri(domain_verification_identifier)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes the specified listener.
   """
   @spec delete_listener(
@@ -4079,6 +4314,24 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
+  Retrieves information about a domain verification.ß
+  """
+  @spec get_domain_verification(map(), String.t() | atom(), list()) ::
+          {:ok, get_domain_verification_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_domain_verification_errors()}
+  def get_domain_verification(%Client{} = client, domain_verification_identifier, options \\ []) do
+    url_path = "/domainverifications/#{AWS.Util.encode_uri(domain_verification_identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves information about the specified listener for the specified service.
   """
   @spec get_listener(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -4370,6 +4623,48 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
+  Lists the domain verifications.
+  """
+  @spec list_domain_verifications(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_domain_verifications_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_domain_verifications_errors()}
+  def list_domain_verifications(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/domainverifications"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists the listeners for the specified service.
   """
   @spec list_listeners(
@@ -4422,6 +4717,7 @@ defmodule AWS.VPCLattice do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_resource_configurations_response(), any()}
@@ -4430,6 +4726,7 @@ defmodule AWS.VPCLattice do
           | {:error, list_resource_configurations_errors()}
   def list_resource_configurations(
         %Client{} = client,
+        domain_verification_identifier \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         resource_configuration_group_identifier \\ nil,
@@ -4467,6 +4764,13 @@ defmodule AWS.VPCLattice do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(domain_verification_identifier) do
+        [{"domainVerificationIdentifier", domain_verification_identifier} | query_params]
       else
         query_params
       end
@@ -5184,6 +5488,35 @@ defmodule AWS.VPCLattice do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Starts the domain verification process for a custom domain name.
+  """
+  @spec start_domain_verification(map(), start_domain_verification_request(), list()) ::
+          {:ok, start_domain_verification_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_domain_verification_errors()}
+  def start_domain_verification(%Client{} = client, input, options \\ []) do
+    url_path = "/domainverifications"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
     )
   end
 

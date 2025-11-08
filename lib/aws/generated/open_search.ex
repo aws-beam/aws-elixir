@@ -7,10 +7,11 @@ defmodule AWS.OpenSearch do
   manage
   OpenSearch Service domains.
 
-  The endpoint for configuration service requests is Region specific:
-  es.*region*.amazonaws.com. For example, es.us-east-1.amazonaws.com. For a
-  current list of supported Regions and endpoints, see [Amazon Web Services service
-  endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#service-regions).
+  The endpoint for configuration service requests is Region
+  specific: es.*region*.amazonaws.com. For example,
+  es.us-east-1.amazonaws.com. For a current list of supported Regions and
+  endpoints, see
+  [Amazon Web Services service endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#service-regions).
   """
 
   alias AWS.Client
@@ -362,6 +363,15 @@ defmodule AWS.OpenSearch do
 
   """
   @type cluster_config_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_default_application_setting_request() :: %{}
+
+  """
+  @type get_default_application_setting_request() :: %{}
 
   @typedoc """
 
@@ -1261,6 +1271,17 @@ defmodule AWS.OpenSearch do
 
   """
   @type node_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_default_application_setting_response() :: %{
+        "applicationArn" => String.t() | atom()
+      }
+
+  """
+  @type put_default_application_setting_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2472,6 +2493,17 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      get_default_application_setting_response() :: %{
+        "applicationArn" => String.t() | atom()
+      }
+
+  """
+  @type get_default_application_setting_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       aws_domain_information() :: %{
         "DomainName" => String.t() | atom(),
         "OwnerId" => String.t() | atom(),
@@ -3359,6 +3391,18 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      put_default_application_setting_request() :: %{
+        required("applicationArn") => String.t() | atom(),
+        required("setAsDefault") => boolean()
+      }
+
+  """
+  @type put_default_application_setting_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_source() :: %{
         "dataSourceArn" => String.t() | atom(),
         "dataSourceDescription" => String.t() | atom()
@@ -4061,6 +4105,12 @@ defmodule AWS.OpenSearch do
           | resource_not_found_exception()
           | disabled_operation_exception()
 
+  @type get_default_application_setting_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+
   @type get_direct_query_data_source_errors() ::
           base_exception()
           | validation_exception()
@@ -4190,6 +4240,12 @@ defmodule AWS.OpenSearch do
           | resource_not_found_exception()
           | disabled_operation_exception()
 
+  @type put_default_application_setting_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+
   @type reject_inbound_connection_errors() ::
           resource_not_found_exception() | disabled_operation_exception()
 
@@ -4308,8 +4364,7 @@ defmodule AWS.OpenSearch do
   inbound
   cross-cluster search connection request.
 
-  For more information, see [Cross-cluster search for Amazon OpenSearch
-  Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
+  For more information, see [Cross-cluster search for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
   """
   @spec accept_inbound_connection(
           map(),
@@ -4347,8 +4402,8 @@ defmodule AWS.OpenSearch do
   @doc """
   Creates a new direct-query data source to the specified domain.
 
-  For more information, see
-  [Creating Amazon OpenSearch Service data source integrations with Amazon S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html).
+  For more information,
+  see [Creating Amazon OpenSearch Service data source integrations with Amazon S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html).
   """
   @spec add_data_source(map(), String.t() | atom(), add_data_source_request(), list()) ::
           {:ok, add_data_source_response(), any()}
@@ -4377,9 +4432,9 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-
-  Adds a new data source in Amazon OpenSearch Service
-  so that you can perform direct queries on external data.
+  Adds a new data source in Amazon OpenSearch Service so that you can perform
+  direct
+  queries on external data.
   """
   @spec add_direct_query_data_source(map(), add_direct_query_data_source_request(), list()) ::
           {:ok, add_direct_query_data_source_response(), any()}
@@ -4412,8 +4467,7 @@ defmodule AWS.OpenSearch do
   application.
 
   Tags are a set of case-sensitive key-value pairs. A domain, data source, or
-  application can
-  have up to 10 tags. For more information, see [Tagging Amazon OpenSearch Service
+  application can have up to 10 tags. For more information, see [Tagging Amazon OpenSearch Service
   resources](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html).
   """
   @spec add_tags(map(), add_tags_request(), list()) ::
@@ -4445,8 +4499,8 @@ defmodule AWS.OpenSearch do
   @doc """
   Associates a package with an Amazon OpenSearch Service domain.
 
-  For more information, see
-  [Custom packages for Amazon OpenSearch
+  For more information,
+  see [Custom packages for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
   """
   @spec associate_package(
@@ -4485,7 +4539,8 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Operation in the Amazon OpenSearch Service API for associating multiple packages
-  with a domain simultaneously.
+  with
+  a domain simultaneously.
   """
   @spec associate_packages(map(), associate_packages_request(), list()) ::
           {:ok, associate_packages_response(), any()}
@@ -4515,8 +4570,8 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Provides access to an Amazon OpenSearch Service domain through the use of an
-  interface VPC
-  endpoint.
+  interface
+  VPC endpoint.
   """
   @spec authorize_vpc_endpoint_access(
           map(),
@@ -4589,10 +4644,9 @@ defmodule AWS.OpenSearch do
   Cancels a scheduled service software update for an Amazon OpenSearch Service
   domain.
 
-  You can
-  only perform this operation before the `AutomatedUpdateDate` and when the
-  domain's
-  `UpdateStatus` is `PENDING_UPDATE`. For more information, see [Service software updates in Amazon OpenSearch
+  You can only perform this operation before the `AutomatedUpdateDate` and when
+  the domain's `UpdateStatus` is `PENDING_UPDATE`. For more
+  information, see [Service software updates in Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html).
   """
   @spec cancel_service_software_update(map(), cancel_service_software_update_request(), list()) ::
@@ -4656,7 +4710,8 @@ defmodule AWS.OpenSearch do
   @doc """
   Creates an Amazon OpenSearch Service domain.
 
-  For more information, see [Creating and managing Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html).
+  For more information, see [Creating and managing Amazon OpenSearch Service
+  domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html).
   """
   @spec create_domain(map(), create_domain_request(), list()) ::
           {:ok, create_domain_response(), any()}
@@ -4686,11 +4741,10 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Creates a new cross-cluster search connection from a source Amazon OpenSearch
-  Service domain
-  to a destination domain.
+  Service
+  domain to a destination domain.
 
-  For more information, see [Cross-cluster search for Amazon OpenSearch
-  Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
+  For more information, see [Cross-cluster search for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
   """
   @spec create_outbound_connection(map(), create_outbound_connection_request(), list()) ::
           {:ok, create_outbound_connection_response(), any()}
@@ -4721,8 +4775,9 @@ defmodule AWS.OpenSearch do
   @doc """
   Creates a package for use with Amazon OpenSearch Service domains.
 
-  For more information, see
-  [Custom packages for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
+  For more
+  information, see [Custom packages for Amazon OpenSearch
+  Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
   """
   @spec create_package(map(), create_package_request(), list()) ::
           {:ok, create_package_response(), any()}
@@ -4849,9 +4904,8 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-
-  Deletes a previously configured direct query data
-  source from Amazon OpenSearch Service.
+  Deletes a previously configured direct query data source from Amazon OpenSearch
+  Service.
   """
   @spec delete_direct_query_data_source(
           map(),
@@ -4889,8 +4943,8 @@ defmodule AWS.OpenSearch do
   @doc """
   Deletes an Amazon OpenSearch Service domain and all of its data.
 
-  You can't recover a domain
-  after you delete it.
+  You can't recover a
+  domain after you delete it.
   """
   @spec delete_domain(map(), String.t() | atom(), delete_domain_request(), list()) ::
           {:ok, delete_domain_response(), any()}
@@ -4920,11 +4974,10 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Allows the destination Amazon OpenSearch Service domain owner to delete an
-  existing inbound
-  cross-cluster search connection.
+  existing
+  inbound cross-cluster search connection.
 
-  For more information, see [Cross-cluster search for Amazon OpenSearch
-  Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
+  For more information, see [Cross-cluster search for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
   """
   @spec delete_inbound_connection(
           map(),
@@ -4959,11 +5012,9 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Allows the source Amazon OpenSearch Service domain owner to delete an existing
-  outbound
-  cross-cluster search connection.
+  outbound cross-cluster search connection.
 
-  For more information, see [Cross-cluster search for Amazon OpenSearch
-  Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
+  For more information, see [Cross-cluster search for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
   """
   @spec delete_outbound_connection(
           map(),
@@ -5081,10 +5132,11 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Returns the list of optimizations that Auto-Tune has made to an Amazon
-  OpenSearch Service
-  domain.
+  OpenSearch
+  Service domain.
 
-  For more information, see [Auto-Tune for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html).
+  For more information, see [Auto-Tune for Amazon OpenSearch
+  Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html).
   """
   @spec describe_domain_auto_tunes(map(), String.t() | atom(), list()) ::
           {:ok, describe_domain_auto_tunes_response(), any()}
@@ -5179,8 +5231,8 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Returns information about domain and nodes, including data nodes, master nodes,
-  ultrawarm
-  nodes, Availability Zone(s), standby nodes, node configurations, and node
+  ultrawarm nodes, Availability Zone(s), standby nodes, node configurations, and
+  node
   states.
   """
   @spec describe_domain_nodes(map(), String.t() | atom(), list()) ::
@@ -5278,11 +5330,10 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Lists all the inbound cross-cluster search connections for a destination
-  (remote) Amazon
-  OpenSearch Service domain.
+  (remote)
+  Amazon OpenSearch Service domain.
 
-  For more information, see [Cross-cluster search for Amazon OpenSearch
-  Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
+  For more information, see [Cross-cluster search for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
   """
   @spec describe_inbound_connections(map(), describe_inbound_connections_request(), list()) ::
           {:ok, describe_inbound_connections_response(), any()}
@@ -5312,8 +5363,8 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Describes the instance count, storage, and master node limits for a given
-  OpenSearch or
-  Elasticsearch version and instance type.
+  OpenSearch
+  or Elasticsearch version and instance type.
   """
   @spec describe_instance_type_limits(
           map(),
@@ -5353,11 +5404,9 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Lists all the outbound cross-cluster connections for a local (source) Amazon
-  OpenSearch
-  Service domain.
+  OpenSearch Service domain.
 
-  For more information, see [Cross-cluster search for Amazon OpenSearch
-  Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
+  For more information, see [Cross-cluster search for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
   """
   @spec describe_outbound_connections(map(), describe_outbound_connections_request(), list()) ::
           {:ok, describe_outbound_connections_response(), any()}
@@ -5388,7 +5437,8 @@ defmodule AWS.OpenSearch do
   @doc """
   Describes all packages available to OpenSearch Service.
 
-  For more information, see [Custom packages for Amazon OpenSearch
+  For more information, see
+  [Custom packages for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
   """
   @spec describe_packages(map(), describe_packages_request(), list()) ::
@@ -5419,10 +5469,11 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Describes the available Amazon OpenSearch Service Reserved Instance offerings
-  for a given
-  Region.
+  for a
+  given Region.
 
-  For more information, see [Reserved Instances in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html).
+  For more information, see [Reserved Instances in Amazon OpenSearch
+  Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html).
   """
   @spec describe_reserved_instance_offerings(
           map(),
@@ -5474,9 +5525,11 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Describes the Amazon OpenSearch Service instances that you have reserved in a
-  given Region.
+  given
+  Region.
 
-  For more information, see [Reserved Instances in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html).
+  For more information, see [Reserved Instances in Amazon OpenSearch
+  Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html).
   """
   @spec describe_reserved_instances(
           map(),
@@ -5558,10 +5611,12 @@ defmodule AWS.OpenSearch do
   @doc """
   Removes a package from the specified Amazon OpenSearch Service domain.
 
-  The package can't be
-  in use with any OpenSearch index for the dissociation to succeed. The package is
-  still available
-  in OpenSearch Service for association later. For more information, see [Custom packages for Amazon OpenSearch
+  The package
+  can't be in use with any OpenSearch index for the dissociation to succeed. The
+  package
+  is still available in OpenSearch Service for association later. For more
+  information,
+  see [Custom packages for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
   """
   @spec dissociate_package(
@@ -5647,8 +5702,8 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Returns a map of OpenSearch or Elasticsearch versions and the versions you can
-  upgrade them
-  to.
+  upgrade
+  them to.
   """
   @spec get_compatible_versions(map(), String.t() | atom() | nil, list()) ::
           {:ok, get_compatible_versions_response(), any()}
@@ -5693,9 +5748,30 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
+  Gets the ARN of the current default application.
 
-  Returns detailed configuration information for
-  a specific direct query data source in Amazon OpenSearch Service.
+  If the default application isn't set, the operation returns a resource not found
+  error.
+  """
+  @spec get_default_application_setting(map(), list()) ::
+          {:ok, get_default_application_setting_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_default_application_setting_errors()}
+  def get_default_application_setting(%Client{} = client, options \\ []) do
+    url_path = "/2021-01-01/opensearch/defaultApplicationSetting"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns detailed configuration information for a specific direct query data
+  source in
+  Amazon OpenSearch Service.
   """
   @spec get_direct_query_data_source(map(), String.t() | atom(), list()) ::
           {:ok, get_direct_query_data_source_response(), any()}
@@ -5748,8 +5824,9 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Returns a list of Amazon OpenSearch Service package versions, along with their
-  creation time, commit message, and plugin properties (if the
-  package is a zip plugin package).
+  creation time, commit message, and plugin properties (if the package is a zip
+  plugin
+  package).
 
   For more information, see [Custom packages for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
@@ -5797,8 +5874,7 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Retrieves the complete history of the last 10 upgrades performed on an Amazon
-  OpenSearch
-  Service domain.
+  OpenSearch Service domain.
   """
   @spec get_upgrade_history(
           map(),
@@ -5843,8 +5919,7 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Returns the most recent status of the last upgrade or upgrade eligibility check
-  performed on
-  an Amazon OpenSearch Service domain.
+  performed on an Amazon OpenSearch Service domain.
   """
   @spec get_upgrade_status(map(), String.t() | atom(), list()) ::
           {:ok, get_upgrade_status_response(), any()}
@@ -5915,9 +5990,9 @@ defmodule AWS.OpenSearch do
   @doc """
   Lists direct-query data sources for a specific domain.
 
-  For more information, see
-  For more information, see
-  [Working with Amazon OpenSearch Service direct queries with Amazon S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3.html).
+  For more information, see For
+  more information, see [Working with Amazon OpenSearch Service direct queries with Amazon
+  S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3.html).
   """
   @spec list_data_sources(map(), String.t() | atom(), list()) ::
           {:ok, list_data_sources_response(), any()}
@@ -5935,9 +6010,8 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-
-  Lists an inventory of all the direct query data sources that you
-  have configured within Amazon OpenSearch Service.
+  Lists an inventory of all the direct query data sources that you have configured
+  within Amazon OpenSearch Service.
   """
   @spec list_direct_query_data_sources(map(), String.t() | atom() | nil, list()) ::
           {:ok, list_direct_query_data_sources_response(), any()}
@@ -6027,8 +6101,8 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Returns the names of all Amazon OpenSearch Service domains owned by the current
-  user in the
-  active Region.
+  user
+  in the active Region.
   """
   @spec list_domain_names(map(), String.t() | atom() | nil, list()) ::
           {:ok, list_domain_names_response(), any()}
@@ -6102,8 +6176,7 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Lists all instance types and available features for a given OpenSearch or
-  Elasticsearch
-  version.
+  Elasticsearch version.
   """
   @spec list_instance_type_details(
           map(),
@@ -6224,10 +6297,10 @@ defmodule AWS.OpenSearch do
   @doc """
   Retrieves a list of configuration changes that are scheduled for a domain.
 
-  These changes can
-  be [service software updates](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html)
-  or [blue/green Auto-Tune
-  enhancements](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types).
+  These
+  changes can be [service software
+  updates](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html)
+  or [blue/green Auto-Tune enhancements](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types).
   """
   @spec list_scheduled_actions(
           map(),
@@ -6277,8 +6350,7 @@ defmodule AWS.OpenSearch do
   or
   application.
 
-  For more information, see [Tagging Amazon OpenSearch Service
-  resources](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html).
+  For more information, see [Tagging Amazon OpenSearch Service resources](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html).
   """
   @spec list_tags(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_response(), any()}
@@ -6338,8 +6410,9 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Retrieves information about each Amazon Web Services principal that is allowed
-  to access a
-  given Amazon OpenSearch Service domain through the use of an interface VPC
+  to
+  access a given Amazon OpenSearch Service domain through the use of an interface
+  VPC
   endpoint.
   """
   @spec list_vpc_endpoint_access(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
@@ -6394,8 +6467,7 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Retrieves all Amazon OpenSearch Service-managed VPC endpoints associated with a
-  particular
-  domain.
+  particular domain.
   """
   @spec list_vpc_endpoints_for_domain(
           map(),
@@ -6463,9 +6535,42 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
+  Sets the default application to the application with the specified ARN.
+
+  To remove the default application, use the `GetDefaultApplicationSetting`
+  operation to get the current default and then call the
+  `PutDefaultApplicationSetting` with the current applications ARN and the
+  `setAsDefault` parameter set to `false`.
+  """
+  @spec put_default_application_setting(map(), put_default_application_setting_request(), list()) ::
+          {:ok, put_default_application_setting_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_default_application_setting_errors()}
+  def put_default_application_setting(%Client{} = client, input, options \\ []) do
+    url_path = "/2021-01-01/opensearch/defaultApplicationSetting"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Allows the remote Amazon OpenSearch Service domain owner to reject an inbound
-  cross-cluster
-  connection request.
+  cross-cluster connection request.
   """
   @spec reject_inbound_connection(
           map(),
@@ -6502,8 +6607,7 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Removes the specified set of tags from an Amazon OpenSearch Service domain, data
-  source, or
-  application.
+  source, or application.
 
   For more information, see [ Tagging Amazon OpenSearch Service resources](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging).
   """
@@ -6535,8 +6639,8 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Revokes access to an Amazon OpenSearch Service domain that was provided through
-  an interface
-  VPC endpoint.
+  an
+  interface VPC endpoint.
   """
   @spec revoke_vpc_endpoint_access(
           map(),
@@ -6574,9 +6678,10 @@ defmodule AWS.OpenSearch do
   @doc """
   Starts the node maintenance process on the data node.
 
-  These processes can include a node reboot, an Opensearch or Elasticsearch
-  process restart,
-  or a Dashboard or Kibana restart.
+  These processes can include a
+  node reboot, an Opensearch or Elasticsearch process restart, or a Dashboard or
+  Kibana
+  restart.
   """
   @spec start_domain_maintenance(
           map(),
@@ -6676,8 +6781,8 @@ defmodule AWS.OpenSearch do
   @doc """
   Updates a direct-query data source.
 
-  For more information, see
-  [Working with Amazon OpenSearch Service data source integrations with Amazon S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html).
+  For more information, see [Working with Amazon OpenSearch Service data source integrations with Amazon
+  S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html).
   """
   @spec update_data_source(
           map(),
@@ -6714,9 +6819,9 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-
-  Updates the configuration or properties of an existing
-  direct query data source in Amazon OpenSearch Service.
+  Updates the configuration or properties of an existing direct query data source
+  in
+  Amazon OpenSearch Service.
   """
   @spec update_direct_query_data_source(
           map(),
@@ -6784,8 +6889,9 @@ defmodule AWS.OpenSearch do
   @doc """
   Updates a package for use with Amazon OpenSearch Service domains.
 
-  For more information, see
-  [Custom packages for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
+  For more
+  information, see [Custom packages for Amazon OpenSearch
+  Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
   """
   @spec update_package(map(), update_package_request(), list()) ::
           {:ok, update_package_response(), any()}
@@ -6816,7 +6922,8 @@ defmodule AWS.OpenSearch do
   @doc """
   Updates the scope of a package.
 
-  Scope of the package defines users who can view and associate a package.
+  Scope of the package defines users who can view and
+  associate a package.
   """
   @spec update_package_scope(map(), update_package_scope_request(), list()) ::
           {:ok, update_package_scope_response(), any()}
@@ -6847,10 +6954,10 @@ defmodule AWS.OpenSearch do
   @doc """
   Reschedules a planned domain configuration change for a later time.
 
-  This change can be a
-  scheduled [service software update](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html)
-  or a [blue/green Auto-Tune
-  enhancement](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types).
+  This change can be
+  a scheduled [service software
+  update](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html)
+  or a [blue/green Auto-Tune enhancement](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types).
   """
   @spec update_scheduled_action(
           map(),
@@ -6916,8 +7023,8 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Allows you to either upgrade your Amazon OpenSearch Service domain or perform an
-  upgrade
-  eligibility check to a compatible version of OpenSearch or Elasticsearch.
+  upgrade eligibility check to a compatible version of OpenSearch or
+  Elasticsearch.
   """
   @spec upgrade_domain(map(), upgrade_domain_request(), list()) ::
           {:ok, upgrade_domain_response(), any()}

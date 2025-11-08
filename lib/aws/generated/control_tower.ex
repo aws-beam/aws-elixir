@@ -254,8 +254,9 @@ defmodule AWS.ControlTower do
   ## Example:
 
       disable_control_input() :: %{
-        required("controlIdentifier") => String.t() | atom(),
-        required("targetIdentifier") => String.t() | atom()
+        optional("controlIdentifier") => String.t() | atom(),
+        optional("enabledControlIdentifier") => String.t() | atom(),
+        optional("targetIdentifier") => String.t() | atom()
       }
 
   """
@@ -317,11 +318,25 @@ defmodule AWS.ControlTower do
       enabled_control_filter() :: %{
         "controlIdentifiers" => list(String.t() | atom()),
         "driftStatuses" => list(list(any())()),
+        "inheritanceDriftStatuses" => list(list(any())()),
+        "parentIdentifiers" => list(String.t() | atom()),
+        "resourceDriftStatuses" => list(list(any())()),
         "statuses" => list(list(any())())
       }
 
   """
   @type enabled_control_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enabled_control_inheritance_drift() :: %{
+        "status" => list(any())
+      }
+
+  """
+  @type enabled_control_inheritance_drift() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -389,6 +404,7 @@ defmodule AWS.ControlTower do
 
       list_enabled_controls_input() :: %{
         optional("filter") => enabled_control_filter(),
+        optional("includeChildren") => [boolean()],
         optional("maxResults") => integer(),
         optional("nextToken") => [String.t() | atom()],
         optional("targetIdentifier") => String.t() | atom()
@@ -526,6 +542,7 @@ defmodule AWS.ControlTower do
         "arn" => String.t() | atom(),
         "controlIdentifier" => String.t() | atom(),
         "driftStatusSummary" => drift_status_summary(),
+        "parentIdentifier" => String.t() | atom(),
         "statusSummary" => enablement_status_summary(),
         "targetIdentifier" => String.t() | atom()
       }
@@ -605,6 +622,7 @@ defmodule AWS.ControlTower do
   ## Example:
 
       create_landing_zone_input() :: %{
+        optional("remediationTypes") => list(list(any())()),
         optional("tags") => map(),
         required("manifest") => any(),
         required("version") => String.t() | atom()
@@ -628,11 +646,24 @@ defmodule AWS.ControlTower do
 
   ## Example:
 
+      enabled_control_drift_types() :: %{
+        "inheritance" => enabled_control_inheritance_drift(),
+        "resource" => enabled_control_resource_drift()
+      }
+
+  """
+  @type enabled_control_drift_types() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       landing_zone_detail() :: %{
         "arn" => String.t() | atom(),
         "driftStatus" => landing_zone_drift_status_summary(),
         "latestAvailableVersion" => String.t() | atom(),
         "manifest" => any(),
+        "remediationTypes" => list(list(any())()),
         "status" => list(any()),
         "version" => String.t() | atom()
       }
@@ -656,6 +687,7 @@ defmodule AWS.ControlTower do
   ## Example:
 
       update_landing_zone_input() :: %{
+        optional("remediationTypes") => list(list(any())()),
         required("landingZoneIdentifier") => [String.t() | atom()],
         required("manifest") => any(),
         required("version") => String.t() | atom()
@@ -675,6 +707,17 @@ defmodule AWS.ControlTower do
 
   """
   @type list_landing_zones_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enabled_control_resource_drift() :: %{
+        "status" => list(any())
+      }
+
+  """
+  @type enabled_control_resource_drift() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1111,6 +1154,7 @@ defmodule AWS.ControlTower do
         "controlIdentifier" => String.t() | atom(),
         "driftStatusSummary" => drift_status_summary(),
         "parameters" => list(enabled_control_parameter_summary()),
+        "parentIdentifier" => String.t() | atom(),
         "statusSummary" => enablement_status_summary(),
         "targetIdentifier" => String.t() | atom(),
         "targetRegions" => list(region())
@@ -1251,7 +1295,8 @@ defmodule AWS.ControlTower do
   ## Example:
 
       drift_status_summary() :: %{
-        "driftStatus" => list(any())
+        "driftStatus" => list(any()),
+        "types" => enabled_control_drift_types()
       }
 
   """
@@ -1588,6 +1633,10 @@ defmodule AWS.ControlTower do
   This API call starts an asynchronous operation that deletes Amazon Web Services
   Control Tower resources deployed in accounts managed by Amazon Web Services
   Control Tower.
+
+  Decommissioning a landing zone is a process with significant consequences, and
+  it cannot be undone. We strongly recommend that you perform this decommissioning
+  process only if you intend to stop using your landing zone.
   """
   @spec delete_landing_zone(map(), delete_landing_zone_input(), list()) ::
           {:ok, delete_landing_zone_output(), any()}
@@ -2228,6 +2277,8 @@ defmodule AWS.ControlTower do
 
   @doc """
   Resets an enabled control.
+
+  Does not work for controls implemented with SCPs.
   """
   @spec reset_enabled_control(map(), reset_enabled_control_input(), list()) ::
           {:ok, reset_enabled_control_output(), any()}

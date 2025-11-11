@@ -134,6 +134,20 @@ defmodule AWS.Invoicing do
 
   ## Example:
       
+      invoice_p_d_f() :: %{
+        "DocumentUrl" => String.t() | atom(),
+        "DocumentUrlExpirationDate" => [non_neg_integer()],
+        "InvoiceId" => String.t() | atom(),
+        "SupplementalDocuments" => list(supplemental_document())
+      }
+      
+  """
+  @type invoice_p_d_f() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       invoice_profile() :: %{
         "AccountId" => String.t() | atom(),
         "Issuer" => String.t() | atom(),
@@ -233,6 +247,17 @@ defmodule AWS.Invoicing do
       
   """
   @type delete_invoice_unit_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_invoice_p_d_f_request() :: %{
+        required("InvoiceId") => String.t() | atom()
+      }
+      
+  """
+  @type get_invoice_p_d_f_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -410,6 +435,17 @@ defmodule AWS.Invoicing do
 
   ## Example:
       
+      get_invoice_p_d_f_response() :: %{
+        "InvoicePDF" => invoice_p_d_f()
+      }
+      
+  """
+  @type get_invoice_p_d_f_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       access_denied_exception() :: %{
         "message" => String.t() | atom(),
         "resourceName" => String.t() | atom()
@@ -485,6 +521,18 @@ defmodule AWS.Invoicing do
       
   """
   @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      supplemental_document() :: %{
+        "DocumentUrl" => String.t() | atom(),
+        "DocumentUrlExpirationDate" => [non_neg_integer()]
+      }
+      
+  """
+  @type supplemental_document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -664,6 +712,13 @@ defmodule AWS.Invoicing do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_invoice_p_d_f_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_invoice_unit_errors() ::
           throttling_exception()
           | validation_exception()
@@ -772,6 +827,27 @@ defmodule AWS.Invoicing do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteInvoiceUnit", input, options)
+  end
+
+  @doc """
+  Returns a URL to download the invoice document and supplemental documents
+  associated with an invoice.
+
+  The URLs are pre-signed and have expiration time. For special cases like Brazil,
+  where Amazon Web Services generated invoice identifiers and government provided
+  identifiers do not match, use the Amazon Web Services generated invoice
+  identifier when making API requests. To grant IAM permission to use this
+  operation, the caller needs the `invoicing:GetInvoicePDF` policy action.
+  """
+  @spec get_invoice_p_d_f(map(), get_invoice_p_d_f_request(), list()) ::
+          {:ok, get_invoice_p_d_f_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_invoice_p_d_f_errors()}
+  def get_invoice_p_d_f(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetInvoicePDF", input, options)
   end
 
   @doc """

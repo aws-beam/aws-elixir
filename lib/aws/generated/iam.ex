@@ -1468,6 +1468,25 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      create_delegation_request_request() :: %{
+        optional("OnlySendByOwner") => boolean(),
+        optional("OwnerAccountId") => String.t() | atom(),
+        optional("RedirectUrl") => String.t() | atom(),
+        optional("RequestMessage") => String.t() | atom(),
+        required("Description") => String.t() | atom(),
+        required("NotificationChannel") => String.t() | atom(),
+        required("Permissions") => delegation_permission(),
+        required("RequestorWorkflowId") => String.t() | atom(),
+        required("SessionDuration") => integer()
+      }
+      
+  """
+  @type create_delegation_request_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_account_alias_request() :: %{
         required("AccountAlias") => String.t() | atom()
       }
@@ -2336,6 +2355,18 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      delegation_permission() :: %{
+        "Parameters" => list(policy_parameter()),
+        "PolicyTemplateArn" => String.t() | atom()
+      }
+      
+  """
+  @type delegation_permission() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_service_linked_role_deletion_status_request() :: %{
         required("DeletionTaskId") => String.t() | atom()
       }
@@ -2519,6 +2550,18 @@ defmodule AWS.IAM do
       
   """
   @type mfa_device() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_delegation_request_response() :: %{
+        "ConsoleDeepLink" => String.t() | atom(),
+        "DelegationRequestId" => String.t() | atom()
+      }
+      
+  """
+  @type create_delegation_request_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2892,6 +2935,19 @@ defmodule AWS.IAM do
       
   """
   @type get_role_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy_parameter() :: %{
+        "Name" => String.t() | atom(),
+        "Type" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type policy_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4304,6 +4360,13 @@ defmodule AWS.IAM do
           | service_failure_exception()
           | entity_already_exists_exception()
 
+  @type create_delegation_request_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | entity_already_exists_exception()
+
   @type create_group_errors() ::
           limit_exceeded_exception()
           | service_failure_exception()
@@ -5275,6 +5338,20 @@ defmodule AWS.IAM do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateAccountAlias", input, options)
+  end
+
+  @doc """
+  This API is currently unavailable for general use.
+  """
+  @spec create_delegation_request(map(), create_delegation_request_request(), list()) ::
+          {:ok, create_delegation_request_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_delegation_request_errors()}
+  def create_delegation_request(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDelegationRequest", input, options)
   end
 
   @doc """

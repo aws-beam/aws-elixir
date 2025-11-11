@@ -566,6 +566,7 @@ defmodule AWS.AppStream do
       
       network_access_configuration() :: %{
         "EniId" => String.t() | atom(),
+        "EniIpv6Addresses" => list(String.t() | atom()),
         "EniPrivateIpAddress" => String.t() | atom()
       }
       

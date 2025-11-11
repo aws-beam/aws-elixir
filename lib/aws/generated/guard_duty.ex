@@ -987,7 +987,8 @@ defmodule AWS.GuardDuty do
         "DestinationProperties" => destination_properties(),
         "DestinationType" => list(any()),
         "PublishingFailureStartTimestamp" => float(),
-        "Status" => list(any())
+        "Status" => list(any()),
+        "Tags" => map()
       }
 
   """
@@ -1315,6 +1316,7 @@ defmodule AWS.GuardDuty do
 
       create_publishing_destination_request() :: %{
         optional("ClientToken") => String.t() | atom(),
+        optional("Tags") => map(),
         required("DestinationProperties") => destination_properties(),
         required("DestinationType") => list(any())
       }

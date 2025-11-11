@@ -248,6 +248,7 @@ defmodule AWS.Braket do
         optional("actionMetadata") => action_metadata(),
         optional("associations") => list(association()),
         optional("endedAt") => [non_neg_integer()],
+        optional("experimentalCapabilities") => list(),
         optional("failureReason") => [String.t() | atom()],
         optional("jobArn") => String.t() | atom(),
         optional("numSuccessfulShots") => [float()],
@@ -602,6 +603,7 @@ defmodule AWS.Braket do
       create_quantum_task_request() :: %{
         optional("associations") => list(association()),
         optional("deviceParameters") => String.t() | atom(),
+        optional("experimentalCapabilities") => list(),
         optional("jobToken") => String.t() | atom(),
         optional("tags") => map(),
         required("action") => String.t() | atom(),

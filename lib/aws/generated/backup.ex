@@ -769,6 +769,8 @@ defmodule AWS.Backup do
         "DeletionStatusMessage" => String.t() | atom(),
         "ExpectedCompletionTimeMinutes" => float(),
         "IamRoleArn" => String.t() | atom(),
+        "IsParent" => boolean(),
+        "ParentJobId" => String.t() | atom(),
         "PercentDone" => String.t() | atom(),
         "RecoveryPointArn" => String.t() | atom(),
         "RecoveryPointCreationDate" => non_neg_integer(),
@@ -1484,6 +1486,8 @@ defmodule AWS.Backup do
         "DeletionStatusMessage" => String.t() | atom(),
         "ExpectedCompletionTimeMinutes" => float(),
         "IamRoleArn" => String.t() | atom(),
+        "IsParent" => boolean(),
+        "ParentJobId" => String.t() | atom(),
         "PercentDone" => String.t() | atom(),
         "RecoveryPointArn" => String.t() | atom(),
         "RecoveryPointCreationDate" => non_neg_integer(),
@@ -1995,6 +1999,7 @@ defmodule AWS.Backup do
         optional("ByCompleteBefore") => non_neg_integer(),
         optional("ByCreatedAfter") => non_neg_integer(),
         optional("ByCreatedBefore") => non_neg_integer(),
+        optional("ByParentJobId") => String.t() | atom(),
         optional("ByResourceType") => String.t() | atom(),
         optional("ByRestoreTestingPlanArn") => String.t() | atom(),
         optional("ByStatus") => list(any()),
@@ -7107,6 +7112,7 @@ defmodule AWS.Backup do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_restore_jobs_output(), any()}
@@ -7120,6 +7126,7 @@ defmodule AWS.Backup do
         by_complete_before \\ nil,
         by_created_after \\ nil,
         by_created_before \\ nil,
+        by_parent_job_id \\ nil,
         by_resource_type \\ nil,
         by_restore_testing_plan_arn \\ nil,
         by_status \\ nil,
@@ -7162,6 +7169,13 @@ defmodule AWS.Backup do
     query_params =
       if !is_nil(by_resource_type) do
         [{"resourceType", by_resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_parent_job_id) do
+        [{"parentJobId", by_parent_job_id} | query_params]
       else
         query_params
       end

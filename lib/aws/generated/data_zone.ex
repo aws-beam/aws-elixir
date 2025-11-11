@@ -2187,8 +2187,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       mlflow_properties_patch() :: %{
-        "trackingServerArn" => [String.t() | atom()],
-        "trackingServerName" => [String.t() | atom()]
+        "trackingServerArn" => [String.t() | atom()]
       }
 
   """
@@ -4549,8 +4548,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       mlflow_properties_input() :: %{
-        "trackingServerArn" => [String.t() | atom()],
-        "trackingServerName" => [String.t() | atom()]
+        "trackingServerArn" => [String.t() | atom()]
       }
 
   """
@@ -8246,8 +8244,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       mlflow_properties_output() :: %{
-        "trackingServerArn" => [String.t() | atom()],
-        "trackingServerName" => [String.t() | atom()]
+        "trackingServerArn" => [String.t() | atom()]
       }
 
   """

@@ -94,6 +94,7 @@ defmodule AWS.Kafka do
         "LoggingInfo" => logging_info(),
         "NumberOfBrokerNodes" => integer(),
         "OpenMonitoring" => open_monitoring_info(),
+        "Rebalancing" => rebalancing(),
         "StorageMode" => list(any())
       }
 
@@ -294,6 +295,7 @@ defmodule AWS.Kafka do
         "LoggingInfo" => logging_info(),
         "NumberOfBrokerNodes" => integer(),
         "OpenMonitoring" => open_monitoring(),
+        "Rebalancing" => rebalancing(),
         "State" => list(any()),
         "StateInfo" => state_info(),
         "StorageMode" => list(any()),
@@ -647,6 +649,18 @@ defmodule AWS.Kafka do
 
   """
   @type error_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_rebalancing_response() :: %{
+        "ClusterArn" => String.t() | atom(),
+        "ClusterOperationArn" => String.t() | atom()
+      }
+
+  """
+  @type update_rebalancing_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1085,6 +1099,7 @@ defmodule AWS.Kafka do
         optional("EnhancedMonitoring") => list(any()),
         optional("LoggingInfo") => logging_info(),
         optional("OpenMonitoring") => open_monitoring_info(),
+        optional("Rebalancing") => rebalancing(),
         optional("StorageMode") => list(any()),
         optional("Tags") => map(),
         required("BrokerNodeGroupInfo") => broker_node_group_info(),
@@ -1806,6 +1821,18 @@ defmodule AWS.Kafka do
 
   ## Example:
 
+      update_rebalancing_request() :: %{
+        required("CurrentVersion") => String.t() | atom(),
+        required("Rebalancing") => rebalancing()
+      }
+
+  """
+  @type update_rebalancing_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       ebs_storage_info() :: %{
         "ProvisionedThroughput" => provisioned_throughput(),
         "VolumeSize" => integer()
@@ -1916,6 +1943,7 @@ defmodule AWS.Kafka do
         "LoggingInfo" => logging_info(),
         "NumberOfBrokerNodes" => integer(),
         "OpenMonitoring" => open_monitoring_info(),
+        "Rebalancing" => rebalancing(),
         "StorageMode" => list(any()),
         "ZookeeperConnectString" => String.t() | atom(),
         "ZookeeperConnectStringTls" => String.t() | atom()
@@ -2215,6 +2243,7 @@ defmodule AWS.Kafka do
         "LoggingInfo" => logging_info(),
         "NumberOfBrokerNodes" => integer(),
         "OpenMonitoring" => open_monitoring(),
+        "Rebalancing" => rebalancing(),
         "StorageMode" => list(any())
       }
 
@@ -2233,6 +2262,17 @@ defmodule AWS.Kafka do
 
   """
   @type broker_ebs_volume_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rebalancing() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type rebalancing() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2868,6 +2908,15 @@ defmodule AWS.Kafka do
           bad_request_exception()
           | internal_server_error_exception()
           | service_unavailable_exception()
+          | forbidden_exception()
+          | unauthorized_exception()
+
+  @type update_rebalancing_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
           | forbidden_exception()
           | unauthorized_exception()
 
@@ -4441,6 +4490,36 @@ defmodule AWS.Kafka do
           | {:error, update_monitoring_errors()}
   def update_monitoring(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/monitoring"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Use this resource to update the intelligent rebalancing status of an Amazon MSK
+  Provisioned cluster with Express brokers.
+  """
+  @spec update_rebalancing(map(), String.t() | atom(), update_rebalancing_request(), list()) ::
+          {:ok, update_rebalancing_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_rebalancing_errors()}
+  def update_rebalancing(%Client{} = client, cluster_arn, input, options \\ []) do
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/rebalancing"
     headers = []
     custom_headers = []
     query_params = []

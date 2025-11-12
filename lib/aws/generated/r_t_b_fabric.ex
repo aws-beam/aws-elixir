@@ -94,7 +94,8 @@ defmodule AWS.RTBFabric do
       create_inbound_external_link_request() :: %{
         optional("attributes") => link_attributes(),
         optional("tags") => map(),
-        required("clientToken") => [String.t() | atom()]
+        required("clientToken") => [String.t() | atom()],
+        required("logSettings") => link_log_settings()
       }
 
   """
@@ -237,6 +238,7 @@ defmodule AWS.RTBFabric do
         "flowModules" => list(module_configuration()),
         "gatewayId" => String.t() | atom(),
         "linkId" => String.t() | atom(),
+        "logSettings" => link_log_settings(),
         "pendingFlowModules" => list(module_configuration()),
         "status" => list(any()),
         "tags" => map(),
@@ -399,8 +401,10 @@ defmodule AWS.RTBFabric do
   ## Example:
 
       create_outbound_external_link_request() :: %{
+        optional("attributes") => link_attributes(),
         optional("tags") => map(),
         required("clientToken") => [String.t() | atom()],
+        required("logSettings") => link_log_settings(),
         required("publicEndpoint") => String.t() | atom()
       }
 
@@ -548,6 +552,7 @@ defmodule AWS.RTBFabric do
         "createdAt" => [non_neg_integer()],
         "gatewayId" => String.t() | atom(),
         "linkId" => String.t() | atom(),
+        "logSettings" => link_log_settings(),
         "publicEndpoint" => String.t() | atom(),
         "status" => list(any()),
         "tags" => map(),

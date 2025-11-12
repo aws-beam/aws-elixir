@@ -94,6 +94,8 @@ defmodule AWS.MedicalImaging do
         "createdAt" => non_neg_integer(),
         "imageSetId" => String.t() | atom(),
         "isPrimary" => [boolean()],
+        "lastAccessedAt" => non_neg_integer(),
+        "storageTier" => list(any()),
         "updatedAt" => non_neg_integer(),
         "version" => [integer()]
       }
@@ -267,8 +269,10 @@ defmodule AWS.MedicalImaging do
         "imageSetState" => list(any()),
         "imageSetWorkflowStatus" => list(any()),
         "isPrimary" => [boolean()],
+        "lastAccessedAt" => non_neg_integer(),
         "message" => String.t() | atom(),
         "overrides" => overrides(),
+        "storageTier" => list(any()),
         "updatedAt" => non_neg_integer(),
         "versionId" => String.t() | atom()
       }
@@ -475,6 +479,7 @@ defmodule AWS.MedicalImaging do
         "datastoreStatus" => list(any()),
         "kmsKeyArn" => String.t() | atom(),
         "lambdaAuthorizerArn" => String.t() | atom(),
+        "losslessStorageFormat" => list(any()),
         "updatedAt" => non_neg_integer()
       }
 
@@ -680,6 +685,7 @@ defmodule AWS.MedicalImaging do
         optional("datastoreName") => String.t() | atom(),
         optional("kmsKeyArn") => String.t() | atom(),
         optional("lambdaAuthorizerArn") => String.t() | atom(),
+        optional("losslessStorageFormat") => list(any()),
         optional("tags") => map(),
         required("clientToken") => String.t() | atom()
       }

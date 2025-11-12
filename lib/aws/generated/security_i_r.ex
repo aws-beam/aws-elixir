@@ -174,6 +174,7 @@ defmodule AWS.SecurityIR do
   ## Example:
 
       incident_responder() :: %{
+        "communicationPreferences" => list(list(any())()),
         "email" => String.t() | atom(),
         "jobTitle" => String.t() | atom(),
         "name" => String.t() | atom()

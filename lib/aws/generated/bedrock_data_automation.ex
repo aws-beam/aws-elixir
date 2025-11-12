@@ -722,6 +722,19 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      audio_language_configuration() :: %{
+        "generativeOutputLanguage" => list(any()),
+        "identifyMultipleLanguages" => [boolean()],
+        "inputLanguages" => list(list(any())())
+      }
+
+  """
+  @type audio_language_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       access_denied_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -859,6 +872,7 @@ defmodule AWS.BedrockDataAutomation do
   ## Example:
 
       audio_override_configuration() :: %{
+        "languageConfiguration" => audio_language_configuration(),
         "modalityProcessing" => modality_processing_configuration()
       }
 

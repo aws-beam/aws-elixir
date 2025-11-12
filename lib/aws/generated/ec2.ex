@@ -26543,6 +26543,7 @@ defmodule AWS.EC2 do
         "RemoteIpv6NetworkCidr" => String.t() | atom(),
         "StaticRoutesOnly" => boolean(),
         "TransportTransitGatewayAttachmentId" => String.t() | atom(),
+        "TunnelBandwidth" => list(any()),
         "TunnelInsideIpVersion" => list(any()),
         "TunnelOptions" => list(tunnel_option())
       }
@@ -29254,6 +29255,7 @@ defmodule AWS.EC2 do
         "RemoteIpv6NetworkCidr" => String.t() | atom(),
         "StaticRoutesOnly" => boolean(),
         "TransportTransitGatewayAttachmentId" => String.t() | atom(),
+        "TunnelBandwidth" => list(any()),
         "TunnelInsideIpVersion" => list(any()),
         "TunnelOptions" => list(vpn_tunnel_options_specification())
       }

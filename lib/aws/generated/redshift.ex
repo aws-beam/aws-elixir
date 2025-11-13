@@ -264,6 +264,17 @@ defmodule AWS.Redshift do
 
   ## Example:
       
+      get_identity_center_auth_token_request() :: %{
+        required("ClusterIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type get_identity_center_auth_token_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       cluster_associated_to_schedule() :: %{
         "ClusterIdentifier" => String.t() | atom(),
         "ScheduleAssociationState" => list(any())
@@ -271,6 +282,17 @@ defmodule AWS.Redshift do
       
   """
   @type cluster_associated_to_schedule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      redshift_invalid_parameter_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type redshift_invalid_parameter_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2493,6 +2515,18 @@ defmodule AWS.Redshift do
       
   """
   @type modify_cluster_parameter_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_identity_center_auth_token_response() :: %{
+        "ExpirationTime" => non_neg_integer(),
+        "Token" => String.t() | atom()
+      }
+      
+  """
+  @type get_identity_center_auth_token_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6548,6 +6582,12 @@ defmodule AWS.Redshift do
   @type get_cluster_credentials_with_iam_errors() ::
           unsupported_operation_fault() | cluster_not_found_fault()
 
+  @type get_identity_center_auth_token_errors() ::
+          invalid_cluster_state_fault()
+          | unsupported_operation_fault()
+          | cluster_not_found_fault()
+          | redshift_invalid_parameter_fault()
+
   @type get_reserved_node_exchange_configuration_options_errors() ::
           dependent_service_unavailable_fault()
           | reserved_node_offering_not_found_fault()
@@ -8954,6 +8994,38 @@ defmodule AWS.Redshift do
     meta = metadata()
 
     Request.request_post(client, meta, "GetClusterCredentialsWithIAM", input, options)
+  end
+
+  @doc """
+  Generates an encrypted authentication token that propagates the caller's
+  Amazon Web Services IAM Identity Center identity to Amazon Redshift clusters.
+
+  This API extracts the
+  Amazon Web Services IAM Identity Center identity from enhanced credentials and
+  creates a secure token
+  that Amazon Redshift drivers can use for authentication.
+
+  The token is encrypted using Key Management Service (KMS) and can only be
+  decrypted by the specified Amazon Redshift clusters. The token contains the
+  caller's
+  Amazon Web Services IAM Identity Center identity information and is valid for a
+  limited time period.
+
+  This API is exclusively for use with Amazon Web Services IAM Identity Center
+  enhanced credentials. If the
+  caller is not using enhanced credentials with embedded Amazon Web Services IAM
+  Identity Center identity, the API will
+  return an error.
+  """
+  @spec get_identity_center_auth_token(map(), get_identity_center_auth_token_request(), list()) ::
+          {:ok, get_identity_center_auth_token_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_identity_center_auth_token_errors()}
+  def get_identity_center_auth_token(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetIdentityCenterAuthToken", input, options)
   end
 
   @doc """

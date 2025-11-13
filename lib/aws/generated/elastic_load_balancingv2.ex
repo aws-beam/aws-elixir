@@ -1644,6 +1644,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
         "AuthenticateOidcConfig" => authenticate_oidc_action_config(),
         "FixedResponseConfig" => fixed_response_action_config(),
         "ForwardConfig" => forward_action_config(),
+        "JwtValidationConfig" => jwt_validation_action_config(),
         "Order" => integer(),
         "RedirectConfig" => redirect_action_config(),
         "TargetGroupArn" => String.t() | atom(),
@@ -1736,6 +1737,19 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
   """
   @type capacity_units_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      jwt_validation_action_additional_claim() :: %{
+        "Format" => list(any()),
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type jwt_validation_action_additional_claim() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2045,6 +2059,19 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
   """
   @type describe_listeners_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      jwt_validation_action_config() :: %{
+        "AdditionalClaims" => list(jwt_validation_action_additional_claim()),
+        "Issuer" => String.t() | atom(),
+        "JwksEndpoint" => String.t() | atom()
+      }
+      
+  """
+  @type jwt_validation_action_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3478,7 +3505,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   Describes the specified rules or the rules for the specified listener.
 
   You must specify
-  either a listener or one or more rules.
+  either a listener or rules.
   """
   @spec describe_rules(map(), describe_rules_input(), list()) ::
           {:ok, describe_rules_output(), any()}

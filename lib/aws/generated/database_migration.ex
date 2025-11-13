@@ -564,6 +564,18 @@ defmodule AWS.DatabaseMigration do
 
   ## Example:
       
+      metadata_model_reference() :: %{
+        "MetadataModelName" => String.t() | atom(),
+        "SelectionRules" => String.t() | atom()
+      }
+      
+  """
+  @type metadata_model_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       replication_stats() :: %{
         "ElapsedTimeMillis" => float(),
         "FreshStartDate" => non_neg_integer(),
@@ -603,6 +615,19 @@ defmodule AWS.DatabaseMigration do
       
   """
   @type delete_replication_task_assessment_run_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_metadata_model_message() :: %{
+        required("MigrationProjectIdentifier") => String.t() | atom(),
+        required("Origin") => list(any()),
+        required("SelectionRules") => String.t() | atom()
+      }
+      
+  """
+  @type describe_metadata_model_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -967,6 +992,18 @@ defmodule AWS.DatabaseMigration do
 
   ## Example:
       
+      describe_metadata_model_children_response() :: %{
+        "Marker" => String.t() | atom(),
+        "MetadataModelChildren" => list(metadata_model_reference())
+      }
+      
+  """
+  @type describe_metadata_model_children_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_fleet_advisor_lsa_analysis_response() :: %{
         "Analysis" => list(fleet_advisor_lsa_analysis_response()),
         "NextToken" => String.t() | atom()
@@ -974,6 +1011,18 @@ defmodule AWS.DatabaseMigration do
       
   """
   @type describe_fleet_advisor_lsa_analysis_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_metadata_model_conversion_message() :: %{
+        required("MigrationProjectIdentifier") => String.t() | atom(),
+        required("RequestIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type cancel_metadata_model_conversion_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1801,6 +1850,17 @@ defmodule AWS.DatabaseMigration do
 
   ## Example:
       
+      cancel_metadata_model_conversion_response() :: %{
+        "Request" => schema_conversion_request()
+      }
+      
+  """
+  @type cancel_metadata_model_conversion_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_replication_subnet_group_message() :: %{
         optional("ReplicationSubnetGroupDescription") => String.t() | atom(),
         required("ReplicationSubnetGroupIdentifier") => String.t() | atom(),
@@ -2014,6 +2074,17 @@ defmodule AWS.DatabaseMigration do
       
   """
   @type delete_instance_profile_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_metadata_model_creation_response() :: %{
+        "RequestIdentifier" => String.t() | atom()
+      }
+      
+  """
+  @type start_metadata_model_creation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2516,6 +2587,18 @@ defmodule AWS.DatabaseMigration do
 
   ## Example:
       
+      describe_metadata_model_creations_response() :: %{
+        "Marker" => String.t() | atom(),
+        "Requests" => list(schema_conversion_request())
+      }
+      
+  """
+  @type describe_metadata_model_creations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_applicable_individual_assessments_message() :: %{
         optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
@@ -2696,6 +2779,20 @@ defmodule AWS.DatabaseMigration do
 
   ## Example:
       
+      describe_metadata_model_creations_message() :: %{
+        optional("Filters") => list(filter()),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer(),
+        required("MigrationProjectIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type describe_metadata_model_creations_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_tags_for_resource_response() :: %{
         "TagList" => list(tag())
       }
@@ -2719,6 +2816,18 @@ defmodule AWS.DatabaseMigration do
       
   """
   @type redis_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_metadata_model_creation_message() :: %{
+        required("MigrationProjectIdentifier") => String.t() | atom(),
+        required("RequestIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type cancel_metadata_model_creation_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3228,6 +3337,21 @@ defmodule AWS.DatabaseMigration do
 
   ## Example:
       
+      describe_metadata_model_children_message() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer(),
+        required("MigrationProjectIdentifier") => String.t() | atom(),
+        required("Origin") => list(any()),
+        required("SelectionRules") => String.t() | atom()
+      }
+      
+  """
+  @type describe_metadata_model_children_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       replication_task_assessment_result() :: %{
         "AssessmentResults" => String.t() | atom(),
         "AssessmentResultsFile" => String.t() | atom(),
@@ -3416,6 +3540,18 @@ defmodule AWS.DatabaseMigration do
 
   ## Example:
       
+      get_target_selection_rules_message() :: %{
+        required("MigrationProjectIdentifier") => String.t() | atom(),
+        required("SelectionRules") => String.t() | atom()
+      }
+      
+  """
+  @type get_target_selection_rules_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_replications_response() :: %{
         "Marker" => String.t() | atom(),
         "Replications" => list(replication())
@@ -3513,6 +3649,17 @@ defmodule AWS.DatabaseMigration do
 
   ## Example:
       
+      cancel_metadata_model_creation_response() :: %{
+        "Request" => schema_conversion_request()
+      }
+      
+  """
+  @type cancel_metadata_model_creation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_data_migrations_message() :: %{
         optional("Filters") => list(filter()),
         optional("Marker") => String.t() | atom(),
@@ -3523,6 +3670,17 @@ defmodule AWS.DatabaseMigration do
       
   """
   @type describe_data_migrations_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      statement_properties() :: %{
+        "Definition" => String.t() | atom()
+      }
+      
+  """
+  @type statement_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4035,6 +4193,17 @@ defmodule AWS.DatabaseMigration do
       
   """
   @type provision_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_target_selection_rules_response() :: %{
+        "TargetSelectionRules" => String.t() | atom()
+      }
+      
+  """
+  @type get_target_selection_rules_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4644,6 +4813,20 @@ defmodule AWS.DatabaseMigration do
 
   ## Example:
       
+      start_metadata_model_creation_message() :: %{
+        required("MetadataModelName") => String.t() | atom(),
+        required("MigrationProjectIdentifier") => String.t() | atom(),
+        required("Properties") => list(),
+        required("SelectionRules") => String.t() | atom()
+      }
+      
+  """
+  @type start_metadata_model_creation_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       refresh_schemas_status() :: %{
         "EndpointArn" => String.t() | atom(),
         "LastFailureMessage" => String.t() | atom(),
@@ -4804,6 +4987,20 @@ defmodule AWS.DatabaseMigration do
       
   """
   @type replication_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_metadata_model_response() :: %{
+        "Definition" => String.t() | atom(),
+        "MetadataModelName" => String.t() | atom(),
+        "MetadataModelType" => String.t() | atom(),
+        "TargetMetadataModels" => list(metadata_model_reference())
+      }
+      
+  """
+  @type describe_metadata_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5092,6 +5289,12 @@ defmodule AWS.DatabaseMigration do
   @type batch_start_recommendations_errors() ::
           access_denied_fault() | invalid_resource_state_fault() | resource_not_found_fault()
 
+  @type cancel_metadata_model_conversion_errors() ::
+          access_denied_fault() | invalid_resource_state_fault() | resource_not_found_fault()
+
+  @type cancel_metadata_model_creation_errors() ::
+          access_denied_fault() | invalid_resource_state_fault() | resource_not_found_fault()
+
   @type cancel_replication_task_assessment_run_errors() ::
           access_denied_fault() | invalid_resource_state_fault() | resource_not_found_fault()
 
@@ -5278,9 +5481,17 @@ defmodule AWS.DatabaseMigration do
   @type describe_instance_profiles_errors() ::
           failed_dependency_fault() | access_denied_fault() | resource_not_found_fault()
 
+  @type describe_metadata_model_errors() :: access_denied_fault() | resource_not_found_fault()
+
   @type describe_metadata_model_assessments_errors() :: resource_not_found_fault()
 
+  @type describe_metadata_model_children_errors() ::
+          access_denied_fault() | resource_not_found_fault()
+
   @type describe_metadata_model_conversions_errors() :: resource_not_found_fault()
+
+  @type describe_metadata_model_creations_errors() ::
+          access_denied_fault() | resource_not_found_fault()
 
   @type describe_metadata_model_exports_as_script_errors() :: resource_not_found_fault()
 
@@ -5330,6 +5541,9 @@ defmodule AWS.DatabaseMigration do
           access_denied_fault() | invalid_resource_state_fault() | resource_not_found_fault()
 
   @type export_metadata_model_assessment_errors() :: resource_not_found_fault()
+
+  @type get_target_selection_rules_errors() ::
+          access_denied_fault() | invalid_resource_state_fault() | resource_not_found_fault()
 
   @type import_certificate_errors() ::
           resource_quota_exceeded_fault()
@@ -5480,6 +5694,12 @@ defmodule AWS.DatabaseMigration do
           | s3_access_denied_fault()
           | access_denied_fault()
           | invalid_resource_state_fault()
+          | resource_not_found_fault()
+
+  @type start_metadata_model_creation_errors() ::
+          resource_quota_exceeded_fault()
+          | resource_already_exists_fault()
+          | access_denied_fault()
           | resource_not_found_fault()
 
   @type start_metadata_model_export_as_script_errors() ::
@@ -5647,6 +5867,40 @@ defmodule AWS.DatabaseMigration do
     meta = metadata()
 
     Request.request_post(client, meta, "BatchStartRecommendations", input, options)
+  end
+
+  @doc """
+  Cancels a single metadata model conversion operation that was started with
+  `StartMetadataModelConversion`.
+  """
+  @spec cancel_metadata_model_conversion(
+          map(),
+          cancel_metadata_model_conversion_message(),
+          list()
+        ) ::
+          {:ok, cancel_metadata_model_conversion_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, cancel_metadata_model_conversion_errors()}
+  def cancel_metadata_model_conversion(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelMetadataModelConversion", input, options)
+  end
+
+  @doc """
+  Cancels a single metadata model creation operation that was started with
+  `StartMetadataModelCreation`.
+  """
+  @spec cancel_metadata_model_creation(map(), cancel_metadata_model_creation_message(), list()) ::
+          {:ok, cancel_metadata_model_creation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, cancel_metadata_model_creation_errors()}
+  def cancel_metadata_model_creation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelMetadataModelCreation", input, options)
   end
 
   @doc """
@@ -6607,6 +6861,22 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+  Gets detailed information about the specified metadata model, including its
+  definition and corresponding converted objects in the target database if
+  applicable.
+  """
+  @spec describe_metadata_model(map(), describe_metadata_model_message(), list()) ::
+          {:ok, describe_metadata_model_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_metadata_model_errors()}
+  def describe_metadata_model(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMetadataModel", input, options)
+  end
+
+  @doc """
   Returns a paginated list of metadata model assessments for your account in the
   current
   region.
@@ -6627,6 +6897,25 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+  Gets a list of child metadata models for the specified metadata model in the
+  database hierarchy.
+  """
+  @spec describe_metadata_model_children(
+          map(),
+          describe_metadata_model_children_message(),
+          list()
+        ) ::
+          {:ok, describe_metadata_model_children_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_metadata_model_children_errors()}
+  def describe_metadata_model_children(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMetadataModelChildren", input, options)
+  end
+
+  @doc """
   Returns a paginated list of metadata model conversions for a migration project.
   """
   @spec describe_metadata_model_conversions(
@@ -6642,6 +6931,25 @@ defmodule AWS.DatabaseMigration do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeMetadataModelConversions", input, options)
+  end
+
+  @doc """
+  Returns a paginated list of metadata model creation requests for a migration
+  project.
+  """
+  @spec describe_metadata_model_creations(
+          map(),
+          describe_metadata_model_creations_message(),
+          list()
+        ) ::
+          {:ok, describe_metadata_model_creations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_metadata_model_creations_errors()}
+  def describe_metadata_model_creations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMetadataModelCreations", input, options)
   end
 
   @doc """
@@ -7066,6 +7374,21 @@ defmodule AWS.DatabaseMigration do
     meta = metadata()
 
     Request.request_post(client, meta, "ExportMetadataModelAssessment", input, options)
+  end
+
+  @doc """
+  Converts source selection rules into their target counterparts for schema
+  conversion operations.
+  """
+  @spec get_target_selection_rules(map(), get_target_selection_rules_message(), list()) ::
+          {:ok, get_target_selection_rules_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_target_selection_rules_errors()}
+  def get_target_selection_rules(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTargetSelectionRules", input, options)
   end
 
   @doc """
@@ -7510,6 +7833,24 @@ defmodule AWS.DatabaseMigration do
     meta = metadata()
 
     Request.request_post(client, meta, "StartMetadataModelConversion", input, options)
+  end
+
+  @doc """
+  Creates source metadata model of the given type with the specified properties
+  for schema conversion operations.
+
+  This action supports only these directions: from SQL Server to Aurora
+  PostgreSQL, or from SQL Server to RDS for PostgreSQL.
+  """
+  @spec start_metadata_model_creation(map(), start_metadata_model_creation_message(), list()) ::
+          {:ok, start_metadata_model_creation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_metadata_model_creation_errors()}
+  def start_metadata_model_creation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartMetadataModelCreation", input, options)
   end
 
   @doc """

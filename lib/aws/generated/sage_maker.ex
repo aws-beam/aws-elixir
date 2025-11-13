@@ -10430,12 +10430,12 @@ defmodule AWS.SageMaker do
         optional("ResourceConfig") => resource_config(),
         optional("RetryStrategy") => retry_strategy(),
         optional("SessionChainingConfig") => session_chaining_config(),
+        optional("StoppingCondition") => stopping_condition(),
         optional("Tags") => list(tag()),
         optional("TensorBoardOutputConfig") => tensor_board_output_config(),
         optional("VpcConfig") => vpc_config(),
         required("OutputDataConfig") => output_data_config(),
         required("RoleArn") => String.t() | atom(),
-        required("StoppingCondition") => stopping_condition(),
         required("TrainingJobName") => String.t() | atom()
       }
       

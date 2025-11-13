@@ -337,6 +337,15 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      put_table_bucket_metrics_configuration_request() :: %{}
+
+  """
+  @type put_table_bucket_metrics_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_table_bucket_encryption_request() :: %{}
 
   """
@@ -582,6 +591,15 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      delete_table_bucket_metrics_configuration_request() :: %{}
+
+  """
+  @type delete_table_bucket_metrics_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       iceberg_unreferenced_file_removal_settings() :: %{
         "nonCurrentDays" => integer(),
         "unreferencedDays" => integer()
@@ -625,6 +643,15 @@ defmodule AWS.S3Tables do
 
   """
   @type list_table_buckets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_bucket_metrics_configuration_request() :: %{}
+
+  """
+  @type get_table_bucket_metrics_configuration_request() :: %{}
 
   @typedoc """
 
@@ -748,6 +775,18 @@ defmodule AWS.S3Tables do
 
   """
   @type delete_namespace_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_bucket_metrics_configuration_response() :: %{
+        "id" => [String.t() | atom()],
+        "tableBucketARN" => String.t() | atom()
+      }
+
+  """
+  @type get_table_bucket_metrics_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -938,6 +977,14 @@ defmodule AWS.S3Tables do
           | too_many_requests_exception()
           | forbidden_exception()
 
+  @type delete_table_bucket_metrics_configuration_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
   @type delete_table_bucket_policy_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
@@ -990,6 +1037,14 @@ defmodule AWS.S3Tables do
           | forbidden_exception()
 
   @type get_table_bucket_maintenance_configuration_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type get_table_bucket_metrics_configuration_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
@@ -1088,6 +1143,14 @@ defmodule AWS.S3Tables do
           | forbidden_exception()
 
   @type put_table_bucket_maintenance_configuration_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type put_table_bucket_metrics_configuration_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
@@ -1491,6 +1554,52 @@ defmodule AWS.S3Tables do
   end
 
   @doc """
+  Deletes the metrics configuration for a table bucket.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:DeleteTableBucketMetricsConfiguration` permission to
+  use this operation.
+  """
+  @spec delete_table_bucket_metrics_configuration(
+          map(),
+          String.t() | atom(),
+          delete_table_bucket_metrics_configuration_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_table_bucket_metrics_configuration_errors()}
+  def delete_table_bucket_metrics_configuration(
+        %Client{} = client,
+        table_bucket_arn,
+        input,
+        options \\ []
+      ) do
+    url_path = "/buckets/#{AWS.Util.encode_uri(table_bucket_arn)}/metrics"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Deletes a table bucket policy.
 
   For more information, see [Deleting a table bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-bucket-policy.html#table-bucket-policy-delete)
@@ -1762,6 +1871,31 @@ defmodule AWS.S3Tables do
         options \\ []
       ) do
     url_path = "/buckets/#{AWS.Util.encode_uri(table_bucket_arn)}/maintenance"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets the metrics configuration for a table bucket.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:GetTableBucketMetricsConfiguration` permission to
+  use this operation.
+  """
+  @spec get_table_bucket_metrics_configuration(map(), String.t() | atom(), list()) ::
+          {:ok, get_table_bucket_metrics_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_table_bucket_metrics_configuration_errors()}
+  def get_table_bucket_metrics_configuration(%Client{} = client, table_bucket_arn, options \\ []) do
+    url_path = "/buckets/#{AWS.Util.encode_uri(table_bucket_arn)}/metrics"
     headers = []
     query_params = []
 
@@ -2306,6 +2440,52 @@ defmodule AWS.S3Tables do
     url_path =
       "/buckets/#{AWS.Util.encode_uri(table_bucket_arn)}/maintenance/#{AWS.Util.encode_uri(type)}"
 
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Sets the metrics configuration for a table bucket.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:PutTableBucketMetricsConfiguration` permission to
+  use this operation.
+  """
+  @spec put_table_bucket_metrics_configuration(
+          map(),
+          String.t() | atom(),
+          put_table_bucket_metrics_configuration_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_table_bucket_metrics_configuration_errors()}
+  def put_table_bucket_metrics_configuration(
+        %Client{} = client,
+        table_bucket_arn,
+        input,
+        options \\ []
+      ) do
+    url_path = "/buckets/#{AWS.Util.encode_uri(table_bucket_arn)}/metrics"
     headers = []
     custom_headers = []
     query_params = []

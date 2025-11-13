@@ -2702,7 +2702,9 @@ defmodule AWS.Connect do
         "LastModifiedTime" => non_neg_integer(),
         "MaxSessionDuration" => integer(),
         "Name" => String.t() | atom(),
-        "PeriodicSessionDuration" => integer()
+        "PeriodicSessionDuration" => integer(),
+        "SessionInactivityDuration" => integer(),
+        "SessionInactivityHandlingEnabled" => boolean()
       }
 
   """
@@ -11096,7 +11098,9 @@ defmodule AWS.Connect do
         optional("BlockedIps") => list(String.t() | atom()),
         optional("Description") => String.t() | atom(),
         optional("Name") => String.t() | atom(),
-        optional("PeriodicSessionDuration") => integer()
+        optional("PeriodicSessionDuration") => integer(),
+        optional("SessionInactivityDuration") => integer(),
+        optional("SessionInactivityHandlingEnabled") => boolean()
       }
 
   """

@@ -5480,6 +5480,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      get_image_ancestry_request() :: %{
+        optional("DryRun") => boolean(),
+        required("ImageId") => String.t() | atom()
+      }
+      
+  """
+  @type get_image_ancestry_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       spot_fleet_request_config() :: %{
         "ActivityStatus" => list(any()),
         "CreateTime" => non_neg_integer(),
@@ -21927,6 +21939,21 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      image_ancestry_entry() :: %{
+        "CreationDate" => non_neg_integer(),
+        "ImageId" => String.t() | atom(),
+        "ImageOwnerAlias" => String.t() | atom(),
+        "SourceImageId" => String.t() | atom(),
+        "SourceImageRegion" => String.t() | atom()
+      }
+      
+  """
+  @type image_ancestry_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_password_data_request() :: %{
         optional("DryRun") => boolean(),
         required("InstanceId") => String.t() | atom()
@@ -23399,6 +23426,17 @@ defmodule AWS.EC2 do
       
   """
   @type describe_capacity_block_extension_offerings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_image_ancestry_result() :: %{
+        "ImageAncestryEntries" => list(image_ancestry_entry())
+      }
+      
+  """
+  @type get_image_ancestry_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -43509,6 +43547,25 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "GetHostReservationPurchasePreview", input, options)
+  end
+
+  @doc """
+  Retrieves the ancestry chain of the specified AMI, tracing its lineage back to
+  the root
+  AMI.
+
+  For more information, see [AMI ancestry](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-ancestry.html)
+  in
+  *Amazon EC2 User Guide*.
+  """
+  @spec get_image_ancestry(map(), get_image_ancestry_request(), list()) ::
+          {:ok, get_image_ancestry_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_image_ancestry(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetImageAncestry", input, options)
   end
 
   @doc """

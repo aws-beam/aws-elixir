@@ -32,6 +32,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      available_upgrade() :: %{
+        "ReleaseNotes" => list(String.t() | atom()),
+        "Version" => String.t() | atom()
+      }
+      
+  """
+  @type available_upgrade() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       visibility_conditions() :: %{
         "Key" => String.t() | atom(),
         "Value" => String.t() | atom()
@@ -2739,6 +2751,18 @@ defmodule AWS.SageMaker do
       
   """
   @type priority_class() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      role_group_assignment() :: %{
+        "GroupPatterns" => list(String.t() | atom()),
+        "RoleName" => String.t() | atom()
+      }
+      
+  """
+  @type role_group_assignment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10624,7 +10648,9 @@ defmodule AWS.SageMaker do
       
       partner_app_config() :: %{
         "AdminUsers" => list(String.t() | atom()),
-        "Arguments" => map()
+        "Arguments" => map(),
+        "AssignedGroupPatterns" => list(String.t() | atom()),
+        "RoleGroupAssignments" => list(role_group_assignment())
       }
       
   """
@@ -12749,6 +12775,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       describe_partner_app_request() :: %{
+        optional("IncludeAvailableUpgrade") => boolean(),
         required("Arn") => String.t() | atom()
       }
       
@@ -13367,6 +13394,7 @@ defmodule AWS.SageMaker do
       create_partner_app_request() :: %{
         optional("ApplicationConfig") => partner_app_config(),
         optional("ClientToken") => String.t() | atom(),
+        optional("EnableAutoMinorVersionUpgrade") => boolean(),
         optional("EnableIamSessionBasedIdentity") => boolean(),
         optional("KmsKeyId") => String.t() | atom(),
         optional("MaintenanceConfig") => partner_app_maintenance_config(),
@@ -18416,8 +18444,11 @@ defmodule AWS.SageMaker do
         "ApplicationConfig" => partner_app_config(),
         "Arn" => String.t() | atom(),
         "AuthType" => list(any()),
+        "AvailableUpgrade" => available_upgrade(),
         "BaseUrl" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
+        "CurrentVersionEolDate" => non_neg_integer(),
+        "EnableAutoMinorVersionUpgrade" => boolean(),
         "EnableIamSessionBasedIdentity" => boolean(),
         "Error" => error_info(),
         "ExecutionRoleArn" => String.t() | atom(),
@@ -18658,8 +18689,10 @@ defmodule AWS.SageMaker do
   ## Example:
       
       update_partner_app_request() :: %{
+        optional("AppVersion") => String.t() | atom(),
         optional("ApplicationConfig") => partner_app_config(),
         optional("ClientToken") => String.t() | atom(),
+        optional("EnableAutoMinorVersionUpgrade") => boolean(),
         optional("EnableIamSessionBasedIdentity") => boolean(),
         optional("MaintenanceConfig") => partner_app_maintenance_config(),
         optional("Tags") => list(tag()),

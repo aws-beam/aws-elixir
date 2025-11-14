@@ -3206,6 +3206,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       passthrough_settings() :: %{
+        "FrameControl" => list(any()),
         "VideoSelectorMode" => list(any())
       }
 
@@ -3764,11 +3765,14 @@ defmodule AWS.MediaConvert do
       mpd_settings() :: %{
         "AccessibilityCaptionHints" => list(any()),
         "AudioDuration" => list(any()),
+        "C2paManifest" => list(any()),
         "CaptionContainerType" => list(any()),
+        "CertificateSecret" => String.t() | atom(),
         "KlvMetadata" => list(any()),
         "ManifestMetadataSignaling" => list(any()),
         "Scte35Esam" => list(any()),
         "Scte35Source" => list(any()),
+        "SigningKmsKey" => String.t() | atom(),
         "TimedMetadata" => list(any()),
         "TimedMetadataBoxVersion" => list(any()),
         "TimedMetadataSchemeIdUri" => String.t() | atom(),
@@ -4078,12 +4082,15 @@ defmodule AWS.MediaConvert do
         "AudioGroupId" => String.t() | atom(),
         "AudioRenditionSets" => String.t() | atom(),
         "AudioTrackType" => list(any()),
+        "C2paManifest" => list(any()),
+        "CertificateSecret" => String.t() | atom(),
         "DescriptiveVideoServiceFlag" => list(any()),
         "IFrameOnlyManifest" => list(any()),
         "KlvMetadata" => list(any()),
         "ManifestMetadataSignaling" => list(any()),
         "Scte35Esam" => list(any()),
         "Scte35Source" => list(any()),
+        "SigningKmsKey" => String.t() | atom(),
         "TimedMetadata" => list(any()),
         "TimedMetadataBoxVersion" => list(any()),
         "TimedMetadataSchemeIdUri" => String.t() | atom(),

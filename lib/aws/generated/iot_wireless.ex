@@ -120,6 +120,7 @@ defmodule AWS.IoTWireless do
       start_single_wireless_device_import_task_request() :: %{
         optional("ClientRequestToken") => String.t() | atom(),
         optional("DeviceName") => String.t() | atom(),
+        optional("Positioning") => list(any()),
         optional("Tags") => list(tag()),
         required("DestinationName") => String.t() | atom(),
         required("Sidewalk") => sidewalk_single_start_import_info()
@@ -1088,6 +1089,17 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
+      sidewalk_list_devices_for_import_info() :: %{
+        "Positioning" => sidewalk_positioning()
+      }
+
+  """
+  @type sidewalk_list_devices_for_import_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_position_configuration_response() :: %{}
 
   """
@@ -1320,7 +1332,8 @@ defmodule AWS.IoTWireless do
         optional("DestinationName") => String.t() | atom(),
         optional("LoRaWAN") => lo_ra_w_a_n_update_device(),
         optional("Name") => String.t() | atom(),
-        optional("Positioning") => list(any())
+        optional("Positioning") => list(any()),
+        optional("Sidewalk") => sidewalk_update_wireless_device()
       }
 
   """
@@ -2190,7 +2203,9 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       sidewalk_create_wireless_device() :: %{
-        "DeviceProfileId" => String.t() | atom()
+        "DeviceProfileId" => String.t() | atom(),
+        "Positioning" => sidewalk_positioning(),
+        "SidewalkManufacturingSn" => String.t() | atom()
       }
 
   """
@@ -2488,6 +2503,7 @@ defmodule AWS.IoTWireless do
         "McGroupId" => integer(),
         "MulticastDeviceStatus" => String.t() | atom(),
         "Name" => String.t() | atom(),
+        "Positioning" => list(any()),
         "Sidewalk" => sidewalk_list_device(),
         "Type" => list(any())
       }
@@ -2502,7 +2518,9 @@ defmodule AWS.IoTWireless do
       list_devices_for_wireless_device_import_task_response() :: %{
         "DestinationName" => String.t() | atom(),
         "ImportedWirelessDeviceList" => list(imported_wireless_device()),
-        "NextToken" => String.t() | atom()
+        "NextToken" => String.t() | atom(),
+        "Positioning" => list(any()),
+        "Sidewalk" => sidewalk_list_devices_for_import_info()
       }
 
   """
@@ -2881,6 +2899,17 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
+      sidewalk_positioning() :: %{
+        "DestinationName" => String.t() | atom()
+      }
+
+  """
+  @type sidewalk_positioning() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       reset_all_resource_log_levels_request() :: %{}
 
   """
@@ -3173,6 +3202,7 @@ defmodule AWS.IoTWireless do
         "InitializedImportedDeviceCount" => float(),
         "OnboardedImportedDeviceCount" => float(),
         "PendingImportedDeviceCount" => float(),
+        "Positioning" => list(any()),
         "Sidewalk" => sidewalk_get_start_import_info(),
         "Status" => list(any()),
         "StatusReason" => String.t() | atom()
@@ -3257,6 +3287,7 @@ defmodule AWS.IoTWireless do
         "InitializedImportedDeviceCount" => float(),
         "OnboardedImportedDeviceCount" => float(),
         "PendingImportedDeviceCount" => float(),
+        "Positioning" => list(any()),
         "Sidewalk" => sidewalk_get_start_import_info(),
         "Status" => list(any()),
         "StatusReason" => String.t() | atom()
@@ -3553,6 +3584,7 @@ defmodule AWS.IoTWireless do
 
       sidewalk_start_import_info() :: %{
         "DeviceCreationFile" => String.t() | atom(),
+        "Positioning" => sidewalk_positioning(),
         "Role" => String.t() | atom()
       }
 
@@ -3583,6 +3615,7 @@ defmodule AWS.IoTWireless do
         "CertificateId" => String.t() | atom(),
         "DeviceCertificates" => list(certificate_list()),
         "DeviceProfileId" => String.t() | atom(),
+        "Positioning" => sidewalk_positioning(),
         "PrivateKeys" => list(certificate_list()),
         "SidewalkId" => String.t() | atom(),
         "SidewalkManufacturingSn" => String.t() | atom(),
@@ -3877,6 +3910,7 @@ defmodule AWS.IoTWireless do
 
       start_wireless_device_import_task_request() :: %{
         optional("ClientRequestToken") => String.t() | atom(),
+        optional("Positioning") => list(any()),
         optional("Tags") => list(tag()),
         required("DestinationName") => String.t() | atom(),
         required("Sidewalk") => sidewalk_start_import_info()
@@ -4015,6 +4049,17 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
+      sidewalk_update_wireless_device() :: %{
+        "Positioning" => sidewalk_positioning()
+      }
+
+  """
+  @type sidewalk_update_wireless_device() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_network_analyzer_configuration_request() :: %{}
 
   """
@@ -4072,6 +4117,7 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       sidewalk_single_start_import_info() :: %{
+        "Positioning" => sidewalk_positioning(),
         "SidewalkManufacturingSn" => String.t() | atom()
       }
 
@@ -4247,6 +4293,7 @@ defmodule AWS.IoTWireless do
         "AmazonId" => String.t() | atom(),
         "DeviceCertificates" => list(certificate_list()),
         "DeviceProfileId" => String.t() | atom(),
+        "Positioning" => sidewalk_positioning(),
         "SidewalkId" => String.t() | atom(),
         "SidewalkManufacturingSn" => String.t() | atom(),
         "Status" => list(any())
@@ -4413,6 +4460,7 @@ defmodule AWS.IoTWireless do
 
       sidewalk_get_start_import_info() :: %{
         "DeviceCreationFileList" => list(String.t() | atom()),
+        "Positioning" => sidewalk_positioning(),
         "Role" => String.t() | atom()
       }
 
@@ -6820,7 +6868,7 @@ defmodule AWS.IoTWireless do
 
   This action is no longer supported. Calls to retrieve the position information
   should use the
-  [GetResourcePosition](https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_GetResourcePosition.html)
+  [GetResourcePosition](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_GetResourcePosition.html)
   API operation instead.
   """
   @spec get_position(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -6850,7 +6898,7 @@ defmodule AWS.IoTWireless do
 
   This action is no longer supported. Calls to retrieve the position configuration
   should use the
-  [GetResourcePosition](https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_GetResourcePosition.html)
+  [GetResourcePosition](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_GetResourcePosition.html)
   API operation instead.
   """
   @spec get_position_configuration(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -7631,7 +7679,7 @@ defmodule AWS.IoTWireless do
   This action is no longer supported. Calls to retrieve position information
   should
   use the
-  [GetResourcePosition](https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_GetResourcePosition.html)
+  [GetResourcePosition](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_GetResourcePosition.html)
   API operation instead.
   """
   @spec list_position_configurations(
@@ -7798,7 +7846,9 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
-  List wireless devices that have been added to an import task.
+  List of import tasks and summary information of onboarding status of devices in
+  each
+  import task.
   """
   @spec list_wireless_device_import_tasks(
           map(),
@@ -8033,7 +8083,7 @@ defmodule AWS.IoTWireless do
 
   This action is no longer supported. Calls to update the position configuration
   should use the
-  [UpdateResourcePosition](https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_UpdateResourcePosition.html)
+  [UpdateResourcePosition](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_UpdateResourcePosition.html)
   API operation instead.
   """
   @spec put_position_configuration(
@@ -8838,7 +8888,7 @@ defmodule AWS.IoTWireless do
 
   This action is no longer supported. Calls to update the position information
   should use the
-  [UpdateResourcePosition](https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_UpdateResourcePosition.html)
+  [UpdateResourcePosition](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_UpdateResourcePosition.html)
   API operation instead.
   """
   @spec update_position(map(), String.t() | atom(), update_position_request(), list()) ::

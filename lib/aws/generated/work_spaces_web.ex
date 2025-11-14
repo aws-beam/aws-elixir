@@ -295,7 +295,8 @@ defmodule AWS.WorkSpacesWeb do
 
       update_browser_settings_request() :: %{
         optional("browserPolicy") => String.t() | atom(),
-        optional("clientToken") => String.t() | atom()
+        optional("clientToken") => String.t() | atom(),
+        optional("webContentFilteringPolicy") => web_content_filtering_policy()
       }
 
   """
@@ -1054,10 +1055,11 @@ defmodule AWS.WorkSpacesWeb do
 
       create_browser_settings_request() :: %{
         optional("additionalEncryptionContext") => map(),
+        optional("browserPolicy") => String.t() | atom(),
         optional("clientToken") => String.t() | atom(),
         optional("customerManagedKey") => String.t() | atom(),
         optional("tags") => list(tag()),
-        required("browserPolicy") => String.t() | atom()
+        optional("webContentFilteringPolicy") => web_content_filtering_policy()
       }
 
   """
@@ -1191,6 +1193,19 @@ defmodule AWS.WorkSpacesWeb do
 
   """
   @type data_protection_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      web_content_filtering_policy() :: %{
+        "allowedUrls" => list(String.t() | atom()),
+        "blockedCategories" => list(list(any())()),
+        "blockedUrls" => list(String.t() | atom())
+      }
+
+  """
+  @type web_content_filtering_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2182,7 +2197,8 @@ defmodule AWS.WorkSpacesWeb do
         "associatedPortalArns" => list(String.t() | atom()),
         "browserPolicy" => String.t() | atom(),
         "browserSettingsArn" => String.t() | atom(),
-        "customerManagedKey" => String.t() | atom()
+        "customerManagedKey" => String.t() | atom(),
+        "webContentFilteringPolicy" => web_content_filtering_policy()
       }
 
   """

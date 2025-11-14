@@ -21,8 +21,8 @@ defmodule AWS.CloudFormation do
   template defines a collection of resources as a single unit called a stack.
   CloudFormation creates
   and deletes all member resources of the stack together and manages all
-  dependencies between the
-  resources for you.
+  dependencies between
+  the resources for you.
 
   For more information about CloudFormation, see the [CloudFormation product page](http://aws.amazon.com/cloudformation/).
 
@@ -163,6 +163,17 @@ defmodule AWS.CloudFormation do
       
   """
   @type stack_refactor_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_hook_result_input() :: %{
+        optional("HookResultId") => String.t() | atom()
+      }
+      
+  """
+  @type get_hook_result_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1383,6 +1394,22 @@ defmodule AWS.CloudFormation do
 
   ## Example:
       
+      annotation() :: %{
+        "AnnotationName" => String.t() | atom(),
+        "RemediationLink" => String.t() | atom(),
+        "RemediationMessage" => String.t() | atom(),
+        "SeverityLevel" => list(any()),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom()
+      }
+      
+  """
+  @type annotation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_generated_template_output() :: %{
         "CreationTime" => non_neg_integer(),
         "GeneratedTemplateId" => String.t() | atom(),
@@ -1536,6 +1563,20 @@ defmodule AWS.CloudFormation do
       
   """
   @type list_type_registrations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      hook_target() :: %{
+        "Action" => list(any()),
+        "TargetId" => String.t() | atom(),
+        "TargetType" => list(any()),
+        "TargetTypeName" => String.t() | atom()
+      }
+      
+  """
+  @type hook_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2457,7 +2498,7 @@ defmodule AWS.CloudFormation do
       
       describe_stack_events_input() :: %{
         optional("NextToken") => String.t() | atom(),
-        optional("StackName") => String.t() | atom()
+        required("StackName") => String.t() | atom()
       }
       
   """
@@ -3527,6 +3568,29 @@ defmodule AWS.CloudFormation do
 
   ## Example:
       
+      get_hook_result_output() :: %{
+        "Annotations" => list(annotation()),
+        "FailureMode" => list(any()),
+        "HookResultId" => String.t() | atom(),
+        "HookStatusReason" => String.t() | atom(),
+        "InvocationPoint" => list(any()),
+        "InvokedAt" => non_neg_integer(),
+        "OriginalTypeName" => String.t() | atom(),
+        "Status" => list(any()),
+        "Target" => hook_target(),
+        "TypeArn" => String.t() | atom(),
+        "TypeConfigurationVersionId" => String.t() | atom(),
+        "TypeName" => String.t() | atom(),
+        "TypeVersionId" => String.t() | atom()
+      }
+      
+  """
+  @type get_hook_result_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       execute_stack_refactor_input() :: %{
         required("StackRefactorId") => String.t() | atom()
       }
@@ -3974,6 +4038,8 @@ defmodule AWS.CloudFormation do
 
   @type get_generated_template_errors() :: generated_template_not_found_exception()
 
+  @type get_hook_result_errors() :: hook_result_not_found_exception()
+
   @type get_template_errors() :: change_set_not_found_exception()
 
   @type get_template_summary_errors() :: stack_set_not_found_exception()
@@ -4122,8 +4188,7 @@ defmodule AWS.CloudFormation do
   account](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public-activate-extension.html)
   in the
   *CloudFormation User Guide*. For information about creating Hooks, see the
-  [CloudFormation Hooks User
-  Guide](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.html).
+  [CloudFormation Hooks User Guide](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.html).
   """
   @spec activate_type(map(), activate_type_input(), list()) ::
           {:ok, activate_type_output(), any()}
@@ -4610,9 +4675,8 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Returns hook-related information for the change set and a list of changes that
-  CloudFormation
-  makes when you run the change set.
+  Returns Hook-related information for the change set and a list of changes that
+  CloudFormation makes when you run the change set.
   """
   @spec describe_change_set_hooks(map(), describe_change_set_hooks_input(), list()) ::
           {:ok, describe_change_set_hooks_output(), any()}
@@ -5207,6 +5271,21 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
+  Retrieves detailed information and remediation guidance for a Hook invocation
+  result.
+  """
+  @spec get_hook_result(map(), get_hook_result_input(), list()) ::
+          {:ok, get_hook_result_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_hook_result_errors()}
+  def get_hook_result(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetHookResult", input, options)
+  end
+
+  @doc """
   Returns the stack policy for a specified stack.
 
   If a stack doesn't have a policy, a null
@@ -5362,8 +5441,8 @@ defmodule AWS.CloudFormation do
 
     *
 
-  `TypeArn` and `Status`: Returns summaries for a specific
-  Hook filtered by status.
+  `TypeArn` and `Status`: Returns summaries for a specific Hook
+  filtered by status.
 
     *
 
@@ -5901,8 +5980,7 @@ defmodule AWS.CloudFormation do
   in the
   *CloudFormation Command Line Interface (CLI) User Guide*. For more information
   about setting the configuration
-  data for Hooks, see the [CloudFormation Hooks User
-  Guide](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.html).
+  data for Hooks, see the [CloudFormation Hooks User Guide](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.html).
   """
   @spec set_type_configuration(map(), set_type_configuration_input(), list()) ::
           {:ok, set_type_configuration_output(), any()}

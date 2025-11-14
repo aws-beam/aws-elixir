@@ -614,7 +614,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
       target_description() :: %{
         "AvailabilityZone" => String.t() | atom(),
         "Id" => String.t() | atom(),
-        "Port" => integer()
+        "Port" => integer(),
+        "QuicServerId" => String.t() | atom()
       }
       
   """

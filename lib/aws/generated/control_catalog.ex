@@ -149,6 +149,18 @@ defmodule AWS.ControlCatalog do
 
   ## Example:
 
+      related_control_mapping_details() :: %{
+        "ControlArn" => String.t() | atom(),
+        "RelationType" => list(any())
+      }
+
+  """
+  @type related_control_mapping_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resource_not_found_exception() :: %{
         "Message" => [String.t() | atom()]
       }

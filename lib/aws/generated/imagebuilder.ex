@@ -890,11 +890,11 @@ defmodule AWS.Imagebuilder do
         optional("additionalInstanceConfiguration") => additional_instance_configuration(),
         optional("amiTags") => map(),
         optional("blockDeviceMappings") => list(instance_block_device_mapping()),
+        optional("components") => list(component_configuration()),
         optional("description") => String.t() | atom(),
         optional("tags") => map(),
         optional("workingDirectory") => String.t() | atom(),
         required("clientToken") => String.t() | atom(),
-        required("components") => list(component_configuration()),
         required("name") => String.t() | atom(),
         required("parentImage") => String.t() | atom(),
         required("semanticVersion") => String.t() | atom()
@@ -1545,6 +1545,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       create_container_recipe_request() :: %{
+        optional("components") => list(component_configuration()),
         optional("description") => String.t() | atom(),
         optional("dockerfileTemplateData") => String.t() | atom(),
         optional("dockerfileTemplateUri") => String.t() | atom(),
@@ -1555,7 +1556,6 @@ defmodule AWS.Imagebuilder do
         optional("tags") => map(),
         optional("workingDirectory") => String.t() | atom(),
         required("clientToken") => String.t() | atom(),
-        required("components") => list(component_configuration()),
         required("containerType") => list(any()),
         required("name") => String.t() | atom(),
         required("parentImage") => String.t() | atom(),

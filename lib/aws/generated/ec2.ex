@@ -30756,6 +30756,7 @@ defmodule AWS.EC2 do
       
       ec2_instance_connect_endpoint() :: %{
         "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
         "DnsName" => String.t() | atom(),
         "FipsDnsName" => String.t() | atom(),

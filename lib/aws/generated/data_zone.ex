@@ -1307,6 +1307,8 @@ defmodule AWS.DataZone do
   ## Example:
 
       create_subscription_request_input() :: %{
+        optional("assetPermissions") => list(asset_permission()),
+        optional("assetScopes") => list(accepted_asset_scope()),
         optional("clientToken") => [String.t() | atom()],
         optional("metadataForms") => list(form_input()),
         required("requestReason") => String.t() | atom(),
@@ -2244,6 +2246,7 @@ defmodule AWS.DataZone do
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
         "domainId" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
         "grantedEntity" => list(),
         "id" => String.t() | atom(),
         "status" => list(any()),
@@ -2370,7 +2373,9 @@ defmodule AWS.DataZone do
         optional("approverProjectId") => String.t() | atom(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
+        optional("owningGroupId") => String.t() | atom(),
         optional("owningProjectId") => String.t() | atom(),
+        optional("owningUserId") => String.t() | atom(),
         optional("sortBy") => list(any()),
         optional("sortOrder") => list(any()),
         optional("status") => list(any()),
@@ -2726,6 +2731,18 @@ defmodule AWS.DataZone do
 
   """
   @type reject_predictions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subscribed_user() :: %{
+        "details" => list(),
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type subscribed_user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3399,6 +3416,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      subscribed_group_input() :: %{
+        "identifier" => String.t() | atom()
+      }
+
+  """
+  @type subscribed_group_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       asset_in_data_product_listing_item() :: %{
         "entityId" => [String.t() | atom()],
         "entityRevision" => [String.t() | atom()],
@@ -3814,6 +3842,18 @@ defmodule AWS.DataZone do
 
   """
   @type metadata_generation_run_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subscribed_group() :: %{
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type subscribed_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4302,6 +4342,7 @@ defmodule AWS.DataZone do
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
         "domainId" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
         "grantedEntity" => list(),
         "id" => String.t() | atom(),
         "status" => list(any()),
@@ -4637,6 +4678,7 @@ defmodule AWS.DataZone do
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
         "domainId" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
         "grantedEntity" => list(),
         "id" => String.t() | atom(),
         "status" => list(any()),
@@ -4688,7 +4730,9 @@ defmodule AWS.DataZone do
         optional("approverProjectId") => String.t() | atom(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
+        optional("owningGroupId") => String.t() | atom(),
         optional("owningProjectId") => String.t() | atom(),
+        optional("owningUserId") => String.t() | atom(),
         optional("sortBy") => list(any()),
         optional("sortOrder") => list(any()),
         optional("status") => list(any()),
@@ -4719,6 +4763,18 @@ defmodule AWS.DataZone do
 
   """
   @type form_type_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_permission() :: %{
+        "assetId" => String.t() | atom(),
+        "permissions" => list()
+      }
+
+  """
+  @type asset_permission() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4934,7 +4990,9 @@ defmodule AWS.DataZone do
         optional("environmentId") => String.t() | atom(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
+        optional("owningGroupId") => String.t() | atom(),
         optional("owningProjectId") => String.t() | atom(),
+        optional("owningUserId") => String.t() | atom(),
         optional("sortBy") => list(any()),
         optional("sortOrder") => list(any()),
         optional("subscribedListingId") => String.t() | atom(),
@@ -6294,7 +6352,8 @@ defmodule AWS.DataZone do
         "entityRevision" => String.t() | atom(),
         "entityType" => String.t() | atom(),
         "forms" => String.t() | atom(),
-        "glossaryTerms" => list(detailed_glossary_term())
+        "glossaryTerms" => list(detailed_glossary_term()),
+        "permissions" => list()
       }
 
   """
@@ -6645,6 +6704,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      subscribed_user_input() :: %{
+        "identifier" => String.t() | atom()
+      }
+
+  """
+  @type subscribed_user_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       recommendation_configuration() :: %{
         "enableBusinessNameGeneration" => [boolean()]
       }
@@ -6983,6 +7053,7 @@ defmodule AWS.DataZone do
         "failureCause" => failure_cause(),
         "failureTimestamp" => [non_neg_integer()],
         "grantedTimestamp" => [non_neg_integer()],
+        "permissions" => list(),
         "status" => list(any()),
         "targetName" => [String.t() | atom()]
       }
@@ -7094,6 +7165,7 @@ defmodule AWS.DataZone do
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
         "domainId" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
         "grantedEntity" => list(),
         "id" => String.t() | atom(),
         "status" => list(any()),
@@ -7941,6 +8013,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       accept_subscription_request_input() :: %{
+        optional("assetPermissions") => list(asset_permission()),
         optional("assetScopes") => list(accepted_asset_scope()),
         optional("decisionComment") => String.t() | atom()
       }
@@ -8163,6 +8236,7 @@ defmodule AWS.DataZone do
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
         "domainId" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
         "grantedEntity" => list(),
         "id" => String.t() | atom(),
         "status" => list(any()),
@@ -8383,6 +8457,7 @@ defmodule AWS.DataZone do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -8650,6 +8725,7 @@ defmodule AWS.DataZone do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -15359,6 +15435,8 @@ defmodule AWS.DataZone do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_subscription_grants_output(), any()}
@@ -15371,7 +15449,9 @@ defmodule AWS.DataZone do
         environment_id \\ nil,
         max_results \\ nil,
         next_token \\ nil,
+        owning_group_id \\ nil,
         owning_project_id \\ nil,
+        owning_user_id \\ nil,
         sort_by \\ nil,
         sort_order \\ nil,
         subscribed_listing_id \\ nil,
@@ -15419,8 +15499,22 @@ defmodule AWS.DataZone do
       end
 
     query_params =
+      if !is_nil(owning_user_id) do
+        [{"owningUserId", owning_user_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
       if !is_nil(owning_project_id) do
         [{"owningProjectId", owning_project_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(owning_group_id) do
+        [{"owningGroupId", owning_group_id} | query_params]
       else
         query_params
       end
@@ -15465,6 +15559,8 @@ defmodule AWS.DataZone do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_subscription_requests_output(), any()}
@@ -15477,7 +15573,9 @@ defmodule AWS.DataZone do
         approver_project_id \\ nil,
         max_results \\ nil,
         next_token \\ nil,
+        owning_group_id \\ nil,
         owning_project_id \\ nil,
+        owning_user_id \\ nil,
         sort_by \\ nil,
         sort_order \\ nil,
         status \\ nil,
@@ -15517,8 +15615,22 @@ defmodule AWS.DataZone do
       end
 
     query_params =
+      if !is_nil(owning_user_id) do
+        [{"owningUserId", owning_user_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
       if !is_nil(owning_project_id) do
         [{"owningProjectId", owning_project_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(owning_group_id) do
+        [{"owningGroupId", owning_group_id} | query_params]
       else
         query_params
       end
@@ -15630,6 +15742,8 @@ defmodule AWS.DataZone do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_subscriptions_output(), any()}
@@ -15642,7 +15756,9 @@ defmodule AWS.DataZone do
         approver_project_id \\ nil,
         max_results \\ nil,
         next_token \\ nil,
+        owning_group_id \\ nil,
         owning_project_id \\ nil,
+        owning_user_id \\ nil,
         sort_by \\ nil,
         sort_order \\ nil,
         status \\ nil,
@@ -15690,8 +15806,22 @@ defmodule AWS.DataZone do
       end
 
     query_params =
+      if !is_nil(owning_user_id) do
+        [{"owningUserId", owning_user_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
       if !is_nil(owning_project_id) do
         [{"owningProjectId", owning_project_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(owning_group_id) do
+        [{"owningGroupId", owning_group_id} | query_params]
       else
         query_params
       end

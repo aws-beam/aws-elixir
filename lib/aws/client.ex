@@ -52,12 +52,16 @@ defmodule AWS.Client do
   Check `put_endpoint/2` for more details.
   """
   @type endpoint_config :: binary() | {:keep_prefixes, binary()} | (map() -> binary()) | nil
+  @type access_key_id :: binary()
+  @type secret_access_key :: binary()
+  @type token :: binary() | nil
+  @type region :: binary()
 
   @type t :: %__MODULE__{
-          access_key_id: binary() | nil,
-          secret_access_key: binary() | nil,
-          session_token: binary() | nil,
-          region: binary() | nil,
+          access_key_id: access_key_id() | nil,
+          secret_access_key: secret_access_key() | nil,
+          session_token: token() | nil,
+          region: region() | nil,
           service: binary() | nil,
           endpoint: endpoint_config(),
           proto: binary(),
@@ -83,6 +87,17 @@ defmodule AWS.Client do
   """
   def default_endpoint, do: @aws_default_endpoint
 
+  @spec create() :: t()
+  @spec create(region()) :: t()
+  @spec create(access_key_id(), secret_access_key(), region()) :: t()
+  @spec create(access_key_id(), secret_access_key(), token(), region()) :: t()
+  @spec create(
+          access_key_id(),
+          secret_access_key(),
+          token() | nil,
+          region(),
+          endpoint_config() | nil
+        ) :: t()
   def create() do
     case System.get_env(@aws_default_region) do
       nil -> raise RuntimeError, "missing default region"

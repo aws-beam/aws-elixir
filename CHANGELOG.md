@@ -1,5 +1,8 @@
 # Change Log
 
+## [v1.0.10] - 2025-11-21
+- Add support for endpoint env override
+
 ## [v1.0.9] - 2025-08-18
 - Allow retrying on http 429 too many requests
 

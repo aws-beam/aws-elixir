@@ -122,5 +122,140 @@ defmodule AWS.ClientTest do
     end
   end
 
+  describe "create/n" do
+    setup :prune_envs
+
+    test "create/0 reads region from AWS_DEFAULT_REGION and builds client" do
+      System.put_env("AWS_ACCESS_KEY_ID", "AK")
+      System.put_env("AWS_SECRET_ACCESS_KEY", "SK")
+      System.put_env("AWS_DEFAULT_REGION", "us-east-1")
+
+      client = AWS.Client.create()
+
+      assert %AWS.Client{
+               access_key_id: "AK",
+               secret_access_key: "SK",
+               session_token: nil,
+               region: "us-east-1",
+               endpoint: nil
+             } == client
+    end
+
+    test "create/0 raises when AWS_DEFAULT_REGION missing" do
+      System.put_env("AWS_ACCESS_KEY_ID", "AK")
+      System.put_env("AWS_SECRET_ACCESS_KEY", "SK")
+
+      assert_raise RuntimeError, "missing default region", fn ->
+        AWS.Client.create()
+      end
+    end
+
+    test "create/1 reads credentials, token and endpoint from env" do
+      System.put_env("AWS_ACCESS_KEY_ID", "AK")
+      System.put_env("AWS_SECRET_ACCESS_KEY", "SK")
+      System.put_env("AWS_SESSION_TOKEN", "TOK")
+      System.put_env("AWS_ENDPOINT", "example.com")
+
+      client = AWS.Client.create("us-west-2")
+
+      assert %AWS.Client{
+               access_key_id: "AK",
+               secret_access_key: "SK",
+               session_token: "TOK",
+               region: "us-west-2",
+               endpoint: "example.com"
+             } == client
+    end
+
+    test "create/1 without token uses nil and endpoint from env" do
+      System.put_env("AWS_ACCESS_KEY_ID", "AK")
+      System.put_env("AWS_SECRET_ACCESS_KEY", "SK")
+      System.put_env("AWS_ENDPOINT", "example.com")
+
+      client = AWS.Client.create("eu-west-1")
+
+      assert %AWS.Client{
+               access_key_id: "AK",
+               secret_access_key: "SK",
+               session_token: nil,
+               region: "eu-west-1",
+               endpoint: "example.com"
+             } == client
+    end
+
+    test "create/1 raises when access key is missing" do
+      System.put_env("AWS_SECRET_ACCESS_KEY", "SK")
+
+      assert_raise RuntimeError, "missing access key id", fn ->
+        AWS.Client.create("us-east-2")
+      end
+    end
+
+    test "create/1 raises when secret access key is missing" do
+      System.put_env("AWS_ACCESS_KEY_ID", "AK")
+
+      assert_raise RuntimeError, "missing secret access key", fn ->
+        AWS.Client.create("us-east-2")
+      end
+    end
+
+    test "create/3 sets fields without token or endpoint" do
+      client = AWS.Client.create("AK", "SK", "eu-north-1")
+
+      assert %AWS.Client{
+               access_key_id: "AK",
+               secret_access_key: "SK",
+               session_token: nil,
+               region: "eu-north-1",
+               endpoint: nil
+             } == client
+    end
+
+    test "create/4 sets token and leaves endpoint nil" do
+      client = AWS.Client.create("AK", "SK", "TOKEN", "ap-south-1")
+
+      assert %AWS.Client{
+               access_key_id: "AK",
+               secret_access_key: "SK",
+               session_token: "TOKEN",
+               region: "ap-south-1",
+               endpoint: nil
+             } == client
+    end
+
+    test "create/5 sets token and endpoint" do
+      client = AWS.Client.create("AK", "SK", "TOKEN", "sa-east-1", "custom.local")
+
+      assert %AWS.Client{
+               access_key_id: "AK",
+               secret_access_key: "SK",
+               session_token: "TOKEN",
+               region: "sa-east-1",
+               endpoint: "custom.local"
+             } == client
+    end
+
+    test "create/3 equals create/5 with nil token and endpoint" do
+      c3 = AWS.Client.create("AK", "SK", "us-east-1")
+      c5 = AWS.Client.create("AK", "SK", nil, "us-east-1", nil)
+      assert c3 == c5
+    end
+  end
+
+  defp prune_envs(_context) do
+    keys =
+      [
+        "AWS_ACCESS_KEY_ID",
+        "AWS_SECRET_ACCESS_KEY",
+        "AWS_SESSION_TOKEN",
+        "AWS_ENDPOINT",
+        "AWS_DEFAULT_REGION"
+      ]
+
+    on_exit(fn -> Enum.each(keys, &System.delete_env/1) end)
+
+    :ok
+  end
+
   defp url(bypass), do: "http://localhost:#{bypass.port}/"
 end

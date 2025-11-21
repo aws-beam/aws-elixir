@@ -72,6 +72,7 @@ defmodule AWS.Client do
   @aws_access_key_id "AWS_ACCESS_KEY_ID"
   @aws_secret_access_key "AWS_SECRET_ACCESS_KEY"
   @aws_session_token "AWS_SESSION_TOKEN"
+  @aws_endpoint "AWS_ENDPOINT"
   @aws_default_region "AWS_DEFAULT_REGION"
 
   @doc """
@@ -91,35 +92,33 @@ defmodule AWS.Client do
 
   def create(region) do
     case {System.get_env(@aws_access_key_id), System.get_env(@aws_secret_access_key),
-          System.get_env(@aws_session_token)} do
-      {nil, _, _} ->
+          System.get_env(@aws_session_token), System.get_env(@aws_endpoint)} do
+      {nil, _secret_key, _session_token, _endpoint} ->
         raise RuntimeError, "missing access key id"
 
-      {_, nil, _} ->
+      {_access_key, nil, _session_token, _endpoint} ->
         raise RuntimeError, "missing secret access key"
 
-      {access_key_id, secret_access_key, nil} ->
-        create(access_key_id, secret_access_key, region)
-
-      {access_key_id, secret_access_key, token} ->
-        create(access_key_id, secret_access_key, token, region)
+      {access_key_id, secret_access_key, token, endpoint} ->
+        create(access_key_id, secret_access_key, token, region, endpoint)
     end
   end
 
   def create(access_key_id, secret_access_key, region) do
-    %AWS.Client{
-      access_key_id: access_key_id,
-      secret_access_key: secret_access_key,
-      region: region
-    }
+    create(access_key_id, secret_access_key, nil, region, nil)
   end
 
   def create(access_key_id, secret_access_key, token, region) do
+    create(access_key_id, secret_access_key, token, region, nil)
+  end
+
+  def create(access_key_id, secret_access_key, token, region, endpoint) do
     %AWS.Client{
       access_key_id: access_key_id,
       secret_access_key: secret_access_key,
       session_token: token,
-      region: region
+      region: region,
+      endpoint: endpoint
     }
   end
 
